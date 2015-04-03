@@ -1,8 +1,11 @@
 # cms
 Zoomla!逐浪CMS发布更新
 
-我们产品是基于Microsoft.Net4.0+MSSQ2005以及更高版本
-这是用于发布官方更新的平台，免费下载：http://www.zoomla.cn/pub
+我们产品是基于Microsoft.Net4.0+MSSQ2005以及更高版本，产品免费开放，并提供云模板。
+
+我们的官网：http://www.zoomla.cn
+
+关于逐浪CMS的最新版本，我们发布在官方平台，免费下载：http://www.zoomla.cn/pub
 
 
 视频教程：http://www.zoomla.cn/pub
