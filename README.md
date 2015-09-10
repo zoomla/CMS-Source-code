@@ -15,3 +15,5 @@ Zoomla!逐浪CMS发布更新
 在线社区：http://club.zoomla.cn
 
 技术服务热线：021-50391046/13177777714
+
+全新移动平台上线：http://app.zoomla.cn
