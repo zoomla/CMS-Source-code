@@ -1,0 +1,102 @@
+﻿/* 管理后台左侧body样式定义 */
+#Guidebody
+{
+	background: #f6fdf6;
+	padding: 0px;
+	margin: 0px;
+}
+/* ====菜单顶部==== */
+#Guide_top
+{
+	height: 35px;
+	line-height: 35px;
+	background: url(Images/LeftTopbg.gif) #a9c9ee repeat-x left top;
+}
+#Guide_toptext
+{
+	font-family: "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #1e860b;
+	text-align: left;
+	margin-left: 65px;
+}
+/* ====菜单中部==== */
+#Guide_main
+{
+	margin: 0px;
+	padding: 0px;
+}
+#Guide_box
+{
+	background: #fff;
+}
+/* ====菜单内容项目样式==== */
+.guideexpand, .guidecollapse
+{
+	line-height: 41px;
+	padding-left: 30px;
+	cursor: pointer;
+	font-family: "宋体";
+	font-size: 13px;
+	font-weight: bold;
+	color: #000;
+}
+.guideexpand
+{
+	background: url(Images/guide_expand.gif) #e6eff8 no-repeat left center;
+}
+.guidecollapse
+{
+	background: url(Images/guide_collapse.gif) #e6eff8 no-repeat left center;
+}
+.guide ul, .guide li
+{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;	
+}
+.guidesearch
+{
+	margin-top: 2px;
+	line-height: 25px;
+	text-align: center;
+}
+/* ====.guide li高度兼容样式==== */
+.guide li
+{
+	color: #000;
+	background-color: #fff;
+	line-height: 140%;
+}
+* html .guide li /* IE6解析 */
+{
+	height: 20px;
+}
+
+.guide a
+{
+	display: block;
+	text-align: left;
+	margin: 2px;
+	padding: 2px 0px 2px 15px;
+	text-decoration: none;
+}
+* html .guide a /* IE6解析 */
+{
+	margin: 0px;
+}
+.guideli
+{
+	color: #000000;
+	border: 1px solid #f6fdf6;
+	background: url(Images/ico_2.gif) no-repeat 5px center;
+}
+.guidelihover
+{
+	color: #000000;
+	border: 1px solid #aec9ba;
+	background: url(Images/ico_3.gif) #fff no-repeat 5px center;
+	text-decoration: none;
+}
+

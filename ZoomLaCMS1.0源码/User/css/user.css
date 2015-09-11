@@ -1,0 +1,243 @@
+﻿/* ==用户中心定义== */
+/* 左侧会员登录信息 */
+#LoginStatusbody
+{
+	background: none;
+}
+.u_login
+{
+	font: normal normal normal 12px/120% Arial,"宋体",Helvetica,sans-serif;
+}
+form
+{
+	margin: 0px;
+}
+/* ==用户中心定义－－上分下栏定义开始== */
+.u_management_bg
+{
+	padding: 0px;
+	margin: 0px auto;
+	width: 982px;
+	clear: both;
+}
+
+/* 忘记密码 */
+.u_management_Password
+{
+	border: 1px solid #9bbde6;
+	height: auto !important;
+	height: 200px;
+	min-height: 200px;
+	text-align: center;
+}
+.u_management_Password h1
+{
+	padding: 5px 0px;
+	margin-bottom: 10px;
+	background: url(images/tabtitle.gif) #fff repeat-x top;
+	font: normal normal bold 20px/24px Arial,"宋体",Helvetica,sans-serif;
+	color: #4d89d2;
+	border-top: 2px solid #fff;
+	border-left: 2px solid #fff;
+	border-right: 2px solid #fff;
+	border-bottom: 1px solid #9bbde6;
+}
+.u_management_Password .left
+{
+	text-align: left;
+}
+.u_management_Password .right
+{
+	text-align: right;
+}
+
+/* 左侧会员图片 */
+.u_navigation_pic
+{
+	float: left;
+	width: 208px;
+	height: 55px;
+	background: url(images/u_navigation_pic.gif) no-repeat center center;
+}
+/* 右侧文字操作导航 */
+.u_navigation_menu
+{
+	padding-top: 26px;
+}
+.u_navigation_menu a, .u_navigation_menu a:link
+{
+	font: normal normal bold 14px/22px Arial,"宋体",Helvetica,sans-serif;
+	text-decoration: none;
+	color: #014390;
+	padding-left: 18px;
+	background: url(images/c_title.gif) no-repeat left 2px;
+}
+.u_navigation_menu a:hover
+{
+	color: #c00;
+	text-decoration: underline;
+	background: url(images/c_title_hover.gif) no-repeat left 2px;
+}
+/* 书签式面板tabtitle */
+.tabtitle
+{
+	border-top: 1px solid #9bbde6;
+	border-left: 1px solid #9bbde6;
+	border-right: 1px solid #9bbde6;
+}
+.titlemouseover
+{
+	border-top: 1px solid #9bbde6;
+	border-left: 1px solid #9bbde6;
+	border-right: 1px solid #9bbde6;
+}
+.U_tabtitle, .U_titlemouseover
+{
+	float: left;
+	width: 100px;
+	font: normal normal bold 13px/24px Arial,"宋体",Helvetica,sans-serif;
+	text-align: center;
+	overflow: hidden;
+	margin-right: 1px;
+}
+.U_tabtitle
+{
+	color: #4d89d2;
+	background: url(images/tabtitle.gif) #fff repeat-x top;
+	border: 1px solid #9bbde6;
+}
+.U_titlemouseover
+{
+	cursor: pointer;
+	color: #c00;
+	background: #fff;
+	border: 1px solid #9bbde6;
+}
+/* 会员中心管理菜单定义 */
+#UTab0, #UTab1, #UTab2, #UTab3, #UTab4, #UTab5, #UTab6
+{
+	padding: 5px;
+}
+#UTab0 ul, #UTab1 ul, #UTab2 ul, #UTab3 ul, #UTab4 ul, #UTab5 ul, #UTab0 li, #UTab1 li, #UTab2 li, #UTab3 li, #UTab4 li, #UTab5 li,#UTab6 ul,#UTab6 li
+{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	display: block;
+}
+#UTab0 ul, #UTab1 ul, #UTab2 ul, #UTab3 ul, #UTab4 ul, #UTab5 ul ,#UTab6 ul
+{
+	margin: 5px;
+}
+/* 菜单图片内容宽度定义 */
+#UTab0 li, #UTab2 li, #UTab3 li, #UTab4 li, #UTab5 li ,#UTab6 li
+{
+	float: left;
+	display: block;
+	width: 110px;
+	text-align: center;
+}
+#UTab1 li
+{
+	float: left;
+	display: block;
+	width: 95px;
+	text-align: center;
+}
+/* 信息管理内容宽度定义 */
+#UTab0 ul
+{
+	padding: 5px 0px 0px 90px;
+}
+/* 短消息管理 */
+#UTab1 ul
+{
+	padding: 5px 0px 0px 150px;
+}
+/* 帐户管理 */
+#UTab2 ul
+{
+	padding: 5px 0px 0px 260px;
+}
+
+/* 右侧快捷图片导航 */
+.u_navigation
+{
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+
+/* 左侧栏目导航 */
+.user_box2, .user_box2 dl, .user_box2 dt, .user_box2 dd
+{
+	padding: 0px;
+	margin: 0px;
+}
+.user_box2
+{
+	border: 1px solid #9bbde6;
+	background: #d4e4f6;
+}
+.user_box2 dt
+{
+	padding-left: 70px;
+	background: url(images/user_tit.gif) no-repeat left top;
+	font: normal normal bold 14px/120% Arial,"宋体",Helvetica,sans-serif;
+	color: #0a4180;
+	line-height: 24px;
+	border-bottom: 1px solid #9bbde6;
+}
+.user_box2 dd
+{
+	padding: 5px;
+}
+
+/* 栏目导航背景 */
+#NodeTreebody
+{
+	background: #d4e4f6;
+}
+
+/* 下页面总体定义 */
+.u_form1
+{
+
+}
+.u_form_center
+{
+	text-align: center;
+}
+.u_form_center img
+{
+	border: 0px;
+}
+
+/* 注册页面 */
+#PnlRegStep2
+{
+	padding: 0px;
+	margin: 0px;
+}
+#PnlRegStep2 td
+{
+	background: #F4F8FD;
+}
+
+/* ==用户中心定义－－上下分栏定义结束== */
+
+.title, .spacingtitle, th
+{
+	background: url(Images/title.gif) #b0d0f3 repeat-x left top;
+	line-height: 120%;
+	color: #3666aa;
+	font-weight: bold;
+}
+.spacingtitle
+{
+	letter-spacing: 12px;
+	line-height: 24px;
+}
+
+

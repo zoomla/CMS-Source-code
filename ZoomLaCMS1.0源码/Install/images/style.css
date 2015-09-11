@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+body{repeat-x; margin:0px; font-size: 12px; line-height: 150%; background: url(../images/bg.jpg) repeat-x center top; }
+div { margin-left:auto; margin-right:auto; }
+
+img{border:0px}
+#top{width:900px; height: 90px; text-align:center; }
+#logo{ heitgh:90px; width:300px; float:left; line-height: 90px; margin-top:20px; text-align:left}
+#nav{ float:right; margin-top: 10px; margin-right: 10px; }
+#sous { float: right; margin-right: 5px; margin-top: 2px; }
+*html #sous { margin-top: 2px; }
+
+
+#main{height:450px; width:900px;}
+#main ul
+#main li 
+#main h1{ color: #FF0000; font-size: 14px; font-weight: bold; background:  }
+#title{ margin-top: 35px; width:900px; }
+.title_1 { margin-top: 20px; } 
+
+#bottom{ width:900px; height: 45px; }
+#main_b { margin-left: 100px; margin-top: 3px; }
+#main_c { width: 100px; font-size: 12px; font-weight: bold; }
+
+ul { margin: 0px; padding: 0px; list-style: none; }
+#main_wz { background: #FFFFFF; height: 182px; width: 701px; border: 1px solid #c0c0c0; overflow: auto; }
+#main_d { margin-left: 100px; font-family: "宋体"; font-size: 12px; }
+
+#bottom_1 { margin-top: 1px; width: 550px; }
+
+#main_a { margin-top: 5px; width: 100px; }

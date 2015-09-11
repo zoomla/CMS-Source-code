@@ -1,0 +1,125 @@
+﻿#Indexbody
+{
+	background: url(Images/topbg1.jpg) #fff repeat-x left top;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+/* 管理后台首页链接CSS定义：可定义内容为链接字体颜色、样式等。链接无下划线为none，有为underline */
+a:link, a:visited
+{
+	font: 12px "宋体";
+	color: #000;
+	text-decoration: none;
+}
+a:active, a:hover
+{
+	color: #000;
+	text-decoration: underline;
+}
+
+form, ul
+{
+	padding: 0px;
+	margin: 0px;
+}
+ul
+{
+	list-style-type: none;
+}
+/* 顶部左侧LOGO样式定义 */
+#content
+{
+	margin: 0px;	
+	background: url(Images/logo.jpg) no-repeat left top;
+	width:100%;
+	float:left;
+	padding: 74px 0px 0px 0px;
+}
+#ChannelMenuItems, #ChannelMenuItems li
+{
+	height: 30px;
+	overflow: hidden;
+	cursor:hand;	
+}
+#ChannelMenuItems
+{
+	margin: -30px 0px 3px 280px;
+}
+#ChannelMenuItems li
+{	
+	margin-top: 0px;	
+	padding-top:6px;
+	display:block;	
+	float:left;
+	cursor:hand;
+	width:80px;
+	text-align:center;
+	vertical-align:middle;
+	font: 12px "宋体";
+	
+}
+.Main_1
+{
+	background:url(images/top_bg3m.gif) no-repeat;
+	color:#fff;
+}
+.Main_2
+{	
+	font-weight:bold;color:#006803;
+	background:url(images/top_mouseon.gif) no-repeat;
+}
+.digitaltext
+{
+	color: #fff;
+}
+.segtext
+{
+	color: #1e860b;
+}
+/* 顶部横向子菜单样式定义 */
+#SubMenu
+{
+	color: #1e860b;
+	text-align: left;
+	height: 25px;
+	line-height: 25px;
+	margin-left: 5px;
+}
+#SubMenu li
+{
+	float: left;
+	line-height: 25px;
+	background: url(Images/tree_list.gif) no-repeat left center;
+	padding-left: 12px;
+	padding-right: 8px;
+}
+#SubMenu li a
+{
+	color: #1e860b;
+	display: block;
+	line-height: 25px;
+}
+/* 顶部右侧链接样式定义 */
+#Announce
+{
+	position: absolute;
+	top: 3px;
+	right: 5px;
+	color: #FFFF99;
+	font: 12px "宋体";
+	text-decoration: none;
+}
+#Announce a
+{	
+	height:20px;line-height:20px;width:650px;
+	margin:5px;color:#FFFF99;
+}
+#Announce a:link, #Announce a:visited
+{
+	color: #FFFF99;
+}
+#Announce a:active, #Announce a:hover
+{
+	color: #c00;
+}

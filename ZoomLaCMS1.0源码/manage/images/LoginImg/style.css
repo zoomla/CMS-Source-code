@@ -1,0 +1,168 @@
+BODY {
+	SCROLLBAR-FACE-COLOR: #e5fafa; FONT-SIZE: 12px; MARGIN: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #0f8282; CURSOR: default; SCROLLBAR-SHADOW-COLOR: #0f8282; SCROLLBAR-3DLIGHT-COLOR: #ffffff; SCROLLBAR-ARROW-COLOR: #0f8282; SCROLLBAR-TRACK-COLOR: #e5fafa; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; BACKGROUND-COLOR: #ffffff
+}
+TD {
+	FONT-SIZE: 12px; LINE-HEIGHT: 150%; FONT-FAMILY: Arial
+}
+SPAN {
+	FONT-SIZE: 12px; LINE-HEIGHT: 150%; FONT-FAMILY: Arial
+}
+.table {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid; BORDER-COLLAPSE: collapse; WORD-WRAP: break-word
+}
+.table5 {
+	BORDER-RIGHT: #7c7e81 1px solid; FONT-SIZE: 12px; BORDER-TOP: #7c7e81 1px solid; BORDER-LEFT: #7c7e81 1px solid; BORDER-BOTTOM: #7c7e81 1px solid; BORDER-COLLAPSE: collapse; WORD-WRAP: break-word; cellPadding: 4px; border-colorLight: #333333; border-colorDark: #FFFFFF
+}
+.table5title {
+	BORDER-RIGHT: #7c7e81 1px solid; FONT-SIZE: 12px; BORDER-TOP: #7c7e81 1px solid; BACKGROUND-IMAGE: url(../images/title01.gif); BORDER-LEFT: #7c7e81 1px solid; BORDER-BOTTOM: #7c7e81 1px solid; BORDER-COLLAPSE: collapse; WORD-WRAP: break-word; cellPadding: 4px; border-colorLight: #333333; border-colorDark: #FFFFFF
+}
+.font12 {
+	FONT-SIZE: 12px; COLOR: red
+}
+.tfont12 {
+	FONT-SIZE: 12px
+}
+.sortable A {
+	BACKGROUND-POSITION: right bottom; BACKGROUND-IMAGE: url(../images/arrow_off.png); WIDTH: 100%; BACKGROUND-REPEAT: no-repeat; DISPLAY: block
+}
+.order1 A {
+	BACKGROUND-POSITION: right bottom; BACKGROUND-IMAGE: url(../images/arrow_down.png); WIDTH: 100%; BACKGROUND-REPEAT: no-repeat; DISPLAY: block
+}
+.order2 A {
+	BACKGROUND-POSITION: right bottom; BACKGROUND-IMAGE: url(../images/arrow_up.png); WIDTH: 100%; BACKGROUND-REPEAT: no-repeat; DISPLAY: block
+}
+INPUT {
+	; BORDER: expression(this.type=="image"||this.type=="radio"||this.type=="checkbox"?'':'#0F8282 1px solid'); FONT-FAMILY: 宋体,Arial; ; HEIGHT: expression(this.type=="image"?'':'21px')
+}
+SELECT {
+	BORDER-RIGHT: #0f8282 1px solid; BORDER-TOP: #0f8282 1px solid; MARGIN: -2px; BORDER-LEFT: #0f8282 1px solid; BORDER-BOTTOM: #0f8282 1px solid
+}
+TEXTAREA {
+	BORDER-RIGHT: #0f8282 1px solid; BORDER-TOP: #0f8282 1px solid; BORDER-LEFT: #0f8282 1px solid; BORDER-BOTTOM: #0f8282 1px solid; FONT-FAMILY: 宋体,Arial
+}
+.title1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 30px; LINE-HEIGHT: 150%; FONT-FAMILY: Arial Black
+}
+.title2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 22px; LINE-HEIGHT: 150%; FONT-FAMILY: Arial Black
+}
+.title3 {
+	FONT-SIZE: 16px; LINE-HEIGHT: 150%
+}
+.input_selectuser {
+	BORDER-RIGHT: #6c88ba 1px solid; BORDER-TOP: #6c88ba 1px solid; BORDER-LEFT: #6c88ba 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #6c88ba 1px solid; FONT-FAMILY: 宋体,Arial; BACKGROUND-COLOR: #eef1f8
+}
+.input_date {
+	BORDER-RIGHT: #6c88ba 1px solid; BORDER-TOP: #6c88ba 1px solid; BORDER-LEFT: #6c88ba 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #6c88ba 1px solid; FONT-FAMILY: 宋体,Arial; BACKGROUND-COLOR: #eef1f8
+}
+.input_textarea {
+	BORDER-RIGHT: #6c88ba 1px solid; BORDER-TOP: #6c88ba 1px solid; BORDER-LEFT: #6c88ba 1px solid; BORDER-BOTTOM: #6c88ba 1px solid; FONT-FAMILY: 宋体,Arial
+}
+.input_file {
+	BORDER-RIGHT: #6c88ba 1px solid; BORDER-TOP: #6c88ba 1px solid; BORDER-LEFT: #6c88ba 1px solid; BORDER-BOTTOM: #6c88ba 1px solid; FONT-FAMILY: 宋体,Arial
+}
+.input_text {
+	BORDER-RIGHT: #569157 1px solid; BORDER-TOP: #569157 1px solid; BACKGROUND: #f2f9f2; BORDER-LEFT: #569157 1px solid; BORDER-BOTTOM: #569157 1px solid; FONT-FAMILY: 宋体,Arial
+}
+.input_button {
+	BORDER-RIGHT: #6c88ba 1px solid; PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BORDER-TOP: #6c88ba 1px solid; BORDER-LEFT: #6c88ba 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #6c88ba 1px solid; FONT-FAMILY: 宋体,Arial; BACKGROUND-COLOR: #eef1f8
+}
+.input_select {
+	BORDER-RIGHT: #6c88ba 1px solid; BORDER-TOP: #6c88ba 1px solid; BORDER-LEFT: #6c88ba 1px solid; BORDER-BOTTOM: #6c88ba 1px solid; FONT-FAMILY: 宋体,Arial
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: red; TEXT-DECORATION: underline
+}
+A.leftmenu:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.leftmenu:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.leftmenu:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.leftmenu:hover {
+	COLOR: red; TEXT-DECORATION: underline
+}
+A.topmenu:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.topmenu:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.topmenu:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.topmenu:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.body_title {
+	FONT-SIZE: 14px
+}
+.logoFontColor {
+	COLOR: #000000
+}
+.awokeFontColor {
+	COLOR: #000000
+}
+.Table_PageAwokeTable {
+	BORDER-RIGHT: #2d4d88 1px solid; BORDER-TOP: #2d4d88 1px solid; BORDER-LEFT: #2d4d88 1px solid
+}
+.Table_PageAwokeTd {
+	BORDER-TOP: #eef1f8 1px solid; BORDER-BOTTOM: #eef1f8 1px solid
+}
+.Table_PageModuleTable {
+	BORDER-RIGHT: #2d4d88 1px solid; BORDER-TOP: #8fabd3 1px solid; BORDER-LEFT: #2d4d88 1px solid; BORDER-BOTTOM: #6c88ba 1px solid
+}
+.Table_PageModuleTd {
+	BORDER-TOP: #eef1f8 1px solid; BORDER-BOTTOM: #eef1f8 1px solid
+}
+.Table_PageBottomTable {
+	BORDER-RIGHT: #2d4d88 1px solid; BORDER-TOP: #7a99c7 1px solid; BORDER-LEFT: #2d4d88 1px solid; BORDER-BOTTOM: #2d4d88 1px solid
+}
+.Table_PageSubmenuTable {
+	BORDER-RIGHT: #6c88ba 1px solid; BORDER-LEFT: #2d4d88 1px solid
+}
+.switchSysBar {
+	BORDER-RIGHT: #eef1f8 1px solid; FONT-SIZE: 10px; BORDER-LEFT: #6c88ba 1px solid; CURSOR: hand; COLOR: #000000; FONT-FAMILY: Webdings; BACKGROUND-COLOR: #dce4f1
+}
+.menu_title {
+	BORDER-TOP: #6c88ba 1px solid; CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: #6c88ba 1px solid; BACKGROUND-COLOR: #dce4f1
+}
+.Bgcolor_PageAwoke {
+	BACKGROUND-COLOR: #dce4f1
+}
+.DataGridHeader {
+	COLOR: black; BACKGROUND-COLOR: #dce4f1
+}
+.DataGridItem {
+	COLOR: black; BACKGROUND-COLOR: #eef1f8
+}
+.bgcolor1 {
+	COLOR: black; BACKGROUND-COLOR: #f7f3e9
+}
+.bgcolor2 {
+	BACKGROUND-COLOR: #dce4f1
+}
+.bgcolor3 {
+	BACKGROUND-COLOR: #eef1f8
+}
+.bgcolor4 {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BACKGROUND-COLOR: #eef1f8
+}
+.bgcolor5 {
+	BACKGROUND-COLOR: #f0f8fb
+}
+.bgcolor6 {
+	BORDER-RIGHT: #6c88ba 1px solid; BORDER-TOP: #6c88ba 1px solid; BORDER-LEFT: #6c88ba 1px solid; BORDER-BOTTOM: #6c88ba 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #dce4f1
+}

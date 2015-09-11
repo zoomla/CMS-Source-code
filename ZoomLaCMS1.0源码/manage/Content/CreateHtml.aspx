@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreateHtml.aspx.cs" Inherits="ZoomLa.WebSite.Manage.CreateHtml" %>

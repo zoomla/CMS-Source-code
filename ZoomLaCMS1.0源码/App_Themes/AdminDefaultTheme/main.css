@@ -1,0 +1,303 @@
+﻿/* 管理后台右侧网站链接CSS定义：可定义内容为链接字体颜色、样式等。链接无下划线为none，有为underline */
+a
+{
+	text-decoration: none;
+}
+/* 未访问/已访问/点击激活的链接 */
+a:link, a:visited, a:active
+{
+	color: #000000;
+}
+/* 鼠标在链接上 */
+a:hover
+{
+	color: #ff6600;
+}
+/* FF中无链接翻页颜色定义 */
+a[disabled=disabled]
+{
+	color: #aca899;
+}
+body
+{
+	background: #ffffff;
+	padding: 0px;
+	margin: 0px;
+}
+body, th, td, input, button, textarea
+{
+	font-family: "宋体";
+	font-size: 12px;
+}
+select
+{
+	font-family: "Tahoma";
+	font-size: 12px;
+}
+th
+{
+	font-weight: normal;
+}
+td
+{
+	line-height: 150%;
+}
+input[type=checkbox]
+{
+	vertical-align: middle;
+}
+input[type=radio]
+{
+	vertical-align: text-bottom;
+}
+* + html input[type=radio]
+{
+	vertical-align: middle;
+}
+.inputbutton
+{
+	padding: 0px 14px 0px 13px;
+	overflow: visible;
+}
+.buttonspacing
+{
+	padding: 0px 6px 0px 6px;
+	letter-spacing: 6px;
+}
+.inputtext
+{
+	height: 14px;
+}
+/* --强制DIV换行-- */
+.DivWordBreak
+{
+	word-break: break-all;
+	overflow: hidden;
+}
+/* --工作台模块边框定义-- */
+.WebPart
+{
+	background: #EFFCEE;
+	border: 1px solid #dbf9d9;
+}
+
+/* 管理后台右侧body样式定义 */
+#MasterPagebody
+{
+	background: #ffffff;
+	padding: 8px 8px 0px 0px;
+	margin: 0px;
+	line-height: 150%;
+}
+#aspnetForm
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+/* 管理后台右侧通用表格样式定义 */
+.border, .TableWrap
+{
+	border: 1px solid #9bbde6;
+	background: #fff;
+}
+.divline
+{	
+	background: #f6fdf6;
+	vertical-align: middle;	
+	margin-bottom: 0px;
+	line-height: 24px;
+	border: 1px solid #9bbde6;	
+	text-align: left;
+	clear: both;
+	color: #000;
+	padding-top:5px;
+}
+.divbox
+{
+	background: #f6fdf6;
+	vertical-align: middle;	
+	margin-bottom: 0px;
+	line-height: 80px;
+	border: 1px solid #9bbde6;	
+	text-align: center;
+	clear: both;
+	color: #000;
+}
+.divline ul
+{
+	height:24px;
+	list-style: none;
+	margin: 0px;
+    padding: 0px;
+}
+.divline li
+{
+	margin-bottom: 0px;
+	margin-right:3px;
+	padding: 0px;
+	display:inline;
+}
+/* --网页中部右侧内容-- */
+/* 右侧导航 */
+.r_navigation
+{
+	margin-bottom: 0px;
+	line-height: 24px;
+	border: 1px solid #9bbde6;
+	background: #f6fdf6;
+	text-align: left;
+	clear: both;
+	color: #000;
+}
+.r_navigation a, #r_navigation:link
+{
+	font: normal normal normal 12px/24px Arial,"宋体",Helvetica,sans-serif;
+	text-decoration: none;
+	color: #000;
+}
+.r_navigation a:hover
+{
+	color: #c00;
+	text-decoration: underline;
+}
+.r_n_pic
+{
+	float: left;
+	width: 30px;
+	height: 20px;
+	margin: 1px 0px 0px;
+	background: url(images/localGIF.gif) no-repeat center;
+	display: block;
+}
+.clearbox, .clearbox2
+{
+	border-top: 1px solid transparent !important;
+	margin-top: -1px !important;
+	border-top: 0px;
+	margin-top: 0px;
+	height: 5px;
+	clear: both;
+	background: none;
+	font-size: 0px;	
+}
+.clearbox2
+{
+	margin-right: 205px;
+	clear: left;
+}
+.title, .gridtitle, .spacingtitle, th
+{
+	background: url(Images/title.gif) #dbf9d9 repeat-x top;
+	line-height: 120%;
+	color: #1e860b;
+	font-weight: bold;
+}
+.title
+{
+	line-height: 22px;
+}
+.spacingtitle
+{
+	line-height: 22px;
+	letter-spacing: 8px;
+}
+
+.tdbg
+{
+	background: #f6fdf6;
+	line-height: 120%;
+}
+.tdbgleft
+{
+	background: #e0f7e5;
+	line-height: 120%;
+}
+.tdbgbottom
+{
+	background: #f6fdf6;
+	height: 40px;
+	text-align: center;
+}
+.tdbg li
+{
+	margin-left: 15px !important;
+}
+.tdbgmouseover
+{
+	background: #def2dd;
+	line-height: 120%;
+}
+.tdbgselected
+{
+	background: #b0cbbb;
+	line-height: 120%;
+}
+
+/* 上传文件管理样式定义 */
+.tdbgnolineheight
+{
+	background: #f6fdf6;
+}
+.tdbgmouseover2
+{
+	background: #def2dd;
+}
+.tdbgselected2
+{
+	background: #b0cbbb;
+}
+
+/*　书签式面板菜单标题背景样式定义 */
+.tabtitle, .titlemouseover
+{
+	width: 80px;
+	height: 22px;
+	line-height: 120%;
+	padding-top: 2px;
+	font-weight: normal;
+	cursor: pointer;
+}
+.tabtitle
+{
+	background: url(Images/titlebg2.gif);
+}
+.titlemouseover
+{
+	background: url(Images/titlebg1.gif);
+	color: #ffffff;
+}
+
+
+/* 输入检测报警色 */
+.highlight
+{
+	background-color: #fcd147;
+}
+.index_b
+	{
+	width:783px !important;width:805px;border:1px solid #d0d0d0;
+	padding:5px 10px 10px 10px;
+	}
+.index_b ul
+	{
+	margin:5px 5px 0px 0px;padding:10px 0px ;float:left;
+	width:105px !important;width:107px;
+	
+	}
+.index_b li
+	{
+	margin:0px;padding:0px;
+	display:block;list-style-type:none;
+	text-align:center;
+	}
+.index_b a{color:#848484;}
+.index_b a:hover{color:#2F2F2F;}
+.index_b_1
+	{
+	border:1px dashed #D9D9D9;filter:gray;
+	}
+.index_b_2
+	{
+	border:1px solid #D9D9D9;background:#FFFFCC;
+	}

@@ -1,0 +1,447 @@
+a
+{
+	text-decoration: none;
+}
+a:link, a:visited, a:active
+{
+	color: #000000;
+}
+a:hover
+{
+	color: #ff6600;
+}
+/* FF中无链接翻页颜色定义 */
+a[disabled=disabled]
+{
+	color: #aca899;
+}
+body
+{
+	background: #d4e4f6;
+	padding: 0px;
+	margin: 0px;
+}
+body, th, td, input, button, select
+{
+	font-family: "宋体";
+	font-size: 12px;
+}
+th
+{
+	font-weight: normal;
+}
+td
+{
+	line-height: 150%;
+}
+input, button, select
+{
+	height: 20px;
+}
+input
+{
+	font-family: "宋体";
+}
+input[type=checkbox]
+{
+	vertical-align: middle;
+}
+input[type=radio]
+{
+	vertical-align: bottom;
+}
+* + html input[type=radio]
+{
+	vertical-align: baseline;
+}
+.inputbutton
+{
+	padding: 0px 14px 0px 13px;
+	overflow: visible;
+}
+.buttonspacing
+{
+	padding: 0px 6px 0px 6px;
+	letter-spacing: 6px;
+}
+.inputtext
+{
+	height: 15px;
+}
+
+
+.border, .TableWrap
+{
+	border: 1px solid #6493c8;
+	background: #fff;
+}
+.title, .spacingtitle, th
+{
+	background: url(Images/title.gif) #b0d0f3 repeat-x left top;
+	line-height: 120%;
+	color: #3666aa;
+	font-weight: bold;
+}
+.spacingtitle
+{
+	letter-spacing: 12px;
+	line-height: 24px;
+}
+.tdbg
+{
+	background: #e6eff8;
+	line-height: 120%;
+}
+.tdbgbottom
+{
+	background: #e6eff8;
+	height: 40px;
+	text-align: center;
+}
+.tdbg li
+{
+	margin-left: 15px !important;
+}
+.tdbgleft
+{
+	background: #d5e9ff;
+	line-height: 120%;
+}
+.tdbgselected
+{
+	background: #e0eef5;
+	line-height: 120%;
+}
+.tdbgmouseover
+{
+	background: #bfdfff;
+	line-height: 120%;
+}
+
+/*　书签式面板菜单标题背景样式定义 */
+.tabtitle, .titlemouseover
+{
+	width: 80px;
+	height: 22px;
+	background: url(Images/titlebg2.gif);
+	line-height: 120%;
+	padding-top: 2px;
+	font-weight: normal;
+	cursor: pointer;
+}
+.tabtitle
+{
+	background: url(Images/titlebg2.gif);
+}
+.titlemouseover
+{
+	background: url(Images/titlebg1.gif);
+	color: #ffffff;
+}
+
+
+/* 输入检测报警色 */
+.highlight
+{
+	background-color: #fcd147;
+}
+
+.modalPopup
+{
+	background-color: #ddddff;
+	border-width: 3px;
+	border-style: solid;
+	border-color: gray;
+	padding: 3px;
+}
+
+.modalBackground
+{
+	background-color: gray;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+}
+
+/* txtarea编辑器显示行用CSS */
+.RomNumber
+{
+	overflow: hidden;
+	height: 365px;
+	background-color: highlight;
+	border-right: 0px;
+	text-align: right;
+	font-family: tahoma; /*font-family: Fixedsys;*/
+	font-size: 12px;
+	font-weight: bold;
+	color: highlighttext;
+	cursor: default;
+}
+.txtmain
+{
+	height: 365px;
+	width: 92%;
+	font-family: tahoma;
+	color: highlight;
+	font-size: 12px;
+	font-weight: bold;
+	border-left: 0px;
+}
+
+/* 自定义属性列表显示用CSS */
+.propertylist
+{
+	background-color: #d3deef;
+	border: 1px dashed #2f4f4f;
+	padding: 5px;
+	padding-top: 10px;
+}
+
+#ctl00_CphContent_attlist a
+{
+	background-color: #f5fbff;
+	border: 1px solid #86b9d6;
+	margin-right: 1px;
+	vertical-align: middle;
+	padding: 3px;
+}
+#ctl00_CphContent_attlist a:hover
+{
+	background-color: #fffbf5;
+	border: 1px solid #f6b9d6;
+	text-decoration: none;
+	padding: 3px;
+}
+
+/*标签图标编辑下拉列表CSS定义*/
+.ContextMenuPanel
+{
+	border: 1px solid #868686;
+	z-index: 1000;
+	background: #fafafa;
+	cursor: default;
+	padding: 1px 1px 0px 1px;
+	font-size: 11px;
+}
+.ContextMenuItem:hover
+{
+	background-color: #ffe6a0;
+	color: #003399;
+	border: 1px solid #d2b47a;
+	cursor: pointer;
+}
+.WebPart
+{
+	background: #e1edff;
+}
+
+/*密码强度检测Ajax控件样式*/
+.BarIndicator_TxtUserPassword
+{
+	color: #5f96cc;
+	background-color: #5f96cc;
+}
+
+.BarBorder_TxtUserPassword
+{
+	border-style: solid;
+	border-width: 1px;
+	width: 80px;
+	border-color: #5f96cc;
+	vertical-align: middle;
+}
+
+/*解决ExtendedGridView内容太长撑破页面问题*/
+.TableWrap
+{
+	table-layout: fixed;
+	width: 100%;
+}
+
+.TdWrap
+{
+	overflow: hidden;
+}
+
+/*评论样式 CSS*/
+#bbs_title
+{
+	background-image: url( Images/title.gif );
+	line-height: 25px;
+	height: 25px;
+	border: 1px solid #6493c8;
+	color: #3666aa;
+	font-weight: bold;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+#bbs_title_right
+{
+	background-image: url( Images/title.gif );
+	line-height: 25px;
+	float: right;
+	font-weight: normal;
+}
+
+#bbs_left
+{
+	width: 155px;
+	float: left;
+	text-align: center;
+}
+
+#bbs_center
+{
+	background: #fff;
+	border-left: 1px solid #6493c8;
+	border-right: 1px solid #6493c8;
+	border-bottom: 1px solid #6493c8;
+	clear: both;
+	height: 185px;
+}
+#bbs_right
+{
+	margin-left: auto !important;
+	margin-left: 3px;
+	border-left: 1px solid #6493c8;
+	height: auto !important;
+	min-height: 185px;
+	height: 185px;
+	float: left;
+	width: 815px;
+}
+
+
+#bbs_text
+{
+	width: 98%;
+	padding: 8px;
+	overflow-x: hidden;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+#bbs_bot
+{
+	background: #fff;
+	border-bottom: 1px solid #6493c8;
+	border-left: 1px solid #6493c8;
+	border-right: 1px solid #6493c8;
+	line-height: 26px;
+	height: 26px;
+}
+#bbs_botleft
+{
+	text-align: center;
+	width: 155px;
+	float: left;
+	height: 26px;
+}
+#bbs_botright
+{
+	margin-left: 155px;
+	border-left: 1px solid #6493c8;
+	height: 26px;
+}
+/* 中间线 */
+#bbs_center_line
+{
+	border-bottom: 1px solid #76a3da;
+}
+/* 评论虚线 */
+.commontbrokenline
+{
+	border-top: 1px dashed #1a89da;
+	height: 1px;
+	overflow: hidden;
+}
+.compare_tdtop
+{
+	border-bottom: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+}
+.compare_tdinter
+{
+	border-right: 1px solid #c0c0c0;
+	border-left: 1px solid #c0c0c0;
+	text-align: center;
+}
+.compare_tdbg
+{
+	background: #e6eff8;
+	line-height: 120%;
+}
+.compare_tdbg1
+{
+	background: #ffffff;
+	line-height: 120%;
+}
+.compare_title
+{
+	background: #ebeadb;
+	color: #000000;
+	font-weight: normal;
+}
+
+.input_onFocus
+{
+	background: #FFC !important;
+}
+.input_onBlur
+{
+}
+.d_default
+{
+	line-height: normal;
+	float: left;
+	padding: 2px 0 2px 4px;
+	border: 1px solid #f7f7f7;
+}
+.d_on
+{
+	line-height: normal;
+	float: left;
+	padding: 2px 0 2px 4px;
+	border: 1px solid #FFCC00;
+	color: #000;
+	background-color: #FFFFDD;
+}
+.d_ok
+{
+	line-height: normal;
+	float: left;
+	padding: 2px 0 2px 24px;
+	border: 1px solid #00BE00;
+	color: #000;
+	background: #E6FFE6 url(Images/li_ok.gif) no-repeat 4px;
+}
+.d_err
+{
+	line-height: normal;
+	float: left;
+	border: 1px solid #F30;
+	color: #F00;
+	padding: 2px 0 2px 24px;
+	background: #FFF1E4 url(Images/li_err.gif) no-repeat 4px;
+}
+/* --内容管理页虚链接定义开始-- */
+.linktype
+{
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	width: 20px;
+	height: 20px;
+	background: none;
+	font-size: 0px;
+}
+.link
+{
+	position: absolute;
+	display: block;
+	width: 7px;
+	height: 7px;
+	z-index: 2;
+	margin: 9px 0px 0px 2px;
+	background: url(images/link.gif) no-repeat;
+}
+/* --内容管理页虚链接定义结束-- */

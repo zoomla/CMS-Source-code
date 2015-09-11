@@ -1,0 +1,21 @@
+﻿	body,form,dl,dt,dd{margin:0; padding:0; font-size:12px; line-height:20px;}
+	INPUT{font-size:12px;}
+	a{text-decoration:none;}
+	.P_width{ width:980px;margin:0 auto; border:1px solid #9bbde6;}
+	.Showms{ width:520px; background:url(images/P_BG.gif) repeat-y; margin:45px auto 0;}
+	.Showms dl.top{ background:url(images/P_top.gif) 0 0 no-repeat; height:27px;}
+	.Showms dt.top1{ background:url(images/prompts_03.gif) top right no-repeat;height:30px;}
+	.Showms dl.content{ background:url(images/P_Left.gif) 0 0 no-repeat;}
+	.Showms dl.bottom{background:url(images/P_Bottom.gif) 0 0 no-repeat; height:28px;}
+	.Showms dl.Shadow{background:url(images/P_Shadow.gif) 0 0; height:56px; line-height:56px; text-align:center; color:#4082be;}
+	
+	.Showms dd.content1{ background:url(images/P_Right1.gif) right bottom no-repeat; padding:20px 40px 10px;}
+	.Showms .Pic{float:right; padding:10px 0 0 0;}
+	.Showms .MS{ float:left; width:350px;}
+	.Showms .MS dt.titWrong,.Showms .MS dt.titRight,.Showms .MS dt.titMessage{border-bottom:1px solid #43566f; height:30px; font:normal normal bold 14px/30px Verdana, Arial, Helvetica, sans-serif, "宋体"; color:#cc0000; padding:0 0 0 20px; background:url(images/P_ico2.gif) 4px center no-repeat;}
+	.Showms .MS dt.titRight{color:#006600; background:url(images/P_ico1.gif) 4px center no-repeat;}
+	.Showms .MS dt.titMessage{color:#003399; background:url(images/P_ico.gif) 4px center no-repeat;}
+	.Showms .MS dd{ padding:10px 0;}
+	.Showms .BUT{text-align:center; height:22px; clear:both;}
+	
+	.clearbox{border-top: 1px solid transparent !important;	margin-top: -1px !important;border-top: 0px;margin-top: 0px;height: 0px;clear: both;background: none;font-size: 0px;visibility: hidden;}

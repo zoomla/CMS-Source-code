@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>  
+  <Table>
+    <LabelName>sdfafsafasf</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>内容页标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>{ZL.Label id="获取节点名" NodeID="1" /}</LabelContent>
+    <LabelCount />
+    <LabelIdentity />
+  </Table>
+</NewDataSet>

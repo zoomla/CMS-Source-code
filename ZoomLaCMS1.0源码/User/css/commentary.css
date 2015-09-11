@@ -1,0 +1,13 @@
+﻿
+#Comment_List .ListLayout { width:100%; border-top:1px solid #369; border-left:1px solid #369;}
+#CommentInput .ListLayout1 { width:100%; border-top:1px solid #369; border-left:1px solid #369;}
+.ListLayout .SideBar { width:240px; float:left; border-right:1px solid #369; border-bottom:1px solid #369; text-align:center; vertical-align:middle; height:100px;}
+.ListLayout .ListText { width:100%; float:right; margin-right:-242px; border-bottom:1px solid #369; height:100px;}
+.ListLayout .SidePK { width:240px; float:left; border-right:1px solid #369; border-bottom:1px solid #369; text-align:center; height:25px;}
+.ListLayout .ListTime { width:100%; float:right; margin-right:-242px; border-bottom:1px solid #369; height:25px;}
+.ListLayout1 .CommentPK { width:100%; text-align:left; height:25px;}
+.ListLayout1 .CommentScore { width:240px; float:left; border-right:1px solid #369; border-bottom:1px solid #369; text-align:right; height:25px;}
+.ListLayout1 .Comment { width:240px; float:left; border-right:1px solid #369; border-bottom:1px solid #369; text-align:right; vertical-align:middle; height:80px;}
+.ListLayout1 .CommentRight { width:100%; float:right; margin-right:-242px; border-bottom:1px solid #369; height:25px;}
+.ListLayout1 .ContentRight { width:100%; float:right; margin-right:-242px; border-bottom:1px solid #369; height:80px;}
+

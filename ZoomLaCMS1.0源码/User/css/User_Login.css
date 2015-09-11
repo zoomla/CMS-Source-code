@@ -1,0 +1,181 @@
+﻿#userlogin_body
+{
+	font: normal normal normal 12px/150% Arial, "宋体" ,Helvetica,sans-serif;
+	margin: 0px;
+	margin-top: 110px;
+	padding: 0px;
+	background: url(../Images/user_all_bg.gif) #226cc5 repeat-x top;
+	text-decoration: none;
+}
+#user_login, #user_top, #user_main, #user_bottom, #user_login dl, #user_login dd, #user_top, #user_main, #user_bottom, #user_top ul, #user_main ul, #user_bottom ul, #user_top li, #user_main li, #user_bottom li, form
+{
+	margin: 0px;
+	padding: 0px;
+}
+#user_login
+{
+	margin: 0px auto;
+	width: 590px;
+}
+#user_top, #user_main, #user_bottom
+{
+	clear: both;
+}
+#user_top li, #user_main li, #user_bottom li
+{
+	float: left;
+	list-style-type: none;
+}
+/* user_top背景定义 */
+.user_top_r
+{
+	background: url(../Images/user_top_r.gif) no-repeat top;
+}
+.user_top_c
+{
+	background: url(../Images/user_top_c.gif) no-repeat top;
+}
+.user_top_l
+{
+	background: url(../Images/user_top_l.gif) no-repeat top;
+}
+/* user_main背景定义 */
+.user_main_r
+{
+	background: url(../Images/user_main_r.gif) #bec5cc no-repeat top;
+}
+.user_main_c
+{
+	background: url(../Images/user_main_c.gif) #bec5cc no-repeat top;
+	width: 280px;
+}
+.user_main_l
+{
+	background: url(../Images/user_main_l.gif) #bec5cc no-repeat top;
+}
+/* user_main背景定义 */
+.user_bottom_r
+{
+	background: url(../Images/user_bottom_r.gif) no-repeat top;
+}
+.user_bottom_c
+{
+	background: url(../Images/user_bottom_c.gif) no-repeat top;
+	color: #fff;
+	text-align: right;
+	padding-top: 20px;
+	line-height: 117px;
+}
+.user_bottom_c a
+{
+	color: yellow;
+	text-decoration: underline;
+}
+.user_bottom_c a:hover
+{
+	color: #c00;
+}
+.user_bottom_l
+{
+	background: url(../Images/user_bottom_l.gif) no-repeat top;
+}
+/* 三行宽度定义 */
+.user_top_r, .user_main_r, .user_bottom_r
+{
+	width: 180px;
+	float: left;
+}
+user_main_c, .user_top_c, .user_bottom_c
+{
+	width: 280px;
+	float: left;
+}
+.user_top_l, .user_main_l, .user_bottom_l
+{
+	width: 129px;
+	float: left;
+}
+/* 三列高度定义 */
+.user_top_r, .user_top_c, .user_top_l
+{
+	height: 116px;
+}
+.user_main_r, .user_main_c, .user_main_l
+{
+	height: 139px;
+}
+.user_main_r
+{
+	line-height: 139px;
+}
+.user_bottom_r, .user_bottom_c, .user_bottom_l
+{
+	height: 117px;
+}
+/* 登录框样式 */
+.user_main_box, .user_main_box ul, .user_main_box li
+{
+	margin: 0px;
+	padding: 0px;
+}
+.user_main_box ul
+{
+	clear: both;
+}
+.user_main_box li
+{
+	float: left;
+	list-style-type: none;
+}
+.user_main_box .user_main_text, .user_main_box .user_main_input
+{
+	height: 34px;
+	line-height: 34px;
+}
+.user_main_box .user_main_text
+{
+	width: 60px;
+	color: #000;
+}
+.user_main_box .user_main_input img
+{
+	margin-left: -25px;
+	margin-bottom: -2px;
+}
+
+.TxtUserNameCssClass
+{
+	background: url(../Images/user_login_name.gif) no-repeat;
+	border: 0px;
+	width: 165px;
+	height: 21px;
+	line-height: 20px;
+	padding-left: 25px;
+}
+
+.TxtPasswordCssClass
+{
+	background: url(../Images/user_login_password.gif) no-repeat;
+	border: 0px;
+	width: 165px;
+	height: 21px;
+	line-height: 20px;
+	padding-left: 25px;
+}
+
+.TxtValidateCodeCssClass
+{
+	background: url(../Images/user_login_validatecode.gif) no-repeat;
+	border: 0px;
+	width: 91px;
+	height: 21px;
+	line-height: 20px;
+	padding-left: 25px;
+	ime-mode: disabled;
+}
+
+.IbtnEnterCssClass
+{
+	width: 111px;
+	height: 122px;
+}

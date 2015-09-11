@@ -1,0 +1,131 @@
+﻿/*控制节点树CSS*/
+.webfx-tree-container {
+	margin: 0px;
+	padding: 0px;
+	font: icon;
+	white-space: nowrap;
+}
+
+.webfx-tree-item {
+	padding: 0px;
+	margin: 0px;
+	font: icon;
+	color: WindowText;
+	white-space: nowrap;
+	height: 16px;
+}
+
+.webfx-tree-item a, .webfx-tree-item a:active, .webfx-tree-item a:hover {
+	margin-left: 3px;
+	padding: 0px 2px 1px 2px;
+}
+
+.webfx-tree-item a {
+	color: black;
+	text-decoration: none;
+}
+
+.webfx-tree-item a:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+.webfx-tree-item a:active {
+	background: highlight;
+	color: highlighttext;
+	text-decoration: none;
+}
+
+.webfx-tree-item img {
+	vertical-align: middle;
+	border: 0px;
+}
+
+.webfx-tree-icon {
+	width: 16px;
+	height: 16px;
+}
+
+.webfx-treeText
+{
+    color:#666666;
+}
+
+
+/*节点右键菜单CSS*/
+.webfx-menu {
+	box-sizing: content-box; moz-box-sizing: content-box
+}
+.webfx-menu {
+	box-sizing: content-box; moz-box-sizing: content-box
+}
+.webfx-menu {
+	BORDER-RIGHT: #999999 1px solid;
+	PADDING-RIGHT: 1px; BORDER-TOP: #999999 1px solid;
+	PADDING-LEFT: 1px; Z-INDEX: 100; 
+	BACKGROUND: #f1f1f1; FILTER: progid:DXImageTransform.Microsoft.Shadow(color="#777777", Direction=135, Strength=4);
+	VISIBILITY: hidden; PADDING-BOTTOM: 1px; BORDER-LEFT: #999999 1px solid; WIDTH: 150px; PADDING-TOP: 1px; BORDER-BOTTOM: #999999 1px solid; POSITION: absolute
+}
+.webfx-menu-empty {
+	BORDER-RIGHT: white 1px solid;
+	PADDING-RIGHT: 5px;
+	BORDER-TOP: white 1px solid;
+	DISPLAY: block;
+	PADDING-LEFT: 5px;
+	FONT-SIZE: 11px;
+	BORDER-LEFT: white 1px solid; 
+	COLOR: black;
+	BORDER-BOTTOM: white 1px solid; FONT-FAMILY: Tahoma, Verdan, Helvetica, Sans-Serfif; HEIGHT: 16px; ; HEIGHT: expression(18)
+}
+.webfx-menu A {
+	BORDER-RIGHT: #f1f1f1 1px solid;
+	PADDING-RIGHT: 5px;
+	BORDER-TOP: #f1f1f1 1px solid;
+	DISPLAY: block; 
+	PADDING-LEFT: 5px;
+	FONT-SIZE: 12px; 
+	OVERFLOW: hidden;
+	BORDER-LEFT: #f1f1f1 1px solid;
+	COLOR: black; 
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #f1f1f1 1px solid;
+	FONT-FAMILY: Tahoma, Verdan, Helvetica, Sans-Serfif;
+	HEIGHT: 22px; 
+	TEXT-DECORATION: none;
+ }
+.webfx-menu A:visited {
+	COLOR: black; TEXT-DECORATION: none
+}
+.webfx-menu A:hover {
+	COLOR: black; TEXT-DECORATION: none
+}
+.webfx-menu A:hover {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BACKGROUND: #cccccc; BORDER-LEFT: #999999 1px solid; COLOR: black; BORDER-BOTTOM: #999999 1px solid; TEXT-DECORATION: none
+}
+.webfx-menu A .arrow {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FLOAT: right; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 3px; MARGIN-RIGHT: 2px; HEIGHT: 16px; BORDER-RIGHT-WIDTH: 0px
+}
+.webfx-menu DIV {
+	BORDER-TOP: #999999 1px solid; FONT-SIZE: 0mm; MARGIN: 2px 0px; OVERFLOW: hidden; HEIGHT: 0px; ; HEIGHT: expression(2)
+}
+.webfx-menu-bar {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 11px; BACKGROUND: rgb(120,172,255); PADDING-BOTTOM: 2px; PADDING-TOP: 2px; FONT-FAMILY: Verdana, Helvetica, Sans-Serif
+}
+.webfx-menu-bar A {
+	BORDER-RIGHT: rgb(120,172,255) 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: rgb(120,172,255) 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 1px; BORDER-LEFT: rgb(120,172,255) 1px solid; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: rgb(120,172,255) 1px solid; ; HEIGHT: expression(/MSIE 5.0/.test(navigator.userAgent) ? "17px" : "auto"); TEXT-DECORATION: none
+}
+.webfx-menu-bar A:visited {
+	BORDER-RIGHT: rgb(120,172,255) 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: rgb(120,172,255) 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 1px; BORDER-LEFT: rgb(120,172,255) 1px solid; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: rgb(120,172,255) 1px solid; ; HEIGHT: expression(/MSIE 5.0/.test(navigator.userAgent) ? "17px" : "auto"); TEXT-DECORATION: none
+}
+.webfx-menu-bar A:hover {
+	BORDER-RIGHT: rgb(0,66,174) 1px solid; BORDER-TOP: rgb(234,242,255) 1px solid; BACKGROUND: rgb(120,172,255); BORDER-LEFT: rgb(234,242,255) 1px solid; COLOR: black; BORDER-BOTTOM: rgb(0,66,174) 1px solid; TEXT-DECORATION: none
+}
+.webfx-menu-bar A .arrow {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FLOAT: none; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.webfx-menu-bar A:active {
+	moz-outline: none; outline: none
+}
+.webfx-menu-bar A:unknown {
+	moz-outline: none; outline: none
+}
