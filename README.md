@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="http://z01.com">
-    <img width="200" src="dist/images/ico.svg">
+    <img width="900" src="dist/images/ico.svg">
   </a>
 </p>
 
