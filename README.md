@@ -23,15 +23,22 @@
 尤其是对于当前有中国win7+ppt的时代，企业级CMS系统非常少
 
 ### 对未来的理解
-
+ <a href="http://www.z01.com/corp/music">
+    <img src="dist/images/t2.jpg">
+  </a>
 
 ### 官方介绍
  <a href="http://www.z01.com/corp/">
     <img src="dist/images/t3.jpg">
   </a>
-
+“追逐未来、只争第一”--逐浪软件企业集团体拥有10余年的软件和互联网研发基础，旗下拥有逐浪软件、字体网(ziti163.com)、华夏互联、华夏营销网四大门户，拥有北京、上海、南昌两大全资集团化研发公司，逾十年网站开发、web底层研发、移动开发、电商解决方案与综合大数据开发方案服务经验，服务包括政府、军工、外企、世界五百强企业和诸多本土站长，致力于打造最优秀的网站内核管理系统。
+ 　　逐浪®CMS作为国内顶尖、华中地区（苏、浙、皖、湘、鄂、豫、赣）唯一自主知识产权的网站管理系统（CMS）开发商，独有的“沙箱”开发理念，赢得了高端用户和开发者推崇，完全开放的软件体制更是行业翘楚...
+   
 
 ### 链接导航
+ <a href="http://www.z01.com/y10/">
+    <img src="dist/images/t12.jpg">
+  </a>
 我们产品是基于Microsoft.Net4.0（开源版本为NET2.0）+MSSQ2005以及更高版本，产品免费开放，并提供云模板。
 
 我们的官网：http://www.z01.om
@@ -50,7 +57,6 @@
 
 
 #### 功能图赏 （以下只有图无正文）
-<img src="dist/images/t3.jpg">
 <img src="dist/images/t4.jpg">
 <img src="dist/images/t5.jpg">
 <img src="dist/images/t6.jpg">
