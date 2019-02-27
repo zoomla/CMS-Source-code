@@ -1,5 +1,12 @@
 # Zoomla!逐浪CMS开源项目库
 
+<p align="center">
+  <a href="http://z01.com">
+    <img width="200" src="dist/images/ico.svg">
+  </a>
+</p>
+
+
 ## 专注web开发-做中国原创顶级网站内容管理系统
 
 我们产品是基于Microsoft.Net4.0（开源版本为NET2.0）+MSSQ2005以及更高版本，产品免费开放，并提供云模板。
