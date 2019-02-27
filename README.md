@@ -82,4 +82,3 @@
 <img src="dist/images/t9.jpg">
 <img src="dist/images/t10.jpg">
 <img src="dist/images/t11.jpg">
-<img src="dist/images/t12.jpg">
