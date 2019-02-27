@@ -1,0 +1,52 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@using ZoomLa.BLL
+@using ZoomLa.SQLDAL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    B_GuestAnswer banswer = new B_GuestAnswer();
+    protected int getcount(string id)
+    {
+        if (id != "")
+        {
+            int number;
+            SqlParameter[] sp = new SqlParameter[] { new SqlParameter("id", id) };
+            DataTable dt = banswer.Sel(" QueId=@id", "", sp);
+            if (dt.Rows.Count > 0)
+            {
+                number = dt.Rows.Count;
+                return number;
+            }
+            else return 0;
+        }
+        else return 0;
+    }
+    protected string gettype(string id)
+    {
+        SqlParameter[] sp = new SqlParameter[] { new SqlParameter("id", id) };
+        DataTable dt = Sql.Sel("zl_grade", " GradeID=@id", "", sp);
+        if (dt.Rows.Count > 0)
+        {
+            string name;
+            name = (dt.Rows[0]["GradeName"]).ToString();
+            return name;
+
+        }
+        else
+            return "";
+
+    }
+}
+<div id="EGV">
+    <ul class="list-unstyled">
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <li>
+                <strong>@getcount(dr["ID"].ToString())回答</strong>
+                <a target="_self" href="SearchDetails?ID=@dr["ID"]">@dr["Qcontent"]</a>
+                <span>[<a target="_self" href="List?QueType=@dr["QueType"]">@gettype(dr["QueType"].ToString())</a>]</span>
+            </li>
+        }
+        <div class="clearfix"></div>
+    </ul>
+</div>

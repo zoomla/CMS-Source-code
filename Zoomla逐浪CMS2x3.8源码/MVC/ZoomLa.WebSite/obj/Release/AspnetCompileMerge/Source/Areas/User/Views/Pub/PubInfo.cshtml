@@ -1,0 +1,85 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>评论信息</title>
+}
+@section content{
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+        <li><a href="PubManage">评论管理</a></li>
+        <li class="active">评论信息</li>
+    </ol>
+    @Html.Partial("PubInfo_List",Model)
+    <div id="Info" class="margintop10 hidden">
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <td style="width: 20%; text-align: right; padding-right: 10px;">ID</td>
+                <td style="padding-left: 10px;">
+                    <span id="CID"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; text-align: right; padding-right: 10px;">用户名</td>
+                <td style="padding-left: 10px;">
+                    <span id="UsrName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; text-align: right; padding-right: 10px;">标题</td>
+                <td style="padding-left: 10px;">
+                    <span id="CTitle"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; text-align: right; padding-right: 10px;">内容</td>
+                <td style="padding-left: 10px;">
+                    <span id="Content"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; text-align: right; padding-right: 10px;">IP地址</td>
+                <td style="padding-left: 10px;">
+                    <span id="CIP"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; text-align: right; padding-right: 10px;">添加时间</td>
+                <td style="padding-left: 10px;">
+                    <span id="AddTime"></span>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center;">
+            <input type="button" class="btn btn-primary" onclick="bachto();" value="返回" />
+        </div>
+    </div>
+    <div id="Info2" class="margintop10 hidden">
+        <form method="post">
+            <table class="table table-striped table-bordered table-hover">
+                <tr style="height: 40px;">
+                    <td>标题</td>
+                    <td>
+                        <input type="text" id="title" name="title" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>内容</td>
+                    <td>
+                        <textarea id="PubContent" name="PubContent" class="form-control" style="height:30px"></textarea>
+                        <input type="hidden" id="PubID" name="PubID" />
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center;">
+                <input type="button" class="btn btn-primary" onclick="edit" value="修改" />
+            </div>
+        </form>
+    </div>
+</div>
+}
+@section script{
+    
+}

@@ -1,0 +1,56 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@using ZoomLa.BLL.Helper
+@using ZoomLa.Model
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    B_PayPlat platBll = new B_PayPlat();
+    public string getPayPlat(int id)
+    {
+        string result = "";
+        M_PayPlat platMod = platBll.GetPayPlatByid(id);
+        if (platMod != null)
+        {
+            result = platMod.PayPlatName;
+        }
+        return result;
+    }
+    public string GetStatus(string status)
+    {
+        if (status == "3")
+            return "<font color=green>√</font>";
+        else
+            return "<font color=red>×</font>";
+    }
+    public string GetCStatus(string cstatus)
+    {
+        if (DataConverter.CBool(cstatus))
+            return "<font color=green>√</font>";
+        else
+            return "<font color=red>×</font>";
+    }
+}
+@{
+    Model.cols = 6;
+    Model.url = "SaleList";
+    Model.Check=false;
+}
+<div id="EGV">
+    <table class="table table-bordered table-striped">
+        <tr><td>交易时间</td><td>用户名</td><td>支付序号</td><td>金额</td><td>交易状态</td><td>处理状态</td></tr>
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <tr>
+              <td>@dr["UserName"]</td>
+              <td>@getPayPlat(Convert.ToInt32(dr["PayPlatID"]))</td>
+              <td>@dr["PaymentNum"]</td>
+              <td>@dr["MoneyPay"]</td>
+              <td>@DateHelper.ToDate(dr["PayTime"])</td>
+              <td>@GetStatus(DataConverter.CStr(dr["Status"]))</td>
+              <td>@GetCStatus(DataConverter.CStr(dr["CStatus"]))</td>
+            </tr>
+        }
+        @Html.Partial("_page", Model)
+    </table>
+</div>

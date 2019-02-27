@@ -1,0 +1,55 @@
+﻿<div class="user_mimenu">
+    <div class="navbar navbar-fixed-top" role="navigation">
+        <button type="button" class="btn btn-default" id="mimenu_btn">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="user_mimenu_left">
+            <ul class="list-unstyled">
+                <li><a href="/" target="_blank">首页</a></li>
+                <li><a href="/Home" target="_blank">能力</a></li>
+                <li><a href="/Index" target="_blank">社区</a></li>
+                <li><a href="/Ask" target="_blank">问答</a></li>
+                <li><a href="/Guest" target="_blank">留言</a></li>
+                <li><a href="/Baike" target="_blank">百科</a></li>
+                <li><a href="/Office" target="_blank">OA</a></li>
+            </ul>
+        </div>
+        <div class="navbar-header">
+            <button class="navbar-toggle in" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">移动下拉</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<style>
+.user_mimenu{ position:relative; z-index:100010;}
+.user_mimenu .navbar{width:150px;}
+.user_mimenu .navbar-fixed-top{ text-align:left;}
+.user_mimenu #mimenu_btn{ position:relative; margin-top:10px; margin-left:10px; padding-bottom:10px; background:rgba(0, 0, 0, 0.35); z-index:10003;} 
+.user_mimenu #mimenu_btn span{ display:block; width:20px; height:6px; border-bottom:1px solid #eee;} 
+.user_mimenu_left{ position:fixed; left:0; top:0; bottom:0; padding-top:50px; width:0; background:rgba(0,0,0,0.7); box-shadow:1px 0 3px rgba(0,0,0,0.9); overflow:hidden; z-index:10002;}  
+.user_mimenu_left ul{ display:none; padding-top:20px; border-top:1px solid #666;} 
+.user_mimenu_left li a{ display:block; padding-left:30px; height:3em; line-height:3em; font-family:"微软雅黑"; font-size:1.2em; z-index:999; color:#fff;} 
+.user_mimenu_left li a:hover,.user_mimenu_left li a:focus{ background:rgba(255,255,255,0.3); outline:none; text-decoration:none;}
+.user_mimenu_right{ position:fixed; top:10px; right:20px;}
+.user_mimenu_right li a{ color:#666; font-family:"微软雅黑"; font-size:1.2em;}
+</style>
+<script>
+    $(function () {
+        $("#mimenu_btn").click(function (e) {
+            if ($(".user_mimenu_left").width() > 0) {
+                $(".user_mimenu_left ul").fadeOut(100);
+                $(".user_mimenu_left").animate({ width: 0 }, 200);
+            }
+            else {
+                $(".user_mimenu_left").animate({ width: 150 }, 300);
+                $(".user_mimenu_left ul").fadeIn();
+            }
+        });
+    });
+</script>

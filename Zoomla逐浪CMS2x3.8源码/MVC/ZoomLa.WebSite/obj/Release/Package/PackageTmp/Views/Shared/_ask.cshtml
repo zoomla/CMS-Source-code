@@ -1,0 +1,144 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@using ZoomLa.BLL
+@functions{
+    B_User buser = new B_User();
+    public string getstyle()
+    {
+        if (buser.CheckLogin())
+        {
+            return "display:inline-table";
+        }
+        else return "display:none";
+    }
+    public string getstyles()
+    {
+        if (buser.CheckLogin())
+        {
+            return "display:none";
+        }
+        else return "display:inline-table";
+    }
+    public string getusername()
+    {
+        return buser.GetLogin().UserName;
+    }
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="renderer" content="webkit" />
+    <link type="text/css" href="/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script src="/JS/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
+    <script src="/JS/mvcpage.js"></script>
+    <link type="text/css" href="/dist/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/App_Themes/Guest.css" rel="stylesheet" type="text/css" />
+    @RenderSection("head", false)
+</head>
+<body>
+    <div id="ask_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <div class="ask_top_l">
+                        <ul class="list-inline">
+                            <li><a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$SiteURL/}');" href="javascript:;">设为首页</a></li>
+                            <li>
+                                <a href="javascript:;" id="dropdownMenu1" data-toggle="dropdown">@Call.SiteName<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    @MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"输出根节点下一级栏目列表\" ShowNum=\"8\" /}"))
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="ask_top_r">
+                        <ul class="list-inline">
+                            <li><i class="fa fa-graduation-cap"></i><a href="/Baike">百科</a></li>
+                            <li><i class="fa fa-envelope"></i><a href="/Guest">留言</a></li>
+                            <li><i class="fa fa-question-circle"></i><a href="/Ask">问答</a></li>
+                            <li><i class="fa fa-paw"></i><a href="/Index">贴吧</a></li>
+                            <li style="@getstyle()">
+                                <div class="dropdown">
+                                    <a id="dLabel" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@getusername()<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/" target="_blank">我的空间</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/" target="_blank">我的帖子</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/Content/MyFavori" target="_blank">我的喜欢</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/" target="_blank">我的关注</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/" target="_blank">我的投票</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/Info/UserBase" target="_blank">个人设置</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/user/Logout">安全退出</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li style="@getstyles()"><a href="/User/Login?ReturnUrl=/ask">登录</a> | <a href="/User/Register?ReturnUrl=/ask">注册</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="ask_logo">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 ask_logo_l"><a href="/"><img src='@Call.GetLabel("{$LogoUrl/}")' alt="@Call.GetLabel("{$SiteName/}")留言系统" /></a></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 ask_logo_r">
+                    <div class="input-group">
+                        <input type="text" id="txtAsk" name="txtAsk" onmouseover="this.focus()" autocomplete="off" class="form-control" style="vertical-align:middle" tabindex="1" />
+                        <div class="input-group-btn">
+                            <button id="btnAsk" type="button" class="btn btn-success">快速提问</button>
+                            <button id="btnSearch" type="button" class="btn btn-success">搜索</button>
+                            <button id="btnAnswer" type="button" class="btn btn-success">我要回答</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="navbar navbar-default" role="navigation" id="guest_nav">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">问答中心</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="top_nav_ul">
+                    <li title="问答首页"><a href="/Ask">问答首页</a></li>
+                    <li title="问题库"><a href="/Ask/List">问题库</a></li>
+                    <li title="分类大全"><a href="/Ask/Classification">分类大全</a></li>
+                    <li title="在线提问"><a href="/Ask/Add">在线提问</a></li>
+                    <li title="问答专家"><a href="/Ask/Star">问答专家</a></li>
+                    <li title="我的提问"><a href="/Ask/MyAskList">我的提问</a></li>
+                    <li title="我的问答"><a href="/Ask/MyAnswerlist">我的问答</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @RenderSection("content", false)
+    <script>
+        $(function () {
+            $("#btnAsk").click(function () { location.href = "/Ask/Add?strWhere=" + $("#txtAsk").val(); });
+            $("#btnSearch").click(function () { location.href = "/Ask/SearchList?strWhere=" + $("#txtAsk").val(); });
+            $("#btnAnswer").click(function () { location.href = "/Ask/List?strWhere=" + $("#txtAsk").val(); });
+        })
+    </script>
+    @RenderSection("script", false)
+</body>
+</html>

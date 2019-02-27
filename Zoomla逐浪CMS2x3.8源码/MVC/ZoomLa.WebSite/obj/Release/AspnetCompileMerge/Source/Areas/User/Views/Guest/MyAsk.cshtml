@@ -1,0 +1,35 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+  <title>提问列表</title>
+}
+@section content{
+  <div id="pageflag" data-nav="index" data-ban="ask"></div>
+<div class="container margin_t10">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li class="active">提问列表</li>
+        <div class="clearfix"></div>
+    </ol>
+</div>
+<div class="container">
+    @Html.Partial("MyAsk_List", Model)
+</div>
+   
+}
+@section script{
+   <script>
+    window.onload = function () {
+        var type = location.href.split("type=")[1];
+        if (type == 0 || type == 1 || type == 2) {
+            document.getElementById("switch").value = type;
+        }
+    }
+    function switchChange(obj) {
+        location.href = "?type=" + obj.value;
+    }
+</script>
+
+}

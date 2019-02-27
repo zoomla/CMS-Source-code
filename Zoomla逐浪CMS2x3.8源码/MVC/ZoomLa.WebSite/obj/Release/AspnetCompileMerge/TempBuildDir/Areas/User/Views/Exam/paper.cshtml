@@ -1,0 +1,159 @@
+﻿@using System.Data
+@using System.Text
+@using System.Text.RegularExpressions
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@using ZoomLa.Common
+@using ZoomLa.Model
+@using ZoomLa.BLL
+@using ZoomLa.Components
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+    DataTable questDt = ViewBag.questDt;
+    DataTable typeDt = ViewBag.typeDt;
+}
+@functions{
+    ZoomLa.BLL.Helper.HtmlHelper htmlHelp = new ZoomLa.BLL.Helper.HtmlHelper();
+    private DataTable GetQuestDt(DataTable questDt, string qtype, int isbig)
+    {
+        string normFilter = "p_type=" + qtype + " AND IsToShare=0 AND (pid=0 OR pid IS NULL)";
+        string bigfilter = "pid=" + qtype + " AND IsToShare=0";//big下,qtype为其id
+        if (isbig == 0) { questDt.DefaultView.RowFilter = normFilter; }
+        else { questDt.DefaultView.RowFilter = bigfilter; }
+        return questDt.DefaultView.ToTable();
+    }
+    public string GetSubmit(int pid, int ptype)
+    {
+        string option = SafeSC.ReadFileStr(M_Exam_Sys_Questions.OptionDir + pid + ".opt");
+        JArray arr = JsonConvert.DeserializeObject<JArray>(option);
+        StringBuilder builder = new StringBuilder();
+        //单,多,填,解
+        switch (ptype)
+        {
+            case (int)M_Exam_Sys_Questions.QType.Radio:
+                {
+                    if (arr == null || arr.Count < 1) { return "未定义选项"; }
+                    string name = "srad_" + pid;
+                    string tlp = "<td title='{0}' style='width:100px;'>{1}. {2}</td>";
+                    foreach (JObject obj in arr)
+                    {
+                        builder.Append(string.Format(tlp, name, obj["op"], obj["val"]));
+                    }
+                }
+                break;
+            case (int)M_Exam_Sys_Questions.QType.Multi:
+                {
+                    if (arr == null || arr.Count < 1) { return "未定义选项"; }
+                    string name = "mchk_" + pid;
+                    string tlp = "<td title='{0}' style='width:100px;'>{1}. {2}</td>";
+                    foreach (JObject obj in arr)
+                    {
+                        builder.Append(string.Format(tlp, name, obj["op"], obj["val"]));
+                    }
+                }
+                break;
+            case (int)M_Exam_Sys_Questions.QType.FillBlank:
+                {
+                    //string tlp = "<div contenteditable='true' class='answerdiv'>解：</div>";
+                    //builder.Append(tlp);
+                }
+                break;
+            case (int)M_Exam_Sys_Questions.QType.Answer://放置一个ueditor
+                {
+                    string name = "answer_" + pid;
+                    string tlp = "<td>解：</td>";
+                    builder.Append(tlp);
+                }
+                break;
+            case (int)M_Exam_Sys_Questions.QType.FillTextBlank:
+                {
+                    string optionjson = SafeSC.ReadFileStr(M_Exam_Sys_Questions.OptionDir + pid + ".opt");
+                    JArray array = JsonConvert.DeserializeObject<JArray>(optionjson);
+                    builder.Append(FillTextHtml(array));
+                }
+                break;
+        }
+        string html = builder.ToString().Trim();
+        if (!string.IsNullOrEmpty(html))
+        {
+
+            html = "<table><tr>" + html + "</tr></table><br/>";
+        }
+        return html;
+    }
+    //完型填空html生成
+    public string FillTextHtml(JArray array)
+    {
+        string tlp = "<div style='margin-top:10px'><div>{0},{1}</div> <div style='margin-left:20px;'>{2}</div></div>";
+        string childtlp = " <div style='margin-top:5px;'>{0}.{1}</div>";
+        string html = "<td>";
+        foreach (JToken item in array)
+        {
+            JArray childarray = (JArray)item["opts"];
+            string childhtml = "";
+            foreach (JToken item_i in childarray)
+            {
+                string tempstr = htmlHelp.ConvertImgUrl(item_i["val"].ToString().Replace("<p>", "").Replace("</p>", ""), "http://" + Request.Url.Authority);
+                childhtml += string.Format(childtlp, item_i["op"], tempstr);
+            }
+            html += string.Format(tlp, item["id"], item["title"], childhtml);
+        }
+        return html + "</td>";
+    }
+    public string GetContent(string content,int ptype)
+    {
+        if (ptype == 4)
+        {
+            string[] conArr = Regex.Split(content, Regex.Escape("（）"));
+            content = "";
+            for (int i = 0; i < conArr.Length; i++)
+            {
+                if (i != (conArr.Length - 1))
+                { content += conArr[i] + string.Format("（<span style='color:green'>{0}</span>）", (i + 1)); }
+            }
+            return content;
+        }
+        return htmlHelp.ConvertImgUrl(content, SiteConfig.SiteInfo.SiteUrl);
+    }
+}
+@section head{
+    <title>生成试卷</title>
+    <style type="text/css">
+        ul { padding-left: 0px; }
+    </style>
+}
+@section content{
+    <form id="form1">
+        <div id="paper" style="font-size:12px;font-family:'Microsoft YaHei';">
+            <div style="width: 500px; margin: auto; text-align: center;">
+                <h2 style="text-align: center;color:black;"><label id="title_l"></label></h2>
+                <h2 style="text-align: center;color:black;">试卷副标题</h2>
+                <h3 style="text-align: center;color:black;">考试范围：XXX 考试时间：120分钟 命题人：XXX</h3>
+            </div>
+            <div>注意事项：</div>
+            <div>1,答题前填写好自己的姓名,班级,考号等信息,请将答案正确填写在答题卡上</div>
+            @foreach (DataRow dr in typeDt.Rows)
+            {
+                <div style="margin-top: 5px;">
+                    <h3>@ZoomLa.BLL.Helper.StrHelper.ConvertIntegral(typeDt.Rows.IndexOf(dr) + 1)．@dr["QName"]有@(dr["QNum"])小题,共 @dr["TotalScore"] 分）</h3>
+                    <div>@MvcHtmlString.Create(dr["LargeContent"].ToString())</div>
+                    @{ int index = 0; }
+                    @foreach (DataRow row in GetQuestDt(questDt, dr["QType"].ToString(), DataConverter.CLng(dr["IsBig"])).Rows)
+                    {
+                        index++;
+                        <div class="item">
+                            <div class="content">
+                                <span>@index．@row["P_Title"]</span>@MvcHtmlString.Create(GetContent(row["p_content"].ToString(), DataConverter.CLng(row["p_type"])))
+                            </div>
+                            <div class="submit">@MvcHtmlString.Create(GetSubmit(DataConverter.CLng(row["p_id"]), DataConverter.CLng(row["p_type"])))</div>
+                        </div>
+                    }
+                </div>
+                        }
+        </div>
+    </form>
+
+}
+@section script{
+
+}

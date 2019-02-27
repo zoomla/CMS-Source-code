@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ICBCNotify.aspx.cs" Inherits="ZoomLaCMS.PayOnline.Return.ICBCNotify" %>

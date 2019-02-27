@@ -1,0 +1,4843 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="普通商品" xml:space="preserve">
+    <value>Ordinary goods</value>
+  </data>
+  <data name="IDC服务商品" xml:space="preserve">
+    <value>IDC service goods</value>
+  </data>
+  <data name="不存在" xml:space="preserve">
+    <value>Does not exist</value>
+  </data>
+  <data name="目标订单" xml:space="preserve">
+    <value>Target order</value>
+  </data>
+  <data name="订单信息" xml:space="preserve">
+    <value>Ordering Info</value>
+  </data>
+  <data name="商品选择" xml:space="preserve">
+    <value>Choice of goods</value>
+  </data>
+  <data name="补单" xml:space="preserve">
+    <value>Single supplement</value>
+  </data>
+  <data name="添加订单" xml:space="preserve">
+    <value>Add order</value>
+  </data>
+  <data name="是否已付款" xml:space="preserve">
+    <value>Whether it has been paid</value>
+  </data>
+  <data name="加数量" xml:space="preserve">
+    <value>Add quantity</value>
+  </data>
+  <data name="数量" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="填写订单信息" xml:space="preserve">
+    <value>Fill in order information</value>
+  </data>
+  <data name="选择商品" xml:space="preserve">
+    <value>Selection goods</value>
+  </data>
+  <data name="商品类型" xml:space="preserve">
+    <value>Commodity type</value>
+  </data>
+  <data name="选择会员" xml:space="preserve">
+    <value>Select members</value>
+  </data>
+  <data name="资金余额" xml:space="preserve">
+    <value>Fund balance</value>
+  </data>
+  <data name="未知" xml:space="preserve">
+    <value>unknown</value>
+  </data>
+  <data name="维修" xml:space="preserve">
+    <value>repair</value>
+  </data>
+  <data name="换货" xml:space="preserve">
+    <value>exchange goods</value>
+  </data>
+  <data name="退货" xml:space="preserve">
+    <value>return goods</value>
+  </data>
+  <data name="检测报告" xml:space="preserve">
+    <value>Test report</value>
+  </data>
+  <data name="发票" xml:space="preserve">
+    <value>invoice</value>
+  </data>
+  <data name="返修单审核" xml:space="preserve">
+    <value>Repair single audit</value>
+  </data>
+  <data name="解除审核" xml:space="preserve">
+    <value>Release audit</value>
+  </data>
+  <data name="查看详情" xml:space="preserve">
+    <value>View details</value>
+  </data>
+  <data name="查看" xml:space="preserve">
+    <value>See</value>
+  </data>
+  <data name="审核状态" xml:space="preserve">
+    <value>Audit status</value>
+  </data>
+  <data name="取件时间" xml:space="preserve">
+    <value>Fetch time</value>
+  </data>
+  <data name="联系方式" xml:space="preserve">
+    <value>contact info</value>
+  </data>
+  <data name="客户姓名" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
+  <data name="申请凭据" xml:space="preserve">
+    <value>Apply credentials</value>
+  </data>
+  <data name="售后类型" xml:space="preserve">
+    <value>After sale type</value>
+  </data>
+  <data name="商品信息" xml:space="preserve">
+    <value>Commodity Info</value>
+  </data>
+  <data name="没有相关数据" xml:space="preserve">
+    <value>No relevant data</value>
+  </data>
+  <data name="售后审核" xml:space="preserve">
+    <value>After sales audit</value>
+  </data>
+  <data name="在线方案_提示_下载" xml:space="preserve">
+    <value>Because it is a complete program to download the site and need to check the version information, you need a few minutes later, please wait patiently!</value>
+  </data>
+  <data name="在线方案_提示_完整" xml:space="preserve">
+    <value>Can be downloaded from the cloud free cloud program, each program is a complete website, including the integrity of the template, column structure, tags and models, and so on.</value>
+  </data>
+  <data name="在线方案_提示_免费" xml:space="preserve">
+    <value>In order to allow everyone to build a website, we provide a free template program.</value>
+  </data>
+  <data name="免费云方案下载" xml:space="preserve">
+    <value>Free cloud program download</value>
+  </data>
+  <data name="免费" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="大图预览" xml:space="preserve">
+    <value>Big picture preview</value>
+  </data>
+  <data name="下载模板" xml:space="preserve">
+    <value>Download templates</value>
+  </data>
+  <data name="点击下载模板" xml:space="preserve">
+    <value>Click download templates</value>
+  </data>
+  <data name="在线方案_备份提示" xml:space="preserve">
+    <value>Note: once the new template program will be enabled to cover the original site columns and data, please backup before use!</value>
+  </data>
+  <data name="云台方案列表" xml:space="preserve">
+    <value>PTZ scheme list</value>
+  </data>
+  <data name="从云端下载方案" xml:space="preserve">
+    <value>Download from the cloud</value>
+  </data>
+  <data name="使用前必读" xml:space="preserve">
+    <value>my kindle</value>
+  </data>
+  <data name="返回本地方案列表" xml:space="preserve">
+    <value>Returns list programs</value>
+  </data>
+  <data name="发布当前站点方案" xml:space="preserve">
+    <value>Publish  current site plan</value>
+  </data>
+  <data name="目录名称" xml:space="preserve">
+    <value>Catalog Name</value>
+  </data>
+  <data name="备份成功" xml:space="preserve">
+    <value>Backup success</value>
+  </data>
+  <data name="备份失败" xml:space="preserve">
+    <value>Backup failed</value>
+  </data>
+  <data name="风格方案" xml:space="preserve">
+    <value>Style scheme</value>
+  </data>
+  <data name="风格集备份" xml:space="preserve">
+    <value>Style set backup</value>
+  </data>
+  <data name="其他文件" xml:space="preserve">
+    <value>other files</value>
+  </data>
+  <data name="没有权限创键文件夹" xml:space="preserve">
+    <value>Create a folder without permission in the target location</value>
+  </data>
+  <data name="新建风格" xml:space="preserve">
+    <value>New style</value>
+  </data>
+  <data name="上传风格" xml:space="preserve">
+    <value>Upload style</value>
+  </data>
+  <data name="备份当前风格" xml:space="preserve">
+    <value>Backup current style</value>
+  </data>
+  <data name="确认要删除该文件夹吗" xml:space="preserve">
+    <value>Are you sure you want to delete this folder?</value>
+  </data>
+  <data name="作者管理" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="最新下载" xml:space="preserve">
+    <value>Download </value>
+  </data>
+  <data name="最新" xml:space="preserve">
+    <value>The New</value>
+  </data>
+  <data name="最少字符数必须大于等于2" xml:space="preserve">
+    <value>The minimum number of characters must be greater than or equal to 2</value>
+  </data>
+  <data name="最少字符数必须大于等于1" xml:space="preserve">
+    <value>The minimum number of characters must be greater than or equal to 1</value>
+  </data>
+  <data name="最少生成最近1篇" xml:space="preserve">
+    <value>Least 1 recent papers</value>
+  </data>
+  <data name="最少必须4位" xml:space="preserve">
+    <value>Must be at least 4</value>
+  </data>
+  <data name="最近一个月内的新订单" xml:space="preserve">
+    <value>New orders in last month</value>
+  </data>
+  <data name="最近修改密码" xml:space="preserve">
+    <value>Recently Modified PWD</value>
+  </data>
+  <data name="最近活跃" xml:space="preserve">
+    <value>Recently Active</value>
+  </data>
+  <data name="最近登录" xml:space="preserve">
+    <value>Recent Login</value>
+  </data>
+  <data name="最近10天内的新订单" xml:space="preserve">
+    <value>New orders in last 10 days</value>
+  </data>
+  <data name="最后登录时间" xml:space="preserve">
+    <value>Last Login Time</value>
+  </data>
+  <data name="最多字符数必须大于等于最小字符数" xml:space="preserve">
+    <value>Maximum number of characters must be greater than or equal to the minimum number of characters</value>
+  </data>
+  <data name="组织结构" xml:space="preserve">
+    <value>Organization Structure</value>
+  </data>
+  <data name="组卷配置" xml:space="preserve">
+    <value>Configuration of test paper</value>
+  </data>
+  <data name="总体销售" xml:space="preserve">
+    <value>Macromarketing</value>
+  </data>
+  <data name="字段名不能为空" xml:space="preserve">
+    <value>Field name cannot be empty</value>
+  </data>
+  <data name="字段名_中文不能为空" xml:space="preserve">
+    <value>Field name (Chinese) cannot be empty</value>
+  </data>
+  <data name="字段名_中文" xml:space="preserve">
+    <value>Field name (Chinese)</value>
+  </data>
+  <data name="字段名_数据库" xml:space="preserve">
+    <value>Field name (database)</value>
+  </data>
+  <data name="字段名" xml:space="preserve">
+    <value>Field name</value>
+  </data>
+  <data name="字段类型" xml:space="preserve">
+    <value>Field type</value>
+  </data>
+  <data name="字段级别" xml:space="preserve">
+    <value>Field Level</value>
+  </data>
+  <data name="字段别名" xml:space="preserve">
+    <value>field alias</value>
+  </data>
+  <data name="字段" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="自动审核" xml:space="preserve">
+    <value>Automatic Audit</value>
+  </data>
+  <data name="自动回复" xml:space="preserve">
+    <value>Auto Reply</value>
+  </data>
+  <data name="自动过期" xml:space="preserve">
+    <value>Auto expire</value>
+  </data>
+  <data name="自定义" xml:space="preserve">
+    <value>custom</value>
+  </data>
+  <data name="子站管理" xml:space="preserve">
+    <value>Sub Station</value>
+  </data>
+  <data name="子会员组" xml:space="preserve">
+    <value>Sub group members</value>
+  </data>
+  <data name="资金明细" xml:space="preserve">
+    <value>Financial Details</value>
+  </data>
+  <data name="资金" xml:space="preserve">
+    <value>Capital</value>
+  </data>
+  <data name="状态编码" xml:space="preserve">
+    <value>Status Encoding</value>
+  </data>
+  <data name="状态" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="专题列表" xml:space="preserve">
+    <value>List of topics</value>
+  </data>
+  <data name="专题类别管理" xml:space="preserve">
+    <value>Special Category</value>
+  </data>
+  <data name="专题管理" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="专题" xml:space="preserve">
+    <value>Special</value>
+  </data>
+  <data name="注意" xml:space="preserve">
+    <value>Be Carefull</value>
+  </data>
+  <data name="注册字段管理" xml:space="preserve">
+    <value>Registration field manage</value>
+  </data>
+  <data name="注册字段" xml:space="preserve">
+    <value>Register Field</value>
+  </data>
+  <data name="注册时是否启用验证码功能" xml:space="preserve">
+    <value>Is verification code  enabled  Reg</value>
+  </data>
+  <data name="注册时间顺序" xml:space="preserve">
+    <value>Registration Time Asc</value>
+  </data>
+  <data name="注册时间倒序" xml:space="preserve">
+    <value>Registration Time Desc</value>
+  </data>
+  <data name="注册时间" xml:space="preserve">
+    <value>Registration Time</value>
+  </data>
+  <data name="注册时的必填或选填项目" xml:space="preserve">
+    <value>Registration is required and optional items</value>
+  </data>
+  <data name="注册可选" xml:space="preserve">
+    <value>Optional registration</value>
+  </data>
+  <data name="注" xml:space="preserve">
+    <value>notes</value>
+  </data>
+  <data name="主库视图管理" xml:space="preserve">
+    <value>Master Library View</value>
+  </data>
+  <data name="主机信息总览" xml:space="preserve">
+    <value>Overview Host Info</value>
+  </data>
+  <data name="主编辑器扩展图" xml:space="preserve">
+    <value>Master Editor Extension</value>
+  </data>
+  <data name="逐浪官网" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="逐浪" xml:space="preserve">
+    <value>Zoomla</value>
+  </data>
+  <data name="重置" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="重要信息请进入" xml:space="preserve">
+    <value>Important information please enter</value>
+  </data>
+  <data name="重要程度" xml:space="preserve">
+    <value>Important Degree</value>
+  </data>
+  <data name="重写" xml:space="preserve">
+    <value>Rewrite</value>
+  </data>
+  <data name="重复新密码" xml:space="preserve">
+    <value>Repeat new password</value>
+  </data>
+  <data name="终止日期" xml:space="preserve">
+    <value>Expiry Date</value>
+  </data>
+  <data name="智农推送" xml:space="preserve">
+    <value>Zhi Nong push</value>
+  </data>
+  <data name="智能采集" xml:space="preserve">
+    <value>Intelligent collection</value>
+  </data>
+  <data name="智慧图表" xml:space="preserve">
+    <value>Wisdom chart</value>
+  </data>
+  <data name="指定的数值不正确" xml:space="preserve">
+    <value>The specified value is not correct</value>
+  </data>
+  <data name="职位信息" xml:space="preserve">
+    <value>Position Info</value>
+  </data>
+  <data name="直接在页面修改密码" xml:space="preserve">
+    <value>Answer the correct password answer, directly modify the password on the page</value>
+  </data>
+  <data name="执行SQL语句" xml:space="preserve">
+    <value>Execute SQL Statement</value>
+  </data>
+  <data name="只能输入正整数" xml:space="preserve">
+    <value>Can only enter a positive integer</value>
+  </data>
+  <data name="只能输入货币字符" xml:space="preserve">
+    <value>Only input currency characters, and can not be negative</value>
+  </data>
+  <data name="只能输入非0整数" xml:space="preserve">
+    <value>Can only enter the non integer 0</value>
+  </data>
+  <data name="支付日志" xml:space="preserve">
+    <value>Payment Log</value>
+  </data>
+  <data name="支付平台管理" xml:space="preserve">
+    <value>Pay Platform</value>
+  </data>
+  <data name="支付明细" xml:space="preserve">
+    <value>Payment Details</value>
+  </data>
+  <data name="支付方式" xml:space="preserve">
+    <value>Mode of Payment</value>
+  </data>
+  <data name="支付宝单网银" xml:space="preserve">
+    <value>Alipay Single Net</value>
+  </data>
+  <data name="支持移动" xml:space="preserve">
+    <value>Support Mobile</value>
+  </data>
+  <data name="支持从远程云端下载功能与模板界面" xml:space="preserve">
+    <value>Support from remote cloud download features and template interface</value>
+  </data>
+  <data name="支持" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="证件" xml:space="preserve">
+    <value>Certificates</value>
+  </data>
+  <data name="正在销售的商品" xml:space="preserve">
+    <value>Goods Being Sold</value>
+  </data>
+  <data name="正在创建数据表与存储过程" xml:space="preserve">
+    <value>Creating Data Tables and Procedures</value>
+  </data>
+  <data name="正常销售的商品" xml:space="preserve">
+    <value>Normal Sales Goods</value>
+  </data>
+  <data name="正常" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="整合配置" xml:space="preserve">
+    <value>Integrated Config</value>
+  </data>
+  <data name="整合接口" xml:space="preserve">
+    <value>Integration interface</value>
+  </data>
+  <data name="真实姓名" xml:space="preserve">
+    <value>Real Name</value>
+  </data>
+  <data name="这些JS代码是为了加快访问速度特别生成的" xml:space="preserve">
+    <value>The JS code is generated in order to accelerate the speed of visiting. In the add / modify / delete / review article, the system will automatically refresh the JS file. When necessary, you can also manually refresh. Such as adding a new JS file, but also did not add articles, then you can manually refresh the JS file.</value>
+  </data>
+  <data name="招聘企业" xml:space="preserve">
+    <value>Recruitment Enterprise</value>
+  </data>
+  <data name="招聘回收站" xml:space="preserve">
+    <value>Recruitment Recycle</value>
+  </data>
+  <data name="账单管理" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+  <data name="站长拥有资金" xml:space="preserve">
+    <value>Owners have funds</value>
+  </data>
+  <data name="站长学院" xml:space="preserve">
+    <value>Webmaster</value>
+  </data>
+  <data name="站站迁移" xml:space="preserve">
+    <value>Station Migration</value>
+  </data>
+  <data name="站群管理" xml:space="preserve">
+    <value>Station Group</value>
+  </data>
+  <data name="站群采集密码" xml:space="preserve">
+    <value>Station Collection Password</value>
+  </data>
+  <data name="站群" xml:space="preserve">
+    <value>Sites</value>
+  </data>
+  <data name="站内链接" xml:space="preserve">
+    <value>Station Link</value>
+  </data>
+  <data name="站点拓扑" xml:space="preserve">
+    <value>Site Topology</value>
+  </data>
+  <data name="站点路由" xml:space="preserve">
+    <value>Site Routing</value>
+  </data>
+  <data name="站点列表" xml:space="preserve">
+    <value>Site list</value>
+  </data>
+  <data name="站点地图" xml:space="preserve">
+    <value>Site map</value>
+  </data>
+  <data name="展开所有节点" xml:space="preserve">
+    <value>Expand All Nodes</value>
+  </data>
+  <data name="暂无相关信息" xml:space="preserve">
+    <value>No relevant information</value>
+  </data>
+  <data name="暂无模型信息" xml:space="preserve">
+    <value>No information model</value>
+  </data>
+  <data name="暂无积分等级" xml:space="preserve">
+    <value>The level of integration</value>
+  </data>
+  <data name="暂无导航信息" xml:space="preserve">
+    <value>No navigation information</value>
+  </data>
+  <data name="暂停处理的订单" xml:space="preserve">
+    <value>Suspended Order</value>
+  </data>
+  <data name="在线支付" xml:space="preserve">
+    <value>Online Payment</value>
+  </data>
+  <data name="在线生成" xml:space="preserve">
+    <value>Online Generation</value>
+  </data>
+  <data name="在线设计" xml:space="preserve">
+    <value>Online Design</value>
+  </data>
+  <data name="在此位置您可以对索引目录进行观察位置" xml:space="preserve">
+    <value>In this location you can observe the location of the index directory</value>
+  </data>
+  <data name="运行环境检测" xml:space="preserve">
+    <value>Step 2:Environ Detection</value>
+  </data>
+  <data name="运费模板" xml:space="preserve">
+    <value>Freight Template</value>
+  </data>
+  <data name="允许用户名注册规则" xml:space="preserve">
+    <value>Allow the User Reg rules</value>
+  </data>
+  <data name="允许评论" xml:space="preserve">
+    <value>Allow comments</value>
+  </data>
+  <data name="云盘共享空间权限" xml:space="preserve">
+    <value>Cloud disk sharing space rights</value>
+  </data>
+  <data name="云端下载" xml:space="preserve">
+    <value>Cloud Download</value>
+  </data>
+  <data name="云端存储" xml:space="preserve">
+    <value>Cloud Storage</value>
+  </data>
+  <data name="云打包APP" xml:space="preserve">
+    <value>Cloud Pack APP</value>
+  </data>
+  <data name="云办公模式" xml:space="preserve">
+    <value>Cloud office mode</value>
+  </data>
+  <data name="阅卷中心" xml:space="preserve">
+    <value>Scoring Center</value>
+  </data>
+  <data name="阅读许可协议" xml:space="preserve">
+    <value>Reading license agreement</value>
+  </data>
+  <data name="月收入" xml:space="preserve">
+    <value>Monthly Profit</value>
+  </data>
+  <data name="月报表" xml:space="preserve">
+    <value>Monthly Report</value>
+  </data>
+  <data name="月" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="源码查看器" xml:space="preserve">
+    <value>Source Viewer</value>
+  </data>
+  <data name="原密码不能为空" xml:space="preserve">
+    <value>The original password can not be empty</value>
+  </data>
+  <data name="元数据备份" xml:space="preserve">
+    <value>Metadata Backup</value>
+  </data>
+  <data name="域名注册" xml:space="preserve">
+    <value>Domain registration</value>
+  </data>
+  <data name="域名管理" xml:space="preserve">
+    <value>Domain Name</value>
+  </data>
+  <data name="域名定价" xml:space="preserve">
+    <value>Domain Pricing</value>
+  </data>
+  <data name="域名订单" xml:space="preserve">
+    <value>Domain Order</value>
+  </data>
+  <data name="预览" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="预定库存报警的商品" xml:space="preserve">
+    <value>Scheduled inventory alarm</value>
+  </data>
+  <data name="与" xml:space="preserve">
+    <value>And</value>
+  </data>
+  <data name="舆情监测" xml:space="preserve">
+    <value>Opinion Monitoring</value>
+  </data>
+  <data name="舆情管理" xml:space="preserve">
+    <value>Public Opinion</value>
+  </data>
+  <data name="余额升级费用" xml:space="preserve">
+    <value>Cost upgrading balance</value>
+  </data>
+  <data name="余额操作" xml:space="preserve">
+    <value>Balance operation</value>
+  </data>
+  <data name="余额" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="有问必答是否支持匿名提交" xml:space="preserve">
+    <value>Whether answer the support anonymous submission</value>
+  </data>
+  <data name="有问必答" xml:space="preserve">
+    <value>Answer the questions</value>
+  </data>
+  <data name="有商品缩略图" xml:space="preserve">
+    <value>Commodity Thumbnail</value>
+  </data>
+  <data name="有权限访问该数据库的用户名" xml:space="preserve">
+    <value>User with access to the database</value>
+  </data>
+  <data name="有促销活动的商品" xml:space="preserve">
+    <value>Merchandise Promotional Activities</value>
+  </data>
+  <data name="游戏币" xml:space="preserve">
+    <value>Game Currency</value>
+  </data>
+  <data name="邮箱管理" xml:space="preserve">
+    <value>Mailbox</value>
+  </data>
+  <data name="邮箱" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="邮件认证" xml:space="preserve">
+    <value>Mail Auth</value>
+  </data>
+  <data name="邮件群发" xml:space="preserve">
+    <value>Mail Group</value>
+  </data>
+  <data name="邮件内容管理" xml:space="preserve">
+    <value>Mail Content</value>
+  </data>
+  <data name="邮件内容" xml:space="preserve">
+    <value>Mail content</value>
+  </data>
+  <data name="邮件模版" xml:space="preserve">
+    <value>Mail Template</value>
+  </data>
+  <data name="邮件模板编辑" xml:space="preserve">
+    <value>Mail Template Editing</value>
+  </data>
+  <data name="邮件模板" xml:space="preserve">
+    <value>Mail template</value>
+  </data>
+  <data name="邮件列表管理" xml:space="preserve">
+    <value>Mailing List</value>
+  </data>
+  <data name="邮件列表" xml:space="preserve">
+    <value>Mailing list</value>
+  </data>
+  <data name="邮件发送状态" xml:space="preserve">
+    <value>Send email</value>
+  </data>
+  <data name="邮件发送" xml:space="preserve">
+    <value>Mail Send</value>
+  </data>
+  <data name="邮件订阅审核" xml:space="preserve">
+    <value>Mail Subscription Audit</value>
+  </data>
+  <data name="邮件订阅管理" xml:space="preserve">
+    <value>Mail Subscription</value>
+  </data>
+  <data name="邮件订阅" xml:space="preserve">
+    <value>Mail subscription</value>
+  </data>
+  <data name="邮件参数" xml:space="preserve">
+    <value>Mail Parameters</value>
+  </data>
+  <data name="优惠券管理" xml:space="preserve">
+    <value>Coupon</value>
+  </data>
+  <data name="用于商城网店查询订单" xml:space="preserve">
+    <value>For shopping mall shop inquiries orders</value>
+  </data>
+  <data name="用户提现" xml:space="preserve">
+    <value>User Withdrawals</value>
+  </data>
+  <data name="用户试卷管理" xml:space="preserve">
+    <value>User Paper</value>
+  </data>
+  <data name="用户商品" xml:space="preserve">
+    <value>User Goods</value>
+  </data>
+  <data name="用户模型" xml:space="preserve">
+    <value>User model</value>
+  </data>
+  <data name="用户明细" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="用户名或密码或确认密码或问题或问题答案或Email为必填项" xml:space="preserve">
+    <value>The user name, password and confirm password, question and answer, Email is required.</value>
+  </data>
+  <data name="用户名" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="用户流水" xml:space="preserve">
+    <value>User Flow</value>
+  </data>
+  <data name="用户节日管理" xml:space="preserve">
+    <value>User manage Festival</value>
+  </data>
+  <data name="用户节日" xml:space="preserve">
+    <value>User Festival</value>
+  </data>
+  <data name="用户角色" xml:space="preserve">
+    <value>User role</value>
+  </data>
+  <data name="用户简历" xml:space="preserve">
+    <value>User Resume</value>
+  </data>
+  <data name="用户积分等级" xml:space="preserve">
+    <value>User ranking</value>
+  </data>
+  <data name="用户管理" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="用户多少积分可升级为此等级" xml:space="preserve">
+    <value>How many users can upgrade the level of integration</value>
+  </data>
+  <data name="用户达到多少信誉值可升级为此等级" xml:space="preserve">
+    <value>How many users to upgrade the level of reputation value, do not upgrade for 0</value>
+  </data>
+  <data name="用户参数" xml:space="preserve">
+    <value>User parameter</value>
+  </data>
+  <data name="用户ID" xml:space="preserve">
+    <value>UserID</value>
+  </data>
+  <data name="用户" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="佣金占赠送积分百分比" xml:space="preserve">
+    <value>Commission takes integral percentage</value>
+  </data>
+  <data name="应用列表" xml:space="preserve">
+    <value>Application List</value>
+  </data>
+  <data name="应用程序池" xml:space="preserve">
+    <value>Application pool</value>
+  </data>
+  <data name="印证" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="隐藏系统字段" xml:space="preserve">
+    <value>hidden field system</value>
+  </data>
+  <data name="隐藏" xml:space="preserve">
+    <value>hidden</value>
+  </data>
+  <data name="引用管理" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="引用" xml:space="preserve">
+    <value>Quote</value>
+  </data>
+  <data name="银币升级费用" xml:space="preserve">
+    <value>Cost Upgrade Silver</value>
+  </data>
+  <data name="银币记录" xml:space="preserve">
+    <value>Silver record</value>
+  </data>
+  <data name="银币" xml:space="preserve">
+    <value>Silver Coin</value>
+  </data>
+  <data name="异常日志" xml:space="preserve">
+    <value>Abnormal Log</value>
+  </data>
+  <data name="以小时为单位" xml:space="preserve">
+    <value>Hours per hour</value>
+  </data>
+  <data name="已停用" xml:space="preserve">
+    <value>Deactivated</value>
+  </data>
+  <data name="已售完的商品" xml:space="preserve">
+    <value>Out OF Print</value>
+  </data>
+  <data name="已审核商品" xml:space="preserve">
+    <value>Audited Goods</value>
+  </data>
+  <data name="已审核评论" xml:space="preserve">
+    <value>Review Review</value>
+  </data>
+  <data name="已审核" xml:space="preserve">
+    <value>Already Audit</value>
+  </data>
+  <data name="已申请退款的订单" xml:space="preserve">
+    <value>Order To Apply For Refund</value>
+  </data>
+  <data name="已删除" xml:space="preserve">
+    <value>Has been deleted</value>
+  </data>
+  <data name="已签收的订单" xml:space="preserve">
+    <value>Signed Orders</value>
+  </data>
+  <data name="已启用" xml:space="preserve">
+    <value>Already Enabled</value>
+  </data>
+  <data name="已经作废的订单" xml:space="preserve">
+    <value>Cancelled Orders</value>
+  </data>
+  <data name="已经成功安装点此进入首页" xml:space="preserve">
+    <value>Finish, click here to the home page</value>
+  </data>
+  <data name="已经成功安装" xml:space="preserve">
+    <value>Has been successfully installed</value>
+  </data>
+  <data name="已结清与已付款的订单不允许删除" xml:space="preserve">
+    <value>"Closed Account" And "Account Paid" Of Order is not Allowed To Delete, When the order number into gray on behalf of this order has been cancelled</value>
+  </data>
+  <data name="已结清的订单" xml:space="preserve">
+    <value>Settled Order</value>
+  </data>
+  <data name="已结清" xml:space="preserve">
+    <value>Closed Account</value>
+  </data>
+  <data name="已付款" xml:space="preserve">
+    <value>Account Paid</value>
+  </data>
+  <data name="已发货的订单" xml:space="preserve">
+    <value>Shipped Orders</value>
+  </data>
+  <data name="移动与微信" xml:space="preserve">
+    <value>Mobile and WeChat</value>
+  </data>
+  <data name="移动应用" xml:space="preserve">
+    <value>Mobile APP</value>
+  </data>
+  <data name="移动浏览器" xml:space="preserve">
+    <value>Mobile browser</value>
+  </data>
+  <data name="移动接口" xml:space="preserve">
+    <value>Mobile Interface</value>
+  </data>
+  <data name="移动" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="移除所选项" xml:space="preserve">
+    <value>Remove options</value>
+  </data>
+  <data name="一天只计算一次" xml:space="preserve">
+    <value>Only calculated once a day</value>
+  </data>
+  <data name="页面管理" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="也可安装完成进入后台配置更新此信息" xml:space="preserve">
+    <value>Can also be installed to complete the configuration update this information into the background</value>
+  </data>
+  <data name="验证邮件" xml:space="preserve">
+    <value>Verify mail</value>
+  </data>
+  <data name="验证" xml:space="preserve">
+    <value>verification</value>
+  </data>
+  <data name="学员管理" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="学校管理" xml:space="preserve">
+    <value>School</value>
+  </data>
+  <data name="学生" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="学历" xml:space="preserve">
+    <value>Education</value>
+  </data>
+  <data name="学科管理" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="选择字段" xml:space="preserve">
+    <value>Selection Field</value>
+  </data>
+  <data name="选择日期" xml:space="preserve">
+    <value>Select Date</value>
+  </data>
+  <data name="选择默认语言" xml:space="preserve">
+    <value>Sel Def Language</value>
+  </data>
+  <data name="选择模板" xml:space="preserve">
+    <value>Select Template</value>
+  </data>
+  <data name="选择勾选" xml:space="preserve">
+    <value>Select the check</value>
+  </data>
+  <data name="选择方式" xml:space="preserve">
+    <value>Selective mode</value>
+  </data>
+  <data name="选择等级" xml:space="preserve">
+    <value>Selection Level</value>
+  </data>
+  <data name="选择CSV导入源" xml:space="preserve">
+    <value>Select CSV import source</value>
+  </data>
+  <data name="选择" xml:space="preserve">
+    <value>Choice</value>
+  </data>
+  <data name="选项管理" xml:space="preserve">
+    <value>Option</value>
+  </data>
+  <data name="选填项" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="悬赏定义" xml:space="preserve">
+    <value>Definition of reward</value>
+  </data>
+  <data name="需要发票" xml:space="preserve">
+    <value>Need Invoice</value>
+  </data>
+  <data name="需求管理" xml:space="preserve">
+    <value>Demand</value>
+  </data>
+  <data name="需对内容所在节点的生成选项的中" xml:space="preserve">
+    <value>Need to be in the content of the node's generation options</value>
+  </data>
+  <data name="虚拟商品" xml:space="preserve">
+    <value>Virtual Goods</value>
+  </data>
+  <data name="虚拟币" xml:space="preserve">
+    <value>XNB</value>
+  </data>
+  <data name="修改时间" xml:space="preserve">
+    <value>Modify Time</value>
+  </data>
+  <data name="修改失败" xml:space="preserve">
+    <value>Failed to modify</value>
+  </data>
+  <data name="修改配置" xml:space="preserve">
+    <value>Modify config</value>
+  </data>
+  <data name="修改密码" xml:space="preserve">
+    <value>Modify password</value>
+  </data>
+  <data name="修改积分等级" xml:space="preserve">
+    <value>The integral level</value>
+  </data>
+  <data name="修改会员组完成" xml:space="preserve">
+    <value>Modify Member Groups To Complete</value>
+  </data>
+  <data name="修改后" xml:space="preserve">
+    <value>Modified</value>
+  </data>
+  <data name="修改成功" xml:space="preserve">
+    <value>Modification is successful</value>
+  </data>
+  <data name="修改" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="信誉值记录" xml:space="preserve">
+    <value>Value redit records</value>
+  </data>
+  <data name="信誉值" xml:space="preserve">
+    <value>Reputation value</value>
+  </data>
+  <data name="信用等级" xml:space="preserve">
+    <value>Credit Rating</value>
+  </data>
+  <data name="信息统计" xml:space="preserve">
+    <value>Information Statistics</value>
+  </data>
+  <data name="信息属性" xml:space="preserve">
+    <value>Infor attribute</value>
+  </data>
+  <data name="信息设置" xml:space="preserve">
+    <value>Info Setting</value>
+  </data>
+  <data name="信息类别" xml:space="preserve">
+    <value>Infor Category</value>
+  </data>
+  <data name="信息管理" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="信息发送" xml:space="preserve">
+    <value>Message Routing</value>
+  </data>
+  <data name="新增优惠券" xml:space="preserve">
+    <value>New Coupon</value>
+  </data>
+  <data name="新选项卡" xml:space="preserve">
+    <value>New Tab</value>
+  </data>
+  <data name="新密码和确认密码不一致" xml:space="preserve">
+    <value>The new PWD is not consistent with the confirmation PWD</value>
+  </data>
+  <data name="新密码不能与旧密码一致" xml:space="preserve">
+    <value>The new password cannot be consistent with the old password</value>
+  </data>
+  <data name="新密码不能为空" xml:space="preserve">
+    <value>The new password can not be empty</value>
+  </data>
+  <data name="新建模板" xml:space="preserve">
+    <value>New Template</value>
+  </data>
+  <data name="新会员注册时赠送的有效期" xml:space="preserve">
+    <value>Validity Presented new member registration</value>
+  </data>
+  <data name="新会员注册时赠送的金钱" xml:space="preserve">
+    <value>New member Reg when the money</value>
+  </data>
+  <data name="新会员注册时赠送的积分" xml:space="preserve">
+    <value>When New member Reg points presented</value>
+  </data>
+  <data name="新会员注册时用户名最少字符数" xml:space="preserve">
+    <value>New member Reg user name at least number of characters</value>
+  </data>
+  <data name="新会员注册时用户名最多字符数" xml:space="preserve">
+    <value>New member Reg user name maximum number of characters</value>
+  </data>
+  <data name="新会员注册时发送的手机验证短信内容" xml:space="preserve">
+    <value>New member Reg when sending mobile short message verification</value>
+  </data>
+  <data name="新" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="销售中" xml:space="preserve">
+    <value>Sales In</value>
+  </data>
+  <data name="销售统计" xml:space="preserve">
+    <value>Sales Statistics</value>
+  </data>
+  <data name="销售明细" xml:space="preserve">
+    <value>Sales Detail</value>
+  </data>
+  <data name="消息群发" xml:space="preserve">
+    <value>Message Group</value>
+  </data>
+  <data name="项目完成周期" xml:space="preserve">
+    <value>Project completion cycle</value>
+  </data>
+  <data name="项目配置" xml:space="preserve">
+    <value>Project Config</value>
+  </data>
+  <data name="项目模型" xml:space="preserve">
+    <value>Project Model</value>
+  </data>
+  <data name="项目名称" xml:space="preserve">
+    <value>Project Title</value>
+  </data>
+  <data name="项目管理" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="详细" xml:space="preserve">
+    <value>detailed</value>
+  </data>
+  <data name="相对路径" xml:space="preserve">
+    <value>Relative Path</value>
+  </data>
+  <data name="线上支持" xml:space="preserve">
+    <value>Online support</value>
+  </data>
+  <data name="现金" xml:space="preserve">
+    <value>Money</value>
+  </data>
+  <data name="显示所有字段" xml:space="preserve">
+    <value>Display all fields</value>
+  </data>
+  <data name="下载离线帮助包" xml:space="preserve">
+    <value>Download offline help pack</value>
+  </data>
+  <data name="下载后用EXCEL打开从第二行开始按规范填写并保存即可" xml:space="preserve">
+    <value>Download EXCEL open start from the second row according to the specification can fill out and save</value>
+  </data>
+  <data name="下载服务器" xml:space="preserve">
+    <value>Download Server</value>
+  </data>
+  <data name="下载" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="下移" xml:space="preserve">
+    <value>Move Down</value>
+  </data>
+  <data name="下一步" xml:space="preserve">
+    <value>Next Step</value>
+  </data>
+  <data name="下单时间" xml:space="preserve">
+    <value>Single Time</value>
+  </data>
+  <data name="下单后后内容模板" xml:space="preserve">
+    <value>Post order content template</value>
+  </data>
+  <data name="下单后" xml:space="preserve">
+    <value>After the order</value>
+  </data>
+  <data name="系统自动生成密码" xml:space="preserve">
+    <value>Automatic password generation system, send mail to the mailbox member</value>
+  </data>
+  <data name="系统云台" xml:space="preserve">
+    <value>System Platform</value>
+  </data>
+  <data name="系统设置" xml:space="preserve">
+    <value>System Settings</value>
+  </data>
+  <data name="系统全库概况" xml:space="preserve">
+    <value>General DB System</value>
+  </data>
+  <data name="系统配置" xml:space="preserve">
+    <value>System Config</value>
+  </data>
+  <data name="系统会员组" xml:space="preserve">
+    <value>Group membership system</value>
+  </data>
+  <data name="系统" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="物流状态" xml:space="preserve">
+    <value>Logistics Status</value>
+  </data>
+  <data name="无相关数据" xml:space="preserve">
+    <value>No Relevant data</value>
+  </data>
+  <data name="无限制" xml:space="preserve">
+    <value>Unlimited</value>
+  </data>
+  <data name="我已阅读并同意协议" xml:space="preserve">
+    <value>I have read and agreed to the agreement</value>
+  </data>
+  <data name="我想要" xml:space="preserve">
+    <value>I want</value>
+  </data>
+  <data name="我负责跟踪的订单" xml:space="preserve">
+    <value>charge of the order tracking</value>
+  </data>
+  <data name="我的作品" xml:space="preserve">
+    <value>My Work</value>
+  </data>
+  <data name="我的模板" xml:space="preserve">
+    <value>My Template</value>
+  </data>
+  <data name="我的工作台" xml:space="preserve">
+    <value>My Workbench</value>
+  </data>
+  <data name="我的APP" xml:space="preserve">
+    <value>My APP</value>
+  </data>
+  <data name="问题列表" xml:space="preserve">
+    <value>List of Questions</value>
+  </data>
+  <data name="问券调查" xml:space="preserve">
+    <value>Survey of vouchers</value>
+  </data>
+  <data name="问卷调查管理" xml:space="preserve">
+    <value>Questionnaire</value>
+  </data>
+  <data name="问卷调查" xml:space="preserve">
+    <value>Questionnaire</value>
+  </data>
+  <data name="问答配置" xml:space="preserve">
+    <value>Q And A Configuration</value>
+  </data>
+  <data name="问答管理" xml:space="preserve">
+    <value>Q And A</value>
+  </data>
+  <data name="问答分类" xml:space="preserve">
+    <value>Q And A Classification</value>
+  </data>
+  <data name="文章数" xml:space="preserve">
+    <value>Article Number</value>
+  </data>
+  <data name="文章标题或ID" xml:space="preserve">
+    <value>Title OR ID</value>
+  </data>
+  <data name="文章JS文件管理" xml:space="preserve">
+    <value>Article JS document manage</value>
+  </data>
+  <data name="文件同步" xml:space="preserve">
+    <value>File Synchronization</value>
+  </data>
+  <data name="文件夹创建成功" xml:space="preserve">
+    <value>Folder creation success</value>
+  </data>
+  <data name="文件夹" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="文件或地址路径" xml:space="preserve">
+    <value>File or address path</value>
+  </data>
+  <data name="文件管理" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="文件备份" xml:space="preserve">
+    <value>File Backup</value>
+  </data>
+  <data name="文件保存路径" xml:space="preserve">
+    <value>File save path</value>
+  </data>
+  <data name="文件" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="未验证" xml:space="preserve">
+    <value>Unverified</value>
+  </data>
+  <data name="未选定专题" xml:space="preserve">
+    <value>Not selected topics</value>
+  </data>
+  <data name="未选定栏目" xml:space="preserve">
+    <value>Not selected column</value>
+  </data>
+  <data name="未销售的商品" xml:space="preserve">
+    <value>Goods Not Sold</value>
+  </data>
+  <data name="未推荐" xml:space="preserve">
+    <value>Not recommended</value>
+  </data>
+  <data name="未送货的订单" xml:space="preserve">
+    <value>Non Delivery Order</value>
+  </data>
+  <data name="未审核" xml:space="preserve">
+    <value>Not Audited</value>
+  </data>
+  <data name="未设置生成静态首页" xml:space="preserve">
+    <value>Not set to generate static home page</value>
+  </data>
+  <data name="未确认的订单" xml:space="preserve">
+    <value>Unrecognized order</value>
+  </data>
+  <data name="未签收的订单" xml:space="preserve">
+    <value>Non Receipt Order</value>
+  </data>
+  <data name="未开发票的订单" xml:space="preserve">
+    <value>No Invoice Orders</value>
+  </data>
+  <data name="未结清的订单" xml:space="preserve">
+    <value>Outstanding Order</value>
+  </data>
+  <data name="未付清的订单" xml:space="preserve">
+    <value>Unpaid order</value>
+  </data>
+  <data name="未付款的订单" xml:space="preserve">
+    <value>Non payment order</value>
+  </data>
+  <data name="未定义" xml:space="preserve">
+    <value>undefinition</value>
+  </data>
+  <data name="未安装数据库" xml:space="preserve">
+    <value>Not Installed Database</value>
+  </data>
+  <data name="维护中心" xml:space="preserve">
+    <value>Maintenance Center</value>
+  </data>
+  <data name="为空则不允许被采集" xml:space="preserve">
+    <value>If it is empty, the collection is not allowed.</value>
+  </data>
+  <data name="为防止广告拦截软件影响广告展示" xml:space="preserve">
+    <value>Prevent advertising blocking software to affect the display of advertising</value>
+  </data>
+  <data name="为保证风格能够与云端结合使用" xml:space="preserve">
+    <value>In order to ensure that the style can be used in combination with the cloud</value>
+  </data>
+  <data name="为0或空则不允许购买" xml:space="preserve">
+    <value>0 are not allowed to buy or empty</value>
+  </data>
+  <data name="为0代表继承系统设置" xml:space="preserve">
+    <value>0 representative Inherit system settings</value>
+  </data>
+  <data name="微信支付平台" xml:space="preserve">
+    <value>WeChat Payment Platform</value>
+  </data>
+  <data name="微信支付" xml:space="preserve">
+    <value>WeChat Payment</value>
+  </data>
+  <data name="微信应用" xml:space="preserve">
+    <value>WeChat APP</value>
+  </data>
+  <data name="微信配置" xml:space="preserve">
+    <value>WeChat Config</value>
+  </data>
+  <data name="微信登录" xml:space="preserve">
+    <value>WeChat login</value>
+  </data>
+  <data name="网站自动发送请勿回复" xml:space="preserve">
+    <value>The website automatically send please do not reply.</value>
+  </data>
+  <data name="网站专题" xml:space="preserve">
+    <value>Website project</value>
+  </data>
+  <data name="网站首页模板" xml:space="preserve">
+    <value>Web Site Templates</value>
+  </data>
+  <data name="网站上传目录" xml:space="preserve">
+    <value>Web Upload Directory</value>
+  </data>
+  <data name="网站配置" xml:space="preserve">
+    <value>Web config</value>
+  </data>
+  <data name="网站名称" xml:space="preserve">
+    <value>Site Name</value>
+  </data>
+  <data name="网站地址" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="网站参数配置" xml:space="preserve">
+    <value>Site Parameter Config</value>
+  </data>
+  <data name="网站标题" xml:space="preserve">
+    <value>Site Title</value>
+  </data>
+  <data name="网站APP" xml:space="preserve">
+    <value>Web APP</value>
+  </data>
+  <data name="万年历" xml:space="preserve">
+    <value>Perpetual Calendar</value>
+  </data>
+  <data name="完成安装" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="外部数据源" xml:space="preserve">
+    <value>External Source</value>
+  </data>
+  <data name="外部数据库源" xml:space="preserve">
+    <value>External DB Source</value>
+  </data>
+  <data name="外部链接" xml:space="preserve">
+    <value>External links</value>
+  </data>
+  <data name="退款订单" xml:space="preserve">
+    <value>Refund Order</value>
+  </data>
+  <data name="退货日期时限" xml:space="preserve">
+    <value>Return date time limit</value>
+  </data>
+  <data name="退货明细" xml:space="preserve">
+    <value>Return Detail</value>
+  </data>
+  <data name="退稿" xml:space="preserve">
+    <value>back Manuscript</value>
+  </data>
+  <data name="退出" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="推荐新品" xml:space="preserve">
+    <value>Recommend New Products</value>
+  </data>
+  <data name="推荐商品" xml:space="preserve">
+    <value>Pick The Week</value>
+  </data>
+  <data name="推荐精品" xml:space="preserve">
+    <value>Recommend Products</value>
+  </data>
+  <data name="推荐级别" xml:space="preserve">
+    <value>Recommend Level</value>
+  </data>
+  <data name="推荐" xml:space="preserve">
+    <value>Recommend</value>
+  </data>
+  <data name="推广中心" xml:space="preserve">
+    <value>Extension Centre</value>
+  </data>
+  <data name="推广佣金" xml:space="preserve">
+    <value>Promotion Commission</value>
+  </data>
+  <data name="推广申请" xml:space="preserve">
+    <value>Promotion Application</value>
+  </data>
+  <data name="推广管理" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
+  <data name="图文群发" xml:space="preserve">
+    <value>Graphic Group</value>
+  </data>
+  <data name="图片列表操作" xml:space="preserve">
+    <value>Image list operation</value>
+  </data>
+  <data name="图片列表" xml:space="preserve">
+    <value>image list</value>
+  </data>
+  <data name="图表列表" xml:space="preserve">
+    <value>List of Charts</value>
+  </data>
+  <data name="图表管理" xml:space="preserve">
+    <value>Manage Through Figures</value>
+  </data>
+  <data name="图表分析" xml:space="preserve">
+    <value>Chart Analysis</value>
+  </data>
+  <data name="图标地址" xml:space="preserve">
+    <value>Icon address</value>
+  </data>
+  <data name="图标" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="图" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="投诉记录表" xml:space="preserve">
+    <value>Complaint Record Form</value>
+  </data>
+  <data name="投票" xml:space="preserve">
+    <value>vote</value>
+  </data>
+  <data name="统一检索" xml:space="preserve">
+    <value>Unified search</value>
+  </data>
+  <data name="统计简报" xml:space="preserve">
+    <value>Statistical Brief</value>
+  </data>
+  <data name="统计导航" xml:space="preserve">
+    <value>Statistical Navigation</value>
+  </data>
+  <data name="统计代码" xml:space="preserve">
+    <value>Statistical Code</value>
+  </data>
+  <data name="统计" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="通用统计" xml:space="preserve">
+    <value>General statistics</value>
+  </data>
+  <data name="停止销售" xml:space="preserve">
+    <value>Stop Selling</value>
+  </data>
+  <data name="贴吧版面" xml:space="preserve">
+    <value>Post Bar layout</value>
+  </data>
+  <data name="贴吧" xml:space="preserve">
+    <value>Post Bar</value>
+  </data>
+  <data name="调用标签" xml:space="preserve">
+    <value>Call Tag</value>
+  </data>
+  <data name="调用" xml:space="preserve">
+    <value>Call</value>
+  </data>
+  <data name="条形码" xml:space="preserve">
+    <value>Bar Code</value>
+  </data>
+  <data name="添加字段" xml:space="preserve">
+    <value>add field</value>
+  </data>
+  <data name="添加至专题" xml:space="preserve">
+    <value>Add to topic</value>
+  </data>
+  <data name="添加样式" xml:space="preserve">
+    <value>Add Style</value>
+  </data>
+  <data name="添加项目" xml:space="preserve">
+    <value>Add item</value>
+  </data>
+  <data name="添加问卷投票" xml:space="preserve">
+    <value>Add Questionnaire Vote</value>
+  </data>
+  <data name="添加所选项" xml:space="preserve">
+    <value>Add the option</value>
+  </data>
+  <data name="添加时间" xml:space="preserve">
+    <value>Add Time</value>
+  </data>
+  <data name="添加失败" xml:space="preserve">
+    <value>Failed to add</value>
+  </data>
+  <data name="添加申请模型" xml:space="preserve">
+    <value>Add Apply Model</value>
+  </data>
+  <data name="添加任务" xml:space="preserve">
+    <value>Add Task</value>
+  </data>
+  <data name="添加内容" xml:space="preserve">
+    <value>Add content</value>
+  </data>
+  <data name="添加内链" xml:space="preserve">
+    <value>Add Inner Chain</value>
+  </data>
+  <data name="添加模板分类" xml:space="preserve">
+    <value>Add Template Class</value>
+  </data>
+  <data name="添加礼品页面" xml:space="preserve">
+    <value>Add Gift Page</value>
+  </data>
+  <data name="添加节点" xml:space="preserve">
+    <value>Add Nodes</value>
+  </data>
+  <data name="添加积分等级" xml:space="preserve">
+    <value>Add Integral level</value>
+  </data>
+  <data name="添加会员组" xml:space="preserve">
+    <value>Add member group</value>
+  </data>
+  <data name="添加会员导航" xml:space="preserve">
+    <value>Add Member Navigation</value>
+  </data>
+  <data name="添加会员" xml:space="preserve">
+    <value>Add Member</value>
+  </data>
+  <data name="添加黄页样式" xml:space="preserve">
+    <value>Add Pages Style</value>
+  </data>
+  <data name="添加黄页模型" xml:space="preserve">
+    <value>Add Pages Model</value>
+  </data>
+  <data name="添加互动模块" xml:space="preserve">
+    <value>Add interactive module</value>
+  </data>
+  <data name="添加互动表单" xml:space="preserve">
+    <value>Add interactive form</value>
+  </data>
+  <data name="添加管理导航" xml:space="preserve">
+    <value>Add Navigation</value>
+  </data>
+  <data name="添加房间" xml:space="preserve">
+    <value>Add room</value>
+  </data>
+  <data name="添加店铺" xml:space="preserve">
+    <value>Add Shop</value>
+  </data>
+  <data name="添加到专题" xml:space="preserve">
+    <value>Add The Topic</value>
+  </data>
+  <data name="添加导出配置" xml:space="preserve">
+    <value>Add export configuration</value>
+  </data>
+  <data name="添加促销方案" xml:space="preserve">
+    <value>Add Promotion Plan</value>
+  </data>
+  <data name="添加成功" xml:space="preserve">
+    <value>Added successfully</value>
+  </data>
+  <data name="添加产品" xml:space="preserve">
+    <value>Add product</value>
+  </data>
+  <data name="添加采集" xml:space="preserve">
+    <value>Add acquisition</value>
+  </data>
+  <data name="添加标签" xml:space="preserve">
+    <value>Add Tag</value>
+  </data>
+  <data name="添加JS文件_图片列表" xml:space="preserve">
+    <value>Add JS file (image list)</value>
+  </data>
+  <data name="添加JS文件_普通列表" xml:space="preserve">
+    <value>Add JS file (common list)</value>
+  </data>
+  <data name="添加Flex礼品" xml:space="preserve">
+    <value>Add Flex gift</value>
+  </data>
+  <data name="添加Excel输出规则" xml:space="preserve">
+    <value>Add Excel output rule</value>
+  </data>
+  <data name="添加" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="天" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="题型管理" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="提醒您" xml:space="preserve">
+    <value>Remind you</value>
+  </data>
+  <data name="提示" xml:space="preserve">
+    <value>Prompt</value>
+  </data>
+  <data name="提交学员" xml:space="preserve">
+    <value>Submitted Student</value>
+  </data>
+  <data name="提交" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="特价处理的商品" xml:space="preserve">
+    <value>Special Handling Goods</value>
+  </data>
+  <data name="特价" xml:space="preserve">
+    <value>Special</value>
+  </data>
+  <data name="套红管理" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="锁定屏幕" xml:space="preserve">
+    <value>Lock screen</value>
+  </data>
+  <data name="锁定" xml:space="preserve">
+    <value>Lock</value>
+  </data>
+  <data name="所有应用" xml:space="preserve">
+    <value>All APP</value>
+  </data>
+  <data name="所有新品" xml:space="preserve">
+    <value>All New</value>
+  </data>
+  <data name="所有商品" xml:space="preserve">
+    <value>All goods</value>
+  </data>
+  <data name="所有热销的商品" xml:space="preserve">
+    <value>All Sales Goods</value>
+  </data>
+  <data name="所有评论" xml:space="preserve">
+    <value>All Comments</value>
+  </data>
+  <data name="所有内容" xml:space="preserve">
+    <value>All Content</value>
+  </data>
+  <data name="所有礼品" xml:space="preserve">
+    <value>All Gifts</value>
+  </data>
+  <data name="所有捆绑销售商品" xml:space="preserve">
+    <value>All Bundled Goods</value>
+  </data>
+  <data name="所有客户" xml:space="preserve">
+    <value>All Customer</value>
+  </data>
+  <data name="所有精品商品" xml:space="preserve">
+    <value>All The Goods</value>
+  </data>
+  <data name="所有订单" xml:space="preserve">
+    <value>All Order</value>
+  </data>
+  <data name="所有" xml:space="preserve">
+    <value>ALL</value>
+  </data>
+  <data name="所需积分" xml:space="preserve">
+    <value>points required</value>
+  </data>
+  <data name="所属专题" xml:space="preserve">
+    <value>Special Subject</value>
+  </data>
+  <data name="所属内容标题" xml:space="preserve">
+    <value>Title of the content</value>
+  </data>
+  <data name="所属行业" xml:space="preserve">
+    <value>Owned Industry</value>
+  </data>
+  <data name="素材中心" xml:space="preserve">
+    <value>Material Center</value>
+  </data>
+  <data name="搜索管理员名称" xml:space="preserve">
+    <value>Searchr</value>
+  </data>
+  <data name="搜索管理" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="搜索" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="说明" xml:space="preserve">
+    <value>Explain</value>
+  </data>
+  <data name="水印缩图" xml:space="preserve">
+    <value>Watermark Thumbnails</value>
+  </data>
+  <data name="双认证" xml:space="preserve">
+    <value>Dual Auth</value>
+  </data>
+  <data name="双击修改" xml:space="preserve">
+    <value>Double click to modify</value>
+  </data>
+  <data name="双击打开详细页面" xml:space="preserve">
+    <value>Double click to open the details page</value>
+  </data>
+  <data name="双击打开" xml:space="preserve">
+    <value>Double To Open</value>
+  </data>
+  <data name="刷新用户" xml:space="preserve">
+    <value>Refresh User</value>
+  </data>
+  <data name="刷新完成" xml:space="preserve">
+    <value>Refresh is done.</value>
+  </data>
+  <data name="刷新图片列表" xml:space="preserve">
+    <value>Refresh image list</value>
+  </data>
+  <data name="刷新普通列表" xml:space="preserve">
+    <value>Refresh the list of common</value>
+  </data>
+  <data name="刷新" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="数字出版" xml:space="preserve">
+    <value>Digital publishing</value>
+  </data>
+  <data name="数据字典" xml:space="preserve">
+    <value>Data Dictionary</value>
+  </data>
+  <data name="数据源地址" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="数据索引优化" xml:space="preserve">
+    <value>Data Index Optimization</value>
+  </data>
+  <data name="数据入库" xml:space="preserve">
+    <value>Data Warehousing</value>
+  </data>
+  <data name="数据连接" xml:space="preserve">
+    <value>Data Connection</value>
+  </data>
+  <data name="数据库用户" xml:space="preserve">
+    <value>DB User</value>
+  </data>
+  <data name="数据库名称不能为空" xml:space="preserve">
+    <value>Database name cannot be empty</value>
+  </data>
+  <data name="数据库名称" xml:space="preserve">
+    <value>DB Name</value>
+  </data>
+  <data name="数据库口令" xml:space="preserve">
+    <value>DB PWD</value>
+  </data>
+  <data name="数据库管理" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="数据库版本" xml:space="preserve">
+    <value>DB Version</value>
+  </data>
+  <data name="数据管理" xml:space="preserve">
+    <value>Data Manage</value>
+  </data>
+  <data name="数据表" xml:space="preserve">
+    <value>Data sheet</value>
+  </data>
+  <data name="输入新密码" xml:space="preserve">
+    <value>Enter New PWD</value>
+  </data>
+  <data name="输入旧密码" xml:space="preserve">
+    <value>Enter Old PWD</value>
+  </data>
+  <data name="授权审核" xml:space="preserve">
+    <value>Authorization Audit</value>
+  </data>
+  <data name="授权码" xml:space="preserve">
+    <value>Authorization code</value>
+  </data>
+  <data name="首页生成后缀" xml:space="preserve">
+    <value>Home Generated Suffix</value>
+  </data>
+  <data name="首页" xml:space="preserve">
+    <value>Home Screen</value>
+  </data>
+  <data name="手机信息" xml:space="preserve">
+    <value>Mobile Info</value>
+  </data>
+  <data name="手机校验码注册" xml:space="preserve">
+    <value>Mobile Checksum register</value>
+  </data>
+  <data name="手机校验码位数" xml:space="preserve">
+    <value>Mobile phone checksum digit</value>
+  </data>
+  <data name="手机校验码规则" xml:space="preserve">
+    <value>Mobile phone verification code rules</value>
+  </data>
+  <data name="手机口令器" xml:space="preserve">
+    <value>Mobile Phone PWD</value>
+  </data>
+  <data name="手机节日提醒" xml:space="preserve">
+    <value>Mobile phone holidays</value>
+  </data>
+  <data name="手机节日" xml:space="preserve">
+    <value>Mobile Festival</value>
+  </data>
+  <data name="手机短信" xml:space="preserve">
+    <value>Mobile phone SMS</value>
+  </data>
+  <data name="手动排序" xml:space="preserve">
+    <value>Manual Sorting</value>
+  </data>
+  <data name="收缩所有节点" xml:space="preserve">
+    <value>Shrink All Nodes</value>
+  </data>
+  <data name="收款金额" xml:space="preserve">
+    <value>Receivable Amount</value>
+  </data>
+  <data name="收货人邮箱" xml:space="preserve">
+    <value>Consignee Mailbox</value>
+  </data>
+  <data name="收货人" xml:space="preserve">
+    <value>Consignee</value>
+  </data>
+  <data name="是否注册可选" xml:space="preserve">
+    <value>Is registration  optional</value>
+  </data>
+  <data name="是否允许一个Email注册多个会员" xml:space="preserve">
+    <value>Is allow a Email Reg multiple User</value>
+  </data>
+  <data name="是否允许上传文件" xml:space="preserve">
+    <value>Permission to upload files</value>
+  </data>
+  <data name="是否允许多人同时使用同一会员帐号登录" xml:space="preserve">
+    <value>Is allow people to use the same account login</value>
+  </data>
+  <data name="是否为招生人员" xml:space="preserve">
+    <value>IS admissions officers</value>
+  </data>
+  <data name="是否为企业用户组" xml:space="preserve">
+    <value>IS business users group</value>
+  </data>
+  <data name="是否为VIP用户组" xml:space="preserve">
+    <value>IS VIP user group</value>
+  </data>
+  <data name="是否使用软键盘输入密码" xml:space="preserve">
+    <value>Whether to use the soft keyboard input password</value>
+  </data>
+  <data name="是否删除选定记录" xml:space="preserve">
+    <value>Do you want to delete the selected records</value>
+  </data>
+  <data name="是否删除该项" xml:space="preserve">
+    <value>Delete the item</value>
+  </data>
+  <data name="是否启用后台管理认证码" xml:space="preserve">
+    <value>Enable back Manage Auth code</value>
+  </data>
+  <data name="是否启用发送短信" xml:space="preserve">
+    <value>Whether to Enable Send Messages</value>
+  </data>
+  <data name="是否立即生成" xml:space="preserve">
+    <value>Generate Immediately</value>
+  </data>
+  <data name="是否立即绑定" xml:space="preserve">
+    <value>Whether or not immediately bound</value>
+  </data>
+  <data name="是否开启注册成功邮件提醒" xml:space="preserve">
+    <value>Is open Registered mail reminder</value>
+  </data>
+  <data name="是否开启注册Email验证" xml:space="preserve">
+    <value>Is open Reg erification Email</value>
+  </data>
+  <data name="是否开启用户注册管理员验证" xml:space="preserve">
+    <value>Is open user Reg Admin Auth</value>
+  </data>
+  <data name="是否开启用户ID登录" xml:space="preserve">
+    <value>Whether to open the user login ID</value>
+  </data>
+  <data name="是否开启会员注册" xml:space="preserve">
+    <value>Is User registration</value>
+  </data>
+  <data name="是否开启管理员申请" xml:space="preserve">
+    <value>Whether To Open The Manager App</value>
+  </data>
+  <data name="是否开启个人空间" xml:space="preserve">
+    <value>Whether to open personal space</value>
+  </data>
+  <data name="是否开启多用户网店功能" xml:space="preserve">
+    <value>Whether to open multi user online function</value>
+  </data>
+  <data name="是否开启Email注册登录" xml:space="preserve">
+    <value>Is open the Email login</value>
+  </data>
+  <data name="是否过滤敏感词汇" xml:space="preserve">
+    <value>Whether to filter sensitive vocabulary</value>
+  </data>
+  <data name="是否必填" xml:space="preserve">
+    <value>If required</value>
+  </data>
+  <data name="是" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="视频配置" xml:space="preserve">
+    <value>Video configuration</value>
+  </data>
+  <data name="视频路径" xml:space="preserve">
+    <value>Video path</value>
+  </data>
+  <data name="视频列表" xml:space="preserve">
+    <value>Video list</value>
+  </data>
+  <data name="视频管理" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="视频服务器源" xml:space="preserve">
+    <value>Video Server Source</value>
+  </data>
+  <data name="试题名称或ID" xml:space="preserve">
+    <value>Name OR ID</value>
+  </data>
+  <data name="试题名" xml:space="preserve">
+    <value>Question Name</value>
+  </data>
+  <data name="试题科目" xml:space="preserve">
+    <value>Test subjects</value>
+  </data>
+  <data name="试题管理" xml:space="preserve">
+    <value>Questions</value>
+  </data>
+  <data name="试卷节点" xml:space="preserve">
+    <value>Paper Node</value>
+  </data>
+  <data name="试卷管理" xml:space="preserve">
+    <value>Paper</value>
+  </data>
+  <data name="试卷标题或ID" xml:space="preserve">
+    <value>Title OR ID</value>
+  </data>
+  <data name="试戴密匙" xml:space="preserve">
+    <value>Try Daimi spoon</value>
+  </data>
+  <data name="事务中心" xml:space="preserve">
+    <value>Transaction Center</value>
+  </data>
+  <data name="使用外币结算" xml:space="preserve">
+    <value>Use Foreign Currency Settlement</value>
+  </data>
+  <data name="使用方法" xml:space="preserve">
+    <value>Method of use</value>
+  </data>
+  <data name="实际库存报警的商品" xml:space="preserve">
+    <value>Actual Inventory alarm</value>
+  </data>
+  <data name="实际金额合计" xml:space="preserve">
+    <value>Total Actual Amount</value>
+  </data>
+  <data name="实际金额" xml:space="preserve">
+    <value>Actual Amount</value>
+  </data>
+  <data name="时间不正确" xml:space="preserve">
+    <value>Time is not right</value>
+  </data>
+  <data name="时间" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="省市报表" xml:space="preserve">
+    <value>Provinces Cities Report</value>
+  </data>
+  <data name="生成文件" xml:space="preserve">
+    <value>created file</value>
+  </data>
+  <data name="生成内容" xml:space="preserve">
+    <value>Generating Content</value>
+  </data>
+  <data name="生成静态目录" xml:space="preserve">
+    <value>Generate Static Dir</value>
+  </data>
+  <data name="生成节点" xml:space="preserve">
+    <value>Generating Node</value>
+  </data>
+  <data name="生成管理" xml:space="preserve">
+    <value>Generation</value>
+  </data>
+  <data name="生成发布" xml:space="preserve">
+    <value>Generate release</value>
+  </data>
+  <data name="生成操作" xml:space="preserve">
+    <value>Generating operation</value>
+  </data>
+  <data name="生成PDF文件" xml:space="preserve">
+    <value>Generate PDF file</value>
+  </data>
+  <data name="生成PDF目录" xml:space="preserve">
+    <value>Generate PDF directory</value>
+  </data>
+  <data name="生成" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="升序" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="审核通过" xml:space="preserve">
+    <value>Audit Pass</value>
+  </data>
+  <data name="审核空间" xml:space="preserve">
+    <value>Audit Space</value>
+  </data>
+  <data name="审核记录" xml:space="preserve">
+    <value>Audit Logging</value>
+  </data>
+  <data name="申请授权" xml:space="preserve">
+    <value>Apply Authorization</value>
+  </data>
+  <data name="申请模型管理" xml:space="preserve">
+    <value>Apply Model</value>
+  </data>
+  <data name="申请模型" xml:space="preserve">
+    <value>Application model</value>
+  </data>
+  <data name="申请百度key" xml:space="preserve">
+    <value>The application of Baidu key</value>
+  </data>
+  <data name="社会化登录" xml:space="preserve">
+    <value>Social login</value>
+  </data>
+  <data name="社会登录" xml:space="preserve">
+    <value>Social Login</value>
+  </data>
+  <data name="设置网页脚本" xml:space="preserve">
+    <value>Set Page Script</value>
+  </data>
+  <data name="设置等级" xml:space="preserve">
+    <value>Set Level</value>
+  </data>
+  <data name="设置Cookie" xml:space="preserve">
+    <value>Set Cookie</value>
+  </data>
+  <data name="设置" xml:space="preserve">
+    <value>Set up</value>
+  </data>
+  <data name="设为新品" xml:space="preserve">
+    <value>Set AS New</value>
+  </data>
+  <data name="设为热卖" xml:space="preserve">
+    <value>For Sale</value>
+  </data>
+  <data name="设为精品" xml:space="preserve">
+    <value>Set AS Boutique</value>
+  </data>
+  <data name="设计表单" xml:space="preserve">
+    <value>Design form</value>
+  </data>
+  <data name="设计" xml:space="preserve">
+    <value>Design</value>
+  </data>
+  <data name="设备自动适配" xml:space="preserve">
+    <value>Auto Adaptation</value>
+  </data>
+  <data name="设备接入" xml:space="preserve">
+    <value>Device Access</value>
+  </data>
+  <data name="尚未定义专题" xml:space="preserve">
+    <value>Topic not yet defined</value>
+  </data>
+  <data name="上移" xml:space="preserve">
+    <value>Move Up</value>
+  </data>
+  <data name="上一步" xml:space="preserve">
+    <value>Prev Step</value>
+  </data>
+  <data name="上传日志" xml:space="preserve">
+    <value>Upload Log</value>
+  </data>
+  <data name="上传模板" xml:space="preserve">
+    <value>Upload Template</value>
+  </data>
+  <data name="上传控制" xml:space="preserve">
+    <value>Upload Control</value>
+  </data>
+  <data name="上传" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="商业授权" xml:space="preserve">
+    <value>Business</value>
+  </data>
+  <data name="商品销售" xml:space="preserve">
+    <value>Merchandise Sales</value>
+  </data>
+  <data name="商品推广" xml:space="preserve">
+    <value>Product Promotion</value>
+  </data>
+  <data name="商品图片" xml:space="preserve">
+    <value>Product Pictures</value>
+  </data>
+  <data name="商品数" xml:space="preserve">
+    <value>Commodity Num</value>
+  </data>
+  <data name="商品属性中的各项含义" xml:space="preserve">
+    <value>The meaning of commodity attribute</value>
+  </data>
+  <data name="商品属性" xml:space="preserve">
+    <value>Product Attribute</value>
+  </data>
+  <data name="商品名称或ID" xml:space="preserve">
+    <value>ProtName OR ID</value>
+  </data>
+  <data name="商品名称" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="商品列表" xml:space="preserve">
+    <value>List OF Goods</value>
+  </data>
+  <data name="商品介绍" xml:space="preserve">
+    <value>Product Introduces</value>
+  </data>
+  <data name="商品简介" xml:space="preserve">
+    <value>Product Profile</value>
+  </data>
+  <data name="商品回收站" xml:space="preserve">
+    <value>Commodity recycling station</value>
+  </data>
+  <data name="商品管理" xml:space="preserve">
+    <value>Merchandise Control</value>
+  </data>
+  <data name="商品操作" xml:space="preserve">
+    <value>Operation</value>
+  </data>
+  <data name="商品编号生成规则" xml:space="preserve">
+    <value>Commodity code generation rule</value>
+  </data>
+  <data name="商城配置" xml:space="preserve">
+    <value>Mall configuration</value>
+  </data>
+  <data name="商城模型" xml:space="preserve">
+    <value>Mall Model</value>
+  </data>
+  <data name="商城管理" xml:space="preserve">
+    <value>Mall</value>
+  </data>
+  <data name="商城订单" xml:space="preserve">
+    <value>Mall Order</value>
+  </data>
+  <data name="商城" xml:space="preserve">
+    <value>Mall</value>
+  </data>
+  <data name="商标" xml:space="preserve">
+    <value>Trademark</value>
+  </data>
+  <data name="删除所有节点" xml:space="preserve">
+    <value>Delete All Nodes</value>
+  </data>
+  <data name="删除失败" xml:space="preserve">
+    <value>Delete failed</value>
+  </data>
+  <data name="删除目录及管理目录的索引文件" xml:space="preserve">
+    <value>Index file to delete directory and manage directory</value>
+  </data>
+  <data name="删除订单" xml:space="preserve">
+    <value>Delete Order</value>
+  </data>
+  <data name="删除导航" xml:space="preserve">
+    <value>Remove Navigation</value>
+  </data>
+  <data name="删除成功" xml:space="preserve">
+    <value>Successfully Deleted</value>
+  </data>
+  <data name="删除" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="沙发" xml:space="preserve">
+    <value>sofa</value>
+  </data>
+  <data name="入住时间" xml:space="preserve">
+    <value>Check in Time</value>
+  </data>
+  <data name="入库出库" xml:space="preserve">
+    <value>Warehousing</value>
+  </data>
+  <data name="如已手工预执行点此" xml:space="preserve">
+    <value>If you have installed database</value>
+  </data>
+  <data name="如需生成静态首页" xml:space="preserve">
+    <value>If you need to generate a static home page</value>
+  </data>
+  <data name="如果选择了栏目" xml:space="preserve">
+    <value>If you choose the columns, produces only select the column content; if you do not choose to generate directly, generating station</value>
+  </data>
+  <data name="如local或远程主机名" xml:space="preserve">
+    <value>(local) or remote host name</value>
+  </data>
+  <data name="日志管理" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="任务类型错误" xml:space="preserve">
+    <value>Task type error</value>
+  </data>
+  <data name="任务管理" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="认证用户" xml:space="preserve">
+    <value>Authenticate User</value>
+  </data>
+  <data name="人才招聘" xml:space="preserve">
+    <value>Talent recruitment</value>
+  </data>
+  <data name="人才模板" xml:space="preserve">
+    <value>Talent Template</value>
+  </data>
+  <data name="热门商品" xml:space="preserve">
+    <value>Hot Commodity</value>
+  </data>
+  <data name="热门" xml:space="preserve">
+    <value>Hot</value>
+  </data>
+  <data name="热" xml:space="preserve">
+    <value>Hot</value>
+  </data>
+  <data name="群发模板" xml:space="preserve">
+    <value>Mass template</value>
+  </data>
+  <data name="确实要删除此信息" xml:space="preserve">
+    <value>Are you sure you want to delete this information</value>
+  </data>
+  <data name="确实要复制吗" xml:space="preserve">
+    <value>Are you sure you want to copy</value>
+  </data>
+  <data name="确实要放入存档吗" xml:space="preserve">
+    <value>Are you sure you want to put in the file</value>
+  </data>
+  <data name="确认密码不能为空" xml:space="preserve">
+    <value>Confirm password cannot be empty</value>
+  </data>
+  <data name="确认密码" xml:space="preserve">
+    <value>Confirm PWD</value>
+  </data>
+  <data name="确认订单" xml:space="preserve">
+    <value>Confirm Order</value>
+  </data>
+  <data name="确认" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="确定" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="全站统计" xml:space="preserve">
+    <value>Total Station Statistics</value>
+  </data>
+  <data name="全文目录管理" xml:space="preserve">
+    <value>Full-text Log</value>
+  </data>
+  <data name="全库数据检索" xml:space="preserve">
+    <value>Full DB Data Retrieval</value>
+  </data>
+  <data name="全局语言" xml:space="preserve">
+    <value>Global Language</value>
+  </data>
+  <data name="全局设置" xml:space="preserve">
+    <value>Global Setting</value>
+  </data>
+  <data name="全局配置" xml:space="preserve">
+    <value>Global configuration</value>
+  </data>
+  <data name="全景音乐" xml:space="preserve">
+    <value>Panoramic Music</value>
+  </data>
+  <data name="全景列表" xml:space="preserve">
+    <value>Panorama List</value>
+  </data>
+  <data name="全部用户" xml:space="preserve">
+    <value>All Users</value>
+  </data>
+  <data name="全部会员" xml:space="preserve">
+    <value>All Members</value>
+  </data>
+  <data name="全部城市" xml:space="preserve">
+    <value>All Cities</value>
+  </data>
+  <data name="全部标签" xml:space="preserve">
+    <value>All Tags</value>
+  </data>
+  <data name="权限" xml:space="preserve">
+    <value>Jurisdiction</value>
+  </data>
+  <data name="取消新品" xml:space="preserve">
+    <value>Cancel New</value>
+  </data>
+  <data name="取消推荐" xml:space="preserve">
+    <value>Cancel Recommend</value>
+  </data>
+  <data name="取消审核" xml:space="preserve">
+    <value>Cancel Audit</value>
+  </data>
+  <data name="取消认证" xml:space="preserve">
+    <value>Cancel Auth</value>
+  </data>
+  <data name="取消热卖" xml:space="preserve">
+    <value>Cancel Sale</value>
+  </data>
+  <data name="取消精品" xml:space="preserve">
+    <value>Cancel Boutique</value>
+  </data>
+  <data name="取消" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="请选择排列顺序" xml:space="preserve">
+    <value>Please choose the order of arrangement</value>
+  </data>
+  <data name="请选择您要设置的数据" xml:space="preserve">
+    <value>Please select the data you want to set</value>
+  </data>
+  <data name="请选择查找方式" xml:space="preserve">
+    <value>Select the way to Search</value>
+  </data>
+  <data name="请选择" xml:space="preserve">
+    <value>Please Select</value>
+  </data>
+  <data name="请输入有效数字" xml:space="preserve">
+    <value>Please enter a valid number!</value>
+  </data>
+  <data name="请输入有效数据" xml:space="preserve">
+    <value>Please enter a valid data!</value>
+  </data>
+  <data name="请输入用户名" xml:space="preserve">
+    <value>Enter user name</value>
+  </data>
+  <data name="请输入需要搜索的内容" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="请输入数量" xml:space="preserve">
+    <value>Please Enter Quantity</value>
+  </data>
+  <data name="请输入标签名称" xml:space="preserve">
+    <value>Enter Name</value>
+  </data>
+  <data name="请上传正确的扩展名的模板文件" xml:space="preserve">
+    <value>Please upload the correct extension of the template file</value>
+  </data>
+  <data name="请确保目标数据库中没有同名表和存储过程" xml:space="preserve">
+    <value>Make sure target DB does not have the same name and procedures</value>
+  </data>
+  <data name="请继承上一项模板目录" xml:space="preserve">
+    <value>Please inherit a template directory</value>
+  </data>
+  <data name="请点击" xml:space="preserve">
+    <value>Please Click</value>
+  </data>
+  <data name="请" xml:space="preserve">
+    <value>Please</value>
+  </data>
+  <data name="清空文档" xml:space="preserve">
+    <value>Empty Document</value>
+  </data>
+  <data name="清空失败" xml:space="preserve">
+    <value>Empty failed</value>
+  </data>
+  <data name="清空成功" xml:space="preserve">
+    <value>Empty success</value>
+  </data>
+  <data name="清空测试数据" xml:space="preserve">
+    <value>Empty Test Data</value>
+  </data>
+  <data name="抢车管理" xml:space="preserve">
+    <value>Car</value>
+  </data>
+  <data name="前往设置" xml:space="preserve">
+    <value>To Set</value>
+  </data>
+  <data name="前台正在注册的表单页面将失效" xml:space="preserve">
+    <value>If you change this, the receptionist is registered in the form page will fail</value>
+  </data>
+  <data name="前台浏览" xml:space="preserve">
+    <value>Front View</value>
+  </data>
+  <data name="签章管理" xml:space="preserve">
+    <value>Signature</value>
+  </data>
+  <data name="签名管理" xml:space="preserve">
+    <value>Signature</value>
+  </data>
+  <data name="起始日期" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="起始ID不能为空" xml:space="preserve">
+    <value>Starting ID cannot be empty</value>
+  </data>
+  <data name="启用系统帮助" xml:space="preserve">
+    <value>Enable System Help</value>
+  </data>
+  <data name="启用" xml:space="preserve">
+    <value>start using</value>
+  </data>
+  <data name="企业客户" xml:space="preserve">
+    <value>Enterprise Customers</value>
+  </data>
+  <data name="其它配置" xml:space="preserve">
+    <value>Other Config</value>
+  </data>
+  <data name="其他功能" xml:space="preserve">
+    <value>Other functions</value>
+  </data>
+  <data name="期限金额" xml:space="preserve">
+    <value>Amount of time</value>
+  </data>
+  <data name="期限" xml:space="preserve">
+    <value>Term</value>
+  </data>
+  <data name="普通列表" xml:space="preserve">
+    <value>General list</value>
+  </data>
+  <data name="普通" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="屏幕分辨率" xml:space="preserve">
+    <value>Screen Res</value>
+  </data>
+  <data name="屏大小" xml:space="preserve">
+    <value>Screen Size</value>
+  </data>
+  <data name="评阅试卷" xml:space="preserve">
+    <value>Review Paper</value>
+  </data>
+  <data name="评论内容" xml:space="preserve">
+    <value>Comment content</value>
+  </data>
+  <data name="评论积分赠送" xml:space="preserve">
+    <value>Comment Score</value>
+  </data>
+  <data name="评论管理" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="评论ID" xml:space="preserve">
+    <value>Comment ID</value>
+  </data>
+  <data name="评论" xml:space="preserve">
+    <value>comments</value>
+  </data>
+  <data name="品牌商标" xml:space="preserve">
+    <value>Brand Trademark</value>
+  </data>
+  <data name="品牌管理" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="品牌" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="拼音缩写" xml:space="preserve">
+    <value>Pinyin</value>
+  </data>
+  <data name="篇文章" xml:space="preserve">
+    <value>article</value>
+  </data>
+  <data name="篇" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="批量移动" xml:space="preserve">
+    <value>Batch Move</value>
+  </data>
+  <data name="批量修改" xml:space="preserve">
+    <value>Batch Modify</value>
+  </data>
+  <data name="批量推荐" xml:space="preserve">
+    <value>Batch Recommend</value>
+  </data>
+  <data name="批量停用" xml:space="preserve">
+    <value>Batch Stop</value>
+  </data>
+  <data name="批量锁定" xml:space="preserve">
+    <value>Batch Lock</value>
+  </data>
+  <data name="批量审核" xml:space="preserve">
+    <value>Batch Audit</value>
+  </data>
+  <data name="批量设置为热卖失败" xml:space="preserve">
+    <value>Batch set for hot failure</value>
+  </data>
+  <data name="批量设置为热卖成功" xml:space="preserve">
+    <value>Batch set for selling success</value>
+  </data>
+  <data name="批量设置为开始销售失败" xml:space="preserve">
+    <value>Batch set to start selling failed</value>
+  </data>
+  <data name="批量设置为开始销售成功" xml:space="preserve">
+    <value>Batch set to start sales success</value>
+  </data>
+  <data name="批量设置" xml:space="preserve">
+    <value>Batch Setting</value>
+  </data>
+  <data name="批量设为精品成功" xml:space="preserve">
+    <value>Mass set to boutique success</value>
+  </data>
+  <data name="批量删除文件" xml:space="preserve">
+    <value>Batch delete file</value>
+  </data>
+  <data name="批量删除失败" xml:space="preserve">
+    <value>Batch delete failed</value>
+  </data>
+  <data name="批量删除" xml:space="preserve">
+    <value>Batch Delete</value>
+  </data>
+  <data name="批量启用" xml:space="preserve">
+    <value>Batch Enable</value>
+  </data>
+  <data name="批量解锁" xml:space="preserve">
+    <value>Batch Release</value>
+  </data>
+  <data name="批量还原" xml:space="preserve">
+    <value>Batch Reduction</value>
+  </data>
+  <data name="批量导入" xml:space="preserve">
+    <value>Batch Import</value>
+  </data>
+  <data name="批量导出" xml:space="preserve">
+    <value>Bulk Export</value>
+  </data>
+  <data name="配置中心" xml:space="preserve">
+    <value>Config Center</value>
+  </data>
+  <data name="配置网站信息" xml:space="preserve">
+    <value>Step 4：Config Info</value>
+  </data>
+  <data name="配置网站基本信息" xml:space="preserve">
+    <value>Configure site basic information</value>
+  </data>
+  <data name="配置数据库连接" xml:space="preserve">
+    <value>Step 3:Config DB Connection</value>
+  </data>
+  <data name="配置本节点" xml:space="preserve">
+    <value>Configure this Node</value>
+  </data>
+  <data name="配置" xml:space="preserve">
+    <value>Configure</value>
+  </data>
+  <data name="培训资源库" xml:space="preserve">
+    <value>Training resource database</value>
+  </data>
+  <data name="排序" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="排列顺序" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="排课管理" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="排行榜" xml:space="preserve">
+    <value>Ranking List</value>
+  </data>
+  <data name="农历" xml:space="preserve">
+    <value>Lunar calendar</value>
+  </data>
+  <data name="您可以修改广告JS存放目录" xml:space="preserve">
+    <value>You can modify the ad JS storage directory</value>
+  </data>
+  <data name="您可以填写允许的最大值" xml:space="preserve">
+    <value>You can fill in the maximum allowed value</value>
+  </data>
+  <data name="年级管理" xml:space="preserve">
+    <value>Grade</value>
+  </data>
+  <data name="年" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="昵称" xml:space="preserve">
+    <value>NickName</value>
+  </data>
+  <data name="你确定要删除该节点吗" xml:space="preserve">
+    <value>Are you sure you want to delete the node it</value>
+  </data>
+  <data name="你确定要导出选中标签吗" xml:space="preserve">
+    <value>Are you sure you want to export the label</value>
+  </data>
+  <data name="能力中心" xml:space="preserve">
+    <value>Ability center</value>
+  </data>
+  <data name="能力配置" xml:space="preserve">
+    <value>Ability Config</value>
+  </data>
+  <data name="内容信息" xml:space="preserve">
+    <value>Content Info</value>
+  </data>
+  <data name="内容推送" xml:space="preserve">
+    <value>Content Push</value>
+  </data>
+  <data name="内容生成管理" xml:space="preserve">
+    <value>Content generation manage</value>
+  </data>
+  <data name="内容模型" xml:space="preserve">
+    <value>Content Model</value>
+  </data>
+  <data name="内容管理" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="内容操作" xml:space="preserve">
+    <value>Content Option</value>
+  </data>
+  <data name="内容参数" xml:space="preserve">
+    <value>Content parameter</value>
+  </data>
+  <data name="内容不超过70个字" xml:space="preserve">
+    <value>The content of not more than 70 words</value>
+  </data>
+  <data name="内容标题查重" xml:space="preserve">
+    <value>Content title check</value>
+  </data>
+  <data name="内容ID" xml:space="preserve">
+    <value>Content ID</value>
+  </data>
+  <data name="内容" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="内部记录" xml:space="preserve">
+    <value>Internal Record</value>
+  </data>
+  <data name="难度管理" xml:space="preserve">
+    <value>Difficulty</value>
+  </data>
+  <data name="目录名前后不要加斜杠" xml:space="preserve">
+    <value>Don't add the directory slash</value>
+  </data>
+  <data name="默认为AD" xml:space="preserve">
+    <value>Default AD</value>
+  </data>
+  <data name="默认为" xml:space="preserve">
+    <value>Default is</value>
+  </data>
+  <data name="默认回调地址" xml:space="preserve">
+    <value>default callback address</value>
+  </data>
+  <data name="默认风格" xml:space="preserve">
+    <value>Default Style</value>
+  </data>
+  <data name="默认编辑器" xml:space="preserve">
+    <value>Default Editor</value>
+  </data>
+  <data name="默认" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="模型名称" xml:space="preserve">
+    <value>Model Name</value>
+  </data>
+  <data name="模型描述" xml:space="preserve">
+    <value>Model Description</value>
+  </data>
+  <data name="模型管理" xml:space="preserve">
+    <value>Manage model</value>
+  </data>
+  <data name="模型表名" xml:space="preserve">
+    <value>Module Table</value>
+  </data>
+  <data name="模型CSV导入模板" xml:space="preserve">
+    <value>Model CSV import template</value>
+  </data>
+  <data name="模型" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="模块名称" xml:space="preserve">
+    <value>Module Name</value>
+  </data>
+  <data name="模块类型" xml:space="preserve">
+    <value>Module Type</value>
+  </data>
+  <data name="模版管理" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="模板中心" xml:space="preserve">
+    <value>Template Center</value>
+  </data>
+  <data name="模板云台" xml:space="preserve">
+    <value>Template platform</value>
+  </data>
+  <data name="模板设置" xml:space="preserve">
+    <value>Template Setting</value>
+  </data>
+  <data name="模板管理" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="模板风格" xml:space="preserve">
+    <value>Template style</value>
+  </data>
+  <data name="模板分类管理" xml:space="preserve">
+    <value>Template Class</value>
+  </data>
+  <data name="模板方案" xml:space="preserve">
+    <value>Template Scheme</value>
+  </data>
+  <data name="模板编辑" xml:space="preserve">
+    <value>Template editing</value>
+  </data>
+  <data name="明细记录" xml:space="preserve">
+    <value>Detail Record</value>
+  </data>
+  <data name="明天" xml:space="preserve">
+    <value>Tomorrow</value>
+  </data>
+  <data name="名称" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="敏感过滤" xml:space="preserve">
+    <value>Sensitive Filtration</value>
+  </data>
+  <data name="敏感词汇请用逗号分隔" xml:space="preserve">
+    <value>Use To Be ',' separating Sensitive vocabulary</value>
+  </data>
+  <data name="密码少于六位" xml:space="preserve">
+    <value>Password less than six</value>
+  </data>
+  <data name="密码不能为空" xml:space="preserve">
+    <value>Password can not be empty</value>
+  </data>
+  <data name="每月统计" xml:space="preserve">
+    <value>Monthly Statistics</value>
+  </data>
+  <data name="每天" xml:space="preserve">
+    <value>Every Day</value>
+  </data>
+  <data name="每日统计" xml:space="preserve">
+    <value>Daily Statistics</value>
+  </data>
+  <data name="每个月最多使用" xml:space="preserve">
+    <value>Each month, use at most</value>
+  </data>
+  <data name="每个用户名请用竖杠符号分隔" xml:space="preserve">
+    <value>Please separate each user name with "|" symbol</value>
+  </data>
+  <data name="每个包年会员费为" xml:space="preserve">
+    <value>Each package member is</value>
+  </data>
+  <data name="每次签到奖励" xml:space="preserve">
+    <value>Each sign reward</value>
+  </data>
+  <data name="媒体文件最大值" xml:space="preserve">
+    <value>Maximum value of media files</value>
+  </data>
+  <data name="媒体文件类型限制" xml:space="preserve">
+    <value>Media file type restriction</value>
+  </data>
+  <data name="没有权限进行此项操作" xml:space="preserve">
+    <value>No permission to perform this operation</value>
+  </data>
+  <data name="没有互动模块信息" xml:space="preserve">
+    <value>No interaction module information</value>
+  </data>
+  <data name="旅游订单" xml:space="preserve">
+    <value>Tourism Order</value>
+  </data>
+  <data name="论坛留言" xml:space="preserve">
+    <value>Forum message</value>
+  </data>
+  <data name="论坛" xml:space="preserve">
+    <value>forum</value>
+  </data>
+  <data name="录入者检索" xml:space="preserve">
+    <value>Input retrieval</value>
+  </data>
+  <data name="录入者" xml:space="preserve">
+    <value>Input Person</value>
+  </data>
+  <data name="流程控制" xml:space="preserve">
+    <value>Flow Control</value>
+  </data>
+  <data name="流程管理" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="留言显示是否需要审核" xml:space="preserve">
+    <value>Need to check the message</value>
+  </data>
+  <data name="留言分类" xml:space="preserve">
+    <value>Message classification</value>
+  </data>
+  <data name="留言标题" xml:space="preserve">
+    <value>Message Title</value>
+  </data>
+  <data name="留言本是否需要登录" xml:space="preserve">
+    <value>Need to log in guestbook</value>
+  </data>
+  <data name="留言" xml:space="preserve">
+    <value>Leave Message</value>
+  </data>
+  <data name="浏览信息" xml:space="preserve">
+    <value>Browsing</value>
+  </data>
+  <data name="浏览首页" xml:space="preserve">
+    <value>Browse Page</value>
+  </data>
+  <data name="浏览器检测" xml:space="preserve">
+    <value>Browser Detection</value>
+  </data>
+  <data name="浏览器版本" xml:space="preserve">
+    <value>Browser Version</value>
+  </data>
+  <data name="浏览内容管理" xml:space="preserve">
+    <value>Browse Content</value>
+  </data>
+  <data name="浏览列表" xml:space="preserve">
+    <value>The Browse List</value>
+  </data>
+  <data name="浏览" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="零则为不限时间" xml:space="preserve">
+    <value>Zero is not limited to time</value>
+  </data>
+  <data name="零为不检测" xml:space="preserve">
+    <value>0 is not detected</value>
+  </data>
+  <data name="列表" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="聊天记录" xml:space="preserve">
+    <value>Chat Record</value>
+  </data>
+  <data name="两次密码不相同" xml:space="preserve">
+    <value>Two passwords are not the same</value>
+  </data>
+  <data name="链接地址方式" xml:space="preserve">
+    <value>Link address mode</value>
+  </data>
+  <data name="链接" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="联系电话" xml:space="preserve">
+    <value>Contact Number</value>
+  </data>
+  <data name="联系地址" xml:space="preserve">
+    <value>Contact Address</value>
+  </data>
+  <data name="连接类型" xml:space="preserve">
+    <value>Connection Type</value>
+  </data>
+  <data name="立即生成" xml:space="preserve">
+    <value>Generate Immediately</value>
+  </data>
+  <data name="礼品页面管理" xml:space="preserve">
+    <value>Gift Page</value>
+  </data>
+  <data name="礼品管理" xml:space="preserve">
+    <value>Gift</value>
+  </data>
+  <data name="类型管理" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="类型" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="类别销售" xml:space="preserve">
+    <value>Category Sales</value>
+  </data>
+  <data name="栏目节点" xml:space="preserve">
+    <value>Column node</value>
+  </data>
+  <data name="栏目" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="来源管理" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="扩展页面" xml:space="preserve">
+    <value>Extended page</value>
+  </data>
+  <data name="扩展配置" xml:space="preserve">
+    <value>Extended configuration</value>
+  </data>
+  <data name="扩展" xml:space="preserve">
+    <value>Expand</value>
+  </data>
+  <data name="捆绑商品销售" xml:space="preserve">
+    <value>Bundling Goods</value>
+  </data>
+  <data name="快云安装" xml:space="preserve">
+    <value>Fast cloud installation</value>
+  </data>
+  <data name="快速智能建表" xml:space="preserve">
+    <value>Intelligent Building Table</value>
+  </data>
+  <data name="快速索引" xml:space="preserve">
+    <value>Fast Index</value>
+  </data>
+  <data name="快速搜索" xml:space="preserve">
+    <value>Quick search</value>
+  </data>
+  <data name="快速发布" xml:space="preserve">
+    <value>Quick Release</value>
+  </data>
+  <data name="快速导航" xml:space="preserve">
+    <value>Fast navigation</value>
+  </data>
+  <data name="快速查找" xml:space="preserve">
+    <value>Quick Look</value>
+  </data>
+  <data name="快速帮助" xml:space="preserve">
+    <value>FastHelp</value>
+  </data>
+  <data name="快递实时跟踪" xml:space="preserve">
+    <value>Real time tracking</value>
+  </data>
+  <data name="跨站接入" xml:space="preserve">
+    <value>Cross Site Access</value>
+  </data>
+  <data name="跨域调用" xml:space="preserve">
+    <value>Cross domain call</value>
+  </data>
+  <data name="库存管理" xml:space="preserve">
+    <value>Inventory Control</value>
+  </data>
+  <data name="库存" xml:space="preserve">
+    <value>Stock</value>
+  </data>
+  <data name="空间配置" xml:space="preserve">
+    <value>Space Config</value>
+  </data>
+  <data name="空间管理" xml:space="preserve">
+    <value>Space</value>
+  </data>
+  <data name="课程管理" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="客户组别" xml:space="preserve">
+    <value>Customer Group</value>
+  </data>
+  <data name="客户区域" xml:space="preserve">
+    <value>Client Area</value>
+  </data>
+  <data name="客户评价" xml:space="preserve">
+    <value>Customer Evaluation</value>
+  </data>
+  <data name="客户名称" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
+  <data name="客户来源" xml:space="preserve">
+    <value>Customer Source</value>
+  </data>
+  <data name="客户端地址" xml:space="preserve">
+    <value>Client Address</value>
+  </data>
+  <data name="客服席位" xml:space="preserve">
+    <value>Customer Service Seat</value>
+  </data>
+  <data name="客服通" xml:space="preserve">
+    <value>Customer service</value>
+  </data>
+  <data name="可用项" xml:space="preserve">
+    <value>Available Item</value>
+  </data>
+  <data name="可一定程度上防暴力营销软件或注册机自动注册" xml:space="preserve">
+    <value>To some extent the anti violence marketing software or registered machine automatic registration</value>
+  </data>
+  <data name="可视化编辑" xml:space="preserve">
+    <value>Visual Editing</value>
+  </data>
+  <data name="可使用站内短信功能用户组" xml:space="preserve">
+    <value>Can use the functions of user groups</value>
+  </data>
+  <data name="可上传图片最大值" xml:space="preserve">
+    <value>Can upload Image maximum value</value>
+  </data>
+  <data name="可根据需要设定注册的必填项或选填项" xml:space="preserve">
+    <value>According to the need to set the required and optional registration.</value>
+  </data>
+  <data name="考试管理" xml:space="preserve">
+    <value>Examination</value>
+  </data>
+  <data name="考点管理" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="开始销售" xml:space="preserve">
+    <value>Start Selling</value>
+  </data>
+  <data name="开始时间必须小于结束时间" xml:space="preserve">
+    <value>The start time must be less than the end time</value>
+  </data>
+  <data name="开始时间" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="开始发布内容" xml:space="preserve">
+    <value>Start publish content</value>
+  </data>
+  <data name="开始发布" xml:space="preserve">
+    <value>Start Publish</value>
+  </data>
+  <data name="开始创建" xml:space="preserve">
+    <value>Start Creating</value>
+  </data>
+  <data name="开始采集" xml:space="preserve">
+    <value>Start collecting</value>
+  </data>
+  <data name="开始ID" xml:space="preserve">
+    <value>Start ID</value>
+  </data>
+  <data name="开始" xml:space="preserve">
+    <value>Begin</value>
+  </data>
+  <data name="开启云台提示" xml:space="preserve">
+    <value>Open head tips</value>
+  </data>
+  <data name="开启域名路由" xml:space="preserve">
+    <value>Open Routing</value>
+  </data>
+  <data name="开启后支付金额将会自动乘与你设定的外币汇率" xml:space="preserve">
+    <value>The amount will be paid automatically after the opening of the foreign currency exchange rate</value>
+  </data>
+  <data name="开启后" xml:space="preserve">
+    <value>After opening</value>
+  </data>
+  <data name="开放" xml:space="preserve">
+    <value>to open up</value>
+  </data>
+  <data name="开发中心" xml:space="preserve">
+    <value>Development Center</value>
+  </data>
+  <data name="开发票明细" xml:space="preserve">
+    <value>Open Invoice Detail</value>
+  </data>
+  <data name="绝对路径" xml:space="preserve">
+    <value>Absolute Path</value>
+  </data>
+  <data name="聚合认证" xml:space="preserve">
+    <value>Aggregated Auth</value>
+  </data>
+  <data name="聚合配置" xml:space="preserve">
+    <value>Aggregation Config</value>
+  </data>
+  <data name="聚合分类" xml:space="preserve">
+    <value>Aggregation Class</value>
+  </data>
+  <data name="拒绝退款理由" xml:space="preserve">
+    <value>Reasons For Refusal</value>
+  </data>
+  <data name="旧版升级" xml:space="preserve">
+    <value>Old version upgrade</value>
+  </data>
+  <data name="酒店订单" xml:space="preserve">
+    <value>Hotel Order</value>
+  </data>
+  <data name="纠错管理" xml:space="preserve">
+    <value>Error Correction</value>
+  </data>
+  <data name="静态标签" xml:space="preserve">
+    <value>Static Tags</value>
+  </data>
+  <data name="竞标" xml:space="preserve">
+    <value>competitive bidding</value>
+  </data>
+  <data name="精" xml:space="preserve">
+    <value>Spirit</value>
+  </data>
+  <data name="经营状态" xml:space="preserve">
+    <value>Manage Forms</value>
+  </data>
+  <data name="禁止注册的用户名" xml:space="preserve">
+    <value>No registered user name</value>
+  </data>
+  <data name="进入会员中心" xml:space="preserve">
+    <value>Enter the member center</value>
+  </data>
+  <data name="进阶信息" xml:space="preserve">
+    <value>Advanced Info</value>
+  </data>
+  <data name="进行记录" xml:space="preserve">
+    <value>To record</value>
+  </data>
+  <data name="紧急程度" xml:space="preserve">
+    <value>Urgency Level</value>
+  </data>
+  <data name="金额合计" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="今天是" xml:space="preserve">
+    <value>Today is</value>
+  </data>
+  <data name="今天的新订单" xml:space="preserve">
+    <value>Today's new orders</value>
+  </data>
+  <data name="今天" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="解码管理" xml:space="preserve">
+    <value>Decode</value>
+  </data>
+  <data name="结束时间" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="结束ID选填" xml:space="preserve">
+    <value>End ID (Optional)</value>
+  </data>
+  <data name="节日提醒" xml:space="preserve">
+    <value>Holiday reminder</value>
+  </data>
+  <data name="节日标题" xml:space="preserve">
+    <value>Festival title</value>
+  </data>
+  <data name="节点选择" xml:space="preserve">
+    <value>Node Selection</value>
+  </data>
+  <data name="节点设置" xml:space="preserve">
+    <value>Node Setting</value>
+  </data>
+  <data name="节点名称" xml:space="preserve">
+    <value>Node Name</value>
+  </data>
+  <data name="节点类型" xml:space="preserve">
+    <value>Node Type</value>
+  </data>
+  <data name="节点栏目导航" xml:space="preserve">
+    <value>Node column navigation</value>
+  </data>
+  <data name="节点管理" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="节点" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="阶段" xml:space="preserve">
+    <value>Stage</value>
+  </data>
+  <data name="教育" xml:space="preserve">
+    <value>Education</value>
+  </data>
+  <data name="教师管理" xml:space="preserve">
+    <value>Teacher</value>
+  </data>
+  <data name="教师" xml:space="preserve">
+    <value>Teacher</value>
+  </data>
+  <data name="教材版本" xml:space="preserve">
+    <value>Textbook Version</value>
+  </data>
+  <data name="角色管理" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="降序" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="将相关JS调用代码复制到页面或模板中的相关位置即可" xml:space="preserve">
+    <value>Copy the JS code to call the relevant position of the page or in the template. The system provides the template page and see.</value>
+  </data>
+  <data name="将可用项中内容添加到必填项或者选填项的列表中即可" xml:space="preserve">
+    <value>The list of available items can be added to the content in the "required" or "optional".</value>
+  </data>
+  <data name="简体中文" xml:space="preserve">
+    <value>Simplified Chinese</value>
+  </data>
+  <data name="简介" xml:space="preserve">
+    <value>introduction</value>
+  </data>
+  <data name="简洁界面模式" xml:space="preserve">
+    <value>Simple interface mode</value>
+  </data>
+  <data name="检索动态" xml:space="preserve">
+    <value>Search dynamic</value>
+  </data>
+  <data name="检索当前位置" xml:space="preserve">
+    <value>Retrieves the current location</value>
+  </data>
+  <data name="监测维度" xml:space="preserve">
+    <value>Monitoring Dimension</value>
+  </data>
+  <data name="监测任务" xml:space="preserve">
+    <value>Monitoring Task</value>
+  </data>
+  <data name="价值评估" xml:space="preserve">
+    <value>Value Assessment</value>
+  </data>
+  <data name="价格" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="家长" xml:space="preserve">
+    <value>Parent</value>
+  </data>
+  <data name="加载中" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="技术论坛" xml:space="preserve">
+    <value>Technology</value>
+  </data>
+  <data name="记录随Cookies删除而消失" xml:space="preserve">
+    <value>Records disappear with Cookies</value>
+  </data>
+  <data name="记件工资" xml:space="preserve">
+    <value>Record of wages</value>
+  </data>
+  <data name="计算器" xml:space="preserve">
+    <value>Calculator</value>
+  </data>
+  <data name="基本信息" xml:space="preserve">
+    <value>Essential Info</value>
+  </data>
+  <data name="基本参数" xml:space="preserve">
+    <value>Basic parameters</value>
+  </data>
+  <data name="积分值" xml:space="preserve">
+    <value>Integral value</value>
+  </data>
+  <data name="积分升级费用" xml:space="preserve">
+    <value>Cost Upgrading Integral</value>
+  </data>
+  <data name="积分设置" xml:space="preserve">
+    <value>Integral set</value>
+  </data>
+  <data name="积分商品" xml:space="preserve">
+    <value>Integral Commodity</value>
+  </data>
+  <data name="积分记录" xml:space="preserve">
+    <value>Integral record</value>
+  </data>
+  <data name="积分等级管理" xml:space="preserve">
+    <value>Integral level of Manage</value>
+  </data>
+  <data name="积分等级不能为空" xml:space="preserve">
+    <value>The integral level cannot be empty</value>
+  </data>
+  <data name="积分等级" xml:space="preserve">
+    <value>Integral Level</value>
+  </data>
+  <data name="积分" xml:space="preserve">
+    <value>Integral</value>
+  </data>
+  <data name="机票订单" xml:space="preserve">
+    <value>Ticket Order</value>
+  </data>
+  <data name="货币管理" xml:space="preserve">
+    <value>Money</value>
+  </data>
+  <data name="活动" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="混合式" xml:space="preserve">
+    <value>Hybrid</value>
+  </data>
+  <data name="会员组说明" xml:space="preserve">
+    <value>group membership</value>
+  </data>
+  <data name="会员组名称不能为空" xml:space="preserve">
+    <value>Group name cannot be empty</value>
+  </data>
+  <data name="会员组名称" xml:space="preserve">
+    <value>Group name</value>
+  </data>
+  <data name="会员组名" xml:space="preserve">
+    <value>group name</value>
+  </data>
+  <data name="会员组管理" xml:space="preserve">
+    <value>Group User manage</value>
+  </data>
+  <data name="会员组别名" xml:space="preserve">
+    <value>Group alias</value>
+  </data>
+  <data name="会员组别" xml:space="preserve">
+    <value>Member Group</value>
+  </data>
+  <data name="会员组编辑" xml:space="preserve">
+    <value>Group Editing</value>
+  </data>
+  <data name="会员组" xml:space="preserve">
+    <value>Member group</value>
+  </data>
+  <data name="会员注册协议" xml:space="preserve">
+    <value>User registration protocol</value>
+  </data>
+  <data name="会员注册默认状态" xml:space="preserve">
+    <value>Default state User Reg</value>
+  </data>
+  <data name="会员找回密码的方式" xml:space="preserve">
+    <value>User retrieve the password</value>
+  </data>
+  <data name="会员与管理员登录将不加载背景图" xml:space="preserve">
+    <value>Member and administrator login will not load the background map</value>
+  </data>
+  <data name="会员数" xml:space="preserve">
+    <value>User Number</value>
+  </data>
+  <data name="会员生成邀请码的最大数值" xml:space="preserve">
+    <value>Maximum value of membership invitation code generation</value>
+  </data>
+  <data name="会员模型字段列表" xml:space="preserve">
+    <value>Members of the model field list</value>
+  </data>
+  <data name="会员名称" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="会员名" xml:space="preserve">
+    <value>Member Name</value>
+  </data>
+  <data name="会员每登录一次奖励的积分" xml:space="preserve">
+    <value>Each member login as a reward points</value>
+  </data>
+  <data name="会员列表" xml:space="preserve">
+    <value>User List</value>
+  </data>
+  <data name="会员管理" xml:space="preserve">
+    <value>Member</value>
+  </data>
+  <data name="会员分红" xml:space="preserve">
+    <value>Member Dividend</value>
+  </data>
+  <data name="会员的资金与有效期的兑换比率" xml:space="preserve">
+    <value>Capital and valid members of the exchange rate</value>
+  </data>
+  <data name="会员的资金与虚拟金币的兑换比率" xml:space="preserve">
+    <value>Capital and virtual gold member exchange rate</value>
+  </data>
+  <data name="会员的资金与点券的兑换比率" xml:space="preserve">
+    <value>User fund and the exchange ratio of coupons</value>
+  </data>
+  <data name="会员的积分与资金的兑换比率" xml:space="preserve">
+    <value>Integral members of the exchange rate and capital</value>
+  </data>
+  <data name="会员的积分与有效期的兑换比率" xml:space="preserve">
+    <value>User integral and valid exchange rate</value>
+  </data>
+  <data name="会员的积分与银币的兑换比率" xml:space="preserve">
+    <value>Integral  User of the exchange rate of silver</value>
+  </data>
+  <data name="会员的积分与点券的兑换比率" xml:space="preserve">
+    <value>Integral members of the exchange rate and coupons</value>
+  </data>
+  <data name="会员导航" xml:space="preserve">
+    <value>Member navigation</value>
+  </data>
+  <data name="会员参数" xml:space="preserve">
+    <value>Member Parameters</value>
+  </data>
+  <data name="会员" xml:space="preserve">
+    <value>Member</value>
+  </data>
+  <data name="汇款到帐" xml:space="preserve">
+    <value>Remittance Account</value>
+  </data>
+  <data name="回调" xml:space="preserve">
+    <value>Callback</value>
+  </data>
+  <data name="回收站" xml:space="preserve">
+    <value>Recycle Bin</value>
+  </data>
+  <data name="回车确认" xml:space="preserve">
+    <value>Carriage return</value>
+  </data>
+  <data name="黄页样式管理" xml:space="preserve">
+    <value>Pages Style</value>
+  </data>
+  <data name="黄页样式" xml:space="preserve">
+    <value>Yellow pages style</value>
+  </data>
+  <data name="黄页是否需要审核" xml:space="preserve">
+    <value>Whether need to Audit Yellow Page</value>
+  </data>
+  <data name="黄页审核" xml:space="preserve">
+    <value>Yellow pages review</value>
+  </data>
+  <data name="黄页申请" xml:space="preserve">
+    <value>Apply Page</value>
+  </data>
+  <data name="黄页配置" xml:space="preserve">
+    <value>Configuration pages</value>
+  </data>
+  <data name="黄页内容管理" xml:space="preserve">
+    <value>Pages Content</value>
+  </data>
+  <data name="黄页内容" xml:space="preserve">
+    <value>Page Content</value>
+  </data>
+  <data name="黄页模型管理" xml:space="preserve">
+    <value>Pages Model</value>
+  </data>
+  <data name="黄页模型" xml:space="preserve">
+    <value>Yellow Pages model</value>
+  </data>
+  <data name="黄页" xml:space="preserve">
+    <value>Yellow Page</value>
+  </data>
+  <data name="欢迎语" xml:space="preserve">
+    <value>Welcome Language</value>
+  </data>
+  <data name="欢迎您" xml:space="preserve">
+    <value>Welcome You</value>
+  </data>
+  <data name="欢迎进入" xml:space="preserve">
+    <value>Welcome in</value>
+  </data>
+  <data name="欢迎安装" xml:space="preserve">
+    <value>Welcome to install</value>
+  </data>
+  <data name="欢迎" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="花费时间" xml:space="preserve">
+    <value>Spend Time</value>
+  </data>
+  <data name="互动信息" xml:space="preserve">
+    <value>Interaction info</value>
+  </data>
+  <data name="互动模型" xml:space="preserve">
+    <value>Interaction model</value>
+  </data>
+  <data name="互动模块管理" xml:space="preserve">
+    <value>Interaction Module</value>
+  </data>
+  <data name="互动模块" xml:space="preserve">
+    <value>Interaction module</value>
+  </data>
+  <data name="互动存档" xml:space="preserve">
+    <value>Interactive Archive</value>
+  </data>
+  <data name="互动表单管理" xml:space="preserve">
+    <value>Interactive form management</value>
+  </data>
+  <data name="互动表单" xml:space="preserve">
+    <value>Interactive form</value>
+  </data>
+  <data name="互动Excel配置" xml:space="preserve">
+    <value>Interactive Excel configuration</value>
+  </data>
+  <data name="互动Excel导出配置" xml:space="preserve">
+    <value>Interactive Excel export config</value>
+  </data>
+  <data name="互动" xml:space="preserve">
+    <value>Interaction</value>
+  </data>
+  <data name="后台路径" xml:space="preserve">
+    <value>Back Path</value>
+  </data>
+  <data name="后台管理系统" xml:space="preserve">
+    <value>Background system</value>
+  </data>
+  <data name="后台管理认证码" xml:space="preserve">
+    <value>Back Manage Auth Code</value>
+  </data>
+  <data name="后台管理" xml:space="preserve">
+    <value>Back-stage</value>
+  </data>
+  <data name="合作商品" xml:space="preserve">
+    <value>Cooperative</value>
+  </data>
+  <data name="合并迁移" xml:space="preserve">
+    <value>Merge Migration</value>
+  </data>
+  <data name="好友管理" xml:space="preserve">
+    <value>Friend</value>
+  </data>
+  <data name="行业地位" xml:space="preserve">
+    <value>Industry Status</value>
+  </data>
+  <data name="行为跟踪" xml:space="preserve">
+    <value>Behavior Tracking</value>
+  </data>
+  <data name="还原失败" xml:space="preserve">
+    <value>Restore failed</value>
+  </data>
+  <data name="还原成功" xml:space="preserve">
+    <value>Restore success</value>
+  </data>
+  <data name="还原" xml:space="preserve">
+    <value>Reduction</value>
+  </data>
+  <data name="过滤敏感词汇" xml:space="preserve">
+    <value>Filter sensitive words</value>
+  </data>
+  <data name="国籍数据字典管理" xml:space="preserve">
+    <value>National Dictionary</value>
+  </data>
+  <data name="广告内容" xml:space="preserve">
+    <value>Advertising Content</value>
+  </data>
+  <data name="广告管理" xml:space="preserve">
+    <value>Supervision Advertising</value>
+  </data>
+  <data name="广告存储目录" xml:space="preserve">
+    <value>Ad Directory</value>
+  </data>
+  <data name="广告版位" xml:space="preserve">
+    <value>Advertisement</value>
+  </data>
+  <data name="管理员邮件模板" xml:space="preserve">
+    <value>Admin Mail Template</value>
+  </data>
+  <data name="管理员名称" xml:space="preserve">
+    <value>Admin Name</value>
+  </data>
+  <data name="管理员密码字符数要在6到18之间" xml:space="preserve">
+    <value>Administrator password character number should be between 6-18</value>
+  </data>
+  <data name="管理员密码" xml:space="preserve">
+    <value>Admin PWD</value>
+  </data>
+  <data name="管理员角色" xml:space="preserve">
+    <value>Admin Role</value>
+  </data>
+  <data name="管理员管理" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="管理员短信模板" xml:space="preserve">
+    <value>Manager SMS template</value>
+  </data>
+  <data name="管理员订单邮件" xml:space="preserve">
+    <value>Admin order mail</value>
+  </data>
+  <data name="管理员订单短信" xml:space="preserve">
+    <value>Administrator order SMS</value>
+  </data>
+  <data name="管理信息" xml:space="preserve">
+    <value>Manage Info</value>
+  </data>
+  <data name="管理认证码" xml:space="preserve">
+    <value>Auth Code</value>
+  </data>
+  <data name="管理链接" xml:space="preserve">
+    <value>Manage Links</value>
+  </data>
+  <data name="管理奖金" xml:space="preserve">
+    <value>Manage Bonus</value>
+  </data>
+  <data name="管理奖" xml:space="preserve">
+    <value>Manage Award</value>
+  </data>
+  <data name="管理登录" xml:space="preserve">
+    <value>Login Manage</value>
+  </data>
+  <data name="管理导航" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="管理" xml:space="preserve">
+    <value>Manage</value>
+  </data>
+  <data name="官网搜索" xml:space="preserve">
+    <value>Website Search</value>
+  </data>
+  <data name="官方服务器地址" xml:space="preserve">
+    <value>Official server address</value>
+  </data>
+  <data name="关系等级" xml:space="preserve">
+    <value>Relational Grade</value>
+  </data>
+  <data name="关联内容" xml:space="preserve">
+    <value>Related Content</value>
+  </data>
+  <data name="关键字集" xml:space="preserve">
+    <value>Keyword Set</value>
+  </data>
+  <data name="关键字" xml:space="preserve">
+    <value>Keyword</value>
+  </data>
+  <data name="关闭" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="顾客短信提醒" xml:space="preserve">
+    <value>Customer SMS alerts</value>
+  </data>
+  <data name="顾客短信模板" xml:space="preserve">
+    <value>Customer Message Template</value>
+  </data>
+  <data name="购物排名" xml:space="preserve">
+    <value>Shopping Ranking</value>
+  </data>
+  <data name="购物车模型" xml:space="preserve">
+    <value>Cart model</value>
+  </data>
+  <data name="购物车记录" xml:space="preserve">
+    <value>Shopping Cart</value>
+  </data>
+  <data name="勾选略过不推荐" xml:space="preserve">
+    <value>Check skip: not recommended</value>
+  </data>
+  <data name="恭喜完成安装" xml:space="preserve">
+    <value>Congratulations to complete the installation</value>
+  </data>
+  <data name="恭喜您删除成功" xml:space="preserve">
+    <value>Congratulations on your success</value>
+  </data>
+  <data name="功能" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="公众号码" xml:space="preserve">
+    <value>Public Number</value>
+  </data>
+  <data name="公司规模" xml:space="preserve">
+    <value>Company Size</value>
+  </data>
+  <data name="公司管理" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="工作统计" xml:space="preserve">
+    <value>Work statistics</value>
+  </data>
+  <data name="工作台" xml:space="preserve">
+    <value>Workbench</value>
+  </data>
+  <data name="工作流审批" xml:space="preserve">
+    <value>Workflow Approval</value>
+  </data>
+  <data name="工作流批量审批" xml:space="preserve">
+    <value>Workflow Batch Approval</value>
+  </data>
+  <data name="工作流批量拒绝" xml:space="preserve">
+    <value>Workflow Batch Reject</value>
+  </data>
+  <data name="工作" xml:space="preserve">
+    <value>Work</value>
+  </data>
+  <data name="工号" xml:space="preserve">
+    <value>Job Number</value>
+  </data>
+  <data name="更新时间" xml:space="preserve">
+    <value>Refresh Time</value>
+  </data>
+  <data name="跟单员" xml:space="preserve">
+    <value>Merchandiser</value>
+  </data>
+  <data name="根节点" xml:space="preserve">
+    <value>Root node</value>
+  </data>
+  <data name="个性字段" xml:space="preserve">
+    <value>Personality field</value>
+  </data>
+  <data name="个性模板" xml:space="preserve">
+    <value>Personality template</value>
+  </data>
+  <data name="个人客户" xml:space="preserve">
+    <value>Individual Customer</value>
+  </data>
+  <data name="个方案" xml:space="preserve">
+    <value>solutions</value>
+  </data>
+  <data name="高级查询" xml:space="preserve">
+    <value>Advanced Query</value>
+  </data>
+  <data name="该内容标题已存在" xml:space="preserve">
+    <value>The content title already exists</value>
+  </data>
+  <data name="该栏目未绑定模板" xml:space="preserve">
+    <value>The unbound column template</value>
+  </data>
+  <data name="该操作只在节点管理下配置了允许发表评论时生效" xml:space="preserve">
+    <value>This operation is only in the case of node management to allow the publication of a review of the entry into force</value>
+  </data>
+  <data name="副标题" xml:space="preserve">
+    <value>Subtitle</value>
+  </data>
+  <data name="复制" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="附件类型限制" xml:space="preserve">
+    <value>Attachment Type Restriction</value>
+  </data>
+  <data name="付款状态" xml:space="preserve">
+    <value>Payment Status</value>
+  </data>
+  <data name="付款后内容模板" xml:space="preserve">
+    <value>Content Template After Payment</value>
+  </data>
+  <data name="付款后" xml:space="preserve">
+    <value>After payment</value>
+  </data>
+  <data name="付费方式" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
+  <data name="父会员组名称" xml:space="preserve">
+    <value>Parent Group Name</value>
+  </data>
+  <data name="服务器信息总览" xml:space="preserve">
+    <value>Server Info</value>
+  </data>
+  <data name="服务器集群" xml:space="preserve">
+    <value>Server cluster</value>
+  </data>
+  <data name="服务器Mac" xml:space="preserve">
+    <value>Server Mac</value>
+  </data>
+  <data name="服务器IIS版本" xml:space="preserve">
+    <value>IIS Version</value>
+  </data>
+  <data name="服务类型" xml:space="preserve">
+    <value>Type of Service</value>
+  </data>
+  <data name="服务结果" xml:space="preserve">
+    <value>Service Result</value>
+  </data>
+  <data name="服务记录表" xml:space="preserve">
+    <value>Service Record Form</value>
+  </data>
+  <data name="服务方式" xml:space="preserve">
+    <value>Service Mode</value>
+  </data>
+  <data name="否" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="风格路径" xml:space="preserve">
+    <value>Style Path</value>
+  </data>
+  <data name="风格管理" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="风格参数" xml:space="preserve">
+    <value>Style Parameters</value>
+  </data>
+  <data name="粉丝管理" xml:space="preserve">
+    <value>Fan</value>
+  </data>
+  <data name="分页标签" xml:space="preserve">
+    <value>Page Label</value>
+  </data>
+  <data name="分类名称" xml:space="preserve">
+    <value>CName</value>
+  </data>
+  <data name="分类管理" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="分类ID" xml:space="preserve">
+    <value>Classification ID</value>
+  </data>
+  <data name="非虚拟目录" xml:space="preserve">
+    <value>Non virtual directory</value>
+  </data>
+  <data name="访问限定" xml:space="preserve">
+    <value>Access Limit</value>
+  </data>
+  <data name="访问统计" xml:space="preserve">
+    <value>Access statistics</value>
+  </data>
+  <data name="访问的网址" xml:space="preserve">
+    <value>Access URL</value>
+  </data>
+  <data name="方案设置" xml:space="preserve">
+    <value>Program Settings</value>
+  </data>
+  <data name="方案列表" xml:space="preserve">
+    <value>Scheme List</value>
+  </data>
+  <data name="方案" xml:space="preserve">
+    <value>solutions</value>
+  </data>
+  <data name="返修退货申请" xml:space="preserve">
+    <value>Return For Repair</value>
+  </data>
+  <data name="返利比率" xml:space="preserve">
+    <value>Rebate rate</value>
+  </data>
+  <data name="返回首页" xml:space="preserve">
+    <value>Return to the home page</value>
+  </data>
+  <data name="返回上一级" xml:space="preserve">
+    <value>Return Level</value>
+  </data>
+  <data name="返回列表" xml:space="preserve">
+    <value>Return list</value>
+  </data>
+  <data name="反对" xml:space="preserve">
+    <value>Opposition</value>
+  </data>
+  <data name="繁体中文" xml:space="preserve">
+    <value>Traditional Chinese</value>
+  </data>
+  <data name="凡是文件未启用或站内链接不存在该文件则无法链接到指定的页面" xml:space="preserve">
+    <value>Where the file is not enabled or the link is not present in the file, the file cannot be linked to the specified page</value>
+  </data>
+  <data name="发送邮件管理" xml:space="preserve">
+    <value>Send Mail</value>
+  </data>
+  <data name="发送邮件到会员邮箱" xml:space="preserve">
+    <value>Answer the correct password answer, send mail to the mailbox member</value>
+  </data>
+  <data name="发送邮件" xml:space="preserve">
+    <value>Send Mail</value>
+  </data>
+  <data name="发送条件" xml:space="preserve">
+    <value>Transmission condition</value>
+  </data>
+  <data name="发送目标" xml:space="preserve">
+    <value>Transmission target</value>
+  </data>
+  <data name="发送短消息" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="发送次数" xml:space="preserve">
+    <value>Send number</value>
+  </data>
+  <data name="发送" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="发票信息" xml:space="preserve">
+    <value>Invoice Info</value>
+  </data>
+  <data name="发票明细" xml:space="preserve">
+    <value>Invoice Detail</value>
+  </data>
+  <data name="发票计算" xml:space="preserve">
+    <value>Invoice Calculation</value>
+  </data>
+  <data name="发布最新内容" xml:space="preserve">
+    <value>Publish the latest content</value>
+  </data>
+  <data name="发布最新" xml:space="preserve">
+    <value>Latest Release</value>
+  </data>
+  <data name="发布主页" xml:space="preserve">
+    <value>Release page</value>
+  </data>
+  <data name="发布一条新内容奖励积分" xml:space="preserve">
+    <value>Released a new content of bonus points</value>
+  </data>
+  <data name="发布一条评论奖励积分" xml:space="preserve">
+    <value>Post a comment bonus points</value>
+  </data>
+  <data name="发布选定栏目的内容页" xml:space="preserve">
+    <value>Publish the contents page of the selected column</value>
+  </data>
+  <data name="发布选定栏目" xml:space="preserve">
+    <value>Publish Selected Columns</value>
+  </data>
+  <data name="发布悬赏" xml:space="preserve">
+    <value>Release reward</value>
+  </data>
+  <data name="发布所有内容" xml:space="preserve">
+    <value>Publish All Content</value>
+  </data>
+  <data name="发布所有栏目" xml:space="preserve">
+    <value>Publish all Columns</value>
+  </data>
+  <data name="发布所有" xml:space="preserve">
+    <value>Publish All</value>
+  </data>
+  <data name="发布人才系统" xml:space="preserve">
+    <value>Release Talent System</value>
+  </data>
+  <data name="发布内容页" xml:space="preserve">
+    <value>Publish content page</value>
+  </data>
+  <data name="发布栏目首页与列表页" xml:space="preserve">
+    <value>Release column page and list page</value>
+  </data>
+  <data name="发布管理" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="发布的内容被推荐奖励积分" xml:space="preserve">
+    <value>Release contents of the recommended reward points</value>
+  </data>
+  <data name="发布单页" xml:space="preserve">
+    <value>Release a Single Page</value>
+  </data>
+  <data name="发表日期" xml:space="preserve">
+    <value>Date of Publication</value>
+  </data>
+  <data name="发表人" xml:space="preserve">
+    <value>Utterer</value>
+  </data>
+  <data name="二维扫码" xml:space="preserve">
+    <value>Dimensional Scan Code</value>
+  </data>
+  <data name="多级数据字典管理" xml:space="preserve">
+    <value>Multilevel Dictionary</value>
+  </data>
+  <data name="对应栏目页需在" xml:space="preserve">
+    <value>The Corresponding Column Page needs to be in</value>
+  </data>
+  <data name="对相应节点生成选项进行设置" xml:space="preserve">
+    <value>Setting the appropriate node generation options</value>
+  </data>
+  <data name="对内容页扩展名进行设置" xml:space="preserve">
+    <value>Set the extension to the content page</value>
+  </data>
+  <data name="短信余额" xml:space="preserve">
+    <value>SMS balance</value>
+  </data>
+  <data name="短信通知" xml:space="preserve">
+    <value>SMS Notification</value>
+  </data>
+  <data name="短信配置" xml:space="preserve">
+    <value>SMS Config</value>
+  </data>
+  <data name="短信内容中可用标签如下" xml:space="preserve">
+    <value>Label available message content as follows</value>
+  </data>
+  <data name="短信发送状态" xml:space="preserve">
+    <value>Send status messages</value>
+  </data>
+  <data name="短消息提示" xml:space="preserve">
+    <value>Message prompt</value>
+  </data>
+  <data name="短消息列表" xml:space="preserve">
+    <value>Message List</value>
+  </data>
+  <data name="读取" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="动态标签" xml:space="preserve">
+    <value>Dynamic Label</value>
+  </data>
+  <data name="定义全文检索" xml:space="preserve">
+    <value>Define Full-text Search</value>
+  </data>
+  <data name="定时发布首页" xml:space="preserve">
+    <value>Timed Release</value>
+  </data>
+  <data name="定时发布" xml:space="preserve">
+    <value>Timed Release</value>
+  </data>
+  <data name="订阅中心" xml:space="preserve">
+    <value>Subscription Center</value>
+  </data>
+  <data name="订阅审核" xml:space="preserve">
+    <value>Subscription audit</value>
+  </data>
+  <data name="订阅群发" xml:space="preserve">
+    <value>Subscription Group</value>
+  </data>
+  <data name="订阅列表" xml:space="preserve">
+    <value>Subscription List</value>
+  </data>
+  <data name="订阅管理" xml:space="preserve">
+    <value>Subscription</value>
+  </data>
+  <data name="订单状态" xml:space="preserve">
+    <value>Order Status</value>
+  </data>
+  <data name="订单提成" xml:space="preserve">
+    <value>Order Commission</value>
+  </data>
+  <data name="订单确认后才可付款" xml:space="preserve">
+    <value>After order confirmation</value>
+  </data>
+  <data name="订单配置" xml:space="preserve">
+    <value>Order Allocation</value>
+  </data>
+  <data name="订单排名" xml:space="preserve">
+    <value>Order Ranking</value>
+  </data>
+  <data name="订单模型" xml:space="preserve">
+    <value>Order Model</value>
+  </data>
+  <data name="订单流水" xml:space="preserve">
+    <value>Order flow</value>
+  </data>
+  <data name="订单列表" xml:space="preserve">
+    <value>Order List</value>
+  </data>
+  <data name="订单结算最低限制" xml:space="preserve">
+    <value>Minimum order settlement</value>
+  </data>
+  <data name="订单过期时间" xml:space="preserve">
+    <value>Order expiration time</value>
+  </data>
+  <data name="订单管理" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="订单编号" xml:space="preserve">
+    <value>Order Number</value>
+  </data>
+  <data name="店铺邮件设置" xml:space="preserve">
+    <value>Store Mail Settings</value>
+  </data>
+  <data name="店铺信息配置" xml:space="preserve">
+    <value>Store Infor Config</value>
+  </data>
+  <data name="店铺首页模板" xml:space="preserve">
+    <value>Shop Page Template</value>
+  </data>
+  <data name="店铺审核" xml:space="preserve">
+    <value>Store audit</value>
+  </data>
+  <data name="店铺申请" xml:space="preserve">
+    <value>Shop Apply</value>
+  </data>
+  <data name="店铺商品管理" xml:space="preserve">
+    <value>Merchandise</value>
+  </data>
+  <data name="店铺配置" xml:space="preserve">
+    <value>Store configuration</value>
+  </data>
+  <data name="店铺模型" xml:space="preserve">
+    <value>Store model</value>
+  </data>
+  <data name="店铺模板管理" xml:space="preserve">
+    <value>Shop Template</value>
+  </data>
+  <data name="店铺模板" xml:space="preserve">
+    <value>Shop template</value>
+  </data>
+  <data name="店铺管理" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="店铺订单" xml:space="preserve">
+    <value>Shop Order</value>
+  </data>
+  <data name="店铺" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="电子杂志" xml:space="preserve">
+    <value>Electronic Journal</value>
+  </data>
+  <data name="点券设置" xml:space="preserve">
+    <value>Set point</value>
+  </data>
+  <data name="点券记录" xml:space="preserve">
+    <value>Point record</value>
+  </data>
+  <data name="点券" xml:space="preserve">
+    <value>Stamps</value>
+  </data>
+  <data name="点劵" xml:space="preserve">
+    <value>Point coupons</value>
+  </data>
+  <data name="点击显示zoomla" xml:space="preserve">
+    <value>Click to display the zoomla CMS license agreement wave</value>
+  </data>
+  <data name="点击下方按钮创建表与存储过程" xml:space="preserve">
+    <value>Create table and procedures, Prompt after success of next step to continue</value>
+  </data>
+  <data name="点击统计" xml:space="preserve">
+    <value>Click statistics</value>
+  </data>
+  <data name="点击数" xml:space="preserve">
+    <value>Hits</value>
+  </data>
+  <data name="点击此处隐藏" xml:space="preserve">
+    <value>Click here to hide</value>
+  </data>
+  <data name="点击编辑导航" xml:space="preserve">
+    <value>Click Edit Navigation</value>
+  </data>
+  <data name="点击" xml:space="preserve">
+    <value>Click</value>
+  </data>
+  <data name="点此申请快递100集成密钥" xml:space="preserve">
+    <value>Point this application delivery 100 integration key</value>
+  </data>
+  <data name="第一步" xml:space="preserve">
+    <value>Step One</value>
+  </data>
+  <data name="第五步" xml:space="preserve">
+    <value>Fifth Step</value>
+  </data>
+  <data name="第四步" xml:space="preserve">
+    <value>Fourth Step</value>
+  </data>
+  <data name="第三步" xml:space="preserve">
+    <value>Third Step</value>
+  </data>
+  <data name="第六步" xml:space="preserve">
+    <value>Sixth Step</value>
+  </data>
+  <data name="第二步" xml:space="preserve">
+    <value>Second Step</value>
+  </data>
+  <data name="地图管理" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="地区数据" xml:space="preserve">
+    <value>Area Data</value>
+  </data>
+  <data name="等级图片" xml:space="preserve">
+    <value>Class pictures</value>
+  </data>
+  <data name="等级管理" xml:space="preserve">
+    <value>Grade</value>
+  </data>
+  <data name="登录是否启用验证码功能" xml:space="preserve">
+    <value>Login Auth code function is enabled</value>
+  </data>
+  <data name="登录次数" xml:space="preserve">
+    <value>Logon Times</value>
+  </data>
+  <data name="倒计时式" xml:space="preserve">
+    <value>The countdown</value>
+  </data>
+  <data name="导入商城" xml:space="preserve">
+    <value>Import Mall</value>
+  </data>
+  <data name="导入会员" xml:space="preserve">
+    <value>Import Member</value>
+  </data>
+  <data name="导入" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="导航标题" xml:space="preserve">
+    <value>Navigation header</value>
+  </data>
+  <data name="当前首页格式为SHTML" xml:space="preserve">
+    <value>The current home format for the SHTML, the proposed button to generate a static button release</value>
+  </data>
+  <data name="当前首页格式为HTML" xml:space="preserve">
+    <value>The current home format for the HTML, the proposed button to generate a static button release</value>
+  </data>
+  <data name="当前首页格式为HTM" xml:space="preserve">
+    <value>The current home format for the HTM, the proposed button to generate a static button release</value>
+  </data>
+  <data name="当前目录下已存在同名的文件夹" xml:space="preserve">
+    <value>folder with the same name already exists in the current directory</value>
+  </data>
+  <data name="当前目录" xml:space="preserve">
+    <value>Current Directory</value>
+  </data>
+  <data name="当前没有信息" xml:space="preserve">
+    <value>Currently no information</value>
+  </data>
+  <data name="当前管理员" xml:space="preserve">
+    <value>Current Manager</value>
+  </data>
+  <data name="单页节点" xml:space="preserve">
+    <value>Single page node</value>
+  </data>
+  <data name="单页" xml:space="preserve">
+    <value>Single Page</value>
+  </data>
+  <data name="单位" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="单人中标" xml:space="preserve">
+    <value>Single bid</value>
+  </data>
+  <data name="单级数据字典管理" xml:space="preserve">
+    <value>Single Dictionary</value>
+  </data>
+  <data name="待审核商品" xml:space="preserve">
+    <value>Pending Audit Goods</value>
+  </data>
+  <data name="待审核评论" xml:space="preserve">
+    <value>Review Comments</value>
+  </data>
+  <data name="待审核" xml:space="preserve">
+    <value>Pending Audit</value>
+  </data>
+  <data name="待认证" xml:space="preserve">
+    <value>To Be Certified</value>
+  </data>
+  <data name="代码类型" xml:space="preserve">
+    <value>Code type</value>
+  </data>
+  <data name="代购订单" xml:space="preserve">
+    <value>Purchasing Order</value>
+  </data>
+  <data name="大小" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="打折方案管理" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="打卡领取奖励" xml:space="preserve">
+    <value>Time to receive awards</value>
+  </data>
+  <data name="打卡奖励数值" xml:space="preserve">
+    <value>Punch numerical reward</value>
+  </data>
+  <data name="存在同名会员组" xml:space="preserve">
+    <value>Group members with the same name already exists</value>
+  </data>
+  <data name="存为草稿" xml:space="preserve">
+    <value>Save as draft</value>
+  </data>
+  <data name="存档后该模块可以在存档管理中恢复" xml:space="preserve">
+    <value>The module can be recovered in the archive management after the file</value>
+  </data>
+  <data name="存档管理" xml:space="preserve">
+    <value>Archive</value>
+  </data>
+  <data name="存档" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="促销优惠" xml:space="preserve">
+    <value>Promotional offers</value>
+  </data>
+  <data name="促销方案管理" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
+  <data name="从旧版标签升级" xml:space="preserve">
+    <value>Upgrade from the old version</value>
+  </data>
+  <data name="从此开始" xml:space="preserve">
+    <value>From now on</value>
+  </data>
+  <data name="此操作将删除现有站点数据" xml:space="preserve">
+    <value>This operation will delete the existing site data</value>
+  </data>
+  <data name="纯字母" xml:space="preserve">
+    <value>Pure letters</value>
+  </data>
+  <data name="纯数字" xml:space="preserve">
+    <value>pure digital</value>
+  </data>
+  <data name="创建新数据库" xml:space="preserve">
+    <value>Create a New Database</value>
+  </data>
+  <data name="创建问题记录" xml:space="preserve">
+    <value>Create Problem Record</value>
+  </data>
+  <data name="创建图表" xml:space="preserve">
+    <value>Create Chart</value>
+  </data>
+  <data name="创建数据库表与存储过程" xml:space="preserve">
+    <value>Create DB Tables And Procedures</value>
+  </data>
+  <data name="创建数据库" xml:space="preserve">
+    <value>Create DB</value>
+  </data>
+  <data name="创建时间" xml:space="preserve">
+    <value>Created time</value>
+  </data>
+  <data name="创建群组所需要的积分" xml:space="preserve">
+    <value>Integral create group needed</value>
+  </data>
+  <data name="创建目录" xml:space="preserve">
+    <value>Create Directory</value>
+  </data>
+  <data name="创建" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="初始为不开通管理认证码功能" xml:space="preserve">
+    <value>Initial is not open management Authentication Code Function</value>
+  </data>
+  <data name="初始化全站数据" xml:space="preserve">
+    <value>Total Station Data</value>
+  </data>
+  <data name="充值信息管理" xml:space="preserve">
+    <value>Recharge Information</value>
+  </data>
+  <data name="成绩统计" xml:space="preserve">
+    <value>Calculation Results</value>
+  </data>
+  <data name="彻底删除" xml:space="preserve">
+    <value>Remove completely</value>
+  </data>
+  <data name="畅言评论配置" xml:space="preserve">
+    <value>Chatteris configuration</value>
+  </data>
+  <data name="畅言评论管理" xml:space="preserve">
+    <value>Chatteris</value>
+  </data>
+  <data name="场景切换" xml:space="preserve">
+    <value>Scene switch</value>
+  </data>
+  <data name="厂商提现" xml:space="preserve">
+    <value>Raise Cash</value>
+  </data>
+  <data name="厂商管理" xml:space="preserve">
+    <value>Vendor</value>
+  </data>
+  <data name="厂商" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="常规注册" xml:space="preserve">
+    <value>Conventional registration</value>
+  </data>
+  <data name="产品管理" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="查找" xml:space="preserve">
+    <value>lookup</value>
+  </data>
+  <data name="查看文件" xml:space="preserve">
+    <value>View files</value>
+  </data>
+  <data name="查看统计" xml:space="preserve">
+    <value>View statistics</value>
+  </data>
+  <data name="查看计划任务" xml:space="preserve">
+    <value>View planning Tasks</value>
+  </data>
+  <data name="查看会员" xml:space="preserve">
+    <value>View Member</value>
+  </data>
+  <data name="草稿" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="操作系统" xml:space="preserve">
+    <value>Operating System</value>
+  </data>
+  <data name="操作时间" xml:space="preserve">
+    <value>Operation time</value>
+  </data>
+  <data name="操作金额" xml:space="preserve">
+    <value>Amount Operation</value>
+  </data>
+  <data name="操作成功" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="操作" xml:space="preserve">
+    <value>Option</value>
+  </data>
+  <data name="参数设置" xml:space="preserve">
+    <value>preferences</value>
+  </data>
+  <data name="参数错误" xml:space="preserve">
+    <value>parameter error</value>
+  </data>
+  <data name="菜单配置" xml:space="preserve">
+    <value>Menu configuration</value>
+  </data>
+  <data name="采集项目" xml:space="preserve">
+    <value>Acquisition project</value>
+  </data>
+  <data name="采集进度" xml:space="preserve">
+    <value>Collection progress</value>
+  </data>
+  <data name="采集检索" xml:space="preserve">
+    <value>Acquisition Retrieval</value>
+  </data>
+  <data name="采集记录" xml:space="preserve">
+    <value>Collection record</value>
+  </data>
+  <data name="财务流水" xml:space="preserve">
+    <value>Financial Flow</value>
+  </data>
+  <data name="财务管理" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+  <data name="不指定附属图片" xml:space="preserve">
+    <value>No attached picture</value>
+  </data>
+  <data name="不允许带有中文" xml:space="preserve">
+    <value>Not allowed with Chinese</value>
+  </data>
+  <data name="不允许纯英文" xml:space="preserve">
+    <value>Do not allow pure English</value>
+  </data>
+  <data name="不允许纯数字" xml:space="preserve">
+    <value>Do not allow pure digital</value>
+  </data>
+  <data name="不显示" xml:space="preserve">
+    <value>Don't show</value>
+  </data>
+  <data name="不少于6位字母数字组合" xml:space="preserve">
+    <value>No less than 6 digit combination of letters</value>
+  </data>
+  <data name="不奖励" xml:space="preserve">
+    <value>Do not reward</value>
+  </data>
+  <data name="补订单" xml:space="preserve">
+    <value>Fill Order</value>
+  </data>
+  <data name="表示无限期" xml:space="preserve">
+    <value>Said indefinitely</value>
+  </data>
+  <data name="表示此JS文件还没有生成" xml:space="preserve">
+    <value>If the file name is red, said this JS file is not generated.</value>
+  </data>
+  <data name="表内容批处理" xml:space="preserve">
+    <value>Table Content Batch</value>
+  </data>
+  <data name="表名不能为空" xml:space="preserve">
+    <value>Table name cannot be empty</value>
+  </data>
+  <data name="表名" xml:space="preserve">
+    <value>Table Name</value>
+  </data>
+  <data name="表单名" xml:space="preserve">
+    <value>Form Name</value>
+  </data>
+  <data name="标题字数多少字符以上才检测" xml:space="preserve">
+    <value>Title number of characters or more before detection</value>
+  </data>
+  <data name="标题属性" xml:space="preserve">
+    <value>Title Attribute</value>
+  </data>
+  <data name="标题检索" xml:space="preserve">
+    <value>Title Search</value>
+  </data>
+  <data name="标题不能为空" xml:space="preserve">
+    <value>Title cannot be empty</value>
+  </data>
+  <data name="标题" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="标签助手" xml:space="preserve">
+    <value>Tag Assistant</value>
+  </data>
+  <data name="标签异常" xml:space="preserve">
+    <value>Label Exception</value>
+  </data>
+  <data name="标签设置" xml:space="preserve">
+    <value>Label Setting</value>
+  </data>
+  <data name="标签类别" xml:space="preserve">
+    <value>Label category</value>
+  </data>
+  <data name="标签管理" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="标签分类" xml:space="preserve">
+    <value>Label Class</value>
+  </data>
+  <data name="便捷导航" xml:space="preserve">
+    <value>Easy navigation</value>
+  </data>
+  <data name="便捷操作" xml:space="preserve">
+    <value>Convenient Operation</value>
+  </data>
+  <data name="便捷菜单" xml:space="preserve">
+    <value>Convenient menu</value>
+  </data>
+  <data name="编辑器上传图片类型限制" xml:space="preserve">
+    <value>Editor upload picture restrictions</value>
+  </data>
+  <data name="编辑" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="必须重启站点才能生效" xml:space="preserve">
+    <value>Site must be restarted to take effect</value>
+  </data>
+  <data name="必填项" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="比较所有文件" xml:space="preserve">
+    <value>Compare All Files</value>
+  </data>
+  <data name="本地文件" xml:space="preserve">
+    <value>Local File</value>
+  </data>
+  <data name="本地数据库" xml:space="preserve">
+    <value>Local Database</value>
+  </data>
+  <data name="备注留言" xml:space="preserve">
+    <value>Remark Message</value>
+  </data>
+  <data name="备注或留言" xml:space="preserve">
+    <value>Remark or message</value>
+  </data>
+  <data name="备注" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="备忘录" xml:space="preserve">
+    <value>Memorandum</value>
+  </data>
+  <data name="备份还原数据" xml:space="preserve">
+    <value>Backup Restore Data</value>
+  </data>
+  <data name="备份当前方案" xml:space="preserve">
+    <value>Backup Current Program</value>
+  </data>
+  <data name="报告列表" xml:space="preserve">
+    <value>Report List</value>
+  </data>
+  <data name="保留日志天数" xml:space="preserve">
+    <value>Retention Log</value>
+  </data>
+  <data name="保留日志数量" xml:space="preserve">
+    <value>Log number</value>
+  </data>
+  <data name="保存时自动推送" xml:space="preserve">
+    <value>Automatic push when saving</value>
+  </data>
+  <data name="保存设置" xml:space="preserve">
+    <value>Save settings</value>
+  </data>
+  <data name="保存排序" xml:space="preserve">
+    <value>Save Sort</value>
+  </data>
+  <data name="保存" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="绑" xml:space="preserve">
+    <value>Bind</value>
+  </data>
+  <data name="帮助支持" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="帮助" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="办公模型" xml:space="preserve">
+    <value>Office Model</value>
+  </data>
+  <data name="办公" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="版本信息" xml:space="preserve">
+    <value>Version information</value>
+  </data>
+  <data name="版本" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="班级类别" xml:space="preserve">
+    <value>Class Category</value>
+  </data>
+  <data name="班级管理" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="班级成员" xml:space="preserve">
+    <value>Members  class</value>
+  </data>
+  <data name="百科问答贴吧" xml:space="preserve">
+    <value>Encyclopedia Q &amp; a post bar</value>
+  </data>
+  <data name="百科问答" xml:space="preserve">
+    <value>Encyclopedia ask</value>
+  </data>
+  <data name="百科设置" xml:space="preserve">
+    <value>Encyclopedia Settings</value>
+  </data>
+  <data name="百科管理" xml:space="preserve">
+    <value>Encyclopedia</value>
+  </data>
+  <data name="百科分类" xml:space="preserve">
+    <value>Encyclopedia Class</value>
+  </data>
+  <data name="百科词条" xml:space="preserve">
+    <value>Encyclopedia Entry</value>
+  </data>
+  <data name="百科" xml:space="preserve">
+    <value>Encyclopedias</value>
+  </data>
+  <data name="百度翻译" xml:space="preserve">
+    <value>BaiduTranslation</value>
+  </data>
+  <data name="按专题管理" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="按照日期发布" xml:space="preserve">
+    <value>Release According Date</value>
+  </data>
+  <data name="按照ID发布" xml:space="preserve">
+    <value>Release According to ID</value>
+  </data>
+  <data name="按时间统计" xml:space="preserve">
+    <value>According Time Statistics</value>
+  </data>
+  <data name="按钮跳转到首页" xml:space="preserve">
+    <value>Button to jump to the home page</value>
+  </data>
+  <data name="按钮开始后将创建数据库表单与存储过程" xml:space="preserve">
+    <value>Button will start to create the database form and stored procedures, about 1 to 2 minutes, please wait patiently</value>
+  </data>
+  <data name="按年级管理" xml:space="preserve">
+    <value>Grade</value>
+  </data>
+  <data name="按栏目管理" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="按管理员统计" xml:space="preserve">
+    <value>Administrator Statistics</value>
+  </data>
+  <data name="安装协议" xml:space="preserve">
+    <value>Protocol</value>
+  </data>
+  <data name="安装向导" xml:space="preserve">
+    <value>Install Wizard</value>
+  </data>
+  <data name="安装完成后可在后台进行配置" xml:space="preserve">
+    <value>After Installation can be Configured in the Background</value>
+  </data>
+  <data name="安装" xml:space="preserve">
+    <value>Installation</value>
+  </data>
+  <data name="安全退出" xml:space="preserve">
+    <value>Safe exit</value>
+  </data>
+  <data name="安全设置" xml:space="preserve">
+    <value>Security Settings</value>
+  </data>
+  <data name="安全设定" xml:space="preserve">
+    <value>Security Settings</value>
+  </data>
+  <data name="安全日志" xml:space="preserve">
+    <value>Security Log</value>
+  </data>
+  <data name="VIP默认级别" xml:space="preserve">
+    <value>VIP default level</value>
+  </data>
+  <data name="VIP卡提现" xml:space="preserve">
+    <value>Katy VIP</value>
+  </data>
+  <data name="VIP卡管理" xml:space="preserve">
+    <value>VIP card</value>
+  </data>
+  <data name="SqlServer2005及更高版本" xml:space="preserve">
+    <value>Sql Server 2005 And Higher version</value>
+  </data>
+  <data name="SNS社区模块" xml:space="preserve">
+    <value>SNS Community</value>
+  </data>
+  <data name="SNS社区" xml:space="preserve">
+    <value>SNS community</value>
+  </data>
+  <data name="paypal国际付" xml:space="preserve">
+    <value>PayPal International Pay</value>
+  </data>
+  <data name="OA配置" xml:space="preserve">
+    <value>OA Config</value>
+  </data>
+  <data name="JS信息分类读取错误" xml:space="preserve">
+    <value>JS read error information classification</value>
+  </data>
+  <data name="JS文件名" xml:space="preserve">
+    <value>JS FileName</value>
+  </data>
+  <data name="js文件管理" xml:space="preserve">
+    <value>JS file management</value>
+  </data>
+  <data name="JS调用代码" xml:space="preserve">
+    <value>Call JS code</value>
+  </data>
+  <data name="JS生成管理" xml:space="preserve">
+    <value>JS generation</value>
+  </data>
+  <data name="JS代码名称" xml:space="preserve">
+    <value>JS code name</value>
+  </data>
+  <data name="IP限制" xml:space="preserve">
+    <value>IP limit</value>
+  </data>
+  <data name="IP分类管理" xml:space="preserve">
+    <value>IP Category</value>
+  </data>
+  <data name="IP地址管理" xml:space="preserve">
+    <value>IP Address</value>
+  </data>
+  <data name="IIS可支持最大文件上传" xml:space="preserve">
+    <value>IIS Max file upload</value>
+  </data>
+  <data name="ID检索" xml:space="preserve">
+    <value>ID Search</value>
+  </data>
+  <data name="IDC续费" xml:space="preserve">
+    <value>IDC Renew</value>
+  </data>
+  <data name="IDC订单" xml:space="preserve">
+    <value>IDC Order</value>
+  </data>
+  <data name="HTTPS全站SSL加密" xml:space="preserve">
+    <value>HTTPS total station SSL encryption</value>
+  </data>
+  <data name="Flex礼品管理" xml:space="preserve">
+    <value>Flex Gift</value>
+  </data>
+  <data name="Flash等媒体文件大小" xml:space="preserve">
+    <value>Flash with Other File Size</value>
+  </data>
+  <data name="Excel导入" xml:space="preserve">
+    <value>Excel Import</value>
+  </data>
+  <data name="Excel导出" xml:space="preserve">
+    <value>Export Excel</value>
+  </data>
+  <data name="Email格式不正确" xml:space="preserve">
+    <value>Email format is not correct</value>
+  </data>
+  <data name="Email不能为空" xml:space="preserve">
+    <value>Email cannot be empty</value>
+  </data>
+  <data name="CRM管理" xml:space="preserve">
+    <value>CRMManage</value>
+  </data>
+  <data name="aspx为不生成静态页" xml:space="preserve">
+    <value>.aspx does not generate static pages</value>
+  </data>
+  <data name="aspx不生成静态" xml:space="preserve">
+    <value>.aspx(Not generate static)</value>
+  </data>
+  <data name="APP社会化登录" xml:space="preserve">
+    <value>APP social login</value>
+  </data>
+  <data name="APP配置" xml:space="preserve">
+    <value>APP Config</value>
+  </data>
+  <data name="APP颁发" xml:space="preserve">
+    <value>APP Award</value>
+  </data>
+  <data name="安装1Title" xml:space="preserve">
+    <value>Step 1: confirm the license agreement</value>
+  </data>
+  <data name="安装显示许可" xml:space="preserve">
+    <value>Click to display the license agreement!</value>
+  </data>
+  <data name="安装点击此次" xml:space="preserve">
+    <value>Click here or double click Hide</value>
+  </data>
+  <data name="安装界面Title" xml:space="preserve">
+    <value>Install Zoomla! CMS- wave free WEB developer world</value>
+  </data>
+  <data name="三到十位英文数字组合" xml:space="preserve">
+    <value>At least three bits, up to ten bits, in English or in numbers</value>
+  </data>
+  <data name="使用手册" xml:space="preserve">
+    <value>Use manual</value>
+  </data>
+  <data name="关于逐浪" xml:space="preserve">
+    <value>About Zoomla</value>
+  </data>
+  <data name="十年辉煌" xml:space="preserve">
+    <value>Brilliant ten years</value>
+  </data>
+  <data name="后台管理认证码不能为空" xml:space="preserve">
+    <value>Background management authentication code cannot be empty</value>
+  </data>
+  <data name="后台路径不能为空" xml:space="preserve">
+    <value>Background path cannot be empty, the smallest three</value>
+  </data>
+  <data name="后台路径不能少于三位" xml:space="preserve">
+    <value>Background path cannot be less than three</value>
+  </data>
+  <data name="如库中已有此管理员" xml:space="preserve">
+    <value>If the library already has this administrator, will cover and reset the existing title with the same name as the highest administrator permissions and passwords; otherwise create a new administrator account</value>
+  </data>
+  <data name="当前点NET版本" xml:space="preserve">
+    <value>Current.NET version:</value>
+  </data>
+  <data name="数据库脚本文件不存在" xml:space="preserve">
+    <value>Database script file not
+existence！</value>
+  </data>
+  <data name="数据库脚本文件存在" xml:space="preserve">
+    <value>Database script file is existence！</value>
+  </data>
+  <data name="数据源不能为空" xml:space="preserve">
+    <value>Data source cannot be empty</value>
+  </data>
+  <data name="文件不存在" xml:space="preserve">
+    <value>File does not exist！</value>
+  </data>
+  <data name="文件验证通过" xml:space="preserve">
+    <value> Verify passed！</value>
+  </data>
+  <data name="正在执行SQL脚本请等待" xml:space="preserve">
+    <value>Executing SQL script, please wait</value>
+  </data>
+  <data name="版本过低验证失败" xml:space="preserve">
+    <value>The version is too low to verify the failure!</value>
+  </data>
+  <data name="环境检测" xml:space="preserve">
+    <value>Environmental testing</value>
+  </data>
+  <data name="用户口令不能为空" xml:space="preserve">
+    <value>User password cannot be empty</value>
+  </data>
+  <data name="用户名不能为空" xml:space="preserve">
+    <value>User name cannot be empty</value>
+  </data>
+  <data name="电子邮箱" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="目录权限验证未通过" xml:space="preserve">
+    <value>Directory permissions authentication failed！</value>
+  </data>
+  <data name="目录权限验证通过" xml:space="preserve">
+    <value>Directory permissions authentication！</value>
+  </data>
+  <data name="移动下拉" xml:space="preserve">
+    <value>Mobile drop</value>
+  </data>
+  <data name="程序集文件不完整性是否下载" xml:space="preserve">
+    <value>Assembly file is not complete, please determine whether to download!</value>
+  </data>
+  <data name="程序集文件完整性验证通过" xml:space="preserve">
+    <value>Assembly file integrity verification!</value>
+  </data>
+  <data name="网站名称不能为空" xml:space="preserve">
+    <value>Site name cannot be empty</value>
+  </data>
+  <data name="网站地址不能为空" xml:space="preserve">
+    <value>Site address cannot be empty</value>
+  </data>
+  <data name="网站标题不能为空" xml:space="preserve">
+    <value>Site title cannot be empty</value>
+  </data>
+  <data name="视频教程" xml:space="preserve">
+    <value>Video tutorial</value>
+  </data>
+  <data name="该版本仅对商业用户开放" xml:space="preserve">
+    <value>Sorry, this version is only open to commercial users, please select another version or contact zoomla software for authorization.</value>
+  </data>
+  <data name="请输入最少三到十位英文数字组合" xml:space="preserve">
+    <value>Please enter a minimum of three, up to ten, can be a combination of English and digital</value>
+  </data>
+  <data name="逐浪CMS" xml:space="preserve">
+    <value>ZoomlaCMS</value>
+  </data>
+  <data name="配置信息" xml:space="preserve">
+    <value>configuration information</value>
+  </data>
+  <data name="重置安装" xml:space="preserve">
+    <value>If you have installed or executed a data script, check to ignore</value>
+  </data>
+  <data name="重装请新定义配置文件" xml:space="preserve">
+    <value>Reload please define the Config/AppSettings file Installed value to false</value>
+  </data>
+  <data name="验证通过" xml:space="preserve">
+    <value>Verify pass!</value>
+  </data>
+  <data name="欢迎安装ZoomlaCMS" xml:space="preserve">
+    <value>Welcome to install ZoomlaCMS, this wizard will guide you to deploy the system - it is recommended that you read the instructions carefully before running this wizard.</value>
+  </data>
+  <data name="内容页" xml:space="preserve">
+    <value>Content</value>
+  </data>
+</root>

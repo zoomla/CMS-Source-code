@@ -1,0 +1,80 @@
+﻿@using System.Data;
+@using ZoomLa.BLL
+@using ZoomLa.SQLDAL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    B_Arrive avBll = new B_Arrive();
+    public string IsDisabled()
+    {
+        int State = DataConvert.CLng(Request["state"], 1);
+        return State == 1 ? "" : "disabled";
+    }
+    public string GetMoneyRegion(DataRow dr)
+    {
+        double min = DataConvert.CDouble(dr["MinAmount"]);
+        double max = DataConvert.CDouble(dr["MaxAmount"]);
+        return avBll.GetMoneyRegion(min, max);
+    }
+}
+@{
+    Model.url = "Arrive_Data";
+    Model.page_wrap_start = "<li class='clearfix'></li></ul><div class='text-center'>";
+    Model.page_wrap_end = "</div>";
+    Model.Check = false;
+}
+@{
+    if (Model.dt.Rows.Count < 1)
+    {
+        <div id="empty_div">
+            <div class="alert alert-info">没有可用的优惠券</div>
+        </div>
+    }
+    else
+    {
+        <div id="data_div">
+            <ul class="list-unstyled">
+                @foreach (DataRow dr in Model.dt.Rows)
+                {
+                    <li class="a_item boxborder @IsDisabled()" title="点击领取">
+                        <div class="type">
+                            <div>
+                                <i class="fa fa-rmb"></i>
+                                <span class="amount">@Convert.ToInt32(dr["AMount"])</span>
+                                <span class="region">@GetMoneyRegion(dr)</span>
+                            </div>
+                            <div class="r_gray r_item">全平台可用</div>
+                            <div class="r_gray r_item">@Convert.ToDateTime(dr["AgainTime"]).ToString("yyyy.MM.dd")-@Convert.ToDateTime(dr["EndTime"]).ToString("yyyy.MM.dd")</div>
+                        </div>
+                        <div class="opbtns">
+                            <b></b>
+                            <a href="/Class_2/Default.aspx" target="_blank">立即使用</a>
+                        </div>
+                    </li>
+                }
+                @Html.Partial("_page", Model)
+        </div>
+                @*<ul class="list-unstyled">
+                    <ZL:ExRepeater runat="server" ID="RPT" OnItemCommand="RPT_ItemCommand" PageSize="12"
+                                   PagePre="<li class='clearfix'></li></ul><div class='text-center'>" PageEnd="</div>">
+                <itemtemplate>
+                    <li class="a_item boxborder <%:State.Equals(1)?" ":" disabled" %>
+                        " title="点击领取">
+                        <div class="type">
+                            <div>
+                                <i class="fa fa-rmb"></i>
+                                <span class="amount"><%#Eval("AMount","{0:f0}")%> @dr["AMount"]</span>
+                                <span class="region"><%#GetMoneyRegion() %></span>
+                            </div>
+                            <div class="r_gray r_item">全平台可用</div>
+                            <div class="r_gray r_item"><%#Eval("AgainTime","{0:yyyy.MM.dd}")+"-"+Eval("EndTime","{0:yyyy.MM.dd}") %></div>
+                        </div>
+                        <div class="opbtns">
+                            <b></b>
+                            <a href="/Class_2/Default.aspx" target="_blank">立即使用</a>
+                        </div>
+                    </li>
+                </itemtemplate>
+                </ZL:ExRepeater>*@
+    }
+
+}

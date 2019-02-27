@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<div id="main_div">
+  <div id="top">
+    <div class="top_title">
+      <h2>{$Title}</h2>
+    </div>
+    <div class="art_info"><span>作者：{$Author}</span><span>创建时间：{$CreateTime}</span></div>
+  </div>
+  <div id="art_content"> {$Content} </div>
+  <div id="bottom"></div>
+</div>
+</body>
+</html>
+<style type="text/css">
+* { font-family: 'Microsoft YaHei'; }
+#main_div { padding-left: 50px; padding-right: 50px; padding-top: 40px; }
+#top { padding-bottom: 15px; border-bottom: 1px solid #ddd; text-align: center; }
+.art_info { color: gray; }
+.art_info span { padding-left: 60px; }
+#art_content { padding-top: 40px; }
+</style>

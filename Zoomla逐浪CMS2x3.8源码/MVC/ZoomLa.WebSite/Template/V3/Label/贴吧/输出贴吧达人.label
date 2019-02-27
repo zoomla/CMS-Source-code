@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>178</LabelID>
+    <LabelName>输出贴吧达人</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>贴吧</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_User</LabelTable>
+    <LabelField>UserID,UserName,HName= CASE WHEN HoneyName&lt;&gt;'' THEN HoneyName ELSE UserName END,UserFace=(Select UserFace from ZL_UserBase where ZL_UserBase.UserID=ZL_User.UserID),PostNum=(Select Count(*) from ZL_Guest_Bar where Pid=0  and Status=1 and CUName=ZL_User.UserName)</LabelField>
+    <LabelWhere>UserID!=0</LabelWhere>
+    <LabelOrder>UserID Desc</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li class="col-lg-4 col-md-4 col-sm-4 col-xs-12"&gt;
+&lt;a href="#" target="_blank"&gt;&lt;img src="{Field="UserFace"/}" onerror="javascript:this.src='/Images/userface/noface.png';" alt="{Field="HName"/}" /&gt;&lt;/a&gt;
+&lt;h6&gt;&lt;a href="#" target="_blank"&gt;{Field="HName"/}&lt;/a&gt;&lt;/h6&gt;
+&lt;/li&gt;{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":""}</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

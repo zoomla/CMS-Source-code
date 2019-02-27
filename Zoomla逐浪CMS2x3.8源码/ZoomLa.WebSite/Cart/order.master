@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="order.master.cs" Inherits="test_Cart_order" ClientIDMode="Static" %><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="renderer" content="webkit" />
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/dist/css/font-awesome.min.css" rel="stylesheet" />
+<link href="/App_Themes/User.css" rel="stylesheet" />
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/JS/ICMS/ZL_Common.js"></script>
+<script src="/JS/ZL_Regex.js"></script>
+<style type="text/css">
+@media (max-width:768px) {.minwidth {width:100%;}}
+</style>
+<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form1" runat="server">
+<div class="main_div">
+    <div class="container padding_r10">
+	<div runat="server" id="logged_div" visible="false" class="pull-right">
+	    <a href="#" class="grayremind" runat="server" id="logged_a" ></a>
+	    <a href="/User/Order/OrderList.aspx" target="_blank" class="btn btn-primary btn-xs">我的订单</a>
+	    <a href="/User/Logout.aspx" class="btn btn-primary btn-xs">退出</a>
+	</div>
+	<div runat="server" id="nologin_div" visible="false" class="pull-right">
+	    <a href="/User/Login.aspx" runat="server" id="login_a" class="btn btn-primary btn-xs"></a>
+	    <a href="/User/Register.aspx?ReturnUrl=<%=Request.RawUrl %>" class="btn btn-primary btn-xs" target="_blank">注册</a>
+	</div>
+    </div>
+</div>
+<div class="container" id="cart_body"><asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder></div><asp:ContentPlaceHolder runat="server" ID="ScriptContent"></asp:ContentPlaceHolder>
+    <div style="height:60px;"></div>
+    <div class="navbar-fixed-bottom cart_site_bottom">
+        <div class="container">
+            <p>
+                &nbsp;Copyright&nbsp;&copy; 
+                <script>
+                    var year = "";
+                    mydate = new Date();
+                    myyear = mydate.getYear();
+                    year = (myyear > 200) ? myyear : 1900 + myyear;
+                    document.write(year);
+                </script>
+                <%:Call.SiteName %> 版权所有
+            </p>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</form>
+</body>
+</html>  

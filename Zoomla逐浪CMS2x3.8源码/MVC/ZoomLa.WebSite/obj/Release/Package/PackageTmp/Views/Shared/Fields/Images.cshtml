@@ -1,0 +1,57 @@
+﻿@using System.Text
+@using System.Data;
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    public string ImagesCode()
+    {
+        string Name = Model.fieldMod.FieldName;
+        DataRow dr = Model.valueDR;
+        try
+        {
+            FieldModel model = new FieldModel(Model.fieldMod.Content);
+            string tlp = "<ul data-id='txt_{0}' id=\"ul_{0}\" class=\"preview_img_ul\">{3}</ul>"
+                        + "<div class=\"clearfix\"></div>"
+                        + "<div><textarea id=\"txt_{0}\" name=\"txt_{0}\" class=\"form-control m715-50\" style=\"height: 110px\">{1}</textarea></div>"
+                        + "<div class='btn-group' style=\"padding-left:0px;padding-top:2px;\"><input type='button' class='btn btn-primary' value='批量上传' onclick='UpFileDiag({2});' />"
+                        + "<input type='button' class='btn btn-info' value='远程抓取' onclick='UpFileDiag({2}, \"/Plugins/WebUploader/RemoteImg.aspx\");'/>"
+                        + "<input type='button' class='btn btn-info' value='图片库' onclick='SelectUppic({2});'/>"
+                        + "<input type='button' class='btn btn-info' value='组图排序' onclick='SortImg({2})'"
+                        + "</div>";
+            string value = "", lis = "";
+            string imgtlp = "<li class='margin_l5'><img src='{0}' class='preview_img'/><div class='file-panel' style='height: 0px;'><span class='cancel' title='删除'>删除</span><span class='editpic' title='编辑'>编辑</span></div></li>";
+            if (dr != null && !string.IsNullOrEmpty(dr[Name].ToString()))//有值
+            {
+                value = dr[Name].ToString().Trim(',');
+                try
+                {
+                    value = "[" + value.TrimStart('[').TrimEnd(']').TrimEnd(',') + "]";
+                    JArray arr = JsonConvert.DeserializeObject<JArray>(value);
+                    foreach (JObject jobj in arr)
+                    {
+                        lis += string.Format(imgtlp, function.GetImgUrl(jobj["url"]));
+                    }
+                }
+                catch (Exception ex) { lis = "<i style='color:red;'>(异常:非标准JSON格式," + ex.Message + ")</i>"; }
+            }
+            JObject obj = new JObject();
+            obj.Add(new JProperty("field", "images"));//标识自己为组图字段
+            obj.Add(new JProperty("nodeid", Model.NodeID));
+            obj.Add(new JProperty("inputid", Name));
+            obj.Add(new JProperty("name", Name));
+            obj.Add(new JProperty("uploaddir", SiteConfig.SiteOption.UploadDir));
+            obj.Add(new JProperty("iswater", model.GetValue("IsWater")));
+            return string.Format(tlp, Name, value, JsonConvert.SerializeObject(obj), lis);
+        }
+        catch (Exception ex) { throw new Exception("组图字段" + Name + "出错,原因:" + ex.Message); }
+    }
+}
+@{
+    
+}
+@MvcHtmlString.Create(ImagesCode())

@@ -1,0 +1,81 @@
+﻿@using ZoomLa.Model
+@{
+    M_UserInfo mu = ViewBag.mu;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>提现申请</title>
+}
+@section content{
+    <div id="pageflag" data-nav="shop" data-ban="UserInfo"></div>
+    <div class="container margin_t10">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a title="账户管理" href="@Url.Action("Userinfo","info")">账户管理</a></li>
+            <li><a title="提现管理" href="@Url.Action("WithDrawLog","Money")">提现管理</a></li>
+            <li class="active">申请提现 <a href="javascript:;" onclick="showconver();">[币值转换]</a></li>
+        </ol>
+    </div>
+    <div class="container">
+        <form method="post" action="WithDraw_Add">
+            <table class="table table-bordered table-hover table-striped">
+                <tr><td class="td_m">现有金额：</td><td><span class="r_red">@mu.Purse.ToString("f2")</span></td></tr>
+                <tr>
+                    <td>提现金额：</td>
+                    <td>
+                        <input type="text" ID="Money_T" name="Money_T" class="form-control text_300 drawpri required number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>开户人：</td>
+                    <td>
+                        <input type="text" class="form-control  text_300 required" ID="PName_T" name="PName_T" title="开户人姓名不能为空" /><span class="r_red">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>银行名称：</td>
+                    <td>
+                        <input type="text" class="form-control text_300 required" ID="Bank_T" name="Bank_T" title="银行名称不能为空" /><span class="r_red">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="line-height:120px;">开户银行：</td>
+                    <td>
+                        <textarea ID="Remark_T" name="Remark_T" class="form-control text_300 required" Style="height: 120px;resize:none;"></textarea><span class="r_red">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>银行卡号：</td>
+                    <td>
+                        <input type="text" class="form-control text_300 required account" ID="Account_T" name="Account_T" maxlength="19" /><span class="r_red">*</span>
+                    </td>
+                </tr>
+                <tr><td></td><td><input type="submit" class="btn btn-primary" value="申请提现" /></td></tr>
+            </table>
+        </form>
+    </div>
+}
+@section script{
+    <script src="/JS/ZL_Regex.js"></script>
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script>
+        $(function () {
+            if (window.ZL_Regex) {
+                $.validator.addMethod("drawpri", function (value, element) {
+                    if (ZL_Regex.isEmpty(value)) { return true; }
+                    var price = /^(?!0+(?:\.0+)?$)(?:[1-9]\d*|0)(?:\.\d{1,2})?$/;
+                    return this.optional(element) || (price.test(value));
+                }, "提现金额必须大于零，最多保留两位小数!");
+                $.validator.addMethod("account", function (value, element) {
+                    if (ZL_Regex.isEmpty(value)) { return true; }
+                    var account = /^(\d{16}|\d{19})$/;
+                    return this.optional(element) || (account.test(value));
+                }, "请输入16或19位银行卡号");
+            };
+            $("form").validate();
+        })
+        function showconver() {
+            ShowComDiag("/BU/Money/MoneyConver.aspx", "币值转换");
+        }
+    </script>
+}

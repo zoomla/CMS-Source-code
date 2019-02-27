@@ -1,0 +1,30 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>我的邀请码</title>
+}
+@section content{
+    <div id="pageflag" data-nav="group" data-ban="InviteCode"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+            <li class="active">邀请码管理<a href="javascript:;" style="margin-left:5px;"></a> <a href="InviteCode_Add">[生成邀请码]</a></li>
+        </ol>
+    </div>
+    <div class="container">
+        <div class="alert alert-info">
+            <div class="pull-left" style="line-height:30px;"> 您当前有@(ViewBag.codecount)个有效的邀请码</div>
+            <div class="input-group nav_searchDiv text_300 pull-left marginl5">
+                <input type="text" id="skey" name="skey" class="form-control mvcparam" placeholder="请输入需要搜索的邀请码" />
+                <span class="input-group-btn">
+                    <a href="javascript:;" class="btn btn-default" id="search_btn" onclick="mvcpage.load();"><span class="fa fa-search"></span></a>
+                </span>
+            </div>
+        </div>
+        @Html.Partial("InviteCode_List",Model)
+    </div>
+}
+@section script{
+}

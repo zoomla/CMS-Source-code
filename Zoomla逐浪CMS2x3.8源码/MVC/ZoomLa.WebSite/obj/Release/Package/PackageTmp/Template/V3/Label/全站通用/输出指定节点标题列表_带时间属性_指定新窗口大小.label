@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>104</LabelID>
+    <LabelName>输出指定节点标题列表_带时间属性_指定新窗口大小</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,30,1,标题长度|ShowNum,10,1,调用信息数|T_width,400,1,弹窗宽度|T_height,440,1,弹窗高度</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>CreateTime,GeneralID,NodeID,Title</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) and status=99</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;span&gt;{ZL:FormatDate({Field="CreateTime"/},yyyy-MM-dd)/}&lt;/span&gt;&lt;a href="#" onclick="javascript:window.open('{ZL:GetInfoUrl({Field="GeneralID"/})/}', 'newwindow', 'height=@T_height, width=@T_width, toolbar=no, menubar=no, scrollbars=auto, resizable=no, location=no, status=no')" title="{Field="Title"/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

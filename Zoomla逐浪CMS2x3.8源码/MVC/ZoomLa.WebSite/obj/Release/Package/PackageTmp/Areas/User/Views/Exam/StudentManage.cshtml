@@ -1,0 +1,39 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>学生申请管理</title>
+}
+@section content{
+
+<div id="pageflag" data-nav="edu" data-ban="ke"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Default","")">用户中心</a></li>
+        <li><a href="@Url.Action("ClassManage","Exam")">班级管理</a></li>
+        <li class="active">班级成员管理 </li>
+    </ol>
+</div>
+<div class="container">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active" data-tabid="-1"><a href="StudentManage?cid=<%=ClassID %>&status=-1&stutype=<%=StuType %>">全部</a></li>
+        <li role="presentation" data-tabid="1"><a href="StudentManage?cid=<%=ClassID %>&status=1&stutype=<%=StuType %>">已审核</a></li>
+        <li role="presentation" data-tabid="0"><a href="StudentManage?cid=<%=ClassID %>&status=0&stutype=<%=StuType %>">未审核</a></li>
+    </ul>
+    @Html.Partial("StudentManage_List",Model)
+    <div id="Option_Div"  visible="false">
+        <button id="auit_btn"  class="btn btn-primary"  onclick="Auit_Btn_Click">批量审核</button>
+        <button id="unauit_btn"  class="btn btn-primary"  onclick="UnAuit_Btn_Click">批量拒绝</button>
+        <button id="del_btn"  class="btn btn-primary"  onclick="Del_Btn_Click">批量删除</button>
+    </div>
+</div>
+}
+@section script{
+<script>
+    function InitTab(id) {
+        $("[data-tabid]").removeClass("active");
+        $("[data-tabid='" + id + "']").addClass("active");
+    }
+</script>
+}

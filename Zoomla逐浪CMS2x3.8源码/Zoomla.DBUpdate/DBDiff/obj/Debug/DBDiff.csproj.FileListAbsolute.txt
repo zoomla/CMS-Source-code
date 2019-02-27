@@ -1,0 +1,17 @@
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\bin\Debug\Settings.conf
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\bin\Debug\SqlLocalDB.MSI
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\DBDiff.Front.BasicForm.resources
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\DBDiff.Front.SiteList.resources
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\DBDiff.Properties.Resources.resources
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\DBDiff.csproj.GenerateResource.Cache
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\bin\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.exe.config
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\bin\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.exe.manifest
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\bin\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.application
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\bin\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.exe
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\bin\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.pdb
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.exe.manifest
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.application
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.exe
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\Zoomla!逐浪CMS All To X3.8 一键升级程序.pdb
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\bin\Debug\Newtonsoft.Json.dll
+E:\Code\ZoomlaCMS2\Zoomla.DBUpdate\DBDiff\obj\Debug\DBDiff.csprojResolveAssemblyReference.cache

@@ -1,0 +1,10 @@
+D:\Code\zoomla6x\ZoomLa.WebSite\Bin\ZoomLa.SQLDAL.dll
+D:\Code\zoomla6x\ZoomLa.WebSite\Bin\ZoomLa.SQLDAL.pdb
+D:\Code\zoomla6x\ZoomLa.SQLDAL\obj\Release\ZoomLa.SQLDAL.csprojResolveAssemblyReference.cache
+D:\Code\zoomla6x\ZoomLa.SQLDAL\obj\Release\ZoomLa.SQLDAL.dll
+D:\Code\zoomla6x\ZoomLa.SQLDAL\obj\Release\ZoomLa.SQLDAL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.SQLDAL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.SQLDAL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.SQLDAL\obj\Release\ZoomLa.SQLDAL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.SQLDAL\obj\Release\ZoomLa.SQLDAL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.SQLDAL\obj\Release\ZoomLa.SQLDAL.csprojResolveAssemblyReference.cache

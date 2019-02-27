@@ -1,0 +1,74 @@
+﻿@using System.Data
+@model System.Data.DataTable
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head id="Head1">
+    <title>选择打开文件</title>
+    <link href="/App_Themes/AdminDefaultTheme/main.css" type="text/css" rel="stylesheet" />
+    <link href="/App_Themes/UserThem/edit.css" rel="stylesheet" type="text/css" />
+    <base target="_self" />
+</head>
+<body>
+    <form id="form1">
+        <script src="/JS/Popup.js" language="javascript" type="text/javascript"></script>
+        <table width="100%" border="0" cellpadding="2" cellspacing="1">
+            <tr class="tdbg">
+                <td align="right">
+                    搜索当前目录文件：
+                    <input type="text" id="TxtSearchKeyword" name="TxtSearchKeyword" />
+                    <input type="button" id="BtnSearch" value="搜索" />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table width="100%">
+            <tr>
+                <td>
+                    当前目录：@ViewBag.currentdir
+                </td>
+                <td><a href="javascript:backToMainDir()" style="color:blue;">返回主目录</a></td>
+                <td><a href="javascript:backToPervious()" style="color:blue;">返回上级目录</a></td>
+            </tr>
+        </table>
+        <div class="editdocLi">
+            <ul>
+                @foreach (DataRow dr in Model.Rows)
+                {
+                    <li>
+                        if (dr["type"].ToString() == "1")
+                        {
+                        <a href='javascript:openDir(\"@dr["Name"]\");' style='background:url(/App_Themes/AdminDefaultTheme/images/System13.png) no-repeat top center;'>@dr["Name"]</a>
+                        }else
+                        {
+                        <span><a href='javascript:add(\"@ViewBag.dir/@dr["Name"]\")' title='@dr["Name"]'>@dr["Name"]</a></span>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+        <div id="dHTMLADPreview" style="z-index: 1000; left: 0px; visibility: hidden; width: 10px; position: absolute; top: 0px; height: 10px">
+        </div>
+
+
+        <script type="text/javascript">
+            function add(obj) {
+                opener.document.getElementById('@ViewBag.m_userinput').value = "";
+                if (obj == "") { return false; }
+                opener.document.getElementById('@ViewBag.m_userinput').value = obj;
+                window.close();
+                opener.GetWord();
+            }
+            //打开文件夹
+            function openDir(dirName) {
+                location.href = "ShowEdit.aspx?Dir=" + dirName + "&OpenWords=@ViewBag.m_userinput";
+            }
+            //返回主目录
+            function backToMainDir() { location.href = "ShowEdit.aspx?OpenWords=@ViewBag.m_userinput"; }
+            function backToPervious() { history.go(-1); }
+        </script>
+    </form>
+</body>
+</html>

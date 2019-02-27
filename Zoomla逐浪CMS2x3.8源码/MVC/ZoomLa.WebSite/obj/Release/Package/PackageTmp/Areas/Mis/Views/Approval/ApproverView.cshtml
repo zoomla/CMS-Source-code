@@ -1,0 +1,108 @@
+﻿@using System.Data
+@model System.Data.DataTable
+@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@functions{
+    public string GetResult(object o)
+    {
+        string result = "";
+        switch (o.ToString())
+        {
+            case "-1":
+                result = "<span style='color:red;'>不同意</span>";
+                break;
+            case "99":
+                result = "<span style='color:green;'>同意</span>";
+                break;
+            default:
+                result = "<span>尚未处理</span>";
+                break;
+        }
+        return result;
+    }
+}
+@section head{
+    <title>审批详情</title>
+    <link href="/App_Themes/User.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/JS/MisView.js"></script>
+    <script type="text/javascript">
+        function loadPage(id, url) {
+            $("#" + id).addClass("loader");
+            $("#" + id).append("Loading......");
+            $.ajax({
+                type: "get",
+                url: url,
+                cache: false,
+                error: function () { alert('加载页面' + url + '时出错！'); },
+                success: function (msg) {
+                    $("#" + id).empty().append(msg);
+                    $("#" + id).removeClass("loader");
+                }
+            });
+        }
+    </script>
+}
+@section content{
+    <div id="Meno">
+        <div id="pro_left">
+            <div class="new_tar">
+                <a href="AddApproval">新建申请单</a>
+            </div>
+            <div class="pro_li">
+                <ul>
+                    <li><a href="Default?type=2">我的审批</a></li>
+                    <li><a href="Default?type=3">已归档</a></li>
+                    <li><a href="Default?type=8">抄送给我的</a></li>
+                    <li><a href="Default?type=7">审批设置</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="pro_right">
+            <div class="Mis_Title">我的申请  >> 查看申请单 </div>
+            <input type="hidden" id="txtPeson" />
+            <table class="table table-bordered" style="padding-left:10px; padding-top:10px;">
+                <tr><td>申请人：</td><td>@ViewBag.TxtInputer</td></tr>
+                <tr><td>申请部门：</td><td>@ViewBag.Txtdepartment</td></tr>
+                <tr><td>创建日期：</td><td>@ViewBag.TxtTime</td></tr>
+                <tr><td>申请流程：</td><td>@ViewBag.TxtProcess</td></tr>
+                <tr><td>申请内容：</td><td>@ViewBag.TxtContent</td></tr>
+                <tr><td>抄送：</td><td>@ViewBag.TxtSend</td></tr>
+                <tr><td>处理结果：</td><td>@ViewBag.resultL</td></tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="appDiv" style="margin-left:10px;">
+                            <a href="@Url.Action("InsertRecord","Approval",new { status=99,id=Request.QueryString["ID"] })" class="btn btn-primary">同意</a>
+                            <a href="@Url.Action("InsertRecord","Approval",new { status=-1,id=Request.QueryString["ID"] })" class="btn btn-primary">不同意</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="resultDiv">
+                <table class="table" style="text-align:center;">
+                    <tr><td>审批人</td><td>结果</td><td>备注</td><td>时间</td></tr>
+                    @foreach (DataRow dr in Model.Rows)
+                    {
+                        <tr><td>@dr["UserName"]</td><td>@GetResult(dr["Result"])</td><td>@dr["Remind"]</td><td>@dr["CreateTime"]</td></tr>
+                    }
+                </table>
+                <div style="clear:both;"></div>
+                <div style="position:fixed;bottom:15px;">@MvcHtmlString.Create(ViewBag.pagehtmlli)</div>
+            </div>
+
+            <div id="div_share" class="pop_box">
+                <div class="p_head">
+                    <div class="p_h_title">人员选择</div>
+                    <div class="p_h_close" onclick="HideDiv('div_share')">关闭</div>
+                </div>
+                <iframe src="/Mis/SelUser?OpenerText=txtPeson" width="420" height="120" scrolling="no" frameborder="0"></iframe>
+                <div class="p_bottom">
+                    <input type="button" class="btn btn-primary" value="确定" id="BtnSubPeson" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section script{
+
+}

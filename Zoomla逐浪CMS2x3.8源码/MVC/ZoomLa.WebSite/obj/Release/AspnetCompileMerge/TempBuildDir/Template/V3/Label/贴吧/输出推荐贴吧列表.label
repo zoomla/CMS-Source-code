@@ -1,0 +1,59 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>173</LabelID>
+    <LabelName>输出推荐贴吧列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>贴吧</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Guestcate</LabelTable>
+    <LabelField>BarImage,Cateid,Catename</LabelField>
+    <LabelWhere>GType=1 And BarInfo='Recommend'</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding5"&gt;
+&lt;div class="bar_tui_l"&gt;
+&lt;div class="bar_tui_ltop"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 bar_tui_ltopl"&gt;&lt;a href="/PClass?id={Field="Cateid"/}" target="_blank"&gt;&lt;img src="{Field="BarImage"/}" onerror="javascript:this.src='/Images/nopic.gif';" alt="{Field="Catename"/}" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 bar_tui_ltopr"&gt;
+&lt;div class="bar_tui_ltoprt"&gt;&lt;span class="bar_tui_s"&gt;推荐&lt;/span&gt;&lt;span class="bar_tui_s1"&gt;{Field="Catename"/}&lt;/span&gt;&lt;i class="fa fa-heart"&gt;&lt;/i&gt;&lt;/div&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;
+{ZL.Label id="输出指定贴吧帖子" CateID="{Field="Cateid"/}" TitleNum="60" ShowNum="1" /}
+&lt;div class="bar_tui_ltoprc"&gt;&lt;span&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;{ZL.Label id="输出指定贴吧帖子总数" CateID="{Field="Cateid"/}" /}&lt;/span&gt;&lt;span&gt;&lt;i class="fa fa-pencil-square-o"&gt;&lt;/i&gt;{ZL.Label id="输出指定贴吧帖子回复总数" CateID="{Field="Cateid"/}" /}&lt;/span&gt;&lt;/div&gt;
+&lt;div class="bar_tui_ltoprb"&gt;
+&lt;span&gt;推荐：&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;span&gt;9.4&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="bar_tui_lbot"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"&gt;&lt;div class="bar_tui_lbotl"&gt;大家正在讨论&lt;/div&gt;&lt;/div&gt;
+&lt;div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"&gt;
+&lt;div class="bar_tui_lbotr"&gt;
+&lt;ul class="list-unstyled"&gt;
+{ZL.Label id="输出指定贴吧帖子_带时间" CateID="{Field="Cateid"/}" TitleNum="32" ShowNum="2" /}
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

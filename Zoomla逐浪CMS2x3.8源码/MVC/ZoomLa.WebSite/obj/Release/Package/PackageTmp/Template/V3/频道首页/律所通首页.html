@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>律所通_{$SiteName/}</title>
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script>
+function onEmpty(obj){
+ 	if(obj.value==''){
+		obj.value="请输入关键字";	
+		}
+ }
+function onfull(obj){
+	if(obj.value="请输入关键字"){
+		obj.value='';
+		}
+	}
+</script>
+</head>
+<body class="body_red">
+<div id="law_nav">
+<div id="navList">
+<div id="navList_l">
+<div class="clear"></div>
+<ul>
+<li><a href="{ZL:GetNodeLinkUrl(143)/}" target="_blank">律所通</a></li>
+<li id="lis"><a href="/"  target="_blank">逐浪CMS</a></li>
+</ul>
+</div><!--navList_l end-->
+<div id="navList_c">
+<ul>
+<li><a href="{ZL:GetNodeLinkUrl(143)/}" target="_blank">首页</a></li>
+<li><a href="{ZL:GetNodeListUrl(1)/}"  target="_blank">门户系统</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(2)/}"  target="_blank">商城系统</a></li>
+<li><a href="/Edit"  target="_blank">教育系统</a></li>
+<li><a href="/Baike/"  target="_blank">百科维基</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(86)/}"  target="_blank">视频中心</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(85)/}"  target="_blank">图库系统</a></li>
+</ul>
+</div><!--navList_c end-->
+<div id="navList_r">
+<form action="/search/SearchList?node=0" method="get">
+<input name="keyword" id="tex" type="text"  value="请输入关键字" onFocus="onfull(this)" onBlur="onEmpty(this)" />
+<input type="submit" value="搜索" class="sub">
+</form>
+</div>
+</div><!--navList_r end-->
+</div><!--navList end-->
+</div><!--nav end-->
+<div id="law_main">
+<div id="law_main_c">
+<img src="{$CssDir/}images/image1.jpg" alt="律所通"/>
+</div><!--main_c end-->
+<div id="law_main_b">
+<div id="law_main_li">
+<ul>
+<li><a href="javascript:void(0)" onClick="useropen('1')" >案件管理</a></li>
+<li><a href="javascript:void(0)" onClick="useropen('2')" >律师管理</a></li>
+<li><a href="javascript:void(0)"  onClick="useropen('3')">客户管理</a></li>
+<li><a href="javascript:void(0)"  onClick="useropen('4')">文档生成</a></li>
+<li><a href="javascript:void(0)"  onClick="useropen('5')">文书存档</a></li>
+<li><a href="#">律所门户</a></li>
+</ul>
+</div><!--main_li end-->
+</div><!--main_b end-->
+</div><!--main end-->
+<div id="law_footer">
+<a href="{ZL:GetInfoUrl(20)/}" target="_blank">关于我们</a>　|　<a href="{ZL:GetInfoUrl(22)/}" target="_blank">法律声明</a>　|　<a href="{ZL:GetNodeLinkUrl(88)/}" target="_blank">友情链接</a>
+</div><!--footer end-->
+
+<script>
+function useropen(id){
+	var uid='{ZL:GetuserID()/}';
+	if(uid==''){
+		window.open("/user/login?ReturnUrl=/user/default?t="+id,"_parent");		
+		}
+	else{
+		window.open("/user/default?t="+id,"_parent");		
+ 		}
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿@using System.Text
+@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@using ZoomLa.SQLDAL
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    public string TableField()
+    {
+        //ZL_User.UserName,ZL_User.UserID
+        string Name = Model.fieldMod.FieldName;
+        string Value=Model.GetValue();
+        try
+        {
+            FieldModel fieldmod = new FieldModel(Model.fieldMod.Content);
+            string tbName = fieldmod.GetValue("TextField").Split('.')[0];
+            string textField = fieldmod.GetValue("TextField").Split('.')[1];
+            string valField = textField;
+            if (!string.IsNullOrEmpty(fieldmod.GetValue("ValueField")))
+            { valField = fieldmod.GetValue("ValueField").Split('.')[1]; }
+            //string.IsNullOrEmpty(Content.Split(',')[1]) ? textField : Content.Split(',')[1].Split('.')[1];
+            string where = fieldmod.GetValue("WhereStr");
+            if (!string.IsNullOrEmpty(where)) { where = " AND " + where; }
+            string downHtml = "";
+            DataTable dt = SqlHelper.ExecuteTable(CommandType.Text, "Select * From " + tbName + " WHERE 1=1 " + where);
+            if (fieldmod.GetValue("FieldType").Equals("1"))//单选模式
+            {
+                downHtml += "<select class=\"form-control m715-50\" id='" + Name + "' name='txt_" + Name + "'>";
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    downHtml += "<option value='" + dt.Rows[i][valField].ToString() + "'>" + dt.Rows[i][textField] + "</option>";
+                }
+                downHtml += "</select></td>";
+                if (!string.IsNullOrEmpty(Value))
+                {
+                    downHtml = downHtml.Replace("value='" + Value + "'", "value='" + Value + "' selected='selected'");
+                }
+            }
+            else//多选模式
+            {
+                downHtml += "<div>";
+                foreach (DataRow valuedr in dt.Rows)
+                {
+                    string checkedstr = "";
+                    if (!string.IsNullOrEmpty(Value) && ("$" + Value + "$").Contains("$" + valuedr[valField] + "$"))
+                    {
+                        checkedstr = "checked='checked'";
+                    }
+                    downHtml += "<label><input type='checkbox' name='txt_" + Name + "' value='" + valuedr[valField] + "' " + checkedstr + " />" + valuedr[textField] + "</label> ";
+                }
+                downHtml += "</div>";
+            }
+            return downHtml;
+        }
+        catch (Exception ex) {return "";  }
+        //throw new Exception("库选字段" + Name + "出错,原因:" + ex.Message);
+    }
+}
+@{
+}
+@MvcHtmlString.Create(TableField())

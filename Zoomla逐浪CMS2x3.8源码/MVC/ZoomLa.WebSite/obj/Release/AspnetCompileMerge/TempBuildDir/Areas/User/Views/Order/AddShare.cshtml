@@ -1,0 +1,177 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@using ZoomLa.Common
+@model ZoomLa.Model.M_OrderList
+@{
+    DataTable dt = ViewBag.dt;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@functions{
+    OrderCommon orderCom = new OrderCommon();
+    public string GetShopUrl(DataRow dr)
+    {
+        return orderCom.GetShopUrl(DataConverter.CLng(dr["StoreID"]), Convert.ToInt32(dr["ProID"]));
+    }
+}
+@section head{
+<title>晒单评价</title>
+}
+@section content{
+<div id="pageflag" data-nav="shop" data-ban="shop"></div>
+<form action="@MVCHelper.GetAction("Share_Add",Request)" method="post">
+    <div class="container shareorder">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default")">会员中心</a></li>
+            <li><a href="OrderList">我的订单</a></li>
+            <li class="active"><a href="@Request.RawUrl">评价晒单</a></li>
+        </ol>
+        <table class="table table-border table-hover table-striped" id="EGV">
+            <tr><th class="td_s"></th><th class="text-center td_l">商品信息</th><th>购买数量</th><th>金额</th><th>购买时间</th></tr>
+            @foreach (DataRow dr in dt.Rows)
+            {
+                <tr>
+                    <td><label class="filltd"><input type="radio" value="@dr["id"]" name="cart_rad" /></label></td>
+                    <td>
+                        <a href="@GetShopUrl(dr)" target="_blank">
+                            <img src="@function.GetImgUrl(dr["thumbnails"])" class="img50" />
+                            @dr["ProName"]
+                        </a>
+                    </td>
+                    <td class="td_m">x@(dr["ProNum"])</td>
+                    <td class="td_m">@Convert.ToDouble(dr["AllMoney"]).ToString("f2")</td>
+                    <td class="td_m">@DateHelper.ToDate(dr["AddTime"])</td>
+                </tr>
+            }
+        </table>
+        <div class="row">
+            <div class="col-md-3 td_left text-right">标题：</div>
+            <div class="col-md-9">
+                <input type="text" id="Title_T" name="Title_T" placeholder="描述一下评价的主要内容" class="form-control text_300" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 td_left text-right"><span class="color_red">*</span> 评分：</div>
+            <div class="col-md-9" id="star_div">
+                <i class="staricon fa fa-star-o" data-val="1"></i>
+                <i class="staricon fa fa-star-o" data-val="2"></i>
+                <i class="staricon fa fa-star-o" data-val="3"></i>
+                <i class="staricon fa fa-star-o" data-val="4"></i>
+                <i class="staricon fa fa-star-o" data-val="5"></i>
+                <input type="hidden" id="star_hid" name="star_hid" value="0" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 td_left text-right"><span class="color_red">*</span> 心得：</div>
+            <div class="col-md-9">
+                <textarea id="MsgContent_T" placeholder="商品是否给力?快分享你的购买心得吧" class="form-control text_300 msgcon" maxlength="500" style="height:120px;"></textarea>
+                <div class="text-right text_300 tips">10-500字</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 td_left text-right">晒单：</div>
+            <div class="col-md-9">
+                <input type="button" id="upfile_btn" class="btn btn-info" value="添加图片" />
+                <div style="margin-top: 10px;" id="uploader" class="uploader">
+                    <ul class="filelist"></ul>
+                </div>
+                <input type="hidden" id="Attach_Hid" name="Attach_Hid" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <input type="button" class="btn btn-primary" onclick="SubCheck();" value="评价并继续" />
+                <label><input type="checkbox" id="IsHideName" name="IsHideName" class="margin_l20" value="1" />匿名评价</label>
+            </div>
+        </div>
+    </div>
+    <div style="height:20px;"></div>
+</form>
+}
+@section script{
+<style type="text/css">
+.img50 {width:50px;height:50px;}
+.img80 {width:80px;height:80px;}
+.staricon{font-size:1.2em; color:#ccc; cursor:pointer;}
+.staricon.fa-star {color:#FBA507;}
+.comments-header {border:1px solid #ddd;padding:0 20px;background:#f7f7f7;
+					height:30px;line-height:30px;}
+.sphead {text-align:center;font-weight:700;display:inline-block;}
+.column1 {width:550px;}
+.column2 {width:120px;text-align:left;}
+.column3 {width:180px;}
+.column4 {width:130px;text-align:left;}
+/*回复主列表 上右下左*/
+.com-item-main {width:100%;}
+.comments-item {padding:10px 20px 10px 20px;margin-top:-1px;border:1px solid #ddd;font-size:12px;color:#666;}
+.comments-item .time {color:#999;font-weight:400;display:inline-block;}
+.comments-item .user-item {padding-bottom:3px;}
+.comments-item .user_group {color:#088000;margin-left:10px;}
+.comments-item .p-imgs {margin-top:5px;}
+.comments-item .imgsp {padding:3px;margin-right:3px; display:inline-block;border:1px solid #ddd;cursor:pointer;}
+.comments-item .imgsp:hover {border:1px solid #31708f;}
+.comments-item .comment-operate {padding-top:2px;}
+.comments-item .linkgray{cursor:pointer;color:#999;}
+.comments-item .reply-operate {display:none;margin-top:5px;text-align:right;background:#f7f7f7;padding:10px 10px 15px;border:1px solid #ddd;}
+/*回复列表*/
+.comment-reply-item {border-top:1px dotted #ccc;padding:10px 0 10px 15px; }
+</style>
+<link href="/JS/Controls/ZL_Webup.css" rel="stylesheet" />
+<script src="/JS/jquery.validate.min.js"></script>
+<script src="/JS/ZL_Regex.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/JS/Controls/ZL_Webup.js"></script>
+<script>
+    $(function () {
+        //jQuery.validator.addMethod("IDCards", function (value) {
+        //    return ZL_Regex.isIDCard(value);
+        //}, "请输入正确的证件号码！");
+        $("form").validate({});
+        jQuery.validator.addMethod("msgcon", function (value) {
+            return (value.length > 9);
+        }, "心得最少需要10个字符!");
+        ZL_Webup.config.json.ashx = "";
+        ZL_Webup.config.json.accept = "img";
+        $("#upfile_btn").click(ZL_Webup.ShowFileUP);
+        StarInit();
+        //---
+        $("input[name=cart_rad]")[0].checked = true;
+    })
+    function AddAttach(file, ret, pval) { return ZL_Webup.AddAttach(file, ret, pval); }
+    function reloadPage() { }
+    //评星
+    function StarInit() {
+        $(".staricon").hover(function () {
+            //fa-star-o空心,
+            $(this).removeClass("fa-star-o").addClass("fa-star");
+            $(this).prevAll(".staricon").removeClass("fa-star-o").addClass("fa-star");
+        }, function () {
+            StarByVal($("#star_hid").val());
+        }).click(function () {
+            $("#star_hid").val($(this).data("val"));
+            StarByVal($(this).data("val"));
+        });
+        //移出div块,除非已click,否则清除值
+        $("#star_div").mouseleave(function () {
+            var val = $("#star_hid").val();
+            StarByVal(val);
+        });
+        //根据val点亮或熄灭评星
+        function StarByVal(val) {
+            if (val == "" || val == 0 || val == "0") { $(".staricon").removeClass("fa-star").addClass("fa-star-o"); }
+            else
+            {
+                var ref = $(".staricon[data-val=" + val + "]"); ref.removeClass("fa-star-o").addClass("fa-star");
+                ref.prevAll().removeClass("fa-star-o").addClass("fa-star");
+                ref.nextAll().removeClass("fa-star").addClass("fa-star-o");
+            }
+        }
+    }
+    //-----
+    function SubCheck() {
+        var score = parseInt($("#star_hid").val());
+        if (score < 1 || score > 5) { alert("请选定评分"); return false; }
+        $("form").submit();
+    }
+</script>
+}

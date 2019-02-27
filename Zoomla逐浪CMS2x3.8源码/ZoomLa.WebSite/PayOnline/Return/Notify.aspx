@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" ResponseEncoding="UTF-8" AutoEventWireup="true" enableEventValidation="false" viewStateEncryptionMode ="Never" CodeFile="Notify.aspx.cs" Inherits="Notify" EnableViewStateMac="false" %>

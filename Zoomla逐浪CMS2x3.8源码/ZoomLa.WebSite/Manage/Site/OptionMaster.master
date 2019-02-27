@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="OptionMaster.master.cs" Inherits="manage_Site_OptionMaster" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
+<link href="/dist/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> 
+<link href="/App_Themes/V3.css" rel="stylesheet" type="text/css" />
+<asp:ContentPlaceHolder ID="head" runat="server">
+</asp:ContentPlaceHolder>
+<style>
+#BreadNav{ display:none;} 
+</style>
+</head>
+<body>
+<form id="form1" runat="server">
+<div>
+     <asp:ContentPlaceHolder id="pageContent" runat="server">
+     </asp:ContentPlaceHolder>
+</div>
+</form>
+</body>
+</html>

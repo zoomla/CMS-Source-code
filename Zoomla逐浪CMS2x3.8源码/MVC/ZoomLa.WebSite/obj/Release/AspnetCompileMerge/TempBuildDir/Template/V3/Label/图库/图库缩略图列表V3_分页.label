@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>101</LabelID>
+    <LabelName>图库缩略图列表V3_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>图库</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,25,1,标题长|ShowNum,10,1,显示数|ClassName,col-lg-4 col-sm-4 col-md-4 col-xs-12,1,自定类名</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_C_Photo on ZL_CommonModel.ItemID=ZL_C_Photo.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.NodeID,ZL_CommonModel.Title,ZL_C_Photo.PhotoUrlThum,TitleStyle</LabelField>
+    <LabelWhere>(ZL_CommonModel.NodeID=@NodeID OR ZL_CommonModel.FirstNodeID=@NodeID) And Status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>&lt;div class="pan_img"&gt;
+&lt;div class="row"&gt;
+&lt;ul&gt;
+{Repeate}&lt;li class="@ClassName"&gt;
+&lt;div class="pan_img_c"&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="PhotoUrlThum"/})/}" alt="{Field="Title"/}" onerror="javascript:this.src='/UploadFiles/nopic.gif';" /&gt;&lt;/a&gt;
+&lt;h3&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}" style="{Field="TitleStyle"/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;&lt;/h3&gt;
+&lt;/li&gt;
+{/Repeate}
+&lt;div class="clearfix"&gt;&lt;/div&gt; 
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{ZL.Page id="大图标响应式列表分页v3"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>ZoomlaCMS</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam>{"PureT1":"ZL_CommonModel","PureT2":"ZL_C_Photo","T1":"ZoomlaCMS.dbo.ZL_CommonModel","T2":"ZoomlaCMS.dbo.ZL_C_Photo","JoinType":"left join","OnField1":"ItemID","OnField2":"ID"}</ProceParam>
+  </Table>
+</NewDataSet>

@@ -1,0 +1,108 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Views/Shared/_empty.cshtml";
+    DataTable cateDt = ViewBag.cateDt;
+    M_GuestBookCate cateMod = ViewBag.cateMod;
+    M_UserInfo mu = ViewBag.mu;
+}
+@section head{
+    <script charset="utf-8" src="/Plugins/Ueditor/ueditor.config.js"></script>
+    <script charset="utf-8" src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+    <script src="/JS/mvcpage.js"></script>
+    <link href="/App_Themes/Guest.css" rel="stylesheet" type="text/css" />
+    <title>留言中心首页</title>
+}
+@section content{
+    @Html.Partial("MasterView")
+    <div class="container margin-15">
+        <ol class="breadcrumb">
+            <li><a href="/">网站首页</a></li>
+            <li><a href="/Guest/Default">留言中心</a></li>
+            <li class="active">
+                <span>@cateMod.CateName</span>
+            </li>
+        </ol>
+    </div>
+    @Html.Partial("Default_List", Model)
+    <div class="container">
+        @if (cateMod.CateID > 0)
+        {
+            if (ViewBag.needlog == 0 || mu.UserID > 0)
+            {
+                <form method="post" action="@MVCHelper.GetAction("/Guest/Add",Request)">
+                    <div class="margin_t10">
+                        <table class="table table-bordered table-striped">
+                            <tr><td><i class="fa fa-pencil"></i> 发布信息</td></tr>
+                            <tr>
+                                <td>
+                                    <div class="input-group" style="width:505px;">
+                                        <select id="Cate" name="Cate" class="form-control text_x" style="border-right:none;">
+                                            @foreach (DataRow dr in cateDt.Rows)
+                                            {
+                                                <option @(dr["CateName"].ToString() == cateMod.CateName ? "selected" : "" ) value="@dr["CateID"]">@dr["CateName"]</option>
+                                            }
+                                        </select>
+                                        <input type="text" id="Title" name="Title" maxlength="100" class="form-control text_300 required" title="标题不能为空" placeholder="请输入标题" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea id="Content" name="Content" class="content" style="height: 200px; width: 100%;"></textarea>
+                                    @MvcHtmlString.Create(Call.GetUEditor("Content"))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="VCode" name="VCode" maxlength="6" class="form-control text_x" style="display:inline-block" placeholder="请输入验证码" autocomplete="off" />
+                                    <img id="VCode_img" title="点击刷新验证码" class="code" style="height: 34px;" />
+                                    <input type="hidden" id="VCode_hid" name="VCode_hid" />
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-pencil"></i> 提交留言</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <div id="banAnony" class="alert alert-danger" role="alert">你好请先登录，再发布留言!<a href="/user/Login?ReturnUrl=/guest/" style="color: #133db6;">[点击登录]</a></div>
+            }
+        }
+    </div>
+    @if (cateMod.CateID == 0)
+    {
+        <div id="addDiv" class="container text-center margin_t5">
+            <a href="/Guest/Default?CateID=1" class="btn btn-success btn-lg"><i class="fa fa-pencil"></i>发表留言</a>
+        </div>
+    }
+    <div class="ask_bottom">
+        <p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+        <p class="text-center">@MvcHtmlString.Create(Call.GetLabel("{$Copyright/}"))</p>
+    </div>
+}
+@section script{
+<style type="text/css">
+#egv_tb tr > td {border-right: none;border-left: none;}
+#egv_tb .post_title { margin-left: 5px;color: #666;font-size: 14px;}
+#egv_tb .post_title:hover {color: #007CD5;}
+.margin-15{margin-top:-15px;}
+</style>
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script src="/JS/ZL_Regex.js"></script>
+<script>
+$(function () {
+    $("#VCode").ValidateCode();
+    $("#lmenu@(cateMod.CateID)").addClass("active");
+
+    $.validator.addMethod("content", function (value, element) {
+        var txt = UE.getEditor("Content").getContentTxt();
+        if (ZL_Regex.isEmpty(txt)) { return false; }
+        else { return true; }
+    }, "内容不能为空");
+    $("form").validate();
+})
+</script>
+}

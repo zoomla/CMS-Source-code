@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>271</LabelID>
+    <LabelName>显示栏目列表</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>显示栏目列表</LabelDesc>
+    <LabelParam>username,默认值,1,黄页用户名|Styles,默认值,1,样式ID</LabelParam>
+    <LabelTable>ZL_PageTemplate</LabelTable>
+    <LabelField>TemplateID,OpenType,TemplateName</LabelField>
+    <LabelWhere>(UserName='@username' And UserGroup=@Styles And ParentID=0 And IsTrue=1 And TemplateType&lt;&gt;4) Or (userid=0 And UserGroup=@Styles And ParentID=0 And IsTrue=1 And TemplateType&lt;&gt;4)</LabelWhere>
+    <LabelOrder>OrderID DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;a href="Pagelist.aspx?Nodeid={Field="TemplateID"/}&amp;pageid={ZL.Label id="调用黄页ID"/}" target="{Field="OpenType"/}"&gt;{Field="TemplateName"/}&lt;/a&gt;
+{/Repeate}
+</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

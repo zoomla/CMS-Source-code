@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>目标</title>
+@Call.GetLabel("{ZL:Boot()/}");
+<link href="/App_Themes/User.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+    function loadPage(id, url) {
+        $("#" + id).addClass("loader");
+        $("#" + id).append("Loading......");
+        $.ajax({
+            type: "get",
+            url: url,
+            cache: false,
+            error: function () { alert('加载页面' + url + '时出错！'); },
+            success: function (msg) {
+                $("#" + id).empty().append(msg);
+                $("#" + id).removeClass("loader");
+            }
+        });
+    }
+    function setEmpty(obj) {
+        if (obj.value == "请输入关键字") {
+            obj.value = "";
+        }
+    }
+    function settxt(obj) {
+        if (obj.value == "") {
+            obj.value = "请输入关键字";
+        }
+    }
+</script>
+}
+@section content{
+<div id="Meno">
+<div id="pro_left">
+    <div class="new_tar"><a href="AddTarget">新建目标</a></div>
+    <div class="search">
+	<div class="pull-left">
+	    <select ID="drType" name="drType" class="form-control" data-container="body" style="width:100px;">
+		<option Value="">全部</option>
+		<option Value="0">事业</option>
+		<option Value="1">财富</option>
+		<option Value="2">家庭</option>
+		<option Value="3">休闲</option>
+		<option Value="4">学习</option>
+	    </select> 
+	</div>
+	<div class="input-group pull-right" style="width:180px;">
+	    <input type="text" id="TxtKey" name="TxtKey" value="请输入关键字" style="width:140" />
+	    <span class="input-group-btn">
+		<input type="button" id="Button1" value="搜索" class="btn btn-primary" />
+	    </span>
+	</div>
+	<div class="Target_list">
+	    <ul>
+	    </ul>
+	</div>
+    </div>
+</div>
+<div id="pro_right">
+    <div id="Target">
+	<table>
+	    <tr>
+		<td><img src="/App_Themes/User/iGoal.jpg" /></td>
+		<td><h1><a href="AddTarget">添加目标</a></h1>
+		    <p>确定任务/项目名称，规划或总结执行各阶段内容，呈现真实执行现场！</p>
+		    <p>让工作看得见，是所有工作者和管理者的梦想。然而大多数的业务执行从计划、实施再到总结评估，所有记录往往都碎片式的分散于不同部门、不同人员手中。记录不完整，过程无主线，在整个业务执行过程中产生的问题也就很难被发现。</p>
+		    <p>目标是本网站新推出的全新办公工具。通过工作框和现场图，将企业运作的实际过程，简单清晰的保留下来。完整记录业务执行的整个过程，使执行全程可视化，管理“看”得见。</p>
+		</td>
+	    </tr>
+	</table>
+    </div>
+</div>
+</div>
+}

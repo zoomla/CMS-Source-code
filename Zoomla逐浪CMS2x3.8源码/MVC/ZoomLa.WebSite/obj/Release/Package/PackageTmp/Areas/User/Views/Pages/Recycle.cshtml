@@ -1,0 +1,32 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+}
+@section head{
+    <title>黄页回收站</title>
+}
+@section content{
+    <div id="pageflag" data-nav="page" data-ban="page"></div>
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="@Url.Action("Default","Pages")">黄页</a></li>
+            <li class="active">回收站</li>
+        </ol>
+    </div>
+    <div class="container">
+        @Html.Partial("Recycle_List", Model)
+        <div class="btn_green">
+            <input type="button" id="rec_btn" value="批量还原" class="btn btn-primary" onclick="if (!IsSelectedId()) { alert('请选择还原项'); return false; } else { mvcpage.bat({ url: 'content_realdel', confirm: '你确定要将所选中的项还原吗' }); }" />
+            <input type="button" id="del_btn" value="批量删除" class="btn btn-primary" onclick="if (!IsSelectedId()) { alert('请选择删除项'); return false; } else { mvcpage.bat({ url: 'content_recover', confirm: '你确定要将所选中的项删除吗' }); }" />
+            <input type="text" id="skey" name="skey" class="form-control text_md mvcparam" placeholder="请输入标题"  />
+            <input type="button" id="search_btn" onclick="mvcpage.load();" class="btn btn-primary" value="搜索" />
+            <script>
+                document.getElementById("TxtSearchTitle").value.trim();
+            </script>
+        </div>
+    </div>
+}
+@section script{
+<script type="text/javascript" src="/js/SelectCheckBox.js"></script>
+}

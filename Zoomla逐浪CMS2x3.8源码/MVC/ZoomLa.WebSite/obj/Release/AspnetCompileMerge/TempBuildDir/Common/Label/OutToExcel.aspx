@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutToExcel.aspx.cs" Inherits="ZoomLaCMS.Common.Label.OutToExcel" EnableViewStateMac="false" ValidateRequest="false" %>

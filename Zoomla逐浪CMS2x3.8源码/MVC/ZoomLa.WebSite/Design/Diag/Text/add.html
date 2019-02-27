@@ -1,0 +1,56 @@
+﻿<div class="header"><label class="title">添加文本</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-header">
+                <div class="title-line"><div class="title">标题文字</div></div>
+            </div>
+            <div class="section-body">
+                <div class="domItem compdiv" id="comp1">
+                    <h1 class="comp_font" style="font-size:40px;">网站标题</h1>
+                </div>
+                <div class="domItem compdiv" id="comp2">
+                    <h2 class="comp_font" style="font-size:26px;">页面标题</h2>
+                </div>
+                <div class="domItem compdiv" id="comp5">
+                    <p class="comp_font" style="color: #000000; font-weight: bold;">我是段落.点击这里添加您自己的文本和编辑.</p>
+                </div>
+                <div class="domItem compdiv" id="comp6">
+                    <p class="comp_font">我是段落.点击这里添加您自己的文本和编辑.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section-wrapper live-comps">
+            <div class="section-header">
+                <div class="title-line">
+                    <div class="title">主题文字</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="domItem compdiv">
+                    <span class="comp_font" style="text-shadow: #c8c8c8 1px 1px 0px, #b4b4b4 0px 2px 0px, #a0a0a0 0px 3px 0px, rgba(140, 140, 140, 0.498039) 0px 4px 0px, #787878 0px 0px 0px, rgba(0, 0, 0, 0.498039) 0px 5px 10px; font-size: 26px;">添加文字</span>
+                </div>
+                <div class="domItem compdiv">
+                    <span class="comp_font" style="text-shadow: rgba(10, 189, 240, 0.298039) 3px 3px 0px, rgba(254, 1, 1, 0.298039) -3px -3px 0px; font-size: 26px;">添加文字</span>
+                </div>
+                <div class="domItem compdiv">
+                    <span class="comp_font" style="text-shadow:#ffffff 3px 3px 0px, rgba(0, 0, 0, 0.2) 6px 6px 0px;font-size:26px;">添加文字</span>
+                </div>
+                <div class="domItem compdiv">
+                    <span class="comp_font" style="text-shadow:rgba(0, 0, 0, 0.498039) -1px -1px 0px, rgba(0, 0, 0, 0.498039) -1px 1px 0px, rgba(0, 0, 0, 0.498039) 1px 1px 0px, rgba(0, 0, 0, 0.498039) 1px -1px 0px;font-size:26px;">测试字体</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function GetModel(item) {
+        var $item = $(item);
+        var model = { id: "", dataMod: { text: "页面标题" }, config: { type: "text", compid: "", css: "candrag", style: "position:relative;", bodyid: "midBody" } };
+        model.config.compid = $item.attr("id");
+        model.config.style += $item.find(".comp_font").attr("style");
+        model.config.style += "left:40%;";
+        model.dataMod.text = $item.text();
+        return model;
+    }
+</script>

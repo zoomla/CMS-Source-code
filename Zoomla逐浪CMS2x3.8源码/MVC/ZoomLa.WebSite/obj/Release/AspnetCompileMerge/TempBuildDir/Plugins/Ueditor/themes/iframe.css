@@ -1,0 +1,10 @@
+/*可以在这里添加你自己的css*/
+.doc_cursor {
+    position:absolute;border-left:2px solid;outline:none;cursor:text;display:inline-block;height:30px;margin-top:-10px;
+}
+.doc_cursor_other {
+}
+.Sf-zg-Ie {
+    color:#fff;font-size:10px;padding:2px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;
+    position:absolute;margin-top:35px;margin-left:-50px;
+}

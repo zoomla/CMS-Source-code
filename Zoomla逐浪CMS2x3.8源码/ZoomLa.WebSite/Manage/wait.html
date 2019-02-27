@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>加载中...</title>
+<link href="/dist/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body onload="init();">
+<div style="position:absolute;top:30%;left:40%;"><span id="remind_sp"></span><i class="fa fa-spinner fa-spin" style="font-size:40px;"></i></div>
+<script>
+function getParam(paramName) {
+    paramValue = ""; isFound = false; if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+        arrSource = decodeURI(this.location.search).substring(1, this.location.search.length).split("&"); i = 0; while (i < arrSource.length && !isFound) {
+            if (arrSource[i].indexOf("=") > 0) { if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) { paramValue = arrSource[i].split("=")[1]; isFound = true; } }
+            i++;
+        }
+    }
+    return paramValue;
+}
+function init() {
+    var remind = getParam("r");
+    if (remind && remind != "") { document.getElementById("remind_sp").innerText = decodeURI(remind); }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@using ZoomLa.Model
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 5;
+    Model.target = function.GetRandomString(6);
+}
+@functions{
+M_UserInfo mu = null;
+public string GetUName(DataRow dr)
+{
+    return B_User.GetUserName(dr["HoneyName"], dr["CUName"]);
+}
+public MvcHtmlString GetDel(DataRow dr)
+{
+    if (mu == null) { mu = new B_User().GetLogin(); }
+    int uid = DataConverter.CLng(dr["CUser"]);
+    if (mu.UserID == uid)
+    {
+        return MvcHtmlString.Create("<a href='javascript:;' onclick='PostDelMsg(" + dr["ID"] + ")' style='color:#999;'>删除|</a>");
+    }
+    else return MvcHtmlString.Create("");
+}
+}
+<div id="@Model.target">
+@foreach (DataRow dr in Model.dt.Rows)
+{
+    <div style="padding-left: 5px; padding-top: 15px;" id="reply_div_@dr["id"]">
+        <div style="float: left;">
+            <img style="width: 30px; height: 30px;" src='@dr["UserFace"]' onerror="shownoface(this);" />
+        </div>
+        <div style="margin-left: 45px;">
+            <div>
+                <a href="#" style="text-decoration:none;" title="用户信息">@GetUName(dr):</a>
+                @MvcHtmlString.Create(StrHelper.DecompressString(dr["MsgContent"].ToString()))
+            </div>
+            <div style="padding-top: 5px;padding-right:10px;text-align:right;font-size:12px;color:#999;">
+                @GetDel(dr) @DateHelper.ToDate(dr["CDate"])
+                <a href="javascript:;" onclick="ReplyHer(@dr["pid"],'@GetUName(dr)');" style="margin-left: 10px;">回复</a>
+            </div>
+        </div>
+        <div style="border-bottom: 1px #d7d7d7 dotted; width: 98%; margin-left: 1%;margin-top:5px;"></div>
+    </div>
+}
+@if (Model.pageCount > 1) {@Html.Partial("_page2", Model) }
+</div>

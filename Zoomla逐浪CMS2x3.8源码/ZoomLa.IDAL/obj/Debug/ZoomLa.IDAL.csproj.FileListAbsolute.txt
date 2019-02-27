@@ -1,0 +1,5 @@
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.IDAL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.IDAL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.IDAL\obj\Debug\ZoomLa.IDAL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.IDAL\obj\Debug\ZoomLa.IDAL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.IDAL\obj\Debug\ZoomLa.IDAL.csprojResolveAssemblyReference.cache

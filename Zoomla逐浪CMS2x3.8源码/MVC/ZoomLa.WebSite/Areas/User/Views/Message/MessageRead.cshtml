@@ -1,0 +1,66 @@
+﻿@model ZoomLa.Model.M_Message
+@using ZoomLa.BLL
+@using ZoomLa.BLL.Helper
+@{
+    B_User buser = new B_User();
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>阅读站内邮</title>
+}
+@section content{
+<div class="container btn_green">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("","Index")">会员中心</a></li>
+        <li><a href="Message">消息中心</a></li>
+        <li class="active">阅读站内邮</li>
+    </ol>
+    @Html.Partial("MessageTop")
+    <div class="margin_t10">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td class="text-right td_m">发件人</td>
+                <td>@buser.GetUserNameByIDS(Model.Sender.ToString())</td>
+            </tr>
+            <tr>
+                <td class="text-right">收件人</td>
+                <td>@buser.GetUserNameByIDS(Model.Incept.ToString())</td>
+            </tr>
+            <tr>
+                <td class="text-right">标题</td>
+                <td>@Model.Title</td>
+            </tr>
+            <tr>
+                <td class="text-right">发送时间</td>
+                <td>@DateHelper.ToDate(Model.PostDate)</td>
+            </tr>
+            <tr>
+                <td class="text-right">内容</td>
+                <td>@MvcHtmlString.Create(Model.Content)</td>
+            </tr>
+            <tr>
+                <td class="text-right">附件</td>
+                <td>
+                    <div id="uploader" class="uploader"><ul class="filelist"></ul></div>
+                    @Html.HiddenFor(p=>p.Attachment)
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">操作</td>
+                <td>
+                    <a href="MessageSend?id=@Model.MsgID" class="btn btn-primary">回复</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+}
+@section script{
+<link rel="stylesheet" href="/JS/Controls/ZL_Webup.css" />
+<script src="/JS/Controls/ZL_Webup.js"></script>
+<script>
+    $(function () {
+        ZL_Webup.AddReadOnlyLi($("#Attachment").val());
+    })
+</script>
+}

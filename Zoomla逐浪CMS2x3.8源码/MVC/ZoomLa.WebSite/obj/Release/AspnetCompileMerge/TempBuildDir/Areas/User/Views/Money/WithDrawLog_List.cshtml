@@ -1,0 +1,39 @@
+﻿@using System.Data;
+@using ZoomLa.BLL.Helper
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    public string GetStatus(DataRow dr)
+    {
+        switch (DataConverter.CStr(dr["yState"]))
+        {
+            case "-1":
+                return "<span style='color:red;'>已拒绝</span>";
+            case "99":
+                return "<span style='color:blue;'>提现成功</span>";
+            default:
+                return "<span>处理中</span>";
+        }
+    }
+}
+@{
+    Model.cols = 7;
+    Model.url = "WithDrawLog";
+}
+<div class="container" id="EGV">
+    <table class="table table-bordered table-striped">
+        <tr><td class="td_l">申请日期</td><td>提现金额</td><td>手续费</td><td>状态</td><td>处理记录</td><td>备注</td></tr>
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <tr>
+                <td>@DateHelper.ToDate(dr["sTime"])</td>
+                <td>@DataConverter.CDouble(dr["money"]).ToString("F2")</td>
+                <td>@DataConverter.CDouble(dr["WithdrawFee"]).ToString("F2")</td>
+                <td>@MvcHtmlString.Create(GetStatus(dr))</td>
+                <td>@dr["Result"]</td>
+                <td>@dr["Remark"]</td>
+            </tr>
+        }
+        @Html.Partial("_page", Model)
+    </table>
+</div>

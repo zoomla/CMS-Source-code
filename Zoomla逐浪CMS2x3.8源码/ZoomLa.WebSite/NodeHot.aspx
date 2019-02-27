@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NodeHot.aspx.cs" Inherits="Hotinfo" EnableViewStateMac="false" %>

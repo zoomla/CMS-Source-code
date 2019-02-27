@@ -1,0 +1,68 @@
+﻿@model ZoomLa.Model.M_Mis
+@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <script type="text/javascript" src="../JS/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="/Plugins/Ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+}
+@section content{
+    <div class="Mis_pad">
+        <form method="post" action="@Url.Action("AddMis_Add","Home", new { id=ViewBag.id })">
+            <table width="100%" class="border">
+                <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'">
+                    <td style="width: 150px" class="tdbgleft"><strong> 目标名称<b>*</b>：</strong></td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.Title, new { @class = "M_input" })
+                        <span>@MvcHtmlString.Create(ViewBag.message)</span>
+                    </td>
+                </tr>
+                <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'">
+                    <td class="tdbgleft"><strong>当前状态：</strong></td>
+                    <td>
+                        <label>@Html.RadioButtonFor(Model => Model.Status, 0)未启动</label>
+                        <label>@Html.RadioButtonFor(Model => Model.Status, 1)进行中</label>
+                        <label>@Html.RadioButtonFor(Model => Model.Status, 2)已完成</label>
+                    </td>
+                </tr>
+                <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'">
+                    <td class="tdbgleft"><strong>选择分类：</strong></td>
+                    <td>
+                        <label>@Html.RadioButtonFor(Model => Model.Type, 0)事业</label>
+                        <label>@Html.RadioButtonFor(Model => Model.Type, 1)财富</label>
+                        <label>@Html.RadioButtonFor(Model => Model.Type, 2)家庭</label>
+                        <label>@Html.RadioButtonFor(Model => Model.Type, 3)休闲</label>
+                        <label>@Html.RadioButtonFor(Model => Model.Type, 4)学习</label>
+                    </td>
+                </tr>
+                <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'">
+                    <td style="width: 150px" class="tdbgleft"><strong> 参与人<b>*</b>：</strong></td>
+                    <td>@Html.TextBoxFor(Model => Model.Joiner, new { @class = "M_input" })</td>
+                </tr>
+                <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'">
+                    <td class="tdbgleft"><strong>开始时间<b>*</b>：</strong></td>
+                    <td>@Html.TextBoxFor(Model => Model.ComTime, new { @onlick = "WdatePicker({ dateFmt: 'yyyy/MM/dd HH:mm:ss' });", @class = "@M_input" })</td>
+                </tr>
+                <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'">
+                    <td class="tdbgleft"><strong>完成时间<b>*</b>：</strong></td>
+                    <td>@Html.TextBoxFor(Model => Model.limitTime, new { @onclick = "WdatePicker({ dateFmt: 'yyyy/MM/dd HH:mm:ss' });", @class = "M_input" })</td>
+                </tr>
+                <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'">
+                    <td class="tdbgleft"><strong>详细<b>*</b>：</strong></td>
+                    <td>
+                        @Html.TextAreaFor(Model => Model.Content, new { @style = "width:580px;height:200px;" })
+                        @MvcHtmlString.Create(Call.GetUEditor("Content", 4))
+                    </td>
+                </tr>
+                <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'">
+                    <td colspan="2"><input type="button" class="i_bottom" value="确定" /></td>
+                </tr>
+                @Html.HiddenFor(Model => Model.ParentID)
+            </table>
+        </form>
+    </div>
+}
+@section script{
+
+}

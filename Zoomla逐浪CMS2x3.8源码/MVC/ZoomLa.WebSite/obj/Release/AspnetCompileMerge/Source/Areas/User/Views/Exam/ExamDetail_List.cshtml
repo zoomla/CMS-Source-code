@@ -1,0 +1,46 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    DataTable dt = new DataTable();
+    Model.cols = 4;
+    Model.url = "ExamDetail_Date";
+}
+
+<div class="panel-body" ng-controller="appController">
+    @foreach (DataRow dr in dt.Rows)
+    {
+        <div style="margin-top:5px;">
+            <%#ZoomLa.BLL.Helper.StrHelper.ConvertIntegral(Container.ItemIndex+1) +"．"+@dr["QName"]+"（有"+@dr["QNum"]+"小题,共"+@dr["TotalScore"]+"分）" %>
+        </div>
+        <div>@dr["LargeContent"]</div>
+        foreach (DataRow dr2 in dt.Rows)
+        {
+            <div class="item" data-id="@dr2["p_id"]" id="item_@dr2["p_id"]">
+                <div class="content">
+                    <span><%#Container.ItemIndex+1+"．"+@dr2["P_Title"]%></span><%#GetContent() %>
+                </div>
+                <div class="submit">
+                    <ul class="submitul"><%#GetSubmit() %></ul><div class="clearfix"></div>
+                </div>
+                <div class="remark_div margin_t5">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <i class="fa fa-file-text-o"></i><span class="margin_l5">教师批阅</span>
+                            <a href="QuestView?ID=<%#@dr2["qid"]%>" target="_blank" class="margin_l5">查看解析</a>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <label><input type="radio" value="1"><%#Eval("IsRight").ToString().Equals("1")?"checked=checked":"" %> name="isright_<%#Eval("ID") %>" />正确</label>
+                                <label><input type="radio" value="2"><%#Eval("IsRight").ToString().Equals("2")?"checked=checked":"" %> name="isright_<%#Eval("ID") %>" />错误</label>
+                                <%#GetScoreHtml() %>
+                            </div>
+                            <div>
+                                <div id="remark_<%#@dr2["id"]%>" contenteditable="true" class="answerdiv remark">@dr2["Remark"]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>remark_div end
+            </div>
+        }
+    }
+</div>

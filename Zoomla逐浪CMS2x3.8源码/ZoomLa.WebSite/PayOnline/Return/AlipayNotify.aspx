@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AlipayNotify.aspx.cs" Inherits="PayOnline_AlipayNotify" EnableViewStateMac="false" %>

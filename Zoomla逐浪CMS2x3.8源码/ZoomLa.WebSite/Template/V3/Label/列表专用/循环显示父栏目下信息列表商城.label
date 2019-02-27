@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>153</LabelID>
+    <LabelName>循环显示父栏目下信息列表商城</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ParentID,0,1,父节点ID|TitleNum,60,1,标题长度|ShowNum,10,1,特环显示信息数</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName</LabelField>
+    <LabelWhere>ParentID=@ParentID</LabelWhere>
+    <LabelOrder>OrderID aSC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="main_title"&gt;&lt;span&gt;&lt;a href="{ZL:GetNodeUrl({Field="NodeID"/})/}"&gt;More...&lt;/a&gt;&lt;/span&gt;{Field="NodeName"/}&lt;/div&gt;
+&lt;div style="width:1px; float:left; height:80px;"&gt;&lt;/div&gt;
+&lt;ul&gt;
+{ZL.Label id="商城普通商品标签_不分页列表" NodeID="{Field="NodeID"/}" TitleNum="@TitleNum" ShowNum="@ShowNum" /}
+&lt;/ul&gt;
+
+{/Repeate}</LabelContent>
+    <LabelCount>100</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

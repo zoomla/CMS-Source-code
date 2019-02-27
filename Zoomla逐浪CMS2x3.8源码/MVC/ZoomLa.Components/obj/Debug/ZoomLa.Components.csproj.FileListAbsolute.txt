@@ -1,0 +1,11 @@
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.Components\obj\Debug\ZoomLa.Components.csprojResolveAssemblyReference.cache
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.Components\bin\Debug\ZoomLa.Components.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.Components\bin\Debug\ZoomLa.Components.pdb
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.Components\bin\Debug\Interop.CDO.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.Components\bin\Debug\OpenPop.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.Components\obj\Debug\ZoomLa.Components.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.Components\obj\Debug\ZoomLa.Components.pdb
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\ZoomLa.Components.dll
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\ZoomLa.Components.pdb
+D:\Code\ZoomlaCMS\ZoomLa.Components\obj\Debug\ZoomLa.Components.dll
+D:\Code\ZoomlaCMS\ZoomLa.Components\obj\Debug\ZoomLa.Components.pdb

@@ -1,0 +1,203 @@
+﻿@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>目标</title>
+@MvcHtmlString.Create(Call.GetLabel("{ZL:Boot()/}"));
+<link href="/App_Themes/User.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+function loadPage(id, url) {
+    $("#" + id).addClass("loader");
+    $("#" + id).append("Loading......");
+    $.ajax({
+        type: "get",
+        url: url,
+        cache: false,
+        error: function () { alert('加载页面' + url + '时出错！'); },
+        success: function (msg) {
+            $("#" + id).empty().append(msg);
+                   
+            $("#" + id).removeClass("loader");
+        }
+    });
+}
+
+function Target(id) {
+    if (document.getElementById("Z_type0" + id).style.display == "none") {
+        document.getElementById("Z_type0" + id).style.display = "block";
+    }
+    else {
+        document.getElementById("Z_type0" + id).style.display = "none";
+    }
+
+    loadPage("ProP" + id, "ProList?id=" + id + "&types=7");
+    loadPage("ProM" + id, "memoList?id=" + id + "&types=4");
+    loadPage("ProC" + id, "planList?id=" + id + "&types=5");
+    loadPage("ProE" + id, "mailList?id=" + id + "&types=8");
+    loadPage("ProAp" + id, "ApprovalList?id=" + id + "&types=9");
+
+    }
+function Prolist(id, types) {
+     
+        loadPage("Newli", "ProList?id=" + id + "&types=" + types);
+        loadPage("ProMli", "memoList?id=" + id + "&types=" + types);
+        loadPage("ProEli", "mailList?id=" + id + "&types=" + types);
+        loadPage("ProPlan", "planList?id=" + id + "&types=" + types);
+        loadPage("ProApproval", "ApprovalList?id=" + id + "&types=" + types);
+        document.getElementById("Newli").style.display = "block";
+        document.getElementById("ProMli").style.display = "block";
+        document.getElementById("ProEli").style.display = "block";
+        document.getElementById("ProPlan").style.display = "block";
+        document.getElementById("ProApproval").style.display = "block";
+    }
+function setEmpty(obj) {
+    if (obj.value == "请输入关键字") {
+        obj.value = "";
+    }
+}
+function settxt(obj) {
+    if (obj.value == "") {
+        obj.value = "请输入关键字";
+    }
+}
+           
+//function ProTypes(obj) {
+//    document.getElementById("ProID").value = obj.value;
+//    alert(document.getElementById("ProID").value);
+//}
+     
+function SetImg(o, maxW, maxH) {
+    var obj = document.getElementById(o);
+    var imgH = obj.height;
+    var imgW = obj.width;
+    if (obj.height > maxH) {
+        obj.height = maxH;
+        obj.widht = (obj.width * (maxH / imgH)); 
+    } 
+    else if (obj.width > maxW) {
+        obj.width = maxW;
+        obj.height = (maxW / imgW) * imgH;
+        imgW = maxW;
+        imgH = obj.height;
+    }
+    obj.style.marginTop = (maxH - obj.height) / 2;
+    obj.style.marginLeft = (maxW - obj.width) / 2;
+}
+</script>
+}
+@section content{
+   <div id="Meno">
+<div id="pro_left"> 
+    <span>梦想未来</span>
+    <div class="new_tar"><a href="AddTarget">新建目标</a></div>
+    <div class="search" >
+        <div class="pull-left">
+            <select id="drType" class="form-control" data-container="body" style="width:100px;" name="drType">
+                <option value="">全部</option>
+                <option value="1">事业</option>
+                <option value="2">财富</option>
+                <option value="3">家庭</option>
+                <option value="4">休闲</option>
+                <option value="5">学习</option>
+            </select>
+        </div>
+        <div class="input-group pull-right" style="width:180px;">
+            <input type="text" id="TxtKey" name="TxtKey" class="form-control" value="请输入关键字" style="width:140px;" />
+	    <span class="input-group-btn">
+	    <input type="button" id="Button1" value="搜索" class="btn btn-primary" />
+            </span>
+        </div><!-- /input-group -->
+        <div class="clearfix"></div>
+        <div class="Target_list"> 
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="pro_right">
+    <h1>@ViewBag.TxtTitle @ViewBag.TxtTitleEdt  </h1>
+    <div class="Schedule"><a id="line" title="项目进度"></a></div>@ViewBag.Schedule
+    <div class="clear"></div>
+     <div class="target_tit"><span class='greyl'>创建人：</span>@ViewBag.TxtInputer <span class='greyl'>( @ViewBag.lblStartTime ∽ @ViewBag.lblEndTime )</span>  <span class='greyl'>参与人：</span>@ViewBag.TxtJoiner</div>
+    <div  class="DreamePic"> </div> 
+	<div class="tarcon"> <strong>详细:</strong> <br>@ViewBag.TxtContent</div>
+    <div class="Z_Target">
+    <div class="Add_Tar">
+        @ViewBag.NewBar
+    </div>
+    </div> 
+</div>
+<div class="clear"></div> 
+    <div class="Quote" id="Quote" style="display:none">
+        <div class="left_ico"><img src="../../App_Themes/UserThem/images/Mis/jian.jpg" /></div>
+    <ul>
+    <li id="MeoIn"><a href="javascript:void(0)" onclick="project('@Request["ID"]','4')"><img src="/App_Themes/UserThem/images/Mis/j_ico_memo.png" /><br />备忘</a></li>
+    <li id="EmlIn"><a href="javascript:void(0)" onclick="project('@Request["ID"]','8')"><img src="/App_Themes/UserThem/images/Mis/j_ico_email.png" /><br />邮件</a></li>
+    <li id="Pid"><a href="javascript:void(0)" onclick="project('@Request["ID"]','7')"><img src="/App_Themes/UserThem/images/Mis/j_ico_project.png" /><br />项目</a></li>
+    <li id="PlanIn"><a href="javascript:void(0)" onclick="project('@Request["ID"]','5')"><img src="/App_Themes/UserThem/images/Mis/j_ico_plan.png" /><br />计划</a></li>
+    <li id="WordIn"><a href="#"><img src="/App_Themes/UserThem/images/Mis/j_ico_docu.png" /><br />文档</a></li>
+    <li id="TalIn"><a href="#"><img src="/App_Themes/UserThem/images/Mis/j_ico_comm.png" /><br />沟通</a></li>
+    <li id="AnnIn"><a href="#"><img src="/App_Themes/UserThem/images/Mis/j_ico_notice.png" /><br />公告</a></li>
+    <li id="DisIn"><a href="#"><img src="/App_Themes/UserThem/images/Mis/j_ico_bbs.png" /><br />论坛</a></li>
+    <li id="QueIn"><a href="#"><img src="/App_Themes/UserThem/images/Mis/j_ico_konw.png" /><br />知识</a></li>
+    <li id="CheckIn"><a href="javascript:void(0)" onclick="project('@Request["ID"]','5')"><img src="/App_Themes/UserThem/images/Mis/j_ico_approve.png" /><br />审批</a></li>
+</ul>
+</div>
+    <div class="Newli" id="Newli" style="display:none"></div>
+    <div class="ProMli" id="ProMli" style="display:none"></div>
+    <div class="ProEli" id="ProEli" style="display:none"></div>
+    <div class="ProPlan" id="ProPlan" style="display:none"></div>
+    <div class="ProApproval" id="ProApproval" style="display:none"></div>
+<div id="QuoteContent"><iframe id="pifrm" src="" width="500" height="300" frameborder="0" scrolling="no"></iframe></div>
+</div>
+}
+@section script{
+<script>
+    function Telse(id) {
+    if (document.getElementById("TarDiv" + id).style.display != "none")
+    {
+        document.getElementById("Quote").style.display = "none";
+        document.getElementById("TarDiv" + id).style.display = "none";
+       document.getElementById("TarDiv" + id).innerHTML = "";}
+    else {
+        $(".Quote").css("display", "none");
+        document.getElementById("TarDiv" + id).style.display = "block";
+       // document.getElementById("Quote").style.display = "block";
+        document.getElementById("TarDiv" + id).innerHTML = document.getElementById("Quote").innerHTML;
+        var t = document.getElementById('Z_Tar' + id).offsetTop - 25;
+        document.getElementById("Quote").style.top = t;
+        document.getElementById("MeoIn").innerHTML = '<a href="javascript:void(0)"  onclick=project("' + id + '","4")><img src="/App_Themes/UserThem/images/Mis/j_ico_project.png" /><br />备忘</a>';
+        document.getElementById("EmlIn").innerHTML = '<a href="javascript:void(0)"  onclick=project("' + id + '","8")><img src="/App_Themes/UserThem/images/Mis/j_ico_project.png" /><br />邮件</a>';
+        document.getElementById("Pid").innerHTML = '<a href="javascript:void(0)"  onclick=project("' + id + '","7")><img src="/App_Themes/UserThem/images/Mis/j_ico_project.png" /><br />项目</a>';
+        document.getElementById("PlanIn").innerHTML = '<a href="javascript:void(0)"  onclick=project("' + id + '","5")><img src="/App_Themes/UserThem/images/Mis/j_ico_plan.png" /><br />计划</a>';
+        document.getElementById("CheckIn").innerHTML = '<a href="javascript:void(0)"  onclick=project("' + id + '","9")><img src="/App_Themes/UserThem/images/Mis/j_ico_approve.png" /><br />审批</a>';
+    }
+}
+
+function project(id, t) {
+    document.getElementById("Quote").style.display = "none";
+    document.getElementById("QuoteContent").style.display = "block";
+
+    if (t == 7) {
+        document.getElementById("pifrm").src = "ProQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t;
+        //loadPage("QuoteContent", "ProQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t);
+        }
+    if (t == 4) {
+        document.getElementById("pifrm").src = "memoQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t;
+        //loadPage("QuoteContent", "memoQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t);
+    }
+    if (t == 5) {
+        document.getElementById("pifrm").src = "planQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t;
+        //loadPage("QuoteContent", "planQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t);
+    }
+    if (t == 8) {
+        document.getElementById("pifrm").src = "mailQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t;
+        //loadPage("QuoteContent", "mailQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t);
+    }
+    if (t == 9) {
+        document.getElementById("pifrm").src = "ApprovalQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t;
+            //loadPage("QuoteContent", "mailQuote?ParentID=@Request["ID"]&id=" + id + "&types=" + t);
+    }
+} 
+</script>
+}

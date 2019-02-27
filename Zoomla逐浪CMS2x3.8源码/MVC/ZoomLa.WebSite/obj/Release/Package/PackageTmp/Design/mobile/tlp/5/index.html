@@ -1,0 +1,83 @@
+﻿<style>
+    .padding5 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .mb5_top {
+        padding: 0.5rem 0;
+        font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+        color: #fff;
+        background: #a90b12;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    .mb5_list {
+        padding: 0 0.5rem;
+        font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+    }
+
+        .mb5_list ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .mb5_list li {
+            border-bottom: 1px solid #ddd;
+        }
+
+            .mb5_list li h3 {
+                margin-top: 0.75rem;
+                margin-bottom: 0;
+                font-size: 0.8rem;
+            }
+
+                .mb5_list li h3 a {
+                    color: #333;
+                }
+
+            .mb5_list li p {
+                margin-top: 0.25rem;
+                font-size: 0.6rem;
+                color: #999;
+            }
+
+                .mb5_list li p span {
+                    margin-right: 0.5rem;
+                }
+</style>
+<div class="page" id="page-index" ng-app="app" ng-controller="APPCtrl">
+    <div class="content">
+        <div class="content-inner">
+            <div class="mb5_top">文章列表模式</div>
+            <div class="mb5_list">
+                <ul class="com" id="conbody">
+                    <li ng-repeat="item in coms.conbody.list track by $index">
+                        <h3><a href="{{getlink(item)}}" ng-bind="item.title"></a></h3>
+                        <p><span><i class="fa fa-clock-o"></i><span ng-bind="gettime(item.cdate)"></span></span><span><i class="fa fa-comments"></i> <span ng-bind="item.hits"></span></span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    angular.module("app", []).controller("APPCtrl", function ($scope) {
+        Zepto.init();
+        Zepto.showIndicator();
+        tools.site = "{$site}";
+        tools.extend($scope);
+        $scope.coms = [];
+        //---------------------------------------------------------------------------//
+        $scope.coms["conbody"] = { type: "list", list: [] };
+        //---------------------------------------------------------------------------//
+        tools.getdata({ nodename: escape("微站内容"), dbtype: "list" }, function (result) {
+            var list = result;
+            $scope.coms["conbody"].list = list;
+            $scope.$digest();
+            Zepto.hideIndicator();
+            tools.init();
+        });
+    });
+</script>

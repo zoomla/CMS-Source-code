@@ -1,0 +1,111 @@
+﻿@using ZoomLa.Model
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Views/Shared/_empty.cshtml";
+    M_UserInfo mu = ViewBag.mu;
+    M_GuestBookCate cateMod = ViewBag.cateMod;
+}
+@section head{
+    <title>留言列表</title>
+}
+@section content{
+    @Html.Partial("MasterView")
+    <div class="container margin-15">
+        <ol class="breadcrumb">
+            <li><a href="/">网站首页</a></li>
+            <li><a href="/Guest/">留言中心</a></li>
+            <li><a href="/Guest/Default?CateID=@cateMod.CateID">@cateMod.CateName</a></li>
+            <li class="active">查看留言</li>
+        </ol>
+        <div class="s_body">
+            <div id="g_show">
+                <div class="gbook_title">
+                    <span>@ViewBag.GTitle</span>
+                </div>
+                @Html.Partial("GuestShow_List",Model)
+            </div>
+            <div id="g_send" class="rg_inout">
+                @if (cateMod.NeedLog == 0 || mu.UserID > 0)
+                {
+                    <form method="post" action="@MVCHelper.GetAction("AddReply",Request)" onsubmit="return CheckDirty();">
+                        <div>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td colspan="2">
+                                        <textarea id="Content" name="Content" style="width: 100%; height: 200px;"></textarea>
+                                        <span id="sp2"></span>
+                                        @MvcHtmlString.Create(Call.GetUEditor("Content"))
+                                        <input type="hidden" id="txt_Config\" value="" />
+                                        <input type="text" id="FilePicPath" name="FilePicPath" value="fbangd" style="display:none;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" id="VCode" name="VCode" maxlength="6" class="form-control text_x" style="display:inline-block" placeholder="请输入验证码" autocomplete="off" />
+                                        <img id="VCode_img" title="点击刷新验证码" class="code" style="height: 34px;" />
+                                        <input type="hidden" id="VCode_hid" name="VCode_hid" />
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-pencil"></i> 发表回复</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <div id="AnonyBan" class="alert alert-danger" role="alert">你好请先登录，再发布留言!<a href="/user/Login?ReturnUrl=/guest/" style="color: #133db6;">[点击登录]</a></div>
+                }
+            </div>
+        </div>
+        <div class="ask_bottom">
+            <p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+            <p class="text-center">@MvcHtmlString.Create(Call.GetLabel("{$Copyright/}"))</p>
+        </div>
+    </div>
+}
+@section script{
+<link href="/App_Themes/Guest.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    .gbook_title {padding: 5px;border-bottom: 2px solid #ddd;font-size: 16px;font-weight: bolder;}
+    .margin-15{margin-top:-15px;}
+</style>
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script charset="utf-8" src="/Plugins/Ueditor/ueditor.config.js"></script>
+<script charset="utf-8" src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+<script>
+    $(function () {
+        $("#VCode").ValidateCode();
+        $("#lmenu@(cateMod.CateID)").addClass("active");
+    })
+    function CheckDirty() {
+        var value = Date.now;
+        var TxtValidateCode = document.getElementById("VCode").value;
+
+        if (value == "" || TxtValidateCode == "") {
+            if (value == "") {
+                var obj2 = document.getElementById("sp2");
+                obj2.innerHTML = "<font color='red'>回复内容不能为空！</font>";
+            }
+            else {
+                var obj2 = document.getElementById("sp2");
+                obj2.innerHTML = "";
+            }
+            if (TxtValidateCode == "") {
+                var obj3 = document.getElementById("sp1");
+                obj3.innerHTML = "<font color='red'>验证码不能为空！</font>";
+            } else {
+                var obj3 = document.getElementById("sp1");
+                obj3.innerHTML = "";
+            }
+            return false;
+        }
+        else {
+            var obj = document.getElementById("sp2");
+            obj.innerHTML = "";
+            var obj3 = document.getElementById("sp1");
+            obj3.innerHTML = "";
+            return true;
+        }
+    }
+</script>
+}

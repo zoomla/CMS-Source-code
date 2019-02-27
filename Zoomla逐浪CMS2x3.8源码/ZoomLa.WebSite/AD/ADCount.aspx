@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ADCount.aspx.cs" Inherits="ZoomLa.WebSite.Manage.AddOn.ADCount" EnableViewStateMac="false" %>

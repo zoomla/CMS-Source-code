@@ -1,0 +1,39 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>聊天记录</title>    
+}
+@section content{
+<div id="pageflag" data-nav="group" data-ban="TalkLog"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+        <li class="active">聊天记录</li>
+    </ol>
+</div>
+<div class="container btn_green">
+    <form method="post" action="TalkLog_Down">
+        <input type="text" id="reuser" name="reuser" class="form-control text_md mvcparam" placeholder="接收人" />
+        <input type="text" id="sdate" name="sdate" onfocus="WdatePicker({dateFmt:'yyyy/MM/dd HH:mm'});" class="form-control text_md mvcparam" placeholder="开始时间" />
+        <input type="text" id="edate" name="edate" onfocus="WdatePicker({dateFmt:'yyyy/MM/dd HH:mm'});" class="form-control text_md mvcparam" placeholder="结束时间" />
+        <input type="button" value="搜索" id="find_b" onclick="mvcpage.load();" class="btn btn-primary" />
+        <input type="submit" value="下载" id="find_b" onclick="" class="btn btn-primary" />
+    </form>
+</div>
+@Html.Partial("TalkLog_List",Model)
+}
+@section script{
+<script type="text/javascript" src="/JS/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="/JS/Controls/ZL_Dialog.js"></script>
+<script>
+        var userDiag = new ZL_Dialog();
+        function ShowUInfo(uid) {
+            userDiag.title = "用户信息";
+            userDiag.reload = true;
+            userDiag.url = "/User/Info/Userinfo?id=" + uid;
+            userDiag.ShowModal();
+        }
+</script> 
+}

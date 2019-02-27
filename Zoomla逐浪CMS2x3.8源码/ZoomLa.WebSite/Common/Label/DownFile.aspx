@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DownFile.aspx.cs" Inherits="Common_Label_DownFile" %>

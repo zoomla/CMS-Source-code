@@ -1,0 +1,856 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/dist/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="/design/album/tlps/2/res/style.css" rel="stylesheet" />
+<title></title>
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div id="bac"></div>
+<div id="container">
+<img src="/design/album/tlps/2/res/bg.jpg" alt="" />
+<div id="divh">
+<img id="imgh" class="img" alt="" />
+</div>
+<img id="kuangh" class="kuangh" src="/design/album/tlps/2/res/kuang.png" alt="" />
+<div id="divv">
+<img id="imgv" class="img" alt="" />
+</div>
+<img id="kuangv" class="kuangv" src="/design/album/tlps/2/res/kuang.png" alt="" />
+<div id="maskv" class="maskv">
+<img id="maskv1" class="img" src="/design/album/tlps/2/res/s01.png" alt="" />
+<img id="maskv2" class="img" src="/design/album/tlps/2/res/s02.png" alt="" />
+<img id="maskv3" class="img" src="/design/album/tlps/2/res/s03.png" alt="" />
+<img id="maskv4" class="img" src="/design/album/tlps/2/res/s04.png" alt="" />
+<img id="maskv5" class="img" src="/design/album/tlps/2/res/s05.png" alt="" />
+<img id="maskv6" class="img" src="/design/album/tlps/2/res/s06.png" alt="" />
+</div>
+<div id="maskh" class="maskh">
+<img id="maskh1" class="img" src="/design/album/tlps/2/res/h06.png" alt="" />
+<img id="maskh2" class="img" src="/design/album/tlps/2/res/h05.png" alt="" />
+<img id="maskh3" class="img" src="/design/album/tlps/2/res/h04.png" alt="" />
+<img id="maskh4" class="img" src="/design/album/tlps/2/res/h03.png" alt="" />
+<img id="maskh5" class="img" src="/design/album/tlps/2/res/h02.png" alt="" />
+<img id="maskh6" class="img" src="/design/album/tlps/2/res/h01.png" alt="" />
+</div>
+<div id="wordh"></div>
+<div id="wordv"></div>
+<div id="pagetitle" style="position:absolute;width:340px;height:220px;top:200px;left:80px;opacity:1;">
+<div style="position:absolute;width:340px;height:220px;overflow:hidden;display:table">
+<div id="titlecontent" style="width:340px;height:220px;vertical-align:middle;display:table-cell;text-align:center;font-size:30px;line-height:45px;color: #fff;"></div>
+</div>
+</div>
+
+<div id="hand1" style="position:absolute;left:470px;top:200px;">
+<img id="hand1_1" src="/design/album/tlps/2/res/shou2.png" style="position:absolute;left:0px;top:0px;" alt="" />
+</div>
+<div id="hand2" style="position:absolute;left:500px;top:150px;">
+<img src="/design/album/tlps/2/res/shou4.png" style="position:absolute;" alt="" />
+</div>
+</div>
+<div class="code_div">
+<div class="title_div">扫描并分享场景：</div>
+<div class="img_div"><img id="shareCode" src="/common/common.ashx?url=" alt="二维码" /></div>
+<div class="bdsharebuttonbox">
+<a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
+<a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
+<a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a>
+<a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
+<a class="bds_more" href="#" data-cmd="more"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdUrl":document.URL,"bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<div class="view_div">这么漂亮的相册&nbsp;→<span><a target="_blank" href="http://v.z01.com/">我也来制作</a></span></div>
+</div>
+<div class="photo_bottom">免费极速创建<i class="fa fa-hand-o-right"></i><a href="/h5/ListPage.shtml">动力逐浪</a></div>
+<div id="loadingdiv">
+<div class="loadingword">相册正在加载中<br>请稍等……</div>
+</div>
+</body>
+</html>
+<script>
+$().ready(function(e) {
+    var num=Math.floor(Math.random()*4)+1;
+	$("#bac").css("background","url(http://code.z01.com/web/Photo/"+num+".png) top center no-repeat").css("background-size","cover");
+	$("#shareCode").attr("src","/common/common.ashx?url="+window.location.href);
+});
+
+var album = {};
+album.model = "{album}";
+album.model.Photos = album.model.Photos.split('|');
+var slider_images_url = [];
+for (var i = 0; i < album.model.Photos.length; i++) {
+    var photo = album.model.Photos[i];
+    slider_images_url.push(photo);
+}
+var e_music_url = album.model.Music + "";
+var e_desc = album.model.AlbumName;
+document.ontouchmove = function (e) { e.preventDefault(); }
+
+var _speedMark = new Date();
+function init_viewport() {
+    if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
+            var phoneScale = parseInt(width) / 500;
+            document.write('<meta name="viewport" content="width=500, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+        }
+        else {
+            document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi">');
+        }
+    }
+    else if (navigator.userAgent.indexOf('iPhone') != -1) {
+        var phoneScale = parseInt(window.screen.width) / 500;
+        document.write('<meta name="viewport" content="width=500; min-height=750;initial-scale=' + phoneScale + '; user-scalable=no;" /> ');         //0.75   0.82
+    }
+    else {
+        document.write('<meta name="viewport" content="width=500, height=750, initial-scale=0.64" /> ');         //0.75   0.82
+    }
+}
+init_viewport();
+
+var module_inits = [];
+var upload_permission = true;
+wx.config({
+    debug     : false,
+    appId     : 'wx1d2a10805a12cfa3',
+    timestamp : 10000,
+    nonceStr  : 'hellohuandong',
+    signature : 'ecff1f3aad9606a127d067b469d3c19c38971158',
+    jsApiList : [
+        'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQZone', 'closeWindow', 'hideAllNonBaseMenuItem', 'showMenuItems', 'showAllNonBaseMenuItem', 'chooseImage', 'uploadImage']
+});
+function load_init_modules()
+{
+    for(var i=0; i<module_inits.length; i++)
+    {
+        module_inits[i]();
+    }
+}
+function call_me(fun)
+{
+    module_inits.push(fun);
+}
+var ua = navigator.userAgent.toLowerCase();
+if(ua.match(/MicroMessenger/i) == 'micromessenger')
+{
+    wx.ready(load_init_modules);
+}
+else
+{
+    onload = load_init_modules;
+}
+
+var date = 20160930;
+var zan_num = 0;
+var e_bookid = 'dD2nhG888UwxpNFVu6pEF2SwlnAOf2K6PVmwpJ5UxaM';
+var e_openid = null;
+var e_scene = 'teacher';
+var editmode = false;
+var wxid = 'liti';
+var shareid = '';
+var guanzhu_url = '';
+var words = {};
+var app = '';
+var e_music_title = '';
+var tbssaveoff = false;
+var isguangchang = '';
+
+function id(name)
+{
+	return document.getElementById(name);
+}
+
+function showtitle()
+{
+	id('hand1').style.webkitAnimation='handmove 5s linear both';
+	id('hand1_1').style.webkitAnimation='draw 5s linear both';
+	id('pagetitle').style.webkitAnimation = 'fadein 3s linear 0.5s both';
+	id('titlecontent').innerHTML = e_desc;
+}
+
+function liangziyun_kawa()
+{
+	id('pagetitle').style.webkitAnimation = 'fadeout 1s linear both';
+	id('hand2').style.webkitAnimation='handmove1 5s linear both';
+
+	id('hand1').style.webkitAnimation='';
+	id('hand1_1').style.webkitAnimation='';
+
+	timeout[1] = setTimeout(show1,1000)
+}
+
+function show1()
+{
+
+	id('divv').style.webkitAnimation = '';
+	id('divh').style.webkitAnimation = '';
+	id('kuangv').style.webkitAnimation = '';
+	id('kuangh').style.webkitAnimation = '';
+
+	setImage('1');
+	if(image_size_width[image_url_index]/image_size_height[image_url_index] <1)
+	{
+		id('divh').style.display = 'none';
+		id('maskh').style.display = 'none';
+		id('kuangh').style.display = 'none';
+		id('wordh').style.display = 'none';
+
+		id('divv').style.display = 'block';
+		id('maskv').style.display = 'block';
+		id('kuangv').style.display = 'block';
+		id('wordv').style.display = 'block';
+
+		for(var i = 1; i<7; i++)
+		{
+			id('maskh' + i).style.webkitAnimation = '';
+		}
+
+		for(var i = 1; i<7; i++)
+		{
+			id('maskv' + i).style.webkitAnimation = 'fadeout 0.5s '+ i*0.3 + 's ease-in both';
+		}
+
+
+		id('wordh').style.webkitAnimation = 'fadein 1s 2s linear both';
+		id('wordv').style.webkitAnimation = 'fadein 1s 2s linear both';
+
+		id('hand1').style.webkitAnimation = '';
+		id('hand1_1').style.webkitAnimation = '';
+		timeout[2] = setTimeout(function()
+		{
+			id('hand1').style.webkitAnimation = 'handmovev 5s linear both';
+			id('hand1_1').style.webkitAnimation = 'drawv 5s linear both';
+		},100)
+	}
+	else
+	{
+		id('divh').style.display = 'block';
+		id('maskh').style.display = 'block';
+		id('kuangh').style.display = 'block';
+		id('wordh').style.display = 'block';
+
+		id('divv').style.display = 'none';
+		id('maskv').style.display = 'none';
+		id('kuangv').style.display = 'none';
+		id('wordv').style.display = 'none';
+
+		for(var i = 1; i<7; i++)
+		{
+			id('maskv' + i).style.webkitAnimation = '';
+		}
+
+		for(var i = 1; i<7; i++)
+		{
+			id('maskh' + i).style.webkitAnimation = 'fadeout 0.7s '+ (i+1)*0.3 + 's ease-out both';
+		}
+
+		id('wordh').style.webkitAnimation = 'fadein 1s 2s linear both';
+		id('wordv').style.webkitAnimation = 'fadein 1s 2s linear both';
+
+
+		id('hand1').style.webkitAnimation = '';
+		id('hand1_1').style.webkitAnimation = '';
+		timeout[3] = setTimeout(function()
+		{
+			id('hand1').style.webkitAnimation = 'handmove 5s linear both';
+			id('hand1_1').style.webkitAnimation = 'draw 5s linear both';
+		},100)
+
+	}
+
+
+	image_url_index ++;
+	if(image_url_index == Onload_imgs_url.length)
+		image_url_index = 0;
+
+
+	timeout[4] = setTimeout(clear1,6000)
+}
+
+function clear1()
+{
+	id('hand2').style.webkitAnimation='';
+	timeout[5] = setTimeout(function()
+	{
+		id('hand2').style.webkitAnimation='handmove1 5s linear both';
+	},100)
+
+	id('divv').style.webkitAnimation = 'fadeout 1s linear both';
+	id('divh').style.webkitAnimation = 'fadeout 1s linear both';
+	id('kuangv').style.webkitAnimation = 'fadeout 1s linear both';
+	id('kuangh').style.webkitAnimation = 'fadeout 1s linear both';
+
+	id('wordh').style.webkitAnimation = 'fadeout 1s linear both';
+	id('wordv').style.webkitAnimation = 'fadeout 1s linear both';
+
+	timeout[6] = setTimeout(function()
+	{
+		for(var i = 1; i<7; i++)
+		{
+			id('maskh' + i).style.webkitAnimation = '';
+			id('maskv' + i).style.webkitAnimation = '';
+		}
+		timeout[7] = setTimeout(show1,100)
+	},1100)
+}
+
+
+var image_size_width=[];
+var image_size_height=[];
+var image_url_index=0;
+var have_num = 0;
+var error_num = 0;
+var canshow = true;
+var reshow = false;
+var delaytime = 5000;
+var timeout = [];
+var showfont = false;
+var imgtype = 0;
+
+function load_images()
+{
+	reshow = false;
+	image_size_width=[];
+	image_size_height=[];
+	Onload_imgs_url=[];
+	image_url_index=0;
+	have_num = 0;
+	error_num = 0;
+	begin_titletime = new Date();
+	begin_titletime = begin_titletime.getTime();
+	canshow = true;
+	showtitle();
+	bl_keepload = 'first';
+	// loading_first();
+	step_load();
+}
+
+function image_onerror(event)
+{
+	var img = event.target;
+	var index = img.index;
+	if(index<step_loadnum)
+		error_num ++;
+	Onload_imgs_url[index] = 'not find';
+
+	if((have_num+error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+	{
+		reshow = false;
+		canshow =false;
+		if(have_num == 0)
+			return;
+		var end_titletime = new Date();
+		end_titletime = end_titletime.getTime();
+		var dis_titletime = Math.abs(end_titletime-begin_titletime);
+		if(dis_titletime>delaytime)
+		{
+			liangziyun_kawa();
+		}
+		else
+		{
+			dis_titletime = delaytime- dis_titletime;
+			timeout[0] = setTimeout(function()
+			{
+				liangziyun_kawa();
+			},dis_titletime);
+		}
+	}
+}
+
+function image_onload(event)
+{
+	if(reshow == true)
+		return;
+
+	var img = event.target;
+	var index = img.index;
+
+	if(index<step_loadnum)
+	{
+		have_num++;
+	}
+	Onload_imgs_url[index] = img.src;
+	image_size_height[index] = img.height;
+	image_size_width[index] = img.width;
+
+	console.log(Onload_imgs_url[index]);
+
+	if((have_num + error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+	{
+		reshow = false;
+		canshow =false;
+		if(have_num == 0)
+			return;
+		var end_titletime = new Date();
+		end_titletime = end_titletime.getTime();
+		var dis_titletime = Math.abs(end_titletime-begin_titletime);
+		if(dis_titletime>delaytime)
+		{
+			liangziyun_kawa();
+		}
+		else
+		{
+			dis_titletime = delaytime- dis_titletime;
+			timeout[0] = setTimeout(function()
+			{
+				liangziyun_kawa();
+			},dis_titletime);
+		}
+
+	}
+}
+//每次执行加载后5张图片
+var bl_keepload = 'first';
+var step_loadnum = 5;
+function step_load()
+{
+	var load_num = 0
+	//初步加载X张
+	if(image_url_index  == 0 && bl_keepload == 'first')
+	{
+		console.log('loading continue');
+		if(slider_images_url.length > step_loadnum)
+		{
+			load_num = step_loadnum;
+			bl_keepload = 'next';
+		}
+		else
+		{
+			load_num = slider_images_url.length;
+			bl_keepload = 'end';
+		}
+		for(var i = 0; i< load_num; i++)
+		{
+			var img=new Image();
+			img.index=i;
+			img.src=slider_images_url[i];
+			img.onload=image_onload;
+			img.onerror= image_onerror;
+			Onload_imgs_url[i] = 'loading';
+		}
+	}
+	else if(bl_keepload == 'end')
+	{
+		return;
+	}
+	else
+	{
+		console.log('loading continue');
+		if(slider_images_url.length - image_url_index >step_loadnum*2)
+		{
+			load_num = step_loadnum;
+		}
+		else
+		{
+			load_num = slider_images_url.length - image_url_index - step_loadnum;
+			bl_keepload = 'end';
+		}
+		for(var i = image_url_index +step_loadnum; i< image_url_index + step_loadnum + load_num; i++)
+		{
+			var img=new Image();
+			img.index=i;
+			img.src=slider_images_url[i];
+			img.onload=image_onload;
+			img.onerror= image_onerror;
+			Onload_imgs_url[i] = 'loading';
+		}
+	}
+}
+
+function setImage(idname)
+{
+	if(reshow == true)
+		return;
+
+	while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+	{
+		if(image_url_index % step_loadnum == 0)
+		{
+			step_load();
+		}
+		image_url_index++;
+		if(image_url_index == Onload_imgs_url.length)
+			image_url_index = 0;
+	}
+
+	if(image_url_index % step_loadnum == 0)
+	{
+		step_load();
+	}
+	var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+
+
+	if(img_bili >= 1)
+	{
+		var img = id('imgh');
+		var wordspan = id('wordh');
+		width = 335;
+		height = 263;
+
+	}
+	else
+	{
+		var img = id('imgv');
+		var wordspan = id('wordv');
+		width = 263;
+		height = 336;
+	}
+
+	var str = words[get_pid(Onload_imgs_url[image_url_index])];
+	if(str != undefined)
+		wordspan.innerHTML = str;
+	else
+		wordspan.innerHTML = '';
+	img.src = Onload_imgs_url[image_url_index];
+
+
+	if(img_bili > (width/height))
+	{
+		img.style.top = '0px';
+		img.style.height = height + 'px';
+		img.style.width = height*img_bili + 'px';
+		img.style.left = -((height*img_bili-width)/2)+'px';
+	}
+	else
+	{
+		img.style.left = '0px';
+		img.style.width = width+'px';
+		img.style.height = width/img_bili + 'px';
+		img.style.top = -((width/img_bili-height)/2) + 'px';
+	}
+
+}
+
+var get_pid = function(url)
+{
+	var index1 = url.indexOf("?");
+	if(index1 != -1)
+	{
+		url = url.substr(0, index1);
+	}
+	return url.toString().substr(url.lastIndexOf("/") + 1);
+}
+
+function reload_scene()
+{
+	clearnode();
+	reshow = true;
+	setTimeout(load_images,100);
+}
+
+function clearnode()
+{
+
+	for(var i = 0; i<timeout.length; i++)
+	{
+		clearTimeout(timeout[i])
+	}
+
+	var itemlist = ['pagetitle','hand1','hand2','hand1_1','divv','divh','kuangv','kuangh','maskh','maskv'];
+
+	for(var i =0; i<itemlist.length;i++)
+	{
+		id(itemlist[i]).style.webkitAnimation = '';
+	}
+
+	for(var i = 1; i<7; i++)
+	{
+		id('maskh' + i).style.webkitAnimation = '';
+		id('maskv' + i).style.webkitAnimation = '';
+	}
+
+	id('divh').style.display = 'none';
+	id('maskh').style.display = 'none';
+	id('kuangh').style.display = 'none';
+	id('wordh').style.display = 'none';
+
+	id('divv').style.display = 'none';
+	id('maskv').style.display = 'none';
+	id('kuangv').style.display = 'none';
+	id('wordv').style.display = 'none';
+
+
+}
+call_me(load_images)
+
+if(typeof(objid) === "undefined")
+{
+	var objid = function(id)
+	{
+		return document.getElementById(id);
+	}
+}
+function random(min,max)
+{
+	return Math.floor(min+Math.random()*(max-min));
+}
+function on_wx_music_init()
+{
+	if(e_desc != "")
+	{
+		document.title = e_desc.replace("<br>", "\n").replace("<br/>", "\n");;
+	}
+	else
+	{
+		document.title = "音乐相册";
+	}
+	loadingdiv_out();
+	create_music();
+	var locationurl = window.location.href;
+	check_cookie();
+	var locationurl = window.location.href;
+}
+//创建存储cookie的函数
+function set_cookie(value)
+{
+	document.cookie = "books="+value+';domain=.kagirl.cn';
+}
+function get_cookie(c_name)
+{
+	// alert(document.cookie);
+	if(document.cookie.length > 0)
+	{
+		var c_start = document.cookie.indexOf(c_name + '=');
+		if (c_start != -1)
+		{
+			c_start = c_start + c_name.length + 1;
+			var c_end = document.cookie.indexOf(';', c_start);
+			if(c_end == -1)
+				c_end = document.cookie.length;
+			return unescape(document.cookie.substring(c_start,c_end));
+		}
+
+	}
+	return '';
+}
+function check_cookie()
+{
+   
+}
+call_me(on_wx_music_init);
+
+//音乐播放
+
+var music_header   = 'http://kawaweika.qiniudn.com/sound/';
+var e_music_player = new Audio();
+
+function play_music() {
+	if (e_music_url == '') {
+		return;
+	}
+
+	if (e_music_url.indexOf('qqmusic') != -1) {
+		mymusic = 'https://qnphoto.kagirl.cn/music/688042.m4a';
+	}
+	else {
+		mymusic = e_music_url;
+	}
+
+	e_music_player.src = mymusic;
+	e_music_player.loop = 'loop';
+
+	console.log(e_music_player.src);
+	e_music_player.onerror = function () {
+		if (e_music_url.indexOf("http://sound.kagirl.net") != -1) {
+			var url = e_music_url.replace("http://sound.kagirl.net", "https://music.kagirl.cn");
+		}
+		else {
+			var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");
+		}
+
+		e_music_player.src = url;
+		e_music_player.play();
+		e_music_player.onerror = null;
+	}
+
+	e_music_player.play();
+
+	//检查音乐是否缓冲成功
+	setTimeout(function () {
+		var timeRanges = e_music_player.buffered;
+		var timeBuffered = timeRanges.end(timeRanges.length - 1);
+		var bufferPercent = timeBuffered / e_music_player.duration;
+		console.log('music:' + bufferPercent);
+
+		if (isNaN(bufferPercent) || bufferPercent == 0) {
+			if (e_music_url.indexOf("http://sound.kagirl.net") != -1) {
+				var url = e_music_url.replace("http://sound.kagirl.net", "https://music.kagirl.cn");
+			}
+			else {
+				var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");
+			}
+			e_music_player.src = url;
+			e_music_player.play();
+		}
+	}, 5000);
+
+
+	if (objid('sound_image')) {
+		objid('sound_image').style.webkitAnimation = "zhuan 1s linear infinite";
+	}
+
+	bplay = 1;
+}
+function create_music()
+{
+	if(e_music_url == '')
+	{
+		return ;
+	}
+
+	play_music();
+
+	sound_div = document.createElement("div");
+	sound_div.setAttribute("ID", "cardsound");
+	sound_div.style.cssText = "position:fixed;right:20px;top:25px;z-index:50;visibility:visible;";
+	sound_div.onclick = switchsound;
+
+	bg_htm  = "<img id='sound_image' src='/design/album/tlps/2/res/music_note_big.png' style='-webkit-animation:zhuan 1s linear infinite'>";
+	txt_htm = "<div id='music_txt' style='color:white;position:absolute;left:-40px;top:30px;width:60px'></div>"
+
+	sound_div.innerHTML = bg_htm  + txt_htm;
+
+	document.body.appendChild(sound_div);
+}
+var bplay = 0;
+function trim(str) {
+	return str.replace(/(^\s*)|(\s*$)/g, '');
+}
+function switchsound()
+{
+	au = e_music_player;
+	ai = objid('sound_image');
+	if(au.paused)
+	{
+		bplay = 1;
+		au.play();
+		ai.style.webkitAnimation     = "zhuan 1s linear infinite";
+		objid("music_txt").innerHTML = "打开";
+		objid("music_txt").style.visibility = "visible";
+		setTimeout(function(){objid("music_txt").style.visibility="hidden"}, 2500);
+	}
+	else
+	{
+		bplay = 0;
+		au.pause();
+		ai.style.webkitAnimation     = "";
+		objid("music_txt").innerHTML = "关闭";
+		objid("music_txt").style.visibility = "visible";
+		setTimeout(function(){objid("music_txt").style.visibility="hidden"}, 2500);
+	}
+}
+
+function write_localstorage()
+{
+	objid('like_div').onclick = function(){};
+	var url = 'submit_like.php?bookid='+e_bookid+'&wxid='+wxid;
+	XMLHttp.sendReq('GET',url,'',function()
+	{
+		objid('like_heart').src='https://qnphoto.kagirl.cn/zan/like0.png';
+		objid('like_heart').style.webkitAnimation = 'heart_beating 0.4s linear 4 alternate';
+		objid('heart1').style.display = 'block';
+		objid('heart2').style.display = 'block';
+		objid('heart3').style.display = 'block';
+		objid('heart1').style.webkitAnimation = 'heart1_moving 1.6s 0.2s linear both';
+		objid('heart2').style.webkitAnimation = 'heart2_moving 1.6s 0.2s linear both';
+		objid('heart3').style.webkitAnimation = 'heart3_moving 1.6s 0.2s linear both';
+		objid('like_num').innerHTML = zan_num +1;
+
+		// var day = new Date();
+		// var daystr = day.get
+		var sendstr = e_bookid + wxid + date;
+
+		if(localStorage.likestr == null || localStorage == undefined)
+		{
+			var like_arr = [];
+		}
+		else
+		{
+			var like_arr = JSON.parse(localStorage.likestr);
+		}
+
+		if(like_arr.length == 50)
+		{
+			like_arr.pop()
+		}
+		like_arr.unshift(sendstr);
+
+		likestr = JSON.stringify(like_arr);
+		// console.log(likestr);
+		localStorage.likestr = likestr;
+
+	})
+}
+function read_localstorage()
+{
+	if(editmode == false )
+	{
+		objid('like_div').style.display = 'block';
+	}
+	console.log(localStorage.likestr);
+	if(localStorage.likestr == null || localStorage == undefined)
+	{
+		objid('like_div').onclick = write_localstorage;
+	}
+	else
+	{
+		var like_arr = JSON.parse(localStorage.likestr);
+		var sendstr = e_bookid + wxid + date;
+		console.log(sendstr);
+		for(var i=0;i<like_arr.length;i++)
+		{
+			if(like_arr[i] == sendstr)
+			{
+				objid('like_heart').src = 'https://qnphoto.kagirl.cn/zan/like0.png';
+				break;
+			}
+			else if(i == like_arr.length-1)
+			{
+				objid('like_div').onclick = write_localstorage;
+				// console.log('canclick');
+			}
+		}
+	}
+	// console.log(objid("like_div").onclick);
+	objid('like_num').innerHTML = zan_num;
+}
+function visit_guangchang()
+{
+	var locationurl = location.href;
+	if(shareid != '' && shareid != undefined)
+	{
+		if(locationurl.indexOf('hidden') != -1)
+		{
+			if(locationurl.indexOf('menu') != -1)
+				location.href = 'http://photo.kagirl.cn/kphoto/menu.php?wxid='+shareid;
+			else
+				location.href = 'http://photo.kagirl.cn/kphoto/more1.php?back=true&wxid='+shareid;
+		}
+		else
+			location.href = 'http://photo.kagirl.cn/kphoto/more1.php?back=true&show=true&wxid='+shareid;
+	}
+}
+function loadingdiv_out()
+{
+	objid('loadingdiv').style.webkitAnimation = 'fadeout 0.3s linear both';
+	if(navigator.userAgent.indexOf('Windows Phone')!=1)
+	{
+		objid('loadingdiv').style.display = 'none';
+	}
+
+	setTimeout(function()
+	{
+		objid('loadingdiv').style.display = 'none';
+	},400)
+}
+function clickbtn()
+{
+	XMLHttp.sendReq("get", 'tongjiscene.php?type=click', "", function(objXMLHttp){
+	});
+}
+</script>

@@ -1,0 +1,15 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    //压图传入
+    string value = Model.GetValue();
+    string Name = Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+    int width = model.GetValInt("width");
+    int height = model.GetValInt("height");
+}
+<input type='text' id='@Name' name='txt_@Name' value='@value' class='form-control m715-50 autothumb_t' />

@@ -1,0 +1,78 @@
+{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="{$CssDir/}js/indexChange.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$CssDir/}js/PCASClass.js"></script>
+<style>
+#nav_l #m3{ height:36px; line-height:36px; background:url({$CssDir/}images/libg.jpg) repeat-x;}
+#nav_l #m3 a{color:#56120F;}
+#nav_l li:hover{background:url({$CssDir/}images/libg.jpg) repeat-x;}
+</style>
+</head>
+<body id="header" >
+<div id="home_all"> 
+{ZL.Label id="蓝色头部"/}
+<div id="mysite">
+<ul class="breadcrumb">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">商品列表</li>
+</ul>
+</div>
+<div id="main">
+<div id="sleft">
+<div class="stor_cs">
+<b>搜索</b> 
+<form action="{ZL:GetNodeLinkUrl(123)/}" name="cymap" method="post" >
+<table><tr><td align="right">地区：</td><td>
+<select name="prov" id="prov" style=" width:70px;"></select>
+<select name="shi" id="shi" style=" width:75px;" > </select> 
+<select name="szsj" id="szsj" style=" width:75px;" > </select> 
+<script language="javascript" defer> 
+new PCAS("prov","shi","szsj","请选择","请选择","请选择");
+</script>
+<input type="hidden" name="area" id="area">
+</td></tr> 
+ 
+<tr><td>关键字：</td><td><input type="text" name="keyword" id="keyword" size="20">
+</td></tr>
+<tr><td colspan="2" align="center"><input type="submit" value="搜索" ></td></tr>
+</table>
+</form>
+</div>
+<div class="stor_lei">
+<b>店铺分类 </b>
+{ZL.Label id="输出两级子栏目列表" ParentID="3" ShowNum="10" nums="4" /} 
+</div> 
+  
+</div>
+<div id="sright">
+<div class="store_t">
+<font color="#FF0000">{$PostRequest(keyword)$} {$PostRequest(city)$}</font> 店铺列表
+</div>
+<div class="storeList"> 
+<table width="100%" cellpadding="0" cellspacing="0"> 
+{ZL.Label id="搜索商家列表" TitleNum="25" ShowNum="10" /}
+</table>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+{ZL.Label id="蓝色底部"/}
+<div class="clear"></div>
+</div>
+<script>
+function getval(obj,val){
+	document.getElementById(obj).value=val;
+	document.forms.cymap.submit(); 
+	}
+</script>
+</body>
+</html>

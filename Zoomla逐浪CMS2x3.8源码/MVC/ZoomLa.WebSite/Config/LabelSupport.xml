@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataSet>
+  <Table>
+    <LabelName>OutToWord</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc>
+      读取地址栏参数template=模板名,将页面上所有TextBox控件的值,发送给OutToWord.aspx.
+      Word中用$+控件ID占位.例:$Year
+    </LabelDesc>
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>
+      &lt;script type="text/javascript"&gt;
+      var template;
+      $().ready(function () {
+      template = getParam("template");
+      });
+      function outToWord() {
+      if(!template){alert('未指定模板');return;}
+      arr = $("input[type=text]");
+      param = "";
+      for (i = 0; i &lt; arr.length; i++) {
+      $input = $(arr[i]);
+      param += $input.attr("id") + ":" + $input.val() + ",";
+      }
+      window.open("/OutToWord.aspx?template=" + escape(template) + "&amp;jsonData=" + param);
+      }
+      function getParam(paramName) {
+      paramValue = "";
+      isFound = false;
+      if (this.location.search.indexOf("?") == 0 &amp;&amp; this.location.search.indexOf("=") &gt; 1) {
+      arrSource = decodeURI(this.location.search).substring(1, this.location.search.length).split("&amp;");
+      i = 0;
+      while (i &lt; arrSource.length &amp;&amp; !isFound) {
+      if (arrSource[i].indexOf("=") &gt; 0) {
+      if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) {
+      paramValue = arrSource[i].split("=")[1];
+      isFound = true;
+      }
+      }
+      i++;
+      }
+      }
+      return paramValue;
+      }
+      &lt;/script&gt;
+    </LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+  </Table>
+  <Table>
+    <LabelID>695</LabelID>
+    <LabelName>SohuChat</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc>引入畅言评论系统</LabelDesc>
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="Changyan" &gt;
+      &lt;div id="SOHUCS" $SID &gt;&lt;/div&gt;
+&lt;script&gt;
+    (function () {
+        var appid = 'cyr3Bnwnr',
+        conf = '78f8cf0e89ba5f28b60f2a659ba7ef32';
+        var doc = document,
+        s = doc.createElement('script'),
+        h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+        s.type = 'text/javascript';
+        s.charset = 'utf-8';
+        s.src = 'http://assets.changyan.sohu.com/upload/changyan.js?conf=' + conf + '&amp;appid=' + appid;
+        h.insertBefore(s, h.firstChild); window.SCS_NO_IFRAME = true;
+      })()
+      &lt;/script&gt;&lt;/div&gt;
+  </LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+  </Table>
+  <Table>
+    <LabelID>3</LabelID>
+    <LabelName>UeditorOL</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;style type="text/css"&gt;
+.sectionItem span:hover{ cursor:pointer;}
+.selectIcon{ margin-left:10px;}
+&lt;/style&gt; 
+&lt;div id="directionContainer"&gt;&lt;/div&gt;
+   &lt;script type="text/javascript"&gt;
+       var ue = UE.getEditor('$SID');
+       ue.ready(function () {
+           ue.addListener('updateSections', resetHandler);
+           ue.focus();
+           resetHandler();
+       });
+       var resetHandler = function () {
+           var dirmap = {}, dir = ue.execCommand('getsections');
+           $('#directionContainer').html(traversal(dir) || null);
+           $('.deleteIcon').click(function (e) {
+               var $target = $(this),
+                       address = $target.parent().attr('data-address');
+               ue.execCommand('deletesection', dirmap[address]);
+           });
+           $('.selectIcon').click(function (e) {
+               var $target = $(this),
+                       address = $target.parent().attr('data-address');
+               ue.execCommand('selectsection', dirmap[address], true);
+           });
+           $('.moveUp,.moveDown').click(function (e) {
+               var $target = $(this),
+                       address = $target.parent().attr('data-address'),
+                       moveUp = $target.hasClass('moveUp') ? true : false;
+               if ($target.hasClass('moveUp')) {
+                   ue.execCommand('movesection', dirmap[address], dirmap[address].previousSection);
+               } else {
+                   ue.execCommand('movesection', dirmap[address], dirmap[address].nextSection, true);
+               }
+           });
+           $(window).scroll(function (e) {
+               if ($('.left').offset().top &lt; (document.body.scrollTop || document.documentElement.scrollTop)) {
+                   $('#directionWrapper').addClass('fixTop');
+               } else {
+                   $('#directionWrapper').removeClass('fixTop');
+               }
+           });
+
+           function traversal(section) {
+               var $list, $item, $itemContent, child, childList;
+               if (section.children.length) {
+                   $list = $('&lt;ul&gt;');
+                   for (var i = 0; i &lt; section.children.length; i++) {
+                       child = section.children[i];
+                       $itemContent = $('&lt;div class="sectionItem"&gt;&lt;/div&gt;').html($('&lt;span class="itemTitle"&gt;' + child['title'] + '&lt;/span&gt;'));
+                       $itemContent.attr('data-address', child['startAddress'].join(','));
+                       $itemContent.append($('&lt;span class="selectIcon" title="选中"&gt;&lt;img src="/Images/ok.gif" /&gt;&lt;/span&gt;' +
+                               '&lt;span class="moveUp" title="上移"&gt;&lt;img src="/Images/up.png" /&gt;&lt;/span&gt;' +
+                               '&lt;span class="moveDown" title="下移"&gt;&lt;img src="/Images/down.png" /&gt;&lt;/span&gt;'+
+                               '&lt;span class="deleteIcon" title="删除"&gt;&lt;img src="/App_Themes/AdminDefaultTheme/images/del.png" /&gt;&lt;/span&gt;'));
+                       dirmap[child['startAddress'].join(',')] = child;
+                       $item = $('&lt;li&gt;');
+                       $item.append($itemContent);
+                       if ($item.children.length) {
+                           childList = traversal(child);
+                           childList &amp;&amp; $item.append(childList);
+                       }
+                       $list.append($item);
+                   }
+               }
+               return $list;
+           }
+       }
+   &lt;/script&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+  </Table>
+</DataSet>

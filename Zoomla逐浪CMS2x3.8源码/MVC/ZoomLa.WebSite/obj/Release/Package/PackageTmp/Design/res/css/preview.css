@@ -1,0 +1,19 @@
+﻿/*用于所有preview页面*/
+.pcview{width:800px;margin-top:-410px;margin-left:35%;position:absolute;top:50%;}
+.pcview .pc_mobile {width:382px;height:820px;background:url(/App_Themes/User/bg_scence.png) no-repeat;display:inline-block;}
+.pcview .pc_cmsfont {position:absolute;top:175px;left:35px;z-index:10;}
+.pcview .pc_cmsfont img{height:20px;}
+.pcview .pc_qrcode {position:absolute;right:0px;top:50%;}
+.pcview .ctrl_panel{width:38px;display:inline-block;margin-left:-10px; position:absolute;top:160px;}
+.pcview .ctrl_panel .cbtn{width: 38px;height: 112px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;background: #48a0ff;color: #fff;padding:20px 5px 20px 10px;border: 1px solid #48a0ff;white-space:pre-line;}
+.pcview .ctrl_panel .cbtn:hover{background-color:#fff;color:#48a0ff;cursor:pointer;}
+.pcview .ctrl_panel .pre_btn{display:block;margin-bottom:40px;}
+.code_div{float:right;margin-top:150px;}
+.code_div .title_div{font-size:18px;color:#fff;height:40px;line-height:40px;}
+.code_div .img_div{padding:10px;width:195px;height:195px;background-color:#fff;}
+.code_div .img_div img{width:175px;height:175px;}
+.code_div .bdsharebuttonbox{margin:5px auto;padding-left:5px;background-color:rgba(255, 255, 255, 1)}
+.code_div .view_div{ font-size:0.92em;border: 1px solid #fff;border-radius: 5px;height:38px;line-height: 38px;text-align: center;color:#fff;}
+.code_div .view_div span{padding-left: 5px;}
+.code_div .view_div span a{border-bottom: 1px solid #08a1ef;}
+.code_div .view_div span a:visited,a:link{color: #08a1ef;text-decoration: none;}

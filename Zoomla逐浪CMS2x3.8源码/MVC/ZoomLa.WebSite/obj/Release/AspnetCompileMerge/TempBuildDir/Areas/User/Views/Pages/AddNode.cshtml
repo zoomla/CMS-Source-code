@@ -1,0 +1,80 @@
+﻿@model ZoomLa.Model.M_Templata
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    string action = MVCHelper.GetAction(Url.Action("Node_Add", "Pages"), Request);
+}
+@section head{
+    <title>添加栏目</title>
+}
+@section content{
+    <div id="pageflag" data-nav="page" data-ban="page"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="@Url.Action("Default","Pages")">企业黄页</a></li>
+            <li><a href="@Url.Action("ClassManage","Pages")">栏目管理</a></li>
+            <li class="active">添加栏目</li>
+        </ol>
+    </div>
+    <div class="container btn_green">
+        <div>
+            <form method="post" action="@action">
+                <table class="table table-bordered table-hover table-striped">
+                    <tr>
+                        <td colspan="2" class="text-center">(@ViewBag.op)栏目</td>
+                    </tr>
+                    <tr>
+                        <td>栏目名称： </td>
+                        <td>
+                            @Html.TextBoxFor(Model => Model.TemplateName, new { @class = "form-control", @style = "width:430px;" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>栏目排序： </td>
+                        <td>
+                            @Html.TextBoxFor(Model => Model.OrderID, new { @class = "form-control", @style = "width:72px;", @value = "0" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>显示状态： </td>
+                        <td>
+                            <label>@Html.RadioButtonFor(Model => Model.IsTrue, 1)显示</label>
+                            <label>@Html.RadioButtonFor(Model => Model.IsTrue, 0)隐藏</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>栏目捆绑： </td>
+                        <td>@Html.DropDownListFor(Model => Model.ParentNode, ViewBag.ClassNode as IEnumerable<SelectListItem>, new { @class = "form-control text_md" })</td>
+                    </tr>
+                    <tr>
+                        <td>META描述： </td>
+                        <td>
+                            @Html.TextAreaFor(Model => Model.PageMetakeyinfo, new { @class = "form-control", @style = "max-width:300px;height:106px;" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>关键字： </td>
+                        <td>
+                            @Html.TextBoxFor(Model => Model.PageMetakeyword, new { @class = "form-control text_md" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>栏目提示： </td>
+                        <td>
+                            @Html.TextBoxFor(Model => Model.Nodeimgtext, new { @class = "form-control text_md" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center">
+                            <input type="submit" value="@ViewBag.op" class="btn btn-primary" />
+                            <a href="@Url.Action("ClassManage","Pages")" class="btn btn-primary">取消</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+}
+@section script{
+
+}

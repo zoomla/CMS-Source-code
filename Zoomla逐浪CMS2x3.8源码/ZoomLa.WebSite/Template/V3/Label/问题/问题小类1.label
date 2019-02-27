@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>239</LabelID>
+    <LabelName>问题小类1</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>parentid,默认值,1,参数说明</LabelParam>
+    <LabelTable>zl_grade</LabelTable>
+    <LabelField>GradeID,GradeName</LabelField>
+    <LabelWhere> cate=2 and parentid=@parentid</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+ &lt;li&gt;&lt;a href="/{ZL:GetNodeListUrl(115)/}?smallclass={Field="GradeID"/}"&gt;{Field="GradeName"/}&lt;/a&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddFave.aspx.cs" Inherits="User_UserFriend_AddFave" EnableViewStateMac="false" %>

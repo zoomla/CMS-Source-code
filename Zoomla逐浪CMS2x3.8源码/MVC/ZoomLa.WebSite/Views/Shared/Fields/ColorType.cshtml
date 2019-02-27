@@ -1,0 +1,39 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    private string GetColorType()
+    {
+        string Name = Model.fieldMod.FieldName;
+        string str = Model.GetValue();
+        string[] strArray = Model.fieldMod.Content.Split(new char[] { ',' });
+        string[] strArray2 = strArray[1].Split(new char[] { '=' });
+        StringBuilder builder = new StringBuilder();
+        builder.Append("<script type=\"text/javascript\">");
+        builder.Append("function SelectColor(t, clientId) {");
+        builder.Append("var url = \"/Common/SelectColor.aspx?d=f&t=6\"; ");
+        builder.Append("var old_color = (document.getElementById(clientId).value.indexOf('#') == 0) ? '&' + document.getElementById(clientId).value.substr(1) : '&' + document.getElementById(clientId).value;");
+        builder.Append("if (document.all) {");
+        builder.Append("var color = showModalDialog(url + old_color, '',\"dialogWidth:18.5em; dialogHeight:16.0em; status:0\");");
+        builder.Append("if (color != null) {");
+        builder.Append("document.getElementById(clientId).value = color;");
+        builder.Append("} else {");
+        builder.Append("document.getElementById(clientId).focus();");
+        builder.Append("}");
+        builder.Append("} else {");
+        builder.Append("var color = window.open(url + '&' + clientId, \"hbcmsPop\", \"top=200,left=200,scrollbars=yes,dialog=yes,modal=no,width=300,height=260,resizable=yes\");");
+        builder.Append("}");
+        builder.Append("}");
+        builder.Append("</script>");
+        builder.Append("<input type=\"text\" class=\"form-control m715-50\" id=\"txt_" + Name + "\" name=\"txt_" + Name + "\" maxlength=\"7\"  size=\"7\"  value=\"" + str + "\"> ");
+        builder.Append("<span class='fa fa-font'title='颜色选择' style='font-size:20px; cursor:pointer;' onclick=\"SelectColor(this,'txt_" + Name + "');\"></span>" + Model.fieldMod.Description);
+        return builder.ToString();
+    }
+}
+@{
+    //颜色代码
+}
+@MvcHtmlString.Create(GetColorType())

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TlpShow.aspx.cs" Inherits="Manage_Template_TlpShow" %>

@@ -1,0 +1,234 @@
+﻿<style>
+    .padding5 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .mb8_top {
+        font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+        text-align: center;
+        font-size: 0.7rem;
+        background: #fff;
+        line-height: 1.5rem;
+    }
+
+        .mb8_top a {
+            margin-left: 0.25rem;
+            margin-right: 0.25rem;
+            color: #333;
+        }
+
+    .swiper-container {
+        width: 100%;
+        background: #fff;
+    }
+
+    .swiper-slide {
+        display: block;
+        width: 100%;
+        margin-right: 0px;
+        padding-top: 46.875%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center; /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+        .swiper-slide a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 2px;
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px; /*box-shadow: rgba(0,0,0,.5) 0 0 7px;*/
+    }
+
+    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0 3px;
+    }
+
+    .mb8_banner .swiper-slide a {
+    }
+
+        .mb8_banner .swiper-slide a img {
+            max-width: 100%;
+        }
+
+    .mb8_news {
+        margin-top: 0.5rem;
+        background: #fff;
+        font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+    }
+
+        .mb8_news .media {
+            margin: 0;
+            padding: 0.4rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .mb8_news .media .media-left {
+                padding-right: 0;
+                padding-left: 0.5rem;
+            }
+
+                .mb8_news .media .media-left img {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+
+            .mb8_news .media .media-heading {
+                margin-bottom: 0;
+                font-size: 0.8rem;
+                line-height: 1.25rem;
+                max-height: 2.5rem;
+                overflow: hidden;
+            }
+
+                .mb8_news .media .media-heading a {
+                    color: #333;
+                }
+
+    .mb8_copy {
+        font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+        font-size: 0.7rem;
+        text-align: center;
+    }
+
+    .mb8_footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #000;
+        font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+    }
+
+        .mb8_footer ul {
+            margin-bottom: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .mb8_footer li {
+            float: left;
+            width: 25%;
+        }
+
+            .mb8_footer li a {
+                display: block;
+                padding: 0.25rem 0;
+                text-align: center;
+                font-size: 0.6rem;
+                color: #fff;
+                text-decoration: none;
+            }
+
+                .mb8_footer li a i {
+                    display: block;
+                    font-size: 1.5rem;
+                }
+</style>
+<div class="page" id="page-index" ng-app="app" ng-controller="APPCtrl">
+    <div class="content">
+        <div class="content-inner">
+            <div class="mb8_top">
+                <a href="/user/login.aspx"><i class="fa fa-user"></i> 登录</a>
+                <a href="/user/register.aspx"><i class="fa fa-pencil"></i> 注册</a>
+                <a href="/cart/cart.aspx"><i class="fa fa-shopping-cart"></i> 购物车</a>
+            </div>
+
+            <div id="topnav" class="com swiper-container mb8_banner" style="height:175px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="item in coms.topnav.list">
+                        <a href="{{getlink(item)}}">
+                            <img ng-src="{{item.wxico}}" />
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
+
+            <div class="mb8_news com" id="conbody">
+                <ul class="media-list">
+                    <li class="media" ng-repeat="item in coms.conbody.list">
+                        <div class="media-body media-middle">
+                            <h4 class="media-heading"><a href="{{getlink(item)}}" ng-bind="item.title"></a></h4>
+                        </div>
+                        <div class="media-left"><a href="{{getlink(item)}}"><span ng-bind-html="getimg(item.wxico)|html"></span></a></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mb8_copy">&copy;2016 广告 版权所有<br />本网站使用 <a href="#">逐浪CMS</a> 搭建</div>
+
+            <div style="height:58px;"></div>
+            <div class="mb8_footer com" id="footbar">
+                <ul>
+                    <li ng-repeat="item in coms.footbar.list"><a href="{{getlink(item)}}"><i ng-class="item.wxico"></i>{{item.title}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="/design/h5/css/swiper.min.css" rel="stylesheet" />
+<script src="/design/h5/js/swiper.min.js"></script>
+<script>
+    angular.module("app", []).controller("APPCtrl", function ($scope) {
+        Zepto.init();
+        Zepto.showIndicator();
+        tools.site = "{$site}";
+        tools.extend($scope);
+        $scope.getimg = function (url) {
+            if (url.indexOf("fa ") > -1) { return '<i class="' + url + '" class="media-object"></i>'; }
+            else { return '<img src="' + url + '" class="media-object" />'; }
+        }
+        $scope.coms = [];
+        //---------------------------------------------------------------------------//
+        $scope.coms["topnav"] = { type: "nav", list: [] };
+        $scope.coms["conbody"] = { type: "list", list: [] };
+        $scope.coms["footbar"] = { type: "footbar", list: [] };
+        //---------------------------------------------------------------------------//
+        //能否优化为一次取出,然后再划分(微站内容中的数据)
+        tools.getdata({ nodename: escape("微站图片") }, function (result) {
+            $scope.coms["topnav"].list = result;
+            $scope.$digest();
+            setTimeout(tools.nav.init, 500);
+        })
+        tools.getdata({ nodename: escape("微站内容"), dbtype: "footbar" }, function (result) {
+            $scope.coms["footbar"].list = result;
+            $scope.$digest();
+        })
+        tools.getdata({ nodename: escape("微站内容"), dbtype: "list" }, function (result) {
+            var list = result;
+            $scope.coms["conbody"].list = list;
+            $scope.$digest();
+            Zepto.hideIndicator();
+            tools.init();
+        });
+    }).filter(
+		'html', ['$sce', function ($sce) {
+		    return function (text) {
+		        return $sce.trustAsHtml(text);
+		    }
+		}]
+	);
+</script>

@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>235</LabelID>
+    <LabelName>问题右边</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div id="askright"&gt;
+
+&lt;div class="askrightbox"&gt;
+&lt;h3&gt;公告区&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#"&gt;上坊路是理发师&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;&lt;!--box--&gt;
+&lt;div class="askrightbox"&gt;
+&lt;h3&gt;精选回答&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#"&gt;上坊路是理发师&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;&lt;!--box--&gt;
+&lt;div class="askrightbox"&gt;
+&lt;h3&gt;公告区&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#"&gt;上坊路是理发师&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;li&gt;上坊路是理发师&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

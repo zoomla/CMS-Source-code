@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>294</LabelID>
+    <LabelName>通用网站地图</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>NodeName,NodeID,ParentID</LabelField>
+    <LabelWhere>ParentID=@NodeID</LabelWhere>
+    <LabelOrder>OrderID ASC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}" id="{Field="NodeID"/}"&gt;{Field="NodeName"/}&lt;/a&gt;
+&lt;ul class="map_list1"&gt;
+{ZL.Label id="通用网站地图" NodeID="{Field="NodeID"/}" /}
+&lt;/ul&gt;
+&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>参数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>不等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot>{Field="Child"/}</Valueroot>
+    <IsOpen>1</IsOpen>
+    <FalseContent>{ZL.Label id="通用网站地图" NodeID="{Field="NodeID"/}"/}
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}" id="{Field="NodeID"/}"&gt;{Field="NodeName"/}&lt;/a&gt;&lt;/li&gt;</FalseContent>
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

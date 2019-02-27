@@ -1,0 +1,158 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Model.Shop
+@using ZoomLa.BLL
+@using ZoomLa.BLL.Helper
+@using ZoomLa.BLL.Shop
+@using ZoomLa.Common
+@using ZoomLa.Components
+@using ZoomLa.SQLDAL.SQL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    public string GetUserName(DataRow dr)
+    {
+        switch (DataConverter.CLng(dr["IsAnonymous"]))
+        {
+            case 1:
+                return "匿名用户";
+            case 0:
+            default:
+                return B_User.GetUserName(dr["CHoney"], dr["CUName"]);
+        }
+    }
+    public string GetGroupName(DataRow dr)
+    {
+        DataTable GroupDT = ViewBag.GroupDT;
+        if (DataConverter.CLng(dr["IsAnonymous"]) == 1) { return ""; }
+        int gid = DataConverter.CLng(dr["GroupID"]);
+        DataRow[] gdr = GroupDT.Select("GroupID=" + gid);
+        if (gdr.Length > 0)
+        {
+            return gdr[0]["GroupName"].ToString();
+        }
+        return "";
+    }
+    public string GetStar(DataRow dr)
+    {
+        string result = "";
+        int score = Convert.ToInt32(dr["Score"]);
+        for (int i = 0; i < score; i++)
+        {
+            result += "<i class='staricon fa fa-star'></i>";
+        }
+        for (int i = 0; i < 5 - score; i++)
+        {
+            result += "<i class='staricon fa fa-star-o'></i>";
+        }
+        return result;
+    }
+    //显示晒单图片
+    public string GetImgs(DataRow dr)
+    {
+        string result = "";
+        string tlp = "<span class='imgsp'><img src='{0}' class='img80' onerror=\"this.src='/Images/nopic.gif'\"/></span>";
+        string imgs = DataConverter.CStr(dr["Imgs"]);
+        if (!string.IsNullOrEmpty(imgs))
+        {
+            foreach (string img in imgs.Split('|'))
+            {
+                if (SafeSC.IsImage(img))
+                { result += string.Format(tlp, img); }
+            }
+        }
+        return result;
+    }
+}
+@{
+    B_Order_Share shareBll = new B_Order_Share();
+    B_Group gpBll = new B_Group();
+    DataTable GroupDT = gpBll.Sel();
+    string Mode = (Request.QueryString["Mode"] ?? "").ToLower();
+    Model.cols = 10;
+    Model.url = "Share_Data";
+}
+
+@if(Model.dt.Rows.Count<1){<div id="nodata_div" class="alert alert-info">该商品暂无评论数据</div>}
+else
+{
+    <div id="EGV">
+        <div class="comments-header">
+            <span class="sphead column1">评价心得</span>
+            <span class="sphead column2">顾客满意度</span>
+            <span class="sphead column3">购买信息</span>
+            <span class="sphead column4">评论者</span>
+        </div>
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            PageSetting setting = shareBll.SelPage(1, 5, Convert.ToInt32(dr["ID"]), 0);
+        <div class="comments-item" data-id="@dr["id"]">
+            <table class="com-item-main clearfix">
+                <tr>
+                    <td class="com-i-column column1">
+                        <div class="p-comment">
+                            <span class="item-desc">@dr["MsgContent"]</span>
+                            <b class="time">@DateHelper.ToDate(dr["CDate"])</b>
+                        </div>
+                        <div class="p-imgs">@MvcHtmlString.Create(GetImgs(dr))</div>
+                        <div class="p-tabs">
+                            @*<%-- <em data-tid="8285256" class="item">外观漂亮<b class="num"></b></em>--%>*@
+                        </div>
+                        <div class="tie_list">
+                            <div id='view_div_@dr["ID"]' class="view_div" style="display: none;">
+                                <div class="font12">
+                                    <span><span class="fa fa-upload"></span><a href="javascript:;" onclick="Collapse(@dr["id"]);">收起</a><span class="sperspan">|</span></span>
+                                    <span><i class="fa fa-mail-reply"></i><a href="javascript:;" onclick="RoteImg('view_img_@dr["id"]','left');">左转</a><span class="sperspan">|</span></span>
+                                    <span><i class="fa fa-mail-forward"></i><a href="javascript:;" onclick="RoteImg('view_img_@dr["id"]','right');">右转</a><span class="sperspan">|</span></span>
+                                    <span><i class="fa fa-arrows-alt"></i><a href="javascript:;" class="disabled">查看大图</a></span>
+                                    <button type="button" id='view_btn_@dr["ID"]' onclick="Collapse()" style="display:none;"></button>
+                                </div>
+                                <div class="view_imgdiv">
+                                    <div class="view_preimg"></div><div class="view_nextimg"></div><span>
+                                        <img id='view_img_@dr["ID"]' data-angle="0" src="#" onclick="Collapse();" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="com-i-column column2">
+                        @MvcHtmlString.Create(GetStar(dr))
+                    </td>
+                    <td class="com-i-column column3">
+                        <div class="type-item">
+                            @*<%-- <span class="label">颜色：</span><span class="text">钻石白天蝎座</span>--%>*@
+                        </div>
+                    </td>
+                    <td class="com-i-column column5">
+                        <div class="user-item"><img src="@dr["userface"]" onerror="shownoface(this);" class="img80" /></div>
+                        <div class="user-item">
+                            <span class='user-name'>@GetUserName(dr)</span>
+                            <span class='user_group'>@GetGroupName(dr)</span>
+                        </div>
+                        @*<div class="user-item"><span class="buy-time">2015-09-21 11:34 购买</span></div>*@
+                    </td>
+                </tr>
+            </table>
+            <div class="comment-operate">
+                <span class="reply-trigger linkgray" data-info='{"id":"@dr["id"]","uname":"@GetUserName(dr)","rid":"@dr["id"]"}'>回复</span>
+                @if (Mode.Equals("admin"))
+                    {
+                    <a class="btn btn-primary btn-xs" href="@("/" + SiteConfig.SiteOption.ManageDir + "/Shop/EditShare.aspx?id=" + dr["ID"])">修改</a>
+                    <button class="btn btn-primary btn-xs del-trigger" type="button" id="Del_Btn">删除</button>
+                    @*<%--    <span class="nice J-nice" title="0">赞</span>--%>*@
+                    }
+            </div>
+            <div class="comment-replylist" id="replylist_@dr["id"]">
+                @Html.Partial("ShareList_Reply", setting)
+            </div>
+            <div class="reply-operate" id='reply_operate_@dr["id"]'>
+                <div><input type="text" class="form-control" id='reply_msg_@dr["id"]' /></div>
+                <div style="margin-top:5px;"><input type="button" class="btn btn-primary" value="回复" onclick="ReplyTo()" /></div>
+            </div>
+        </div>
+        }
+    </div>
+     if (Model.pageCount > 1)
+    {
+        @Html.Partial("_page2", Model)
+    }
+}  

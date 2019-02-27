@@ -1,0 +1,4 @@
+C:\Users\admin\Desktop\加解密与重写\源码与dll\URLRewriter\bin\Debug\Zoomla.URLRewriter.dll
+C:\Users\admin\Desktop\加解密与重写\源码与dll\URLRewriter\bin\Debug\Zoomla.URLRewriter.pdb
+C:\Users\admin\Desktop\加解密与重写\源码与dll\URLRewriter\obj\Debug\Zoomla.URLRewriter.dll
+C:\Users\admin\Desktop\加解密与重写\源码与dll\URLRewriter\obj\Debug\Zoomla.URLRewriter.pdb

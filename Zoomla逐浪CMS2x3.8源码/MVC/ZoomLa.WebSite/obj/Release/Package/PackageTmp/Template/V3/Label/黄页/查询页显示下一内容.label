@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>275</LabelID>
+    <LabelName>查询页显示下一内容</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>查询页显示下一内容</LabelDesc>
+    <LabelParam>ItemID,默认值,2,内容ID|Inputer,默认值,1,黄页用户|NodeID,默认值,1,栏目ID</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,NodeID,ModelID,ItemID,TableName,Title,Inputer,Hits,CreateTime,Status,EliteLevel,InfoID,SpecialID,IsCreate,HtmlLink,Template</LabelField>
+    <LabelWhere>GeneralID IN (select top 1 GeneralID From ZL_CommonModel Where GeneralID&gt;@ItemID And Inputer='@Inputer' And NodeID=@NodeID Order by GeneralID) And Inputer='@Inputer' And NodeID=@NodeID</LabelWhere>
+    <LabelOrder />
+    <LabelContent>&lt;a href="PageContent.aspx?ItemID={Field="GeneralID"/}"&gt;{Field="Title"/}&lt;/a&gt;</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

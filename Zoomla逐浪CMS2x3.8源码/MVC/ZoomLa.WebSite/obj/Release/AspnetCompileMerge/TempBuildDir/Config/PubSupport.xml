@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataSet>
+  <Table>
+    <ID>1</ID>
+    <LabelName>评星1</LabelName>
+    <LabelHead>
+     &lt;form id=&quot;form{pubid/}&quot;  action=&quot;/PubAction.aspx&quot;&gt;
+     &lt;input type=&quot;hidden&quot; name=&quot;PubID&quot; id=&quot;PubID&quot; value=&quot;{pubid/}&quot; /&gt;
+     &lt;input type=&quot;hidden&quot; name=&quot;PubContentid&quot; id=&quot;PubContentid&quot; value=&quot;{PubContentid/}&quot; /&gt;
+		 &lt;input type=&quot;hidden&quot; name=&quot;scoreVal&quot; id=&quot;scoreVal&quot; /&gt;
+     &lt;style type=&quot;text/css&quot;&gt;
+             .starImg {display:inline-block;width:110px;height:22px;background:url(/App_Themes/Microblog/images/star_org3.gif);cursor:pointer;}
+         &lt;/style&gt;
+    </LabelHead>
+    <LoopContent>
+    &lt;div class=&quot;starOPDiv&quot;&gt;
+        &lt;span class=&quot;opNameDesc&quot;&gt;{opName/}&lt;/span&gt;
+        &lt;span class=&quot;starSpan&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;{radioName/}&quot; checked=&quot;checked&quot; value=&quot;5&quot;/&gt;
+        &lt;span class=&quot;starImg&quot;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+        &lt;span class=&quot;starSpan&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;{radioName/}&quot; value=&quot;4&quot;/&gt;
+       &lt;span class=&quot;starImg&quot; style=&quot;background-position:-22px;&quot;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+        &lt;span class=&quot;starSpan&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;{radioName/}&quot; value=&quot;3&quot;/&gt;
+       &lt;span class=&quot;starImg&quot; style=&quot;background-position:-44px;&quot;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+        &lt;span class=&quot;starSpan&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;{radioName/}&quot; value=&quot;2&quot;/&gt;
+        &lt;span class=&quot;starImg&quot; style=&quot;background-position:-66px;&quot;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+        &lt;span class=&quot;starSpan&quot;&gt;
+         &lt;input type=&quot;radio&quot; name=&quot;{radioName/}&quot; value=&quot;1&quot;/&gt;
+         &lt;span class=&quot;starImg&quot; style=&quot;background-position:-88px;&quot;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+      &lt;/div&gt;
+    </LoopContent>
+    <LabelHead2>
+        &lt;div class=&quot;totalDiv&quot; style=&quot;display:none;&quot;&gt;
+    </LabelHead2>
+    <LoopContent2>
+        &lt;div&gt;&lt;span&gt;{opName/}：5星:&lt;label&gt;{radioName/}:5&lt;/label&gt;次,4星&lt;label&gt;{radioName/}:4&lt;/label&gt;次,3星&lt;label&gt;{radioName/}:3&lt;/label&gt;次,2星&lt;label&gt;{radioName/}:2&lt;/label&gt;次,1星&lt;label&gt;{radioName/}:1&lt;/label&gt;次&lt;/span&gt;&lt;/div&gt;
+    </LoopContent2>
+    <LabelFoot2>
+      &lt;/div&gt;
+    </LabelFoot2>
+    <LabelFoot>
+     &lt;input type=&quot;submit&quot; value=&quot;提交&quot; onclick=&quot;starSub(this);&quot;;/&gt;
+              &lt;script type=&quot;text/javascript&quot;&gt;
+                  $().ready(function () {
+                      $(&quot;.starSpan&quot;).click(function () { $(this).find(&quot;:radio&quot;)[0].checked = true; });
+                      var v = &quot;&quot;;
+                      $(&quot;.totalDiv label&quot;).each(function () { v += $(this).text() + &quot;,&quot;; });
+                      $.ajax({
+                          type: &quot;Post&quot;,
+                          url: &quot;/PubAction.aspx&quot;,
+                          data: { action: &quot;GetScore1&quot;, value: v, &quot;pubID&quot;: {pubid/}, &quot;cid&quot;: &quot;{PubContentid/}&quot; },//内容ID
+                          async: true,
+                          dataType: &quot;json&quot;,
+                          success: function (data)
+                          {
+                              var result =  $(&quot;.totalDiv&quot;).html();
+                              for (var i = 0; i &lt; data.length; i++)
+                              {
+                                  result=result.replace(data[i].s, data[i].v);
+                              }
+                              $(&quot;.totalDiv&quot;).html(result).show();
+                          },
+                          error: function (data){}
+                      });
+                  });
+                  function starSub(obj) {
+                      var result = &quot;&quot;;
+                      radioArr = $(obj).parent().find(&quot;input:radio:checked&quot;);
+                      for (var i = 0; i &lt; radioArr.length; i++) {
+                          result += $(radioArr[i]).attr(&quot;name&quot;) + &quot;:&quot; + $(radioArr[i]).val() + &quot;,&quot;;
+                      }
+                      $(obj).parent().find(&quot;#scoreVal&quot;).val(result);
+                      $(obj).parent().find(&quot;#scoreVal&quot;).val();
+                  }
+        &lt;/script&gt;
+    </LabelFoot>
+  </Table>
+</DataSet>

@@ -1,0 +1,64 @@
+﻿{ZL.Source id="文章模型数据源标签"/}
+{ZL.Source id="店铺模型数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="文章模型数据源标签" FD="Title" page="0"/}_{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="店铺模型数据源标签" FD="Keyword" page="0"/}" /> 
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link href="{$CssDir/}fix.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="bus_top">
+<div id="top_l">{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</div>
+<div id="top_r">
+<ul>
+<li class="bg1"><a href="/">返回首页 ></a></li><li class="bg1"><a href='#' onclick="javascript:window.open('{$SiteURL/}/Store/StoreIndex?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}','_blank','left=280,top=250,width=439,height=282,scrollbars=yes')">设为首页 ></a></li><li class="bg1"><a href="{$SiteURL/}/Store/StoreIndex?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(document.location.href);">收藏本店 ></a></li><li class="bg2"><a href="{SField sid="店铺模型数据源标签" FD="weibo" page="0"/}" target="_blank">官方微博 ></a></li> 
+</ul>
+</div>
+<div class="clear"></div>
+</div>
+<div id="bus_naver">
+<div id="bus_nav">
+<a href="/Store/StoreIndex?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺首页</a>|
+<a href="{ZL:GetNodeLinkUrl(128)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">公司介绍</a>|
+<a href="{ZL:GetNodeLinkUrl(124)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺公告</a>|
+<a href="{ZL:GetNodeLinkUrl(126)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺商品</a>|
+<a href="{ZL:GetNodeLinkUrl(125)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">促销信息</a>|
+<a href="{ZL:GetNodeLinkUrl(127)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">人才招聘</a> 
+</div>
+</div>
+<div id="store_main">
+<div id="store_l">
+ <div class="s_tit">店铺信息</div>
+ <div id="sto_logo">
+ <a href="/Store/StoreIndex?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}"><img src="{ZL:GetPicUrl({SField sid="店铺模型数据源标签" FD="logo" page="0"/})/}"></a>
+ <br>
+ <a href="/Store/StoreIndex?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</a>
+ </div>
+ <div class="sto_info">
+ <ul> 
+<li>联系人：{SField sid="店铺模型数据源标签" FD="lxr" page="0"/}</li>
+<li>联系方式：{SField sid="店铺模型数据源标签" FD="tel" page="0"/}</li> 
+<li>所在城市：{SField sid="店铺模型数据源标签" FD="area" page="0"/}</li> 
+<li>店铺地址：{SField sid="店铺模型数据源标签" FD="addr" page="0"/}</li>
+</ul>
+</div>
+
+<div class="sto_info">
+<b>产品分类</b> 
+{ZL.Label id="输出两级子栏目列表" ParentID="3" ShowNum="10" nums="4" /} 
+</div>
+
+</div> 
+<div id="Scont_r">
+<h1>{SField sid="文章模型数据源标签" FD="Title" page="0"/}</h1> 
+<div id="context">{SField sid="文章模型数据源标签" FD="content" page="{SField sid="文章模型数据源标签" FD="K_pages" page="0"/}"/}</div>
+<div id="T_page">{ZL.Page id="默认内容分页标签" num="{SField sid="文章模型数据源标签" FD="pages" page="0"/}"/}</div>
+ </div>
+</div>
+{ZL.Label id="蓝色底部"/}
+</body>
+</html>

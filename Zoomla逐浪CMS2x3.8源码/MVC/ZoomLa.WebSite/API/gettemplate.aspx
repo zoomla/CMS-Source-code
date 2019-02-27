@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gettemplate.aspx.cs" Inherits="API_gettemplate" EnableViewStateMac="false" %>

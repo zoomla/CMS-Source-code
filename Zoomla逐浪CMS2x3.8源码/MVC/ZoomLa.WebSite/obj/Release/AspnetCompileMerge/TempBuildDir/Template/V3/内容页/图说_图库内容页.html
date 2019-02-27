@@ -1,0 +1,211 @@
+﻿{ZL.Source id="图库模型数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="图库模型数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="图库模型数据源标签" FD="Tagkey" page="0"/}">
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link href="/dist/css/animate.min.css" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+<script src="{$CssDir/}js/jquery.mousewheel.min.js"></script>
+<script src="{$CssDir/}js/server.js"></script>
+<style>
+body {height: 100%;overflow: hidden;}
+ul { padding-left:0; margin:0; list-style:none;}
+#adaptiveBg { background:url({ZL:GetPicUrl({SField sid="图库模型数据源标签" FD="PhotoUrlThum" page="0"/})/}) center no-repeat; background-size:cover;}
+</style>
+</head>
+<body style="background:#1e1f22">
+<div class="topic-head" id="topicHead" style="top: 0px; display: block;">
+<div class="topic-logo"><a href="{ZL:GetNodeLinkUrl(2)/}"><img src="{$CssDir/}images/topic_logo_small.jpg" alt="" /></a></div>
+<div class="topic-title">
+<h2>{SField sid="图库模型数据源标签" FD="Title" page="0"/}</h2>
+<p><i class="fa fa-user"></i> {SField sid="图库模型数据源标签" FD="Inputer" page="0"/}  <i class="fa fa-clock-o"></i> {SField sid="图库模型数据源标签" FD="CreateTime" page="0"/} <i class="fa fa-eye"></i> <SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="图库模型数据源标签" FD="GeneralID" page="0"/}"></SCRIPT></p>
+</div>
+</div>
+<div class="scroll-wrap">
+<div class="scroll-section clearfix" id="scrollBox" style="visibility: visible;"> 
+<div class="scroll-item  cover-loading" data-type="cover"> 
+<!-- 背景图 -->
+<div class="adaptive-bg" id="adaptiveBg" style="visibility: visible;"></div>
+<!-- 当前专题搭配遮罩 -->
+<div class="top-right-mask"><img src="{$CssDir/}images/shim_top_right.png" alt=""> </div>
+<!-- 当前专题搭配遮罩 -->
+<div class="bottom-left-mask"> <img src="{$CssDir/}images/shim_bottom_left.png" alt=""> </div>
+<!-- 当前专题封面区内容 -->
+<div class="main">
+<div class="topic-logo"><a href="http://photo.sina.com.cn/wit/" target="_blank"><img id="fix_logo_ie6" src="{$CssDir/}images/topic_logo.png" alt=""></a></div>
+<div class="topic-intro">
+<h1 class="name">{SField sid="图库模型数据源标签" FD="Title" page="0"/}</h1>
+<div class="info"><i class="fa fa-user"></i> {SField sid="图库模型数据源标签" FD="Inputer" page="0"/}  <i class="fa fa-clock-o"></i> {SField sid="图库模型数据源标签" FD="CreateTime" page="0"/} <i class="fa fa-eye"></i> <SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="图库模型数据源标签" FD="GeneralID" page="0"/}"></SCRIPT></div>
+<div class="text">
+<p>{SField sid="图库模型数据源标签" FD="synopsis" page="0"/}</p>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="description-wrap clearfix" id="description" style="bottom: 0px;">
+<a href="javascript:;" class="desc-hide" id="descToggle"></a>
+<div class="description-inner">
+<!-- 图片描述 -->
+<div class="description-text" id="imageDesc">
+<div class="page-num"><span id="imgIndex">1</span>/<span id="imgTotal">16</span></div>
+<ul id="imageTextDesc" class="image-text-desc"></ul>
+<a href="javascript:void(0);" class="comment-mini" id="commentMini" suda-uatrack="key=news_photo_witness&amp;value=comment_below">4018</a>
+</div>
+</div>
+</div>
+<a href="javascript:;" class="full-prev" id="prev" onClick="prevFun()" suda-uatrack="key=news_photo_witness&amp;value=change">上一页</a>
+<a href="javascript:;" class="full-next" id="next" onClick="nextFun();" suda-uatrack="key=news_photo_witness&amp;value=change">下一页</a>
+<div class="thumbnails-container" style="bottom: 48px;">
+<div class="img-thumbnails" id="imgThumbnails" style="display: block; right: 65px;">
+<a href="javascript:;" id="thumbnailsPrev" class="thumbnails-prev"></a>
+<div class="thumbnails-wrap">
+<ul id="thumbnailsContent" class="clearfix" style="visibility: visible;">
+<script>
+var updir = '/UploadFiles/'
+var jsonArr= {SField sid="图库模型数据源标签" FD="PhotoUrl" page="0"/};
+for(var i=0; i<jsonArr.length; i++)
+{
+	document.write("<li><a href=\"javascript:;\"><img src=\""+updir+jsonArr[i].url+"\" alt=\""+jsonArr[i].desc+"\" style=\"width: 78px;height:52px;\" \/> </li>");///UploadFiles/
+}
+</script>
+</ul>
+</div>
+<a href="javascript:;" id="thumbnailsNext" class="thumbnails-next"></a>
+</div>
+<a href="javascript:;" class="thumbnails-btn-toggle" id="thumbnailsToggle" suda-uatrack="key=news_photo_witness&amp;value=slide"></a>
+</div>
+</body>
+</html>
+<script>
+var str = location.href;
+str = str.substr(str.indexOf("#")+1);
+var n = str.split('=')[1];
+console.log(n)
+var scollWidth  = $(window).width();
+var scollHeight = $(window).height();
+var current = 0;
+var cur = 0;
+var tn = $("#thumbnailsContent li").length;
+$(function() {
+	$("#scrollBox").width(($(".scroll-item").length+1)*scollWidth)
+	$(".scroll-item").width(scollWidth).height(scollHeight);
+	$(document)
+		.mousewheel(function(event, delta) {
+			if(delta==1)
+			{
+				prevFun();
+			}
+			else if(delta==-1)
+			{
+				nextFun();
+			}
+	});
+});
+$(window).resize(function() {
+	scollWidth  = $(window).width();
+	scollHeight = $(window).height();
+	$("#scrollBox").width(($(".scroll-item").length+1)*scollWidth)
+	$(".scroll-item").width(scollWidth).height(scollHeight);
+	$("#adaptiveBg img").width(scollWidth)
+});
+function prevFun()
+{
+	if(current>0)
+	{
+		var left = -(current - 1)*scollWidth;
+		$("#scrollBox").animate({"margin-left":left+"px"},"normal");	
+		$("#imageTextDesc li").hide();
+		$("#imageTextDesc li").eq(current).show();
+		current = current - 1;
+		$("#thumbnailsContent li").removeClass("thumbnails-hover");
+		$("#thumbnailsContent li").eq(current-1).addClass("thumbnails-hover");
+		cur = Math.floor((current-1)/5);
+		SetThumbnails();
+		$("#imgIndex").html(current);
+		if(current==0)
+		{
+			$("#description").hide();
+			$(".thumbnails-container").hide()
+		}
+	}
+}
+function nextFun()
+{
+	if(current<$(".scroll-item").length-1)
+	{
+		$("#description").show();
+		$(".thumbnails-container").show()
+		var left = -(current + 1)*scollWidth;
+		$("#scrollBox").animate({"margin-left":left+"px"},"normal");	
+		$("#imageTextDesc li").hide();
+		$("#imageTextDesc li").eq(current).show();
+		$("#thumbnailsContent li").removeClass("thumbnails-hover");
+		$("#thumbnailsContent li").eq(current).addClass("thumbnails-hover");
+		cur = Math.floor(current/5);
+		SetThumbnails();
+		current = current + 1;		
+		$("#imgIndex").html(current);
+	}
+}
+$("#descToggle").click(function(){
+	$(this).toggleClass("desc-show");
+	$(".description-inner").toggle();
+});
+
+
+$().ready(function(e) {
+	$("#thumbnailsContent").width(tn*81);
+	$("#imgTotal").html(tn);
+});
+$("#thumbnailsNext").click(function(){
+	var l = parseInt($("#thumbnailsContent").css("margin-left").replace('px',''));
+	var w = $("#thumbnailsContent").width();
+	if((w+l)>405)
+	{
+		l = l-405;
+		$("#thumbnailsContent").animate({"margin-left":l+"px"},"normal");
+	}
+})
+$("#thumbnailsPrev").click(function(){
+	var l = parseInt($("#thumbnailsContent").css("margin-left").replace('px',''));
+	var w = $("#thumbnailsContent").width();
+	if((w+l)<405)
+	{
+		l = l+405;
+		$("#thumbnailsContent").animate({"margin-left":l+"px"},"normal");
+	}
+});
+function SetThumbnails()
+{
+	if(cur>0)
+	{
+		var tleft = -(cur)*405
+		$("#thumbnailsContent").animate({"margin-left":tleft+"px"},"normal");
+	}
+	else
+		$("#thumbnailsContent").animate({"margin-left":"0"},"normal");	
+}
+$().ready(function(e) {
+	$("#adaptiveBg img").width(scollWidth)
+});
+
+var updir = '/UploadFiles/'
+var jsonArr= {SField sid="图库模型数据源标签" FD="PhotoUrl" page="0"/};
+var htmlstr = "";
+var descstr = "";
+for(var i=0; i<jsonArr.length; i++)
+{
+	htmlstr+="<div class=\"scroll-item\" data-type=\"image\" data-index=\""+i+"\"><div class=\"img-wrap\"> <span><img src=\""+updir+jsonArr[i].url+"\" alt=\""+jsonArr[i].desc+"\" style=\"width: auto; height: auto; margin-top: 0px; visibility: visible;\"></span> </div></div>";
+	descstr+="<li class=\"desc-text-item\" style=\"display: none\"><p>"+jsonArr[i].desc+"</p></li>";
+}
+$("#imageTextDesc").html(descstr);
+$("#scrollBox").append(htmlstr)
+</script>

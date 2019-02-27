@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>269</LabelID>
+    <LabelName>在栏目下显示黄页栏目(View)</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>显示黄页栏目</LabelDesc>
+    <LabelParam>nodeid,默认值,2,节点ID|pageid,默认值,2,黄页ID</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,NodeID,ModelID,ItemID,TableName,Title,Inputer,Hits,CreateTime,Status,EliteLevel,InfoID,SpecialID,IsCreate,HtmlLink,Template</LabelField>
+    <LabelWhere>GeneralID=@pageid</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{ZL.Label id="获得子栏目" username="{Field="Inputer"/}" Styles="{Field="InfoID"/}" ParentID="0" /}
+</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

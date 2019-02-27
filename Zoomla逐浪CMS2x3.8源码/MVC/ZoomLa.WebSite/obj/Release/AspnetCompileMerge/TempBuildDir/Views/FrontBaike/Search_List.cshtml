@@ -1,0 +1,21 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.target = "bklist_ul";
+    Model.page_wrap_start = "<div class='clearfix' style='margin-top:10px;'></div><div class='text-center'>";
+    Model.page_wrap_end = "</div>";
+}
+    <ul id="bklist_ul"> 
+@foreach(DataRow dr in Model.dt.Rows)
+{
+        <li>
+            <a href="Details.aspx?ID=@dr["ID"]" title="点击访问">@dr["Tittle"]</a>
+            <span>(@dr["Classification"])</span>
+            <span class="r_gray pull-right">@DateHelper.ToDate(dr["AddTime"])</span>
+            <span class="r_gray pull-right margin_r5"><i class="fa fa-user"></i> @dr["UserName"]</span>
+            <div class="clearfix"></div>
+        </li>
+}
+</ul>
+@if(Model.pageCount>1){@Html.Partial("_page2",Model)}

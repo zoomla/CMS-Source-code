@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLRewriter", "URLRewriter\URLRewriter.csproj", "{31740848-5613-4864-8AEA-473B2483D982}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActionlessForm", "ActionlessForm\ActionlessForm.csproj", "{9675A0B1-4824-4E3B-9373-3BB90C82C179}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{31740848-5613-4864-8AEA-473B2483D982}.Debug.ActiveCfg = Debug|.NET
+		{31740848-5613-4864-8AEA-473B2483D982}.Debug.Build.0 = Debug|.NET
+		{31740848-5613-4864-8AEA-473B2483D982}.Release.ActiveCfg = Release|.NET
+		{31740848-5613-4864-8AEA-473B2483D982}.Release.Build.0 = Release|.NET
+		{9675A0B1-4824-4E3B-9373-3BB90C82C179}.Debug.ActiveCfg = Debug|.NET
+		{9675A0B1-4824-4E3B-9373-3BB90C82C179}.Debug.Build.0 = Debug|.NET
+		{9675A0B1-4824-4E3B-9373-3BB90C82C179}.Release.ActiveCfg = Release|.NET
+		{9675A0B1-4824-4E3B-9373-3BB90C82C179}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

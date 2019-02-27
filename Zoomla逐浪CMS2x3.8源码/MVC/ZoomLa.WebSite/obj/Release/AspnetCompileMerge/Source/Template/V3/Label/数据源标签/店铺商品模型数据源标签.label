@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>135</LabelID>
+    <LabelName>店铺商品模型数据源标签</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>数据源标签</LabelCate>
+    <LabelDesc>店铺商品模型数据源标签</LabelDesc>
+    <LabelParam>InfoID,0,2,内容ID</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Commodities left join {table1}.dbo.ZL_S_shop on {table1}.dbo.ZL_Commodities.ActPrice={table1}.dbo.ZL_S_shop.ID</LabelTable>
+    <LabelField>{table1}.dbo.ZL_Commodities.*,{table1}.dbo.ZL_S_shop.*</LabelField>
+    <LabelWhere>dbo.ZL_Commodities.ID=@InfoID</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount>0</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>ZoomlaCMS</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam>{"PureT1":"ZL_Commodities","PureT2":"ZL_S_shop","T1":"ZoomlaCMS.dbo.ZL_Commodities","T2":"ZoomlaCMS.dbo.ZL_S_shop","JoinType":"left join","OnField1":"ActPrice","OnField2":"ID"}</ProceParam>
+  </Table>
+</NewDataSet>

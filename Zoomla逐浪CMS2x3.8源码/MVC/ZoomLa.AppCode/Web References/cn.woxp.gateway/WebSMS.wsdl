@@ -1,0 +1,1206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://woxp.cn/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://woxp.cn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://woxp.cn/">
+      <s:element name="GetErrorHint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ErrorId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrorHintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetErrorHintResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditPWD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_md5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditPWDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditPWDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIdentityMark">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Eid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="gateId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIdentityMarkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIdentityMarkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMoneyResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MMS_GetBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MMS_GetBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MMS_GetBalanceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBadKeyWords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBadKeyWordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBadKeyWordsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendXMLPack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendXMLPackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendXMLPackResult" type="tns:SendResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SendResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StatusReportId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GateWayRetutrn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GateWayId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GateWayRetutrn_Cn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BlackWords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FailNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShieldNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="nSSRID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FastSend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TargetNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MsgContent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSubId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FastSendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FastSendResult" type="tns:SendResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FastSendLongSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TargetNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MsgContent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSubId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FastSendLongSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FastSendLongSMSResult" type="tns:SendResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpSMSResult" type="tns:ArrayOfWoxp_UpSMS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWoxp_UpSMS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Woxp_UpSMS" nillable="true" type="tns:Woxp_UpSMS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Woxp_UpSMS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="nSid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="strMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SP_ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUpSMSTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpSMSTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpSMSTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="double" type="s:double" />
+      <s:element name="SendResult" nillable="true" type="tns:SendResult" />
+      <s:element name="ArrayOfWoxp_UpSMS" nillable="true" type="tns:ArrayOfWoxp_UpSMS" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetErrorHintSoapIn">
+    <wsdl:part name="parameters" element="tns:GetErrorHint" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintSoapOut">
+    <wsdl:part name="parameters" element="tns:GetErrorHintResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDSoapIn">
+    <wsdl:part name="parameters" element="tns:EditPWD" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDSoapOut">
+    <wsdl:part name="parameters" element="tns:EditPWDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIdentityMark" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIdentityMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneySoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoney" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneySoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCount" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="MMS_GetBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:MMS_GetBalance" />
+  </wsdl:message>
+  <wsdl:message name="MMS_GetBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:MMS_GetBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBadKeyWordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBadKeyWords" />
+  </wsdl:message>
+  <wsdl:message name="GetBadKeyWordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBadKeyWordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendXMLPackSoapIn">
+    <wsdl:part name="parameters" element="tns:SendXMLPack" />
+  </wsdl:message>
+  <wsdl:message name="SendXMLPackSoapOut">
+    <wsdl:part name="parameters" element="tns:SendXMLPackResponse" />
+  </wsdl:message>
+  <wsdl:message name="FastSendSoapIn">
+    <wsdl:part name="parameters" element="tns:FastSend" />
+  </wsdl:message>
+  <wsdl:message name="FastSendSoapOut">
+    <wsdl:part name="parameters" element="tns:FastSendResponse" />
+  </wsdl:message>
+  <wsdl:message name="FastSendLongSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:FastSendLongSMS" />
+  </wsdl:message>
+  <wsdl:message name="FastSendLongSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:FastSendLongSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUpSMS" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUpSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSTableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUpSMSTable" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSTableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUpSMSTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadXml" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintHttpGetIn">
+    <wsdl:part name="ErrorId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDHttpGetIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+    <wsdl:part name="newPwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkHttpGetIn">
+    <wsdl:part name="Eid" type="s:string" />
+    <wsdl:part name="uid" type="s:string" />
+    <wsdl:part name="pwd" type="s:string" />
+    <wsdl:part name="gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneyHttpGetIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneyHttpGetOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCountHttpGetIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="MMS_GetBalanceHttpGetIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MMS_GetBalanceHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetBadKeyWordsHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBadKeyWordsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendXMLPackHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendXMLPackHttpGetOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="FastSendHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FastSendHttpGetOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="FastSendLongSMSHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FastSendLongSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfWoxp_UpSMS" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSTableHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSTableHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintHttpPostIn">
+    <wsdl:part name="ErrorId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDHttpPostIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+    <wsdl:part name="newPwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkHttpPostIn">
+    <wsdl:part name="Eid" type="s:string" />
+    <wsdl:part name="uid" type="s:string" />
+    <wsdl:part name="pwd" type="s:string" />
+    <wsdl:part name="gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneyHttpPostIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneyHttpPostOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCountHttpPostIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="MMS_GetBalanceHttpPostIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MMS_GetBalanceHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetBadKeyWordsHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBadKeyWordsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendXMLPackHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendXMLPackHttpPostOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="FastSendHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FastSendHttpPostOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="FastSendLongSMSHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FastSendLongSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfWoxp_UpSMS" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSTableHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUpSMSTableHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WebSMSSoap">
+    <wsdl:operation name="GetErrorHint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过错误代码获取详细中文描述</wsdl:documentation>
+      <wsdl:input message="tns:GetErrorHintSoapIn" />
+      <wsdl:output message="tns:GetErrorHintSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改网关登录密码</wsdl:documentation>
+      <wsdl:input message="tns:EditPWDSoapIn" />
+      <wsdl:output message="tns:EditPWDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取网关的身份标识串</wsdl:documentation>
+      <wsdl:input message="tns:GetIdentityMarkSoapIn" />
+      <wsdl:output message="tns:GetIdentityMarkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户余额,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetMoneySoapIn" />
+      <wsdl:output message="tns:GetMoneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户剩余短信条数,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCountSoapIn" />
+      <wsdl:output message="tns:GetBalanceCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MMS_GetBalance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户剩余彩信条数,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:MMS_GetBalanceSoapIn" />
+      <wsdl:output message="tns:MMS_GetBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBadKeyWords">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定通道的关键字屏蔽字符串,多个关键字用'|'分开</wsdl:documentation>
+      <wsdl:input message="tns:GetBadKeyWordsSoapIn" />
+      <wsdl:output message="tns:GetBadKeyWordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendXMLPack">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">打包发送短信，适合不同内容批量提交，以xml格式打包，上限100条.返回值:SendResult</wsdl:documentation>
+      <wsdl:input message="tns:SendXMLPackSoapIn" />
+      <wsdl:output message="tns:SendXMLPackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">快速发送短信,直接提交到运营商,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendSoapIn" />
+      <wsdl:output message="tns:FastSendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSendLongSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送长短信,最多支持450字.按64字计费,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendLongSMSSoapIn" />
+      <wsdl:output message="tns:FastSendLongSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,返回多个Woxp_UpSMS上行类。每条上行信息生成一个类,没有上行就返回NULL</wsdl:documentation>
+      <wsdl:input message="tns:GetUpSMSSoapIn" />
+      <wsdl:output message="tns:GetUpSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMSTable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,为.NET4.0以上的版本提供WCF调用.最小调用间隔大于30秒.</wsdl:documentation>
+      <wsdl:input message="tns:GetUpSMSTableSoapIn" />
+      <wsdl:output message="tns:GetUpSMSTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,最小间隔&gt;30秒.返回数字代表身份验证失败,成功返回XML格式上行信息</wsdl:documentation>
+      <wsdl:input message="tns:ReadXmlSoapIn" />
+      <wsdl:output message="tns:ReadXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebSMSHttpGet">
+    <wsdl:operation name="GetErrorHint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过错误代码获取详细中文描述</wsdl:documentation>
+      <wsdl:input message="tns:GetErrorHintHttpGetIn" />
+      <wsdl:output message="tns:GetErrorHintHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改网关登录密码</wsdl:documentation>
+      <wsdl:input message="tns:EditPWDHttpGetIn" />
+      <wsdl:output message="tns:EditPWDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取网关的身份标识串</wsdl:documentation>
+      <wsdl:input message="tns:GetIdentityMarkHttpGetIn" />
+      <wsdl:output message="tns:GetIdentityMarkHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户余额,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetMoneyHttpGetIn" />
+      <wsdl:output message="tns:GetMoneyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户剩余短信条数,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCountHttpGetIn" />
+      <wsdl:output message="tns:GetBalanceCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MMS_GetBalance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户剩余彩信条数,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:MMS_GetBalanceHttpGetIn" />
+      <wsdl:output message="tns:MMS_GetBalanceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBadKeyWords">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定通道的关键字屏蔽字符串,多个关键字用'|'分开</wsdl:documentation>
+      <wsdl:input message="tns:GetBadKeyWordsHttpGetIn" />
+      <wsdl:output message="tns:GetBadKeyWordsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendXMLPack">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">打包发送短信，适合不同内容批量提交，以xml格式打包，上限100条.返回值:SendResult</wsdl:documentation>
+      <wsdl:input message="tns:SendXMLPackHttpGetIn" />
+      <wsdl:output message="tns:SendXMLPackHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">快速发送短信,直接提交到运营商,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendHttpGetIn" />
+      <wsdl:output message="tns:FastSendHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSendLongSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送长短信,最多支持450字.按64字计费,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendLongSMSHttpGetIn" />
+      <wsdl:output message="tns:FastSendLongSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,返回多个Woxp_UpSMS上行类。每条上行信息生成一个类,没有上行就返回NULL</wsdl:documentation>
+      <wsdl:input message="tns:GetUpSMSHttpGetIn" />
+      <wsdl:output message="tns:GetUpSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMSTable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,为.NET4.0以上的版本提供WCF调用.最小调用间隔大于30秒.</wsdl:documentation>
+      <wsdl:input message="tns:GetUpSMSTableHttpGetIn" />
+      <wsdl:output message="tns:GetUpSMSTableHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,最小间隔&gt;30秒.返回数字代表身份验证失败,成功返回XML格式上行信息</wsdl:documentation>
+      <wsdl:input message="tns:ReadXmlHttpGetIn" />
+      <wsdl:output message="tns:ReadXmlHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebSMSHttpPost">
+    <wsdl:operation name="GetErrorHint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过错误代码获取详细中文描述</wsdl:documentation>
+      <wsdl:input message="tns:GetErrorHintHttpPostIn" />
+      <wsdl:output message="tns:GetErrorHintHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改网关登录密码</wsdl:documentation>
+      <wsdl:input message="tns:EditPWDHttpPostIn" />
+      <wsdl:output message="tns:EditPWDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取网关的身份标识串</wsdl:documentation>
+      <wsdl:input message="tns:GetIdentityMarkHttpPostIn" />
+      <wsdl:output message="tns:GetIdentityMarkHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户余额,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetMoneyHttpPostIn" />
+      <wsdl:output message="tns:GetMoneyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户剩余短信条数,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCountHttpPostIn" />
+      <wsdl:output message="tns:GetBalanceCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MMS_GetBalance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户剩余彩信条数,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:MMS_GetBalanceHttpPostIn" />
+      <wsdl:output message="tns:MMS_GetBalanceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBadKeyWords">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定通道的关键字屏蔽字符串,多个关键字用'|'分开</wsdl:documentation>
+      <wsdl:input message="tns:GetBadKeyWordsHttpPostIn" />
+      <wsdl:output message="tns:GetBadKeyWordsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendXMLPack">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">打包发送短信，适合不同内容批量提交，以xml格式打包，上限100条.返回值:SendResult</wsdl:documentation>
+      <wsdl:input message="tns:SendXMLPackHttpPostIn" />
+      <wsdl:output message="tns:SendXMLPackHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">快速发送短信,直接提交到运营商,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendHttpPostIn" />
+      <wsdl:output message="tns:FastSendHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSendLongSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送长短信,最多支持450字.按64字计费,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendLongSMSHttpPostIn" />
+      <wsdl:output message="tns:FastSendLongSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,返回多个Woxp_UpSMS上行类。每条上行信息生成一个类,没有上行就返回NULL</wsdl:documentation>
+      <wsdl:input message="tns:GetUpSMSHttpPostIn" />
+      <wsdl:output message="tns:GetUpSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMSTable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,为.NET4.0以上的版本提供WCF调用.最小调用间隔大于30秒.</wsdl:documentation>
+      <wsdl:input message="tns:GetUpSMSTableHttpPostIn" />
+      <wsdl:output message="tns:GetUpSMSTableHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">客户主动读取上行短信,最小间隔&gt;30秒.返回数字代表身份验证失败,成功返回XML格式上行信息</wsdl:documentation>
+      <wsdl:input message="tns:ReadXmlHttpPostIn" />
+      <wsdl:output message="tns:ReadXmlHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebSMSSoap" type="tns:WebSMSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetErrorHint">
+      <soap:operation soapAction="http://woxp.cn/GetErrorHint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <soap:operation soapAction="http://woxp.cn/EditPWD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <soap:operation soapAction="http://woxp.cn/GetIdentityMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <soap:operation soapAction="http://woxp.cn/GetMoney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCount">
+      <soap:operation soapAction="http://woxp.cn/GetBalanceCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MMS_GetBalance">
+      <soap:operation soapAction="http://woxp.cn/MMS_GetBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBadKeyWords">
+      <soap:operation soapAction="http://woxp.cn/GetBadKeyWords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendXMLPack">
+      <soap:operation soapAction="http://woxp.cn/SendXMLPack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <soap:operation soapAction="http://woxp.cn/FastSend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSendLongSMS">
+      <soap:operation soapAction="http://woxp.cn/FastSendLongSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMS">
+      <soap:operation soapAction="http://woxp.cn/GetUpSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMSTable">
+      <soap:operation soapAction="http://woxp.cn/GetUpSMSTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <soap:operation soapAction="http://woxp.cn/ReadXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebSMSSoap12" type="tns:WebSMSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetErrorHint">
+      <soap12:operation soapAction="http://woxp.cn/GetErrorHint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <soap12:operation soapAction="http://woxp.cn/EditPWD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <soap12:operation soapAction="http://woxp.cn/GetIdentityMark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <soap12:operation soapAction="http://woxp.cn/GetMoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCount">
+      <soap12:operation soapAction="http://woxp.cn/GetBalanceCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MMS_GetBalance">
+      <soap12:operation soapAction="http://woxp.cn/MMS_GetBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBadKeyWords">
+      <soap12:operation soapAction="http://woxp.cn/GetBadKeyWords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendXMLPack">
+      <soap12:operation soapAction="http://woxp.cn/SendXMLPack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <soap12:operation soapAction="http://woxp.cn/FastSend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSendLongSMS">
+      <soap12:operation soapAction="http://woxp.cn/FastSendLongSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMS">
+      <soap12:operation soapAction="http://woxp.cn/GetUpSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMSTable">
+      <soap12:operation soapAction="http://woxp.cn/GetUpSMSTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <soap12:operation soapAction="http://woxp.cn/ReadXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebSMSHttpGet" type="tns:WebSMSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetErrorHint">
+      <http:operation location="/GetErrorHint" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <http:operation location="/EditPWD" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <http:operation location="/GetIdentityMark" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <http:operation location="/GetMoney" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCount">
+      <http:operation location="/GetBalanceCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MMS_GetBalance">
+      <http:operation location="/MMS_GetBalance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBadKeyWords">
+      <http:operation location="/GetBadKeyWords" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendXMLPack">
+      <http:operation location="/SendXMLPack" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <http:operation location="/FastSend" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSendLongSMS">
+      <http:operation location="/FastSendLongSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMS">
+      <http:operation location="/GetUpSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMSTable">
+      <http:operation location="/GetUpSMSTable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <http:operation location="/ReadXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebSMSHttpPost" type="tns:WebSMSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetErrorHint">
+      <http:operation location="/GetErrorHint" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <http:operation location="/EditPWD" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <http:operation location="/GetIdentityMark" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <http:operation location="/GetMoney" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCount">
+      <http:operation location="/GetBalanceCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MMS_GetBalance">
+      <http:operation location="/MMS_GetBalance" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBadKeyWords">
+      <http:operation location="/GetBadKeyWords" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendXMLPack">
+      <http:operation location="/SendXMLPack" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <http:operation location="/FastSend" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSendLongSMS">
+      <http:operation location="/FastSendLongSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMS">
+      <http:operation location="/GetUpSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpSMSTable">
+      <http:operation location="/GetUpSMSTable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <http:operation location="/ReadXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebSMS">
+    <wsdl:port name="WebSMSSoap" binding="tns:WebSMSSoap">
+      <soap:address location="http://gateway.woxp.cn:6630/utf8/ws_api/WebSMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebSMSSoap12" binding="tns:WebSMSSoap12">
+      <soap12:address location="http://gateway.woxp.cn:6630/utf8/ws_api/WebSMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebSMSHttpGet" binding="tns:WebSMSHttpGet">
+      <http:address location="http://gateway.woxp.cn:6630/utf8/ws_api/WebSMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebSMSHttpPost" binding="tns:WebSMSHttpPost">
+      <http:address location="http://gateway.woxp.cn:6630/utf8/ws_api/WebSMS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

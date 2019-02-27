@@ -1,0 +1,134 @@
+﻿{ZL.Source id="信息模型数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="信息模型数据源标签" FD="Title" page="0"/}</title> 
+<meta name="Keywords" content="{SField sid="信息模型数据源标签" FD="Tagkey" page="0"/}">
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$CssDir/}js/server.js"></script>
+<style>
+.navbar-default .navbar-nav>#Menu{SField sid="信息模型数据源标签" FD="FirstNodeID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="信息模型数据源标签" FD="FirstNodeID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="信息模型数据源标签" FD="FirstNodeID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+</style>
+</head>
+<body id="header">
+{ZL.Label id="响应式全站头部"/} 
+
+<div class="myBanner">
+<div class="container">
+<h3><br/><br/>逐浪软件</h3><br/>
+支持大数据与云计算的全平台网站构建系统。
+</div>
+</div><!--内页通栏banner广告位 -->
+
+<div class="container">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="mySites">
+<ul class="breadcrumb">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="信息模型数据源标签" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li>{SField sid="信息模型数据源标签" FD="Title" page="0"/}</li>
+</ul>
+</div>
+
+<div class="myInfo">
+<div class="myInfo_t">
+<h1>{SField sid="信息模型数据源标签" FD="Title" page="0"/}</h1>
+<div class="myAbbr">
+<span><i class="fa fa-clock-o"></i> 发布时间：{ZL:FormatDate({SField sid="信息模型数据源标签" FD="CreateTime" page="0"/},yyyy-MM-dd)/}</span>
+<span><i class="fa fa-eye"></i> 浏览次数：<SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="信息模型数据源标签" FD="GeneralID" page="0"/}"></SCRIPT></span>
+</div>
+</div>
+<div class="myInfo_c">
+{SField sid="信息模型数据源标签" FD="Content" page="0"/}
+</div>
+<div class="myInfo_p">
+<div class="alert alert-info" role="alert">
+所属地区：{SField sid="信息模型数据源标签" FD="addr" page="0"/}<br/>
+联系人：{SField sid="信息模型数据源标签" FD="lxr" page="0"/}<br/>
+联系电话：{SField sid="信息模型数据源标签" FD="tel" page="0"/}<br/>
+<a onclick="addfav()" href="javascript:;" class="btn btn-success">收藏该信息</a>
+<a href="/User/Message/MessageSend?UserID=1" class="btn btn-success">发送站内短消息</a>
+</div>
+<div class="alert alert-danger" role="alert"><i class="fa fa-lightbulb-o"></i> 友情提醒：让您提前汇款或者不见面交易的都是骗子！</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="myAnnoun_share">
+<div class="myAnnoun_share_t"><span>分享</span></div>
+<div class="myAnnoun_share_c">
+<div class="bdsharebuttonbox">
+<a class="bds_more" href="#" data-cmd="more"></a>
+<a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
+<a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a>
+<a title="分享到腾讯微博" class="bds_tqq" href="#" data-cmd="tqq"></a>
+<a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
+<a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
+</div>
+<script type="text/javascript" src="/JS/Modal/APIResult.js"></script>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+function addfav() {
+    $.post("/API/mod/collect.ashx", {action:"add",favurl:"/Item/{SField sid="信息模型数据源标签" FD="GeneralID" page="0"/}.aspx",infoid:"{SField sid="信息模型数据源标签" FD="GeneralID" page="0"/}",type:1,title:"{SField sid="信息模型数据源标签" FD="Title" page="0"/}"},function(data){
+        var model=JSON.parse(data);
+        if(APIResult.isok(model)){
+            alert("收藏成功!");
+        }else{
+            alert("收藏失败!原因:"+model.retmsg);
+        }
+    });
+}
+</script>
+</div>
+</div>
+<div class="myAnnoun_hot">
+<div class="myAnnoun_hot_t"><span>热门文章</span></div>
+<div class="myAnnoun_hot_c">
+<ul class="list-unstyled">
+{ZL.Label id="输出指定节点标题_带点击v3" NodeID="1" TitleNum="34" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--主体结束-->
+
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>
+<script>
+//检测固顶事件
+var IO=document.getElementById('scolls'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+	".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+ if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+//]]>
+
+//兼容wp8
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+</script>

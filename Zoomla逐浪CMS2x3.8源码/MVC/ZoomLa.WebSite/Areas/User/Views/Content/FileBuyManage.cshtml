@@ -1,0 +1,32 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    DataTable dt = new DataTable();
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>文件记录</title>
+<style>
+    #AllID_Chk {
+        display: none;
+    }
+</style>
+
+}
+@section content{
+<div id="pageflag" data-nav="content" data-ban="cnt"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Default","")">会员中心</a></li>
+        <li class='active'>文件记录</li>
+        <div class="clearfix"></div>
+    </ol>
+    @Html.Partial("FileBuyMannger_List",Model)
+   
+</div>
+
+}
+@section script{
+
+}

@@ -1,0 +1,84 @@
+<#@ template language="c#" HostSpecific="True" #>
+<#@ output extension= ".cs" #>
+<#
+	TableHost host = (TableHost)(Host);
+	host.Fieldlist.Sort(CodeCommon.CompareByintOrder);
+#>
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using ZoomLa.SQLDAL;
+
+namespace ZoomLa.Model<# if( host.Folder.Length > 0) {#>.<#= host.Folder #><# } #>
+{
+	<# if( host.TableDescription.Length > 0) {#>
+	<# } #>
+	public class <#= host.GetModelClass(host.TableName).Replace("ZL_","M_") #>:M_Base
+	{
+   		     
+      	<# foreach (ColumnInfo c in host.Fieldlist)
+		{ #>
+        public <#= CodeCommon.DbTypeToCS(c.TypeName) #> <#= c.ColumnName #>{get;set;} 
+		<# } #>
+
+        public override string TbName { get { return "<#= host.GetModelClass(host.TableName) #>"; } }
+        public override string PK { get { return "<#= host.Keys[0].ColumnName #>"; } }
+        
+        public override string[,] FieldList()
+        {
+        string[,] Tablelist = {
+        		<# for(int i=0;i<host.Fieldlist.Count-1;i++)
+        		{ #>
+        		{"<#=host.Fieldlist[i].ColumnName #>","<#=host.Fieldlist[i].TypeName.Replace("int","Int").Replace("nvarchar","NVarChar").Replace("varchar","VarChar").Replace("datetime","DateTime").Replace("ntext","NText").Replace("money","Money") #>","<# if(host.Fieldlist[i].TypeName.Equals("ntext")){#>6000<#} else{#><#=host.Fieldlist[i].Length #><#}#>"},
+        		<#}#>
+        		{"<#=host.Fieldlist[host.Fieldlist.Count-1].ColumnName #>","<#=host.Fieldlist[host.Fieldlist.Count-1].TypeName.Replace("int","Int").Replace("nvarchar","NVarChar").Replace("varchar","VarChar").Replace("datetime","DateTime").Replace("ntext","NText").Replace("money","Money")  #>","<#=host.Fieldlist[host.Fieldlist.Count-1].Length #>"}
+        };
+            return Tablelist;
+        }
+      
+        public override SqlParameter[] GetParameters()
+        {
+            <#= host.GetModelClass(host.TableName).Replace("ZL_","M_") #> model=this;
+            SqlParameter[] sp = GetSP();
+            <# for(int i=0;i<host.Fieldlist.Count;i++)
+        	{ #>
+        	sp[<#=i#>].Value = model.<#=host.Fieldlist[i].ColumnName #>;
+        	<#}#>
+        	return sp;
+        }
+        public <#= host.GetModelClass(host.TableName).Replace("ZL_","M_") #> GetModelFromReader(DbDataReader rdr)
+        {
+        	<#= host.GetModelClass(host.TableName).Replace("ZL_","M_") #> model = new <#= host.GetModelClass(host.TableName).Replace("ZL_","M_") #>();
+    	<# for(int i=0;i<host.Fieldlist.Count;i++)
+    	{ #>
+    	<# if(host.Fieldlist[i].TypeName=="int")
+    	{#>
+    	model.<#=host.Fieldlist[i].ColumnName #> = ConvertToInt(rdr["<#=host.Fieldlist[i].ColumnName #>"]);
+    	<#}#>
+    	<# if(host.Fieldlist[i].TypeName=="nvarchar"||host.Fieldlist[i].TypeName=="ntext"||host.Fieldlist[i].TypeName=="nchar"||host.Fieldlist[i].TypeName=="varchar"||host.Fieldlist[i].TypeName=="char"||host.Fieldlist[i].TypeName=="text")
+    	{#>
+    	model.<#=host.Fieldlist[i].ColumnName #> = ConverToStr(rdr["<#=host.Fieldlist[i].ColumnName #>"]);
+    	<#}#>
+    	<# if(host.Fieldlist[i].TypeName=="datetime")
+    	{#>
+    	model.<#=host.Fieldlist[i].ColumnName #> = ConvertToDate(rdr["<#=host.Fieldlist[i].ColumnName #>"]);
+    	<#}#>
+    	<# if(host.Fieldlist[i].TypeName=="money"||host.Fieldlist[i].TypeName=="decimal")
+    	{#>
+    	model.<#=host.Fieldlist[i].ColumnName #> = ConverToDouble(rdr["<#=host.Fieldlist[i].ColumnName #>"]);
+    	<#}#>
+    	<# if(host.Fieldlist[i].TypeName=="bit")
+    	{#>
+    	model.<#=host.Fieldlist[i].ColumnName #> = ConverToBool(rdr["<#=host.Fieldlist[i].ColumnName #>"]);
+    	<#}#>
+    	<# if(host.Fieldlist[i].TypeName=="float")
+    	{#>
+    	model.<#=host.Fieldlist[i].ColumnName #> = ConverToDouble(rdr["<#=host.Fieldlist[i].ColumnName #>"]);
+    	<#}#>
+    	<#}#>
+    	rdr.Close();
+    	return model;
+        }
+	}
+}

@@ -1,0 +1,40 @@
+﻿<div class="header"><label class="title">添加互动</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-body">
+                <div class="domItem compdiv" id="text">
+                    <h2 class="comp_font">文本互动</h2>
+                    <input type="text" class="form-control text_300" />
+                </div>
+                <div class="domItem compdiv" data-type="radio">
+                    <h2 class="comp_font">单选</h2>
+                    <label><input type="radio" name="ex_rad" />选项1</label>
+                    <label><input type="radio" name="ex_rad" />选项2</label>
+                </div>
+                <div class="domItem compdiv" data-type="checkbox">
+                    <h2 class="comp_font">多选</h2>
+                    <label><input type="checkbox" name="ex_chk" />选项1</label>
+                    <label><input type="checkbox" name="ex_chk" />选项2</label>
+                </div>
+                <div class="domItem compdiv" data-type="dropdown">
+                    <h2 class="comp_font">下拉选择</h2>
+                    <select class="form-control text_300">
+                        <option>选项1</option>
+                        <option>选项2</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function GetModel(item) {
+        var $item = $(item);
+        var model = {
+            dataMod: { list: [] },
+            config: { type: $item.data("type"), compid: $item.data("comp"), css: "candrag", style: '' }
+        };
+        return model;
+    }
+</script>

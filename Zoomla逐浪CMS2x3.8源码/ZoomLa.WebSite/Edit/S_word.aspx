@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="S_word.aspx.cs" Inherits="Edit_S_word" EnableViewStateMac="false" %>

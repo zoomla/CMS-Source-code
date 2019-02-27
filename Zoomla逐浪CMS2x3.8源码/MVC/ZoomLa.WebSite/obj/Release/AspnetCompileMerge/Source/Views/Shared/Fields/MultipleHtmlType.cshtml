@@ -1,0 +1,67 @@
+﻿@using ZoomLa.BLL
+@using System.Text
+@using ZoomLa.Common
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    private MvcHtmlString GetEditor()
+    {
+        FieldModel model = new FieldModel(Model.fieldMod.Content);
+        string Name = Model.fieldMod.FieldName;
+        const string min = "1", minex = "4", mid = "2", copmlete = "3";
+        int width = DataConverter.CLng(model.GetValue("Width"));
+        int height = DataConverter.CLng(model.GetValue("Height"));
+        string iseditor = model.GetValue("IsEditor");//编辑器类型
+        string content = Model.GetValue();
+        StringBuilder builder = new StringBuilder();
+        switch (iseditor)
+        {
+            case min:
+                #region 简洁型编辑器
+                builder.AppendLine("<textarea class='ueditor' cols=\"80\" id=\"txt_" + Name + "\" style=\"width:" + width + "px;height:" + height + "px;\" name=\"txt_" + Name + "\" rows=\"10\">" + HttpUtility.HtmlEncode(content) + "</textarea>");
+                builder.AppendLine("<script id=\"headscript\" type=\"text/javascript\">");
+                builder.AppendLine(@"UE.getEditor('txt_" + Name + "', {" + BLLCommon.ueditorMin + "});");
+                builder.AppendLine(@"</script>");
+                #endregion
+                break;
+            case minex:
+                #region 简单型编辑器
+                builder.AppendLine("<textarea class='ueditor' cols=\"80\" id=\"txt_" + Name + "\" style=\"width:" + width + "px;height:" + height + "px;\" name=\"txt_" + Name + "\" rows=\"10\">" + HttpUtility.HtmlEncode(content) + "</textarea>");
+                builder.AppendLine(@"<script type=""text/javascript"">");
+                builder.AppendLine(@"<!--[if lt IE 7]> setTimeout(function () { <![endif]-->");
+                builder.AppendLine(@"UE.getEditor('txt_" + Name + "', {" + BLLCommon.ueditorMinEx + "" + "});");
+                builder.AppendLine(@"<!--[if lt IE 7]> }, 300);<![endif]-->");
+                builder.AppendLine(@"</script>");
+                #endregion
+                break;
+            case mid:
+                #region 标准型编辑器
+                builder.AppendLine("<textarea class='ueditor' cols=\"80\" id=\"txt_" + Name + "\" style=\"width:" + width + "px;height:" + height + "px;\" name=\"txt_" + Name + "\" rows=\"10\">" + HttpUtility.HtmlEncode(content) + "</textarea>");
+                builder.AppendLine(@"<script type=""text/javascript"">");
+                builder.AppendLine(@"UE.getEditor('txt_" + Name + "', {" + BLLCommon.ueditorMid + "});");
+                builder.AppendLine(@"</script>");
+                #endregion
+                break;
+            case copmlete:
+                #region 增强型编辑器
+                builder.AppendLine("<textarea class='ueditor' cols=\"80\" id=\"txt_" + Name + "\" style=\"width:" + width + "px;height:" + height + "px;\" name=\"txt_" + Name + "\" rows=\"10\">" + HttpUtility.HtmlEncode(content) + "</textarea>");
+                builder.AppendLine(@"<script type=""text/javascript"">");
+                builder.AppendLine(@"<!--[if lt IE 7]> setTimeout(function () { <![endif]-->");
+                builder.AppendLine(@"UE.getEditor('txt_" + Name + "');");
+                builder.AppendLine(@"<!--[if lt IE 7]> }, 300);<![endif]-->");
+                builder.AppendLine(@"</script>");
+                #endregion
+                break;
+        }
+        return MvcHtmlString.Create(builder.ToString());
+    }
+}
+@{
+    FieldModel fieldMod = new FieldModel(Model.fieldMod.Content);
+    string exhtml = "<div class='btn-group cmdgroup' role='group' data-id='txt_" + Model.fieldMod.FieldName + "'>"
+                 + "<button type='button' class='btn btn-default cmdbtn' data-cmd='disable' title='保护内容'><i class='fa fa-pencil'></i></button>"
+                 + "<button type='button' class='btn btn-default cmdbtn' data-cmd='enable' title='取消保护' style='display:none;'><i style='color:#ccc;' class='fa fa-pencil'></i></button>"
+                 + "<button type='button' class='btn btn-default cmdbtn' data-cmd='hide' title='收缩内容'><i class='fa fa-eye'></i></button>"
+                 + "<button type='button' class='btn btn-default cmdbtn' data-cmd='show' title='展开内容' style='display:none;'><i class='fa fa-eye-slash'></i></button>"
+                 + "<button type='button' class='btn btn-default cmdbtn' data-cmd='clear' title='清空内容'><i class='fa fa-trash'></i></button></div>";
+}
+@GetEditor()

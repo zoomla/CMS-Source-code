@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Commenu.master.cs" Inherits="Common_Commenu" ClientIDMode="Static" %><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link type="text/css" rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/dist/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="/App_Themes/User.css" />
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
+<asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+<style>
+.step_bar {list-style-type:none;margin:0;list-style:none;}
+.step_bar .fa {font-size:25px;padding-right:5px;}
+.step_bar .fa.active {color:green;}
+.step_bar li {float:left;}
+.step_bar .step {width:90px;padding-top:10px;}
+.green_line {background:url(/App_Themes/Admin/Mobile/green_line.png) no-repeat 0 23px;width:44px;height:24px;}
+.mobile {background: url(/App_Themes/User/bg_mobile.png) no-repeat; width: 327px; height: 674px; padding-left: 25px; padding-top: 120px;}
+.step1 {background: url(/App_Themes/Admin/Mobile/banner_11.png) no-repeat; width: 100%; height: 420px; padding-top: 220px; padding-left: 650px;}
+.stepitem {display:none;}
+.stepitem.active {display:block;}
+</style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="user_mimenu user_home_mimenu">
+        <div class="navbar navbar-fixed-top" role="navigation">
+        <button type="button" class="btn btn-default" id="mimenu_btn">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <div class="user_mimenu_left">
+        <ul class="list-unstyled">
+        <li> <a href="/" target="_blank">首页</a></li>
+        <li> <a href="/Home" target="_blank">能力</a></li>
+        <li> <a href="/Index" target="_blank">社区</a></li>
+        <li> <a href="/Ask" target="_blank">问答</a></li>
+        <li> <a href="/Guest" target="_blank">留言</a></li>
+        <li> <a href="/Baike" target="_blank">百科</a></li>
+        <li> <a href="/Office" target="_blank">OA</a></li>
+        </ul>
+        </div>
+        <div class="navbar-header">
+        <button class="navbar-toggle in" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">移动下拉</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        </div>
+        </div> 
+        </div> 
+        <div class="user_mimenu_right">
+            <ul class="list-inline pull-right">
+                <li><a href="http://app.z01.com/" target="_blank"><i class="fa fa-book"></i> 线上版本</a></li>
+                <li><a href="/User/"><i class="fa fa-user"></i> 会员中心</a></li>
+                <li><a href="/User/User/Logout"><i class="fa fa-power-off"></i> 退出</a></li>
+                </ul>
+            </div>
+        <script>
+            $("#mimenu_btn").click(function (e) {
+                if ($(".user_mimenu_left").width() > 0) {
+                    $(".user_mimenu_left ul").fadeOut(100);
+                    $(".user_mimenu_left").animate({ width: 0 }, 200);
+                }
+                else {
+                    $(".user_mimenu_left").animate({ width: 150 }, 300);
+                    $(".user_mimenu_left ul").fadeIn();
+                }
+            });
+            </script>
+        <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Script" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </form>
+</body>

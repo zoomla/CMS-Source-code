@@ -1,0 +1,28 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{  Model.cols = 6;
+    Model.url="SelSchool_Data";
+    DataTable dt = new DataTable();
+}
+<table class="table table-bordered table-striped table-hover margin_t10">
+    <tr>
+        <td></td>
+        <td>类型</td>
+        <td>学校名称</td>
+        <td>省份</td>
+        <td>城市</td>
+        <td>区域</td>
+    </tr>
+    @foreach(DataRow dr in dt.Rows)
+    {
+     <tr>
+        <td><input type="button" value="选定" class="btn btn-xs btn-info" onclick="GetSchoolName(@dr["schoolname"]);" /></td>
+        <td><%#GetSchoolType(@dr["SchoolType"]) %></td>
+        <td> <%#GetIcon(@dr["Country"].ToString()) %><span>@dr["SchoolName"]</span></td>
+        <td>@dr["Province"]</td>
+         <td>@dr["City"]</td>
+         <td>@dr["County"]</td>
+    </tr>   
+    }
+    @Html.Partial("_page",Model)
+</table> 

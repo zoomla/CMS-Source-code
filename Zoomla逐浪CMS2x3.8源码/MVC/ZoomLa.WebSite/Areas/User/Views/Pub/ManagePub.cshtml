@@ -1,0 +1,33 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    DataTable nodeDT=(DataTable)ViewBag.nodeDT;
+    int PubID=ViewBag.PubID;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>互动管理</title>
+}
+@section content{
+<div id="pageflag" data-nav="index" data-ban="pub"></div>
+<div class="container margin_t10">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li class="active">我的互动</li>
+    </ol>
+    <div class="margin_t10">
+        <ul class="nav nav-tabs">
+            @foreach (DataRow dr in nodeDT.Rows)
+            {
+                <li class="@(dr["PubID"].ToString().Equals(PubID.ToString())?"active":"")"><a href="?pid=@dr["PubID"]">@dr["PubName"]</a></li>
+            }
+        </ul>
+            @Html.Partial("ManagePub_List",Model)
+    </div>
+</div>
+    
+}
+@section script{
+
+}

@@ -1,0 +1,51 @@
+﻿@{
+    string state=ViewBag.state;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>领取红包</title>
+}
+@section content{
+<form method="post" action="GetRedPacket">
+<div id="pageflag" data-nav="shop" data-ban="UserInfo"></div>
+<div class="container margin_t10">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li><a title="账户管理" href="@Url.Action("Userinfo","info")">账户管理</a></li>
+        <li><a title="领取红包" href="@Url.Action("RedPacket","Money")">领取红包</a></li>
+    </ol>
+</div>
+<div class="container" style="width:500px;">
+@switch (state)
+{
+    case "0":
+         <div class="alert alert-danger">你尚未关注公众号,无法发放红包</div>
+        break;
+    case "1":
+    <div class="panel panel-info">
+        <div class="panel-heading">请输入匹配码和领取码</div>
+        <div class="panel-body">
+            <input type="text" class="form-control required" name="flow" placeholder="请输入匹配码" />
+            <input type="text" class="form-control required" style="margin-top:20px;" name="redcode" placeholder="请输入领取码" />
+        </div>
+        <div class="panel-footer text-center"><input type="submit" class="btn btn-info" value="领取红包" /></div>
+    </div>
+        break;
+    case "2":
+    
+ <div class="alert alert-danger">红包领取失败,原因:[@(ViewBag.err)] <a href="RedPacket"> 返回</a></div>
+        break;
+    case "3":
+   <div class="alert alert-info">红包领取成功,金额@(ViewBag.amount)</div>
+        break;
+}
+</div>
+</form>
+}
+@section script{
+<script>
+    $(function () {
+        $("form").validate();
+    })
+</script>
+}

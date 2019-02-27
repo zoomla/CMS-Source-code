@@ -1,0 +1,8 @@
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.BLL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.BLL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.BLL\obj\Debug\ZoomLa.BLL.csprojResolveAssemblyReference.cache
+E:\Code\ZoomlaCMS2\ZoomLa.BLL\obj\Debug\ZoomLa.BLL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.BLL\obj\Debug\ZoomLa.BLL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.BLL\obj\Debug\Interop.ADODB.dll
+E:\Code\ZoomlaCMS2\ZoomLa.BLL\obj\Debug\Interop.CDO.dll
+E:\Code\ZoomlaCMS2\ZoomLa.BLL\obj\Debug\ZoomLa.BLL.csproj.ResolveComReference.cache

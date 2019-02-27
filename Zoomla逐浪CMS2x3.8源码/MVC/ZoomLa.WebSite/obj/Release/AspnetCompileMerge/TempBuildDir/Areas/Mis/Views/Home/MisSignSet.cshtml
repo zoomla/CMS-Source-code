@@ -1,0 +1,46 @@
+﻿@using System.Data
+@model System.Data.DataTable
+@functions
+{
+    public string StatusName(int id)
+    {
+        string Names = "";
+        switch (id)
+        {
+            case 0:
+                Names = "执行中";
+                break;
+            case 1:
+                Names = "未执行";
+                break;
+            default:
+                break;
+        }
+        return Names;
+    }
+}
+<style type="text/css">
+.auto-style1 { width: 260px; padding-left: 4px; height: 13px; }
+.auto-style2 { width: 180px; padding-left: 4px; height: 13px; }
+.auto-style3 { width: 140px; padding-left: 4px; height: 13px; }
+.auto-style4 { width: 80px; padding-left: 4px; height: 13px; }
+</style>
+<div id="ShowSign" style="padding-left:14px; padding-top:10px;">
+    <table>
+        <tr class="TrSign">
+            <td class="workDay">工作日</td>
+            <td class="Times">上下班时间</td>
+            <td class="BeginDate">开始执行日期</td>
+            <td class="Play">操作</td>
+        </tr>
+        @foreach (DataRow dr in Model.Rows)
+        {
+            <tr class="TrShows">
+                <td class="workDay">@dr["WorkDate"]</td>
+                <td class="Times">@dr["WorkBegin"] ~ @dr["WorkEnd"]</td>
+                <td class="BeginDate">@StatusName(Convert.ToInt32(dr["Status"]))</td>
+                <td class="Play"><a href="MisSignSetInfo?ID=@dr["ID"]">修改</a></td>
+            </tr>
+        }
+    </table>
+</div>

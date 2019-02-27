@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "~/Views/Shared/_empty.cshtml";
+}
+@section head{<title>黑灯瞎火蒙面聊</title>}
+@section content{
+<div class="alert alert-info">当前没有信息</div>
+<form method="post" action="@MVCHelper.GetAction("/User/Content/Content_Add1",Request)"></form>
+}
+@section script{}

@@ -1,0 +1,30 @@
+﻿@using ZoomLa.Common
+@using ZoomLa.BLL.Helper
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@using ZoomLa.BLL
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    private string PreViewImg_Json()
+    {
+        string value = Model.GetValue();
+        value = value.Trim(',');
+        string tlp = "<ul class=\"preview_img_ul\">{0}</ul>";
+        string lis = "";
+        string imgtlp = "<li class='margin_l5'><img src='{0}' title='{0}' class='thumbnail_img'/></li>";
+        if (StrHelper.StrNullCheck(value)) { return string.Format(tlp, ""); }
+        try
+        {
+            value = "[" + value.TrimStart('[').TrimEnd(']').TrimEnd(',') + "]";
+            JArray arr = JsonConvert.DeserializeObject<JArray>(value);
+            foreach (JObject jobj in arr)
+            {
+                lis += string.Format(imgtlp, function.GetImgUrl(jobj["url"]));
+            }
+        }
+        catch (Exception ex) { lis = "<i style='color:red;'>(异常:非标准JSON格式," + ex.Message + ")</i>"; }
+        return string.Format(tlp, lis);
+    }
+}
+@MvcHtmlString.Create(PreViewImg_Json())
+

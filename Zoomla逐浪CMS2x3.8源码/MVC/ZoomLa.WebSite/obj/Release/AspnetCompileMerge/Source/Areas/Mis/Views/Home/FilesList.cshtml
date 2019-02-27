@@ -1,0 +1,77 @@
+﻿@using System.Data
+@model System.Data.DataTable
+@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@functions{
+    public long FileSize(string filePath)
+    {
+        long temp = 0;
+        filePath = base.Request.PhysicalApplicationPath + filePath;
+        //判断当前路径所指向的是否为文件
+        if (File.Exists(filePath) == false)
+        {
+            string[] str1 = Directory.GetFileSystemEntries(filePath);
+            foreach (string s1 in str1)
+            {
+                temp += FileSize(s1);
+            }
+        }
+        else
+        {
+
+            //定义一个FileInfo对象,使之与filePath所指向的文件向关联,
+
+            //以获取其大小
+            FileInfo fileInfo = new FileInfo(filePath);
+            return fileInfo.Length;
+        }
+        return temp;
+    }
+    protected string GetStatus(int stu)
+    {
+        if (stu == 1)
+        {
+            return "结束";
+        }
+        else
+        {
+            return "未结束";
+        }
+    }
+}
+@section head{
+<title>文档列表</title>
+<script type="text/javascript">
+    function loadPage(id, url) {
+        $("#" + id).addClass("loader");
+        $("#" + id).append("Loading......");
+        $("#" + id).load(url);
+    };
+</script>
+}
+@section content{
+<div class="Mis_pad">
+    <div class="Mis_Title"><strong><a href="javascript:void(0)" onclick="loadPage('see', 'AddFiles?ProID=@Request[" ProID"] %>&MID=@Request["MID"]&Type=@Request["Type"]')">新建文档</a></strong></div>
+    <div class="td_center">
+        <table class="border" width="100%" cellspacing="1" cellpadding="0" rules="all" border="0">
+            <tr class="title" style=" background:#e7f3ff" height="25"> <th>编号</th><th> 标题 </th><th>名称 </th><th>来源 </th><th>文件大小 </th><th>来源 </th><th> 操作人 </th><th> 操作时间  </th><th>操作 </th></tr>
+            @foreach (DataRow dr in Model.Rows)
+            {
+                <tr>
+                    <td width="25">@dr["ID"]</td>
+                    <td style="text-align:left">  <a href="javascript:void(0)" onclick="loadPage('see', 'AddFiles?ID=@dr["ID"]&ProID=@Request["ProID"]&MID=@Request["MID"]&Type=@Request["Type"]')" >@dr"Title"]</a></td>
+                    <td width="100">@dr["Content"]</td>
+                    <td width="100"> 文档</td>
+                    <td width="100">@FileSize(dr["Content"].ToString())</td>
+                    <td width="100">@GetStatus(Convert.ToInt32(dr["Status"]))</td>
+                    <td width="80"><a href="javascript:void(0)" onclick="loadPage('see', 'AddFiles?ID=@dr["ID"]&ProID=@Request["ProID"]&MID=@Request["MID"]&Type=@Request["Type"]')">编辑</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+}
+@section script{
+    
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>255</LabelID>
+    <LabelName>律所通头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div id="law_nav"&gt;
+&lt;div id="navList"&gt;
+&lt;div id="navList_l"&gt;
+&lt;div class="clear"&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/search/SearchList?node=0" target="_blank"&gt;律所通&lt;/a&gt;&lt;/li&gt;
+ &lt;li class="law_tip"&gt;南昌郎秋律师事务所&lt;em&gt;[专用版]&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;!--navList_l end--&gt; &lt;div id="navList_r"&gt;
+&lt;form action="{ZL:GetNodeListUrl(143)/}" method="get"&gt;
+&lt;input name="keyword" id="tex" type="text"  value="请输入关键字" onFocus="onfull(this)" onBlur="onEmpty(this)" /&gt;
+&lt;input type="submit" value="搜索" class="sub"&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!--navList_r end--&gt;
+&lt;/div&gt;&lt;!--navList end--&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

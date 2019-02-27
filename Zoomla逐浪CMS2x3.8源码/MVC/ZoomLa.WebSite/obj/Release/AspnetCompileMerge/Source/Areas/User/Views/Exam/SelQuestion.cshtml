@@ -1,0 +1,85 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+    int islage = ViewBag.islage;
+}
+@section head{
+    <title>选择试题</title>
+    <script src="/JS/mvcpage.js"></script>
+}
+@section content{
+
+    <div class="container-fluid">
+        <div>
+            <div class="input-group text_400">
+                <input type="text" id="skey" name="skey" class="form-control mvcparam" placeholder="试题标题" />
+                <span class="input-group-btn">
+                    <button type="button" id="search_b" class="btn btn-default" onclick="mvcpage.load();"><span class="fa fa-search"></span></button>
+                    @if (islage == 1)
+                    { <input type="button" id="largesel_b" class="btn btn-primary" onclick="mvcpage.bat({ url: 'paper_addlarge', after: 'addLarge' })" value="确定" />   }
+                    else { <input type="button" id="sel_b" class="btn btn-primary" onclick="mvcpage.bat({ url:'paper_addqids?pid=@Request.QueryString["pid"]',after:'add'});" value="确定" /> }
+                    <input type="button" class="btn btn-primary" onclick="top.CLoseDIag()" value="取消" />
+                </span>
+            </div>
+        </div>
+        <ul class="nav nav-tabs margin_t5">
+            <li id="tab_99"><a href="#tab-1" data-toggle="tab" onclick="ShowTabs(99)">所有试题</a></li>
+            <li id="tab_0"><a href="#tab0" data-toggle="tab" onclick="ShowTabs(0)">单选题</a></li>
+            <li id="tab_1"><a href="#tab1" data-toggle="tab" onclick="ShowTabs(1)">多选题</a></li>
+            <li id="tab_2"><a href="#tab2" data-toggle="tab" onclick="ShowTabs(2)">填空题</a></li>
+            <li id="tab_3"><a href="#tab3" data-toggle="tab" onclick="ShowTabs(3)">解析题</a></li>
+            <li id="tab_4"><a href="#tab3" data-toggle="tab" onclick="ShowTabs(4)">完形填空</a></li>
+            <li id="tab_10"><a href="#tab10" data-toggle="tab" onclick="ShowTabs(10)">大题</a></li>
+        </ul>
+        @Html.Partial("SelQuestion_List", Model)
+        <input type="hidden" id="SelIds_Hid" name="SelIds_Hid" value="@ViewBag.selids" />
+    </div>
+}
+@section script{
+    <script>
+        $(function () {
+            $("input[name=idchk]").click(function () {
+                if ($(this)[0].checked) {
+                    $("#SelIds_Hid").val($("#SelIds_Hid").val() + "," + $(this).val() + ",");
+                } else {
+                    $("#SelIds_Hid").val($("#SelIds_Hid").val().replace("," + $(this).val() + ",", ","));
+                }
+            });
+            $("#AllID_Chk").click(function () {
+                $("input[name=idchk]").each(function (i, v) {
+                    var $tr = $(v).closest("tr");
+                    if ($(v)[0].checked) {
+                        if ($("#SelIds_Hid").val().indexOf("," + $(v).val() + ",") < 0)//判断是否存在该id
+                            $("#SelIds_Hid").val($("#SelIds_Hid").val() + "," + $(v).val() + ",");
+                    } else {
+                        $("#SelIds_Hid").val($("#SelIds_Hid").val().replace("," + $(v).val() + ",", ","));
+                    }
+                });
+            });
+            var islage = '@islage';
+            if (islage == '1') { DisTab(10); }
+            ActiveTab('@ViewBag.qtype');
+        });
+        function ActiveTab(id) {
+            $("#tab_" + id).addClass("active");
+        }
+        function ShowTabs(id) {
+            location.href = "SelQuestion?qtype=" + id + "&pid=@Request.QueryString["pid"]&islage=@islage&selids=" + $("#SelIds_Hid").val();
+        }
+        function CloseDIag() {
+            parent.CLoseDIag();
+        }
+        function DisTab(id) {
+            $("#tab_" + id).remove();
+        }
+        function SelQuestion(qids, qtitle) {
+            parent.GetQuestion(qids, qtitle);
+        }
+        function addLarge(json) {
+            parent.SelQuestion(json);
+        }
+        function add() {
+            parent.CLoseDIag();
+        }
+    </script>
+}

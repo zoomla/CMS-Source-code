@@ -1,0 +1,44 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.url = "GuestShow_Data";
+}
+@functions{
+    public string GetUserName(int userid)
+    {
+        return new B_User().GetSelect(userid).UserName;
+    }
+}
+<div id="EGV">
+    @if (Model.itemCount > 0)
+    {
+        <ul class="list-unstyled" style="background-color: #FBFBFD;">
+            @foreach (DataRow dr in Model.dt.Rows)
+            {
+                <li style="padding: 10px; border-bottom: 1px solid #ddd;min-height: 80px;">
+                    <div style="position:absolute;text-align:center;"><img src="@dr["UserFace"]" style="width:60px;height:60px;" onerror="shownoface(this);" /><br />@GetUserName(@Convert.ToInt32(dr["UserID"]))</div>
+                    <div class="g_show_txt" style="margin-left:80px;">
+                        @MvcHtmlString.Create(dr["TContent"].ToString())
+                    </div>
+                    <div class="r_gray text-right">
+                        @if (DataConverter.CLng(dr["Parentid"]) == 0)
+                        {
+                            <span style="margin-right:5px;"><label>发表人:@GetUserName(@Convert.ToInt32(dr["UserID"]))</label></span>
+                        }
+                        else
+                        {
+                            <span style="margin-right:5px;"><label>回复人:</label>@GetUserName(@Convert.ToInt32(dr["UserID"]))</span>
+                        }
+                        <i class="fa fa-clock-o"></i>@Convert.ToDateTime(dr["GDate"]).ToString("yyyy-MM-dd HH:mm")
+                    </div>
+                </li>
+            }
+        </ul>
+        <div class="text-center">
+            @Html.Partial("_page2", Model)
+        </div>
+    }
+
+</div>

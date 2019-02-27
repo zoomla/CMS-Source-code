@@ -1,0 +1,150 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@using ZoomLa.BLL.Shop
+@using ZoomLa.Model
+@using ZoomLa.Model.Shop
+@using ZoomLa.Common
+@model ZoomLaCMS.Areas.User.Models.VM_OrderPro
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    B_Order_Exp expBll = new B_Order_Exp();
+    M_Order_Exp expMod = expBll.SelReturnModel(DataConverter.CLng(Model.orderMod.ExpressNum));
+    string compname = "";
+    string expcode = "";
+    if (expMod != null)
+    {
+        compname = expMod.ExpComp;
+        expcode = expMod.ExpNo;
+    }
+}
+@functions{
+    OrderCommon orderCom = new OrderCommon();
+    public string GetMyPrice(DataRow dr)
+    {
+        return OrderHelper.GetPriceStr(DataConverter.CDouble(dr["AllMoney"]), dr["AllMoney_Json"].ToString());
+    }
+    public string GetShopUrl(DataRow dr)
+    {
+        return orderCom.GetShopUrl(DataConverter.CLng(dr["StoreID"]), DataConverter.CLng(dr["ProID"]));
+    }
+    public string GetTotal()
+    {
+        M_OrderList orderMod = Model.orderMod;
+        if (orderMod.Ordertype == 7 || orderMod.Ordertype == 9)
+        {
+            return  orderMod.Ordersamount.ToString("f2") + "元";
+        }
+        else
+        {
+            return orderMod.Balance_price.ToString("f2") + "+" + orderMod.Freight.ToString("f2") + "=" + orderMod.Ordersamount.ToString("f2") + "元 (商品总价+运费)";
+        }
+    }
+    //除酒店,虚拟,旅游等外,显示快递信息
+    public bool ShowExp()
+    {
+        return (Model.orderMod.Ordertype != 7 && Model.orderMod.Ordertype != 9);
+    }
+}
+@section head{
+<title>订单商品列表</title>
+<style>
+    .SumDiv li {
+        list-style: none;
+        display: inline-table;
+        margin-right: 50px;
+        line-height: 10px;
+    }
+
+    .panel-footer div {
+        margin: 5px 0;
+    }
+
+        .panel-footer div b {
+            margin: 3px 0 8px 0;
+        }
+
+        .panel-footer div .item {
+            margin-left: 2em;
+        }
+</style>
+}
+@section content{
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li><a href="OrderList">我的订单</a></li>
+        <li class="active">商品列表</li>
+        <div class="clearfix"></div>
+    </ol>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-bordered table-striped">
+                <tr><td>ID</td><td>商品名</td><td>商品数</td><td>金额</td><td>日期</td></tr>
+                @foreach (DataRow dr in Model.proDT.Rows)
+                {
+                    <tr>
+                        <td class="td_s">@dr["ID"]</td>
+                        <td><a href="@GetShopUrl(dr)" target="_blank" title="浏览商品">@dr["ProName"]</a>@OrderHelper.GetSnapUrl(Model.mu.UserID, Model.orderMod.OrderNo, dr["ProID"])</td>
+                        <td>@dr["Pronum"]</td>
+                        <td>@GetMyPrice(dr)</td>
+                        <td>@DateHelper.ToDate(dr["AddTime"])</td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+        <div class="panel-footer">
+            <div>
+                <b>付款信息</b>
+                <span class="item"><span class="title">订单金额：</span>@GetTotal()</span>
+                <span class="item"><span class="title">已付款：</span>@Model.orderMod.Receivablesamount.ToString("f2")元</span>
+            </div>
+            @if (ShowExp())
+            {
+                <div id="exp_div">
+                    <b>物流信息</b>
+                    <span class="item"><span class="title">快递公司：</span>@compname</span>
+                    <span class="item"><span class="title">物流单号：</span>@expcode</span>
+                    @if (!string.IsNullOrEmpty(compname) && !string.IsNullOrEmpty(expcode))
+                    {
+                        <a href="http://m.kuaidi100.com/index_all.html?type=@compname&postid=@expcode&callbackurl=@Request.Url.AbsoluteUri" target="_blank">查看物流信息</a>
+                    }
+                </div>
+            }
+            <div>
+                <b>备注信息</b>
+                <span class="item"><label>@Model.orderMod.Ordermessage</label></span>
+            </div>
+            <div class="text-center">
+                @if (Model.orderMod.Paymentstatus != (int)M_OrderList.PayEnum.HasPayed)
+                {
+                    <a href="/PayOnline/OrderPay.aspx?OrderCode=@Model.orderMod.OrderNo" id="PayUrl_A" target="_blank" class="btn btn-primary">前往付款</a>
+                }
+                
+                <a href="javascript:history.back();" class="btn btn-default margin_l5">返回</a>
+            </div>
+        </div>
+    </div>
+@if(Model.clientList!=null)
+{
+    <div class="panel panel-primary" id="User_Div">
+        <div class="panel-heading"><span class="fa fa-user"></span><span class="margin_l5">客户详情</span></div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr><td class="td_m">姓名</td><td>证件号</td><td>手机</td><td>备注</td></tr>
+                @foreach (var client in Model.clientList)
+                {
+                    <tr>
+                        <td>@client.Name</td>
+                        <td>@client.CertCode</td>
+                        <td>@client.Mobile</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
+    
+</div>
+}
+@section script{}

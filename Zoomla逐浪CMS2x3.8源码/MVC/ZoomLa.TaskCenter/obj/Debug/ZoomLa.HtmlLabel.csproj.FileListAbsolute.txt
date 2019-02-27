@@ -1,0 +1,5 @@
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\ZoomLa.HtmlLabel.dll
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\ZoomLa.HtmlLabel.pdb
+D:\Code\ZoomlaCMS\ZoomLa.TaskCenter\obj\Debug\ZoomLa.HtmlLabel.csprojResolveAssemblyReference.cache
+D:\Code\ZoomlaCMS\ZoomLa.TaskCenter\obj\Debug\ZoomLa.HtmlLabel.dll
+D:\Code\ZoomlaCMS\ZoomLa.TaskCenter\obj\Debug\ZoomLa.HtmlLabel.pdb

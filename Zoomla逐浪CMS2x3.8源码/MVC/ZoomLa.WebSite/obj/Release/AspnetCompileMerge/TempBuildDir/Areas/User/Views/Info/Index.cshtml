@@ -1,0 +1,177 @@
+﻿@using ZoomLa.Model;
+@using ZoomLa.BLL;
+@using ZoomLa.Common
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    M_UserInfo mu = ViewBag.mu;
+    M_Group gpMod = ViewBag.gpMod;
+    M_PointGrounp pointMod = ViewBag.pointMod;
+}
+@functions{
+    B_User buser = new B_User();
+    B_Group gpBll = new B_Group();
+    B_Model bmodel = new B_Model();
+    B_ModelField Fll = new B_ModelField();
+
+    public string GetUNname(string uid)
+    {
+        return buser.GetSelect(DataConverter.CLng(uid)).UserName;
+    }
+    public string GetGroupField(M_UserInfo mu)
+    {
+        int UserModelID = DataConverter.CLng(gpBll.GetGroupModel(mu.GroupID));
+        M_ModelInfo modelinfo = bmodel.GetModelById(UserModelID);
+        if (modelinfo == null || modelinfo.IsNull || string.IsNullOrEmpty(modelinfo.TableName)) { return ""; }
+        else
+        {
+            return  Fll.InputallHtml(UserModelID, 0, new ModelConfig()
+            {
+                ValueDT = bmodel.SelUserModelField(UserModelID, mu.UserID)
+            });
+        }
+    }
+}
+@section head{<title>注册信息</title>}
+@section content{
+    <div id="pageflag" data-nav="home" data-ban="UserInfo"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="@Url.Action("userinfo","info")">账户管理</a></li>
+            <li class="active">注册信息</li>
+        </ol>
+    </div>
+    <div class="container btn_green">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="@Url.Action("userinfo","info")">注册信息</a></li>
+            <li><a href="@Url.Action("UserBase", "info")">基本信息</a></li>
+            <li><a href="UserBase?sel=Tabs1">头像设置</a></li>
+            <li><a href="@Url.Action("DredgeVip", "info")">VIP信息</a></li>
+        </ul>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <td class="td_m text-right">用户名：</td>
+                <td class="td_l"><label>@mu.UserName</label></td>
+                <td class="td_m text-right">Email：</td>
+                <td class="td_l"><label>@mu.Email</label></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">所属用户组：</td>
+                <td><label>@gpMod.GroupName</label></td>
+                <td style="text-align: right">加入用户组时间：</td>
+                <td><label>@mu.JoinTime.ToString()</label></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">注册时间：</td>
+                <td><label>@mu.RegTime.ToString()</label></td>
+                <td style="text-align: right">登录次数：</td>
+                <td><label>@mu.LoginTimes</label></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">最近登录时间：</td>
+                <td><label>@mu.LastLoginTimes.ToString()</label></td>
+                <td style="text-align: right">最近登录IP：</td>
+                <td><label>@mu.LastLoginIP</label></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">最近修改密码时间：</td>
+                <td><label>@mu.LastPwdChangeTime</label></td>
+                <td style="text-align: right">最近被锁定时间：</td>
+                <td><label>@mu.LastLockTime</label></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">余额：</td>
+                <td>
+                    <a href="ConsumeDetail?SType=1" title="点击查看变更详情"><label>@mu.Purse.ToString("f2")</label></a>
+                    <a href="/User/Money/WithDraw">[申请提现]</a>
+                </td>
+                <td style="text-align: right">银币：</td>
+                <td>
+                    <a href="ConsumeDetail?SType=2" title="点击查看变更详情"><label>@mu.SilverCoin.ToString("f2")</label></a>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">积分：</td>
+                <td>
+                    <a href="ConsumeDetail?SType=3" title="点击查看变更详情"><label>@mu.UserExp.ToString("f2")</label></a>
+                </td>
+                <td style="text-align: right">点券：</td>
+                <td>
+                    <a href="ConsumeDetail?SType=4" title="点击查看变更详情"><label>@mu.UserPoint.ToString("f2")</label></a>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">虚拟币：</td>
+                <td>
+                    <a href="ConsumeDetail?SType=5" title="点击查看变更详情"><label>@mu.DummyPurse.ToString("f2")</label></a>
+                </td>
+                <td style="text-align: right">卖家积分：</td>
+                <td><label>@mu.boffExp.ToString("f2")</label></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">消费积分：</td>
+                <td><label>@mu.ConsumeExp.ToString("f2")</label></td>
+                <td style="text-align: right">等级：</td>
+                <td><span class="@pointMod.ImgUrl"></span> <label>@pointMod.GroupName</label></td>
+            </tr>
+            <tr>
+                <td class="text-right">推荐人：</td>
+                <td colspan="3"><label>@GetUNname(mu.ParentUserID)</label></td>
+            </tr>
+            @MvcHtmlString.Create(GetGroupField(mu))
+            <tr>
+                <td class="text-center" colspan="4">
+                    <a href="/User/Info/UserBase" class="btn btn-primary" >基本信息</a>
+                    <a href="/User/Change/Pwd" class="btn btn-primary">修改密码</a>
+                    <a href="/User/UserFunc/SetSecondPwd" class="btn btn-primary" >二级密码</a>
+                    <a href="/PayOnline/SelectPayPlat.aspx" target="_blank" class="btn btn-primary">充值金额</a>
+                    <input type="button" value="兑换金额" class="btn btn-primary" onclick="showMoneyConver();" />
+                    <a href="/User/Money/WithDraw" class="btn btn-primary">申请提现</a>
+                    <div style="height:5px;"></div>
+                    <a href="ConsumeDetail?SType=@Convert.ToInt32(M_UserExpHis.SType.Purse)" class="btn btn-primary">金额明细</a>
+                    <a href="ConsumeDetail?SType=@Convert.ToInt32(M_UserExpHis.SType.SIcon)" class="btn btn-primary">银币明细</a>
+                    <a href="ConsumeDetail?SType=@Convert.ToInt32(M_UserExpHis.SType.Point)" class="btn btn-primary">积分明细</a>
+                    <input type="button" value="赠送资金" class="btn btn-primary" onclick="showGive(@Convert.ToInt32(M_UserExpHis.SType.Purse))" />
+                    <input type="button" value="赠送银币" class="btn btn-primary" onclick="showGive(@Convert.ToInt32(M_UserExpHis.SType.SIcon))" />
+                    <input type="button" value="赠送积分" class="btn btn-primary" onclick="showGive(@Convert.ToInt32(M_UserExpHis.SType.Point))" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+}
+@section script{
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script>
+        $("#mimenu_btn").click(function (e) {
+            if ($(".user_mimenu_left").width() > 0) {
+                $(".user_mimenu_left ul").fadeOut(100);
+                $(".user_mimenu_left").animate({ width: 0 }, 200);
+            }
+            else {
+                $(".user_mimenu_left").animate({ width: 150 }, 300);
+                $(".user_mimenu_left ul").fadeIn();
+            }
+        });
+        //会员搜索
+        $("#sub_btn").click(function (e) {
+            if ($("#key").val() == "")
+                alert("搜索关键字为空!");
+            else
+                window.location = "/User/SearchResult?key=" + escape($("#key").val());
+        });
+        //搜索回车事件
+        function IsEnter(obj) {
+            if (event.keyCode == 13) {
+                $("#sub_btn").click(); return false;
+            }
+        }
+        function showGive(stype) {
+            ShowComDiag("/User/Money/GiveMoney?stype=" + stype, "赠送金额");
+        }
+        function showMoneyConver() {
+            ShowComDiag("/BU/Money/MoneyConver.aspx", "金额兑换");
+        }
+    </script>
+
+}

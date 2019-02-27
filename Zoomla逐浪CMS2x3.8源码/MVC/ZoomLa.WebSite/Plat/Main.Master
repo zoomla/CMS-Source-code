@@ -1,0 +1,417 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="ZoomLaCMS.Plat.Main" ClientIDMode="Static" %><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="renderer" content="webkit" />
+    <meta name="msapplication-TileColor" content="#1A0066" />
+    <meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png" />
+    <link type="text/css" rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/dist/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/App_Themes/Guest.css" />
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+    <script src="/JS/jquery-1.11.1.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <script src="/dist/js/bootstrap.min.js"></script>
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script src="/JS/ICMS/ZL_Common.js"></script>
+    <script>
+        function setactive(content) {
+            var $li = null;
+            if (content && content != "") { $li = $("#topmenu_ul li:contains('" + content + "'):first"); }
+            if ($li && $li.length > 0) { $("#topmenu_ul li").removeClass("active"); $li.addClass("active"); }
+        }
+        function showword(obj) { shownoface(obj); }
+    </script>
+</head>
+<body class="Obody">
+    <form id="form1" runat="server">
+        <div class="navbar_bg"></div>
+        <div class="newpane">
+            <div class="newpanecontents">
+                <nav class="navbar navbar-default navbar-fixed-top visible-xs plat_xsnav">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/plat">
+                                <img src="<%= logo_img.Src %>" alt="<%= logo_img.Alt %>" onerror="shownopic(this);" style="display: inline-block;" />
+                                <span><%=M_CompName_L.Text %>办公平台</span></a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/Plat/Blog/">主线</a></li>
+                                <li><a href="/Plat/Blog/Spec.aspx">话题</a></li>
+                                <li><a href="/Plat/Note/ProList.aspx">项目</a></li>
+                                <li><a href="/BU/KE/DailyPlan.aspx">日程</a></li>
+                                <li><a href="/Office/">办公</a></li>
+                                <li><a href="/Plat/Group/CompDetail.aspx">公司</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+                <div class="Otop hidden-xs">
+                    <div class="Otitle">
+                        <a href="javascript:;" class="menu">
+                            <img runat="server" id="logo_img" onerror="shownopic(this);" />
+                        </a>
+                        <a href="/plat">
+                            <asp:Label runat="server" ID="M_CompName_L" />办公平台</a>
+                    </div>
+                    <nav>
+                        <ul id="topmenu_ul">
+                            <li class="topnav_li active"><a href="/Plat/Blog/">主线</a></li>
+                            <li class="topnav_li"><a href="/Plat/Blog/Spec.aspx">话题</a></li>
+                            <li class="topnav_li"><a href="/Plat/Note/ProList.aspx">项目</a></li>
+                            <li class="topnav_li"><a href="/BU/KE/DailyPlan.aspx">日程</a></li>
+                            <li class="topnav_li"><a href="/Office/">办公</a></li>
+                            <li class="topnav_li"><a href="/Plat/Group/CompDetail.aspx">公司</a></li>
+                            <li class="skey_li">
+                                <i class="fa fa-search r_gray" style="position: absolute; left: 8px; top: 24px;"></i>
+                                <input type="text" class="form-control" id="skey_t" placeholder="搜索,回车确认" style="padding-left: 30px;" />
+                            </li>
+                        </ul>
+                        <div class="Otop_r hidden-md hidden-xs hidden-sm">
+                            <ul class="btns_ul list-unstyled">
+                                <li><a href="javascript:;" onclick="topnav.toggle();" id="skey_toggle_a"><i class="fa fa-search"></i></a></li>
+                                <li><a href="/Plat/Admin/"><i class="fa fa fa-cog"></i></a></li>
+                                <li><a href="/Plat/Email/"><i class="fa fa-envelope"></i> 邮件</a></li>
+                                <li>
+                                    <div class="btn-group" style="margin-left: 5px;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" style="border: none;">
+                                            <img class="uimg img_xs" runat="server" id="Main_UserFace_Img" onerror="shownoface(this);" />
+                                            <asp:Label runat="server" ID="Main_UName_T"></asp:Label>
+                                            <span class="fa fa-caret-down"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/Plat/UPCenter.aspx">个人信息</a></li>
+                                            <li><a href="/Plat/Blog/Contact.aspx">通讯录</a></li>
+                                            <li><a href="/Plat/Mail/">站内信</a></li>
+                                            <li><a href="/Plat/Doc/">云盘</a></li>
+                                            <li><a href="/Plat/Task/">任务</a></li>
+                                            <li><a href="/Common/Chat/" target="_blank">聊天</a></li>
+                                            <li><a href="/User/User/Logout">退出登录</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="http://www.z01.com/OAS/" target="_blank"><i class="fa  fa-question-circle"></i></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="leftnav hidden-xs hidden-sm">
+                    <ul class="tabul">
+                        <li title="@AT信息" onclick="leftnav.load(this,'news');" style="padding-bottom: 2px;"><i class="fa fa-comment-o"></i></li>
+                        <li title="部门成员" onclick="leftnav.load(this,'users');"><i class="fa fa-users"></i></li>
+                        <li title="公司文档" onclick="leftnav.load(this,'doc');"><i class="fa fa-folder"></i></li>
+                        <li title="会员应用" onclick="leftnav.load(this,'app');"><i class="fa fa-th-large"></i></li>
+                    </ul>
+                    <div id="left_body" style="overflow-y: auto;"></div>
+                    <div class="left_qrcode">
+                        <img src="<%:ZoomLa.Components.SiteConfig.SiteInfo.BannerUrl %>" onerror="this.src='/Images/nopic.gif';" style="width: 150px; height: 150px;" />
+                        <div class="alert alert-success margin_t10 text-center" role="alert"><span class="fa fa-arrow-circle-up"></span>官方应用客户端</div>
+                    </div>
+                    <div class="left_footer">
+                        <span class="foot_btn" onclick="location='/Plat/Doc/';" title="分享文件">
+                            <i class="fa fa-plus fa-2x"></i>
+                        </span>
+                    </div>
+                    <div class="leftnavbtn hidden-xs hidden-sm" onclick="leftnav.toggle(this);">
+                        <i class="fa fa-chevron-circle-left fa-2x"></i>
+                    </div>
+                </div>
+                <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="scroll_div" class="scroll_div">
+            <div class="scroll_top"><span class="fa fa-chevron-up"></span></div>
+            <div class="scroll_botton"><span class="fa fa-chevron-down"></span></div>
+            <div class="scroll_top_div scroll_desc">回到顶部</div>
+            <div class="scroll_bottom_div scroll_desc">回到底部</div>
+        </div>
+        <div id="bubble_div" class="hidden-xs hidden-sm">
+            <div class="msgnum" id="msgnum" title="查看主线">0</div>
+            <i class="fa ZoomlaICO2015 fa-2x"></i>
+        </div>
+        <script src="/JS/DesktopNotify.js"></script>
+        <script src="/JS/ZL_Regex.js"></script>
+        <script src="/JS/Controls/Control.js"></script>
+        <script src="/JS/Modal/APIResult.js"></script>
+        <asp:ContentPlaceHolder ID="ScriptContent" runat="server"></asp:ContentPlaceHolder>
+        <script>
+            var mconf = { date: "<%:DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>" };
+            $(function () {
+                DesktopNotify.requestPermission(function () { });//后期改为个人配置
+                if (window.screen.width < 768) {
+                    $(".scroll_div").addClass("hidden");
+                    $(".scroll_div").removeAttr("title");
+                }
+                topnav.init();
+                leftnav.init();
+                bubble.init();
+            });
+            //返回顶部与底部(是否与bubble结合)
+            $(window.document).scroll(function () {
+                if ($(window.document).scrollTop() > 5) { $(".scroll_div").fadeIn(400); }
+                else { $(".scroll_div").fadeOut(400); }
+            });
+            $(".scroll_botton").mouseover(function () { $(".scroll_bottom_div").css("z-index", "99") });
+            $(".scroll_top").mouseover(function () { $(".scroll_top_div").css("z-index", "99") });
+            $(".scroll_desc").mouseout(function () { $(".scroll_desc").css("z-index", "-10"); });
+            $(".scroll_div .scroll_bottom_div").click(function () { Control.Scroll.ToBottom(); });
+            $(".scroll_div .scroll_top_div").click(function () { Control.Scroll.ToTop(); });
+            //-------------左边栏(默认显示)
+            var leftnav = { $body: $(".leftnav:first"), enabled: true };
+            leftnav.init = function () {
+                if (leftnav.enabled == false) { leftnav.$body.hide(); return; }
+                //检测缓存中是否有值,无则默认打开
+                var status = localStorage.getItem("leftnav");
+                switch (status) {
+                    case "close":
+                        leftnav.close();
+                        break;
+                    case "open":
+                    default:
+                        leftnav.open();
+                        break;
+                }
+                var height = leftnav.$body.height() - 30 - 230 - 60;//减去头部与尾部
+                setTimeout(function () { $(".leftnav").show(); }, 500);
+                leftnav.$body.find(".tabul li:first").click();
+                leftnav.$body.find("#left_body").height(height);
+            }
+            leftnav.toggle = function () {
+                var $btn = $(".leftnavbtn");
+                if ($btn.attr("title") == "开启") { leftnav.open(); }
+                else { leftnav.close(); }
+            }
+            leftnav.close = function () {
+                var $btn = $(".leftnavbtn");
+                var $left = $(".leftnav");
+                $left.animate({ "left": "-260" });
+                $btn.attr("title", "开启").find(".fa").removeClass("fa-chevron-circle-left").addClass("fa-chevron-circle-right");
+                localStorage.setItem("leftnav", "close");
+            }
+            leftnav.open = function () {
+                var $btn = $(".leftnavbtn");
+                var $left = $(".leftnav");
+                $left.animate({ "left": "0" })
+                $btn.attr("title", "关闭").find(".fa").removeClass("fa-chevron-circle-right").addClass("fa-chevron-circle-left");
+                localStorage.setItem("leftnav", "open");
+
+            }
+            leftnav.load = function (li, name) {
+                var url = "/Plat/Left/" + name + ".aspx";
+                var wait = '<div class="text-center" style="padding-top:20px;color:#03a9f4;"><i class="fa fa-circle-o-notch fa-spin fa-3x"></i></div>';
+                var $body = $("#left_body");
+                $(li).addClass("active").siblings().removeClass("active");
+                $body.html("").html(wait);
+                $body.load(url, {}, function (html) { });
+            }
+            leftnav.gp = {};
+            leftnav.gp.toggle = function (li) {
+                var $li = $(li);
+                var $btn = $li.find(".gp_btn");
+                var $child = $li.siblings(".gp_child");
+                if ($li.hasClass("open")) {
+                    //打开状态则关闭,单击要关联何种逻辑
+                    $li.removeClass("open");
+                    $btn.removeClass("fa-chevron-down").addClass("fa-chevron-right");
+                    $child.slideUp("fast");
+                }
+                else {
+                    $li.addClass("open");
+                    $btn.removeClass("fa-chevron-right").addClass("fa-chevron-down");
+                    $child.slideDown("fast");
+                }
+            }
+            leftnav.preview = function (guid) {
+                CloseComDiag();
+                comdiag.maxbtn = false;
+                comdiag.ShowModal("/PreView.aspx?File=" + guid, "文件预览 <a href='DownFile.aspx?File=" + guid + "'>下载</a>");
+            }
+            leftnav.showuinfo = function (uid) {
+                CloseComDiag();
+                comdiag.maxbtn = false;
+                comdiag.ShowModal("/Plat/Common/uinfo.aspx?uid=" + uid, "用户信息");
+            }
+            leftnav.showmsg = function (id) {
+                CloseComDiag();
+                comdiag.maxbtn = false;
+                comdiag.ShowModal("/Plat/Blog/Item.aspx?mode=diag&id=" + id, "信息浏览");
+            }
+            //-------------顶部条
+            var topnav = {};
+            //动画效果显示搜索条
+            topnav.toggle = function () {
+                var icon = $("#skey_toggle_a").find(".fa");
+                if (icon.hasClass("fa-search")) {
+                    icon.removeClass("fa-search").addClass("fa-remove");
+                    $(".topnav_li").fadeOut("fast", function () { $(".skey_li").fadeIn("fast"); })
+                }
+                else {
+                    icon.removeClass("fa-remove").addClass("fa-search");
+                    $(".skey_li").fadeOut("fast", function () { $(".topnav_li").fadeIn("fast") });
+                }
+            }
+            topnav.init = function () {
+                var skey = "<%:Request.QueryString["skey"]%>";
+    if (skey) { $("#skey_t").val(unescape(skey)); }
+    if (!ZL_Regex.isEmpty(skey)) { topnav.toggle(); }
+    $("#skey_t").keydown(function () { if (event.keyCode == 13) { topnav.search(); return false; } });
+}
+topnav.search = function () {
+    var skey = $("#skey_t").val();
+    if (ZL_Regex.isEmpty(skey)) { return; }
+    else { location = "/Plat/Blog/Default.aspx?skey=" + escape(skey); }
+}
+//-------------
+var bubble = {
+    conf: {
+        $audio: $('<video autoplay="autoplay" style="display:none;"></video>'),
+        $body: $("#bubble_div"),
+        $num: $("#bubble_div .msgnum"),
+        worker: [],//计时器集合
+    },
+    //需要展示的信息
+    info: { icon: "", cuname: "", title: "", content: "", click: null },
+    init: function () {
+        var ref = this;
+        ref.conf.$num.click(function () { location = "/Plat/Blog/Default.aspx"; });
+        ref.conf.$body.popover({
+            placement: 'left', html: true,
+            title: function () {
+                return '<div style="min-width:210px;">' + ref.info.title + ' <a class="bubble_pop_close" onclick="$(\'#bubble_div\').popover(\'hide\');" title="关闭提示"><i class="fa fa-remove"></i></a></div>';
+            },
+            content: function () { return '<div style="padding:5px;">' + bubble.info.content + '</div>'; }, trigger: "manual"
+        });
+        ref.work_at();
+        ref.work_msg();
+    },
+    //提供信息提示
+    say: function () {
+        var ref = this;
+        ref.play();
+        ref.conf.$body.popover("show");
+    },
+    //桌面提示IE下使用say,webkit且有授权,使用通知模块
+    //bubble.notify("/App_Themes/User/at.png","有人@你了","这是@的内容");
+    notify: function (info) {
+        var ref = this;
+        if (DesktopNotify.isSupported && DesktopNotify.permissionLevel() == DesktopNotify.PERMISSION_GRANTED) {
+            DesktopNotify.createNotification(info.title, {
+                icon: info.icon,
+                body: info.content,
+                tag: "notice1",
+                onClick: info.click
+            });
+        }
+    },
+    //播放提示音
+    play: function () {
+        var ref = this;
+        ref.conf.$audio.attr("src", "/common/chat/msg.mp3");
+        ref.conf.$audio[0].play();
+    },
+    //未读消息数
+    setnum: function (num) {
+        var ref = this;
+        num = ConverToInt(num, 0);
+        ref.conf.$num.text(num);
+    },
+    //检测at信息
+    work_at: function () {
+        var ref = this;
+        ref.conf.worker["at"] = setInterval(function () {
+            $.post("/Plat/Common/Common.ashx", { action: "getnotify" }, function (data) {
+                var model = APIResult.getModel(data);
+                if (APIResult.isok(model) && model.result.length > 0) {
+                    var msg = model.result[0];
+                    ref.info.icon = "/App_Themes/User/at.png";
+                    ref.info.title = msg.title;
+                    ref.info.content = msg.content;
+                    ref.info.click = function () { location = "/Plat/Blog/Default.aspx?filter=atuser"; }
+                    ref.say();
+                    ref.notify(ref.info);
+                }
+            });
+        }, 10000);
+    },
+    //有新的信息检测
+    work_msg: function () {
+        var ref = this;
+        ref.conf.worker["msg"] = setInterval(function () {
+            $.post("/Plat/Common/Common.ashx", { action: "newblog", date: mconf.date }, function (data) {
+                ref.setnum(data);
+            })
+        }, 10000);
+    }
+};
+//---------------------手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+        </script>
+        <div class="notify_div" id="notify_div"></div>
+        <script src="/JS/Controls/ZL_Array.js"></script>
+        <script>
+            var notifyHtml = "<div class=\"notify_left\"><i class=\"fa fa-bell fa-5x\" style=\"color:#337ab7;\"></i></div>"
+                + "<div class=\"notify_right\">"
+                + "<div id=\"notify_title\" class=\"notify_title\"><i class='fa fa-exclamation-circle'></i> @Title</a>"
+                + "<a href='javascript:;' title='关闭' class='btn  btn-xs btn-default'><i class='fa fa-remove' onclick=\"$('#notify_div').hide();\"></i></a>"
+                + "</div>"
+                + "<div id=\"notify_body\">@Content</div>"
+                + "</div>"
+                + "<div class=\"clearfix\"></div>";
+            function showNotify(data) {
+                var model = APIResult.getModel(data);
+                if (APIResult.isok(model)) {
+                    if (model.result.length < 1) { return; }
+                    console.log(model.result);
+                    $div = $("#notify_div"); $div.html("");
+                    var $items = JsonHelper.FillItem(notifyHtml, model.result);
+                    $div.append($items);
+                    $div.show();
+                }
+            }
+
+            var nfy = new Notify();
+            nfy.Init({ url: "/common/api/notify.ashx?action=list&type=follow", interval: 3000, deskNotify: true, callback: showNotify });
+            nfy.GetNotify();
+        </script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!--<link href="/design/JS/mobile/tools.css" rel="stylesheet" />
+<link href="/design/JS/sui/css/sm.min.css" rel="stylesheet" />
+<script src="/JS/Plugs/angular.min.js"></script>
+<script src="/JS/Controls/ZL_Webup.js"></script>
+<script src="/JS/Modal/APIResult.js"></script>
+<script src="/design/h5/js/zepto.min.js"></script>
+<script src="/design/JS/sui/js/sm.js"></script>
+<script src="/design/JS/mobile/tools.js"></script>-->
+<div class="page" id="page-index" ng-app="app" ng-controller="APPCtrl">
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="javascript:tools.route.index();">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <!--<h1 class="title">数据管理</h1>-->
+    </header>
+    <div class="content">
+        <div class="com content-inner" style="padding:0 10px;" id="model">
+            <div class="ctitle" ng-bind="model.title"></div>
+            <div class="subtitle">
+                <span ng-bind="model.cdate| date:'yyyy-MM-dd HH:mm'"></span>
+            </div>
+            <hr />
+            <div ng-bind-html="model.content|html"></div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.ctitle {text-align: center;font-size: 20px;}
+.subtitle {font-size:12px;color:#ccc;}
+img {max-width:100%;}
+hr {height:1px;background-color:#ccc;}
+</style>
+<script>
+    angular.module("app", []).controller("APPCtrl", function ($scope) {
+        Zepto.init();
+        Zepto.showIndicator();
+        tools.scope = $scope;
+        tools.site = "{$site}";
+        $scope.model = {};
+        $scope.coms = [];
+        //---------------------------------------------------------------------------//
+        $scope.coms["model"] = { type: "list", list: null };
+        //---------------------------------------------------------------------------//
+        tools.getdata({ nodename: escape("微站内容"), id: "{$gid}" }, function (result) {
+            $scope.coms["model"].list = result;
+            $scope.model = $scope.coms["model"].list[0];
+            $scope.$digest();
+            tools.init();
+            tools.close();
+        })
+    })
+    .filter("html", ["$sce", function ($sce) {
+        return function (text) { return $sce.trustAsHtml(text); }
+    }]);
+</script>

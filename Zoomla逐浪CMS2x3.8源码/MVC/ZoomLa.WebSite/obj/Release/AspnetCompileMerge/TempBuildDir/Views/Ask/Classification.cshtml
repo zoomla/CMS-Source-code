@@ -1,0 +1,119 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Views/Shared/_ask.cshtml";
+    DataTable askDt = (DataTable)ViewBag.askDt;
+    string catename = ViewBag.catename;
+    string gradeid = ViewBag.gradeid;
+}
+@functions{
+    B_Ask askBll = new B_Ask();
+    public string GetType(DataRow row, string catename, string gradeid)
+    {
+        string result = "";
+        string cateid = Server.HtmlEncode(Request.QueryString["ParentID"]);
+        if ("全部分类".Equals(catename))
+        {
+            DataTable dtChild = B_GradeOption.GetGradeList(2, DataConverter.CLng(row["GradeID"]));
+            string ids = "";
+            foreach (DataRow dr in dtChild.Rows)
+            {
+                ids += dr["GradeID"] + ",";
+            }
+            string count = askBll.GetCountByQueType(ids.Trim(',')).ToString();
+            result = "<a href='Classification?GradeID=" + row["GradeID"] + "'>" + row["GradeName"] + "</a>" + "(" + count + ")";
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(Request.QueryString["GradeID"]))
+            {
+                gradeid = Server.HtmlEncode(Request.QueryString["GradeID"]);
+            }
+            if (row["GradeID"].ToString() == gradeid)
+            {
+                result = "<a style='color:black;' href='Classification?ParentID=" + cateid + "&GradeID=" + row["GradeID"] + "'>" + row["GradeName"] + "</a>";
+            }
+            else
+            {
+                result = "<a href='Classification?ParentID=" + cateid + "&GradeID=" + row["GradeID"] + "'>" + row["GradeName"] + "</a>";
+            }
+            string count = askBll.GetCountByQueType(row["GradeID"].ToString()).ToString();
+            result += "(" + count + ")";
+        }
+        return result;
+    }
+}
+@section head{
+    <title>问答中心-@Call.SiteName</title>
+    <style>.ask_class_con i {font-size: 1.2em;color: #F00; }</style>
+}
+@section content{
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>您的位置：<a href="/">网站首页</a></li>
+            <li><a href="Default">问答中心</a></li>
+            <li class="active">分类大全</li>
+        </ol>
+    </div>
+    <div class="container">
+        <ul class="list-inline">
+            <li class="on"><a title="问答首页" href="#" class="btn btn-primary btn_guest">问答首页</a> </li>
+            <li><a title="问答之星" href="Star" class="btn btn-primary btn_guest">问答之星</a></li>
+            <li><a title="分类大全" href="Classification" class="btn btn-primary btn_guest">分类大全</a></li>
+            <li><a href="List?QueType=@Server.HtmlEncode(Request["QueType"])" class="btn btn-primary btn_guest">待完善问题</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="ask_class">
+            <div class="ask_class_t">问题分类</div>
+            <div class="ask_class_c">
+                <div class="row">
+                    <ul class="list-unstyled">
+                        @foreach (DataRow dr in askDt.Rows)
+                        {
+                            <li class="col-lg-2 col-md-2 col-sm-4 col-xs-12"><span>@MvcHtmlString.Create(GetType(dr, catename, gradeid))</span></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ask_class_con">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="Classification?type=1&ParentID=@ViewBag.cateid&GradeID=@ViewBag.gradeid" id="type1">待完善问题</a></li>
+                <li><a href="Classification?type=2&ParentID=@ViewBag.cateid&GradeID=@ViewBag.gradeid" id="type2">已完善</a></li>
+                <li><a href="Classification?type=3&ParentID=@ViewBag.cateid&GradeID=@ViewBag.gradeid" id="type3">高分</a></li>
+                <li><a href="Classification?type=4&ParentID=@ViewBag.cateid&GradeID=@ViewBag.gradeid" id="type4">零回答</a></li>
+                <li><a href="Classification?type=5&ParentID=@ViewBag.cateid&GradeID=@ViewBag.gradeid" id="type5">全部</a></li>
+            </ul>
+            <div class="ask_class_conc">
+                @Html.Partial("Classification_List", Model)
+            </div>
+        </div>
+        <div class="">
+            <div class="h_b">
+                <div class="h_b_m">
+                    @{Html.RenderAction("CommonView");}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ask_bottom">
+        <p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+        <p class="text-center">@MvcHtmlString.Create(Call.GetLabel("{$Copyright/}"))</p>
+    </div>
+}
+@section script{
+<script>
+    $(function () {
+        $("#top_nav_ul li[title='分类大全']").addClass("active");
+        var type = '@Call.GetLabel("{$GetRequest(type)$}")';
+        if (type != "")
+        {
+            $(".ask_class_con ul li").removeClass("active");
+            $("#type" + type).parent().addClass("active");
+        }
+    })
+</script>
+}

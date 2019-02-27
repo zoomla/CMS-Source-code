@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>167</LabelID>
+    <LabelName>贴吧获取当前用户信息</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>贴吧</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>{table1}.dbo.ZL_UserBase</LabelTable>
+    <LabelField>UserFace</LabelField>
+    <LabelWhere>UserID='{ZL:GetuserID()/}'</LabelWhere>
+    <LabelOrder />
+    <LabelContent>&lt;div class="bar_user"&gt;
+&lt;div class="bar_user_t"&gt;我在贴吧&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;div class="bar_user_c"&gt;
+&lt;div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 bar_user_cl"&gt;&lt;a href="/User/" target="_blank"&gt;&lt;img src="{Field="UserFace"/}" onerror="javascript:this.src='/Images/userface/noface.png';" alt="{ZL:GetuserName()/}" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 bar_user_cr"&gt;
+&lt;div class="bar_user_crt"&gt;&lt;span&gt;0&lt;/span&gt;{ZL:GetuserName()/}&lt;/div&gt;
+&lt;div class="bar_user_crb"&gt;&lt;span&gt;0&lt;/span&gt;&lt;a href="#" target="_blank"&gt;获取&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="bar_user_my"&gt;
+&lt;div class="bar_user_myt"&gt;我的贴吧&lt;/div&gt;
+&lt;div class="row"&gt;
+&lt;ul class="list-unstyled"&gt;
+{ZL.Label id="获取指定用户名的发帖数" ShowNum="10" /}
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!--bar_user end--&gt;</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>用户登录判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>1</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

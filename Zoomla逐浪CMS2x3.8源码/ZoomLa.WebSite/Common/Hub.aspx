@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Hub.aspx.cs" Inherits="Common_Hub" %>

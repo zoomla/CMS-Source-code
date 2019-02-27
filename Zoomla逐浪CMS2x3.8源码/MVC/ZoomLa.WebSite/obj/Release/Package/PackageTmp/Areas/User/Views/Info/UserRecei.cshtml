@@ -1,0 +1,26 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    DataTable dt = new DataTable();
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>用户地址薄</title>
+
+}
+@section content{
+    <div id="pageflag" data-nav="shop" data-ban="shop"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb" style="margin-bottom:5px;">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li class="active">我的地址薄</li>
+        </ol>
+    </div>
+@Html.Partial("UserRecel_List", Model)
+   
+}
+@section script{
+<style type="text/css">
+    .add_left {text-align: right;color: #999;display: inline-block;width: 70px;line-height: 22px;}
+    .panel:hover {background-color: #fcfcfc;border: solid 1px #28c3fc;}
+</style>
+}

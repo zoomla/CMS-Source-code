@@ -1,0 +1,30 @@
+#
+# robots.txt for Zoomla!CMS2
+#
+
+User-agentUser-agent: *
+Disallow: /API/
+Disallow: /Admin/
+Disallow: /App_Code/
+Disallow: /App_Data/
+Disallow: /App_Themes/
+Disallow: /bin/
+Disallow: /Config/
+Disallow: /Common/
+Disallow: /dist/
+Disallow: /Guest/
+Disallow: /Install/
+Disallow: /Template/
+Disallow: /User/
+Disallow: /UploadFiles/
+Disallow: /MIS/
+Disallow: /Manage/
+Disallow: /JS/
+Disallow: /Language/
+Disallow: /Log/
+Disallow: /Plat/
+Disallow: /PayOnline/
+Disallow: /Plugins/
+Disallow: /Tools/
+Disallow: /Prompt/
+Disallow: /Web.config

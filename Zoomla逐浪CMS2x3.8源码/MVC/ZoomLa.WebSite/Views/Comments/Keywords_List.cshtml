@@ -1,0 +1,29 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.url = "Keyword_Data?pri="+Request["pri"];
+    Model.cols = 10;
+}
+<div id="EGV">
+    <ul class="OspcList">
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <li class="project list@(Model.dt.Rows.IndexOf(dr))" style="overflow: hidden;" onclick="location='/Comments/KeywordContact?tagkey=@dr["KeywordText"]';">
+                <div class="project-info">
+                    <div><h3>@dr["KeywordText"]</h3></div>
+                    <p>最近一条相关内容在@(DataConverter.CDate(dr["LastUseTime"]).ToString("yyyy-MM-dd HH:mm:ss"))添加</p>
+                    <span>共有文章记录@(dr["ConCount"])条,商品记录@(dr["ComCount"])条</span>
+                </div>
+                <div class="mask"></div>
+            </li>
+        }
+    </ul>
+    <div class="clear"></div>
+    @if (Model.itemCount > 0)
+    {
+        <div class="text-center">
+            @Html.Partial("_page2", Model)
+        </div>
+    }
+</div>

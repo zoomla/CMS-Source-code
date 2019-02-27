@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>122</LabelID>
+    <LabelName>常规商品数据源</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>数据源标签</LabelCate>
+    <LabelDesc>用于商品内容页输出数据源</LabelDesc>
+    <LabelParam>InfoID,0,2,内容ID</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Commodities left join {table1}.dbo.ZL_P_Shop on {table1}.dbo.ZL_Commodities.ItemID={table1}.dbo.ZL_P_Shop.ID</LabelTable>
+    <LabelField>ZL_Commodities.*,ZL_P_Shop.*</LabelField>
+    <LabelWhere>ZL_Commodities.ID=@InfoID</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount>0</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

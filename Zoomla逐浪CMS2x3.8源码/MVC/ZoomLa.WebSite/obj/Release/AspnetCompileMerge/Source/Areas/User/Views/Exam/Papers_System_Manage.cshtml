@@ -1,0 +1,36 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>系统试卷管理</title>
+}
+@section content{
+    <div id="pageflag" data-nav="edu" data-ban="ke"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Default","")">用户中心</a></li>
+            <li class="active">组卷管理 [<a href="AddPaper?menu=Add">添加试卷</a>]</li>
+        </ol>
+    </div>
+<form id="form1" method="post">
+    <div class="container margin_t10">
+        @Html.Partial("Papers_System_Manage_List", Model)
+        <div class="clearbox"></div>
+        <input type="button" value="批量删除" class="btn btn-primary" onclick="mvcpage.bat({url:'paper_del',confirm:'确定要删除吗',after:'reload'})" />
+        <input type="button" value="合并试卷" class="btn btn-primary" onclick="merge();" />
+        @*<button id="btndelete" class="btn btn-primary" onclick="BtnDelete_Click">批量删除</button>
+            <button id="combine_btn" class="btn btn-primary" onclick="Combine_Btn_Click">合并试卷</button>*@
+    </div>
+</form>
+}
+@section script{
+<script src="/JS/SelectCheckBox.js"></script>
+<script>
+    function merge() {
+        if ($("input[name='idchk']:checked").length < 1) { alert("请选择需要合并的试卷"); return; }
+        $("#form1").attr("action", "paper_merge");
+        $("#form1").submit();
+    }
+</script>
+}

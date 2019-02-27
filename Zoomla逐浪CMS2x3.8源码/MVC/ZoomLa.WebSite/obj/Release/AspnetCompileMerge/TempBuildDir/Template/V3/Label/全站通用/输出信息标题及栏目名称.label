@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>623</LabelID>
+    <LabelName>输出信息标题及栏目名称</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,25,1,标题长|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,NodeID,Title,TitleStyle</LabelField>
+    <LabelWhere>(NodeID=@NodeID Or FirstNodeID=@NodeID) And Status=99</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl()/}" class="class" target="{ZL:GetNodeOpen({Field="NodeID"/})/}"&gt;[{ZL.Label id="输出指定ID节点名" NodeID="{Field="NodeID"/}" /}]&lt;/a&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}" target="{ZL:GetInfoOpen({Field="NodeID"/})/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,..)/}&lt;/a&gt;&lt;/li&gt;
+ {/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

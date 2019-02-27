@@ -1,0 +1,25 @@
+﻿<div style="width: 958px; height: 620px; border: #d9e0ea 1px solid;">
+    <div id="picarea" style="margin: 0px auto; width: 958px; background: #fff; height: 620px; ">
+        <div style="margin: 0px auto; width: 774px; height: 436px; overflow: hidden">
+            <div style="margin: 0px auto; width: 774px; height: 436px; overflow: hidden; " id="bigpicarea">
+                <p style="z-index: 100; position: absolute; width: 35px; height: 51px; TOP: 186px; CURSOR: pointer; LEFT: 30px" class="bigbtnPrev"><span id="big_play_prev" style="BACKGROUND-IMAGE: url(/Design/Diag/gallery/slide/img/leftbig.png); width: 35px; DISPLAY: block; height: 51px; _background: none; "></span></p>
+                <div id="item.orderid" class="image" ng-repeat="item in model.dataMod.items|orderBy:'orderid'">
+                    <a href="{{item.click}}"><img src="{{item.url}}" style="width:772px;height:434px;" /></a>
+                    <div class="word">{{item.name}}</div>
+                </div>
+                <p style="z-index: 100; position: absolute; width: 35px; height: 51px; top: 186px; cursor: pointer; right: 30px" class="bigbtnNext"><span id="big_play_next" style="BACKGROUND-IMAGE: url(/Design/Diag/gallery/slide/img/rightbig.png); width: 35px; DISPLAY: block; height: 51px; _background: none; "></span></p>
+            </div>
+        </div>
+        <div id="smallpicarea" style="margin: 0px auto; width: 958px; border-top: #ececec 1px solid; PADDING-TOP: 20px">
+            <div id="thumbs" style="MARGIN: 0px auto; width: 830px; height: 110px">
+                <ul class="list-unstyled">
+                    <li class="first btnPrev" style="margin: 25px 10px 0px 15px; width: 9px; height: 16px; cursor: pointer; float: left; "><img id="play_prev" src="/Design/Diag/gallery/slide/img/left.png" /></li>
+                    <li ng-repeat="item in model.dataMod.items|orderBy:'orderid'"  class="slideshowItem" style="margin: 0px 7px; width: 90px; display: inline; float: left; height: 60px">
+                        <a id="item.orderid" href="javascript:;" style="border: #fff 2px solid; width: 90px; display: block;"><img src="{{item.url}}" style="width:90px;height:60px;" /></a>
+                    </li>
+                    <li class="last btnNext" style="margin: 25px 10px 0px 15px; width: 9px; height: 16px; cursor: pointer;float:left; "><img id="play_next" src="/Design/Diag/gallery/slide/img/right.png" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

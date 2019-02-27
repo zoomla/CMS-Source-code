@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>154</LabelID>
+    <LabelName>商城商品列表_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>商城</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,25,1,标题长|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_Commodities left join ZL_P_Shop on ZL_Commodities.ItemID=ZL_P_Shop.ID</LabelTable>
+    <LabelField>ZL_Commodities.AddTime,ZL_Commodities.LinPrice,ZL_Commodities.Nodeid,ZL_Commodities.Proname,ZL_Commodities.ShiPrice,ZL_Commodities.Thumbnails,ZL_Commodities.id</LabelField>
+    <LabelWhere>ZL_Commodities.Nodeid=@NodeID </LabelWhere>
+    <LabelOrder>ZL_Commodities.AddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" target="_blank"&gt;&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}" alt="{Field="Proname"/}" class="imgs" /&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" target="_blank" title="{Field="Proname"/}"&gt;{ZL:CutText({Field="Proname"/},@TitleNum,)/}&lt;/a&gt;&lt;/strong&gt;&lt;br /&gt;
+零售价：&lt;strong&gt;￥{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/strong&gt;&lt;br /&gt; 市场价：&lt;span class="throught"&gt;￥{ZL:GetMoney({Field="ShiPrice"/},2,1)/}&lt;/span&gt;
+&lt;/li&gt;&lt;!--商品展示之一 --&gt;
+{/Repeate}
+{ZL.Page/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>大于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

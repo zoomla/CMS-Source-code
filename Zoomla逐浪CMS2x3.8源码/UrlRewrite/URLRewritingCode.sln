@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLRewriter", "URLRewriter\URLRewriter.csproj", "{31740848-5613-4864-8AEA-473B2483D982}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActionlessForm", "ActionlessForm\ActionlessForm.csproj", "{9675A0B1-4824-4E3B-9373-3BB90C82C179}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31740848-5613-4864-8AEA-473B2483D982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31740848-5613-4864-8AEA-473B2483D982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31740848-5613-4864-8AEA-473B2483D982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31740848-5613-4864-8AEA-473B2483D982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9675A0B1-4824-4E3B-9373-3BB90C82C179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9675A0B1-4824-4E3B-9373-3BB90C82C179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9675A0B1-4824-4E3B-9373-3BB90C82C179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9675A0B1-4824-4E3B-9373-3BB90C82C179}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

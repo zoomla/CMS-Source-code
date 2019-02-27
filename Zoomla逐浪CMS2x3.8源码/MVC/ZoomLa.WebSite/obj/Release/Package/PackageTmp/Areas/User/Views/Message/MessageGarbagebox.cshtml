@@ -1,0 +1,27 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>垃圾箱</title>
+}
+@section content{
+<div id="pageflag" data-nav="index" data-ban="pub"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li><a href="@Url.Action("Message", "Message")">消息中心</a></li>
+        <li class="active">垃圾箱</li>
+    </ol>
+</div>
+<div class="container">
+    @Html.Partial("MessageTop")
+</div>
+<div class="container btn_green margin_t10">
+   @Html.Partial("MessageGarbagebox_List", Model)
+    <button id="batdel_btn" onclick="BatDel_Btn_Click" class="btn btn-primary">批量删除</button>
+</div>
+}
+@section script{
+
+}

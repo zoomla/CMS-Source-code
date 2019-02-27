@@ -1,0 +1,374 @@
+﻿{ZL.Source id="店铺商品数据源标签"/}
+{ZL.Source id="店铺模型数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="店铺商品数据源标签" FD="Proname" page="0"/}</title>
+{ZL:Boot()/}
+<meta name="Keywords" content="{SField sid="店铺商品数据源标签" FD="Tagkey" page="0"/}">
+<script src="{$SiteURL/}/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="{$SiteURL/}/js/jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$CssDir/}js/jqzoom.pack.1.0.1.js"></script> 
+<script type=text/javascript>
+function switchTab(mark,index,count) {
+	var curTab = document.getElementById("tab_"+mark+index)
+	var curList = document.getElementById("list_"+mark+index)
+
+	for(var i=0;i<=count;i++) {
+
+		var tabObj = document.getElementById("tab_"+mark+i) ;
+		var listObj = document.getElementById("list_"+mark+i) ;
+		if (i != index) {
+			if (tabObj) {tabObj.className = "";}
+			if (listObj) {listObj.style.display = "none" ;}
+		}
+	}
+
+	if (curTab) {curTab.className = "zc_on" ;}
+	if (curList) {curList.style.display = "block" ;}
+	return false;
+}
+</script> 
+</head>
+<body>
+<div class="container">
+<div id="top_l">{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</div>
+ <div class="clear"></div>
+</div>
+ <div class="navbar navbar-default">
+<div class="navbar navbar-static-top Myheader" role="navigation" id="scolls">
+<div class="container ">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">智能切换导航</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+ </div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+    <li><a href="/Store/StoreIndex?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺首页</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(128)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">公司介绍</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(124)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺公告</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(126)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺商品</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(125)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">促销信息</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(127)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">人才招聘</a></li> 
+    </ul>
+</div>
+</div>
+</div>
+</div>
+
+ <div class="container mySites">
+<div class="row">
+<ul class="breadcrumb">
+<li><a href="/">首页</a><span class="divider"></span></li>
+<li><span class="divider"></span></li>
+<li>商品介绍 </li>
+ </ul>
+ </div>
+</div>
+ 
+ <div class="container">
+ <div class="row">
+<div  class="col-lg-3  col-md-3 col-sm-6 col-xs-12">
+
+  <div class="list-group  margintop10 padding0">
+ 
+   <a href="#" class="list-group-item active">
+ 店铺信息
+  </a>
+<a href="/Store/StoreIndex?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}"  class="list-group-item"><img src="{ZL:GetPicUrl({SField sid="店铺模型数据源标签" FD="logo" page="0"/})/}"></a>
+<a href="/Store/StoreIndex?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}"  class="list-group-item">{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</a>
+<a href="#" class="list-group-item">联系人：{SField sid="店铺模型数据源标签" FD="lxr" page="0"/}</a>
+<a href="#" class="list-group-item">联系方式：{SField sid="店铺模型数据源标签" FD="tel" page="0"/}</a> 
+<a href="#" class="list-group-item">所在城市：{SField sid="店铺模型数据源标签" FD="area" page="0"/}</a> 
+<a href="#" class="list-group-item">店铺地址：{SField sid="店铺模型数据源标签" FD="addr" page="0"/}</a>
+  <div class="clearfix"></div>
+</div>
+
+  
+ <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <span class="badge"><a href="{ZL:GetNodeLinkUrl(8)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+       男人
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+          <ul class="media-list">
+{ZL.Label id="节点列表" ParentID="8" ShowNum="10" /}
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(9)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+   女人
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <ul class="media-list">
+{ZL.Label id="节点列表" ParentID="9" ShowNum="10" /}
+</ul>
+      </div>
+    </div>
+  </div>
+  
+    <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(17)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+ 运动
+        </a>
+      </h4>
+    </div>
+   </div>
+   
+      <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(16)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+手机数码
+        </a>
+      </h4>
+    </div>
+   </div>
+   
+       <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(15)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+ 母婴
+        </a>
+      </h4>
+    </div>
+   </div> 
+ 
+</div><!--左 -->
+
+<div  class="col-lg-9  col-md-9 col-sm-6 col-xs-12">
+  <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 padding0">
+  <div class="proimg">
+		<div class="tablist block">
+  
+		<a href="/{SField sid="店铺商品数据源标签" FD="Thumbnails" page="0"/}" class="jqzoom" style="" title="{SField sid="店铺商品数据源标签" FD="ProName" page="0"/}">
+		<div id="jkdd"></div>
+<script> 
+var mark='{SField sid="店铺商品数据源标签" FD="pics" page="0"/}';
+var str1=mark.split('$')
+var n1=mark.lastIndexOf('图片地址1|')+6;　
+if(str1.length>1){
+var n2=mark.lastIndexOf('$图片地址2');
+mark=mark.substring(n1,n2);
+document.getElementById("jkdd").innerHTML="<img src='/UploadFiles/"+mark+"'  alt='商品大图' id='turnimg' />";
+}
+else{
+mark=mark.substring(n1);
+document.getElementById("jkdd").innerHTML="<img src='/UploadFiles/"+mark+"'  alt='商品大图' id='turnimg' />";
+}
+</script>
+</a>
+</div>
+ 	<ul id="tab1">
+	<div class="clear"></div> 
+	</ul>
+	</div>
+  </div>
+
+  <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 padding0">
+ <h1>{SField sid="店铺商品数据源标签" FD="Proname" page="0"/}</h1>
+
+  <div class="main_con">
+<span>
+&nbsp;&nbsp;编号:{SField sid="店铺商品数据源标签" FD="ProCode" page="0"/}</span><br/>
+<span>
+&nbsp;&nbsp;品牌:{SField sid="店铺商品数据源标签" FD="brand" page="0"/}</span><br/>
+<span>
+ &nbsp;&nbsp;库存:{SField sid="店铺商品数据源标签" FD="stock" page="0"/}{SField sid="店铺商品数据源标签" FD="Prounit" page="0"/}</span><br/>
+<span>
+ &nbsp;&nbsp;零售价:{ZL:GetMoney({SField sid="店铺商品数据源标签" FD="ShiPrice" page="0"/},2,1)/}元</a></span><br/> 
+<span> &nbsp;&nbsp;会员价:{ZL:GetMoney({SField sid="店铺商品数据源标签" FD="UserPrice" page="0"/},2,1)/}元</span><br/>
+</div> 
+
+<div class="to_buy">
+<form name="form" action="/Cart/Cart.aspx" id="form" style="margin-bottom:10px;">
+<input type="hidden" id="SID"  name="StoreID" value="{ZL.Label id="根据用户名得到店铺ID" UserName="{SField sid="店铺商品数据源标签" FD="AddUser" page="0"/}" /}" />
+<input name="id" type="hidden" id="id" value="{SField sid="店铺商品数据源标签" FD="ID" page="0"/}" />
+我要买 <a href="javascript:;" class="J_minus">-</a><input name="Pronum" type="text" id="Pronum" value="1" class="J_input" size="10" /><a href="javascript:;" class="J_add">+</a>{SField sid="店铺商品数据源标签" FD="Prounit" page="0"/}
+<div style="display:none"><input type="submit" name="button" id="button" value="提交" />
+</div> 
+</form> 
+<button type="button" onClick="subm()" class="btn btn-danger"><i class="fa fa-shopping-cart"></i> 立即购买</button>
+<button type="button" onClick="AddCart()" class="btn btn-danger"><i class="fa fa-plus-square"></i> 加入购物车</button>
+<a onclick="addfav()" href="javascript:;" class="btn btn-link"><i class="fa fa-eye"></i> 关注商品</a> 
+</div> 
+</div>
+<div class="clearfix"></div>
+<div class="sym_top">商品详细</div>
+<div class="sym">
+{SField sid="店铺商品数据源标签" FD="Procontent" page="0"/}
+</div>
+
+ 
+</div><!--右 -->
+</div>
+</div>
+
+{ZL.Label id="响应式全站底部"/}
+<script> 
+//商品图片切换 
+$('#tab1 img').click(function(){
+var proimgsrc=$(this).attr('src');
+$('#turnimg').attr('src',proimgsrc);
+$('.jqzoom').attr('href',proimgsrc)
+})
+ 
+$(document).ready(function(){
+	$(function() {
+		var options =
+		{
+		zoomWidth: 300,
+	zoomHeight: 300,
+		lens:false
+		}
+		$(".jqzoom").jqzoom(options) //NO.1 image
+	})
+})
+
+function subm(){
+document.forms[0].submit(); 
+}
+function addfav() {
+    $.post("/API/mod/collect.ashx", {action:"add",favurl:"/Store/Shopinfo.aspx?ID={SField sid="店铺商品数据源标签" FD="ID" page="0"/}",infoid:"{SField sid="店铺商品数据源标签" FD="ID" page="0"/}",type:3,title:"{SField sid="店铺商品数据源标签" FD="Title" page="0"/}"},function(data){
+    var model=JSON.parse(data);
+    if(APIResult.isok(model)){
+        alert("收藏成功!");
+    }else{
+        alert("收藏失败!原因:"+model.retmsg);
+    }
+});
+}
+	
+/*商品加减*/
+$.fn.iVaryVal=function(iSet){
+iSet=$.extend({Minus:$('.J_minus'),Add:$('.J_add'),Input:$('.J_input'),Min:0,Max:20,Fun:null},iSet);
+var C=null,O=null;
+//输出值全局对象[若担心全局对象污染，可定义一个hidden表单，向其传值]
+$GLOBAL={};
+//增加
+iSet.Add.each(function(i){
+	$(this).click(function(){
+		O=parseInt(iSet.Input.eq(i).val());
+		(O+1<=iSet.Max) || (iSet.Max==null) ? iSet.Input.eq(i).val(O+1) : iSet.Input.eq(i).val(iSet.Max);
+		//输出当前改变后的值
+		$GLOBAL.val=iSet.Input.eq(i).val();
+		$GLOBAL.index=i;
+		//回调函数
+		if (typeof iSet.Fun == 'function') {
+			iSet.Fun.call(this);
+		}
+	});
+});
+//减少
+iSet.Minus.each(function(i){
+	$(this).click(function(){
+		O=parseInt(iSet.Input.eq(i).val());
+		O-1<iSet.Min ? iSet.Input.eq(i).val(iSet.Min) : iSet.Input.eq(i).val(O-1);
+		$GLOBAL.val=iSet.Input.eq(i).val();
+		$GLOBAL.index=i;
+		//回调函数
+		if (typeof iSet.Fun == 'function') {
+			iSet.Fun.call(this);
+		}
+	});
+});
+//手动
+iSet.Input.bind({
+	'click':function(){
+		O=parseInt($(this).val());
+		$(this).select();
+	},
+	'keyup':function(e){
+		if($(this).val()!=''){
+			C=parseInt($(this).val());
+			//非负整数判断
+			if(/^[1-9]\d*|0$/.test(C)){
+				$(this).val(C);
+				O=C;
+			}else{
+				$(this).val(O);
+			}
+		}
+		//键盘控制：上右--加，下左--减
+		if(e.keyCode==38 || e.keyCode==39){
+			iSet.Add.eq(iSet.Input.index(this)).click();
+		}
+		if(e.keyCode==37 || e.keyCode==40){
+			iSet.Minus.eq(iSet.Input.index(this)).click();
+		}
+		//输出当前改变后的值
+		$GLOBAL.val=$(this).val();
+		$GLOBAL.index=iSet.Input.index(this);
+		//回调函数
+		if (typeof iSet.Fun == 'function') {
+			iSet.Fun.call(this);
+		}
+	},
+	'blur':function(){
+		$(this).trigger('keyup');
+		if($(this).val()==''){
+			$(this).val(O);
+		}
+		//判断输入值是否超出最大最小值
+		if(iSet.Max){
+			if(O>iSet.Max){
+				$(this).val(iSet.Max);
+			}
+		}
+		if(O<iSet.Min){
+			$(this).val(iSet.Min);
+		}
+		//输出当前改变后的值
+		$GLOBAL.val=$(this).val();
+		$GLOBAL.index=iSet.Input.index(this);
+		//回调函数
+		if (typeof iSet.Fun == 'function') {
+			iSet.Fun.call(this);
+		}
+	}
+});
+}
+//调用
+$( function() {
+
+$('.i_box').iVaryVal({Fun:function(){
+	
+}});
+});
+function AddCart()
+{
+	if($("#Pronum").val()>0)
+	{
+		$.post("/Cart/Cart.aspx?ID="+$("#id").val()+"&StoreID="+$("#SID").val()+"&Pronum="+$("#Pronum").val());
+		alert("加入购物车成功！")
+	}
+	else
+		alert("商品数量不正确!");
+}
+</script>
+</body>
+</html>

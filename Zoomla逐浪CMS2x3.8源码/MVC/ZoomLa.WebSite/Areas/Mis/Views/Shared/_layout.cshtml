@@ -1,0 +1,92 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/App_Themes/User.css" />
+    <script src="/JS/jquery-1.11.1.min.js"></script>
+    <script src="/JS/ICMS/ZL_Common.js"></script>
+    <script src="/JS/Modal/APIResult.js"></script>
+    <script src="/JS/jquery.validate.min.js"></script>
+    <script src="/JS/ZL_Regex.js"></script>
+    <script src="/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/JS/FrameTab.js"></script>
+    <script src="/JS/mvcpage.js"></script>
+    @RenderSection("head")
+</head>
+<body>
+<div id="header" style="position:inherit;">
+    <div class="container" style="position:relative;">
+        <div class="M_top_r_t">
+            <ul class="list-inline pull-right">
+                <li><a href="@(CustomerPageAction.customPath2)login.aspx" target="_blank">系统管理</a></li>
+                <li><a href="#">购买帮助</a></li>
+                <li><a href="/user/user/logout?url=/Mis/">退出</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div id="Mis_logo">@Call.SiteName  </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div id="M_top_r">
+                <div class="M_top_r_b">
+                    <ul class="list-inline pull-right">
+                        <li><a href="/Mis/Home/Default" id="hd"><i class="fa fa-home"></i><br />面板</a></li>
+                        <li><a href="/Plat/" id="hd0"><i class="fa fa-comments"></i><br />沟通</a></li>
+                        <li><a href="/Mis/Target/Default" id="hd1"><i class="fa fa-info-circle"></i><br />目标</a></li>
+                        <li><a href="/Plat/Daily/Default.aspx" id="hd2"><i class="fa fa-edit"></i><br />日志</a></li>
+                        <li><a href="/Mis/Memo/Default" id="hd3"><i class="fa fa-list-alt"></i><br />备忘</a></li>
+                        <li><a href="/Plat/Blog/DailyPlan.aspx" id="hd4"><i class="fa fa-pie-chart"></i><br />计划</a></li>
+                        <li><a href="/Plat/Task/" id="hd5"><i class="fa fa-tasks"></i><br />任务</a></li>
+                        <li><a href="/Plat/Blog/Project.aspx" id="hd6"><i class="fa fa-file-text-o"></i><br />项目</a></li>
+                        <li><a href="/Mis/Approval/Default" id="hd7"><i class="fa fa-sun-o"></i><br />审批</a></li>
+                        <li><a href="javascript:void(0)" onClick="showd('t_pop_navli')"><i class="fa fa-ellipsis-h"></i><br />更多</a></li>
+                    </ul>
+                </div>
+                <div class="t_pop_navli" id="t_pop_navli" style="display:none;">
+                    <div class="bgt"></div>
+                    <div class="bgm">
+                        <ul>
+                            <li class="j_ico_docu"><a href="/Mis/File/"><i class="fa fa-file-word-o"></i><br />文档</a></li>
+                            <li class="j_ico_know"><a href=""><i class="fa fa-book"></i><br />知识</a></li>
+                            <li class="j_ico_discuss"><a href=""><i class="fa fa-comments"></i><br />讨论</a></li>
+                            <li class="j_ico_attent"><a href=""><i class="fa fa-eye"></i><br />关注</a></li>
+                            <li class="j_ico_attend"><a href="/Mis/MisAttendance"><i class="fa fa-sign-in"></i><br />考勤</a></li>
+                            <li class="j_ico_twitter"><a href=""><i class="fa fa-weibo"></i><br />微博</a></li>
+                            <li class="j_ico_bbs"><a href=""><i class="fa fa-bars"></i><br />论坛</a></li>
+                            <li class="j_ico_notice"><a href="javascript:void(0)" onClick="loadPage('Meno', '/Class_76/NodePage.aspx')"><i class="fa fa-bookmark"></i><br />公告</a></li>
+                            <li class="j_ico_address"><a href=""><i class="fa fa-eraser"></i><br />通讯录</a></li>
+                            <!--<li class="j_ico_exprience"><a href="">工作历程</a></li> -->
+                            <li class="j_ico_sysremd"><a href="javascript:void(0)" onClick="loadPage('Meno', '/user/Message/Message')"><i class="fa fa-volume-up"></i><br />系统提醒</a></li>
+                            <li class="j_ico_relacomp"><a href=""><i class="fa fa-users"></i><br />友好企业</a></li>
+                            <li class="j_ico_online"><a href="javascript:window.open('/OnlineService/ShowForm.aspx','','width=640,height=550,top=200,left=300,resizable=yes');void(0);"><i class="fa fa-headphones"></i><br />在线客服</a></li>
+                            <li class="j_ico_site"><a href="/admin/Template/CloudLead.aspx" target="_Blank"><i class="fa fa-sitemap"></i><br />建站通</a></li>
+                            <li class="j_ico_cloud"><a href="javascript:void(0)" onClick="loadPage('Meno', '/Class_105/NodePage.aspx')"><i class="fa fa-cloud"></i><br />云盘</a></li>
+                        </ul><div style="clear:both;display:block;"></div>
+                    </div>
+                    <div class="bgb"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="thumbnail">
+        <div id="main_right_frame">
+            @RenderSection("content")
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div> 
+<div>@RenderSection("script", false)</div>
+</body>
+</html>

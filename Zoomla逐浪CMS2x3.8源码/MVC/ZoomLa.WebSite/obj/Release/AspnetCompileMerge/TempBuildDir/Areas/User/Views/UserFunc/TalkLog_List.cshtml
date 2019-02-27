@@ -1,0 +1,47 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.url = "TalkLog";
+    Model.cols = 5;
+}
+@functions{
+    B_User buser = new B_User();
+    public string GetSender(int uid)
+    {
+        return buser.GetUserByUserID(uid).UserName;
+    }
+    public string GetReceUser(string reuser)
+    {
+        string[] ids = reuser.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        return "<a href='javascript:;' onclick='ShowUInfo(" + ids[0] + ")'>" + buser.GetUserByUserID(DataConverter.CLng(ids[0])).UserName + "</a>";
+    }
+}
+<div id="EGV" class="container">
+    <table class="table table-striped table-bordered table-hover margin_t10">
+        @if (Model.itemCount > 0)
+        {
+            <tr><th class="td_m">ID</th><th class="td_md">发送者</th><th class="td_md">接收者</th><th>内容</th><th class="td_l">发送时间</th></tr>
+            foreach (DataRow dr in Model.dt.Rows)
+            {
+                <tr>
+                    <td>@dr["ID"]</td>
+                    <td><a href="javascript:;" onclick="ShowUInfo('@dr["UserID"]')">@GetSender(DataConverter.CLng(dr["UserID"]))</a></td>
+                    <td>@MvcHtmlString.Create(GetReceUser(dr["ReceUser"].ToString()))</td>
+                    <td>@MvcHtmlString.Create(dr["Content"].ToString())</td>
+                    <td>@DataConverter.CDate(dr["CDate"]).ToString("yyyy/MM/dd HH:mm:ss")</td>
+                </tr>
+            }
+            @Html.Partial("_page", Model)
+        }
+        else
+        {
+            <tr><td colspan="4">无相关数据!!</td></tr>
+        }
+    </table>
+    <style>
+        img { max-height: 50px; max-width: 50px; }
+        .allchk_l{display:none;}
+    </style>
+</div>

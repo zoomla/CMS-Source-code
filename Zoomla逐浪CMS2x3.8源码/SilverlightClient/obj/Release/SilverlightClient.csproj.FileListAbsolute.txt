@@ -1,0 +1,4 @@
+E:\Code\Zoomla6x\SilverlightClient\obj\Release\SilverlightClient.csprojResolveAssemblyReference.cache
+E:\Code\Zoomla6x\SilverlightClient\obj\Release\App.g.cs
+E:\Code\Zoomla6x\SilverlightClient\obj\Release\MainPage.g.cs
+E:\Code\Zoomla6x\SilverlightClient\obj\Release\SilverlightClient.g.resources

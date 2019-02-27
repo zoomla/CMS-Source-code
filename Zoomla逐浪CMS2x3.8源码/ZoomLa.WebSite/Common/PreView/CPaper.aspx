@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CPaper.aspx.cs" Inherits="Common_PreView_CPaper" %>

@@ -1,0 +1,33 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    // 数字
+    //TitleSize=35,NumberType=1,DefaultValue=50,NumSearchType=0,NumRangType=1,NumSearchRang=0-100,NumLenght=0
+    string Name = Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+    int NumberType = model.GetValInt("NumberType");
+    int NumLenght = model.GetValInt("NumLenght");
+    int size = model.GetValInt("TitleSize");
+    string value = Model.GetValue();
+    value = DataConverter.CDouble(value).ToString("F" + NumLenght);
+}
+@switch (NumberType)
+{
+    case 1://整数
+        <input type="text" class="form-control text_md" name="txt_@Name" id="txt_@Name" size="@size" value="@value" onkeyup="this.value=this.value.replace(/\\D/g,'');" />@Model.fieldMod.Description
+        break;
+    case 2://小数
+        {
+            <input type="text" class="form-control text_md" name="txt_@Name" id="txt_@Name" size="@size" value="@value" onkeyup="this.value = this.value.replace(/\\D/g, '');" />@Model.fieldMod.Description
+        }
+        break;
+    case 3://货币
+        {
+            <input type="text" class="form-control text_md" name="txt_@Name" id="txt_@Name" size="@size" value="@value" onkeyup="this.value = this.value.replace(/\\D/g, '');" />@Model.fieldMod.Description
+        }
+        break;
+}

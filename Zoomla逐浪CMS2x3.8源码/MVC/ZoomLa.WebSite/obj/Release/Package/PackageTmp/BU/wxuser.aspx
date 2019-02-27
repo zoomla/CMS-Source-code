@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wxuser.aspx.cs" Inherits="ZoomLaCMS.BU.wxuser" %>

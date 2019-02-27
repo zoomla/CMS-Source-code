@@ -1,0 +1,84 @@
+﻿@using System.Data
+@model System.Data.DataTable
+@functions{
+    //出勤
+    public int CheckDays(string Name)
+    {
+        return 0;
+    }
+    //旷工
+    public int CheckNoWork(string Name)
+    {
+        return 0;
+    }
+    //迟到
+    public int CheckLate(string Name)
+    {
+        return 0;
+    }
+    //早退
+    public int CheckLeave(string Name)
+    {
+        return 0;
+    }
+    //缺卡
+    public int CheckLost(string Name)
+    {
+        return 0;
+    }
+    //晚卡
+    public int CheckLates(string Name)
+    {
+        return 0;
+    }
+}
+@{
+    int[] years = new int[] { 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016 };
+    string[] months = new string[] { "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月" };
+}
+<style type="text/css"> .auto-style1 {width: 112px;}</style>
+<div>
+    <div class="CheckTime">
+        <select id="year" name="year">
+            @for (int i = 0; i < years.Length; i++)
+            {
+                <option @if (DateTime.Now.Year == years[i]) { Html.Raw("selected='selected'"); } value="@years[i]">@(years[i])年</option>
+            }
+        </select>
+        <select id="month" name="month">
+            @for (int i = 0; i < months.Length; i++)
+            {
+                <option @if (DateTime.Now.Month == i + 1) { Html.Raw("selected='selected'"); } value="@(i + 1)">@months[i]</option>
+            }
+        </select>
+    </div>
+    <div class="HeadCount"> </div>
+    <div class="TabShow">
+        <table style="width:700px;">
+            <tr class="TrInfo">
+                <td class="tdName" align="center">姓名</td>
+                <td class="tdDepart" align="center">部门</td>
+                <td class="tdRel" align="center">实际出勤/次</td>
+                <td class="tdNowork" align="center">旷工/次</td>
+                <td class="tdLate" align="center">迟到/次</td>
+                <td class="tdEarly" align="center">早退/次</td>
+                <td class="tdLose" align="center">缺卡/次</td>
+                <td class="tdLates" align="center">晚卡/次</td>
+            </tr>
+            @foreach (DataRow dr in Model.Rows)
+            {
+                <tr>
+                    <td align="center">@dr["UserName"]</td>
+                    <td align="center"></td>
+                    <td align="center">@CheckDays(dr["UserName"].ToString())</td>
+                    <td align="center">@CheckNoWork(dr["UserName"].ToString())</td>
+                    <td align="center">@CheckLate(dr["UserName"].ToString())</td>
+                    <td align="center">@CheckLeave(dr["UserName"].ToString())</td>
+                    <td align="center">@CheckLost(dr["UserName"].ToString())</td>
+                    <td align="center">@CheckLates(dr["UserName"].ToString())</td>
+                </tr>
+            }
+        </table>
+        <input type="hidden" id="HidDays" />
+    </div>
+</div>

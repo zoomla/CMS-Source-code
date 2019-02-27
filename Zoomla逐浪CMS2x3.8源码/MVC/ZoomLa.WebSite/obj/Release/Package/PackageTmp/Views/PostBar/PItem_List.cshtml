@@ -1,0 +1,139 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@using ZoomLa.BLL.Plat
+@model ZoomLaCMS.Models.Bar.VM_PItem
+@{
+    B_Blog_Msg msgBll = new B_Blog_Msg();
+    Model.setting.cols = 10;
+    Model.setting.url = "PItem?id=" + Model.barMod.ID;
+}
+<div id="EGV">
+@foreach (DataRow dr in Model.setting.dt.Rows)
+{
+    if(Model.HidePost)
+    {
+        
+    }
+    else
+    {
+        <div class="msgmain_div stickem-container" id="msgmain_div_@Model.barMod.ID">
+        <div class="msg_content_div padding0 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-push-2">
+            <div class="post_msg bar_conent_img">
+                <div class="msg_content_article_div thumbnail_div">@Model.GetMsg(dr)</div>
+            </div>
+            @if (DataConverter.CLng(dr["Pid"]) == 0)//首楼加载能力中心
+            {
+                DataTable dt = msgBll.Sel(DataConverter.CLng(dr["ID"]), "plat");
+                if(dt.Rows.Count>0)
+               {
+                   <div id="plat_div" class="reply_exinfo_div">
+                    <div><strong><i class="fa fa-share-alt-square"></i> 能力中心</strong></div>
+                    @foreach (DataRow item in dt.Rows)
+                    {
+                        <div style="padding-top: 5px; border-bottom: 1px dashed #ddd;">
+                            <div style="float: left;">
+                                <img class="replyface" src="@item["userface"]" onerror="shownoface(this);" />
+                            </div>
+                            <div style="float: left; overflow: hidden; text-overflow: ellipsis; padding-left: 5px;">
+                                <a href="javascript:;">@item["CUName"]：</a>
+                            </div>
+                            <div style="float: left;">@MvcHtmlString.Create(DataConverter.CStr(item["MsgContent"]))</div>
+                            <div class="clearfix"></div>
+                            <div class="text-right" style="font-size: 12px;">@DateHelper.ToDate(item["CDate"])</div>
+                        </div>
+                    }
+                </div>
+               }
+            }
+            <div class="post_msg_foot">
+                <div id="like_div_@dr["id"]">
+                    <ul class="likeids_div_ul">
+                        @Model.GetMedalBtn(dr)
+                        <li style="width: auto;">
+                            <a href="javascript:;" onclick="OPLike(@dr["id"]);" class="likeids_div_a">
+                                <i class="fa fa-thumbs-up"></i><span class="likenum_span likenum_text">(@Model.GetLikeNum(dr))</span>
+                            </a>
+                        </li>
+                        @Model.ShowLikeUser(dr)
+                    </ul>
+                </div>
+                <div id="medals_div_@dr["id"]" class="medal_list">
+                    @Model.ShowMedalList(dr)
+                </div>
+                <span class="layer">@Model.GetDel(dr)</span><span>@dr["RowNum"]楼</span>
+                @DateHelper.ToDate(dr["CDate"])
+                @if (DataConverter.CLng(dr["Pid"]) > 0)
+                {
+                    <a id='msg_toggle_a_@dr["ID"]' onclick='DisReply("@dr["ID"]");' style='cursor:pointer;'>收起回复</a>
+                }
+            </div>
+            @if(DataConverter.CLng(dr["Pid"])!=0)//首楼不需要显示子回复
+            {
+                <div id='reply_@dr["ID"]' class="post_reply">
+                <div id="reply_content_div_@dr["id"]">
+                    @Html.Action("PostReply", new { pid = dr["id"] })
+                </div>
+                <div class="post_reply_msg" id="reply_main_bottom_@dr["id"]">
+                    <div class="text-right">
+                        <input type="button" name="sayword_btn" data-id="@dr["id"]" value="我也说一句" class="btn btn-xs btn-primary" onclick="DisReplyul(@dr["ID"]);" />
+                    </div>
+                    @if(!Model.HidePost)
+                    {
+                        <ul style="display: none;" class="list-unstyled" id="reply_bottom_ul_@dr["id"]">
+                        <li>
+                            <textarea id="reply_ul_txt_@dr["id"]" class="form-control" placeholder="说一句吧..."></textarea>
+                        </li>
+                        <li class="reply_send">
+                            <input type="button" value="发表" class="btn btn-xs btn-primary" onclick="AddMessage(@dr["id"]);" />
+                        </li>
+                    </ul>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+        <div class="msg_left_div padding0 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-pull-10">
+            <div class="stickem">
+                <a href="@Model.GetHref(dr)">
+                    <img class="imgface_mid center-block" src='@dr["UserFace"]' data-uid="@dr["cuser"]" onerror="shownoface(this);" />
+                </a>
+                                <div class="postName text-center"><a href="@Model.GetHref(dr)">@B_User.GetUserName(dr["HoneyName"], dr["CUName"])</a></div>
+                                <div class="groupName">@Model.GetDel(dr,1)</div>
+                                <div class="msg_rel_div">
+                                    <div class="msg_rel_border"></div>
+                                    <div class="msg_rel_main">
+                                        <div class="col-md-4 col-xs-5 padding5">
+                                            <a href="@Model.GetHref(dr)">
+                                                <img class="img-responsive center-block" src='@dr["UserFace"]' onerror="shownoface(this);" />
+                                            </a>
+                                        </div>
+                                        <div class="col-md-8 col-xs-7 padding5">
+                                            <ul class="list-unstyled">
+                                                <li><span>积分：</span>@@UserExp</li>
+                                                <li><span>性别：</span>@@UserSex</li>
+                                                <li>@@GroupName</li>
+                                                <li><span>生日：@@UserBirth</span></li>
+                                                <li><span>注册时间：</span>@@RegTime</li>
+                                                <div class="clearfix"></div>
+                                                <li><a href="javascript:;" class="btn btn-xs btn-primary" onclick="PrivateOpen('@MVCHelper.To("UserID")','@MVCHelper.To("UserName")');"><i class="fa fa-envelope-o"></i>发送站内信</a></li>
+                                                <li><a href="javascript:;" class="btn btn-xs btn-success" onclick="AddFriend('@MVCHelper.To("UserID")')"><i class="fa fa-compress"></i>加为好友</a></li>
+                                                <li><span class="medalnum_span">加载中...</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+        <div class="clearfix"></div>
+      </div>
+    }
+}
+@if(Model.setting.pageCount>1)
+{
+    @Html.Partial("_page2",Model.setting)
+}
+
+</div>

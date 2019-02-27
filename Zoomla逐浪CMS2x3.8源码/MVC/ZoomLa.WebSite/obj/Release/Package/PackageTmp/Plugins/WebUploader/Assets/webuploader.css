@@ -1,0 +1,123 @@
+.upload-state-done:after,body{-webkit-font-smoothing:antialiased}
+#container{color:#838383;font-size:12px}
+#uploader .queueList{margin:20px;border:3px dashed #e6e6e6}
+#uploader .queueList.filled{margin:0;padding:17px;border:3px dashed transparent}
+#uploader .queueList.webuploader-dnd-over{border:3px dashed #999}
+#uploader p{margin:0}
+.element-invisible{position:absolute!important;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px)}
+#uploader .placeholder{position:relative;padding-top:178px;min-height:350px;background:url(../images/image.png) center 93px no-repeat;color:#ccc;text-align:center;font-size:18px}
+#uploader .placeholder .webuploader-pick{display:inline-block;margin:0 auto 20px;padding:0 30px;border-radius:3px;background:#00b7ee;box-shadow:0 1px 1px rgba(0,0,0,.1);color:#fff;font-size:18px;line-height:44px;cursor:pointer}
+#uploader .placeholder .webuploader-pick-hover{background:#00a2d4}
+#uploader .placeholder .flashTip{position:absolute;bottom:20px;width:100%;color:#666;text-align:center;font-size:12px}
+#uploader .placeholder .flashTip a{color:#0785d1;text-decoration:none}
+#uploader .placeholder .flashTip a:hover{text-decoration:underline}
+#uploader .filelist{margin:0;padding:0;list-style:none}
+#uploader .filelist:after{clear:both;display:block;overflow:hidden;width:0;height:0;content:''}
+#uploader .filelist li{position:relative;float:left;display:inline;overflow:hidden;margin:0 8px 20px 0;width:110px;height:110px;background:url(../images/bg.png) no-repeat;text-align:center;font-size:12px}
+#uploader .filelist li p.log{position:relative;top:-45px}
+#uploader .filelist li p.title{position:absolute;top:0;top:5px;left:0;overflow:hidden;width:100%;text-align:left;text-indent:5px;text-overflow:ellipsis;white-space:nowrap}
+#uploader .filelist li p.progress{position:absolute;bottom:0;left:0;z-index:50;overflow:hidden;margin:0;width:100%;height:8px;border-radius:0;background:0 0;-webkit-box-shadow:0 0 0}
+#uploader .filelist li p.progress span{display:none;width:0;height:100%;background:url(../images/progress.png) repeat-x #1483d8;-moz-transition:width 200ms linear;-o-transition:width 200ms linear;transition:width 200ms linear;-webit-transition:width 200ms linear;-ms-transition:width 200ms linear;animation:progressmove 2s linear infinite}
+#uploader .filelist li p.progress span,.file-item .progress span{overflow:hidden;-webkit-transform:translateZ(0);-webkit-animation:progressmove 2s linear infinite;-moz-animation:progressmove 2s linear infinite;-o-animation:progressmove 2s linear infinite;-ms-animation:progressmove 2s linear infinite}
+#uploader .filelist li p.imgWrap{position:relative;z-index:2;overflow:hidden;width:110px;height:110px;vertical-align:middle;line-height:110px;-moz-transition:200ms ease-out;-o-transition:200ms ease-out;transition:200ms ease-out;-webkit-transform-origin:50% 50%;-moz-transform-origin:50% 50%;-o-transform-origin:50% 50%;transform-origin:50% 50%;-ms-transform-origin:50% 50%;-webit-transition:200ms ease-out;-ms-transition:200ms ease-out}
+#uploader .filelist li img{width:100%}
+#uploader .filelist li p.error{position:absolute;bottom:0;left:0;z-index:100;width:100%;height:28px;background:#f43838;color:#fff;line-height:28px}
+#uploader .filelist li .success{position:absolute;bottom:0;left:0;z-index:200;display:block;width:100%;height:40px;background:url(../images/success.png) right bottom no-repeat}
+#uploader .filelist div.file-panel{position:absolute;top:0;left:0;z-index:300;overflow:hidden;width:100%;height:0;background:rgba(0,0,0,.5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#80000000', endColorstr='#80000000') \0}
+#uploader .filelist div.file-panel span{float:right;display:inline;overflow:hidden;margin:5px 1px 1px;width:24px;height:24px;background:url(../images/icons.png) no-repeat;text-indent:-9999px;cursor:pointer}
+#uploader .filelist div.file-panel span.rotateLeft{background-position:0 -24px}
+#uploader .filelist div.file-panel span.rotateLeft:hover{background-position:0 0}
+#uploader .filelist div.file-panel span.rotateRight{background-position:-24px -24px}
+#uploader .filelist div.file-panel span.rotateRight:hover{background-position:-24px 0}
+#uploader .filelist div.file-panel span.cancel{background-position:-48px -24px}
+#uploader .filelist div.file-panel span.cancel:hover{background-position:-48px 0}
+#uploader .statusBar{position:relative;padding:0 20px;height:63px;border-top:1px solid #dadada;vertical-align:middle;line-height:63px}
+#uploader .statusBar .progress{position:relative;display:inline-block;margin:0 10px 0 0;width:198px;height:18px;border:1px solid #1483d8;background:#fff;color:#6dbfff;text-align:center;line-height:20px}
+#uploader .statusBar .progress span.percentage{position:absolute;top:0;left:0;width:0;height:100%;background:#1483d8}
+#uploader .statusBar .progress span.text{position:relative;z-index:10}
+#uploader .statusBar .info{display:inline-block;color:#666;font-size:14px}
+#uploader .statusBar .btns{position:absolute;top:10px;right:20px;line-height:40px}
+#filePicker2{float:left;display:inline-block}
+#uploader .statusBar .btns .uploadBtn,#uploader .statusBar .btns .uploadBtn.state-paused,#uploader .statusBar .btns .uploadBtn.state-uploading,#uploader .statusBar .btns .webuploader-pick{float:left;display:inline-block;margin-left:10px;padding:0 18px;border:1px solid #cfcfcf;border-radius:3px;background:#fff;color:#565656;font-size:14px;cursor:pointer}
+.jumbotron,.logo.active{color:#fff}
+#uploader .statusBar .btns .uploadBtn.state-paused:hover,#uploader .statusBar .btns .uploadBtn.state-uploading:hover,#uploader .statusBar .btns .uploadBtn:hover,#uploader .statusBar .btns .webuploader-pick-hover{background:#f0f0f0}
+#uploader .statusBar .btns .uploadBtn{border-color:transparent;background:#00b7ee;color:#fff}
+#uploader .statusBar .btns .uploadBtn:hover{background:#00a2d4}
+#uploader .statusBar .btns .uploadBtn.disabled{opacity:.6;pointer-events:none}
+body{font-size:16px;font-family:"Myriad Pro","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Calibri,Helvetica,tahoma,arial,simsun,"宋体",sans-serif;line-height:1.5}
+.jumbotron{margin-bottom:0;background:url(../images/banner.jpg) 50% 0 repeat-x;text-shadow:1px 1px 1px #3b3262}
+.jumbotron .container{position:relative}
+.jumbotron .github-btns{position:absolute;right:0;bottom:0}
+.fetature{margin-top:30px}
+.page-body{min-height:450px}
+.page-container{margin-top:10px}
+.page-container h1,.page-container h2,.page-container h3{margin-top:-50px;padding-top:70px}
+.logo{position:relative;padding-left:60px}
+.logo span{position:absolute;top:8px;left:15px;text-shadow:0 -1px 0 rgba(0,0,0,.25);font-size:2em}
+.footer,.footer a{color:#f2f2f2}
+.footer{overflow:hidden;margin-top:50px;width:100%;background:#212121}
+.footer-fixed-bottom{position:fixed;bottom:0}
+.footer .footer-inner{margin:15px}
+.wu-example{position:relative;margin:15px 0;padding:45px 15px 15px;border-color:#e5e5e5 #eee #eee;border-style:solid;border-width:1px 0;background-color:#fafafa;box-shadow:inset 0 3px 6px rgba(0,0,0,.05)}
+.wu-example:after{position:absolute;top:15px;left:15px;color:#bbb;content:"请选择需要上传的文件,支持文件拖入和QQ截图(粘贴)";text-transform:uppercase;letter-spacing:1px;font-weight:700;font-size:12px}
+@media (min-width:768px){.fetature .row .col-lg-4{min-height:250px}
+.bs-example{margin-right:0;margin-left:0;border-color:#ddd;border-width:1px;border-radius:4px 4px 0 0;background-color:#fff;box-shadow:none}
+}
+.post-toc{margin-top:30px;margin-bottom:30px;padding-top:10px;padding-bottom:10px;border-radius:5px;background-color:#f7f5fa;text-shadow:0 1px 0 #fff}
+.post-toc .nav>li>a{display:block;padding:5px 20px;color:#716b7a}
+.post-toc .nav .nav>li>a{padding-top:3px;padding-bottom:3px;padding-left:30px;font-size:90%}
+.post-toc.affix{position:static}
+.post-toc .nav .nav{display:none;margin-bottom:8px}
+@media (min-width:992px){.post-toc.affix{position:fixed;top:50px;width:213px}
+.post-toc .nav>.active>ul{display:block}
+}
+@media (min-width:1200px){.post-toc.affix{width:263px}
+.post-toc .nav>.active>ul{display:block}
+}
+.post-toc .nav>.active:focus>a,.post-toc .nav>.active:hover>a,.post-toc .nav>.active>a{border-right:1px solid #563d7c;background-color:transparent;color:#563d7c;font-weight:700}
+#picker{display:inline-block;margin:0 12px 0 0;vertical-align:middle;line-height:1.428571429}
+#picker .webuploader-pick{display:block;padding:6px 12px}
+#uploader-demo .thumbnail{width:110px;height:110px}
+#uploader-demo .thumbnail img{width:100%}
+.uploader-list{overflow:hidden;width:100%}
+.file-item{position:relative;float:left;margin:0 20px 20px 0;padding:4px}
+.file-item .error,.file-item .info,.file-item .progress,.upload-state-done:after{position:absolute;right:4px}
+.file-item .error{top:4px;left:4px;height:20px;background:red;color:#fff;text-align:center;font-size:14px;line-height:23px}
+.file-item .info{bottom:4px;left:4px;z-index:10;overflow:hidden;height:20px;background:rgba(0,0,0,.6);color:#fff;text-indent:5px;text-overflow:ellipsis;white-space:nowrap;font-size:12px;line-height:20px}
+.upload-state-done:after{bottom:0;z-index:99;color:#4cae4c;content:"\f00c";font-weight:400;font-style:normal;font-size:32px;font-family:FontAwesome;line-height:1;-moz-osx-font-smoothing:grayscale}
+.file-item .progress{bottom:4px;left:4px;z-index:15;overflow:hidden;margin:0;padding:0;height:3px;height:4px;border-radius:0;background:0 0}
+.webuploader-container,a.travis{position:relative}
+.file-item .progress span{display:block;width:0;height:100%;background:url(../images/progress.png) repeat-x #d14;-moz-transition:width 200ms linear;-o-transition:width 200ms linear;transition:width 200ms linear;-webit-transition:width 200ms linear;-ms-transition:width 200ms linear;animation:progressmove 2s linear infinite}
+.imgview,.webuploader-pick{display:inline-block;overflow:hidden;cursor:pointer}
+@-webkit-keyframes progressmove{0%{background-position:0 0}
+100%{background-position:17px 0}
+}
+@-moz-keyframes progressmove{0%{background-position:0 0}
+100%{background-position:17px 0}
+}
+@keyframes progressmove{0%{background-position:0 0}
+100%{background-position:17px 0}
+}
+a.travis{top:-4px;right:15px}
+.webuploader-element-invisible{position:absolute!important;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px)}
+.webuploader-pick{position:relative;padding:10px 15px;border-radius:3px;background:#00b7ee;color:#fff;text-align:center}
+.webuploader-pick-hover{background:#00a2d4}
+.webuploader-pick-disable{opacity:.6;pointer-events:none}
+.imgview{width:100px;height:100px}
+.imgview .img{margin:auto auto auto 3px;width:90px;height:90px}
+.imgview .ext{display:block;margin:20px auto auto;width:50px;height:50px;background:url(/App_Themes/User/files-icon-big.png) no-repeat}
+.imgview .doc,.imgview .docx{background-position:0 0}
+.imgview .pdf{background-position:0 -60px}
+.imgview .ppt{background-position:0 -120px}
+.imgview .ps{background-position:0 -180px}
+.imgview .rar{background-position:0 -240px}
+.imgview .xls,.imgview .xlsx{background-position:0 -360px}
+.imgview .zip{background-position:0 -420px}
+.imgview .mp3{background-position:0 -480px}
+.imgview .mp4,.imgview .wmv{background-position:0 -540px}
+.imgview .undefined{background-position:0 -600px}
+.imgview .bmp,.imgview .gif,.imgview .jpg,.imgview .png{background-position:0 -660px}
+.imgview .html{background-position:0 -780px}
+.imgview .txt{background-position:0 -840px}
+.imgview .flv{background-position:0 -960px}
+.imgview .exe{background-position:0 -1020px}

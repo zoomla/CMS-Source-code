@@ -1,0 +1,42 @@
+﻿@using ZoomLa.Controls
+@model ZoomLa.Model.M_MisInfo
+@{
+    string action = MVCHelper.GetAction("AddMisInfo_Add", Request);
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>新建协商</title>
+}
+@section content{
+    <div class="Mis_Title"><strong> 新建协商 </strong> <a href="MisInfo?ProID=@Request[" ProID"]&MID=@Request["MID"]&Type=5">[返回]</a></div>
+    <form action="action" method="post">
+        <table width="100%" class="dialog" style="width: 740px;" border="0" cellSpacing="8" cellPadding="0">
+            <tr>
+                <th width="6%" noWrap="">主题* :</th>
+                <td>@Html.TextBoxFor(Model => Model.Title, new { @class = "M_input" })</td>
+            </tr>
+            <tr>
+                <th width="6%" noWrap="">内容* :</th>
+                <td>
+                    @Html.TextAreaFor(Model => Model.Content, new { @style = "width:580px;height:200px;" })
+                </td>
+            </tr>
+            <tr>
+                <th width="6%" noWrap="">附件 :</th>
+                <td>
+                    @Html.Partial("C_SFileUP", new C_SFileUP())
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="提交" class="i_bottom" />
+                    &nbsp;<input type="button" value="取消" class="i_bottom" />
+                </td>
+            </tr>
+        </table>
+
+    </form>
+}
+@section script{
+
+}

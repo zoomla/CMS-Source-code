@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>300</LabelID>
+    <LabelName>智能排版输出图片列表_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,50,1,标题长|ClassName,col-lg-3 col-md-3 col-sm-3 col-xs-12,1,Class|ShowNum,16,1,显示数</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_Photo ON ZL_CommonModel.ItemID=ZL_C_Photo.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.NodeID,ZL_CommonModel.Title,ZL_C_Photo.PhotoUrlThum</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And Status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>&lt;div class="znpb_pic"&gt;
+&lt;div class="row"&gt;
+{Repeate}
+&lt;div class="@ClassName"&gt;
+&lt;div class="znpb_pic_c"&gt;
+&lt;div class="znpb_pic_ct"&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}" target="{ZL:GetInfoOpen({Field="NodeID"/})/}"&gt;
+&lt;img src="{ZL:GetPicUrl({Field="PhotoUrlThum"/})/}" alt="{Field="Title"/}" /&gt;
+&lt;div class="znpb_pic_ctt"&gt;&lt;span&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/span&gt;&lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="znpb_pic_cp"&gt;
+&lt;span&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt; admin&lt;/span&gt;
+&lt;span&gt;&lt;i class="fa fa-eye"&gt;&lt;/i&gt; 545&lt;/span&gt;
+&lt;span&gt;&lt;i class="fa fa-heart"&gt;&lt;/i&gt; 475&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;{/Repeate}
+&lt;/div&gt;
+{ZL.Page id="大图标响应式列表分页v3"/}
+&lt;/div&gt;</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_Photo"}</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

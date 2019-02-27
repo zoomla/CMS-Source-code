@@ -1,0 +1,44 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>返修/退货记录</title>
+}
+@section content{
+<div id="pageflag" data-nav="shop" data-ban="shop"></div> 
+<div class="container margin_t5">
+<ol class="breadcrumb">
+	<li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+	<li class="active">返修/退货记录</li>
+</ol>
+    @Html.Partial("OrderTop")
+</div>
+<div class="container myorderrepair">
+    <table class="table table-bordered table-striped">
+        <tr><td class="td_s">编号</td><td>订单编号</td><td>商品名称</td><td>操作</td></tr>
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <tr>
+                <td>@dr["id"]</td>
+                <td>@dr["OrderNo"]</td>
+                <td>
+                    <div class="proinfo_div">
+                        <div class="pro_img"><img src="/@(dr["Thumbnails"])" /></div>
+                        <div class="pro_title">@dr["Proname"]</div>
+                    </div>
+                </td>
+                <td><a href="ReqRepair.aspx?id=@dr["id"]" target="_blank">查看</a></td>
+            </tr>
+        }
+    </table>
+</div>
+}
+@section script{
+<style>
+.myorderrepair .proinfo_div div{float:left;margin-left:5px;}
+.myorderrepair .proinfo_div .pro_img img{width:70px;height:80px;}
+.myorderrepair .proinfo_div .pro_title{padding-top:10px;}
+</style>
+}

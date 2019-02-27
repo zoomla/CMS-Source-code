@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SetBid.aspx.cs" Inherits="SetBid" EnableViewStateMac="false" %>

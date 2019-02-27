@@ -1,0 +1,230 @@
+﻿@using System.Data
+@using System.Text
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@using ZoomLa.Common
+@using ZoomLa.Model
+@using ZoomLa.BLL
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+    DataTable questDt = ViewBag.questDt ?? new DataTable();
+    DataTable typeDt = ViewBag.typeDt ?? new DataTable();
+    int step = ViewBag.step ?? 0;
+    string pname = ViewBag.pname ?? "";
+    int newid = ViewBag.newid ?? 0;
+}
+@functions{
+    private DataTable GetQuestDt(DataTable questDt, string qtype, int isbig)
+    {
+        string normFilter = "p_type=" + qtype + " AND IsToShare=0 AND (pid=0 OR pid IS NULL)";
+        string bigfilter = "pid=" + qtype + " AND IsToShare=0";//big下,qtype为其id
+        if (isbig == 0) { questDt.DefaultView.RowFilter = normFilter; }
+        else { questDt.DefaultView.RowFilter = bigfilter; }
+        return questDt.DefaultView.ToTable();
+    }
+    public string GetSubmit(int pid, int ptype)
+    {
+        string option = SafeSC.ReadFileStr(M_Exam_Sys_Questions.OptionDir + pid + ".opt");
+        JArray arr = JsonConvert.DeserializeObject<JArray>(option);
+        StringBuilder builder = new StringBuilder();
+        //单,多,填,解
+        switch (ptype)
+        {
+            case (int)M_Exam_Sys_Questions.QType.Radio:
+                {
+                    if (arr == null || arr.Count < 1) { return "未定义选项"; }
+                    string name = "srad_" + pid;
+                    string tlp = "<li class='opitem'><label><input type='radio' name='{0}' value='{1}'>{1}. {2}</label></li>";
+                    foreach (JObject obj in arr)
+                    {
+                        builder.Append(string.Format(tlp, name, obj["op"], obj["val"]));
+                    }
+                }
+                break;
+            case (int)M_Exam_Sys_Questions.QType.Multi:
+                {
+                    if (arr == null || arr.Count < 1) { return "未定义选项"; }
+                    string name = "mchk_" + pid;
+                    string tlp = "<li class='opitem'><label><input class='opitem' type='checkbox' name='{0}' value='{1}'>{1}. {2}</label></li>";
+                    foreach (JObject obj in arr)
+                    {
+                        builder.Append(string.Format(tlp, name, obj["op"], obj["val"]));
+                    }
+                }
+                break;
+            case (int)M_Exam_Sys_Questions.QType.FillBlank:
+                {
+                    //string tlp = "<div contenteditable='true' class='answerdiv'>解：</div>";
+                    //builder.Append(tlp);
+                }
+                break;
+            case (int)M_Exam_Sys_Questions.QType.Answer://放置一个ueditor
+                {
+                    string name = "answer_" + pid;
+                    string tlp = "<div id='" + name + "' contenteditable='true' class='answerdiv'>解：</div>";
+                    builder.Append(tlp);
+                }
+                break;
+        }
+        return builder.ToString();
+    }
+}
+@section head{
+    <title>组卷中心</title>
+}
+@section content{
+
+    @if (step != 2)
+    {
+        <form method="post" action="PaperCenter_Submit" onsubmit="return PreSave();">
+            <div id="add_div">
+                <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <td>标题:</td>
+                        <td><input type="text" id="title_t" name="title_t" value="@ViewBag.title" class="form-control m715-50 required" placeholder="标题不能为空" /></td>
+                    </tr>
+                    <tr><td>描述:</td><td><textarea id="desc_t" name="desc_t" class="form-control m715-50" placeholder="描述主要用来方便查看您的试卷,描述内容可以是试卷题型和考点组成、难度、使用年级及时完成时间等"></textarea></td></tr>
+                    <tr><td>价格:</td><td><input type="text" id="price_t" name="price_t" value="0" class="form-control text_x int" /></td></tr>
+                    <tr><td>考试时间:</td><td><input type="text" id="usetime_t" name="usetime_t" value="120" class="form-control text_300" /><span class="r_green">0表示不限时长</span></td></tr>
+                </table>
+                <div class="panel panel-default">
+                    <div class="panel-body" style="height: 500px; overflow-y: auto;">
+                        @foreach (DataRow dr in typeDt.Rows)
+                        {
+                            <div style="margin-top: 5px;">
+                                @(ZoomLa.BLL.Helper.StrHelper.ConvertIntegral(typeDt.Rows.IndexOf(dr) + 1) + "．" + dr["QName"] + "（有" + dr["QNum"] + "小题,共" + dr["TotalScore"] + "分）")
+                                @{ int index = 0; }
+                                @foreach (DataRow row in GetQuestDt(questDt, dr["QType"].ToString(), DataConverter.CLng(dr["IsBig"])).Rows)
+                                {
+                                    index++;
+                                    <div class="item" data-id="@row["p_id"]" id="item_@row["p_id"]">
+                                        <div class="content">
+                                            <div class="opdiv alert-info">
+                                                <input type="text" id="score_@row["p_id"]" style="width: 40px;text-align:center;" value="@row["p_defaultScores"]" /><span>分</span>
+                                                <a href="QuestView?ID=@row["p_id"]" target="_blank">查看解析</a>
+                                                <a href="javascript:UPFunc(@row["p_id"]);">上移</a>
+                                                <a href="javascript:DownFunc(@row["p_id"]);">下移</a>
+                                                <a href="javascript:DelThis(@row["p_id"])">删除</a>
+                                            </div>
+                                            <span>@( index + "．" + row["P_Title"])</span>@MvcHtmlString.Create(row["p_content"].ToString())
+                                        </div>
+                                        <div class="submit">
+                                            <ul class="submitul">@MvcHtmlString.Create(GetSubmit(DataConverter.CLng(row["p_id"]), DataConverter.CLng(row["p_type"])))</ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                    <div class="panel-footer text-center">
+                        <button id="sure_btn" type="submit" class="btn btn-default">完成组卷</button>
+                        <input type="button" id="cancel_btn" class="btn btn-default" value="取消组卷" onclick="parent.CloseComDiag();" />
+                        <input type="button" id="del_btn" class="btn btn-default" value="清空试题篮" onclick="if (confirm('确定要清空吗?')) { AddToCart('cart_clear');}" />
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="qinfo_hid" id="qinfo_hid" />
+        </form>
+    }
+    else
+    {
+        <div id="addsucc_div" class="panel panel-primary">
+            <div class="panel-heading" style="font-size:18px;">【恭喜您组卷成功】</div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr><td class="td_m">标题:</td><td>@pname</td></tr>
+                    <tr><td>试卷类型:</td><td>练习</td></tr>
+                    <tr><td>考试时长:</td><td>不限时</td></tr>
+                </table>
+            </div>
+            <div class="panel-footer" style="padding-left: 120px;">
+                <div class="input-group" style="width: 264px;float:left;">
+                    <input type="hidden" id="newid_hid" value="@newid" />
+                    <select id="paperSize_dp" class="form-control" style="width: 90px; border-right: none;">
+                        <option value="16k">16K</option>
+                        <option value="A4" selected="selected">A4</option>
+                        <option value="A3">A3</option>
+                        <option value="B4">B4</option>
+                    </select>
+                    <select id="orient_dp" class="form-control" style="width: 90px; border-right: none;">
+                        <option value="false">纵向</option>
+                        <option value="true">横向</option>
+                    </select>
+                    <span class="input-group-btn">
+                        <a href="/User/Exam/DownPaper?ID=@newid" target="_blank" id="paper_down" class="btn btn-primary">下载试卷</a>
+                    </span>
+                </div>
+                <a href="/User/Questions/ExamDetail?ID=@newid" id="paper_view" class="btn btn-primary margin_l5">查看试卷</a>
+                <a href="/User/Exam/AddPaper?menu=Edit&id=@newid" id="paper_edit" class="btn btn-primary" target="_blank">修改试卷</a>
+                <input type="button" class="btn btn-primary" value="关闭" onclick="parent.CloseComDiag();" />
+            </div>
+        </div>
+    }
+}
+@section script{
+    <style type="text/css">
+        label { font-weight: normal; }
+        .submitul li { float: left; margin-left: 20px; }
+        .item { border: 1px solid #ddd; padding-left: 20px; padding-top: 5px; text-align: left; margin-bottom: 5px; }
+        .item:hover { border: 1px solid #169bef; }
+        .opdiv { float: right; font-size: 12px; padding: 5px; padding-left: 15px; padding-right: 15px; display: none; }
+        .opdiv > a { margin-left: 8px; }
+        .opitem p { display: inline-block; }
+    </style>
+    <script src="/JS/ZL_Regex.js"></script>
+    <script>
+        $("form").validate();
+        $(function () {
+            $(".item").hover(function () { $(this).find(".opdiv").show(); }, function () { $(".opdiv").hide(); });
+            ZL_Regex.B_Num('.int');
+            //下载
+            $("#paperSize_dp,#orient_dp").change(function () {
+                var query = "ID=" + $("#newid_hid").val() + "&paperSize=" + $("#paperSize_dp").val() + "&orient=" + $("#orient_dp").val();
+                $("#paper_down").attr("href", "/User/Exam/DownPaper?" + query);
+            });
+        })
+        function DelThis(qid) {
+            $("#item_" + qid).fadeOut(500);
+            $("#item_" + qid).remove();
+            AddToCart("cart_remove", qid);
+        }
+        function AddToCart(action, qid) {
+            $.post("QuestAPI?action=" + action, { "qid": qid }, function (data) {
+                if (action == "cart_clear") {
+                    location = location;
+                }
+            });
+        }
+        function UPFunc(p_id) {
+            var item = $("#item_" + p_id);
+            var pre = item.prev(".item");
+            if (pre.length < 1) { return; }
+            else
+            {
+                pre.before(item); //item.remove();
+            }
+        }
+        function DownFunc(p_id) {
+            var item = $("#item_" + p_id);
+            var next = item.next(".item");
+            if (next.length < 1) { return; }
+            else
+            {
+                next.after(item); //item.remove();
+            }
+        }
+        function PreSave() {
+            if (!confirm('确定保存组卷吗?')) { return false; }
+            var items = $(".item"); var list = [];
+            for (var i = 0; i < items.length; i++) {
+                var item = $(items[i]);
+                var model = { id: item.data("id"), score: "", order: "" };
+                model.score = ConverToInt(item.find("#score_" + model.id).val(), 0);
+                model.order = i;
+                list.push(model);
+            }
+            $("#qinfo_hid").val(JSON.stringify(list));
+        }
+    </script>
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>215</LabelID>
+    <LabelName>添加问题分类</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>Cate,1,1,类|pid,1,1,父类</LabelParam>
+    <LabelTable>ZL_Grade</LabelTable>
+    <LabelField>GradeID,GradeName</LabelField>
+    <LabelWhere>Cate=@Cate And ParentID=@pid</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate} &lt;option value="{Field="GradeID"/}"&gt;{Field="GradeName"/}&lt;/option&gt;{/Repeate}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

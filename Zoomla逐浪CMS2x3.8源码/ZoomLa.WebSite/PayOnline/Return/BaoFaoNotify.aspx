@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BaoFaoNotify.aspx.cs" Inherits="PayOnline_BaoFaoNotify" %>

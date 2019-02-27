@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="OutToWord.aspx.cs" Inherits="Common_Label_OutToWord"  EnableViewStateMac="false" ValidateRequest="false" %>

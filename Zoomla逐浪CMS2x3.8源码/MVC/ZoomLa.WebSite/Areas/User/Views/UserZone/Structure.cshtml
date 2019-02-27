@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+
+@section head{<title>企业结构</title>}
+@section content{
+<div id="pageflag" data-nav="index" data-ban="zone"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+        <li class="active">企业结构</li>
+        <div class="clearfix"></div>
+    </ol>
+</div>
+<div class="container">
+    <div id="nostruct">
+        <div class="alert alert-info fade in">
+            <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4>您还没有加入企业结构！</h4>
+            <p>
+                <a href="Structure?Struct=yx" class="btn btn-danger">可加入的企业结构</a>
+                <a href="AddStructure" class="btn btn-danger">创建企业结构</a>
+            </p>
+        </div>
+    </div>
+</div>
+}
+@section script{
+
+}

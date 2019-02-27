@@ -1,0 +1,320 @@
+﻿@using System.Data
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Front.VM_Register
+@{
+    Layout = "~/Areas/User/Views/Index/_RegisterLayout.cshtml";
+}
+@section head{
+<link type="text/css" rel="stylesheet" href="/App_Themes/User.css" />
+<style>
+.agr_content {z-index: 1; top: 0; left: 0; color: #fff; background-color: #369;  padding: 12px; opacity: 1;}
+.agr_head{margin-top: 5em; border-radius: 15px; height: 28px; width: 100%; background-color: #BBB; color: #282828;margin:10px 0px; text-align: center;}      
+.d_ok {color: green;}
+.d_err {color: red;}
+.msg { padding: 0px; padding-top: 8px; color: #ff0000; }
+.check_sp { color: #ff0000; }
+.required_sp { display: inline-block; margin-left: 5px; color: #ff0000;position:absolute;right:-10px;top:10px; }
+.tdbg {background: none !important;} 
+</style>
+<title>用户注册-@Call.SiteName</title>
+}
+@section content{
+<form method="post" action="@MVCHelper.GetAction("/User/Index/Register_Submit", Request)">
+<input type="hidden" name="ReturnUrl_Hid" value="@Model.ReturnUrl" />
+<input type="hidden" id="ParentUser_Hid" value="@Model.pmu.UserName"/>
+    <div class="container">
+        <div id="reg_main">
+            <div class="border_right">
+                <div class="reg_sub">
+                    <h1 class="text-center">注册会员</h1>
+                    @*----------------------------------------------------------------------------------------------------*@
+                    <div class="reg_sub_item">
+                        <div class="reg_sub_t"><i class="fa fa-user"></i> 基本信息</div>
+                        <ul class="list-unstyled">
+                            <li>
+                                <div class="col-md-3 col-xs-5"><label>用户名</label></div>
+                                <div class="col-md-6 col-xs-7 padding0">
+                                    <input type="text" id="TxtUserName" name="TxtUserName" class="form-control" onblur="CheckUserName(this);" title="用户名不能为空" value="@Model.Mobile" />
+                                    <div class="check_sp"></div>
+                                </div>
+                                <div class="col-md-3 col-xs-12 msg"></div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <div class="col-md-3 col-xs-5">
+                                    <label>密码</label>
+                                </div>
+                                <div class="col-md-6 col-xs-7 padding0">
+                                    <input type="password" id="TxtPassword" name="TxtPassword" class="form-control" onfocus="focusinput();" onkeyup="f_checkrank();"/>
+                                </div>
+                                <div class="col-md-3 col-xs-12 padding0" style="padding-top:8px;padding-left:5px;">
+                                    <div id="valPass">
+                                        <span class="spantxt"><a id="idshow" class="atxt"></a></span><span class="spantxt"><a id="apass1" class="a_bor visible-xs"></a><a id="apass2" class="a_bor visible-xs"></a><a id="apass3" class="a_bor visible-xs"></a></span><span style="margin-left: 10px;"></span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <div class="col-md-3 col-xs-5">
+                                    <label>确认密码</label>
+                                </div>
+                                <div class="col-md-6 col-xs-7 padding0">
+                                    <input type="password" id="TxtPwdConfirm" name="TxtPwdConfirm" class="form-control" />
+                                </div>
+                                <div class="col-md-3 col-xs-12 msg"></div>
+                                <div class="clearfix"></div>
+                            </li>
+                            @if (SiteConfig.UserConfig.EnableCheckCodeOfReg)
+                            {
+                                <li>
+                                    <div class="col-md-3 col-xs-5">
+                                        <label>验证码</label>
+                                    </div>
+                                    <div class="col-md-6 col-xs-7 padding0">
+                                        <div class="form-group" id="trVcodeRegister">
+                                            <input type="text" id="VCode" name="VCode" placeholder="验证码" maxlength="6" class="form-control codestyle required" title="验证码不能为空" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-xs-12 padding5">
+                                        <img id="VCode_img" title="点击刷新验证码" class="codeimg img-responsive" style="height: 34px; margin-left: 2px;" />
+                                        <input type="hidden" id="VCode_hid" name="VCode_hid" />
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="reg_sub_item">
+                        <div class="reg_sub_t"><i class="fa fa-lock"></i> 安全设置</div>
+                        <ul class="list-unstyled">
+                            <li>
+                                <div class="col-md-3 col-xs-5"><label>密码问题</label></div>
+                                <div class="col-md-6 col-xs-7 padding0">
+                                    <select ID="Question_DP" name="Question_DP" class="form-control">
+                                        <option value="最喜欢的运动是什么？">最喜欢的运动是什么？</option>
+                                        <option value="最喜欢的运动员是谁？">最喜欢的运动员是谁？</option>
+                                        <option value="我最喜欢的物品的名称？">我最喜欢的物品的名称？</option>
+                                        <option value="我最喜欢的歌曲？">我最喜欢的歌曲？</option>
+                                        <option value="我最喜欢的食物？">我最喜欢的食物？</option>
+                                        <option value="我最爱的人的名字？">我最爱的人的名字？</option>
+                                        <option value="我最爱的电影？">我最爱的电影？</option>
+                                        <option value="我妈妈的生日？">我妈妈的生日？</option>
+                                        <option value="我的初恋日期？">我的初恋日期？</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-xs-12"></div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <div class="col-md-3 col-xs-5"><label>问题答案</label></div>
+                                <div class="col-md-6 col-xs-7 padding0">
+                                    <input type="text" ID="TxtAnswer" name="TxtAnswer" class="form-control required" title="答案不能为空" />
+                                </div>
+                                <div class="col-md-3 col-xs-12 msg"></div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <div class="col-md-3 col-xs-5"><label>Email</label></div>
+                                <div class="col-md-6 col-xs-7 padding0">
+                                    <input type="email" ID="TxtEmail" name="TxtEmail" class="form-control required email" onblur="CheckEmail(this);" />
+                                    @*<div class="check_sp"></div>*@
+                                </div>
+                                <div class="col-md-3 col-xs-12 msg"></div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="reg_sub_item">
+                        <div class="reg_sub_t"><i class="fa fa-user"></i> 用户信息</div>
+                        <ul>
+                            <li>
+                                <div class="col-md-3 col-xs-5"><label>用户类型</label></div>
+                                <div class="col-md-6 col-xs-7 padding0">
+                                    @MVCHelper.H_Radios("UserGroup", Model.groupDT, "GroupID", "GroupName", Request["gid"])
+                                </div>
+                                <div class="col-lg-3 col-xs-12"></div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <!--必填字段-->
+                                @if (!string.IsNullOrEmpty(SiteConfig.UserConfig.RegFieldsMustFill))
+                                {
+                                    <ul id="TableRegisterMust" class="register_modeltable" style="width: 100%;">
+                                        @Html.Partial("Register_Field", "must")
+                                    </ul>
+                                }
+                                <!--组模型字段 AJAX-->
+                                <table id="ModelFiled_table" class="register_modeltable" style="width: 100%;display:none;"></table>
+                            </li>
+                            @Html.Partial("Fields/Index_User_Register", Model.mustDT)
+                        </ul>
+                    </div>
+                    <div class="reg_sub_item sel_reg" onmouseover="reghelp.subCheck()">
+                        <div class="reg_sub_t" onclick="SwicthSelectFill();" id="disable_btn" style="cursor: pointer;"><i class="fa fa-leaf"></i> 选填信息</div>
+                        <ul class="list-unstyled">
+                            <li>
+                                @if (!string.IsNullOrEmpty(SiteConfig.UserConfig.RegFieldsSelectFill))
+                                {
+                                    <ul id="TableRegisterSelect" class="selectFill" style="display:none;">
+                                        @Html.Partial("Register_Field", "select")
+                                    </ul>
+                                }
+                                <ul class="selectFill" style="display:none;">
+                                    @Html.Partial("Fields/Index_User_Register", Model.selectDT)
+                                </ul>
+                                <div class="r_red">以上所有信息除选填项都必须先正确填写后才能成功注册</div>
+                                <div>
+                                    <span id="checkAgreement">
+                                        <label><input type="checkbox" checked="checked" style="position:relative;top:2px;" onclick="checkreg(this)"/>同意并接受</label>
+                                        <a href="javascript:;" title="点击查看注册协议" style="color:#fff;" onclick="showagr();">《注册协议》</a>
+                                    </span>
+                                    <input type="submit" ID="BtnSubmit" value="注 册" class="btn btn-default" disabled="disabled" />
+                                    <p class="pull-right login_remind">已有帐号，立即<a href="/User/Index/Login">登录</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    @*----------------------------------------------------------------------------------------------------*@
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="agr_content" id="agr_content" style="display:none;" ondblclick="hideagr();">
+    <div class="agr_head" onclick="hideagr();">点击此处或双击隐藏</div>
+    <div class="text-left">
+        @MvcHtmlString.Create(ZoomLa.BLL.SafeSC.ReadFileStr(Server.MapPath("~/BU/Protocol.txt"), true))
+    </div>
+</div>
+}
+@section script{
+<script src="/JS/ICMS/area.js"></script>
+<script src="/JS/PassStrong.js"></script>
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/JS/Controls/ZL_PCC.js"></script>
+<script src="/JS/Controls/Control.js"></script>
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script src="/JS/ZL_Content.js"></script>
+<script>
+var curflag = true;
+var pcc = new ZL_PCC("selprovince", "selcity", "selcoutry");
+$(function () {
+    //initModelFied();
+    pcc.ProvinceInit();
+    //验证码
+    $("#VCode").ValidateCode();
+    $("#MobileCode").ValidateCode();
+    if ("@Model.cityMod.IsValid" == "True") {
+        pcc.SetDef('@Model.cityMod.Province', '@Model.cityMod.City', '@Model.cityMod.County');
+    }
+    //$("form").validate({
+    //    rules: {
+    //        TxtUserName: { required: true },
+    //        TxtPassword: { required: true },
+    //        TxtPwdConfirm: { required: true, equalTo: "#TxtPassword" }
+    //    },
+    //    message: {
+    //        TxtUserName: { required: "用户名不能为空" },
+    //        TxtPassword: { required: "密码不能为空" },
+    //        TxtPwdConfirm: { required: "确认密码不能为空", equalTo: "必须同于密码" }
+    //    },
+    //    errorPlacement: function (error, element) {
+    //        reghelp.getsp(element).html("").append(error);
+    //    }
+    //});
+    validate.zl_init($("form"), {
+        rules: {
+            TxtUserName: { required: true },
+            TxtPassword: { required: true },
+            TxtPwdConfirm: { required: true, equalTo: "#TxtPassword" }
+        },
+        messages: {
+            TxtUserName: { required: "用户名不能为空" },
+            TxtPassword: { required: "密码不能为空" },
+            TxtPwdConfirm: { required: "确认密码不能为空", equalTo: "必须同于密码" }
+        },
+    }, {
+        placement: 'right',
+        style: 'white'
+    });
+    //initModelFied();
+    $("#TxtMobile").val("@Model.Mobile");
+});
+function CheckUserName(input) {
+    var $msg = reghelp.getsp(input, ".check_sp"); $msg.html("");
+    if (ZL_Regex.isEmpty(input.value)) { return; }
+    reghelp.check("uname", input.value,
+       function () { $msg.text(""); reghelp.need.uname = true; reghelp.canSubmit(); },function (model) { $msg.text(model.retmsg); reghelp.need.uname = false; reghelp.canSubmit(); });
+}
+function CheckEmail(input) {
+    var $msg = reghelp.getsp(input, ".check_sp"); $msg.html("");
+    if (ZL_Regex.isEmpty(input.value)) { return; }
+    reghelp.check("email", input.value,
+       function () { $msg.text(""); reghelp.need.email = true; reghelp.canSubmit(); }, function (model) { $msg.text(model.retmsg); reghelp.need.email = false; reghelp.canSubmit(); });
+}
+var reghelp = {};
+reghelp.check = function (action, value, ok, err) {
+    $.post("/User/Index/Register_API?action=" + action, { "value": value }, function (data) {
+        var model = APIResult.getModel(data);
+        if (APIResult.isok(model)) {
+            if (ok) { ok(model.rseult); }
+        }
+        else { err(model); }
+    });
+}
+//返回dom,validate验证与ajax验证分开显示
+reghelp.getsp = function (dom, css) {
+    if (!css) { css = ".msg:first"; }
+    var $li = $(dom).closest("li");
+    console.log($li.length);
+    if ($li.length > 0) { return $li.find(css); }
+}
+//是否可以提交
+reghelp.canSubmit = function () {
+    var need = reghelp.need;
+    var subBtn = document.getElementById("BtnSubmit");
+    if (need.uname && need.email && need.protocol) { subBtn.disabled = false; }
+    else { subBtn.disabled = true; }
+}
+reghelp.subCheck=function(){
+    var need = reghelp.need;
+    if (!need.uname) { CheckUserName(document.getElementById("TxtUserName")); }
+    if (!need.email) { CheckEmail(document.getElementById("TxtEmail")); }
+}
+reghelp.need = { uname: false, email: false, protocol: true };
+//--------------------------------------------------
+//初始化用户组模型字段
+//function initModelFied() {
+//    PostToCS("GetModelFied", $("#UserGroup input:checked").val(), ShowUserModelHtml);
+//    //ModelFiled_table;
+//    $("#UserGroup input").click(function () {
+//        if ($(this)[0].checked)
+//            PostToCS("GetModelFied", $(this).val(), ShowUserModelHtml);
+//    });
+    //}
+function checkreg(chk) {
+    reghelp.need.protocol = chk.checked;
+    reghelp.canSubmit();
+}
+function ShowUserModelHtml(html) {
+    $("#ModelFiled_table").html(html);
+}
+function showagr() {
+    $("#agr_content").show();
+    $(".border_right").hide();
+}
+function hideagr() {
+    $("#agr_content").hide();
+    $(".border_right").show();
+}
+//显示或关闭选填信息
+function SwicthSelectFill() {
+    $(".selectFill").toggle();
+}
+function hidenbtn() {
+    $(".selectFill").hide();
+    document.getElementById("checkSelectFill").checked = false;
+}
+</script>
+}

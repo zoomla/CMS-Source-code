@@ -1,0 +1,35 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Model.Content
+@using ZoomLa.BLL
+@using ZoomLaCMS.Models.Field
+@model System.Data.DataTable
+@{
+    VM_FieldModel fields = new VM_FieldModel(Model, new ModelConfig() { Source = ModelConfig.SType.UserRegister });
+}
+@foreach (DataRow dr in fields.fieldDT.Rows)
+{
+    //仅用于注册页面,生成必填和选填字段
+    fields.fieldMod = new M_ModelField().GetModelFromReader(dr);
+    <li class="fd_item">
+        <div class="fd_item_head col-md-3 col-xs-5"><label>@fields.fieldMod.FieldAlias</label></div>
+        <div class="fd_item_field col-md-6 col-xs-7 padding0">
+            @try
+            {
+                switch (fields.fieldMod.FieldType)
+                {
+                    case "MultiPicType":
+                        @Html.Partial("Fields/Images", fields)
+                        break;
+                    default:
+                    @Html.Partial("Fields/" + fields.fieldMod.FieldType, fields)
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {<div style="color:red;">@ex.Message</div>}
+        </div>
+        <div class="col-lg-3 col-xs-12"></div>
+        <div class="clearfix"></div>
+    </li>
+}

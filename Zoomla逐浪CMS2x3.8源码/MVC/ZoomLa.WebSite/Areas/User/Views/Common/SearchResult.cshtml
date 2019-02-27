@@ -1,0 +1,32 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model System.Data.DataTable
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>搜索结果</title>
+}
+@section content{
+    <div id="pageflag" data-nav="home" data-ban="UserInfo"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li class="active">搜索结果</li>
+        </ol>
+    </div>
+    <div class="container btn_green u_cnt">
+        <table class="table table-bordered table-striped">
+            <tr><td>ID</td><td>标题</td><td>路径</td></tr>
+            @foreach (DataRow dr in Model.Rows)
+            {
+                <tr>
+                    <td class="td_s">@dr["Index"]</td>
+                    <td class="td_l">@MvcHtmlString.Create(DataConverter.CStr(dr["DTitle"]))</td>
+                    <td><a href="@dr["url"]" title="点击访问" target="_blank">@dr["Url"]</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+@section script{}

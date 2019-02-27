@@ -1,0 +1,915 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<link href="/design/album/tlps/3/res/style.css" rel="stylesheet" />
+<title></title>
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div id="bac"></div>
+<div id="container">
+<div id="content"><!-- 天空 -->
+        <img id="bg" src="/design/album/tlps/3/res/2000.jpg" alt="" />
+        <div id="cloud"><img src="/design/album/tlps/3/res/04.png" alt="" /></div>
+        <div id="cloudTwo"><img src="/design/album/tlps/3/res/04.png" alt="" /></div>
+
+        <div style="position:absolute;width:500px;top:401px;height:419px;-webkit-transform-origin:50% 0%;-webkit-animation:shuiwen 4s linear infinite;overflow:hidden;">
+        <img src="/design/album/tlps/3/res/02.png" style="position:absolute;width:500px;top:0px;" alt="" />
+        </div>
+        <div style="position:absolute;width:500px;height:419px;top:401px;-webkit-transform-origin:50% 0%;-webkit-animation:shuiwen1 4s linear infinite;overflow:hidden;">
+        <img src="/design/album/tlps/3/res/02.png" style="position:absolute;width:500px;top:0px;" alt="" />
+        </div>
+        <div id="botton"><img src="/design/album/tlps/3/res/03.png" alt="" /></div>
+        <div class="fla" id="blue1" style="-webkit-animation: fla1 30s linear 0s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="blue2" style="-webkit-animation: fla1 30s linear 2.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="orange"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="pink" style="-webkit-animation: fla1 30s linear 12.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="purple" style="-webkit-animation: fla1 30s linear 15s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="white" style="-webkit-animation: fla1 30s linear 10s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="yellow1" style="-webkit-animation: fla1 30s linear 5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="yellow2" style="-webkit-animation: fla1 30s linear 7.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+
+        <div class="fla" id="blue11" style="-webkit-animation: fla2 30s linear 1s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="blue21" style="-webkit-animation: fla2 30s linear 3.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="orange1" style="-webkit-animation: fla2 30s linear 18.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="pink1" style="-webkit-animation: fla2 30s linear 13.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="purple1" style="-webkit-animation: fla2 30s linear 16s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="white1" style="-webkit-animation: fla2 30s linear 11s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="yellow11" style="-webkit-animation: fla2 30s linear 6s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="yellow21" style="-webkit-animation: fla2 30s linear 8.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+
+        <div class="fla" id="blue12" style="-webkit-animation: fla3 30s linear 2s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="blue22" style="-webkit-animation: fla3 30s linear 4.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="orange2" style="-webkit-animation: fla3 30s linear 19.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="pink2" style="-webkit-animation: fla3 30s linear 14.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="purple2" style="-webkit-animation: fla3 30s linear 17s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="white2" style="-webkit-animation: fla3 30s linear 12s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="yellow12" style="-webkit-animation: fla3 30s linear 7s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div class="fla" id="yellow22" style="-webkit-animation: fla3 30s linear 9.5s both infinite;"><img src="/design/album/tlps/3/res/01.png" alt="" /></div>
+        <div id="aixin"><img src="/design/album/tlps/3/res/05.png" alt="" /></div>   
+
+    <div id="page1" style="display:none;top:-10px;">
+        <div id="box1" style="position:absolute;-webkit-animation: huangdong 2s ease-in-out infinite alternate;">
+            <img src="/design/album/tlps/3/res/bbs.png" style="top:30px;left:86px;-webkit-transform-origin: 63.64% 99.76%;-webkit-animation: qiqiu 2s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/yb.png" style="top:61px;left: 112px;-webkit-transform-origin: 35.39% 100%;-webkit-animation: qiqiu1 1.5s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/eb.png" style="top: 115px;left: 60px;-webkit-transform-origin: 76.37% 100%;-webkit-animation: qiqiu 2.5s linear infinite alternate" alt="" />
+
+            <img src="/design/album/tlps/3/res/ebs.png" style="top:45px;left: 359px;-webkit-transform-origin: 39.77% 100%;-webkit-animation: qiqiu1 2s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/rb.png" style="top: 69px;left:299px;-webkit-transform-origin: 81.25% 100%;-webkit-animation: qiqiu 1.5s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/bb.png" style="top:92px;left:356px;-webkit-transform-origin: 40.32% 100%;-webkit-animation: qiqiu1 2.5s linear infinite alternate" alt="" />
+
+            <div id="imgdiv1" style="position:absolute;width: 380px;height:380px;top:261px;left:61px;overflow:hidden;">
+                <img id="img1" style="position:absolute; max-height:100%;" alt="" />
+                
+            </div><span id="word1" class="showwords"></span>
+
+            <img id="left1" style="top:248px;left: 28px;-webkit-transform-origin: 50% 0%;width:46px;height:300px;" src="/design/album/tlps/3/res/left.png" alt="" />
+            <img id="right1" style="top:248px;left: 426px;-webkit-transform-origin: 50% 0%;width:46px;height:300px;" src="/design/album/tlps/3/res/left.png" alt="" />
+            <img id="up1" style="width:495px;height:62px;top: 220px;" src="/design/album/tlps/3/res/up.png" alt="" />
+            <img id="down1" style="width:495px;height:62px;top: 500px;" src="/design/album/tlps/3/res/down.png" alt="" />
+        </div>
+
+    </div>
+    <div id="page2" style="top:-70px;display:none">
+        <div id="box2" style="position:absolute;-webkit-animation: huangdong 2s ease-in-out infinite alternate;">
+            <img src="/design/album/tlps/3/res/bbs.png" style="top:30px;left:86px;-webkit-transform-origin: 63.64% 99.76%;-webkit-animation: qiqiu 2s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/yb.png" style="top:61px;left: 112px;-webkit-transform-origin: 35.39% 100%;-webkit-animation: qiqiu1 1.5s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/eb.png" style="top: 115px;left: 60px;-webkit-transform-origin: 76.37% 100%;-webkit-animation: qiqiu 2.5s linear infinite alternate" alt="" />
+
+            <img src="/design/album/tlps/3/res/ebs.png" style="top:45px;left: 359px;-webkit-transform-origin: 39.77% 100%;-webkit-animation: qiqiu1 2s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/rb.png" style="top: 69px;left:299px;-webkit-transform-origin: 81.25% 100%;-webkit-animation: qiqiu 1.5s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/bb.png" style="top:92px;left:356px;-webkit-transform-origin: 40.32% 100%;-webkit-animation: qiqiu1 2.5s linear infinite alternate" alt="" />
+
+            <div id="imgdiv2" style="position:absolute;width: 250px;height:500px;top:261px;left:133px;overflow:hidden;">
+                <img id="img2" style="position:absolute; max-height:100%;" alt="" />
+            </div><span id="word2" class="showwords"></span>
+
+            <img id="left2" style="top:248px;left: 98px;width:46px;height:488px;" src="/design/album/tlps/3/res/left.png" alt="" />
+            <img id="right2" style="top:248px;left: 371px;width:46px;height:488px;" src="/design/album/tlps/3/res/left.png" alt="" />
+            <img id="up2" style="width:351px;height:62px;top: 220px;left: 82px;" src="/design/album/tlps/3/res/up.png" alt="" />
+            <img id="down2" style="width:351px;height:62px;top: 684px;left:82px;" src="/design/album/tlps/3/res/down.png" alt="" />
+        </div>
+    </div>
+    <div id="pagetitle" style="top:-10px;display:none">
+        <div id="boxtitle" style="position:absolute;-webkit-animation: huangdong 2s ease-in-out infinite alternate;">
+            <img src="/design/album/tlps/3/res/bbs.png" style="top:30px;left:86px;-webkit-transform-origin: 63.64% 99.76%;-webkit-animation: qiqiu 2s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/yb.png" style="top:61px;left: 112px;-webkit-transform-origin: 35.39% 100%;-webkit-animation: qiqiu1 1.5s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/eb.png" style="top: 115px;left: 60px;-webkit-transform-origin: 76.37% 100%;-webkit-animation: qiqiu 2.5s linear infinite alternate" alt="" />
+
+            <img src="/design/album/tlps/3/res/ebs.png" style="top:45px;left: 359px;-webkit-transform-origin: 39.77% 100%;-webkit-animation: qiqiu1 2s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/rb.png" style="top: 69px;left:299px;-webkit-transform-origin: 81.25% 100%;-webkit-animation: qiqiu 1.5s linear infinite alternate" alt="" />
+            <img src="/design/album/tlps/3/res/bb.png" style="top:92px;left:356px;-webkit-transform-origin: 40.32% 100%;-webkit-animation: qiqiu1 2.5s linear infinite alternate" alt="" />
+
+            <div style="position:absolute;width: 380px;height:155px;top:261px;left:61px;overflow:hidden;padding:10px;background:url(/design/album/tlps/3/res/diban.png);">
+                <div id="titleword" style="position:absolute;width:360px;color:#ffffff;font-size:40px;text-shadow: 1px 1px 2px #44443F;text-align:center;display:table"><div id="titleword1" style="width:500px;height:140px;display:table-cell;vertical-align:middle;line-height:140%;font-size:35px;"></div></div>
+            </div>
+
+            <img style="top:248px;left: 28px;-webkit-transform-origin: 50% 0%;width:46px;height:200px;" src="/design/album/tlps/3/res/left.png" alt="" />
+            <img style="top:248px;left: 426px;-webkit-transform-origin: 50% 0%;width:46px;height:200px;" src="/design/album/tlps/3/res/left.png" alt="" />
+            <img style="width:495px;height:62px;top: 220px;" src="/design/album/tlps/3/res/up.png" alt="" />
+            <img style="width:495px;height:62px;top: 400px;" src="/design/album/tlps/3/res/down.png" alt="" />
+        </div>
+    </div>
+</div>
+</div>
+<div class="code_div">
+<div class="title_div">扫描并分享场景：</div>
+<div class="img_div"><img id="shareCode" src="/common/common.ashx?url=" alt="二维码" />
+</div>
+<div class="bdsharebuttonbox">
+<a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
+<a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
+<a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a>
+<a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
+<a class="bds_more" href="#" data-cmd="more"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdUrl":document.URL,"bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<div class="view_div">这么漂亮的相册&nbsp;→<span><a target="_blank" href="http://v.z01.com/">我也来制作</a></span></div>
+</div>
+<div class="photo_bottom">免费极速创建<i class="fa fa-hand-o-right"></i><a href="/h5/ListPage.shtml">动力逐浪</a></div>
+<div id="loadingdiv">
+<div class="loadingword">相册正在加载中<br>请稍等……</div>
+</div>
+</body>
+</html>
+<script>
+$().ready(function(e) {
+    var num=Math.floor(Math.random()*4)+1;
+	$("#bac").css("background","url(http://code.z01.com/web/Photo/"+num+".png) top center no-repeat").css("background-size","cover");
+	$("#shareCode").attr("src","/common/common.ashx?url="+window.location.href);
+});
+
+var album = {};
+album.model = "{album}";
+album.model.Photos = album.model.Photos.split('|');
+var slider_images_url = [];
+for (var i = 0; i < album.model.Photos.length; i++) {
+    var photo = album.model.Photos[i];
+    slider_images_url.push(photo);
+}
+var e_music_url = album.model.Music + "";
+var e_desc = album.model.AlbumName;
+document.ontouchmove = function (e) { e.preventDefault(); }
+
+var _speedMark = new Date();
+function init_viewport()
+{
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent))
+	{
+		var version = parseFloat(RegExp.$1);
+
+		if(version>2.3)
+		{
+			var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
+			var phoneScale = parseInt(width)/500;
+			// if(phoneScale < 2)
+			// {
+				document.write('<meta name="viewport" content="width=500, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+				
+			// }
+			// else
+			// {
+			//     document.write('<meta name="viewport" content="target-densitydpi=320, width=500, min-height:850px, user-scalable=no"/>');
+			// }
+		}
+		else
+		{
+			document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi">');    
+		}
+	}
+	else if(navigator.userAgent.indexOf('iPhone') != -1)
+	{
+		var phoneScale = parseInt(window.screen.width)/500;
+		document.write('<meta name="viewport" content="width=500; min-height=750;initial-scale=' + phoneScale +'; user-scalable=no;" /> ');         //0.75   0.82
+	}
+	else 
+	{
+		document.write('<meta name="viewport" content="width=500, height=750, initial-scale=0.64" /> ');         //0.75   0.82
+
+	}
+}
+init_viewport();
+
+var module_inits = [];
+var upload_permission = true;
+var atkname = 'xinqing';
+wx.config({
+	debug     : false,
+	appId     : 'wx4dd4bc6712e52cda',
+	timestamp : 10000,
+	nonceStr  : 'helloxinqing',
+	signature : '2ccfd24e55bdb13ab232451ab2f2b2258e799768',
+	jsApiList : ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQZone', 'closeWindow', 'hideAllNonBaseMenuItem', 'showMenuItems', 'showAllNonBaseMenuItem', 'chooseImage', 'uploadImage']
+});
+function load_init_modules()
+{
+	for(var i=0; i<module_inits.length; i++)
+	{
+		module_inits[i]();
+	}
+}
+
+function call_me(fun)
+{
+	module_inits.push(fun);
+}
+
+var ua = navigator.userAgent.toLowerCase();  
+
+if(ua.match(/MicroMessenger/i) == 'micromessenger')
+{  
+	wx.ready(load_init_modules);
+}
+else
+{
+	onload = load_init_modules;
+}
+
+var date = 20160930;
+var zan_num = 0;
+var e_bookid = 'dD2nhG888UxWZ9qbz1_LXjIs7hV9LjVhPVmwpJ5UxaM';
+var e_openid = null;
+var e_scene = 'qiqiu';
+var editmode = false;
+var wxid = 'liti';
+var shareid = '';
+var guanzhu_url = '';
+var words = {"li_746734895270":"\u5bb4\u4f1a\u65f6\u95f49\u670822\u201523\u53f7","li_746757341727":"\u7c73\u5154\u513f\u7ae5\u6444\u5f71\u4e0a\u95e8\u62cd\u6444"};
+var app = '';
+var e_music_title = '';
+var tbssaveoff = false;
+var isguangchang = '';
+
+var get_pid = function(url){
+    var index1 = url.indexOf("?");
+    if(index1 != -1)
+    {
+        url = url.substr(0, index1);
+    }
+    return url.toString().substr(url.lastIndexOf("/") + 1);
+}
+
+function setword()
+{
+    id('pagetitle').style.display = 'block';
+    var titlediv = id('titleword1');
+    titlediv.innerHTML = e_desc;
+}
+
+var image_size_width=[];
+var image_size_height=[];
+
+var image_url_index=0;
+var have_num = 0;
+var error_num = 0;
+var canshow = true;
+var reshow = false;
+var timeout1;
+var timeout2;
+var timeout3;
+var timeout4;
+var timeout5;
+var begin_titletime;
+
+function id(name)
+{
+    return document.getElementById(name);
+}
+
+
+function loadimages()
+{
+    id('pagetitle').style.display = 'none';
+    showtitle();
+    reshow = false;
+    image_size_width=[];
+    image_size_height=[];
+    Onload_imgs_url=[];
+
+    image_url_index=0;
+    have_num = 0;
+    error_num = 0;
+
+    clearTimeout(timeout1);
+    clearTimeout(timeout2);
+    clearTimeout(timeout3);
+    clearTimeout(timeout4);
+    clearTimeout(timeout5);
+    id('page1').style.display = 'none';
+    id('page2').style.display = 'none';
+    id('pagetitle').style.webkitAnimation = '';
+    canshow = true;
+
+    bl_keepload = 'first';
+    step_load();       
+}
+
+//每次执行加载后5张图片
+var bl_keepload = 'first';
+var step_loadnum = 5;
+function step_load()
+{
+    var load_num = 0
+    //初步加载X张
+    if(image_url_index  == 0 && bl_keepload == 'first')
+    {
+        //console.log('loading continue');
+        if(slider_images_url.length > step_loadnum)
+        {
+            load_num = step_loadnum;
+            bl_keepload = 'next';
+        }
+        else
+        {
+            load_num = slider_images_url.length;
+            bl_keepload = 'end';
+        }
+        for(var i = 0; i< load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+    else if(bl_keepload == 'end')
+    {
+        return;
+    }
+    else
+    {
+         //console.log('loading continue');
+        if(slider_images_url.length - image_url_index >step_loadnum*2)
+        { 
+            load_num = step_loadnum;
+        }
+        else
+        {
+            load_num = slider_images_url.length - image_url_index - step_loadnum;
+            bl_keepload = 'end';
+        }
+        for(var i = image_url_index +step_loadnum; i< image_url_index + step_loadnum + load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+}
+function showtitle()
+{
+    begin_titletime = new Date();
+    begin_titletime = begin_titletime.getTime();
+    setword();
+    //console.log(begin_titletime);
+}
+function image_onerror(event)
+{
+    var img = event.target;
+    var index = img.index;
+    if(index<step_loadnum)
+        error_num ++;
+    Onload_imgs_url[index] = 'not find';
+    //console.log(Onload_imgs_url[index]);
+    //console.log(have_num + '-' + error_num);
+    if((have_num+error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var showtitletime = new Date().getTime();
+        if(showtitletime-begin_titletime > 3000)
+        {
+          id('pagetitle').style.webkitAnimation = 'title_out 1.5s 0.5s ease-in both';
+
+            beginshow();
+        }
+        else
+        {
+          var distime = showtitletime-begin_titletime;
+          setTimeout(function()
+          {
+              id('pagetitle').style.webkitAnimation = 'title_out 1.5s 0.5s ease-in both';
+
+                beginshow();
+          },3000-distime)
+        }
+    }
+}
+function image_onload(event)
+{
+    if(reshow == true)
+        return;
+
+    var img=event.target;
+    var index = img.index;
+
+    if(index<step_loadnum)
+        have_num++;
+    Onload_imgs_url[index]=img.src;
+    image_size_width[index]=img.width;
+    image_size_height[index]=img.height;
+    if((have_num + error_num >= step_loadnum ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {
+
+       canshow = false;
+       reshow = false;
+       if(have_num == 0)
+        return;
+      //console.log(Onload_imgs_url[index]);
+      //console.log(have_num + '-' + error_num);
+
+        var showtitletime = new Date().getTime();
+        if(showtitletime-begin_titletime > 3000)
+        {
+          id('pagetitle').style.webkitAnimation = 'title_out 1.5s 0.5s ease-in both';
+
+            beginshow();
+        }
+        else
+        {
+          var distime = showtitletime-begin_titletime;
+          setTimeout(function()
+          {
+              id('pagetitle').style.webkitAnimation = 'title_out 1.5s 0.5s ease-in both';
+
+                beginshow();
+          },3000-distime)
+        }
+    }
+}
+function beginshow () {
+    if(reshow == true)
+      return;
+   id('page1').style.display = 'none';
+   id('page1').style.webkitAnimation = '';
+   if(image_url_index == Onload_imgs_url.length)
+        image_url_index = 0;
+    setImage(1);
+    image_url_index++;
+   timeout1 = setTimeout(function()
+   {
+       id('page1').style.display = 'block';
+       id('page1').style.webkitAnimation = 'showup 10s linear both';
+   },100)
+
+
+   timeout4 = setTimeout(nextshow,6000);
+}
+function nextshow()
+{
+      if(reshow == true)
+        return;
+   if(image_url_index == Onload_imgs_url.length)
+        image_url_index = 0;
+    setImage(2);
+    image_url_index++;
+    id('page2').style.display = 'none';
+   id('page2').style.webkitAnimation = '';
+   timeout2 = setTimeout(function()
+   {
+       id('page2').style.display = 'block';
+       id('page2').style.webkitAnimation = 'showup 10s linear both';
+   },100)
+   timeout3 = setTimeout(beginshow,6000);
+}
+function insertEnter(str,n){
+    var len = str.length;
+    var strTemp = '';
+    if(len > n){
+    strTemp = str.substring(0,n);
+    str = str.substring(n,len);
+    return strTemp+'\n'+str;
+    }else{
+    return str;
+    }
+}
+function setImage(pageindex)
+{
+    if(reshow == true)
+        return;
+
+    while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+    {
+        if(image_url_index % step_loadnum == 0)
+        {
+            step_load();
+        }
+        image_url_index++;
+        if(image_url_index == Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    if(image_url_index % step_loadnum == 0)
+    {
+        step_load();
+    }
+    var word = id('word'+pageindex);
+    var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+    if(word_string != undefined)
+    {   
+        word_string = word_string.replace(/[\n]/ig,'');
+        
+        var word_length = word_string.length;
+        if(word_length < 5)
+        {
+          word.style.fontSize = "25px";
+        }else {
+          word.style.fontSize = "20px";
+          if(word_length > 10)
+            word_string = insertEnter(word_string, 5);
+        }
+
+        word.innerText = word_string;
+    }
+    else
+    {
+        word.innerText = "";
+    }
+
+    var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+    var page = id('page'+pageindex);
+    var up = id('up'+pageindex);
+    var down = id('down'+pageindex);
+    var left = id('left'+pageindex);
+    var right = id('right'+pageindex);
+    var imgdiv = id('imgdiv'+pageindex);
+    var img = id('img'+pageindex);
+    img.src = Onload_imgs_url[image_url_index];
+    //console.log(img.src);
+
+    if(img_bili>=1)
+    {
+        page.style.top = '-10px';
+        up.style.left = '0px';
+        up.style.top = '220px';
+        up.style.width = '495px';
+        up.style.height = '62px';
+
+
+        left.style.left = '28px';
+        left.style.top = '248px';
+        left.style.width = '46px';
+        left.style.height = 380/img_bili+20+'px';
+
+        right.style.left = '426px';
+        right.style.top = '248px';
+        right.style.width = '46px';
+        right.style.height = left.style.height;
+
+        down.style.left = '0px';
+        down.style.top = 380/img_bili+220+'px';
+        down.style.width = '495px';
+        down.style.height = '62px';
+
+        imgdiv.style.left = '61px';
+        imgdiv.style.top = '261px';
+        imgdiv.style.width = '380px';
+        imgdiv.style.height = '380px';
+        img.style.width = '380px';
+
+        if(word_string != undefined)
+        {
+          if(word_length > 10)
+            word.style.top = 380/img_bili+255+'px';
+          else
+            word.style.top = 380/img_bili+280+'px';
+        }
+        
+    }
+    else
+    {
+        page.style.top = '-70px';
+        up.style.left = '82px';
+        up.style.top = '220px';
+        up.style.width = '351px';
+        up.style.height = '62px';
+
+        left.style.left = '98px';
+        left.style.top = '248px';
+        left.style.width = '46px';
+        left.style.height = 250/img_bili + 20 + 'px';
+
+        right.style.left = '370px';
+        right.style.top = '248px';
+        right.style.width = '46px';
+        right.style.height = left.style.height;
+
+        down.style.left = '82px';
+        down.style.top = 220 + 250/img_bili + 'px';
+        down.style.width = '351px';
+        down.style.height = '62px';
+
+        imgdiv.style.left = '133px';
+        imgdiv.style.top = '261px';
+        imgdiv.style.width = '250px';
+        imgdiv.style.height = '500px';
+
+        if(word_string != undefined)
+        {
+          if(word_length > 10)
+            word.style.top = 255 + 250/img_bili + 'px';
+          else
+            word.style.top = 280 + 250/img_bili + 'px';
+        }
+        
+
+        if(img_bili < 0.5)
+        {
+            left.style.height = '520px';
+            right.style.height = '520px';
+            down.style.top = '720px';
+
+            word.style.top = '720px';
+
+        }
+        img.style.width = '250px';
+    }
+}
+call_me(loadimages);
+function reload_scene()
+{
+    reshow = true;
+    loadimages();
+}
+
+if(typeof(objid) === "undefined")
+{
+	var objid = function(id)
+	{
+		return document.getElementById(id);
+	}
+}
+
+function random(min,max)
+{
+	return Math.floor(min+Math.random()*(max-min));
+}
+
+
+function on_wx_music_init()
+{
+	if(e_desc != "")
+	{
+		document.title = e_desc.replace("<br>", "\n").replace("<br/>", "\n");;
+	}
+	else
+	{
+		document.title = "音乐相册";
+	}
+	loadingdiv_out();
+	create_music();
+
+	var locationurl = window.location.href;
+	check_cookie();
+
+
+}
+
+//创建存储cookie的函数
+function set_cookie(value)
+{
+	// value = "";
+	// if(wxid == 'youyi')
+	// 	document.cookie = "books="+value+';domain=.kawabody.cn';
+	// else
+		document.cookie = "books="+value+';domain=.kagirl.cn';
+	// alert('write:'+document.cookie);
+}
+
+function get_cookie(c_name)
+{
+	// alert(document.cookie);
+	if(document.cookie.length > 0)
+	{	
+		var c_start = document.cookie.indexOf(c_name + '=');
+		if (c_start != -1)
+		{
+			c_start = c_start + c_name.length + 1;
+			var c_end = document.cookie.indexOf(';', c_start);
+			if(c_end == -1)
+				c_end = document.cookie.length;
+			return unescape(document.cookie.substring(c_start,c_end));
+		}
+
+	}
+	return '';
+}
+
+
+function check_cookie()
+{
+
+
+}
+
+
+
+call_me(on_wx_music_init);
+
+//音乐播放
+
+var music_header   = 'http://kawaweika.qiniudn.com/sound/';
+var e_music_player = new Audio();
+
+function play_music()
+{
+	if(e_music_url == '')
+	{
+		return ;
+	}
+
+	if(e_music_url.indexOf('qqmusic') != -1)
+	{
+		mymusic = 'https://qnphoto.kagirl.cn/music/688042.m4a';
+	}
+	else
+	{
+		mymusic = e_music_url;
+	}
+
+	e_music_player.src  = mymusic;
+	e_music_player.loop = 'loop';
+
+	//console.log(e_music_player.src);
+	e_music_player.onerror = function(){
+		if(e_music_url.indexOf("http://sound.kagirl.net") != -1)
+		{
+			var url = e_music_url.replace("http://sound.kagirl.net", "https://music.kagirl.cn");
+		}
+		else
+		{
+			var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");	
+		}
+
+		e_music_player.src = url;
+		e_music_player.play();
+		e_music_player.onerror = null;
+	}
+	
+	e_music_player.play();
+	
+	//检查音乐是否缓冲成功
+	setTimeout(function()
+	{
+		var timeRanges = e_music_player.buffered;
+		var timeBuffered = timeRanges.end(timeRanges.length - 1);
+		var bufferPercent = timeBuffered /e_music_player.duration; 
+		//console.log('music:'+bufferPercent);
+
+		if(isNaN(bufferPercent) || bufferPercent == 0)
+		{
+			if(e_music_url.indexOf("http://sound.kagirl.net") != -1)
+			{
+				var url = e_music_url.replace("http://sound.kagirl.net", "https://music.kagirl.cn");
+			}
+			else
+			{
+				var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");	
+			}
+			e_music_player.src = url;
+			e_music_player.play();
+		}
+	},5000);
+
+
+	if(objid('sound_image'))
+	{
+		objid('sound_image').style.webkitAnimation     = "zhuan 1s linear infinite";
+	}
+	
+	bplay = 1;
+}
+
+function create_music()
+{
+	if(e_music_url == '')
+	{
+		return ;
+	}
+	
+	play_music();
+
+	sound_div = document.createElement("div");
+	sound_div.setAttribute("ID", "cardsound");
+	sound_div.style.cssText = "position:fixed;right:20px;top:25px;z-index:50;visibility:visible;";
+	sound_div.onclick = switchsound;
+
+	bg_htm  = "<img id='sound_image' src='/design/album/tlps/3/res/music_note_big.png' style='-webkit-animation:zhuan 1s linear infinite'>";
+	txt_htm = "<div id='music_txt' style='color:white;position:absolute;left:-40px;top:30px;width:60px'></div>"
+
+	sound_div.innerHTML = bg_htm  + txt_htm;
+
+	document.body.appendChild(sound_div);
+} 
+
+var bplay = 0;              
+
+function switchsound()
+{
+	au = e_music_player;
+	ai = objid('sound_image');
+	if(au.paused)
+	{
+		bplay = 1;
+		au.play();
+		ai.style.webkitAnimation     = "zhuan 1s linear infinite";
+		objid("music_txt").innerHTML = "打开";
+		objid("music_txt").style.visibility = "visible";
+		setTimeout(function(){objid("music_txt").style.visibility="hidden"}, 2500);
+	}
+	else
+	{
+		bplay = 0;
+		au.pause();
+		ai.style.webkitAnimation     = "";
+		objid("music_txt").innerHTML = "关闭";
+		objid("music_txt").style.visibility = "visible";
+		setTimeout(function(){objid("music_txt").style.visibility="hidden"}, 2500);
+	}
+}
+
+
+
+function write_localstorage()
+{
+//console.log('write');
+objid('like_div').onclick = function(){};
+}
+
+function read_localstorage()
+{
+
+if(editmode == false )
+{
+	objid('like_div').style.display = 'block';
+}
+//console.log(localStorage.likestr);
+if(localStorage.likestr == null || localStorage == undefined)
+{
+	objid('like_div').onclick = write_localstorage;
+}
+else
+{
+	var like_arr = JSON.parse(localStorage.likestr);
+	var sendstr = e_bookid + wxid + date;
+	//console.log(sendstr);
+	for(var i=0;i<like_arr.length;i++)
+	{
+		if(like_arr[i] == sendstr)
+		{
+			objid('like_heart').src = 'https://qnphoto.kagirl.cn/zan/like0.png';
+			break;
+		}
+		else if(i == like_arr.length-1)
+		{
+			objid('like_div').onclick = write_localstorage;
+			// //console.log('canclick');
+		}
+	}
+}
+// //console.log(objid("like_div").onclick);
+objid('like_num').innerHTML = zan_num;
+}
+
+function visit_guangchang()
+{
+var locationurl = location.href;
+if(shareid != '' && shareid != undefined)
+{
+	if(locationurl.indexOf('hidden') != -1)
+	{
+		if(locationurl.indexOf('menu') != -1)
+			location.href = 'http://photo.kagirl.cn/kphoto/menu.php?wxid='+shareid;
+		else
+			location.href = 'http://photo.kagirl.cn/kphoto/more1.php?back=true&wxid='+shareid;
+	}
+	else
+		location.href = 'http://photo.kagirl.cn/kphoto/more1.php?back=true&show=true&wxid='+shareid;
+}
+}
+function loadingdiv_out()
+{
+objid('loadingdiv').style.webkitAnimation = 'fadeout 0.3s linear both';
+if(navigator.userAgent.indexOf('Windows Phone')!=1)
+{
+	objid('loadingdiv').style.display = 'none';
+}
+
+setTimeout(function()
+{
+	objid('loadingdiv').style.display = 'none';
+},400)
+}
+
+</script>

@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E2BF8D3-7AC5-4101-B1CE-A13A74BA1ED3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZoomLa.PdoApi</RootNamespace>
+    <AssemblyName>ZoomLa.PdoApi</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/ZoomLa.PdoApi/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZoomLa.WebSite\Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZoomLa.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZoomLa.WebSite\Bin\ZoomLa.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ZoomLa.Components, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZoomLa.WebSite\Bin\ZoomLa.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="ZoomLa.Model, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZoomLa.WebSite\Bin\ZoomLa.Model.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiAction.cs" />
+    <Compile Include="ApiConfig.cs" />
+    <Compile Include="ApiData.cs" />
+    <Compile Include="BaiduUE\Config.cs" />
+    <Compile Include="BaiduUE\ConfigHandler.cs" />
+    <Compile Include="BaiduUE\CrawlerHandler.cs" />
+    <Compile Include="BaiduUE\Handler.cs" />
+    <Compile Include="BaiduUE\ListFileHandler.cs" />
+    <Compile Include="BaiduUE\NotSupportedHandler.cs" />
+    <Compile Include="BaiduUE\PathFormater.cs" />
+    <Compile Include="BaiduUE\UploadHandler.cs" />
+    <Compile Include="Common\APIHelper.cs" />
+    <Compile Include="CopyRight\C_CopyRight.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\APIRequestException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\AudienceConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\BaseHttpClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\BaseResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\DeviceType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\PlatformConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\ResponseWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\resp\APIConnectionException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\resp\BooleanResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\resp\DefaultResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\ServiceHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\common\TimeUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\device\AliasDeviceListResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\device\DeviceClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\device\TagAliasResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\device\TagListResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\JPushClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\audience\AudienceTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\audience\AudienceType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\MessageResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\mode\Audience.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\mode\Message.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\mode\Notification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\mode\Options.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\mode\Platform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\mode\PushPayload.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\mode\SmsMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\notification\AndroidNotification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\notification\IosNotification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\notification\PlatformNotification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\notification\WinphoneNotification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\push\PushClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\report\MessagesResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\report\ReceivedResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\report\ReportClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\report\UsersResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\enabled\Enabled.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\name\Name.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\ScheduleClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\ScheduleListResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\SchedulePayload.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\trigger\Periodical.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\trigger\Single.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\trigger\Trigger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\schedule\trigger\TriggerPayload.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\util\Base64.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\util\JsonTool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\util\Md5.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\util\Preconditions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\cn.jpush.api\util\StringUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JPush\C_JPush.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinaWeiBo\MemoryFileContent.cs" />
+    <Compile Include="SinaWeiBo\OpenAuthenticationClientBase.cs" />
+    <Compile Include="SinaWeiBo\SinaHelper.cs" />
+    <Compile Include="SinaWeiBo\SinaWeiboClient.cs" />
+    <Compile Include="TencentIM\C_QQIM_Bll.cs" />
+    <Compile Include="TencentIM\M_QQIM_User.cs" />
+    <Compile Include="TencentMVS\C_TencentMvs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZoomLa.BLL\ZoomLa.BLL.csproj">
+      <Project>{74416c57-8828-44d9-aee2-460589f26f80}</Project>
+      <Name>ZoomLa.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.SQLDAL\ZoomLa.SQLDAL.csproj">
+      <Project>{b7b158c7-a753-41a2-9193-633ec50f0912}</Project>
+      <Name>ZoomLa.SQLDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

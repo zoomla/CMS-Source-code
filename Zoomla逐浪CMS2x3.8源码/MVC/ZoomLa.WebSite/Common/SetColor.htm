@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>调色板工具</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script type="text/javascript" language="javascript">
+var Fs_IsIE5 = (navigator.userAgent.indexOf("IE 5")  > -1) || (navigator.userAgent.indexOf("IE 6")  > -1);
+var Fs_IsIE4	= document.all&&navigator.userAgent.indexOf("Opera")==-1
+function InitColorPalette() {
+	if (Fs_IsIE4){
+	var x = document.all.tags('td');}
+	else{
+	var x = document.getElementsByTagName('td');}
+	for (var i=4; i<x.length; i++) {
+		x[i].onmouseover = over;
+		x[i].onmouseout = out;
+		x[i].onclick = click;
+	}
+}
+
+//Mouse over palette effects on
+function over() {
+	if (this.id.length == 7){
+		this.style.border='1px solid #FFFFFF';
+	}
+
+	if (Fs_IsIE4){
+		document.all.colPreview.style.backgroundColor = this.id;
+		document.all.hexColValue.value = this.id;}
+	else{
+		document.getElementById("colPreview").style.backgroundColor = this.id;
+		document.getElementById("hexColValue").value = this.id;
+	}
+}
+//Mouse 移开
+function out() {
+	if (this.id.length == 7){
+		this.style.border='1px solid #000000';
+	}
+}
+//Mouse 点击
+function click() {
+	selectColor(this.id);
+}
+
+//颜色选取
+function selectColor(color){
+	self.parent.setColor(color);
+}
+</script>
+<style type="text/css">
+TD {	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; COLOR: #000000; BORDER-BOTTOM: 1px solid;}
+.grTd {	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; COLOR: white; BORDER-BOTTOM: 1px solid;}
+INPUT {	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: Verdana, 新宋体; BACKGROUND-COLOR: #cccccc;}
+</style>
+<META content="MSHTML 6.00.2900.2604" name=GENERATOR>
+</head>
+<body bgColor=#cccccc leftMargin=1 topMargin=1 onload=InitColorPalette() 
+marginheight="1" marginwidth="1">
+<TABLE style="none: " borderColor=#cccccc cellSpacing=2 cellPadding=0 
+width="100%" bgColor=#cccccc border=0>
+  <TBODY>
+  <TR>
+    <TD class=grTd width=40>
+      <DIV  style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; WIDTH: 40px; PADDING-TOP: 1px; HEIGHT: 15px; BACKGROUND-COLOR: #000000">
+      <DIV id=colPreview style="WIDTH: 100%; HEIGHT: 100%"></DIV></DIV></TD>
+    <TD class=grTd width=10><INPUT id=hexColValue style="CURSOR: default" size=10></TD>
+    <TD class=grTd align=right width=*><IMG onclick="parent.setColor('#');"  height=17 src="../images/rectNoColor.gif" width=18 align=absMiddle>
+    <FONT style="FONT-SIZE: 9pt; COLOR: #000000">颜色画板</FONT></TD></TR></TBODY></TABLE>
+<TABLE borderColor=#000000 height="84%" cellSpacing=0 cellPadding=0 width="100%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#003300 width=11 bgColor=#003300 height=11><IMG height=1 width=1></TD>
+    <TD id=#006600 width=11 bgColor=#006600 height=11><IMG height=1 width=1></TD>
+    <TD id=#009900 width=11 bgColor=#009900 height=11><IMG height=1 width=1></TD>
+    <TD id=#00CC00 width=11 bgColor=#00cc00 height=11><IMG height=1 width=1></TD>
+    <TD id=#00FF00 width=11 bgColor=#00ff00 height=11><IMG height=1 width=1></TD>
+    <TD id=#330000 width=11 bgColor=#330000 height=11><IMG height=1 width=1></TD>
+    <TD id=#333300 width=11 bgColor=#333300 height=11><IMG height=1 width=1></TD>
+    <TD id=#336600 width=11 bgColor=#336600 height=11><IMG height=1 width=1></TD>
+    <TD id=#339900 width=11 bgColor=#339900 height=11><IMG height=1 width=1></TD>
+    <TD id=#33CC00 width=11 bgColor=#33cc00 height=11><IMG height=1 width=1></TD>
+    <TD id=#33FF00 width=11 bgColor=#33ff00 height=11><IMG height=1 width=1></TD>
+    <TD id=#660000 width=11 bgColor=#660000 height=11><IMG height=1 width=1></TD>
+    <TD id=#663300 width=11 bgColor=#663300 height=11><IMG height=1 width=1></TD>
+    <TD id=#666600 width=11 bgColor=#666600 height=11><IMG height=1 width=1></TD>
+    <TD id=#669900 width=11 bgColor=#669900 height=11><IMG height=1 width=1></TD>
+    <TD id=#66CC00 width=11 bgColor=#66cc00 height=11><IMG height=1 width=1></TD>
+    <TD id=#66FF00 width=11 bgColor=#66ff00 height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#333333 width=11 bgColor=#333333 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#000033 width=11 bgColor=#000033 height=11><IMG height=1 width=1></TD>
+    <TD id=#003333 width=11 bgColor=#003333 height=11><IMG height=1 width=1></TD>
+    <TD id=#006633 width=11 bgColor=#006633 height=11><IMG height=1 width=1></TD>
+    <TD id=#009933 width=11 bgColor=#009933 height=11><IMG height=1 width=1></TD>
+    <TD id=#00CC33 width=11 bgColor=#00cc33 height=11><IMG height=1 width=1></TD>
+    <TD id=#00FF33 width=11 bgColor=#00ff33 height=11><IMG height=1 width=1></TD>
+    <TD id=#330033 width=11 bgColor=#330033 height=11><IMG height=1 width=1></TD>
+    <TD id=#333333 width=11 bgColor=#333333 height=11><IMG height=1 width=1></TD>
+    <TD id=#336633 width=11 bgColor=#336633 height=11><IMG height=1 width=1></TD>
+    <TD id=#339933 width=11 bgColor=#339933 height=11><IMG height=1 width=1></TD>
+    <TD id=#33CC33 width=11 bgColor=#33cc33 height=11><IMG height=1 width=1></TD>
+    <TD id=#33FF33 width=11 bgColor=#33ff33 height=11><IMG height=1 width=1></TD>
+    <TD id=#660033 width=11 bgColor=#660033 height=11><IMG height=1 width=1></TD>
+    <TD id=#663333 width=11 bgColor=#663333 height=11><IMG height=1 width=1></TD>
+    <TD id=#666633 width=11 bgColor=#666633 height=11><IMG height=1 width=1></TD>
+    <TD id=#669933 width=11 bgColor=#669933 height=11><IMG height=1 width=1></TD>
+    <TD id=#66CC33 width=11 bgColor=#66cc33 height=11><IMG height=1 width=1></TD>
+    <TD id=#66FF33 width=11 bgColor=#66ff33 height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#666666 width=11 bgColor=#666666 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#000066 width=11 bgColor=#000066 height=11><IMG height=1 width=1></TD>
+    <TD id=#003366 width=11 bgColor=#003366 height=11><IMG height=1 width=1></TD>
+    <TD id=#006666 width=11 bgColor=#006666 height=11><IMG height=1 width=1></TD>
+    <TD id=#009966 width=11 bgColor=#009966 height=11><IMG height=1 width=1></TD>
+    <TD id=#00CC66 width=11 bgColor=#00cc66 height=11><IMG height=1 width=1></TD>
+    <TD id=#00FF66 width=11 bgColor=#00ff66 height=11><IMG height=1 width=1></TD>
+    <TD id=#330066 width=11 bgColor=#330066 height=11><IMG height=1 width=1></TD>
+    <TD id=#333366 width=11 bgColor=#333366 height=11><IMG height=1 width=1></TD>
+    <TD id=#336666 width=11 bgColor=#336666 height=11><IMG height=1 width=1></TD>
+    <TD id=#339966 width=11 bgColor=#339966 height=11><IMG height=1 width=1></TD>
+    <TD id=#33CC66 width=11 bgColor=#33cc66 height=11><IMG height=1 width=1></TD>
+    <TD id=#33FF66 width=11 bgColor=#33ff66 height=11><IMG height=1 width=1></TD>
+    <TD id=#660066 width=11 bgColor=#660066 height=11><IMG height=1 width=1></TD>
+    <TD id=#663366 width=11 bgColor=#663366 height=11><IMG height=1 width=1></TD>
+    <TD id=#666666 width=11 bgColor=#666666 height=11><IMG height=1 width=1></TD>
+    <TD id=#669966 width=11 bgColor=#669966 height=11><IMG height=1 width=1></TD>
+    <TD id=#66CC66 width=11 bgColor=#66cc66 height=11><IMG height=1 width=1></TD>
+    <TD id=#66FF66 width=11 bgColor=#66ff66 height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#999999 width=11 bgColor=#999999 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#000099 width=11 bgColor=#000099 height=11><IMG height=1 width=1></TD>
+    <TD id=#003399 width=11 bgColor=#003399 height=11><IMG height=1 width=1></TD>
+    <TD id=#006699 width=11 bgColor=#006699 height=11><IMG height=1 width=1></TD>
+    <TD id=#009999 width=11 bgColor=#009999 height=11><IMG height=1 width=1></TD>
+    <TD id=#00CC99 width=11 bgColor=#00cc99 height=11><IMG height=1 width=1></TD>
+    <TD id=#00FF99 width=11 bgColor=#00ff99 height=11><IMG height=1 width=1></TD>
+    <TD id=#330099 width=11 bgColor=#330099 height=11><IMG height=1 width=1></TD>
+    <TD id=#333399 width=11 bgColor=#333399 height=11><IMG height=1 width=1></TD>
+    <TD id=#336699 width=11 bgColor=#336699 height=11><IMG height=1 width=1></TD>
+    <TD id=#339999 width=11 bgColor=#339999 height=11><IMG height=1 width=1></TD>
+    <TD id=#33CC99 width=11 bgColor=#33cc99 height=11><IMG height=1 width=1></TD>
+    <TD id=#33FF99 width=11 bgColor=#33ff99 height=11><IMG height=1 width=1></TD>
+    <TD id=#660099 width=11 bgColor=#660099 height=11><IMG height=1 width=1></TD>
+    <TD id=#663399 width=11 bgColor=#663399 height=11><IMG height=1 width=1></TD>
+    <TD id=#666699 width=11 bgColor=#666699 height=11><IMG height=1 width=1></TD>
+    <TD id=#669999 width=11 bgColor=#669999 height=11><IMG height=1 width=1></TD>
+    <TD id=#66CC99 width=11 bgColor=#66cc99 height=11><IMG height=1 width=1></TD>
+    <TD id=#66FF99 width=11 bgColor=#66ff99 height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCCCCC width=11 bgColor=#cccccc height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#0000CC width=11 bgColor=#0000cc height=11><IMG height=1 width=1></TD>
+    <TD id=#0033CC width=11 bgColor=#0033cc height=11><IMG height=1 width=1></TD>
+    <TD id=#0066CC width=11 bgColor=#0066cc height=11><IMG height=1 width=1></TD>
+    <TD id=#0099CC width=11 bgColor=#0099cc height=11><IMG height=1 width=1></TD>
+    <TD id=#00CCCC width=11 bgColor=#00cccc height=11><IMG height=1 width=1></TD>
+    <TD id=#00FFCC width=11 bgColor=#00ffcc height=11><IMG height=1 width=1></TD>
+    <TD id=#3300CC width=11 bgColor=#3300cc height=11><IMG height=1 width=1></TD>
+    <TD id=#3333CC width=11 bgColor=#3333cc height=11><IMG height=1 width=1></TD>
+    <TD id=#3366CC width=11 bgColor=#3366cc height=11><IMG height=1 width=1></TD>
+    <TD id=#3399CC width=11 bgColor=#3399cc height=11><IMG height=1 width=1></TD>
+    <TD id=#33CCCC width=11 bgColor=#33cccc height=11><IMG height=1 width=1></TD>
+    <TD id=#33FFCC width=11 bgColor=#33ffcc height=11><IMG height=1 width=1></TD>
+    <TD id=#6600CC width=11 bgColor=#6600cc height=11><IMG height=1 width=1></TD>
+    <TD id=#6633CC width=11 bgColor=#6633cc height=11><IMG height=1 width=1></TD>
+    <TD id=#6666CC width=11 bgColor=#6666cc height=11><IMG height=1 width=1></TD>
+    <TD id=#6699CC width=11 bgColor=#6699cc height=11><IMG height=1 width=1></TD>
+    <TD id=#66CCCC width=11 bgColor=#66cccc height=11><IMG height=1 width=1></TD>
+    <TD id=#66FFCC width=11 bgColor=#66ffcc height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFFFFF width=11 bgColor=#ffffff height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#0000FF width=11 bgColor=#0000ff height=11><IMG height=1 width=1></TD>
+    <TD id=#0033FF width=11 bgColor=#0033ff height=11><IMG height=1 width=1></TD>
+    <TD id=#0066FF width=11 bgColor=#0066ff height=11><IMG height=1 width=1></TD>
+    <TD id=#0099FF width=11 bgColor=#0099ff height=11><IMG height=1 width=1></TD>
+    <TD id=#00CCFF width=11 bgColor=#00ccff height=11><IMG height=1 width=1></TD>
+    <TD id=#00FFFF width=11 bgColor=#00ffff height=11><IMG height=1 width=1></TD>
+    <TD id=#3300FF width=11 bgColor=#3300ff height=11><IMG height=1 width=1></TD>
+    <TD id=#3333FF width=11 bgColor=#3333ff height=11><IMG height=1 width=1></TD>
+    <TD id=#3366FF width=11 bgColor=#3366ff height=11><IMG height=1 width=1></TD>
+    <TD id=#3399FF width=11 bgColor=#3399ff height=11><IMG height=1 width=1></TD>
+    <TD id=#33CCFF width=11 bgColor=#33ccff height=11><IMG height=1 width=1></TD>
+    <TD id=#33FFFF width=11 bgColor=#33ffff height=11><IMG height=1 width=1></TD>
+    <TD id=#6600FF width=11 bgColor=#6600ff height=11><IMG height=1 width=1></TD>
+    <TD id=#6633FF width=11 bgColor=#6633ff height=11><IMG height=1 width=1></TD>
+    <TD id=#6666FF width=11 bgColor=#6666ff height=11><IMG height=1 width=1></TD>
+    <TD id=#6699FF width=11 bgColor=#6699ff height=11><IMG height=1 width=1></TD>
+    <TD id=#66CCFF width=11 bgColor=#66ccff height=11><IMG height=1 width=1></TD>
+    <TD id=#66FFFF width=11 bgColor=#66ffff height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF0000 width=11 bgColor=#ff0000 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#990000 width=11 bgColor=#990000 height=11><IMG height=1 width=1></TD>
+    <TD id=#993300 width=11 bgColor=#993300 height=11><IMG height=1 width=1></TD>
+    <TD id=#996600 width=11 bgColor=#996600 height=11><IMG height=1 width=1></TD>
+    <TD id=#999900 width=11 bgColor=#999900 height=11><IMG height=1 width=1></TD>
+    <TD id=#99CC00 width=11 bgColor=#99cc00 height=11><IMG height=1 width=1></TD>
+    <TD id=#99FF00 width=11 bgColor=#99ff00 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC0000 width=11 bgColor=#cc0000 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC3300 width=11 bgColor=#cc3300 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC6600 width=11 bgColor=#cc6600 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC9900 width=11 bgColor=#cc9900 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCCC00 width=11 bgColor=#cccc00 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCFF00 width=11 bgColor=#ccff00 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF0000 width=11 bgColor=#ff0000 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF3300 width=11 bgColor=#ff3300 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF6600 width=11 bgColor=#ff6600 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF9900 width=11 bgColor=#ff9900 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFCC00 width=11 bgColor=#ffcc00 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFFF00 width=11 bgColor=#ffff00 height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#00FF00 width=11 bgColor=#00ff00 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#990033 width=11 bgColor=#990033 height=11><IMG height=1 width=1></TD>
+    <TD id=#993333 width=11 bgColor=#993333 height=11><IMG height=1 width=1></TD>
+    <TD id=#996633 width=11 bgColor=#996633 height=11><IMG height=1 width=1></TD>
+    <TD id=#999933 width=11 bgColor=#999933 height=11><IMG height=1 width=1></TD>
+    <TD id=#99CC33 width=11 bgColor=#99cc33 height=11><IMG height=1 width=1></TD>
+    <TD id=#99FF33 width=11 bgColor=#99ff33 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC0033 width=11 bgColor=#cc0033 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC3333 width=11 bgColor=#cc3333 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC6633 width=11 bgColor=#cc6633 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC9933 width=11 bgColor=#cc9933 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCCC33 width=11 bgColor=#cccc33 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCFF33 width=11 bgColor=#ccff33 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF0033 width=11 bgColor=#ff0033 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF3333 width=11 bgColor=#ff3333 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF6633 width=11 bgColor=#ff6633 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF9933 width=11 bgColor=#ff9933 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFCC33 width=11 bgColor=#ffcc33 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFFF33 width=11 bgColor=#ffff33 height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#0000FF width=11 bgColor=#0000ff height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#990066 width=11 bgColor=#990066 height=11><IMG height=1 width=1></TD>
+    <TD id=#993366 width=11 bgColor=#993366 height=11><IMG height=1 width=1></TD>
+    <TD id=#996666 width=11 bgColor=#996666 height=11><IMG height=1 width=1></TD>
+    <TD id=#999966 width=11 bgColor=#999966 height=11><IMG height=1 width=1></TD>
+    <TD id=#99CC66 width=11 bgColor=#99cc66 height=11><IMG height=1 width=1></TD>
+    <TD id=#99FF66 width=11 bgColor=#99ff66 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC0066 width=11 bgColor=#cc0066 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC3366 width=11 bgColor=#cc3366 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC6666 width=11 bgColor=#cc6666 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC9966 width=11 bgColor=#cc9966 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCCC66 width=11 bgColor=#cccc66 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCFF66 width=11 bgColor=#ccff66 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF0066 width=11 bgColor=#ff0066 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF3366 width=11 bgColor=#ff3366 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF6666 width=11 bgColor=#ff6666 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF9966 width=11 bgColor=#ff9966 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFCC66 width=11 bgColor=#ffcc66 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFFF66 width=11 bgColor=#ffff66 height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFFF00 width=11 bgColor=#ffff00 height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#990099 width=11 bgColor=#990099 height=11><IMG height=1 width=1></TD>
+    <TD id=#993399 width=11 bgColor=#993399 height=11><IMG height=1 width=1></TD>
+    <TD id=#996699 width=11 bgColor=#996699 height=11><IMG height=1 width=1></TD>
+    <TD id=#999999 width=11 bgColor=#999999 height=11><IMG height=1 width=1></TD>
+    <TD id=#99CC99 width=11 bgColor=#99cc99 height=11><IMG height=1 width=1></TD>
+    <TD id=#99FF99 width=11 bgColor=#99ff99 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC0099 width=11 bgColor=#cc0099 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC3399 width=11 bgColor=#cc3399 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC6699 width=11 bgColor=#cc6699 height=11><IMG height=1 width=1></TD>
+    <TD id=#CC9999 width=11 bgColor=#cc9999 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCCC99 width=11 bgColor=#cccc99 height=11><IMG height=1 width=1></TD>
+    <TD id=#CCFF99 width=11 bgColor=#ccff99 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF0099 width=11 bgColor=#ff0099 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF3399 width=11 bgColor=#ff3399 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF6699 width=11 bgColor=#ff6699 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF9999 width=11 bgColor=#ff9999 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFCC99 width=11 bgColor=#ffcc99 height=11><IMG height=1 width=1></TD>
+    <TD id=#FFFF99 width=11 bgColor=#ffff99 height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#00FFFF width=11 bgColor=#00ffff height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#9900CC width=11 bgColor=#9900cc height=11><IMG height=1 width=1></TD>
+    <TD id=#9933CC width=11 bgColor=#9933cc height=11><IMG height=1 width=1></TD>
+    <TD id=#9966CC width=11 bgColor=#9966cc height=11><IMG height=1 width=1></TD>
+    <TD id=#9999CC width=11 bgColor=#9999cc height=11><IMG height=1 width=1></TD>
+    <TD id=#99CCCC width=11 bgColor=#99cccc height=11><IMG height=1 width=1></TD>
+    <TD id=#99FFCC width=11 bgColor=#99ffcc height=11><IMG height=1 width=1></TD>
+    <TD id=#CC00CC width=11 bgColor=#cc00cc height=11><IMG height=1 width=1></TD>
+    <TD id=#CC33CC width=11 bgColor=#cc33cc height=11><IMG height=1 width=1></TD>
+    <TD id=#CC66CC width=11 bgColor=#cc66cc height=11><IMG height=1 width=1></TD>
+    <TD id=#CC99CC width=11 bgColor=#cc99cc height=11><IMG height=1 width=1></TD>
+    <TD id=#CCCCCC width=11 bgColor=#cccccc height=11><IMG height=1 width=1></TD>
+    <TD id=#CCFFCC width=11 bgColor=#ccffcc height=11><IMG height=1 width=1></TD>
+    <TD id=#FF00CC width=11 bgColor=#ff00cc height=11><IMG height=1 width=1></TD>
+    <TD id=#FF33CC width=11 bgColor=#ff33cc height=11><IMG height=1 width=1></TD>
+    <TD id=#FF66CC width=11 bgColor=#ff66cc height=11><IMG height=1 width=1></TD>
+    <TD id=#FF99CC width=11 bgColor=#ff99cc height=11><IMG height=1 width=1></TD>
+    <TD id=#FFCCCC width=11 bgColor=#ffcccc height=11><IMG height=1 width=1></TD>
+    <TD id=#FFFFCC width=11 bgColor=#ffffcc height=11><IMG height=1 width=1></TD></TR>
+  <TR>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#FF00FF width=11 bgColor=#ff00ff height=11><IMG height=1 width=1></TD>
+    <TD id=#000000 width=11 bgColor=#000000 height=11><IMG height=1 width=1></TD>
+    <TD id=#9900FF width=11 bgColor=#9900ff height=11><IMG height=1 width=1></TD>
+    <TD id=#9933FF width=11 bgColor=#9933ff height=11><IMG height=1 width=1></TD>
+    <TD id=#9966FF width=11 bgColor=#9966ff height=11><IMG height=1 width=1></TD>
+    <TD id=#9999FF width=11 bgColor=#9999ff height=11><IMG height=1 width=1></TD>
+    <TD id=#99CCFF width=11 bgColor=#99ccff height=11><IMG height=1 width=1></TD>
+    <TD id=#99FFFF width=11 bgColor=#99ffff height=11><IMG height=1 width=1></TD>
+    <TD id=#CC00FF width=11 bgColor=#cc00ff height=11><IMG height=1 width=1></TD>
+    <TD id=#CC33FF width=11 bgColor=#cc33ff height=11><IMG height=1 width=1></TD>
+    <TD id=#CC66FF width=11 bgColor=#cc66ff height=11><IMG height=1 width=1></TD>
+    <TD id=#CC99FF width=11 bgColor=#cc99ff height=11><IMG height=1 width=1></TD>
+    <TD id=#CCCCFF width=11 bgColor=#ccccff height=11><IMG height=1 width=1></TD>
+    <TD id=#CCFFFF width=11 bgColor=#ccffff height=11><IMG height=1 width=1></TD>
+    <TD id=#FF00FF width=11 bgColor=#ff00ff height=11><IMG height=1 width=1></TD>
+    <TD id=#FF33FF width=11 bgColor=#ff33ff height=11><IMG height=1 width=1></TD>
+    <TD id=#FF66FF width=11 bgColor=#ff66ff height=11><IMG height=1 width=1></TD>
+    <TD id=#FF99FF width=11 bgColor=#ff99ff height=11><IMG height=1 width=1></TD>
+    <TD id=#FFCCFF width=11 bgColor=#ffccff height=11><IMG height=1 width=1></TD>
+    <TD id=#FFFFFF width=11 bgColor=#ffffff height=11><IMG height=1 width=1></TD></TR></TBODY></TABLE>
+</body>
+</html>

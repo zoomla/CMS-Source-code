@@ -1,0 +1,49 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Views/Shared/_empty.cshtml";
+    string action = ViewBag.action;
+    string tagkey = Request.QueryString["tagkey"] ?? "";
+    string title = action.Equals("content") ? "文章列表" : "商品列表";
+}
+@section head{
+<script src="/JS/mvcpage.js"></script>
+<title>@title</title>
+<style>
+.container{margin-top:30px;box-shadow:rgba(0,0,0,0.0980392) 0px 2px 5px 0px, rgba(0,0,0,0.0784314) 0px 2px 10px 0px;}
+.cons ul li{background:#f7f7f7; padding:10px;border-top:2px solid #e3e3e3;margin-top:15px;}
+.cons ul li:hover{border-top:solid 2px #f90;}
+.cons ul li h2{margin-top:0px;font-size:1.4em;}
+.cons ul li p{color:#555;}
+.cons ul li .btn{border-radius:0;}
+.coms ul li{padding:10px;float:left;text-align:center;}
+.coms ul li .img_div{background-color:#fff;line-height:300px;padding:3px;border:1px solid #ccc;border-radius:3px;}
+.coms ul li .img_div:hover{border-color:#f90;}
+.coms ul li .img_div img{max-width:200px;max-height:300px;}
+.coms ul li .proname{color:#999;display:block;margin:5px auto;}
+.coms ul li .price{display:block;}
+.empty{color:#555;font-size:1.6em;border:1px solid #e3e3e3;margin:15px auto;padding:15px;}
+</style>
+}
+@section content{
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li id="content"><a href="KeywordContact?type=content&tagkey=@tagkey">文章</a></li>
+            <li id="commodity"><a href="KeywordContact?type=commodity&tagkey=@tagkey">商品</a></li>
+        </ul>
+        @if (action.Equals("content"))
+        {
+            @Html.Partial("Contents_List", Model)
+        }
+        else
+        {
+            @Html.Partial("Commoditys_List", Model);
+        }
+    </div>
+}
+@section script{
+<script>
+    $(function () {
+        $("#@action").addClass("active");
+    })
+</script>
+}

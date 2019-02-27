@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>147</LabelID>
+    <LabelName>图库模型列表输出_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|ShowNum,10,1,分页显示数|TitleNum,30,1,标题长度</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_C_Photo on ZL_CommonModel.ItemID=ZL_C_Photo.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.Title,ZL_C_Photo.PhotoUrlThum</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID)  and status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>&lt;ul&gt;
+{Repeate}
+&lt;li&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" target="_blank" title="{Field="Title"/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="PhotoUrlThum"/})/}" /&gt;&lt;/a&gt; &lt;br /&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" targt="_blank" title="{Field="Title"/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;
+&lt;/li&gt;
+{/Repeate}
+&lt;/ul&gt;
+{ZL.Page/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

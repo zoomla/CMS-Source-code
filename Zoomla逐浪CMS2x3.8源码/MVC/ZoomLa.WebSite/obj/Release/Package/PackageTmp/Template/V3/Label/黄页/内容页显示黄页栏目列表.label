@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>264</LabelID>
+    <LabelName>内容页显示黄页栏目列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>内容页显示黄页栏目列表</LabelDesc>
+    <LabelParam>Inputer,默认值,1,黄页用户</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,NodeID,ModelID,ItemID,TableName,Title,Inputer,Hits,CreateTime,Status,EliteLevel,InfoID,SpecialID,IsCreate,HtmlLink,Template</LabelField>
+    <LabelWhere>Inputer='@Inputer' And TableName like 'ZL_Reg_%' And Status=99</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{ZL.Label id="内容页查询栏目" username="{Field="Inputer"/}" Styles="{Field="InfoID"/}" /}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

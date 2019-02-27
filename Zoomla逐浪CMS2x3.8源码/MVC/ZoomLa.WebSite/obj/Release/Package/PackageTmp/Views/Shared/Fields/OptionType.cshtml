@@ -1,0 +1,54 @@
+﻿@using ZoomLa.BLL
+@using System.Text
+@using ZoomLa.Common
+@using System.Text.RegularExpressions
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    public MvcHtmlString GetRadioType()
+    {
+        string Content = Model.fieldMod.Content;
+        FieldModel fieldMod = new FieldModel(Content);
+        int optype = DataConverter.CLng(Content.Split('=')[0]);
+        string id = "txt_" + Model.fieldMod.FieldName;
+        string[] options = Regex.Split(Content.Split(',')[0].Split('=')[1], Regex.Escape("||"));//text|value$0   分隔符为||
+        string value = fieldMod.GetValue("Default");
+        if (!string.IsNullOrEmpty(Model.GetValue())) { value = Model.GetValue(); }
+        bool property = fieldMod.GetValBool("Property");
+        //-----------------------------------
+        string html = "";
+        switch (optype)
+        {
+            case 1:
+                #region  select
+                {
+                    html = "<select class=\"form-control m715-50 fd_select\" name=\"" + id + "\">";
+                    foreach (string op in options)
+                    {
+                        string text = op.Split('$')[0].Split('|')[0];
+                        string val = op.Split('$')[0].Split('|')[1];
+                        html += string.Format("<option value=\"" + val + "\" {0} >" + text + "</option>", (val.Equals(value) ? "selected=\"selected\"" : ""));
+                    }
+                    html += "</select>";
+                }
+                #endregion
+                break;
+            case 2:
+                #region radio
+                {
+                    foreach (string op in options)
+                    {
+                        string text = op.Split('$')[0].Split('|')[0];
+                        string val = op.Split('$')[0].Split('|')[1];
+                        html += string.Format("<label><input type='radio' name='" + id + "' value='" + val + "' {0} />" + text + "</label>", (val.Equals(value) ? "checked=\"checked\"" : ""));
+                    }
+                }
+                #endregion
+                break;
+        }
+        return MvcHtmlString.Create(html);
+    }
+}
+@{
+    FieldModel fieldMod = new FieldModel(Model.fieldMod.Content);
+}
+@GetRadioType()

@@ -1,0 +1,25 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>我的店铺</title>
+}
+@section content{
+<div id="pageflag" data-nav="shop" data-ban="shop"></div>
+<div class="container margin_t5">
+<ol class="breadcrumb">
+	<li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+	<li><a href="ProductList">我的店铺</a></li>
+	<li class="active">明细记录</li>
+</ol>
+</div>
+<div class="container btn_green">
+@Html.Partial("UserShopTop")
+<div class="us_topinfo" style="margin-top: 10px;">
+    @Html.Partial("SaleList_List",Model)
+</div>
+</div>
+}
+@section script{
+}

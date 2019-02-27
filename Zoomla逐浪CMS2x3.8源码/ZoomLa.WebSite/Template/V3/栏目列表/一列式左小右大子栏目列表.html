@@ -1,0 +1,70 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="{$CssDir/}js/changeskin.js" language="javascript"  type="text/javascript"></script>
+<script type="text/javascript" src="{$CssDir/}js/server.js"></SCRIPT>
+<style type="text/css">
+.navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+.navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="ParentID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="ParentID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="ParentID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+</style>
+</head> 
+<body>
+{ZL.Label id="响应式全站头部"/} 
+<div class="bs-header">
+<div class="container">
+<h1>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}</h1>
+<p>脚比路更长+服务到现场+智慧的思想....</p>
+</div>
+</div>
+<div class="news_body">
+<div class="container">
+<div class="row">
+<div class="padding5">
+<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 padding10" >
+<div class="news_mySites">
+<ul class="breadcrumb" >
+<li><a href="/">首页</a><span class="divider"></span></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">栏目列表</li>
+</ul>
+</div><!--面包屑导航结束-->
+{ZL.Label id="资讯频道输出指定节点标题列表_带简介_响应式分页v3" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" TitleNum="30" ShowNum="10" SysNum="200" /}
+</div>
+<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 padding10">
+<div class="news_list">
+<div class="news_list_t"><h2>资讯中心</h2><div class="clearfix"></div></div>
+<div class="news_list_l">
+<div class="row">
+<div class="padding10">
+<ul class="list-unstyled">
+{ZL.Label id="节点列表" ParentID="{SField sid="节点栏目信息数据源" FD="ParentID" page="0"/}" ClassName="col-lg-4 col-md-4 col-sm-4 col-xs-6 padding5" ShowNum="10" /}
+<div class="clearfix"></div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="news_list">
+<div class="news_list_t"><h2>热门文章</h2><div class="clearfix"></div></div>
+<div class="news_list_c">
+<ul class="list-unstyled">
+{ZL.Label id="输出指定节点标题_带点击v3" NodeID="1" TitleNum="34" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{ZL.Label id="响应式全站底部"/}
+ </body>
+</html>

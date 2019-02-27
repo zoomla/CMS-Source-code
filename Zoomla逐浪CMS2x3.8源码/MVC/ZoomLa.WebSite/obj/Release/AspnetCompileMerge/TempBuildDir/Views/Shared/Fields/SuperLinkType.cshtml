@@ -1,0 +1,16 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    // 超链接  
+    //TitleSize=50,DefaultValue=sadfsadfsadf
+    string value = Model.GetValue();
+    string Name = Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+    int size = model.GetValInt("TitleSize");
+    string def = model.GetValue("DefaultValue");
+}
+<input type="text" class="form-control m715-50" name="txt_@Name" id="txt_@Name" size="@size" value="@value">@Model.fieldMod.Description

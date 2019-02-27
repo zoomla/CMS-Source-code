@@ -1,0 +1,23 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>优惠劵管理</title>
+}
+@section content{
+<div id="pageflag" data-nav="group" data-ban="ArriveManage"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index")">会员中心</a></li>
+        <li><a href="@Url.Action("UserInfo","Info")">账户管理</a></li>
+        <li>优惠劵管理</li>
+    </ol>
+</div>
+<div class="container margin_t5 arrive">
+    @Html.Partial("ArriveManage_List",Model)
+</div>
+}
+@section script{
+
+}

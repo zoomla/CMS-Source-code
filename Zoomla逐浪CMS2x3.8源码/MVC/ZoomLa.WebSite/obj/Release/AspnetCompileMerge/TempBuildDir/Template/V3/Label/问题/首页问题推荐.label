@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>250</LabelID>
+    <LabelName>首页问题推荐</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>num,默认值,1,参数说明|length,30,1,字数</LabelParam>
+    <LabelTable>zl_pub_tw</LabelTable>
+    <LabelField>ID,PubTitle,ClassLevel1,PubAddTime</LabelField>
+    <LabelWhere>id   in (
+select getid from zl_pub_wthd
+where tuijian='是')</LabelWhere>
+    <LabelOrder>id desc</LabelOrder>
+    <LabelContent>{Repeate}
+
+
+ &lt;a href="/columnlist.aspx?nodeid=120&amp;getid={Field="ID"/}"&gt;
+
+{ZL:CutText({Field="PubTitle"/} ,@length,)/}
+
+&lt;/a&gt;&amp;nbsp;[&lt;a href="/NodePage.aspx?NodeID=115&amp;smallclass={Field="ClassLevel1"/}"&gt;{ZL.Label id="获取问题分类名" parentid="{Field="ClassLevel1"/}" /}&lt;/a&gt;]&lt;br&gt;
+
+{/Repeate}</LabelContent>
+    <LabelCount>@num</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

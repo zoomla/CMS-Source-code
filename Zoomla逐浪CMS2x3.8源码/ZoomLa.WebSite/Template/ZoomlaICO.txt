@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "ZoomlaICO";
+    src: url("/dist/fonts/ZoomlaICO.eot"); /* IE9 */
+    src: url("/dist/fonts/ZoomlaICO.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */    
+    url("/dist/fonts/ZoomlaICO.woff") format("woff"), /* chrome、firefox */
+    url("/dist/fonts/ZoomlaICO.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("/dist/fonts/ZoomlaICO.svg#ZoomlaICO") format("svg"); /* iOS 4.1- */
+    font-style: normal;font-weight: normal;
+}
+.zlogo1,.zlogo2{ float:left;font-family: "ZoomlaICO"  !important;cursor:pointer; }
+.ZoomlaICObagua:before{ font-family:'ZoomlaICO';content: "\51F6";  }/*八卦图形*/
+.ZoomlaICO2015:before{ font-family:'ZoomlaICO';content: "\51F7";  }/*大写Z字形*/
+.SiisoftICO2016:before{ font-family:'ZoomlaICO';content: "\51F8";  }/*SiifotLogo*/
+
+#css2 {fill:#1d2088;}/*2016年新z01标志字义底圆颜色*/
+.cls-1{fill:#;}/*大圆颜色*/
+.cls-2{fill:#;}/*大标题字颜色*/
+.cls-3{fill:#;}/*小标题字*/
+.cls-5{color:#;}/*Z造型颜色*/
+
+
+/*逐浪CMS官方ICO引用示例
+1、可以引用网络源，地址为：
+http://code.z01.com/font/ZoomlaICO.eot
+http://code.z01.com/font/ZoomlaICO.woff
+http://code.z01.com/font/ZoomlaICO.ttf
+http://code.z01.com/font/ZoomlaICO.svg
+
+2、结合font-awesome图标使用，如八卦图标：
+<i class="fa ZoomlaICObagua fa-spin"></i>
+
+3、直接调用标志：
+<span class="zlogo1">凵</style>
+<span class="zlogo2">凵</style>
+
+图标列表：
+内置CSS名		实际图形		中文字符
+.zlogo1			逐浪标志图形部份	凵
+.zlogo2  		逐浪LOGO字体部份	刂
+.ZoomlaICObagua		八卦			凶
+.ZoomlaICO2015		Z字母ICO		凷
+.SiisoftICO2016		SIIsoftICO		凸
+*/

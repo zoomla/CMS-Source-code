@@ -1,0 +1,121 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@using ZoomLa.SQLDAL
+@model ZoomLaCMS.Models.Bar.VM_PClass
+@functions{
+    B_Guest_Bar barBll=new B_Guest_Bar();
+    public MvcHtmlString GetTitle(DataRow dr)
+    {
+        string title = dr["Title"].ToString().Trim();
+        title = title.Length > 45 ? title.Substring(0, 44) : title.ToString();
+        string result = "";
+        result += "<a style='" + dr["Style"] + "' href='/PItem?id=" + dr["ID"] + "'>" + title + "</a>";
+        if (DataConvert.CLng(dr["C_Status"]) == 3 && DataConvert.CLng(dr["Status"]) < 1)//后台开启审核,并且未审核
+        {
+            result = "<span class='uncheck_title'>" + result + "[未审核]</span>";
+        }
+        return MvcHtmlString.Create(result);
+    }
+    public MvcHtmlString GetSubTitle(DataRow dr)
+    {
+        if (DataConvert.CLng(dr["C_Status"]) == 3 && DataConvert.CLng(dr["Status"]) < 1)
+            return MvcHtmlString.Create("");
+        return MvcHtmlString.Create(DataConvert.CStr(dr["SubTitle"]));
+    }
+    public MvcHtmlString GetTieStaues(DataRow dr)
+    {
+        string[] statues = DataConvert.CStr(dr["PostFlag"]).Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        string tieimgs = "";
+        if (statues.Length > 0)
+        {
+            for (int i = 0; i < statues.Length; i++)
+            {
+                switch (statues[i])
+                {
+                    case "Recommend":
+                        tieimgs += "<span class='fa fa-trophy'></span> ";
+                        break;
+                }
+            }
+        }
+        if (Convert.ToInt32(dr["OrderFlag"]) == 1)
+        {
+            tieimgs += "<span title='版面置顶' class='fa fa-eyedropper'></span>";
+        }
+        if (Convert.ToInt32(dr["OrderFlag"]) == 2)
+        {
+            tieimgs += "<span title='全局置顶' class='fa fa-arrow-up'></span>";
+        }
+        return MvcHtmlString.Create(tieimgs);
+    }
+    public MvcHtmlString GetRUser(DataRow dr)
+    {
+        string tlp = "<span class='uname' title='回复时间:{0}'><span class='fa fa-comment'></span><a href='{1}'>{2}</a>"
+                     + "<span class='pull-right remind_g_x'>{3}</span></span>";
+        bool isnull = dr["R_CUser"] == DBNull.Value;
+        int rcuser = isnull ? DataConvert.CLng(dr["CUser"]) : DataConvert.CLng(dr["R_CUser"]);
+
+        string rcuname = isnull ? function.GetStr(barBll.GetUName(dr["HoneyName"], dr["CUName"]), 6) : function.GetStr(dr["R_CUName"], 6);
+        string url = rcuser == 0 ? "javascript:;" : "PostSearch?uid=" + rcuser;
+        DateTime cdate = isnull ? Convert.ToDateTime(dr["CDate"]) : Convert.ToDateTime(dr["R_CDate"]);
+        string rdate = cdate.ToString("yyyy-MM-dd HH:mm");
+        string rdate2 = isnull ? DataConvert.CDate(dr["CDate"]).ToString("yyyy/MM/dd HH:mm") : DataConvert.CDate(dr["R_CDate"]).ToString("yyyy/MM/dd HH:mm");
+        return MvcHtmlString.Create(string.Format(tlp, rdate, url, rcuname, rdate2));
+    }
+}
+@{
+    Model.setting.cols = 10;
+    Model.setting.target = "contentdiv";
+}
+ <div id="contentdiv">
+@foreach (DataRow dr in Model.setting.dt.Rows)
+{
+    <div class="tie_list">
+        <div class="checks">
+            <div class="rcountnum">
+                <span class="margin-right5">@dr["RCount"]</span>
+                @if(Model.auth_barowner){<input type='checkbox' name='idchk' value='@dr["ID"]' />}
+            </div>
+        </div>
+        <div class="subdiv">
+            <div>@GetTitle(dr) <span>@GetTieStaues(dr)</span></div>
+            <div id="sub_div_@dr["ID"]" class="subtitle" data-id="@dr["ID"]">
+                @GetSubTitle(dr)
+            </div>
+            <div id="sub_video_div_@dr["ID"]" style="display: none;">
+                <div class="font12">
+                    <span><span class="fa fa-upload"></span><a href="javascript:;" onclick="Collapse();">收起</a></span>
+                </div>
+                <div class="video_div"></div>
+            </div>
+            <div id="sub_qvideo_div_@dr["ID"]" style="display: none;">
+                <div class="font12">
+                    <span><span class="fa fa-upload"></span><a href="javascript:;" onclick="Collapse()">收起</a><span class="sperspan">|</span></span>
+                    <span><span class="fa fa-th-large"></span><a class="fullscreen_href" href="#">全屏</a></span>
+                </div>
+                <div class="qvideo_div"></div>
+            </div>
+            <div id="view_div_@dr["ID"]" class="view_div" style="display: none;">
+                <div class="font12">
+                    <span><span class="fa fa-upload"></span><a href="javascript:;" onclick="Collapse('@dr["ID"]');">收起</a><span class="sperspan">|</span></span>
+                    <span><i class="fa fa-mail-reply"></i><a href="javascript:;" onclick="RoteImg('view_img_@dr["ID"]',1);">左转</a><span class="sperspan">|</span></span>
+                    <span><i class="fa fa-mail-forward"></i><a href="javascript:;" onclick="RoteImg('view_img_@dr["ID"]',2);">右转</a><span class="sperspan">|</span></span>
+                    <span><i class="fa fa-arrows-alt"></i><a href="javascript:;" onclick="ViewImg('@dr["ID"]');">查看大图</a></span>
+                    <button type="button" id="view_btn_@dr["ID"]" onclick="Collapse()" style="display:none;"></button>
+                </div>
+                <div class="view_imgdiv"><div class="view_preimg"></div><div class="view_nextimg"></div><span><img id="view_img_@dr["ID"]" data-angle="0" src="#" onclick="Collapse();" /></span></div>
+            </div>
+        </div>
+        <div class="font12 tie_rel_count">
+            <div><span class="fa fa-user"></span><a href="@("PostSearch?uid=" + dr["CUser"])">@B_User.GetUserName(dr["HoneyName"], dr["CUName"])</a></div>
+            <div>@GetRUser(dr)</div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+}
+@if (Model.setting.pageCount > 1)
+{
+    @Html.Partial("_page2",Model.setting)
+}
+</div>

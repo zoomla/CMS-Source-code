@@ -1,0 +1,138 @@
+﻿@using System.Data
+@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.Model
+@using ZoomLa.BLL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 5;
+    Model.url = "Pub_Data";
+}
+@functions{
+    //用户头像
+    public string GetImg(string uid, string uname)
+    {
+        B_User buser = new B_User();
+        StringBuilder sb = new StringBuilder();
+        M_Uinfo muinfo = buser.GetUserBaseByuserid(DataConverter.CLng(uid));
+        sb.Append("<table  width='100%'  height='100px' >");
+        sb.Append("    <tr>");
+        sb.Append("        <td align='center'>");
+        sb.Append("           <img src='" + muinfo.UserFace.Replace("~", "") + "' width='" + ((muinfo.FaceWidth == 0) ? 100 : muinfo.FaceWidth) + "px'  height='" + ((muinfo.FaceHeight == 0) ? 100 : muinfo.FaceHeight) + "px' />");
+        sb.Append("        </td>");
+        sb.Append("    </tr>");
+        sb.Append("    <tr>");
+        sb.Append("        <td align='center'>");
+        sb.Append("           " + uname);
+        sb.Append("        </td>");
+        sb.Append("    </tr>");
+        sb.Append("</table>");
+        return sb.ToString();
+    }
+    public string GetIco(string Optimal)
+    {
+        string returnstring = "";
+        switch (Optimal)
+        {
+            case "0":
+                returnstring = "/User/Images/Good.png";
+                break;
+            case "1":
+                returnstring = "/User/Images/by.png";
+                break;
+            case "-1":
+                returnstring = "/User/Images/Noby.png";
+                break;
+        }
+        return returnstring;
+    }
+    //回复
+    protected string GetTable(string id, string cid)
+    {
+        B_Pub pubBll = new B_Pub();
+        StringBuilder sb = new StringBuilder();
+        DataTable dt = pubBll.GetModelPubuPIdAll(DataConverter.CLng(id), DataConverter.CLng(cid), ViewBag.PubTable);
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            sb.Append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+            sb.Append("<table  width='100%'  border='1' cellspacing='0' cellpadding='0'>");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                sb.Append("    <tr>");
+                sb.Append("        <td align='left'>");
+                sb.Append(dt.Rows[i]["PubUserName"] + "&nbsp;[<a href='javascript:void(0);' onclick=\"javascript:window.open('Reply.aspx?ID=" + dt.Rows[i]["ID"] + "&pubid=" + ViewBag.PubID + "','', 'width=600,height=300,resizable=0,scrollbars=yes');\">回复</a>]：" + dt.Rows[i]["PubTitle"] + "<br/>&nbsp;&nbsp;" + dt.Rows[i]["PubContent"] + "<br />" + GetTable(dt.Rows[i]["ID"] + "") + "<br/>" + dt.Rows[i]["PubAddTime"]);
+                sb.Append(GetTable(dt.Rows[i]["ID"] + "", cid));
+                sb.Append("        </td>");
+                sb.Append("    <tr>");
+            }
+            sb.Append("</table>");
+        }
+        return sb.ToString();
+    }
+    protected string GetTable(string id)
+    {
+        B_Pub pubBll = new B_Pub();
+        B_ModelField mfBll = new B_ModelField();
+        DataTable dt1 = pubBll.GetPubModeById(DataConverter.CLng(id), ViewBag.PubTable);
+        if (dt1 != null && dt1.Rows.Count > 0)
+        {
+            DataTable dt = mfBll.GetModelFieldListall(DataConverter.CLng(ViewBag.ModelID));
+            StringBuilder builder = new StringBuilder();
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    if (DataConverter.CLng(dt.Rows[i]["RestoreField"].ToString()) == 1)
+                    {
+                        builder.Append(dt.Rows[i]["FieldAlias"] + "：" + dt1.Rows[0][dt.Rows[i]["FieldName"].ToString()] + "<br />");
+                    }
+                }
+            }
+            return builder.ToString();
+        }
+        else
+        {
+            return null;
+        }
+    }
+}
+<div id="EGV">
+    <table class="table table-striped table-bordered table-hover">
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <tr>
+                <td rowspan="3" valign="top" width="20%">
+                    @MvcHtmlString.Create(GetImg(dr["PubUserID"].ToString(), dr["PubUserName"].ToString()))
+                </td>
+                <td colspan="2">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="left">@dr["PubAddTime"]</td>
+                            <td align="right">
+                                <div>
+                                    @if (ViewBag.IsLoginUser)
+                                    {
+                                        <a href="javascript:void(0)" onmouseover="showmenu(event,'<div class=menuitems><a href=\'javascript:void(0)\' onclick=\'gotourl(@dr["Optimal"],@ViewBag.PubID,@ViewBag.GID,@dr["ID"])\'>@(string.IsNullOrEmpty(dr["Optimal"].ToString())||dr["Optimal"].ToString()!="1" ? "设置最佳":"取消最佳")</a></div><div class=menuitems><a href=\'javascript:void(0);\' onclick=\'setdb(@dr["Optimal"],@ViewBag.PubID,@ViewBag.GID,@dr["ID"])\' target=main_right>@(string.IsNullOrEmpty(dr["Optimal"].ToString())||dr["Optimal"].ToString()!="2" ? "设置达标" : "取消达标")</a></div><div class=menuitems><a href=\'javascript:void(0);\' onclick=\'setnodb(@dr["Optimal"],@ViewBag.PubID,@ViewBag.GID,@dr["ID"])\' target=main_right>@(string.IsNullOrEmpty(dr["Optimal"].ToString())||dr["Optimal"].ToString()!="-1" ? "设为不达标" : "取消不达标")</a></div>')">信息设置</a> <a href='javascript: void(0); ' onclick="javascript:window.open('Reply?ID =@dr["ID"]&pubid=@ViewBag.PubID','', 'width=600,height=300,resizable=0,scrollbars=yes');">回复</a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" valign="top">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<strong>
+                        @MvcHtmlString.Create(GetIco(dr["Optimal"].ToString()))<br />
+                        @dr["PubTitle"]
+                    </strong>
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;@dr["PubContent"]<br />
+                    <br />
+                    @MvcHtmlString.Create(GetTable(dr["ID"].ToString(), dr["PubContentid"].ToString()))
+                </td>
+            </tr>
+        }
+    </table>
+</div>

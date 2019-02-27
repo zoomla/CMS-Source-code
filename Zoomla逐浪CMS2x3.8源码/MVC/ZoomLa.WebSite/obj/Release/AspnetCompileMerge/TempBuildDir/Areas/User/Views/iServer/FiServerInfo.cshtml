@@ -1,0 +1,188 @@
+﻿@{
+
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>问题详情</title>
+    <script charset="utf-8" src="/Plugins/Ueditor/ueditor.config.js"></script>
+    <script charset="utf-8" src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+}
+@section content{
+    <div id="pageflag" data-nav="index" data-ban="cnt"></div>
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="@Url.Action("FiServer","iServer")">有问必答</a></li>
+            <li class="active">问题详情</li>
+        </ol>
+    </div>
+    <div class="container margin_t5 btn_green">
+        <label id="lblquestionid"></label>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <td width="100">标题</td>
+                <td>
+                    <label id="lbltitle"></label>
+                </td>
+            </tr>
+            <tr>
+                <td width="100">状态</td>
+                <td>
+                    <label id="lblstate"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>优先级</td>
+                <td>
+                    <label id="lblpriority"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>提交来源</td>
+                <td>
+                    <label id="lblroot"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>问题类别</td>
+                <td>
+                    <label id="lbltype"></label>
+
+                </td>
+            </tr>
+            <tr>
+                <td>提交时间</td>
+                <td>
+                    <label id="lblsubtime"></label>
+
+                </td>
+            </tr>
+            <tr>
+                <td>已读次数</td>
+                <td>
+                    <label id="lblreadcount"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>解决时间</td>
+                <td>
+                    <label id="lblsolvetime"></label>
+                </td>
+            </tr>
+        </table>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <td class="text-center">对话详情</td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="lblsubtime_r"></label>
+                    来自:
+                    <label id="lblname"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>标题:<label id="lbltitle_r"></label></b> [<a href="#reply">回复</a>]
+                </td>
+            </tr>
+            <tr>
+                <td style="border: #CCC 1px solid;">
+                    <label id="lblconent"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id="spDiv"></span>
+                    <br />
+                </td>
+            </tr>
+        </table>
+
+        <asp:Repeater ID="resultsRepeater" runat="server">
+            <headertemplate>
+                <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <td>
+                            <label id="rep">回复记录</label>
+                        </td>
+                    </tr>
+            </headertemplate>
+            <itemtemplate>
+                <tr>
+                    <td>
+                        <label id="lblsubtime_r"><%# Eval("ReplyTime")%></label>
+                        来自
+                        <label id="lblname"><%# GetUserName(Eval("UserId","{0}"))%></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>[<a href="#reply">回复</a>]</td>
+                </tr>
+                <tr>
+                    <td style="border: #CCC 1px solid;">
+                        <label id="lblcontent" ><%# Eval("Content")%></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><%#GetFile(Eval("path","{0}")) %>  </td>
+                </tr>
+            </itemtemplate>
+            <footertemplate>
+                </table>
+            </footertemplate>
+        </asp:Repeater>
+        <div id="replyDiv">
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <td colspan="2" class="text-center">回复对话</td>
+                </tr>
+                <tr>
+                    <td width="120">标题</td>
+                    <td>
+                        <input type="text" id="txttitle" name="txttitle" class="form-control" width="387" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>内容<font color="red">*</font></td>
+                    <td>
+                        <textarea id="textarea1" style="width:700px;min-height:500px;" name="content" rows="4" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        附件
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-primary" id="upfile_btn" value="选择文件" />
+                        <div style="margin-top:10px;" id="uploader" class="uploader"><ul class="filelist"></ul></div>
+                        <input type="hidden" id="attach_hid" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <button id="button1" class="btn btn-primary" onclick="Button1_Click">提交回复</button>
+                        <a href="@Url.Action("FiServer","iServer")" class="btn btn-primary">返回列表</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+@section script{
+    <link href="/JS/Controls/ZL_Webup.css" rel="stylesheet" />
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script src="/JS/Controls/ZL_Webup.js"></script>
+    <script>
+        //<%= Call.GetEditor("textarea1")%>
+        function fn_CheckSupportTicket(theForm) {
+            if (!fn_CheckRequired(theForm.content, "回复内容"))
+                return false;
+            return true;
+        }
+        $(function () {
+            $("#upfile_btn").click(ZL_Webup.ShowFileUP);
+        })
+        function AddAttach(file, ret, pval) { return ZL_Webup.AddAttach(file, ret, pval); }
+    </script>
+}

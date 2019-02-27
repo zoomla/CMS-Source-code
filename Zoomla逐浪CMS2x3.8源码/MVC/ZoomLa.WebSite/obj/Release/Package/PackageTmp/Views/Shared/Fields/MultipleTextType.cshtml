@@ -1,0 +1,46 @@
+﻿@using ZoomLa.BLL
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    string id = "txt_" + Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+    int width = model.GetValInt("width"), height = model.GetValInt("height");
+   //每个必须支持两种模式:PreView和编辑模式 
+}
+ <textarea  name="@id" id="@id" class="form-control fd_textarea" style='height:@(height)px;width:@(width)px;max-width:100%;'>@Model.GetValue()</textarea>
+
+@*if (config.mode == ModelConfig.SMode.PreView) { return PreViewMode(Alias, dr, Name); }
+    FieldModel model = new FieldModel(Content);
+    string required = IsNotNull ? reqTlp : "", value = "", disabled = "", seluser = "";
+    if (config.Disable)
+    {
+        disabled = "disabled='disabled'";
+    }
+    else
+    {
+        if (model.GetValBool("SelUser"))//允许选择会员
+        {
+            seluser = "<input type=\"button\" onclick=\"ShowSelUser('txt_" + Name + "');\" class='btn btn-info' value='选择用户' />";
+        }
+        if (model.GetValBool("Down"))//下载字段
+        {
+            JObject obj = new JObject();
+            obj.Add(new JProperty("field", "down"));
+            obj.Add(new JProperty("nodeid", 0));
+            obj.Add(new JProperty("inputid", "txt_" + Name));
+            obj.Add(new JProperty("uploaddir", updir));
+            obj.Add(new JProperty("iswater", "0"));
+            string json = JsonConvert.SerializeObject(obj);
+            seluser += "<input type=\"button\" onclick=\"ShowAddDown('txt_" + Name + "');\" class='btn btn-info' value='自定义下载' />";
+            seluser += "<input type='button' onclick='UpFileDiag(" + json + ");' class='btn btn-info' value='上传文件'/>";
+        }
+    }
+    int width = model.GetValInt("width"), height = model.GetValInt("height");
+    if (dr != null)
+    {
+        value = dr[Name].ToString();
+    }
+    string tlp = "<tr class=\"fd_tr fd_tr_multipletexttype\"><td class=\"fd_td_l\"><span>" + Alias + "：</span></td><td class=\"fd_td_r\">";
+    tlp += "<textarea " + disabled + " name=\"txt_" + Name + "\" id=\"txt_" + Name + "\" class=\"form-control m715-50 fd_textarea\"  style='height:" + height + "px;width:" + width + "px;max-width:100%;'>" + value + "</textarea>" + required + " " + Description;
+    tlp += seluser;
+    tlp += "</td></tr>";
+    return tlp;*@

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>添加布局</title>
+<style type="text/css">
+*{font-size:12px;font-family:'Microsoft YaHei'}
+.layout-manage{height:250px}
+.layout-manage .layout{clear:left;cursor:pointer;margin:10px auto;overflow:hidden;padding:1px}
+.layout-manage .layout div{float:left;padding:7px 0;background:#ffebcc;border:solid 1px #ffd599;text-align:center}
+.layout-manage .layout.choosed{border:solid 1px #ff9831}
+</style>
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="layout-manage">
+        <div class="content">
+            <div class="layout" onclick="addLayout('fill')" style="width:100%;">
+                <div style="width:100%;">Fill</div>
+            </div>
+            <div style="width:400px;margin:0 auto;">
+                <div class="layout case1" onclick="addLayout('12')">
+                    <div class="col-xs-12">12</div>
+                </div>
+                <div class="layout case2" onclick="addLayout('48')">
+                    <div class="col-xs-4">4</div>
+                    <div class="col-xs-8">8</div>
+                </div>
+                <div class="layout case3" onclick="addLayout('84')">
+                    <div class="col-xs-8">8</div>
+                    <div class="col-xs-4">4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    function addLayout(type) {
+        //根据格式来命名
+        parent.scope.Layout.add(type);
+        parent.closeDiag();
+    }
+   
+</script>
+</body>
+</html>

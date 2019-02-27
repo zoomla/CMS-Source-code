@@ -1,0 +1,44 @@
+﻿<!--用于列表化展示信息,同于选择模板Html页-->
+@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.AppCode.Controls.C_TreeTlpDP
+@functions{
+    string treetlp = "<img src='/Images/TreeLineImages/tree_line4.gif'  border='0' width='19' height='20' />";
+    string parent_tlp = "<li data-pid='@pid'><a href='javascript:;' class='treenode_parent' style='@isshow' data-pid='@pid' data-id=@id>@tree4<span class='fa fa-folder'></span> @name</a></li>";
+    string questtlp = "<li data-pid='@pid'><a class='treenode' href='javascript:;' data-id=@id style='@isshow' data-pid='@pid' onclick=''>@tree4@treeicon<span class='fa fa-file'></span> @name</a></li>";
+    public string GetAllData(int pid, int index)
+    {
+        string html = ""; string tree4 = "";
+        for (int i = 0; i < index; i++)
+            tree4 += treetlp;
+        DataRow[] drs = Model.dt.Select(Model.F_Pid + "=" + pid);
+        foreach (DataRow item in drs)
+        {
+            if (Model.dt.Select(Model.F_Pid + "=" + item[Model.F_ID]).Length > 0)
+            {
+                html += parent_tlp.Replace("@id", item[Model.F_ID].ToString()).Replace("@name", item[Model.F_Name].ToString()).Replace("@tree4", tree4).Replace("@pid", item[Model.F_Pid].ToString()).Replace("@isshow", pid > 0 ? "display:none" : "");
+                html += GetAllData(DataConverter.CLng(item[Model.F_ID]), index + 1);
+            }
+            else
+            {
+                string isshow = item[Model.F_Pid].ToString().Equals("0") ? "" : "display:none;";
+                string treeicon = item[Model.F_Pid].ToString().Equals("0") ? "" : "<img src='/Images/TreeLineImages/t.gif'>";
+                html += questtlp.Replace("@tree4", tree4).Replace("@treeicon", treeicon).Replace("@pid", item[Model.F_Pid].ToString()).Replace("@id", item[Model.F_ID].ToString()).Replace("@name", item[Model.F_Name].ToString()).Replace("@isshow", isshow);
+            }
+        }
+        return html;
+    }
+}
+<div id="@Model.name" class="btn-group treetlp">
+    <button type="button" style="text-align: left;" class="btn btn-default dropdown-toggle text-left text_300">
+        <span class="treetext">
+            <span class="gray_9"><i class="fa fa-warning"></i>@Model.emptyText</span>
+        </span>
+        <span class="pull-right"><span class="caret"></span></span>
+    </button>
+    <ul class="dropdown-menu Template_files text_300" role="menu">
+        @MvcHtmlString.Create(GetAllData(0, 0))
+    </ul>
+    <input type="hidden" id="@(Model.name)_hid" name="@(Model.name)_hid" value="@Model.seled" />
+</div>
+<script>TreeTlp.Init("@Model.name", "@(Model.name)_hid");</script>

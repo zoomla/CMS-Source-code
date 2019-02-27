@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_empty.cshtml";
+}
+@section head{<title>好友查找</title>}
+@section content{
+<div>
+    <table>
+      <tr>
+        <td> 我要寻找</td>
+      </tr>
+      <tr>
+          <td>
+              @MVCHelper.H_Radios("sex_rad", "男生,女生".Split(','), "0,1".Split(','),"")
+          </td>
+      </tr>
+      <tr>
+        <td>地区 </td>
+      </tr>
+      <tr>
+          <td>
+              <select><option>请选择省份</option></select>
+          </td>
+      </tr>
+      <tr>
+        <td> <select><option>请选择县市</option></select></td>
+      </tr>
+      <tr>
+        <td>年龄 </td>
+      </tr>
+      <tr>
+        <td><input type="text" class="form-control text_150" />～<input type="text" class="form-control text_150" />岁 </td>
+      </tr>
+      <tr>
+        <td align="center"><input type="submit" value="立即寻找" class="btn btn-primary" /></td>
+      </tr>
+    </table>
+  </div>
+}
+@section script{}

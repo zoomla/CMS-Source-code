@@ -1,0 +1,62 @@
+﻿@using ZoomLa.BLL
+@using System.Text
+@using ZoomLa.Common
+@using System.Text.RegularExpressions
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    public string GetMap()
+    {
+        FieldModel model = new FieldModel(Model.fieldMod.Content);
+        StringBuilder builder = new StringBuilder();
+        string Name = Model.fieldMod.FieldName;
+        string val = Model.GetValue();
+        switch (model.GetValue("source"))
+        {
+            case "baidu":
+                #region 百度地图
+                {
+                    //预览
+                    string viewurl = "/Common/Label/Map/BaiduMapView.aspx?Field=" + Name + "&ispre=1&Type=" + model.GetValue("type");
+                    string preViewMap = "<iframe id='" + Name + "_ifr' src='{0}' style='width:500px;height:300px;border:none;' scrolling='no'></iframe>";
+                    switch (model.GetValue("type"))
+                    {
+                        case "full"://完全版
+                            builder.Append("<div><input type='hidden' name='txt_" + Name + "' id='txt_" + Name + "' value='" + val + "' /></div>");
+                            builder.Append("<div style='margin-top:5px;'>" + string.Format(preViewMap, viewurl) + "</div>");
+                            break;
+                        case "simp"://简单版
+                        default:
+                            builder.Append("<div><input type='hidden' name='txt_" + Name + "' id='txt_" + Name + "' value='" + val + "' /></div>");
+                            builder.Append("<div style='margin-top:5px;'>" + string.Format(preViewMap, viewurl + "&Point=" + val) + "</div>");
+                            break;
+                    }
+                }
+                #endregion
+                break;
+            case "google":
+                #region Google地图
+                builder.Append("<input type=\"hidden\" id=\"hmap\" name=\"hmap\" />");
+                try
+                {
+                    builder.Append("<input type=\"button\" value=\"预览地图\" onclick=\"Addmap();\" />");
+                    builder.Append("</td>");
+                    builder.Append("</td>");
+                    builder.Append("<script>function Addmap() {window.open('/" + Model.ManageDir + "/Template/AddMap.aspx?Mid=" + (string.IsNullOrEmpty(val) ? "0" : val) + "', 'newWin', 'modal=yes,width=900,height=600,resizable=yes,scrollbars=yes');}</script>");
+                }
+                catch
+                {
+                    builder.Append("<script>function Addmap() {window.open('/" + Model.ManageDir + "/Template/AddMap.aspx?Mid=0', 'newWin', 'modal=yes,width=900,height=600,resizable=yes,scrollbars=yes');}</script>");
+                }
+                break;
+                #endregion
+            default:
+                break;
+        }
+        return builder.ToString();
+    }
+}
+@{
+    string id = "txt_" + Model.fieldMod.FieldName;
+   //每个必须支持两种模式:PreView和编辑模式 
+}
+@MvcHtmlString.Create(GetMap())

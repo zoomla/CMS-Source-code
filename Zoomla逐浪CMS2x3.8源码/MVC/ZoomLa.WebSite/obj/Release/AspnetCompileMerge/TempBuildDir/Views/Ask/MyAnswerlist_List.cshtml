@@ -1,0 +1,51 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@using ZoomLa.SQLDAL
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 10;
+    Model.url = "MyAnswerlist";
+}
+@functions {
+    public string getanswer(string id)
+    {
+
+        string answer;
+        SqlParameter[] sp = new SqlParameter[] { new SqlParameter("id", id) };
+        DataTable dt = Sql.Sel("ZL_GuestAnswer", " QueId=@id", "", sp);
+        if (dt.Rows.Count > 0)
+        {
+            answer = (dt.Rows[0]["Content"]).ToString();
+            return answer;
+        }
+        else
+            return " ";
+    }
+}
+<div id="EGV">
+    @if (Model.itemCount > 0)
+    {
+        foreach (DataRow dr in Model.dt.Rows)
+        {
+            <table>
+                <tr>
+                    <td class="f">
+                        <div class="fs">
+                            <a target="_self" href="SearchDetails?ID=@dr["ID"]">@dr["Qcontent"]</a>
+                        </div>
+                        <div class="abstract">
+                            @getanswer(dr["ID"] as string)
+                        </div>
+                        <div class="fs">
+                            <a href="#">@dr["UserName"]</a>--@DataConverter.CDate(dr["AddTime"]).ToString("yyyy-MM-dd")
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        }
+        <div class="text-center">
+            @Html.Partial("_page2", Model)
+        </div>
+    }
+</div>

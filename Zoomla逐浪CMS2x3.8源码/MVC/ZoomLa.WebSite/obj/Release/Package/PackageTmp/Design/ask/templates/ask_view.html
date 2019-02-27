@@ -1,0 +1,82 @@
+﻿<ion-view>
+<ion-header-bar class="bar-balanced bar bar-header visible-xs" align-title="center">
+<a href="#/tab/ask_qlist/{{askMod.ID}}" class="button" nav-direction="back" ng-if="mode"><i class="fa fa-align-justify"></i></a><!--用户回答问卷模式下不显示-->
+<div class="title title-center header-item" ng-bind="askMod.Title"></div>
+<button type="button" class="button" ng-click="ShowShare();"><i class="fa fa-share-square-o"></i></button>
+
+</ion-header-bar>
+<ion-content class="has-header">
+<div class="design_askbanner hidden-xs"><span>{{askMod.Title}}</span></div>
+
+<div class="container">
+    <div ng-if="!finished">
+        <div class="askimg"><img ng-src="{{askMod.PreViewImg}}" alt="{{askMod.Title}}" onerror="javascript:this.src='/UploadFiles/timg.jpg';" /></div>
+        <div ng-bind="askMod.Remind" class="askremind" ng-if="askMod.remind!=''"></div>
+        <div id="qlist_wrap">
+            <div class="qitem" ng-repeat="item in qlist">
+                <div class="qtitle"><strong ng-bind="($index+1)+'.'+item.QTitle"></strong> <span style="color:red;" ng-if="item.Required">*</span></div>
+                <div ng-switch="item.QType">
+                    <div ng-switch-when="radio" class="list">
+                        <div class="item item-checkbox" ng-repeat="option in item.QOption track by $index">
+                            <label class="checkbox">
+                                <input type="radio" value="{{option.value}}" ng-model="item.answer" />
+                            </label>
+                            <span ng-bind="option.text"></span>
+                        </div>
+                    </div>
+                    <div ng-switch-when="checkbox" class="list">
+                        <div class="item item-checkbox" ng-repeat="option in item.QOption track by $index">
+                            <label class="checkbox chk_square">
+                                <input type="checkbox" ng-model="option.checked" />
+                            </label>
+                            <span ng-bind="option.text"></span>
+                        </div>
+                    </div>
+                    <div ng-switch-when="blank">
+                        <div class="item item-input">
+                            <i class="icon positive" style="color:#999;margin-right:5px;" ng-class="geticon(item.QFlag.type)" ng-if="item.QFlag.type!=''"></i>
+                            <div ng-switch="item.QFlag.type" style="width:100%;">
+                                <input type="date" ng-switch-when="date" id="text_{{item.ID}}" maxlength="100" />
+                                <textarea rows="{{item.QFlag.rows}}" ng-model="item.answer" ng-switch-default id="text_{{item.ID}}" style="width:100%;resize:none;" maxlength="500" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-switch-when="score">
+                        <input type="number" style="display:none;" id="score_{{item.ID}}" class="rating" data-min="0" data-max="{{item.QFlag.maxscore}}" data-stars="{{item.QFlag.maxscore}}" step="1" data-size="xs">
+                    </div>
+                    <div ng-switch-when="sort">
+                        <div ng-repeat="option in item.QOption track by $index">
+                            <label>
+                                <input type="checkbox" ng-model="option.checked" />
+                                <span ng-bind="option.text"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="button button-balanced button-block" ng-click="submit();" ng-if="cansubmit">提交</button>
+    </div>
+    <div ng-if="finished" class="text-center padding" style="border-bottom:1px dashed #ddd;color:#999;">
+        <i class="fa fa-inbox fa-4x"></i>
+        <div class="padding-top"> 您的答卷已经提交,感谢您的参与</div>
+    </div>
+</div>
+</ion-content>
+<div class="backdrop visible backdrop-loading active" ng-if="showShare" ng-click="hideShare()">
+<img src="/design/res/img/wxshare.png" style="float:right" alt="分享" />
+</div>
+<style>
+#qlist_wrap .qtitle { margin-top:15px; margin-bottom:15px; font-size: 16px;}
+.askremind {margin-top: 10px;padding: 5px;border-bottom: 1px solid #ddd;}
+.checkbox.chk_square input:before, .checkbox-icon:before {border-radius: 0;}
+.rating-container .caption {display: none;}
+.askimg { margin-top:10px; text-align:center;}
+.askimg img { max-width:100%;}
+input[type=checkbox], input[type=radio] { margin:0;}
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] { margin-left:0;}
+.chk_square { min-height:40px;}
+</style>
+<link href="/dist/css/star-rating.min.css" rel="stylesheet" />
+<script src="/dist/js/star-rating.min.js?v=11"></script>
+</ion-view>

@@ -1,0 +1,27 @@
+﻿@model ZoomLa.Model.M_UserInfo
+@{
+    bool isok = ViewBag.isok;
+    Layout = "~/Areas/User/Views/Index/_RegisterLayout.cshtml";
+}
+@section head{<title>注册完成</title>}
+@section content{
+ <div class="reg">
+    <h1 class="text-center"><span class="fa fa-user" style="font-size: 2em; margin-right: 10px;margin-top:0px; color: #00CCFF;"></span><span class="margin_l5">会员帐号信息</span></h1>
+    <ul id="userinfo">
+        <li>@MvcHtmlString.Create(ViewBag.RegMessage)</li>
+        <li>您的会员名：<span>@Model.UserName</span></li>
+        <li>您的密码是：<span>@ViewBag.pwd</span></li>
+        <li>注册邮箱是：<span>@Model.Email</span></li>
+        <li>请您妥善保存您的信息，如忘记密码在<a href="/User/Change/GetPassword" target="_blank">密码找回页</a>凭邮箱找回。</li>
+        <li><a href="@ViewBag.RegRUrl" class="btn btn-primary">进入用户中心</a></li>
+    </ul>
+</div>   
+    }
+@section script{
+<script>
+$(function () {
+    if ("True" == "@isok") { window.setTimeout(function () { location = "@ViewBag.RegRUrl"; }, 5000); }
+})
+</script>
+}
+

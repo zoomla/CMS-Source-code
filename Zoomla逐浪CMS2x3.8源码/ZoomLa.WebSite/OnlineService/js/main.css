@@ -1,0 +1,12 @@
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+LI {
+	LIST-STYLE-TYPE: none
+}
+.proList LABEL {
+	FLOAT: left; WIDTH: 8em
+}
+#reqPrompt {
+	BORDER-RIGHT: #333 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #333 1px solid; DISPLAY: none; PADDING-LEFT: 8px; BACKGROUND: #ffc; LEFT: 0px; PADDING-BOTTOM: 8px; MARGIN: 4px; BORDER-LEFT: #333 1px solid; COLOR: #333; BOTTOM: 0px; PADDING-TOP: 8px; BORDER-BOTTOM: #333 1px solid; POSITION: absolute
+}

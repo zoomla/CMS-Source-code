@@ -1,0 +1,25 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.AppCode.Controls.C_TlpDP
+<div style="display:none;">
+    <ul id="templist_ul">
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            int ftype = DataConverter.CLng(dr["type"]);
+            <li>
+                @switch (ftype)
+                {
+                    case 1:
+                        <a href='javascript:;' onclick='Tlp_toggleChild(this,"@dr["id"]")'><span class='fa fa-folder'></span>@dr["name"]</a>
+                        break;
+                    case 2://子文件
+                    <a href='javascript:;' style='display:none;' data-pid='@dr["pid"]' onclick="Tlp_SetVal(this,'@dr["rname"]')"><img src='/Images/TreeLineImages/t.gif' /> <span class='fa fa-file'></span>@dr["name"]</a>
+                        break;
+                    default:
+                    <a href='javascript:;' onclick="Tlp_SetVal(this,'@dr["rname"]')"> <span class="@(ftype == 4 ? "fa fa-warning" : "fa fa-file")"></span>@dr["name"]</a>
+                        break;
+                }
+            </li>
+        }
+    </ul>
+</div>

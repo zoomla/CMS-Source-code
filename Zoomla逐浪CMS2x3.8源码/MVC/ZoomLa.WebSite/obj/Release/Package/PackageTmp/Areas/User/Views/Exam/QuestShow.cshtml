@@ -1,0 +1,132 @@
+﻿@using System.Data
+@{
+    DataTable dt = new DataTable();
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+
+    <title>试题预览</title>
+    <style>
+        #options p {
+            display: inline-block;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+    <script src="/JS/Plugs/angular.min.js"></script>
+}
+@section content{
+
+    <div id="pageflag" data-nav="edu" data-ban="ke"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Default","")">用户中心</a></li>
+            <li><a href="@Url.Action("QuestList","Exam")">试题管理</a></li>
+            <li class="active">试题预览</li>
+        </ol>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-bordered table-hover" ng-app="app">
+            <tr>
+                <td class="td_l">试题标题:</td>
+                <td><label id="title_l" ></label></td>
+            </tr>
+            <tr>
+                <td>所属年级:</td>
+                <td><label id="grade_l" ></label></td>
+            </tr>
+            <tr>
+                <td>难度:</td>
+                <td><label id="diff_l" ></label> </td>
+            </tr>
+            <tr>
+                <td>题型:</td>
+                <td><label id="qtype_l"></label></td>
+            </tr>
+            <tr>
+                <td>知识点:</td>
+                <td><label id="keyword_l" ></label></td>
+            </tr>
+            <tr>
+                <td>试题内容:</td>
+                <td>
+                    @*<asp:Literal ID="Content_Li" EnableViewState="false" ></asp:Literal>*@
+                    @MvcHtmlString.Create(ViewBag.modelhtml)
+                </td>
+            </tr>
+            <tr>
+                <td>分数:</td>
+                <td><label id="socre_l"></label></td>
+            </tr>
+            <tr>
+                <td>试题选项数:</td>
+                <td><label id="questnum_l"></label></td>
+            </tr>
+            <tr>
+                <td>选项预览:</td>
+                <td id="options" ng-controller="appController">
+                    <ul>
+                        @*<asp:Literal ID="Option_Li"  EnableViewState="false"></asp:Literal>*@
+                        @MvcHtmlString.Create(ViewBag.modelhtml)
+                        @foreach(DataRow dr in dt.Rows)
+                        {
+                            <div class="content" style="margin-top:10px;">
+                                    <span><%#Container.ItemIndex+1+"．"+@dr["P_Title"]></span><%#GetContent() %>
+                                </div>
+                                <div class="submit">
+                                    <ul class="submitul">
+                                        <%#GetSubmit() %>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div>正确答案:@dr["p_Answer"]</div> 
+                        }
+                       
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>正确答案(仅用于自动改卷):</td>
+                <td><label id="answer_l" ></label></td>
+            </tr>
+            <tr>
+                <td>正确答案(教师与学生可见):</td>
+                <td>@*<asp:Literal ID="AnswerHtml_Li" EnableViewState="false" ></asp:Literal>*@
+                @MvcHtmlString.Create(ViewBag.modelhtml)</td>
+            </tr>
+            <tr>
+                <td>试题解析:</td>
+                <td>@*<asp:Literal ID="Jiexi_Li" EnableViewState="false" ></asp:Literal>*@
+                @MvcHtmlString.Create(ViewBag.modelhtml)</td>
+            </tr>
+        </table>
+        <div class="text-center">
+            <a href="AddEngLishQuestion?id=<%=QID %>" class="btn btn-primary">重新修改</a>
+            <a href="@Url.Action("QuestList","Exam")" class="btn btn-primary">返回列表</a>
+        </div>
+    </div>
+    <input type="hidden" id="answer_hid" />
+}
+@section script{
+    <script>
+        var page={scope:null,addModel:function(name,model){
+            page.scope.list[name]=model;
+        }};
+        var app=angular.module("app",[]).controller("appController",function($scope,$compile){
+            page.scope=$scope;
+            $scope.list={};
+            var idsArr=[];//仅用于显示答案
+            //<%=AngularJS%>
+
+            });
+        app.filter(
+             'to_trusted', ['$sce', function ($sce) {
+                 return function (text) {
+                     return $sce.trustAsHtml(text);
+                 }
+             }]
+         );
+    </script>
+}

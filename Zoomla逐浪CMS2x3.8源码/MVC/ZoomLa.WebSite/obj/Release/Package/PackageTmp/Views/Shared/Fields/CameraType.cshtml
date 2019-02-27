@@ -1,0 +1,20 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    string value = Model.GetValue();
+    string Name = Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+    int cameraWidth = DataConverter.CLng(model.GetValue("cameraWidth"));
+    int cameraHeight = DataConverter.CLng(model.GetValue("cameraHeight"));
+    int imgWidth = DataConverter.CLng(model.GetValue("imgWidth"));
+    int imgHeight = DataConverter.CLng(model.GetValue("imgHeight"));
+}
+<div style='float:left; border:1px solid #ddd;padding:5px;'><video id='@Name' class='fd_tr_video' autoplay='autoplay' style='width:@(cameraWidth)px;height:@(cameraHeight)px;'></video></div>
+<div style='float:left; margin-left:5px;'><div style='margin-top:8px;'><button class='fd_td_shoot_btn btn btn-primary' type='button'>在线拍照</button></div><div style='margin-top:10px;'><button class='fd_td_upfile_btn btn btn-primary' type='button'>保存图片</button></div><div style='margin-top:10px;'><button class='fd_td_resetcamera_btn btn btn-primary' type='button'>重置图片</button></div></div>
+<div style='float:left; margin-left:5px;'><img src='@value' style='width:@(imgWidth)px;height:@(imgHeight)px;'/></div>
+<input name='{0}_hid' type='hidden' value='@value'>
+<div class="clearfix"></div>

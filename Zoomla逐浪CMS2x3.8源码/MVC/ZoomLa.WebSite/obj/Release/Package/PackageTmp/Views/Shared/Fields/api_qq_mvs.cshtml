@@ -1,0 +1,35 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    public string GetTencentMvs()
+    {
+        string value = Model.GetValue();
+        string Name = Model.fieldMod.FieldName;
+        FieldModel model = new FieldModel(Model.fieldMod.Content);
+        StringBuilder sb = new StringBuilder();
+        string remotePath = "";
+        string url = "";
+        bool hasmvs = false;
+        if (!string.IsNullOrEmpty(value))
+        {
+            string[] valueArr = value.Split('|');//远程文件路径|上传后下载地址
+            remotePath = valueArr[0];
+            url = valueArr[1];
+            hasmvs = true;
+        }
+        sb.Append("<div id='show_" + Name + "' style='" + (hasmvs ? "" : "display:none") + "'><video id='video_" + Name + "' src='" + url + "' style='width:300px;height:200px;' controls='controls'>您的浏览器不支持 video 标签。</video><br/>");
+        sb.Append("<span id='mvsurl_" + Name + "'>" + url + "</span>");
+        sb.Append("<input type='button' value='重新上传' onclick=\"api_qq_mvs.ShowDiag('" + Name + "','" + remotePath + "')\" class='btn btn-info'/></div>");
+        sb.Append("<input id='upbtn_" + Name + "' type='button' value='上传微视频' onclick=\"api_qq_mvs.ShowDiag('" + Name + "')\" class='btn btn-info' style='" + (hasmvs ? "display:none" : "") + "'/>");
+        sb.Append("<input type='hidden' name='UpMvs_" + Name + "' id='UpMvs_" + Name + "' value='" + url + "' />");
+        return sb.ToString();
+    }
+}
+@{
+    //腾迅视频API接口
+
+}

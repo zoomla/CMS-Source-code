@@ -1,0 +1,60 @@
+﻿<div class="header"><label class="title">添加图片</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-header">
+                <div class="title-line">
+                    <div class="title">我的上传</div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="domItem listItem" data-type="image" data-comp="image">
+                    <img class="image" src="/Design/res/img/imageUploader.png" />
+                    <div class="content">
+                        <div class="title">我上传的图片</div>
+                        <div class="desc">上传图片到你的站点</div>
+                    </div>
+                </div>
+                <div class="section-header">
+                    <div class="title-line"><div class="title">图片集</div></div>
+                </div>
+                <div class="domItem listItem" data-type="image" data-comp="logo">
+                    <img class="image" src="/Design/res/img/FreeImages.png" />
+                    <div class="content">
+                        <div class="title">网站Logo</div>
+                        <div class="desc">自动获取你的Logo</div>
+                    </div>
+                </div>
+                <div class="shootItem listItem" data-type="image" data-comp="camera">
+                    <img class="image" src="/Design/res/img/myInstagram.png" />
+                    <div class="content">
+                        <div class="title">在线拍照</div>
+                        <div class="desc">使用你的摄像头拍摄照片</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script>
+    var shootDiag = new ZL_Dialog();
+    $(function () {
+        $(".shootItem").click(function () {
+            location.href = '/Design/Diag/Image/camara.aspx';
+        });
+    })
+    function GetModel(item) {
+        var $item = $(item);
+        var model = {
+            dataMod: { src: '/UploadFiles/timg.jpg' },
+            config: { type: $item.data("type"), compid: $item.data("comp"), css: "candrag", style: 'position:absolute;', imgstyle: "width:150px;height:150px;" }
+        };
+        switch (model.config.compid) {
+            case "logo":
+                model.config.imgstyle = "width:200px;height:60px;";
+                break;
+        }
+        return model;
+    }
+</script>

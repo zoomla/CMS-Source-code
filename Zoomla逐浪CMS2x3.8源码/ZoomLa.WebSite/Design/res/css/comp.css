@@ -1,0 +1,116 @@
+﻿/*设计与浏览页都引用其*/
+.onlyresize, .candrag, .onlydrag, .dragy {display:inline-block;}
+.btn_icon_circular {color: #fff;text-align:center;height:60px;width:60px;padding-top:10px; display:inline-block; border-radius: 50%; font-size: 3em;}
+/*遮罩,用于文本框与地图等*/
+.comp_mask {width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:100;}
+/*图片组件*/
+.gallery_group .list_item {display:inline-block;padding:2px;cursor:pointer;}
+.gallery_group .list_item_img {width:100%;}
+.gallery_group .list_item_div {position: relative;overflow: hidden;text-align: center;}
+.gallery_group .list_item_text {transition: all linear 0.5s;position: absolute;text-align: center;line-height: 25px;width: 100%;opacity: 0.6;background: black;color: white;bottom:0;padding:5px;}
+/*文章列表*/
+.list_s1 {}/*带缩略图*/
+.list_s1 .list_item {position:relative;padding:3px;padding-bottom:10px;min-height:110px; border-bottom:1px dashed #ddd;}
+.list_s1 .list_item .pic_a {position:absolute; width:100px;height:100px;}
+.list_s1 .list_item .pic_a img {max-width:100px;max-height:100px;}
+.list_s1 .list_item_head {margin-left:105px;padding-left:5px;}
+.list_s1 .list_item .head_title {float:left; font-weight:bold;}
+.list_s1 .list_item .head_date {float:right;margin-right:5px;}
+.list_s1 .list_item .desc_div {margin-left:105px;color:#797979;}
+/*猎豹*/
+.list_s2 .list_item {position:relative;padding:3px;margin-bottom:30px;margin-left:10px;}
+.list_s2 .title {color:#ff6900;font-size:20px;word-wrap:break-word;font-weight:normal;font-style:normal;}
+.list_s2 .item_img {position:absolute; left:0;overflow:hidden;cursor:pointer;width:300px;height:160px;}
+.list_s2 .item_img a {text-decoration:none;margin:0px;padding:0px;}
+.list_s2 .item_img img {position:absolute;top:0;left:0;width:300px;height:160px;}
+.list_s2 .item_info {margin-left:334px;border:none;}
+.list_s2 .item_info .info_title { height:24px;line-height:24px;font-size:18px;overflow:hidden;word-wrap:break-word;margin-bottom:5px;cursor:pointer;}
+.list_s2 .item_info .info_title:hover {color:#ff6900;}
+.list_s2 .item_info .time_share {display:block;height:32px;height:32px;color:#666;}
+.list_s2 .item_info .time {padding-right:30px;display:inline-block;font-size:10px;}
+.list_s2 .item_info .item_content {height:66px;width:800px; line-height:22px;overflow:hidden;text-overflow:ellipsis; color:#666;font-size:10px;}
+.list_s2 .item_info .detail_a {width:107px;height:35px;line-height:34px;position:absolute;right:0px;text-align:center;overflow:hidden;color:#ff6900;text-decoration:none;border:1px solid #ff6900;border-radius:15px;}
+.list_s2 .item_info .detail_a:hover {background-color:#ff6900;color:#fff;}
+/*文章内容*/
+.content_s1 .con_title {text-align:center;font-size:20px;font-weight:bold;padding-bottom:10px;border-bottom:1px solid #ddd;}
+.content_s1 .con_date {text-align:center;color:#797979;}
+.content_s1 .con_content {padding:5px;}
+/*div*/
+.footer_s1 {height:160px;text-align:center;overflow:hidden;}
+.footer_s1 .footer_sp {display:block;height:40px;line-height:40px; color:#c0c0c0;text-align:center;}
+.footer_s1 .share {padding-top:20px;margin-bottom:28px;}
+.footer_s1 .share a {color:#c0c0c0;font-size:40px;margin-right:10px;}
+.footer_s1 .share a:hover {color:#ff6900;}
+.footer_s1 .bar_link a {display:inline-block;padding:0 10px;color:#c0c0c0;text-decoration:none;}
+.footer_s1 .copy em {display:block;height:22px;line-height:22px;color:#6d6d6d;font-weight:normal;font-style:normal;}
+/*手机组件*/
+.mb_basic_cube {background: #fff;}
+.mb_basic_cube .list_item {width: 33%; padding: 0; height: 5.2rem; color: #fff; float: left; text-align: center;margin-bottom:30px;}
+.mb_basic_cube .list_item_a {color: #fff;  border-radius: 50%; padding:15px 10px;width:50px;height:50px; display:inline-block;}
+.mb_basic_twocolumn .list_item {width:50%;text-align:center;height:100px;color:#fff;text-decoration:none;display:inline-block;padding-top:30px;}
+.mb_basic_twocolumn .list_item_icon {font-size:1.8em;margin-right:10px;}
+
+/*悬停图片放大*/
+.ani_imgstyle img{ display: block; animation-name: imgsacle; -webkit-animation: imgsacle 0.4s linear 0s normal none; -moz-animation: imgsacle 0.4s linear 0s normal none; animation: imgsacle 0.4s linear 0s normal none; -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+@-webkit-keyframes imgsacle { from { -webkit-transform:scale(1,1); } to { -webkit-transform:scale(1.2,1.2); } }
+@-moz-keyframes imgsacle { from { -moz-transform:scale(1,1); } to { -moz-transform:scale(1.2,1.2); } }
+@keyframes imgsacle { from { transform:scale(1,1); } to { transform:scale(1.2,1.2); } }
+
+/*标识*/
+@font-face {
+    font-family: "ZoomlaICO";
+    src: url("/dist/fonts/ZoomlaICO.eot"); /* IE9 */
+    src: url("/dist/fonts/ZoomlaICO.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */    
+    url("/dist/fonts/ZoomlaICO.woff") format("woff"), /* chrome、firefox */
+    url("/dist/fonts/ZoomlaICO.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("/dist/fonts/ZoomlaICO.svg#ZoomlaICO") format("svg"); /* iOS 4.1- */
+    font-style: normal;font-weight: normal;
+}
+.zlogo1,.zlogo2{ float:left;font-family: "ZoomlaICO"  !important;cursor:pointer; }
+.ZoomlaICObagua:before{ font-family:'ZoomlaICO';content: "\51F6";  }/*八卦图形*/
+.ZoomlaICO2015:before{ font-family:'ZoomlaICO';content: "\51F7";  }/*大写Z字形*/
+.SiisoftICO2016:before{ font-family:'ZoomlaICO';content: "\51F8";  }/*SiifotLogo*/
+#PowerZoomlaT {position: absolute; z-index:500; top:0; right:0;  }
+#PowerZoomlaT span { display:block;top:0; right:0; width: 0;height: 0;border-top: 100px solid red; border-left: 100px solid transparent;  }
+#PowerZoomlaT i{position: absolute; z-index:500;top:0; right:0; font-size:68px; line-height:90%;}
+#PowerZoomlaT a{color:#fff;}
+/*互动组件*/
+.pub_text, .pub_textarea {padding:8px;}
+.pub {border:none;}
+/*手机下场景组件UI*/
+.mobile {}
+.scence.swiper-container {width:638px;height:100%;overflow: hidden;}/*640 1140*/
+.scence #array {position:absolute;z-index:999;display:block;bottom:0px;width:50px;height:50px;left:45%;-webkit-animation: start 1.5s infinite ease-in-out;}
+.scence .bgm-btn{ position:absolute; top: 30px; right:50px; width: 60px; height: 60px; background-size: 100%; background-image: url("/design/h5/images/music.png"); z-index: 2;cursor:pointer; -webkit-animation: myrotate 5s linear 0s infinite normal;transform:scale(2)}
+.scence .bgm-btn.pause{ background-position: 0px -60px; -webkit-animation: none;transform:scale(1);}
+.scence .swiper-slide {overflow:hidden;}
+.pc_mobile .tit_div{transform: scale(0.5);position: absolute;top: 120px;left: -127px;height: 66px;width: 638px;text-align: center;line-height:66px;}
+.pc_mobile .tit_div #Tit_L{font-size: 30px;color: #fff;text-overflow:ellipsis;width: 75%;display: inline-block;overflow: hidden;}
+
+@-webkit-keyframes myrotate /*Safari and Chrome*/{0%{-webkit-transform:rotate(0deg);}
+25%{-webkit-transform:rotate(-90deg);}
+50%{-webkit-transform:rotate(-180deg);}
+75%{-webkit-transform:rotate(-270deg);}
+100%{-webkit-transform:rotate(-360deg);}}
+@-webkit-keyframes start{0%,30%{opacity: 0;-webkit-transform: translate(0,10px);}60%{opacity: 1;-webkit-transform: translate(0,0);}100%{opacity: 0;-webkit-transform: translate(0,-8px);}}
+@-moz-keyframes start{0%,30%{opacity: 0;-moz-transform: translate(0,10px);}60%{opacity: 1;-moz-transform: translate(0,0);}100%{opacity: 0;-moz-transform: translate(0,-8px);}}
+@keyframes start{0%,30%{opacity: 0;transform: translate(0,10px);}60%{opacity: 1;transform: translate(0,0);}100%{opacity: 0;transform: translate(0,-8px);}}
+
+/*loading*/
+#loading{background-color:black;width:640px;height:1040px;}
+.fountainTextG{color:rgba(255, 255, 255, 0.50); font-family:Arial; font-size:40px; text-decoration:none; font-weight:bold; font-style:normal; float:left; -moz-animation-name:bounce_fountainTextG; -moz-animation-duration:1.82s; -moz-animation-iteration-count:infinite; -moz-animation-direction:normal; -moz-transform:scale(.5); -webkit-animation-name:bounce_fountainTextG; -webkit-animation-duration:1.82s; -webkit-animation-iteration-count:infinite; -webkit-animation-direction:normal; -webkit-transform:scale(.5); -ms-animation-name:bounce_fountainTextG; -ms-animation-duration:1.82s; -ms-animation-iteration-count:infinite; -ms-animation-direction:normal; -ms-transform:scale(.5); -o-animation-name:bounce_fountainTextG; -o-animation-duration:1.82s; -o-animation-iteration-count:infinite; -o-animation-direction:normal; -o-transform:scale(.5); animation-name:bounce_fountainTextG; animation-duration:1.82s; animation-iteration-count:infinite; animation-direction:normal; transform:scale(.5);}
+#fountainTextG_body{text-align:center;top:35%;position: absolute;padding:0 225px;}
+#fountainTextG_1{-moz-animation-delay:0.52s; -webkit-animation-delay:0.52s; -ms-animation-delay:0.52s; -o-animation-delay:0.52s; animation-delay:0.52s;}
+#fountainTextG_2{-moz-animation-delay:0.65s; -webkit-animation-delay:0.65s; -ms-animation-delay:0.65s; -o-animation-delay:0.65s; animation-delay:0.65s;}
+#fountainTextG_3{-moz-animation-delay:0.78s; -webkit-animation-delay:0.78s; -ms-animation-delay:0.78s; -o-animation-delay:0.78s; animation-delay:0.78s;}
+#fountainTextG_4{-moz-animation-delay:0.91s; -webkit-animation-delay:0.91s; -ms-animation-delay:0.91s; -o-animation-delay:0.91s; animation-delay:0.91s;}
+#fountainTextG_5{-moz-animation-delay:1.04s; -webkit-animation-delay:1.04s; -ms-animation-delay:1.04s; -o-animation-delay:1.04s; animation-delay:1.04s;}
+#fountainTextG_6{-moz-animation-delay:1.17s; -webkit-animation-delay:1.17s; -ms-animation-delay:1.17s; -o-animation-delay:1.17s; animation-delay:1.17s;}
+#fountainTextG_7{-moz-animation-delay:1.3s; -webkit-animation-delay:1.3s; -ms-animation-delay:1.3s; -o-animation-delay:1.3s; animation-delay:1.3s;}
+#fountainTextG_8{-moz-animation-delay:1.43s; -webkit-animation-delay:1.43s; -ms-animation-delay:1.43s; -o-animation-delay:1.43s; animation-delay:1.43s;}
+#fountainTextG_9{-moz-animation-delay:1.56s; -webkit-animation-delay:1.56s; -ms-animation-delay:1.56s; -o-animation-delay:1.56s; animation-delay:1.56s;}
+#fountainTextG_10{-moz-animation-delay:1.69s; -webkit-animation-delay:1.69s; -ms-animation-delay:1.69s; -o-animation-delay:1.69s; animation-delay:1.69s;}
+@-moz-keyframes bounce_fountainTextG{0%{-moz-transform:scale(1); color:#28a3ef;} 100%{-moz-transform:scale(.5); color:#FFFFFF;}}
+@-webkit-keyframes bounce_fountainTextG{0%{-webkit-transform:scale(1); color:#28a3ef;} 100%{-webkit-transform:scale(.5); color:#FFFFFF;}}
+@-ms-keyframes bounce_fountainTextG{0%{-ms-transform:scale(1); color:#28a3ef;} 100%{-ms-transform:scale(.5); color:#FFFFFF;}}
+@keyframes bounce_fountainTextG{0%{transform: scale(1); color: #28a3ef;} 100%{transform: scale(.5); color: #FFFFFF;}}

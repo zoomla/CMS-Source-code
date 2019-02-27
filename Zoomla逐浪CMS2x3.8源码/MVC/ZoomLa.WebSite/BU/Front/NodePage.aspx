@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NodePage.aspx.cs" Inherits="ZoomLaCMS.NodePage" %>

@@ -1,0 +1,62 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>195</LabelID>
+    <LabelName>头部搜索表单</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;form action="/columnlist.aspx?nodeid=154" name="ftop" id='top_search_box' method="post"&gt;
+&lt;div class="main1_l_top"&gt;
+ 
+&lt;input type="text" value="请你输入你的问题试试" name=word  id=kw  onclick="setEmpty(this)" onblur="settxt(this)"&gt;
+  
+&lt;script&gt;
+  function opa()
+	{
+	 window.location.href="/columnlist.aspx?nodeid=119&amp;ques="+escape(document.getElementById('kw').value);
+	}
+	 function newQuestionSearch()
+	{
+	 window.location.href="/NodeHot.aspx?nodeid=115&amp;ques="+escape(document.getElementById('kw').value);
+	 
+	}
+    &lt;/script&gt;
+&lt;input type="button"class="button1"  value="搜索问题" onclick='newQuestionSearch()'&gt;
+&lt;input type="button" class="button2" value="我要提问" onClick="opa()" &gt; 
+&lt;/div&gt;
+&lt;/form&gt;
+&lt;script language="javascript"&gt;
+    function setEmpty(obj) {
+        if (obj.value == "请你输入你的问题试试") {
+            obj.value = "";
+        }
+    }
+    function settxt(obj) {
+        if (obj.value == "") {
+            obj.value = "请你输入你的问题试试";
+        }
+    }
+&lt;/script&gt;
+</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

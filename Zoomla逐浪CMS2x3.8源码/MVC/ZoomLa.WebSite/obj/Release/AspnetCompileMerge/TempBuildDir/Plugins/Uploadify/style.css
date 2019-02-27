@@ -1,0 +1,166 @@
+ //**  This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic');
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block }
+body { line-height: 1 }
+ol, ul { list-style: none }
+blockquote, q { quotes: none }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none }
+table { border-collapse: collapse; border-spacing: 0 }
+.uploadify { position: relative; margin-bottom: 1em }
+.uploadify-button { background-color:#59a6ec; background-image: linear-gradient(bottom,#59a6ec 0,#7cb9f0 100%); background-image: -o-linear-gradient(bottom,#59a6ec 0, #7cb9f0 100%); background-image: -moz-linear-gradient(bottom, #59a6ec 0, #7cb9f0 100%); background-image: -webkit-linear-gradient(bottom, #59a6ec 0,#7cb9f0 100%); background-image: -ms-linear-gradient(bottom, #59a6ec 0,#7cb9f0 100%); background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #59a6ec), color-stop(1,#7cb9f0)); background-position: center top; background-repeat: no-repeat; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px; border: 2px solid #b1d9fe; color: #FFF; font: bold 12px Arial, Helvetica, sans-serif; text-align: center; text-shadow: 0 -1px 0 rgba(0,0,0,.25); width: 100% }
+.uploadify:hover .uploadify-button { background-color: #606060; background-image: linear-gradient(top, #606060 0, #808080 100%); background-image: -o-linear-gradient(top, #606060 0, #808080 100%); background-image: -moz-linear-gradient(top, #606060 0, #808080 100%); background-image: -webkit-linear-gradient(top, #606060 0, #808080 100%); background-image: -ms-linear-gradient(top, #606060 0, #808080 100%); background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #606060), color-stop(1, #808080)); background-position: center bottom }
+.uploadify-button.disabled { background-color: #D0D0D0; color: #808080 }
+.uploadify-queue { margin-bottom: 1em }
+.uploadify-queue-item { background-color: #F5F5F5; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; font: 11px Verdana, Geneva, sans-serif; margin-top: 5px; max-width: 350px; padding: 10px }
+.uploadify-error { background-color: #FDE5DD!important }
+.uploadify-queue-item .cancel a { background: url('img/uploadify-cancel.png') 0 0 no-repeat; float: right; height: 16px; text-indent: -9999px; width: 16px }
+.uploadify-queue-item.completed { background-color: #E5E5E5 }
+.uploadify-progress { background-color: #E5E5E5; margin-top: 10px; width: 100% }
+.uploadify-progress-bar { background-color: #09F; height: 3px; width: 1px }
+.uploadifive-button { background-color: #505050; background-image: linear-gradient(bottom, #505050 0, #707070 100%); background-image: -o-linear-gradient(bottom, #505050 0, #707070 100%); background-image: -moz-linear-gradient(bottom, #505050 0, #707070 100%); background-image: -webkit-linear-gradient(bottom, #505050 0, #707070 100%); background-image: -ms-linear-gradient(bottom, #505050 0, #707070 100%); background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #505050), color-stop(1, #707070)); background-position: center top; background-repeat: no-repeat; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px; border: 2px solid #808080; color: #FFF; font: bold 12px Arial, Helvetica, sans-serif; text-align: center; text-shadow: 0 -1px 0 rgba(0,0,0,.25); text-transform: uppercase; width: 100% }
+.uploadifive-button:hover { background-color: #606060; background-image: linear-gradient(top, #606060 0, #808080 100%); background-image: -o-linear-gradient(top, #606060 0, #808080 100%); background-image: -moz-linear-gradient(top, #606060 0, #808080 100%); background-image: -webkit-linear-gradient(top, #606060 0, #808080 100%); background-image: -ms-linear-gradient(top, #606060 0, #808080 100%); background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #606060), color-stop(1, #808080)); background-position: center bottom }
+.uploadifive-queue-item { background-color: #F5F5F5; border-bottom: 1px dotted #D5D5D5; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; font: 12px Arial, Helvetica, Sans-serif; margin-top: 3px; padding: 15px }
+.uploadifive-queue-item .close { background: url('..//uploadify-cancel.png') 0 0 no-repeat; display: block; float: right; height: 16px; text-indent: -9999px; width: 16px }
+.uploadifive-queue-item .progress { border: 1px solid #D0D0D0; height: 3px; margin-top: 5px; width: 100% }
+.uploadifive-queue-item .progress-bar { background-color: #0072BC; height: 3px; width: 0 }
+@font-face { font-family: 'Upstaged Black'; src: url('fonts/upstaged-black_italic-webfont.eot'); src: url('fonts/upstaged-black_italic-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/upstaged-black_italic-webfont.woff') format('woff'), url('fonts/upstaged-black_italic-webfont.ttf') format('truetype'), url('fonts/upstaged-black_italic-webfont.svg#UpstagedBlackItalic') format('svg'); font-weight: 400; font-style: normal }
+@font-face { font-family: 'Upstaged'; src: url('fonts/upstaged-semibold_italic-webfont.eot'); src: url('fonts/upstaged-semibold_italic-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/upstaged-semibold_italic-webfont.woff') format('woff'), url('fonts/upstaged-semibold_italic-webfont.ttf') format('truetype'), url('fonts/upstaged-semibold_italic-webfont.svg#UpstagedSemiBoldItalic') format('svg'); font-weight: 400; font-style: normal }
+a { color: #0072bc; text-decoration: none }
+a:hover { color: #004270; text-decoration: underline }
+body { color: #464646;  margin-bottom: 50px }
+/*background-image: url('img/page-bkg.jpg');*/ 
+strong { font-weight: 700 }
+em { font-style: italic }
+#wrapper { position: relative; height: 100%; width: 100% }
+#dark-band { background: #3d3d3d; background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #363636), color-stop(1, #464646)); background: -ms-linear-gradient(bottom, #363636, #464646); background: -moz-linear-gradient(center bottom, #363636 0, #464646 100%); height: 90px; line-height: 90px }
+#branding a { background: url('img/uploadify-logo.png') 0 0 no-repeat; float: left; height: 39px; margin-top: 25px; text-indent: -9999px; width: 212px }
+#nav-primary { float: right; font-family: "Upstaged", Arial, Verdana, Sans-serif; font-size: 16px }
+#nav-primary li { float: left; margin-right: 28px }
+#nav-primary li a { color: #FFF; text-decoration: none }
+#nav-primary li a:hover { color: #007DB7 }
+#nav-primary li.current-menu-item a { color: #808080 }
+#site-search { float: right }
+#site-search form { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; background-color: #555; border-top: 1px solid #2A2A2A; height: 29px; margin-top: 30px; width: 170px }
+#site-search form .search-input { background-color: transparent; border: 0; color: #FFF; float: left; padding: 6px 5px 0; width: 130px }
+#site-search form .submit { float: right; padding: 5px 5px 4px }
+#medium-band { background: url('img/medium-gray-bkg.jpg') 0 0 repeat-x; border-top: 1px solid #B1B0AD; height: 90px; padding: 20px 0 25px }
+#medium-band .ad { height: 90px; margin: 0 auto; width: 728px }
+.home #medium-band { height: 350px }
+#splash { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; background: url('img/splash-bkg.jpg') 0 0 no-repeat; border-bottom: 1px solid #A8A7A4; height: 350px; position: relative; width: 960px }
+#splash .splash-img { bottom: 0; position: absolute; right: 0 }
+#splash .splash-btns { -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.75); -moz-box-shadow: 0 3px 8px rgba(0,0,0,.75); box-shadow: 0 3px 8px rgba(0,0,0,.75); -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; height: 40px; left: 50px; position: absolute; top: 198px }
+#splash .splash-btn { background: #006ea3; background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #006295), color-stop(1, #0078b0)); background: -ms-linear-gradient(bottom, #006295, #0078b0); background: -moz-linear-gradient(center bottom, #006295 0, #0078b0 100%); -webkit-border-top-right-radius: 0; -webkit-border-bottom-right-radius: 0; -webkit-border-bottom-left-radius: 30px; -webkit-border-top-left-radius: 30px; -moz-border-radius-topright: 0; -moz-border-radius-bottomright: 0; -moz-border-radius-bottomleft: 30px; -moz-border-radius-topleft: 30px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 30px; border-top-left-radius: 30px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; border-top: 1px solid #008EC2; border-bottom: 1px solid #005587; border-right: 1px solid #006397; color: #FFF; font-family: "Upstaged", Arial, Verdana, Sans-serif; font-size: 16px; padding: 13px 25px; position: relative; text-decoration: none; top: 10px }
+#splash .splash-btn:hover { background: #006ea3; background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0078b0), color-stop(1, #006295)); background: -ms-linear-gradient(bottom, #0078b0, #006295); background: -moz-linear-gradient(center bottom, #0078b0 0, #006295 100%) }
+#splash .splash-btn img { margin-right: 8px }
+#splash .uploadifive-btn { -webkit-border-top-right-radius: 30px; -webkit-border-bottom-right-radius: 30px; -webkit-border-bottom-left-radius: 0; -webkit-border-top-left-radius: 0; -moz-border-radius-topright: 30px; -moz-border-radius-bottomright: 30px; -moz-border-radius-bottomleft: 0; -moz-border-radius-topleft: 0; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 0; border-top-left-radius: 0; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; border-left: 1px solid #007AAE; border-right: 0 }
+#main .container { border-bottom: 1px solid #CDCDCD }
+header.page { border-bottom: 1px solid #CDCDCD; padding: 0 20px }
+header.page h1 { font: 36px "Upstaged Black", Arial, Helvetica, Sans-serif; font-weight: 400; margin: 40px 0 10px }
+header.page .fb-like { float: right; margin-top: 13px; width: 80px }
+.sub-title { background: url('img/shadow.png') center top no-repeat; border-bottom: 1px solid #CDCDCD; color: #303030; font-family: "Upstaged Black", Arial, Verdana, Sans-serif; font-size: 28px; height: 95px; line-height: 95px; text-align: center }
+.bordered { border-top: 1px solid #FFF }
+.column { float: left; margin: 0 20px }
+.column.third { width: 280px }
+.column p { margin-bottom: 1em }
+.column a { color: #0072bc; font-weight: 700; text-decoration: none }
+.column a:hover { color: #004270 }
+.column header { color: #303030; font: 24px/24px "Upstaged Black", Arial, Helvetica, Sans-serif; height: 48px; margin-bottom: 10px; padding: 2px 0 0 58px }
+.column header a { color: #303030; font-weight: 400 }
+.column header a:hover { color: #0072bc }
+.column header.customize { background: url('img/customize-icon.png') left center no-repeat }
+.column header.versions { background: url('img/versions-icon.png') left center no-repeat }
+.column header.forums { background: url('img/community-icon.png') left center no-repeat }
+.content { border-top: 1px solid #FFF; overflow: hidden; padding: 20px }
+.content h2 { font: normal 24px/26px "Upstaged Black", Arial, Helvetica, Sans-serif; margin-bottom: 1em }
+.content h3 { font: bold 18px/24px "Open Sans", Arial, Helvetica, Sans-serif }
+.content h3 a { color: #303030; text-decoration: none }
+.content h3 a:hover { color: #0072bc }
+.content p { margin-bottom: 1em }
+.content p.intro { font-size: 18px; line-height: 26px }
+.content .left { float: left; width: 540px }
+.content .left ul { list-style-type: disc; padding-left: 1.5em }
+.content .left ul li { margin-bottom: .5em }
+.content .left ol { list-style-type: decimal; padding-left: 1.5em }
+.content .left ol.alpha { list-style-type: lower-alpha }
+.content .left ol li, .content .left ol p { margin-bottom: .5em }
+.content .left #searchform { margin-bottom: 20px }
+.content .left .search-result { margin-bottom: 30px }
+.content .left .search-result h3 { font-family: "Open Sans", Arial, Helvetica, Sans-serif; font-weight: 700 }
+.content .left .search-result p { margin-bottom: 0 }
+.content .left h2.doc-header { color: #000; font-family: "Droid Sans Mono", "Courier New", Monospace; font-size: 22px; margin-bottom: .5em }
+.content .left h2 { margin-bottom: .5em }
+.content .left p.found-results { font-size: 18px; font-style: italic }
+.content .left .description { font-size: 14px }
+.content .left .method-format { font: bold 12px "Droid Sans Mono", "Courier New", Monospace }
+.content .left .details { background: #cbc8c4 url('img/gray-bkg.jpg'); color: #000; font-family: "Droid Sans Mono", "Courier New", Monospace; margin: 1em 0; padding: 10px 20px }
+.content .left .details p { border-top: 1px solid #A0A0A0; margin-bottom: 0; padding: 5px 0 }
+.content .left .details p:first-child { border-top: 0 }
+.content .left .details label { font-family: "Open Sans", Arial, Helvetica, Sans-serif; font-weight: 700; float: left; width: 150px }
+.content .left .middle-ad { margin: 30px 0; text-align: center }
+.content .left .success { color: #8DC73F }
+.content .left .error { color: #9E0B0F }
+.content .left .control-group .control-label { float: left; margin-top: 5px; width: 60px }
+.content .left .control-group input.text { border: 1px solid #CDCDCD; border-radius: 3px; box-shadow: 2px 2px 0 rgba(0,0,0,.05); padding: 5px 10px; width: 300px }
+.content .left .control-group input.btn { margin-left: 10px }
+.content .left #uploadifive-license-select { border: 1px solid #CDCDCD; border-radius: 3px; box-shadow: 2px 2px 0 rgba(0,0,0,.05); margin-top: 3px; padding: 5px }
+.content .sidebar { float: right; width: 300px }
+.content .sidebar .download-btn { margin-bottom: 20px }
+.content .sidebar .download-btn a { display: block; height: 70px; width: 300px }
+.content .sidebar .sidebar-ad { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; height: 250px; margin-bottom: 20px; width: 300px }
+.content .sidebar .donate { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; background: #3c3c3c url('img/donation-bkg.png') 0 0 no-repeat; height: 150px; padding: 20px; width: 260px }
+.content .sidebar .donate p { color: #B9B9B9; margin-top: 30px }
+.content .sidebar .donate p.button { margin-top: 12px; text-align: center }
+.content .sidebar .donate p.button input { -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.75); -moz-box-shadow: 0 3px 8px rgba(0,0,0,.75); box-shadow: 0 3px 8px rgba(0,0,0,.75); background: #006ea3; background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #006295), color-stop(1, #0078b0)); background: -ms-linear-gradient(bottom, #006295, #0078b0); background: -moz-linear-gradient(center bottom, #006295 0, #0078b0 100%); -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; border-top: 1px solid #008EC2; border-bottom: 1px solid #005587; padding: 13px 25px }
+.content .sidebar .donate p.button input:hover { background: #006ea3; background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0078b0), color-stop(1, #006295)); background: -ms-linear-gradient(bottom, #0078b0, #006295); background: -moz-linear-gradient(center bottom, #0078b0 0, #006295 100%) }
+.content .demo-box { padding: 20px 0 0 }
+#footer .container { border-top: 1px solid #FFF; color: #898989; font-size: 11px; overflow: hidden; padding-top: 10px }
+#footer img { vertical-align: middle }
+#footer .copyright { float: left }
+#footer .links { float: right }
+#footer .links li { float: left }
+#footer .links li:before { content: "|" }
+#footer .links li:first-child:before { content: "" }
+#footer .links li a { color: #898989; padding: 0 5px; text-decoration: none }
+#footer .links li a:hover { color: #0072bc }
+.page-id-19 h2 { font: bold 18px "Open Sans", Arial, Helvetica, Sans-serif; margin-bottom: 0!important }
+.page-id-19 article { margin-bottom: 2em }
+.page-id-19 article .icon { float: left; margin-top: 7px }
+.page-id-19 article .contents { margin-left: 75px }
+.page-id-17 .middle-ad { margin: 0 0 30px!important }
+.page-id-17 article { margin-bottom: 3em }
+.page-id-17 article header { border-bottom: 1px solid #CDCDCD }
+.page-id-17 article header .price { float: right; font: 18px "Upstaged Black", Arial, Helvetica, Sans-serif; margin-top: 6px }
+.page-id-17 article header h2 { font-size: 28px; margin-bottom: 10px!important }
+.page-id-17 article .contents { margin-top: 15px; overflow: hidden }
+.page-id-17 article .contents a { font-weight: 700; text-decoration: none }
+.page-id-17 article .contents .left { float: left; line-height: 20px!important; width: auto }
+.page-id-17 article .contents .left h3 { font: bold 18px "Open Sans", Arial, Helvetica, Sans-serif }
+.page-id-17 article .contents .left p { margin-bottom: 0 }
+.page-id-17 article .contents .right { float: right; width: 208px }
+.page-id-17 .sidebar .download-btn { display: none }
+.page-id-17 .download-btn { background: url('img/download-btn.png') center top no-repeat; display: block; height: 58px; text-indent: -9999px; width: 208px }
+.page-id-17 .download-btn:hover { background: url('img/download-btn.png') center bottom no-repeat }
+.page-id-17 .purchase-btn { background: url('img/purchase-btn.png') center top no-repeat; display: block; height: 58px; text-indent: -9999px; width: 208px }
+.page-id-17 .purchase-btn:hover { background: url('img/purchase-btn.png') center bottom no-repeat }
+.page-id-635 .license, .page-id-648 .license { background-color: #FFF; border: 1px solid #CDCDCD; height: 300px; overflow: auto; padding: 20px }
+.page-id-635 .sidebar .download-btn, .page-id-648 .sidebar .download-btn { display: none }
+.page-id-22 p.intro { margin-bottom: 2em }
+.page-id-22 article { border-top: 1px solid #CDCDCD; padding-top: 10px }
+.page-id-22 article h2 { font: bold 18px/24px "Open Sans", Arial, Helvetica, Sans-serif }
+.page-id-24 .content .row { padding-top: 10px }
+.page-id-24 .content .row .column { float: left; margin: 0 3.33% 0 0; width: 30% }
+.page-id-24 .content .row .column a { font-weight: 400!important }
+.page-id-24 .content .tabs { border-bottom: 1px solid #C0C0C0; height: 28px; list-style-type: none; margin-bottom: 20px; padding-left: 0 }
+.page-id-24 .content .tabs .tab { float: left; margin-left: 5px }
+.page-id-24 .content .tabs .tab a { background-color: #C0C0C0; border: 1px solid #C0C0C0; border-bottom: 0; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-radius: 3px; -moz-border-radius-topleft: 3px; -moz-border-radius-topright: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; color: #303030; margin-top: 1px; padding: 8px 15px 7px }
+.page-id-24 .content .tabs .tab a:hover { color: #0072BC; text-decoration: none }
+.page-id-24 .content .tabs .tab a.active {  border: 1px solid #C0C0C0; border-bottom: 0; font-weight: 700; padding: 8px 15px 8px }
+/*background-image: url('img/page-bkg.jpg');*/ 
+.page-id-24 .content .tabs .tab a.active:hover { color: #303030; text-decoration: none }
+.page-id-24 .content #uploadifive { display: none }
+.page-id-24 .content section { margin-bottom: 1em }
+.page-id-24 .content section ul { margin: .5em 0 }
+.page-id-24 .content section ul li { margin-bottom: 0 }
+.page-id-89 { background-image: none }

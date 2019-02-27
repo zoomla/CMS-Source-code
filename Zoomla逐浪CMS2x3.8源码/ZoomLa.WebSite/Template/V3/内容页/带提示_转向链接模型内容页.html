@@ -1,0 +1,27 @@
+﻿{ZL.Source id="转向链接模型数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>正在跳转第三方链接……</title>
+<style>
+html { height:100%;}
+a{text-decoration:none;}
+body { height:100%; text-align:center; background:transparent; font-size:12px;}
+.center_div { display:inline-block; zoom:1; *display:inline; vertical-align:middle;  width:200px; padding:10px; }
+.hiddenDiv { height:100%; overflow:hidden; display:inline-block; width:1px; overflow:hidden; margin-left:-1px; zoom:1; *display:inline; *margin-top:-1px; _margin-top:0; vertical-align:middle;}
+.loading_block{background:url({$CssDir/}images/load_bg.gif) left top no-repeat; width:506px; height:207px;}
+.loading_onclick{text-align:right; padding:28px 25px 0 0}
+.loading_bar{margin-top:80px;}
+</style>
+</head>
+<body>
+<div class="center_div loading_block">
+  <div class="loading_bar"><img src="{$CssDir/}images/loading_page.gif" width="220" height="19" /><p>正在前往指定的页面，请稍后……</p></div>
+  <div class="loading_onclick">如果浏览器没有自动跳转，请<a href="{SField sid="转向链接模型数据源标签" FD="RedirectLink" page="0"/}"> 点击这里 </a></div>
+</div><div class="hiddenDiv"></div>
+<script>
+setTimeout("window.location='{SField sid="转向链接模型数据源标签" FD="RedirectLink" page="0"/}'",2000);
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>MIS能力中心-首页</title>
+<script type="text/javascript">
+    function loadPage(id, url) {
+        $("#" + id).addClass("loader");
+        $("#" + id).append("Loading......");
+        $("#" + id).load(url);
+    }
+    window.onload = function () {
+        loadPage('ProShow', 'MisPunch');
+    }
+</script>
+}
+@section content{
+<div id="Meno">
+    <div id="pro_left">
+        <ul class="AttenLis list-unstyled">
+            <li onmouseover="this.style.backgroundColor='#e0e8fc'" onmouseout="this.style.backgroundColor='#f6f9fe'"><a href="javascript:void(0)" onclick="loadPage('ProShow','MisPunch')">考勤打卡</a></li>
+            <li onmouseover="this.style.backgroundColor='#e0e8fc'" onmouseout="this.style.backgroundColor='#f6f9fe'"><a href="javascript:void(0)" onclick="loadPage('ProShow','MisAttDaily')">我的考勤</a></li>
+            <li onmouseover="this.style.backgroundColor='#e0e8fc'" onmouseout="this.style.backgroundColor='#f6f9fe'"><a href="javascript:void(0)" onclick="loadPage('ProShow','MisAttendanceInfo')">考勤统计</a></li>
+            <li onmouseover="this.style.backgroundColor='#e0e8fc'" onmouseout="this.style.backgroundColor='#f6f9fe'"><a href="javascript:void(0)" onclick="loadPage('ProShow','MisSignSet')">考勤设置</a></li>
+        </ul>
+    </div>
+    <div id="pro_right" runat="server">
+        <div class="RHead"><b>考勤</b></div>
+        <div id="ProShow"></div>
+    </div>
+</div>
+}
+@section script{
+    
+}

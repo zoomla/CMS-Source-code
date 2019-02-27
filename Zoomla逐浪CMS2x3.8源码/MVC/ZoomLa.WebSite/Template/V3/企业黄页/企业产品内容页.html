@@ -1,0 +1,71 @@
+{ZL.Source id="商家产品数据源标签"/}
+ <!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="商家产品数据源标签" FD="Title" page="0"/}</title>
+<meta name="Keywords" content="{SField sid="商家产品数据源标签" FD="Tagkey" page="0"/}" /> 
+<link href="{$CssDir/}global.css" rel="stylesheet" type="text/css" />
+<link href="{$CssDir/}fix.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top_box">
+<div id="xtop">
+<span>欢迎您，{ZL:IPcity()/}的{ZL:GetuserName()/}</span>
+<ul>
+<li><a href="#">购物车</a></li>
+<li><a href="#">|</a></li>
+<li><a href="#">我要买</a></li>
+<li>|</li>
+<li><a href="{ZL:GetNodeLinkUrl(140)/}&city={$GetUrlencode({$GetRequest(city)$})$}">我要开店</a></li>
+<li>|</li>
+<li><a href="/user">会员中心</a></li>
+<li>|</li>
+<li><a href="{ZL:GetNodeLinkUrl(170)/}&city={$GetUrlencode({$GetRequest(city)$})$}">帮助中心</a></li>
+<li>|</li>
+<li><a href="#">官方网店</a></li>
+<li>|</li>
+<li><a href="{ZL.Label id="论坛链接"/}">论坛</a></li>
+<li>|</li>
+<li >    <span id="btnNoBlank">原窗口</span> </li>
+<li>|</li>
+ <li>   <span id="btnNewBlank">新窗口</span><span id="setOk" style="display:none;">设置成功!</span>    </li>
+</ul>
+</div>
+<div class="clear"></div>
+</div> 
+
+<!--top_box end -->
+<div id="head1">
+<img src="{$CssDir/}Images/g1.jpg">
+</div>
+<!--head end -->
+
+<div id="nav_y">
+  <ul>
+    <li><a href="/">首  页</a></li>
+   
+{ZL.Label id="输出黄页节点" UserName="{SField sid="商家产品数据源标签" FD="Inputer" page="0"/}" ShowNum="10" /}
+  
+    <div class="clear"></div>
+  </ul>
+</div><!--nav end -->
+<!--nav end -->
+<div id="massage">
+{ZL.Label id="输出黄页左" inputer="{SField sid="商家产品数据源标签" FD="Inputer" page="0"/}" /}
+<div id="massage_R">
+<div id="com_masq">
+<div class="Lo_tit">{ZL.Label id="输出黄页节点标题" UserName="{SField sid="商家产品数据源标签" FD="Inputer" page="0"/}" NodeID="4" /}</div>
+ <img src="/UploadFiles{SField sid="商家产品数据源标签" FD="photo" page="0"/}">
+ <ul><li>
+ <b>名称:</b>{SField sid="商家产品数据源标签" FD="Title" page="0"/}</li><li>|</li><li><b>点击数：</b><SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="商家产品数据源标签" FD="GeneralID" page="0"/}"></SCRIPT></li><li><b>售价：</b>{SField sid="商家产品数据源标签" FD="price" page="0"/}</li>
+</ul>
+{SField sid="商家产品数据源标签" FD="syphilis" page="0"/}
+</div>
+</div>
+</div>
+<SCRIPT src="/js/openType.js" type=text/javascript></SCRIPT> 
+</body>
+</html>
+
+

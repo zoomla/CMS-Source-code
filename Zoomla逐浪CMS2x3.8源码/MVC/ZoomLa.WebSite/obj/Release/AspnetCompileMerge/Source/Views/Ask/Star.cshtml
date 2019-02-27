@@ -1,0 +1,126 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@using ZoomLa.SQLDAL
+@using ZoomLa.Common
+@model System.Data.DataTable
+@{
+    Layout = "~/Views/Shared/_ask.cshtml";
+}
+@functions{
+    protected string getanswer(string uid)
+    {
+        SqlParameter[] sp = new SqlParameter[] { new SqlParameter("uid", uid) };
+        DataTable dt = SqlHelper.ExecuteTable(CommandType.Text, "select count(*) from ZL_GuestAnswer where UserId=@uid", sp);
+        return dt.Rows[0][0].ToString();
+    }
+    protected string getRat(string uid)
+    {
+        SqlParameter[] sp = new SqlParameter[] { new SqlParameter("uid", uid) };
+        double adopCount = Convert.ToDouble(SqlHelper.ExecuteTable(CommandType.Text, "select count(*) from ZL_GuestAnswer where Status=1 and UserId=@uid", sp).Rows[0][0]);
+        double count = Convert.ToDouble(SqlHelper.ExecuteTable(CommandType.Text, "select count(*) from ZL_GuestAnswer where UserId=@uid", sp).Rows[0][0]);
+        return count > 0 ? ((adopCount / count) * 100).ToString("0.00") + "%" : "0%";
+    }
+    protected string getask(string uid)
+    {
+        SqlParameter[] sp = new SqlParameter[] { new SqlParameter("uid", uid) };
+        DataTable dt = SqlHelper.ExecuteTable(CommandType.Text, "select count(*) from ZL_Ask where UserId=@uid", sp);
+        return dt.Rows[0][0].ToString();
+    }
+    public DataTable GetDt(DataRow dr)
+    {
+        string UserID = (dr["UserID"]).ToString();
+        DataTable dt1 = SqlHelper.ExecuteTable("SELECT TOP 3 * FROM ZL_GuestAnswer WHERE Status=1 and UserId=" + UserID + " ORDER BY AddTime DESC");
+        string str = "";
+        if (dt1.Rows.Count > 0)
+        {
+            str = " ID=" + dt1.Rows[0]["QueId"].ToString();
+            for (int i = 1; i < dt1.Rows.Count; i++)
+            {
+                str = str + " or ID=" + dt1.Rows[i]["QueId"].ToString();
+            }
+        }
+        return SqlHelper.ExecuteTable(CommandType.Text, "select * from ZL_Ask where " + str, null);
+    }
+}
+@section head{
+    <title>问答中心-问答之星</title>
+}
+@section content{
+    <div class="container">
+        <ul class="breadcrumb">
+            <li>您的位置：<a href="/">网站首页</a></li>
+            <li><a href="/Ask">问答中心</a></li>
+            <li class="active">问答之星</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="h_mid">
+                <div class="h_mid_l"></div>
+                <div id="tdh" class="h_mid_m">
+                    <ul class="list-inline">
+                        <li><a title="问答首页" href="/Ask" class="btn btn-primary btn_guest">问答首页</a> </li>
+                        <li class="on"><a title="问答之星" href="/Ask/Star" class="btn btn-primary btn_guest">问答之星</a></li>
+                        <li><a title="分类大全" href="/Ask/Classification" class="btn btn-primary btn_guest">分类大全</a></li>
+                        <li><a href="MyAskList" class="btn btn-primary btn_guest">我的提问</a></li>
+                        <li><a href="MyAnswerlist" class="btn btn-primary btn_guest">我的回答</a></li>
+                    </ul>
+                </div>
+                <div class="h_mid_r"></div>
+            </div>
+            <div class="clr"></div>
+            <div class="h_b">
+                <div class="h_b_l"></div>
+                <div class="h_b_m">
+                    @{Html.RenderAction("CommonView");}
+                    <div class="clr"></div>
+                </div>
+                <div class="h_b_r"></div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="main" class="rg_inout">
+            <div class="clear"></div>
+            @foreach (DataRow dr in Model.Rows)
+            {
+                <div class="starR">
+                    <div>
+                        <div class="starRimg">
+                            <img src="/Images/InitHead.gif" width='100' height='100' />
+                        </div>
+                        <div class="starRC">
+                            <ul>
+                                <li style="line-height:40px; float:none;">用户ID:<a href="/ShowList.aspx?id=@dr["UserID"]" target='_blank'>@dr["UserName"]</a></li>
+                                <div class="clear"></div>
+                                <li class="sli1">回答数:@getanswer(dr["UserID"] as string)</li>
+                                <li class="sli1">采纳率:@getRat(dr["UserID"] as string)</li>
+                                <li class="sli1">提问数:@getask(dr["UserID"] as string)</li>
+                                <li class="sli1">问答积分:@dr["GuestScore"]</li>
+                            </ul>
+                        </div>
+                        <div class="starRW">
+                            精选解答:  <a href='Add?fix=@dr["UserID"]&fixname=@dr["UserName"]' class="button1">向TA提问</a>
+                            @foreach (DataRow row in GetDt(dr).Rows)
+                            {
+                                <a href="SearchDetails?ID=@row["ID"]" target='_blank' title=" ">@row["Qcontent"]</a>
+                            }
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="ask_bottom">
+        <p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+        <p class="text-center">@MvcHtmlString.Create(Call.GetLabel("{$Copyright/}"))</p>
+    </div>
+}
+@section script{
+<script>
+    $(function () {
+        $("#top_nav_ul li[title='问答专家']").addClass("active");
+    })
+</script>
+}

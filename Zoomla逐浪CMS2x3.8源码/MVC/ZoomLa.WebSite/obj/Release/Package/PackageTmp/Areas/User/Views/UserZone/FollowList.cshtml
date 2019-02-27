@@ -1,0 +1,39 @@
+﻿@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    int ztype = DataConverter.CLng(ViewBag.ztype);
+}
+@section head{
+    <title>好友管理</title>
+}
+@section content{
+<div class="container margin_t5">
+     <div id="pageflag" data-nav="index" data-ban="zone"></div>
+	<ol class="breadcrumb">
+        <li><a href="@Url.Action("Default","")">会员中心</a></li>
+        <li><a href="/User/Info/UserInfo">用户信息</a></li>
+        <li class="active"><a href="FollowList">我的关注</a>|<a href="FollowList?type=1">关注我的</a></li> 
+    </ol>
+</div>
+<div class="container btn_green margin_t5">
+    <ul class="nav nav-tabs" role="tablist">
+        <li data-type="0" class=''><a href="FollowList">我的关注</a></li>
+        <li data-type="1" class=''><a href="FollowList?type=1">关注我的</a></li>
+    </ul>
+    <div class="margin_t5 input-group text_300" style="margin-bottom:5px;">
+        <input type="text" class="form-control mvcparam" placeholder="用户名称" />
+        <span class="input-group-btn">
+            <input type="button"value="搜索" class="btn btn-primar" onclick="mvcpage.load();">
+        </span>
+    </div>
+    @Html.Partial("FollowList_List",Model)
+</div>
+}
+@section script{
+<script>
+    $(function () {
+        $("[data-type='@ztype']").addClass('active');
+    })
+</script>
+}

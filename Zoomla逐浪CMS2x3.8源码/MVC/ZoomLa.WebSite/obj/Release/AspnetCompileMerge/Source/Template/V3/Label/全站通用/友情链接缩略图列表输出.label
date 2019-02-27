@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>128</LabelID>
+    <LabelName>友情链接缩略图列表输出</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,调用信息数|NodeID,0,1,节点ID</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_C_FriendSite on ZL_CommonModel.ItemID=ZL_C_FriendSite.ID</LabelTable>
+    <LabelField>ZL_CommonModel.Title,ZL_C_FriendSite.logo,ZL_C_FriendSite.url
+</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) and Status=99</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="{Field="url"/}" target="_blank"&gt;&lt;img src="{Field="logo"/}" alt="{Field="Title"/}" /&gt;&lt;/a&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

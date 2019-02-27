@@ -1,0 +1,27 @@
+﻿@using System.Data
+@model System.Data.DataTable
+@{
+    Layout = "~/Views/App/_layout.cshtml";
+}
+@section head{
+    <title>模板选择</title>
+}
+@section content{
+<div style="height:60px;"></div>
+<div class="template tlplist">
+    <ul class="list-unstyled">
+        @foreach (DataRow dr in Model.Rows)
+        {
+            <li class="padding5"></li>
+        }
+    </ul>
+</div>
+}
+@section script{
+<link href="/App_Themes/V3.css" rel="stylesheet" />
+<style type="text/css">
+    .Template_box { padding: 0px; }
+    .temp_foot { border-top: 1px solid #ddd; background: #fafafa; height: 2em; line-height: 2em; padding-left: 5px; }
+    .tlplist li { width: auto; height: auto; }
+</style>
+}

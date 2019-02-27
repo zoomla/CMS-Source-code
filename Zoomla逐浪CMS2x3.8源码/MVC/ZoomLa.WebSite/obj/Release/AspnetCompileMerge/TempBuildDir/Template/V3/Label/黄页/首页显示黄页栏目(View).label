@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>288</LabelID>
+    <LabelName>首页显示黄页栏目(View)</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>首页显示黄页栏目(View)</LabelDesc>
+    <LabelParam>pageid,默认值,2,参数说明</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,NodeID,ModelID,ItemID,TableName,Title,Inputer,Hits,CreateTime,Status,EliteLevel,InfoID,SpecialID,IsCreate,HtmlLink,Template</LabelField>
+    <LabelWhere>GeneralID=@pageid</LabelWhere>
+    <LabelOrder />
+    <LabelContent>&lt;b&gt;[黄页栏目]&lt;/b&gt;&lt;br&gt;
+{ZL.Label id="显示栏目列表" username="{Field="Inputer"/}" Styles="{Field="InfoID"/}" /}
+&lt;br&gt;&lt;b&gt;[内容列表]:&lt;/b&gt;&lt;br&gt;
+{ZL.Label id="首页下查询黄页内容列表" username="{Field="Inputer"/}" /}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

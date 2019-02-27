@@ -1,0 +1,36 @@
+﻿@using System.Data;
+@using ZoomLa.BLL.Helper
+@using ZoomLa.BLL.Message
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    B_BaikeEdit editBll = new B_BaikeEdit();
+    Model.cols = 4;
+    Model.url = "Baike_Data";
+    Model.Check=false;
+}
+<table class="table table-bordered table-striped" id="EGV">
+    <tr>
+        <td class="td_l">词条信息</td>
+        <td class="td_m">状态</td>
+        <td class="td_l">处理记录</td>
+        <td class="td_m">操作</td>
+    </tr>
+    @foreach (DataRow dr in Model.dt.Rows)
+    {
+          <tr>
+            <td>
+                <a href='/Baike/Details?EditID=@dr["ID"]' target="_blank">@dr["Tittle"]</a>
+                <span>@DateHelper.ToDate(dr["AddTime"])</span>
+                <span class="btn btn-default btn-sm">(版本号:@dr["VerStr"])</span>
+            </td>
+            <td>@editBll.GetStatus(Convert.ToInt32(dr["Status"]))</td>
+            <td class="td_l">@dr["AdminRemind"]</td>
+            <td>
+                <a href="javascript:;" class="option_style" onclick="mvcpage.del({ id: '@dr["ID"]', url: 'baike_del', confirm: '确定要删除吗' });" title="删除"><i class="fa fa-trash"></i></a>
+                @if (dr["status"].Equals("1")){<a href='/Baike/BKEditor?EditID=@dr["ID"]'>修改</a>}
+                <a href="/Baike/Details?EditID=@dr["id"]">浏览</a>
+            </td>
+        </tr>
+    }
+    @Html.Partial("_page", Model)
+</table>

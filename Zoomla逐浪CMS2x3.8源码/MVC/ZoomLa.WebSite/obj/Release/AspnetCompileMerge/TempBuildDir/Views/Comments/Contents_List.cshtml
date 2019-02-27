@@ -1,0 +1,32 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.url = "Content_Data?tagkey="+Request["tagkey"];
+}
+<div id="EGV">
+    @if (Model.itemCount > 0)
+    {
+        <div class="cons">
+            <ul class="list-unstyled">
+                @foreach (DataRow dr in Model.dt.Rows)
+                {
+                    <li>
+                        <h2><a href="/Item/@(dr["GeneralID"]).aspx" title="@dr["Title"]" target="_blank" style="">@dr["Title"]</a></h2>
+                        <p>@dr["synopsis"]</p>
+                        <div>
+                            <div class="pull-right"><a href="/Item/@(dr["GeneralID"]).aspx" class="btn btn-warning" target="_blank">查看详情</a></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="text-center">
+            @Html.Partial("_page2", Model)
+        </div>
+    }
+    else
+    {
+        <div class="empty">没有数据</div>
+    }
+</div>

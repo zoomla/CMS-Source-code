@@ -1,0 +1,409 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.BLL.Helper
+@model ZoomLaCMS.Models.Bar.VM_PClass
+@{
+    Layout = "~/Views/PostBar/_PostBar.cshtml";
+}
+@section head{
+<link rel="stylesheet" href="/Plugins/Ueditor/third-party/video-js/video-js.min.css"/>
+<script src="/Plugins/Ueditor/bar.config.js"></script>
+<script src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+<script src="/Plugins/Ueditor/third-party/video-js/video.js"></script>
+<script src="/JS/jquery-ui.min.js"></script>
+<title>@(Model.cateMod.CateName)_@(Call.SiteName)贴吧</title>
+}
+@section content{
+<div class="container">
+<div class="bar_RelButton">
+<a href="/Index" title="返回列表"><i class="fa fa fa-arrow-circle-left"></i>返回社区列表</a>
+</div>
+<div id="bar_hdiv" class="bar_hdiv">
+    <div class="bar_imgDiv" >
+        <img id="BarImage_img" onerror="shownopic(this);"/>
+    </div>
+    <div class="bar_Title">
+        <div>
+            <a href="javascript:;" onclick="location=location;" title="贴吧">@Model.cateMod.CateName</a>
+            <span id="totalspan" class="countInfo">主题总数：<span class="card_menNum" id="tiecount_sp">@Model.tiecount</span>回复数：<span id="recout_sp" class="card_menNum">@Model.recout</span></span>
+        </div>
+        <div>@Model.cateMod.Desc</div>
+    </div>
+    <div class="bar_date">
+        <div class="disinline">
+            <input type="button" id="sinin_bu" class="btn btn-lg btn-primary" onclick="SinIn(this)" value="签到"  />
+        </div>
+        <div class="date">
+            <span>@DateTime.Now.ToString("MM月dd日")</span><br />
+            <span class="sinDays" id="sinDays">未签到</span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@if(Model.childCateDT.Rows.Count>0)
+{
+<div id="childBar">
+    <h5 class="well well-sm"><strong>子版块</strong></h5>
+    <table class="table bar_table">
+        @foreach (DataRow dr in Model.childCateDT.Rows)
+        {
+            <tr>
+                <td class="bar_imgDiv">
+                    <img src="@dr["barimage"]" onerror="shownopic(this);" />
+                </td>
+                <td class="barname">
+                    <a href="/PClass?id=@dr["cateid"]">@dr["CateName"]</a>
+                </td>
+                <td>
+                    <span class="card_menNum" title="主题">@dr["ItemCount"]</span><span class="reply_num" title="回贴">/@dr["ReCount"]</span>
+                </td>
+                <td class="tie_info">
+                    <div>
+                        最新帖子：<a href="/PClass?id=@dr["cateid"]">@dr["Title"]</a>
+                    </div>
+                    <div class="tie_date">
+                        回复时间：@DateHelper.ToDate(dr["CDate"])
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+}
+@if (Model.setting.itemCount < 1)
+{
+    <div id="emptydiv" class="emptydiv">
+        <span class="fa fa-comment margin-right5"></span>
+        <span>当前还没有内容,快点发一条吧</span>
+    </div>
+}
+else
+{
+    <div id="contentdiv">
+        @Html.Partial("PClass_PostList", Model)
+    </div>
+}
+@if(Model.auth_send)
+{
+    <form id="send_form" method="post" action="/PostBar/Post_Add?cateid=@Model.cateMod.CateID">
+        <div class="send_div" id="send_div">
+        <div class="barcount">共有主题数<span class="card_menNum" id="dnum_span">@Model.setting.itemCount</span>个，共<span class="card_menNum" id="pagenum_span1">@Model.setting.pageCount</span>页</div>
+        <div id="SendDiv">
+        <div class="tie_title">
+            <span class="fa fa-comment"></span><strong>发表贴子</strong>
+            @if(Model.mu.UserID<=0){<span id="Anony_Span" class="card_menNum font12">[匿名发帖模式]</span>}
+        </div>
+        <div><input type="text" ID="MsgTitle_T" name="MsgTitle_T" data-type="normal" class="form-control"/></div>
+        <div class="tiecontent">
+            <textarea ID="MsgContent_T" name="MsgContent_T" data-type="normal"  style="height: 200px;width:100%;"></textarea></div>
+            <input type="text" ID="VCode" name="VCode" placeholder="验证码" MaxLength="6" class="form-control text_x" autocomplete="off"/>
+            <img id="VCode_img" class="codeimg" title="点击刷新验证码"/>
+            <input type="hidden" id="VCode_hid" name="VCode_hid" />
+            <input type="submit" ID="PostMsg_Btn" value="发表主题" class="btn btn-primary disinline" onclick="return CheckData();"/>@*PostMsg_Btn_Click*@
+        </div>
+    </div>
+    </form>
+}
+else
+{
+    <div id="noauth_div">您未登录,没有发贴权限<span><a href="/User/Login?returnUrl=@Request.RawUrl">[点此登录]</a></span></div>
+}
+
+@MvcHtmlString.Create(Call.GetUEditor("MsgContent_T", 4))
+<div class="floattool">
+    <ul>
+        <li onclick="returnTop()" onmouseout="hideTxt(this)" onmouseover="showTxt(this)"><a href="javascript:;"><span class="fa fa-arrow-up"></span></a><span class="txtSpan">回 到 顶 部</span></li>
+        <li onclick="returnDown()" onmouseout="hideTxt(this)" onmouseover="showTxt(this)"><a href="@Request.RawUrl"><span class="fa fa-edit"></span></a><span class="txtSpan">发 表 帖 子</span></li>
+        <li onclick="returnPost()" onmouseout="hideTxt(this)" onmouseover="showTxt(this)"><a href="/Index" class="last"><span class="fa fa-th"></span></a><span class="txtSpan">回 到 社 区</span></li>
+    </ul>
+</div>
+
+</div>
+@if (Model.auth_barowner)
+{
+    <form method="post" id="op_form">
+        <div id="barowner_div" class="zIndex9">
+            <div id="funcdiv" class="panel panel-primary candrag">
+                <div class="panel_left_border"></div>
+                <div class="panel-body">
+                    <div style="padding: 5px;">
+                        @*Bar_Btn_Click*@
+                        <div class="func_item"><button type="button" onclick="submitop('AddRecom');"><i class="fa fa-eye"><span> 精华</span></i>很好的帖子</button></div>
+                        <div class="func_item"><button type="button" onclick="submitop('Del');"><i class="fa fa-close"><span> 删除</span></i>真的不要了吗</button></div>
+                        <div class="func_item"><button type="button" onclick="submitop('Checked');"><i class="fa fa-check"><span> 批量审核</span></i>点击通过审核</button></div>
+                        <div class="func_item"><button type="button" onclick="$('#movediv').show();"><i class="fa fa-exchange"><span>移动版块</span></i> 移到别的版块</button></div>
+                        <div class="func_item"><button type="button" onclick="$('#RemoveRecom').show();"><i class="fa fa-close"><span> 取消精华</span></i>换其他的看看</button></div>
+                    </div>
+                    <div style="padding: 5px;">
+                        <div class="func_item"><button type="button" onclick="submitop('AddAllTop');"><i class="fa fa-arrow-circle-up"><span> 全局置顶</span></i>置为全局帖子</button></div>
+                        <div class="func_item"><button type="button" onclick="submitop('AddTop');"><i class="fa fa-level-up"><span> 版面置顶</span></i>置为头条帖子</button></div>
+                        <div class="func_item"><button type="button" onclick="submitop('AddBottom');"><i class="fa  fa-level-down"><span> 沉底</span></i>放在最底下</button></div>
+                        <div class="func_item"><button type="button" onclick="submitop('RemoveTop');"><i class="fa fa-refresh"><span> 位置还原</span></i>还原贴子位置</button></div>
+                        <div class="func_item"><button type="button" onclick="submitop('UnCheck');"><i class="fa fa-question"><span> 取消审核</span></i>改为未审核</button></div>
+                    </div>
+                </div>
+            </div>
+            <div id="movediv" class="panel panel-primary candrag" style="width:300px;">
+                <div class="panel-body">
+                    <input type="button" id="SureMove_Btn" value="确定移动" onclick="if(CheckShift()){submitop('movepost');}" class="btn btn-primary btn-xs pull-right" />
+                    <a href="javascript:;" onclick="$(this).parent().parent().hide();" class="btn btn-primary btn-xs pull-right">取消</a>
+                    <div class="clearfix"></div>
+                    <div class="dropdown" style="position:inherit">
+                        <button class="btn btn-default dropdown-toggle text-left" type="button" id="dropdown1" data-toggle="dropdown" aria-expanded="true">
+                            <span id="dr_text">请选择版面</span>
+                            <span class="caret pull-right" style="margin-top: 7px;"></span>
+                        </button>
+                        <input type="hidden" value="@Request["Pid"]" id="selected_Hid" name="selected_Hid" />
+                        <ul id="PCate_ul" class="dropdown-menu bar-dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            @Model.CreateCateLi()
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        function submitop(action) {
+            $.post("/PostBar/Post_OP?action=" + action, { cateid: "@Model.CateID", ids: mvcpage.help.getchk("idchk") }, function (data) {
+                if (data == M_APIResult.Success) { location = location; }
+                else { alert("操作失败"); }
+            });
+        }
+    </script>
+}
+}
+@section script{
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/js/jquery.rotate.min.js"></script>
+<script src="/JS/ICMS/ZL_Common.js"></script>
+<script>
+    $("#VCode").ValidateCode();
+    function CheckData() {
+        var title = $("#MsgTitle_T").val().replace(" ", "");
+        var msg = UE.getEditor("MsgContent_T").getContent();
+        if (title == "") { alert("标题不能为空"); return false; }
+        if (msg == "") { alert("内容不能为空"); return false; }
+        if ($("#TxtValidateCode").val() == "") { alert("验证码不能为空"); return false; }
+        return true;
+    }
+    //移贴前检测
+    function CheckShift() {
+        var flag = true;
+        var len = $(":checkbox[name=idchk]:checked").length;
+        var cid = $("#selected_Hid").val();
+
+        if (len < 1 || !cid || cid == "")
+        { flag = false; }
+        if (!flag)
+        { alert("请先选定需要移往的版块");}
+        return flag;
+    }
+    $().ready(function () {
+        SetImg('@Model.cateMod.BarImage');
+        $(".subtitle img").click(function () {
+            var type = $(event.srcElement).attr("data-type");
+            switch (type) {
+                case "video":
+                    ShowVideo();
+                    break;
+                case "quotevideo":
+                    ShowQVideo();
+                    break;
+                default:
+                    ShowImgView();
+                    break;
+            }
+        });//click end;
+        $(".header_index_login_run").attr("href", '/User/Login?returnUrl=@Request.RawUrl');
+        $.ajax({
+            url: "/API/UserSinIn.ashx",
+            data: { action: "sinstatu", localtion: "1" },
+            type: "POST",
+            success: function (d) {
+                if (d != "none") {
+                    $("#sinin_bu").val("已签到").attr("disabled", "disabled");
+                    $("#sinDays").text("连续" + d + "天");
+                }
+            }
+        });
+        $(".subtitle img").attr("title", "点击预览");
+        $(":checkbox[name=idchk]").click(function (e) {
+            if ($(":checkbox[name=idchk]:checked").length > 0){
+                var e = event || window.event;
+                $("#barowner_div").css({
+                    top: e.clientY-35,
+                    left:e.clientX+38,
+                })
+                $("#barowner_div").show();
+            }
+
+            else $("#barowner_div").hide();
+        });
+        //版面下拉
+        $(".barli").click(function () {
+            $("#selected_Hid").val($(this).data("barid"));
+            $("#dr_text").text($(this).text());
+        });
+        $(".candrag").draggable
+           ({
+               addClasses: false,
+               axis: false,
+               cursor: 'crosshair',
+               containment: 'document'
+           });
+    });
+    function showTxt(data) {
+        $(data).children().first().hide();
+    }
+    function hideTxt(data) {
+        $(data).children().first().show();
+    }
+    function returnPost() {
+        window.location = "/Index";
+    }
+    function returnTop() {
+        setTimeout(setScollTop, 1);
+    }
+    function setScollTop() {
+        if ($(window).scrollTop() > 1) {
+            $(window).scrollTop($(window).scrollTop() - 30);
+            setTimeout(setScollTop, 1);
+        }
+
+    }
+    function returnDown() {
+        window.location = "/EditContent?CateID=@Model.CateID&ID=-1";
+    }
+    function setScollDown() {
+        var top = $(window).scrollTop();
+        $(window).scrollTop($(window).scrollTop() + 30);
+        if (top != $(window).scrollTop())
+            setTimeout(setScollDown, 1);
+    }
+    //<embed type="application/x-shockwave-flash" class="edui-faked-video" pluginspage="http://www.macromedia.com/go/getflashplayer" src="http://player.youku.com/player.php/sid/XODU2MDQwMTc2/v.swf" width="420" height="280" wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true">
+    //引用视频预览
+    function ShowQVideo() {
+        var tlp = "<embed type='application/x-shockwave-flash' class='edui-faked-video' pluginspage='http://www.macromedia.com/go/getflashplayer' src='@MVCHelper.To("src")' width='420' height='280' allowfullscreen='true' allowscriptaccess='never'"
+            + "menu='false' loop='false' play='true' wmode='transparent'>";
+        var pobj = $(event.srcElement).closest(".subtitle");
+        var id = pobj.attr("data-id");
+        var content = $(event.srcElement).attr("data-content");
+        pobj.find("img").hide();
+        $("#sub_qvideo_div_" + id).find(".fullscreen_href").attr("href", content);
+        $("#sub_qvideo_div_" + id).find(".qvideo_div").html("").append(tlp.replace("@MVCHelper.To("src")", content));
+        $("#sub_qvideo_div_" + id).show();
+    }
+    //--------图片预览
+    function ShowImgView() {
+        clearCurPreImg();
+        var pobj = $(event.srcElement).closest(".subtitle");
+        var id = pobj.attr("data-id");
+        pobj.find("img").hide();
+        $("#view_img_" + id).attr("src", $(event.srcElement).attr("src"));
+        $("#view_div_" + id).show();
+        curPreImg=event.srcElement;
+        $("#view_div_" + id).find(".view_preimg").click(function () { eachImg(id,0)});
+        $("#view_div_" + id).find(".view_nextimg").click(function () { eachImg(id, 1); });
+        checkNextImg(id);
+    }
+    var curPreImg;//当前预览图
+    //清空当前预览视图
+    function clearCurPreImg() {
+        if (!curPreImg) return;
+        var pobj = $(curPreImg).closest(".subtitle");
+        var id = pobj.attr("data-id");
+        DisPreView($("#view_img_" + id));
+    }
+    //浏览多图片，action=0;上一张 action=1;下一张
+    function eachImg(preid, action) {
+        var $li = $(curPreImg).parent();
+        if (action == 1 && $li.next().children().attr("src")) {
+            $("#view_img_" + preid).attr("src", $li.next().children().attr("src"));
+            curPreImg = $li.next().children()[0];
+        }
+        if (action == 0 && $li.prev().children().attr('src')) {
+            $("#view_img_" + preid).attr("src", $li.prev().children().attr("src"));
+            curPreImg = $li.prev().children()[0];
+        }
+        checkNextImg(preid);
+    }
+    //检查是否还有下一张(上一张)图片
+    function checkNextImg(id) {
+        var $li = $(curPreImg).parent();
+        if (!$li.next()[0])
+            $("#view_div_" + id).find(".view_nextimg").hide();
+        else
+            $("#view_div_" + id).find(".view_nextimg").show();
+        if (!$li.prev()[0])
+            $("#view_div_" + id).find(".view_preimg").hide();
+        else
+            $("#view_div_" + id).find(".view_preimg").show();
+    }
+
+    //--------视频预览开始
+    function ShowVideo() {
+        var tlp = "<video width='534' height='386' class='edui-upload-video  vjs-default-skin video-js' src='@MVCHelper.To("src")' preload='none' controls='' data-setup='{}'><source src='@MVCHelper.To("src")' type='video/mp4'></video>";
+        var pobj = $(event.srcElement).closest(".subtitle");
+        var id = pobj.attr("data-id");
+        var content = $(event.srcElement).attr("data-content");
+        pobj.find("img").hide();
+        $("#sub_video_div_" + id).find(".video_div").html("").append(tlp.replace(/@@src/g, content));
+        $("#sub_video_div_" + id).show();
+    }
+    //------视频预览结束
+    function Collapse(id) {
+        DisPreView(event.srcElement);
+    }
+    //隐藏预览视图
+    function DisPreView(obj) {
+        $obj = $(obj).parent().parent().parent();
+        $obj.hide().siblings(".subtitle").find("img").show();
+        $obj.find(".view_preimg").unbind('click');
+        $obj.find(".view_nextimg").unbind('click');
+    }
+    var ViewDiag = new ZL_Dialog();
+    function ViewImg(id) {
+        ViewDiag.width = "tie_viewImg";
+        ViewDiag.title = "图片预览";
+        ViewDiag.url = "/Common/PreView/PicView.aspx?ID=" + id;
+        ViewDiag.maxbtn = false;
+        ViewDiag.ShowModal();
+    }
+    function FocusMsg() {
+        $(window).scrollTop($(document).height());
+        $("MsgContent_T").focus();
+    }
+    function SinIn(e) {
+        $.ajax({
+            url: "/API/UserSinIn.ashx",
+            data: { action: "sinin", localtion: "1" },
+            type: "POST",
+            success: function (d) {
+                if (d != "" && d != "-1") {
+                    $(e).val("已签到");
+                    $(e).attr("disabled", "disabled");
+                    $("#sinDays").text("连续" + d + "天");
+                } else {
+                    alert("您尚未登录！！");
+                }
+
+            }
+        });
+    }
+    function RoteImg(id, option) {
+        var angle = 0;
+        if (option==1)
+            angle = $('#' + id).data("angle") - 90;
+        else
+            angle = $('#' + id).data("angle") + 90;
+        $('#'+id).data("angle", angle);
+        $('#' + id).rotate(angle);
+    }
+    function GetSource() { return "@Request.RawUrl"; }
+</script>
+
+}

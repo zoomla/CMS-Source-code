@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Countrys>
+  <Country gname="中国">
+    <Province pname="安徽省">
+      <City cname="蚌埠市" />
+      <City cname="巢湖市" />
+      <City cname="池州市" />
+    </Province>
+    <Province pname="陕西省">
+      <City cname="西安市" />
+      <City cname="宝鸡市" />
+      <City cname="延安市" />
+      <City cname="汉中市" />
+    </Province>
+    <Province pname="江西省">
+      <City cname="南昌市" />
+      <City cname="鹰潭市" />
+      <City cname="上饶市" />
+    </Province>
+    <Province pname="河南省">
+    </Province>
+  </Country>
+  <Country gname="韩国">
+  </Country>
+  <Country gname="英国">
+  </Country>
+  <Country gname="日本">
+  </Country>
+  <Country gname="美国">
+  </Country>
+  <Country gname="德国">
+  </Country>
+  <Country gname="荷兰">
+  </Country>
+  <Country gname="法国">
+  </Country>
+  <Country gname="泰国">
+  </Country>
+</Countrys>

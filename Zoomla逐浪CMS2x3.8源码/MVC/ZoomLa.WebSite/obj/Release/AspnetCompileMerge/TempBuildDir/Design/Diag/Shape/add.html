@@ -1,0 +1,33 @@
+﻿<div class="header"><label class="title">添加形状</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-header"><div class="title-line"><div class="title">常用</div></div></div>
+            <div class="items">
+                <ul class="list-unstyled">
+                    <li data-type="shape" data-compid="" data-shape="prismatic_y" data-url="/Design/Diag/Shape/svg/prismatic_y.svg" class="domItem listItem" style='background: url("/Design/Diag/Shape/svg/prismatic_y.svg") center center / contain no-repeat rgb(230, 235, 237);'></lidata-type="progress">
+                    <li data-type="shape" data-compid="" data-shape="prismatic_x" data-url="/Design/Diag/Shape/svg/prismatic_x.svg" class="domItem listItem" style='background: url("/Design/Diag/Shape/svg/prismatic_x.svg") center center / contain no-repeat rgb(230, 235, 237);'></li>
+                    <li data-type="shape" data-compid="" data-shape="circular" data-url="/Design/Diag/Shape/svg/circular.svg" class="domItem listItem" style='background: url("/Design/Diag/Shape/svg/circular.svg") center center / contain no-repeat rgb(230, 235, 237);'></li>
+                    <li data-type="shape" data-compid="" data-shape="hexagon_x" data-url="/Design/Diag/Shape/svg/hexagon_x.svg" class="domItem listItem" style='background: url("/Design/Diag/Shape/svg/hexagon_x.svg") center center / contain no-repeat rgb(230, 235, 237);'></li>
+                    <li data-type="shape" data-compid="" data-shape="hexagon_y" data-url="/Design/Diag/Shape/svg/hexagon_y.svg" class="domItem listItem" style='background: url("/Design/Diag/Shape/svg/hexagon_y.svg") center center / contain no-repeat rgb(230, 235, 237);'></li>
+                    <li data-type="shape" data-compid="" data-shape="octagon" data-url="/Design/Diag/Shape/svg/octagon.svg" class="domItem listItem" style='background: url("/Design/Diag/Shape/svg/octagon.svg") center center / contain no-repeat rgb(230, 235, 237);'></li>
+                    <li data-type="shape" data-compid="" data-shape="ring" data-url="/Design/Diag/Shape/svg/ring.svg" class="domItem listItem" style='background: url("/Design/Diag/Shape/svg/ring.svg") center center / contain no-repeat rgb(230, 235, 237);'></li>
+                    <li data-type="shape" data-compid="" data-shape="target" data-url="/Design/Diag/Shape/svg/target.svg" class="domItem listItem" style='background: url("/Design/Diag/Shape/svg/target.svg") center center / contain no-repeat rgb(230, 235, 237);'></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.items ul li { width: 90px;height: 90px;position: relative;display: inline-block;}
+</style>
+<script>
+    function GetModel(item) {
+        var $item = $(item);
+        var model = {
+            dataMod: { "list": [] },
+            config: { type: $item.data("type"), compid: $item.data("compid"), css: "candrag", style: "width:100px;height:100px;", bodyid: "midBody", color: "#08A1EF", shape: $item.data("shape"), url: $item.data("url") }
+        };
+        return model;
+    }
+</script>

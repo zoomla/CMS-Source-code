@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>投稿</title>
+</head>
+<body>
+    <form action="/save.aspx" method="post">
+        <p>填写NodeID、ModeID及URL</p>
+        <div>
+            用户ID：<input id="UserID" type="text" value="" /><br />
+            分&nbsp;类：<input id="Type" type="text" value="" /><br />
+            内&nbsp;容：<input id="Content" name="content" type="text" value="" /><br />
+            标&nbsp;题：<input id="Title" type="text" value="" /><br />
+        </div>
+        <div>
+            <input name="GeneralID" value="0" />
+            <p>NodeID：<input id="NodeID" name="NodeID" type="text" value="78" /></p>
+            <p>ModeID：<input id="ModelID" name="ModeID" type="text" value="2" /></p>
+            <p>URL：<input id="URL" type="text" value="/default.aspx" /></p>
+        </div>
+        <p><input type="submit" value="提交" /></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,186 @@
+﻿@model System.Data.DataTable
+@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Model.Shop
+@using ZoomLa.BLL.Shop
+@using ZoomLa.Common
+@using ZoomLa.SQLDAL
+@using ZoomLa.Components
+@functions{
+    M_UserInfo mu = null;
+    B_Order_IDC idcBll = new B_Order_IDC();
+    OrderCommon orderCom = new OrderCommon();
+    DataTable OrderDT = null;
+    public void InitData()
+    {
+        OrderDT = ViewBag.OrderDT;
+        mu = ViewBag.mu;
+    }
+    public string GetSnap(DataRow dr)
+    {
+        string result = "";
+        int paystatus = Convert.ToInt32(dr["PaymentStatus"]);
+        if (paystatus == (int)M_OrderList.PayEnum.HasPayed)
+        {
+            string dir = "/UploadFiles/SnapDir/" + mu.UserName + mu.UserID + "/" + dr["OrderNo"] + "/" + dr["ProID"] + ".mht";
+            if (File.Exists(Server.MapPath(dir))) { result += "<a href='" + dir + "' target='_blank' title='查看快照'> [交易快照]</a>"; }
+            if (Convert.ToInt32(dr["OrderType"]) == 7 && Convert.ToInt32(dr["OrderStatus"]) == 99)
+            {
+                string orderNo = dr["OrderNo"].ToString();
+                M_Order_IDC idcMod = idcBll.SelModelByOrderNo(orderNo);
+                if (idcMod != null)
+                {
+                    result += "<span style='color:green;font-size:12px;'>(到期时间:" + idcMod.ETime.ToString("yyyy/MM/dd") + ") </span>";
+                }
+            }
+        }
+        return result;
+    }
+    public string GetRepair(DataRow dr)
+    {
+        //已完结状态才能返修,退款等售后,其他情况下申请订单退款
+        string guess = DataConvert.CStr(dr["GuessXML"]);
+        string result = "";
+        int orderStatus = Convert.ToInt32(dr["OrderStatus"]);
+        if (dr["AddStatus"].ToString().Contains("exchange"))
+        {
+            result += "<a href='javascript:;' class='gray9'>已申请换货</a>";
+        }
+        else if (dr["AddStatus"].ToString().Contains("repair"))
+        {
+            result += "<a href='javascript:;' class='gray9'>已申请返修</a>";
+        }
+        else if (dr["AddStatus"].ToString().Contains("drawback"))
+        {
+            result += "<a href='javascript:;' class='gray9'>已申请退货</a>";
+        }
+        else if (!string.IsNullOrEmpty(guess) && orderStatus >= (int)M_OrderList.StatusEnum.OrderFinish)
+        {
+            result += "<a href='ReqRepair?cid=" + dr["CartID"] + "' class='gray9'>返修/退换货</a>";
+        }
+        return result;
+    }
+    public string FirstRow(DataRow dr)
+    {
+        int count = OrderDT.Select("id=" + dr["ID"]).Length;
+        //收货人 <td class='td_md gray9' rowspan='" + count + "'><i class='fa fa-user'> " + dr["AddUser"] + "</i></td>
+        string html = "";
+        //金额栏
+        html += "<td class='td_md rowtd' rowspan='" + count + "'><i class='fa fa-rmb' style='font-weight:600;'>" + Convert.ToDouble(dr["OrdersAmount"]).ToString("f2") + "</i><br />";
+        string _paytypeHtml = OrderHelper.GetStatus(dr, OrderHelper.TypeEnum.PayType);
+        if (!string.IsNullOrEmpty(_paytypeHtml)) { _paytypeHtml = _paytypeHtml + "<br />"; }
+        html += _paytypeHtml;
+        html += "(" + OrderHelper.GetStatus(dr, OrderHelper.TypeEnum.Pay) + ")</td>";
+        //订单状态
+        html += "<td class='td_md rowtd' rowspan='" + count + "'><span class='gray9'>" + OrderHelper.GetStatus(dr, OrderHelper.TypeEnum.Order) + "</span> <br />";
+        int ordertype = DataConvert.CLng(dr["OrderType"]);
+        if (ordertype != 7 && ordertype != 9) { html += OrderHelper.GetExpStatus(Convert.ToInt32(dr["StateLogistics"])) + " <br/>"; }
+        html += "</td>";
+        //操作栏
+        html += "<td class='td_md rowtd' rowspan='" + count + "'><a href='/User/Order/OrderProList?OrderNo=" + dr["OrderNo"] + "' class='order_bspan'>订单详情</a><br/>" + Getoperator(dr) + "</td>";
+        return html;
+    }
+    //获取订单操作按钮,分为已下单(未付款),已下单(已付款),已完结(显示)
+    public string Getoperator(DataRow dr)
+    {
+        M_OrderList orderMod = new M_OrderList();
+        string result = "";
+        int orderStatus = DataConverter.CLng(dr["OrderStatus"]);
+        int payStatus = DataConverter.CLng(dr["Paymentstatus"]);
+        int oid = Convert.ToInt32(dr["ID"]);
+        int aside = Convert.ToInt32(dr["Aside"]);
+        string orderNo = dr["OrderNo"].ToString();
+        //----------如果已经删除,则不执行其余的判断
+        if (aside != 0)//如果已删除,则不进行其余的判断
+        {
+            result += "<div><a href='javascript:;' data-oid='" + oid + "' onclick='ConfirmAction(this,\"reconver\");'>还原订单</a></div>";
+            result += "<div><a href='javascript:;' data-oid='" + oid + "' onclick='ConfirmAction(this,\"realdel\");'>彻底删除</a></div>";
+            return result;
+        }
+        if (payStatus == (int)M_OrderList.PayEnum.NoPay)//未付款,显示倒计时和付款链接
+        {
+            bool isnormal = true;
+            //订单过期判断
+            if (SiteConfig.ShopConfig.OrderExpired > 0)
+            {
+                int seconds = GetOrderUnix(dr);
+                if (seconds <= 0)
+                { result += "<div class='gray9'>订单关闭</div>"; isnormal = false; }
+                else
+                { result += "<div class='ordertime' data-time='" + seconds + "'></div>"; }
+            }
+            //订单未完成,且为正常状态,显示付款
+            if (isnormal && OrderHelper.IsCanPay(dr))
+            {
+                result += "<div><a href='/Payonline/OrderPay.aspx?OrderCode=" + orderNo + "' target='_blank' class='btn btn-primary'>前往付款</a></div>";
+            }
+            result += "<div><a href='javascript:;' data-oid='" + oid + "' onclick='ConfirmAction(this,\"del\");'>取消订单</a></div>";
+        }
+        else
+        {
+            //---物流
+            switch (Convert.ToInt32(dr["StateLogistics"]))
+            {
+                case 1:
+                    if (Convert.ToInt32(dr["Ordertype"]) != 7 && Convert.ToInt32(dr["Ordertype"]) != 9)
+                    {
+                        result += "<div><a href='javascript:;' class='btn btn-primary' data-oid='" + oid + "' onclick='ConfirmAction(this,\"receive\");'>确认收货</a></div>";
+                    }
+                    break;
+            }
+            //已付款,但处理申请退款等状态
+            if (orderStatus < (int)M_OrderList.StatusEnum.Normal)
+            {
+                //result += "<a href='AddShare.aspx?CartID=" + dr["CartID"] + "'>取消退款</a><br />";
+            }
+            //已付款未完结,可申请退款
+            if (orderStatus >= (int)M_OrderList.StatusEnum.Normal && orderStatus < (int)M_OrderList.StatusEnum.OrderFinish)
+            {
+                result += "<a href='javascript:;' onclick='ShowDrawback(" + oid + ");'>取消订单</a><br />";
+            }
+            //已付款已完结,可评价晒单
+            if (orderStatus >= (int)M_OrderList.StatusEnum.OrderFinish)//已完结
+            {
+                if (!(dr["AddStatus"].ToString().Contains("comment")))
+                {
+                    if (Convert.ToInt32(dr["OrderType"]) == 7 && Convert.ToInt32(dr["OrderStatus"]) == 99)
+                    {
+                        M_Order_IDC idcMod = idcBll.SelModelByOrderNo(orderNo);
+                        if (idcMod != null)
+                        {
+                            result += "<a href='/cart/idcren.aspx?orderno=" + orderNo + "' target='_blank' title='充值续费'>续费</a><br />";
+                        }
+                    }
+                    result += "<a href='AddShare.aspx?OrderID=" + dr["ID"] + "' title='评价'><i class='fa fa-comments'></i></a><br />";
+                    //result += "<a href='/Shop/" + dr["ProID"] + ".aspx' target='_blank' class='btn btn-primary'>立即购买</a>";
+                }
+            }
+        }
+        return result;
+    }
+    //还差多少分钟到期
+    public int GetOrderUnix(DataRow dr)
+    {
+        DateTime addTime = Convert.ToDateTime(dr["AddTime"]);
+        int seconds = (SiteConfig.ShopConfig.OrderExpired * 60 * 60) - (int)(DateTime.Now - addTime).TotalSeconds;
+        return seconds;
+    }
+}
+@for (int i = 0; i < Model.Rows.Count; i++)
+{
+    DataRow dr = Model.Rows[i];
+     <tr>
+        <td style="text-align:left;border-right:none;border-left:none;">
+            <span>
+                <a href="@orderCom.GetShopUrl(DataConvert.CLng(dr["storeid"]), Convert.ToInt32(dr["proid"]));" target="_blank"><img src="@function.GetImgUrl(dr["thumbnails"]);" onerror="shownopic(this);" class="img50" /></a>
+                <span>@dr["Proname"]@GetSnap(dr)</span>
+            </span>
+        </td>
+        <td class="td_md goodservice" style="border-left:none;"><%#GetRepair() %></td>
+        <td class="td_md gray9">x@(dr["Pronum"])</td>
+        @if (i == 0)
+        {
+            MvcHtmlString.Create(FirstRow(dr));
+        }
+    </tr>  
+}

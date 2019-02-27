@@ -1,0 +1,9 @@
+﻿<div class="question_count">
+    <span class="count">最佳回答采纳率:</span><span class="adopt">@ViewBag.adoption</span><br />
+    <span class="count">已解决问题数:</span><span class="countques">@ViewBag.solvedcount</span><br />
+    <span class="count">待解决问题数:</span><span class="countques">@ViewBag.solvingcount</span>
+</div>
+<div id="move">
+    <span class="count">当前在线:</span>@HttpContext.Current.Application["online"]<br />
+    <span class="count">注册用户:</span>@ViewBag.usercount<br />
+</div>

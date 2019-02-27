@@ -1,0 +1,57 @@
+﻿@using ZoomLa.Model
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    int QType = ViewBag.QType;
+    M_Exam_Sys_Papers paperMod = (M_Exam_Sys_Papers)ViewBag.paperMod;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>试卷题目管理</title>
+}
+@section content{
+    <div id="pageflag" data-nav="edu" data-ban="ke"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Default","")">用户中心</a></li>
+            <li class="active">
+                <a href="@Url.Action("Papers_System_Manage","Exam")">试卷列表</a>[@paperMod.p_name]
+                <a href='javascript:;' onclick='SelQuestion()'>[选择试题]</a>
+            </li>
+        </ol>
+    </div>
+    <div class="container">
+        <ul class="nav nav-tabs hidden-xs hidden-sm">
+            <li id="tab_99"><a href="#tab-1" data-toggle="tab" onclick="ShowTabs(99)">所有内容</a></li>
+            <li id="tab_0"><a href="#tab0" data-toggle="tab" onclick="ShowTabs(0)">单选题</a></li>
+            <li id="tab_1"><a href="#tab1" data-toggle="tab" onclick="ShowTabs(1)">多选题</a></li>
+            <li id="tab_2"><a href="#tab2" data-toggle="tab" onclick="ShowTabs(2)">填空题</a></li>
+            <li id="tab_3"><a href="#tab3" data-toggle="tab" onclick="ShowTabs(3)">解析题</a></li>
+            <li id="tab_10"><a href="#tab10" data-toggle="tab" onclick="ShowTabs(10)">大题</a></li>
+        </ul>
+        @Html.Partial("Paper_QuestionManage_List", Model)
+        <button id="dels_b" class="btn btn-primary" onclick="Dels_B_Click">批量删除</button>
+        <input type="hidden" id="SelIDS_IDS" name="SelIDS_IDS" value="@("," + paperMod.QIDS.Trim(',') + ",")" />
+    </div>
+}
+@section script{
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script>
+    var diag = new ZL_Dialog();
+    function SelQuestion() {
+        diag.title = "选择题目";
+        diag.url = "SelQuestion?pid=@paperMod.id&selids=" + $("#SelIDS_IDS").val();
+        diag.maxbtn = false;
+        diag.ShowModal();
+    }
+    function CLoseDIag() {
+        diag.CloseModal();
+        window.location = location;
+    }
+    function ActiveTab(id) {
+        $("#tab_" + id).addClass("active");
+    }
+    function ShowTabs(id) {
+        location.href = "Paper_QuestionManage?qtype=" + id + "&pid=@paperMod.id";
+    }
+    $(function () { ActiveTab("@QType"); })
+</script>
+}

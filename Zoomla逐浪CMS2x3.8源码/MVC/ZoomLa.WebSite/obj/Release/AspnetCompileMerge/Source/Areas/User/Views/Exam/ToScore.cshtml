@@ -1,0 +1,28 @@
+﻿
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+   
+   
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>试卷评阅</title>
+}
+@section content{
+
+<div id="pageflag" data-nav="edu" data-ban="ke"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("QuestionManage", "Exam")">组卷管理</a></li>
+        <li class="active">试卷批阅</li>
+    </ol>
+</div>
+<div class="container">
+   @Html.Partial("ToScore_List",Model)
+</div>
+}
+@section script{
+<script type="text/javascript" src="/JS/SelectCheckBox.js"></script>
+<script type="text/javascript" src="/JS/Drag.js"></script>
+<script type="text/javascript" src="/js/Common.js"></script>
+}

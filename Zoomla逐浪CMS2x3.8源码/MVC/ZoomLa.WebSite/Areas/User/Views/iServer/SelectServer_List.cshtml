@@ -1,0 +1,35 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{DataTable dt = new DataTable();
+  Model.cols = 9;
+  Model.url = "SelectiServer_Data";
+}
+<table class="table table-striped table-bordered table-hover">
+    <tr align="center" class="title" style="height: 25px">
+        <td>编号 </td>
+        <td>标题</td>
+        <td>用户名</td>
+        <td>用户类型</td>
+        <td>优先级</td>
+        <td>问题类型</td>
+        <td>已读次数</td>
+        <td>提交时间</td>
+        <td>状态</td>
+    </tr>
+    @foreach (DataRow dr in Model.dt.Rows)
+    {
+    <tr align="center">
+        <td>@dr["QuestionId"]</td>
+        <td><a href="FiServerInfo?QuestionId=@dr["questionid"]"><%# ZoomLa.Common.BaseClass.CheckInjection(@dr["Title"])%></a></td>
+        <td><%#GetUserName(@dr["Userid"])%></td>
+        <td><%# GetGroupName()%></td>
+        <td>@dr["Priority"]</td>
+        <td>@dr["Type"]</td>
+        <td>@dr["ReadCount"]</td>
+        <td>@dr["SubTime"]</td>
+        <td><label id="lblstate">@dr["State"]</label></td>
+    </tr>
+    }
+    @Html.Partial("_page",Model)
+</table>
+

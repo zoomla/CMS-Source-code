@@ -1,0 +1,22 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>考试结果</title>
+}
+@section content{
+<ol class="container breadcrumb">
+    <li><a title="会员中心" href="@Url.Action("Default","")" target="_parent">会员中心</a></li>
+    <li class="active"><a href="SelectAllStudent">我的成绩</a></li>
+    <div class="clearfix"></div>
+</ol>
+<div id="pageflag" data-nav="edu" data-ban="ke"></div>
+<div class="container">
+    @Html.Partial("MyExamResult_List", Model)
+</div>
+}
+@section script{
+
+}

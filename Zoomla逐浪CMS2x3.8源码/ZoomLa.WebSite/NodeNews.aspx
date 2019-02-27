@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NodeNews.aspx.cs" Inherits="GetLastinfo" EnableViewStateMac="false" %>

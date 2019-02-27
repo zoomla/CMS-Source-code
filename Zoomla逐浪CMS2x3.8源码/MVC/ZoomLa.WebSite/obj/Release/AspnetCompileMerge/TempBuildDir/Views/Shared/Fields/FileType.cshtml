@@ -1,0 +1,70 @@
+﻿@using System.Text
+@using System.Data;
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    public string SwfFileUpload()
+    {
+        FieldModel model = new FieldModel(Model.fieldMod.Content);
+        string Name = Model.fieldMod.FieldName;
+        string Alias = Model.fieldMod.FieldAlias;
+        DataRow dr = Model.valueDR;
+        int checkSize = model.GetValInt("ChkFileSize");//1开启检测,显示文本框
+        StringBuilder builder = new StringBuilder();
+        if (dr != null)
+        {
+            if (!string.IsNullOrEmpty(dr[Name].ToString()))
+            {
+                builder.Append("<input type=\"hidden\" name=\"txt_" + Name + "\" id=\"txt_" + Name + "\" value=\"" + dr[Name].ToString() + "\">");
+            }
+            else
+            {
+                builder.Append("<input type=\"hidden\" name=\"txt_" + Name + "\" id=\"txt_" + Name + "\">");
+            }
+        }
+        else
+        {
+            builder.Append("<input type=\"hidden\" name=\"txt_" + Name + "\" id=\"txt_" + Name + "\">");
+        }
+        builder.Append("<select name='sel_" + Name + "' class=\"form-control m715-50\" id='sel_" + Name + "' style='height: 100px;display:block;padding-left:5px;' ondblclick=\"ModifyUrl(document.form1.sel_" + Name + ",'sel_" + Name + "','txt_" + Name + "')\" size='2'>");
+        if (dr != null && !string.IsNullOrEmpty(dr[Name].ToString()))
+        {
+            string[] strValue = dr[Name].ToString().Split(new char[] { '$' }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < strValue.Length; i++)
+            {
+                builder.Append("<option value=\"" + strValue[i] + "\">" + strValue[i] + "</option>");
+            }
+        }
+        JObject jobj = new JObject();
+        jobj.Add(new JProperty("nodeid", Model.NodeID));
+        jobj.Add(new JProperty("objid", "sel_" + Name));
+        jobj.Add(new JProperty("inputid", "txt_" + Name));
+        jobj.Add(new JProperty("field", "SwfFileUpload"));
+        jobj.Add(new JProperty("uploaddir", Model.UploadDir));
+        jobj.Add(new JProperty("iswater", "0"));
+        builder.Append("</select>");
+        builder.Append("<div class='btn-group' style=\"padding-left:0px;padding-top:5px;\">");
+        builder.Append("<input type=\"button\" class=\"btn btn-primary\" value=\"批量上传\" onclick='UpFileDiag(" + JsonConvert.SerializeObject(jobj) + ")' />");
+        builder.Append("<input type=\"button\" class=\"btn btn-info\" value=\"选择\" onclick=\"SelectFiles('sel_" + Name + "','txt_" + Name + "',2)\" >");
+        builder.Append("<input type=\"button\" class=\"btn btn-info\" value=\"添加\" onclick=\"AddPhotoUrl('sel_" + Name + "','txt_" + Name + "',2)\">");
+        builder.Append("<input type=\"button\" class=\"btn btn-info\" value=\"修改\" onclick=\"return ModifyPhotoUrl('sel_" + Name + "','txt_" + Name + "',2);\" />");
+        builder.Append("<input type=\"button\" class=\"btn btn-info\" value=\"删除\" onclick=\"DelPhotoUrl('sel_" + Name + "','txt_" + Name + "',2);\" />");
+        builder.Append("</div>");
+        if (checkSize == 1)
+        {
+            string value = "", field = model.GetValue("FileSizeField");
+            if (dr != null) { value = DataConverter.CStr(dr[field]); }
+            builder.Append("<div class='input-group' style='width: 240px;padding-left:5px;margin-top:5px;'>");
+            builder.Append("<span class='input-group-addon'>文件大小</span>");
+            builder.Append("<input name='txt_" + field + "' type='text' class='form-control' style='width:212px;' value='" + value + "' placeholder='请输入文件大小'>");
+            builder.Append("<div>");
+        }
+        return builder.ToString();
+    }
+}
+@MvcHtmlString.Create(SwfFileUpload())

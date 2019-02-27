@@ -1,0 +1,143 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLaCMS.Models.Field
+@using ZoomLa.AppCode.Controls
+@model ZoomLa.Model.Page.M_PageReg
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    DataTable styleDt = (DataTable)ViewBag.styleDt;
+    DataTable typeDt = (DataTable)ViewBag.typeDt;
+}
+@section head{
+    <title>注册企业黄页</title>
+    <script type="text/javascript" charset="utf-8" src="/Plugins/Ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+}
+@section content{
+    <div id="pageflag" data-nav="page" data-ban="page"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li class="active">注册企业黄页</li>
+        </ol>
+        @if (DataConverter.CBool(ViewBag.ShowRegPage.ToString()))
+        {
+            <form method="post" action="@Url.Action("Page_Apply","Pages")">
+                <ul class="fd_body">
+                    <li class="fd_item text-center">@ViewBag.TableTitle</li>
+                    <li class="fd_item">
+                        <div class="fd_item_head">会员账号</div>
+                        <div class="fd_item_field">@ViewBag.UserName</div>
+                    </li>
+                    <li class="fd_item">
+                        <div class="fd_item_head">申请类型</div>
+                        <div class="fd_item_field">
+                            @MVCHelper.H_Radios("StyleID", typeDt, "ModelID", "ModelName", ViewBag.ModelID.ToString())
+                        </div>
+                    </li>
+                    <li class="fd_item">
+                        <div class="fd_item_head">企业名称</div>
+                        <div class="fd_item_field">
+                            @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control text_md" })
+                        </div>
+                    </li>
+                    <li class="fd_item">
+                        <div class="fd_item_head">企业LOGO:</div>
+                        <div class="fd_item_field">
+                            <table border='0' cellpadding='0' cellspacing='1' width='100%'>
+                                <tr class='tdbg'>
+                                    <td>
+                                        @Html.TextBoxFor(m => m.LOGO, new { @class = "form-control text_md" })
+                                    </td>
+                                </tr>
+                                <tr class='tdbg'>
+                                    <td>
+                                        <iframe id="Iframe1" src="/Common/UserUpload.aspx?FieldName=LOGO" marginheight="0" marginwidth="0" frameborder="0" width="100%" height="30" scrolling="no"></iframe>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li class="fd_item">
+                        <div class="fd_item_head">企业说明:</div>
+                        <div class="fd_item_field">
+                            @Html.TextAreaFor(m => m.PageInfo, new { @style = "width:800px;height:400px;" })
+                        </div>
+                    </li>
+                    @Html.Partial("Fields/Index_User_AddContent", new VM_FieldModel(DataConverter.CLng(ViewBag.ModelID), 0, new ModelConfig() { Source = ModelConfig.SType.Admin }, 0,(DataRow)ViewBag.valuedr))
+                    <li class="fd_item">
+                        <div class="fd_item_head">黄页样式</div>
+                        <div class="fd_item_field">
+                            @Html.Partial("C_TemplateView", new C_TemplateView(styleDt))
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+                <div class="text-center">
+                    <input type="submit" value="提交信息" class="btn btn-primary" />
+                    <input type="hidden" id="ID_Hid" name="ID_Hid" value="@ViewBag.InfoID" />
+                    <input type="hidden" id="ModelID_Hid" name="ModelID_Hid" value="@ViewBag.ModelID" />
+                </div>
+            </form>
+        }
+        else
+        {
+            <div class="container">
+                <div class="text_600 text-center r_gray" style="margin:0 auto;">
+                    <i class="fa fa-bank margin_t10" style="font-size:120px;"></i>
+                    <div class="margin_t10" style="font-size:18px;">黄页正在审核,请等待管理员开通您的黄页功能!</div>
+                    <div class="margin_t10"><a href="PageInfo?menu=modifile" class="btn btn-info">修改申请信息</a></div>
+                </div>
+            </div>
+        }
+    </div>
+}
+@section script{
+    <script type="text/javascript" src="/JS/Controls/ZL_Dialog.js"></script>
+    <script type="text/javascript" src="/JS/ZL_Content.js"></script>
+    <script>
+        $().ready(function () {
+            $("input[type=text]").addClass("form-control text_md");
+            $("select").addClass("form-control text_md");
+        });
+
+        $("#mimenu_btn").click(function (e) {
+            if ($(".user_mimenu_left").width() > 0) {
+                $(".user_mimenu_left ul").fadeOut(100);
+                $(".user_mimenu_left").animate({ width: 0 }, 200);
+            }
+            else {
+                $(".user_mimenu_left").animate({ width: 150 }, 300);
+                $(".user_mimenu_left ul").fadeIn();
+            }
+        });
+        //会员菜单更多显示/隐藏
+        $("#more_btn").click(function (e) {
+            if ($(".user_menu_sub").css("display") == "none") {
+                $(".user_menu_sub").fadeIn();
+                $(this).find("i").removeClass("fa-angle-double-down");
+                $(this).find("i").addClass("fa-angle-double-up");
+            }
+            else {
+                $(".user_menu_sub").fadeOut();
+                $(this).find("i").removeClass("fa-angle-double-up");
+                $(this).find("i").addClass("fa-angle-double-down");
+            }
+        });
+        //会员搜索
+        $("#sub_btn").click(function (e) {
+            if ($("#key").val() == "")
+                alert("搜索关键字为空!");
+            else
+                window.location = "/User/SearchResult?key=" + escape($("#key").val());
+        });
+        //搜索回车事件
+        function IsEnter(obj) {
+            if (event.keyCode == 13) {
+                $("#sub_btn").click(); return false;
+            }
+        }
+    </script>
+    @MvcHtmlString.Create(Call.GetUEditor("PageInfo", 2))
+}

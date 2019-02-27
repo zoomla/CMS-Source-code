@@ -1,0 +1,31 @@
+﻿@model ZoomLa.Model.M_Exam_Sys_Questions
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>查看试题</title>
+}
+@section content{
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Default","")">用户中心</a></li>
+            <li>查看试题</li>
+        </ol>
+        <div class="panel panel-info">
+            <div class="panel-heading"><span>@MvcHtmlString.Create(Model.p_title)</span></div>
+            <div class="panel-body">
+                <div><span>@MvcHtmlString.Create(Model.p_Content)</span></div>
+                <div class="divline"></div>
+                <div>
+                    <p style="white-space: normal;"><span style="font-family: 宋体, sans-serif; font-size: 13px; font-weight: bold; letter-spacing: 1px; line-height: 25px; background-color: #FFFFFF;">【正确答案】</span></p>
+                    <span>@MvcHtmlString.Create(Model.p_shuming)</span>
+                </div>
+                <div class="divline"></div>
+                <div><span>@MvcHtmlString.Create(Model.Jiexi)</span></div>
+            </div>
+        </div>
+    </div>
+}
+@section script{
+
+}

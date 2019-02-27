@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PreView.aspx.cs" Inherits="Design_scence_preview" EnableViewState="false"%>

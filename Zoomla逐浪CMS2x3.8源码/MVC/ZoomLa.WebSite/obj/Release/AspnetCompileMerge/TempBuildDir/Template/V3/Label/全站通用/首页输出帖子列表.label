@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>290</LabelID>
+    <LabelName>首页输出帖子列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>TitleNum,30,1,标题长|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>dbo.ZL_Guest_Bar</LabelTable>
+    <LabelField>CateID,ID,Title</LabelField>
+    <LabelWhere>Status=99 And Pid=0</LabelWhere>
+    <LabelOrder>CDate DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding5"&gt;&lt;a href="/PClass?id={Field="CateID"/}"&gt;[{ZL.Label id="输出指定贴吧名称" CateID="{Field="CateID"/}" /}]&lt;/a&gt;&lt;a href="/PItem?id={Field="ID"/}" title="{Field="Title"/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>ZoomlaCMS</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam>{"PureT1":"ZL_Guest_Bar","PureT2":"","T1":"ZoomlaCMS.dbo.ZL_Guest_Bar","T2":"","JoinType":"left join","OnField1":"","OnField2":""}</ProceParam>
+  </Table>
+</NewDataSet>

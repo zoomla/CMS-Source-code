@@ -1,0 +1,175 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <script src="/Plugins/Ueditor/ueditor.config.js" charset="utf-8"></script>
+    <script src="/Plugins/Ueditor/ueditor.all.min.js" charset="utf-8"></script>
+    <title>评阅试卷</title>
+}
+@section content{
+    <div id="pageflag" data-nav="edu" data-ban="ke"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Default","")">用户中心</a></li>
+            <li><a href="@Url.Action("QuestionManage","Exam")">试题管理</a></li>
+            <li class="active">评阅试卷</li>
+        </ol>
+    </div>
+    <div class="container">
+        <div class="panel panel-primary" ng-app="app">
+            <div class="panel-heading">
+                <i class="fa fa-file-text-o"></i>
+                <span class="margin_l5">
+                    <label id="pname_l"></label>
+                </span>
+                <span><i class="a fa-clock-o"></i><span id="time_sp"  class="margin_l5" data-time="0"></span></span>
+                <div class="uinfo_div">
+                    <div class="input-group">
+                        <span class="input-group-addon">学校</span>
+                        <input type="text" id="myschool_t" name="myschool_t" class="form-control text_150" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">班级</span>
+                        <input type="text" id="myclass_t" name="myclass_t" class="form-control text_150" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">姓名</span>
+                        <input type="text" id="uname_t" name="uname_t" class="form-control text_150" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            @Html.Partial("ExamDetail_List",Model)
+            <div class="panel-footer text-center">
+                <button id="submit_btn" class="btn btn-primary" onclick="Submit_Btn_Click">提交</button> 
+                <a href="@Url.Action("Papers_System_Manage","Exam")" class="btn btn-primary">返回</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="hidden" id="questdt_hid" />
+        <input type="hidden" id="answer_hid" />
+        <input type="hidden" id="remark_hid" />
+    </div>
+}
+@section script{
+    <script src="/Plugins/Ueditor/kityformula-plugin/addKityFormulaDialog.js"></script>
+    <script src="/Plugins/Ueditor/kityformula-plugin/getKfContent.js"></script>
+    <script src="/Plugins/Ueditor/kityformula-plugin/defaultFilterFix.js"></script>
+    <script src="/JS/Controls/ZL_Array.js"></script>
+    <script src="/JS/jquery-ui.min.js"></script>
+    <script src="/JS/Plugs/angular.min.js"></script>
+    <style type="text/css">
+        label {
+            font-weight: normal;
+        }
+
+        .item {
+            border: 1px solid #ddd;
+            padding-left: 20px;
+            padding-top: 5px;
+            text-align: left;
+        }
+
+        .opitem:hover {
+            color: #ff6a00;
+        }
+
+        .opitem p {
+            display: inline-block;
+        }
+
+        .submitul li {
+            float: left;
+            margin-left: 20px;
+        }
+
+        .answerdiv {
+            border: 1px dashed #ddd;
+            height: 50px;
+            color: green;
+            width: 100%;
+            padding: 5px;
+            height: 80px;
+            overflow: auto;
+        }
+
+        .answersp {
+            border-bottom: 1px solid #286090;
+            padding: 5px 15px 3px 15px;
+            color: green;
+        }
+
+            .answersp p {
+                display: inline;
+            }
+
+        #answer_ue_div {
+            width: 500px;
+            position: absolute;
+            top: 300px;
+            right: 30%;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 20px 1px rgba(0,0,0,0.2);
+            background: #ffffff;
+            cursor: move;
+        }
+    </style>
+    <script>
+        var page={scope:null,addModel:function(name,model){
+            page.scope.list[name]=model;
+        }};
+        var app=angular.module("app",[]).controller("appController",function($scope,$compile){
+            page.scope=$scope;
+            $scope.list={};
+            var idsArr=[];//仅用于显示答案
+            <%=AngularJS%>
+            if("<%:Action%>"=="view")
+            {
+                var answerArr = JSON.parse($("#Answer_Hid").val());
+                //model即一个完形填空的问题集合,问题集合-->问题(答案)-->选项
+                for (var i = 0; i < idsArr.length; i++) {
+                    var model=$scope.list["filltextblank_"+idsArr[i]];
+                    var answer= answerArr.GetByID(idsArr[i],"QID");
+                    if(!answer||answer==null||answer==""){return;}
+                    answer=JSON.parse(answer.Answer);
+                    for (var j = 0; j < model.length; j++) {
+                        model[j].answer=answer[j].answer;
+                    }
+                }
+            }
+        });
+        app.filter(
+             'to_trusted', ['$sce', function ($sce) {
+                 return function (text) {
+                     return $sce.trustAsHtml(text);
+                 }
+             }]
+         );
+
+        var ue, $curAnswer, boundary = "|||", action = "<%=Action%>",exTime= parseInt("<%=ExTime%>"); force = <%=ExTime>0?"true":"false"%>;
+        $(function () {
+            ue = UE.getEditor('editor', {
+                toolbars: [[
+                    'bold', 'italic', 'underline', '|', 'fontsize', '|', 'kityformula'
+                ]],
+                elementPathEnabled: false,wordCount: false
+            });
+            $("#answer_ue_div").draggable(
+                 { handle: '#ue_foot,#edui1_toolbarbox' });
+            $(".remark").click(function () {
+                $curAnswer = $(this);
+                SetContent($curAnswer);
+                $("#answer_ue_div").show();
+            });
+        })
+        $(window).scroll(function(){
+            var scrollTop = $(this).scrollTop();//已滚动多少
+            var nowTop=$("#answer_ue_div").css("top");
+            $("#answer_ue_div").css("top",scrollTop+300);
+        });
+        //var s={id:1,opts:[{op:"A",value:""}]};
+    </script>
+    <script src="/JS/ICMS/ZL_Exam_Paper.js"></script>
+}

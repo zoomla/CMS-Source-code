@@ -1,0 +1,83 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{ 
+<title>班级列表</title> 
+<style>
+.classlist{padding:5px 20px;}
+.classlist img{width:100%;height:100px;}
+.classlist button{width:100%;}
+.classlist .class_title{font-size:20px; font-weight:500;}
+.classlist .class_info{padding:5px; color:#999;min-height:30px;}
+.classlist div{margin-bottom:5px;}
+.emptydata_div{height:430px;}
+.emptydata_div .tips_div{margin:100px auto;width:400px; text-align:center;color:#999;}
+.line30{line-height:30px;}
+.allchk_l{display:none;}
+</style> 
+}
+
+@section content{
+<div id="pageflag" data-nav="edu" data-ban="ke"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Default","")">用户中心</a></li>
+        <li>班级列表</li>
+    </ol>
+</div>
+<div>
+    <div class="input-group text_400" style="margin:auto;">
+        <input type="text" id="skey" name="skey" class="form-control mvcparam" placeholder="学校,年级,班级" />
+        <span class="input-group-btn">
+            <input type="button" class="btn btn-primary" value="搜索" onclick="mvcpage.load();" />
+        </span>
+    </div>
+</div>
+<div class="container margin_t10">
+    @Html.Partial("ClassView_List", Model)
+</div>
+<div style="display:none;" id="remind_div">
+    <form method="post" action="@Url.Action("Class_Apply","Questions")">
+        <div class="panel panel-primary">
+            <div class="panel-heading">班级信息</div>
+            <div class="panel-body">
+                <div class="col-md-3 text-right line30">班主任:</div>
+                <div class="col-md-9 line30">
+                    <span id="tearch_span"></span>
+                </div><div class="clearfix"></div>
+                <div class="col-md-3 text-right line30">班级宣言:</div>
+                <div class="col-md-9 line30">
+                    <span id="class_span"></span>
+                </div><div class="clearfix"></div>
+                <div class="col-md-3 text-right line30">申请理由:</div>
+                <div class="col-md-9 line30 margin_t5">
+                    <textarea id="remind_t" name="remind_t" class="form-control text_300" style="height:150px;"></textarea>
+                </div><div class="clearfix"></div>
+
+            </div>
+        </div>
+        <div class="text-center margin_t5">
+            <input type="submit" class="btn btn-primary" value="确定" />
+            <button type="button" class="btn btn-primary" onclick="comdiag.CloseModal();">关闭</button>
+            <input type="hidden" id="roomid_hid" name="roomid_hit" />
+        </div>
+    </form>
+</div>
+}
+
+@section script{
+    <script type="text/javascript" src="/JS/Controls/ZL_Dialog.js"></script>
+    <script>
+        function ShowRemark(obj) {
+            comdiag.title = "申请理由";
+            comdiag.width = "none";
+            comdiag.content = "remind_div";
+            comdiag.ShowModal();
+            $("#remind_t").val('');
+            $("#roomid_hid").val($(obj).data('id'));
+            $("#tearch_span").text($(obj).data('tearch'));
+            $("#class_span").text($(obj).data('info'));
+        }
+    </script>
+}

@@ -1,0 +1,70 @@
+﻿<div class="header"><label class="title">图片组</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-header"><div class="title-line"><div class="title">图片轮播</div></div></div>
+            <div class="items">
+                <div data-type="gallery" class="domItem listItem" style="height:230px;">
+                    <img src="/Design/res/img/gallery.png" />
+                </div>
+            </div>
+        </div>
+        <div class="section-wrapper live-comps">
+            <div class="section-header"><div class="title-line"><div class="title">图片布局</div></div></div>
+            <div class="items">
+                <div data-type="galleryGrid" class="domItem preset-item">
+                    <a href="javascript:;"><img src="/Design/res/img/galleyrGridView1.png" /></a>
+                </div>
+                <div data-type="gallery_slide" class="domItem preset-item">
+                    <a href="javascript:;"><img src="/Design/res/img/galleyrGridView2.png" /></a>
+                </div>
+                <div data-type="gallery_photo" class="domItem preset-item">
+                    <a href="javascript:;"><img src="/Design/res/img/galleyrGridView3.png" /></a>
+                </div>
+                <div data-type="gallery_group" class="domItem preset-item">
+                    <a href="javascript:;"><img src="/Design/res/img/gallery_group.jpg"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function GetModel(item) {
+        //img-->url,href-->click
+        var $item = $(item);
+        var list = [
+                { name: "标题1", tip: "", orderid: 1, url: "/Design/res/Gallery/1.jpg", target: "", click: null, css: "active" },
+                { name: "标题2", tip: "", orderid: 2, url: "/Design/res/Gallery/2.jpg", target: "", click: null, css: "" },
+                { name: "标题3", tip: "", orderid: 3, url: "/Design/res/Gallery/3.jpg", target: "", click: null, css: "" }
+        ];
+        var model = {
+            dataMod: { "list": list },
+            config: { type: $item.data("type"), compid: "", css: "candrag", style: "z-index:-1;", bodyid: "" }
+        };
+        switch (model.config.type) {
+            case "gallery":
+                var list = GetItemModel(3);
+                list[0].name = "标题";
+                list[0].url = "/Design/tlp/P001/Style/Images/banner1.jpg";
+                list[1].name = "标题1";
+                list[1].url = "/Design/tlp/P001/Style/Images/banner2.jpg";
+                list[2].name = "标题2";
+                list[2].url = "/Design/tlp/P001/Style/Images/banner3.jpg";
+                model.dataMod.list = list;
+                model.config.css = "dragy";
+                model.config.style += "width:100%;left:0px;";
+                model.config.bodyid = "mainBody";
+                break;
+            case "galleryGrid":
+                model.config.style += "width:960px;height:300px;";
+                break;
+            case "gallery_group":
+                model.config.style += "width:960px;";
+                break;
+            case "gallery_slide":
+            case "gallery_photo":
+                break;
+        }
+        return model;
+    }
+</script>

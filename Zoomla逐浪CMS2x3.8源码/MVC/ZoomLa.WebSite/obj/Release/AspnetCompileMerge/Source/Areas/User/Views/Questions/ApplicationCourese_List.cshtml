@@ -1,0 +1,26 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.url = "ApplicationCourese_Data";
+    Model.cols = 3;
+}
+<div id="EGV">
+    <table>
+        @if (Model.itemCount > 0)
+        {
+            <tr><th>课程名称</th><th>课时</th><th>操作</th></tr>
+            @foreach (DataRow dr in Model.dt.Rows)
+            {
+                <tr>
+                    <td>@dr["CourseName"]</td>
+                    <td>GetClass(Eval("ID", "{0}"))</td>
+                    <td>getStr(Convert.ToInt32(Eval("ID").ToString()))</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="3">没有数据</td></tr>
+        }
+    </table>
+</div>

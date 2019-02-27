@@ -1,0 +1,80 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>商品列表</title>}
+@section content{
+<div id="pageflag" data-nav="shop" data-ban="store"></div> 
+<div class="container">
+<ol class="breadcrumb">
+<li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+<li><a href="ProductList">店铺商品管理</a></li>
+</ol>
+</div>
+<div class="container">
+<div>@Html.Partial("UserShopTop")</div>
+@MvcHtmlString.Create(ViewBag.addhtml)
+<div class="btn_green" style="margin-top: 10px;">
+<table class="table table-bordered">
+<tbody>
+	<tr>
+		<td width="34%" align="center">快速查找：
+			<select ID="quicksouch" class="form-control text_md mvcparam" onchange="mvcpage.load();">
+				<option value="1">所有商品</option>
+				<option value="2">正在销售的商品</option>
+				<option value="3">未销售的商品</option>
+				<option value="4">正常销售的商品</option>
+				<option value="5">特价处理的商品</option>
+				<option value="6">所有热销的商品</option>
+				<option value="7">所有新品</option>
+				<option value="8">所有精品商品</option>
+				<option value="9">有促销活动的商品</option>
+				<option value="10">实际库存报警的商品</option>
+				<option value="11">预定库存报警的商品</option>
+				<option value="12">已售完的商品</option>
+				<option value="13">所有批发商品</option>
+				<option value="14">团购商品</option>
+			</select>
+		</td>
+		<td width="66%" align="center">高级查询：
+			<select ID="souchtable" class="form-control text_md">
+				<option Value="0">请选择</option>
+				<option Value="1">商品名称</option>
+				<option Value="2">商品简介</option>
+				<option Value="3">商品介绍</option>
+				<option Value="4">厂商</option>
+				<option Value="5">品牌/商标</option>
+				<option Value="6">条形码</option>
+			</select>
+			<input type="text" ID="KeyWord" class="form-control text_md mvcparam"/>
+            <input type="button" value="搜索" class="btn btn-primary" onclick="mvcpage.load();" />
+		</td>
+	</tr>
+</tbody>
+</table>
+<div>
+@Html.Partial("ProductList_List",Model)
+<div class="text-center btn_green">
+    <input type="button" class="btn btn-primary" value="开始销售" onclick="mvcpage.bat({ url: 'product_op?a=addsale', after: 'reload' });" />
+    <input type="button" class="btn btn-primary" value="设为热卖" onclick="mvcpage.bat({ url: 'product_op?a=addhot', after: 'reload' });" />
+    <input type="button" class="btn btn-primary" value="设为精品" onclick="mvcpage.bat({ url: 'product_op?a=addgood', after: 'reload' });" />
+    <input type="button" class="btn btn-primary" value="设为新品" onclick="mvcpage.bat({ url: 'product_op?a=addnew', after: 'reload' });" />
+    <input type="button" class="btn btn-primary" value="停止销售" onclick="mvcpage.bat({ url: 'product_sale?a=removesale', after: 'reload' });" />
+    <input type="button" class="btn btn-primary" value="取消热卖" onclick="mvcpage.bat({ url: 'product_sale?a=removehot', after: 'reload' });" />
+    <input type="button" class="btn btn-primary" value="取消精品" onclick="mvcpage.bat({ url: 'product_sale?a=removegood', after: 'reload' });" />
+    <input type="button" class="btn btn-primary" value="取消新品" onclick="mvcpage.bat({ url: 'product_sale?a=removenew', after: 'reload' });" />
+    <input type="button" class="btn btn-danger" value="批量删除" onclick="mvcpage.bat({ url: 'product_del',confirm:'确定要删除商品吗', after: 'reload' });" />
+</div>
+</div>
+</div>
+</div>
+}
+@section script{
+<script>
+$(function () {
+    if (getParam("quicksouch")) {
+        $("li a[href='#Tabs" + getParam("quicksouch") + "']").parent().addClass("active").siblings("li").removeClass("active");
+    }
+})
+</script>
+}

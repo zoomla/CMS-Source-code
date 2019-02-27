@@ -1,0 +1,160 @@
+﻿@using ZoomLa.AppCode.Controls
+@model ZoomLa.Model.M_Exam_Sys_Papers
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    SelectList slist = MVCHelper.ToSelectList("考试,练习,作业".Split(','),"1,2,3".Split(','));
+    SelectList tlist=MVCHelper.ToSelectList("固定试卷(手工)|固定试卷(随机)|随机试卷".Split('|'),"1,2,3".Split(','));
+}
+@section head{
+    <title>试卷管理</title>
+    <link type="text/css" rel="stylesheet" href="/App_Themes/V3.css" />
+    <script src="/JS/OAKeyWord.js"></script>
+}
+@section content{
+    <div id="pageflag" data-nav="edu" data-ban="ke"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Default","")">用户中心</a></li>
+            <li><a href="@Url.Action("Papers_System_Manage","Exam")">试卷管理</a></li>
+            <li class="active">@(string.IsNullOrEmpty(Model.p_name)?"添加试卷":Model.p_name)</li>
+        </ol>
+    </div>
+    <div class="container">
+    <form method="post" action="@MVCHelper.GetAction("Paper_Add",Request)">
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <td class="td_l" align="right">试卷名称：</td>
+                <td class="bqright">
+                    @Html.TextBoxFor(m => m.p_name, new { placeholder = "试卷名不能为空", @class = "form-control text_md required" })
+                    <span class="rd_red">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">试卷类型：</td>
+               
+                <td class="bqright">
+                    @Html.DropDownListFor(m => m.p_Style, slist,new {@class="form-control text_md"})
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                  出题方式：
+                </td>
+                <td>
+                     @Html.DropDownListFor(m=>m.p_type,tlist,new {@class="form-control text_md"})
+                </td>
+            </tr>
+            <tr class="tdbg">
+                <td align="right">所属科目：</td>
+                <td>@Html.Partial("C_TreeTlpDP", (C_TreeTlpDP)ViewBag.treeMod)</td>
+            </tr>
+            <tr>
+                <td class="text-right">关键字：</td>
+                <td>
+                    <div id="Examkeyword"></div>
+                    <input type="text" id="tagkey_t" name="tagkey_t" style="display:none;" class="form-control text_300" value="@Model.TagKey" />
+                    <button type="button" onclick="ShowKeyWords()" class="btn btn-primary btn-sm">选择关键字</button>
+                    <span class="rd_green">(使用空格键或回车键分隔关键字，每个关键字长度不超过5个)</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">考试时间：</td>
+                <td class="bqright">
+                    @Html.TextBoxFor(m => m.p_UseTime, new { @class = "form-control text_md" })
+                    <span>分钟</span>
+                    <span class="rd_green">(为0不限时间,否则到时自动提交)</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">有效时间： </td>
+                <td class="bqright">
+                    @Html.TextBoxFor(m => m.p_BeginTime, new { @class = "form-control text_md", onclick = "WdatePicker({ dateFmt: 'yyyy/MM/dd HH:mm' })" })
+                    <span>至</span>
+                    @Html.TextBoxFor(m => m.p_endTime, new { @class = "form-control text_md", onclick = "WdatePicker({ dateFmt: 'yyyy/MM/dd HH:mm' })" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right"> 说明：</td>
+                <td class="bqright">
+                    @Html.TextAreaFor(m => m.p_Remark, new { @class = "form-control tarea_l" })
+                </td>
+            </tr>
+            <tr class="tdbgbottom">
+                <td></td>
+                <td>
+                    <input type="submit" value="保存试卷" class="btn btn-primary" />
+                    @*<button id="ebtnsubmit" class="btn btn-primary" onclick="EBtnSubmit_Click">保存试卷</button>
+                        <button id="addtonew_btn" class="btn btn-primary" onclick="AddToNew_Btn_Click">添加为新试卷</button>*@
+                    <a href="@Url.Action("Papers_System_Manage","Exam")" class="btn btn-primary">返回列表</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+}
+@section script{
+    <style type="text/css">
+        #option_ul li { margin-top: 3px; }
+        .tabinput { border: none; padding-left: 5px; height: 30px; line-height: 30px; }
+        .radius { margin: 2px; margin-top: 20px; height: 24px; line-height: 24px; background: #eee; border: 1px solid #ddd; border-radius: 3px; padding: 3px; float: none !important; }
+        #errormes { z-index: 9999; }
+    </style>
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script src="/JS/ICMS/ZL_Exam_Paper.js"></script>
+    <script src="/JS/DatePicker/WdatePicker.js"></script>
+    <script>
+        $("form").validate();
+        var tabarr = [];
+        $(function () {
+            InitKeyWord($("#TagKey_T").val());
+            //TreeTlp.Init("Paper_Tree", "PaperType_Hid");
+        });
+        function InitKeyWord(value) {
+            tabarr = [];
+            $("#Examkeyword").html('');
+            if ($("#Examkeyword").length > 0) {
+                $("#Examkeyword").tabControl({
+                    maxTabCount: 5,
+                    tabW: 80,
+                    onAddTab: function (value) {
+                        tabarr.push(value);
+                    },
+                    onRemoveTab: function (removeval) {
+                        for (var i = 0; i < tabarr.length; i++) {
+                            if (tabarr[i] == removeval) {
+                                tabarr.splice(i, 1);
+                                break;
+                            }
+                        }
+                    }
+                }, value);
+            }//关键词
+        }
+        function ShowKeyWords() {
+            comdiag.reload = true;
+            comdiag.maxbtn = false;
+            comdiag.width = "none";
+            ShowComDiag("/Common/SelKeyWords.aspx?type=3", "选择关键字");
+        }
+        function GetKeyWords(keystr) {
+            tabarr = tabarr.concat(keystr.split(','));
+            var values = "";
+            var length = tabarr.length <= 5 ? tabarr.length : 5;
+            for (var i = 0; i < length; i++) {
+                if (IsDis(values, tabarr[i]))
+                { values += tabarr[i] + ","; }
+            }
+            InitKeyWord(values);
+            CloseComDiag();
+        }
+        //判断重复
+        function IsDis(arrstr, value) {
+            for (var i = 0; i < tabarr.length; i++) {
+                if (("," + arrstr).indexOf("," + value + ",") > -1) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+}

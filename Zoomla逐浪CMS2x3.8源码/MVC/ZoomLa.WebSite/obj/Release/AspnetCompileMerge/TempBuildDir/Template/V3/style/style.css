@@ -1,0 +1,132 @@
+﻿@charset "utf-8";
+/* 全局样式定义 Powered by Zoomla!逐浪CMS z01.com*/
+a:active {star:expression(this.onFocus=this.blur());} 
+canvas {-ms-touch-action:double-tap-zoom;}
+.relative { position:relative;}
+.padding10{ padding-left:10px; padding-right:10px;}
+.padding5{ padding-left:5px; padding-right:5px;}
+.div_h35 { height:35px;}
+.loginNone{display:none;}
+.margin_top10 { margin-top:10px;}
+.margin_top20 { margin-top:20px;}
+.margin_bottom20 { margin-bottom:20px;}
+/*在内容页的图片，建议采用此定义使图片响应式默认带框 .content img {max-width: 98%;border: inset;}*/
+p { margin-bottom:10px;}
+
+
+
+
+
+* { font-family:"STHeiti","Microsoft YaHei","黑体","arial";}
+.znpb_nav.navbar { margin-bottom:0; border:none; border-radius:0; box-shadow:0 0 5px rgba(0,0,0,0.5); background:rgba(255,255,255,0.6)}
+.znpb_nav .navbar-brand { height:auto;}
+.znpb_nav .navbar-brand img { height:2.78em; width:17em;}
+.znpb_nav .navbar-nav { margin-top:15px;}
+.znpb_nav .navbar-form { margin-top:23px;}
+.znpb_banner { position:relative; background:url(images/znpb_banner.jpg) center no-repeat; background-size:cover; height:65vh;}
+.znpb_banner_c { position:absolute; left:50%; top:50%; -webkit-transform:translate(-50%,-50%); transform:translate(-50%,-50%); color:#fff; font-size:3em;}
+.znpb_foot { margin-top:2em; margin-bottom:1em; text-align:center;}
+.znpb_cbanner { position:relative; width:100%;}
+.znpb_cbanner_c { position:absolute; bottom:2em; width:100%;}
+.znpb_cbanner_c h1 { margin-top:0; margin-bottom:0.8em; font-size:2.3em; text-align:center; color:#fff;}
+.znpb_cbanner_c p { margin-bottom:0; text-align:center; color:#E7E7E7; font-size:0.9em;}
+.znpb_content { margin-top:1em; font-size:1.2em; line-height:1.6em; text-align:justify; text-justify:inter-ideograph; overflow:hidden;}
+
+.znpb_pnav { margin-bottom:0; border-radius:0; border:none;}
+.znpb_pnav .navbar-brand { height:auto;}
+.znpb_pnav .navbar-brand img { height:2.78em; width:13.56em;}
+.znpb_pnav .navbar-nav { margin-top:15px;}
+.znpb_pnav .navbar-nav li { font-size:1.2em;}
+.znpb_pnav .navbar-form { margin-top:23px;}
+.znpb_pbanner { position:relative; background:url(images/znpb_pbanner.jpg) center no-repeat; background-size:cover; height:65vh;}
+.znpb_pbanner_c { position:absolute; left:50%; top:50%; -webkit-transform:translate(-50%,-50%); transform:translate(-50%,-50%); color:#fff; font-size:3em;}
+.znpb_pic { margin-top:20px;}
+.znpb_pic_c { box-shadow:0 0 5px rgba(0,0,0,0.68);}
+.znpb_pic_ct { }
+.znpb_pic_ct a { position:relative; display:block; padding-top:70%;}
+.znpb_pic_ct a img { position:absolute; top:0; left:0; padding:10px; width:100%; height:100%;}
+.znpb_pic_ctt { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.84); opacity:0;}
+.znpb_pic_ctt span { position:absolute; display:block; margin-top:0; margin-bottom:0; top:50%; -webkit-transform:translate(0,-50%); transform:translate(0,-50%); padding-left:20px; padding-right:20px; width:100%; text-align:center; font-size:1.2em; color:#333;}
+.znpb_pic_ct a:hover .znpb_pic_ctt { opacity: 1; -webkit-transition: opacity 250ms ease; -moz-transition: opacity 250ms ease; -ms-transition: opacity 250ms ease; -o-transition: opacity 250ms ease; transition: opacity 250ms ease;}
+.znpb_pic_cp { padding-left:10px; padding-right:10px; padding-bottom:10px; color:#999; font-size:0.9em;}
+.znpb_pic_cp span { margin-right:10px;}
+
+.znpb_jbanner { background:url(Images/znpb_pbanner.jpg) center no-repeat; background-size:cover; height:200px;}
+.znpb_jbanner_b { position:absolute; top:0; left:0; width:100%; background:rgba(0,0,0,0.51)}
+.znpb_jbanner_c { position:absolute; bottom:40px; padding-left:50px; padding-right:50px;}
+.znpb_jbanner_c h1 { margin-top:0; margin-bottom:10px; font-size:2em; color:#fff;}
+.znpb_jcont { padding:20px; border:1px solid #f1f1f1; text-align:justify; text-justify:inter-ideograph; overflow:hidden; font-size:1.2em;}
+.znpb_jcont img { max-width:100%;}
+.znpb_jcont p { margin-bottom:10px;}
+.znpb_cbanner { background:url(images/znpb_pbanner.jpg) center no-repeat;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*key:UG93ZXJlZCBieSBab29tbGEh6YCQ5rWqQ01TIHd3d3cuWm9vbWxhLmNu */

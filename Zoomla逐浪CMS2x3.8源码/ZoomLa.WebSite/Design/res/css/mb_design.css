@@ -1,0 +1,26 @@
+﻿body {background-color:#f1f1f1;}
+.mbdesign {padding-top:80px;position:relative;display:block;width:100%;}
+/*general*/
+.mbdesign .lpane {width:280px;overflow:hidden; position:absolute;padding-top:10px; background-color:#fff;box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 5px 0px, rgba(0, 0, 0, 0.0784314) 0px 2px 10px 0px;min-height:80vh;}
+.lpane .classItem {padding:8px 13px 0 12px;}
+.lpane .compList {border:1px solid #dfdfdf;padding:0 0 10px 6px;}
+.lpane .compList header {color:#1b7ad1;position:relative;margin-top:-10px;padding-left:5px;background-color:#fff;width:40px; text-align:center;}
+.lpane .compList .compItem {width:30%;margin:3px;float:left;}
+.lpane .compItem .itemImg {text-align:center;}
+.lpane .compItem .itemDesc {text-align:center;}
+.mbdesign .mainpane {position:absolute;left:380px;margin-top:30px;}
+.mainpane .mobile {background:url(/App_Themes/User/bg_mobile.png) no-repeat;width:327px;height:674px;padding-left:25px;padding-top:120px;}
+.mainpane .mobile .mobile_ifr {border: none; width: 275px; height: 463px; background-color: #fff; overflow-x: hidden;}
+.mbdesign .rpane {width:480px;position:absolute;right:0px;overflow:hidden; 
+                  background-color:#fff;box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 5px 0px, rgba(0, 0, 0, 0.0784314) 0px 2px 10px 0px;min-height:80vh;}
+.rpane .menuul li{float:left;background-color:#578ec7;color:#fff;cursor:pointer;width:120px;outline:1px solid #79a2ce;
+                  text-align:center;height:40px;line-height:40px;border-right:1px solid #fff;}
+.rpane .menuul li:hover {background:#709fcf;}
+.rpane .menuul li.active {color:#578ec7;background:#fff;outline:1px solid #fff;}
+.rpane .tab_head {padding:8px 10px 0px 15px; border-bottom:1px solid #ddd;}
+.rpane .tab_menu_ul li{float:left;text-align:center;margin-bottom:-1px; width:70px;height:35px;cursor:pointer;border-bottom:3px solid rgba(0, 0, 0, 0.00);}
+.rpane .tab_menu_ul li:hover {color:#19A6FF;}
+.rpane .tab_menu_ul li.active {border-bottom:3px solid #19A6FF;}
+.rpane .tab_content {height:664px;overflow-y:auto;overflow-x:hidden;}
+.rpane .tab_content .mbtlp_ul li{float:left;width:124px;height:194px;margin:10px 14px 15px 15px; padding:2px;border:1px solid #ddd;cursor:pointer;text-align:center;}
+.rpane .tab_content .mbtlp_ul img {max-width:118px;max-height:194px;}

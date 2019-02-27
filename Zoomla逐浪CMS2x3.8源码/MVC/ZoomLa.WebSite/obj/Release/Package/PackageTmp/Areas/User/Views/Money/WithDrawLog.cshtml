@@ -1,0 +1,37 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+ <script src="/JS/DatePicker/WdatePicker.js"></script>
+    <title>提现日志</title>
+}
+@section content{
+<div class="container margin_t10">
+  <ol class="breadcrumb padding_b20px">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li><a title="账户管理" href="@Url.Action("Userinfo","info")">账户管理</a></li>
+        <li><a title="提现管理" href="@Url.Action("WithDrawLog","Money")">提现管理</a></li>
+        <li hidden class="active">提现日志 <a href="javascript:;" onclick="showconver();">[币值转换]</a> <a href="/User/Money/WithDraw">[申请提现]</a></li>
+	<div class="pull-right">
+	<div class="input-group" style="width:439px;">
+	<input class="form-control text_md mvcparam" id="STime_T" onclick="WdatePicker({})" type="text" placeholder="起始时间">
+	<input class="form-control text_md mvcparam" id="ETime_T" onclick="WdatePicker({})" type="text" placeholder="结束时间">
+	<span class="input-group-btn">
+	<button class="btn btn-default" onclick="mvcpage.load();" type="button"><span class="fa fa-search"></span></button>
+	</span>
+	</div> 
+	</div>
+    </ol>
+</div>
+@Html.Partial("WithDrawLog_List",Model)
+}
+@section script{
+<style>.allchk_l{display:none; }</style>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script>
+    function showconver() {
+        ShowComDiag("/BU/Money/MoneyConver.aspx", "币值转换");
+    }
+</script>
+}

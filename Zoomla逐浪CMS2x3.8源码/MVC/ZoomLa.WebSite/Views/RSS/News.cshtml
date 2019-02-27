@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form id="form1">
+        <div>
+            <div>标题：@ViewBag.Title</div>
+            <div>日期：@ViewBag.CreateTime</div>
+            <div>@MvcHtmlString.Create(ViewBag.Content)</div>
+        </div>
+    </form>
+</body>
+</html>

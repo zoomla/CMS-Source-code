@@ -1,0 +1,168 @@
+﻿{ZL.Source id="文章模型数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="文章模型数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="文章模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="文章模型数据源标签" FD="Title" page="0"/}">
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$CssDir/}js/server.js"></script>
+<style>
+.navbar-default .navbar-nav>#Menu{SField sid="文章模型数据源标签" FD="FirstNodeID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="文章模型数据源标签" FD="FirstNodeID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="文章模型数据源标签" FD="FirstNodeID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+.Assis_Div{position:fixed;top:60%; left:50%; margin-left:-650px; }
+.Assis_Div .info {border:1px solid #ccc; color:#999; padding:10px; font-size:20px; display:block; text-decoration:none; text-align:center; width:80px;}
+.gray_c{color:#ccc;}
+.modal-dialog{margin:100px auto;}
+</style>
+</head>
+<body>
+{ZL.Label id="响应式全站头部"/} 
+<div class="myBanner">
+<div class="container">
+<h3><br/><br/>逐浪软件</h3><br/>
+支持大数据与云计算的全平台网站构建系统。
+</div>
+</div><!--内页通栏banner广告位 -->
+<div class="news_body">
+<div class="container">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="news_mySites">
+<ul class="breadcrumb">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="文章模型数据源标签" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">正文</li>
+</ul>
+</div><!--面包屑导航结束 -->
+<div class="myContent_l">
+<h1>{SField sid="文章模型数据源标签" FD="Title" page="0"/}</h1>
+<div class="myAbbr">
+ <span id="CreateTime">发布时间：{ZL:FormatDate({SField sid="文章模型数据源标签" FD="CreateTime" page="0"/},yyyy-MM-dd)/}</span> <span id="Hits">浏览次数：<SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}"></SCRIPT>  <a href="/Class_100/NodePage.aspx?t={SField sid="文章模型数据源标签" FD="Title" page="0"/}-来自{$SiteName/}&urls={$SiteURL/}/item/{SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}.aspx" target="_blank"><i class="fa  fa-share-alt-square"></i>分享网址</a></span>
+</div>
+{#PageCode}
+<div class="myContent">{SField sid="文章模型数据源标签" FD="content" page="{SField sid="文章模型数据源标签" FD="K_pages" page="0"/}"/}</div>
+{/#PageCode}
+<div id="T_page">{ZL.Page id="默认内容分页标签" num="{SField sid="文章模型数据源标签" FD="pages" page="0"/}"/}</div>
+<div class="col-lg-12 col-md-12 col-xs-12">
+<div class="edit"><span class="print"><a href="{ZL:GetLastinfo(1)/}?generalid={SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}" target="_blank">打印保存</a></span><span id="elit">责任编辑：{SField sid="文章模型数据源标签" FD="Edit" page="0"/}</span> <span id="pin"><a href="/Comments/CommentFor?ID={SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}" target="_blank">发表评论>></a></span></div>
+ <div id="begin"><span id="asc">上一篇文章：{ZL.Label id="上一篇文章" NodeID="{SField sid="文章模型数据源标签" FD="NodeID" page="0"/}" /}</span> <span id="desc">下一篇文章：{ZL.Label id="下一篇文章" NodeID="{SField sid="文章模型数据源标签" FD="NodeID" page="0"/}" /}</span></div>
+<div id="about">
+<span>相关文章</span>
+<ul>
+{ZL.Label id="相关文章列表输出" ShowNum="10" TitleNum="35" KeyWord="{SField sid="文章模型数据源标签" FD="Tagkey" page="0"/}" /}
+</ul>
+</div>
+{ZL:CopyRight({SField sid="文章模型数据源标签" FD="GeneralID" page="0"/})/}
+<div class="mood">
+<div class="mood_top" style="height:30px; line-height:30px; border-bottom:1px solid  #9CF; margin-bottom:10px;">共用<b>{ZL.Label id="投票数"/}</b>人投票</div>
+<form name="form2" method="post" action="/PubAction.aspx">
+<input name="PubTitle" type="hidden" id="PubTitle" size="50" value="投票"> 
+<input type="hidden" name="PubID" id="PubID" value="2"> 
+<input type="hidden" name="PubContentid" id="PubContentid" value="{SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}"> 
+<input name="PubContent"  type="hidden" cols="50" rows="10" id="PubContent" value="投票">
+<ul class="list-unstyled">
+<li>{ZL.Label id="投票数" mood="1" /}<br/><span id="b1"><span id="bb1"></span></span><br/><img src="{$CssDir/}Images/b1.gif" /><br/>欠扁<br/><input type="radio" name="Mood"  onClick="mood(1)" value="1"></li>
+<li>{ZL.Label id="投票数" mood="2" /}<br/><span id="b2"><span id="bb2"></span></span><br/><img src="{$CssDir/}Images/b2.gif" /><br/>超赞<br/><input type="radio" name="Mood" onClick="mood(2)" value="2"></li>
+<li>{ZL.Label id="投票数" mood="3" /}<br/> <span id="b3"><span id="bb3"></span></span><br/><img src="{$CssDir/}Images/b3.gif" /><br/>支持<br/><input type="radio" name="Mood"  onClick="mood(3)" value="3"></li>
+<li>{ZL.Label id="投票数" mood="4" /}<br/> <span id="b4"><span id="bb4"></span></span><br/><img src="{$CssDir/}Images/b4.gif" /><br/>难过<br/><input type="radio" name="Mood" onClick="mood(4)" value="4"></li>
+<li>{ZL.Label id="投票数" mood="5" /}<br/><span id="b5"><span id="bb5"></span></span><br/><img src="{$CssDir/}Images/b5.gif" /><br/>搞笑<br/><input type="radio" name="Mood" onClick="mood(5)" value="5"></li>
+<li>{ZL.Label id="投票数" mood="6" /}<br/><span id="b6"><span id="bb6"></span></span><br/><img src="{$CssDir/}Images/b6.gif" /><br/>扯淡<br/><input type="radio" name="Mood"  onClick="mood(6)" value="6"></li>
+<li>{ZL.Label id="投票数" mood="7" /}<br/><span id="b7"><span id="bb7"></span></span> <br/><img src="{$CssDir/}Images/b7.gif" /><br/>不解<br/><input type="radio" name="Mood" onClick="mood(7)" value="7"></li>
+<li>{ZL.Label id="投票数" mood="8" /}<br/> <span id="b8"><span id="bb8"></span></span><br/><img src="{$CssDir/}Images/b8.gif" /><br/>头晕<br/><input type="radio" name="Mood" onClick="mood(8)" value="8"></li>
+</ul>
+<div class="clearfix"></div>
+<div style="display:none"> <input type="submit" name="button1" id="button1" value="提交"> </div>
+</form>
+<div>
+</div>
+</div>
+<div class="iframe_comm">
+<iframe id="comm_ifr" scrolling="no" onload="this.height = $(this).contents().height() + 'px';" src="/Comments/CommentFor?ID={SField sid="文章模型数据源标签" FD="GeneralID"/}" width="100%" align="middle" height="100%" frameborder="0"></iframe>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="news_list">
+<div class="news_list_t"><h2>分享</h2><div class="clearfix"></div></div>
+<div class="news_share">
+<div class="bdsharebuttonbox">
+<a class="bds_more" href="#" data-cmd="more"></a>
+<a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
+<a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a>
+<a title="分享到腾讯微博" class="bds_tqq" href="#" data-cmd="tqq"></a>
+<a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
+<a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+</div>
+</div>
+<div class="news_list">
+<div class="news_list_t"><h2>热门文章</h2><div class="clearfix"></div></div>
+<div class="news_list_c">
+<ul class="list-unstyled">
+{ZL.Label id="输出指定节点标题_带点击v3" NodeID="1" TitleNum="34" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><!--主体结束 -->
+<div class="Assis_Div"></div>
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>
+<script type="text/javascript" src="/JS/Controls/ZL_Dialog.js"></script>
+<script>
+//检测固顶事件
+var IO=document.getElementById('scolls'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+	".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+ if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+//]]>
+
+//兼容wp8
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+function initCommInfo(div){
+	$(".Assis_Div").html("");
+$(".Assis_Div").html(div);
+}
+function ContentAssist(flag){
+$("#comm_ifr")[0].contentWindow.ContentAssist(flag);
+}
+//弹出登录框
+var loginDiag = new ZL_Dialog();
+function checkLogin() {
+loginDiag.title = "用户登录";
+loginDiag.url = "/com/login_Ajax.aspx";
+loginDiag.ShowModal();
+}
+function LoginSuccess(){
+	window.location=location;
+}
+function mood(id){form2.submit();}
+</script>

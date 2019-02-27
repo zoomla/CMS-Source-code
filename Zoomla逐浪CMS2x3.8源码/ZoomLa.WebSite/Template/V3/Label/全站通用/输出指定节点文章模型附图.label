@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>148</LabelID>
+    <LabelName>输出指定节点文章模型附图</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|ShowNum,10,1,调用信息数</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_C_Article on ZL_CommonModel.ItemID=ZL_C_Article.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_C_Article.pic,ZL_CommonModel.Title,TitleStyle</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And Status=99 And ZL_C_Article.pic &lt;&gt;''</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title"{Field="Title"/}" target="_blank" style="{Field="TitleStyle"/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="pic"/})/}" /&gt;&lt;/a&gt;
+
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

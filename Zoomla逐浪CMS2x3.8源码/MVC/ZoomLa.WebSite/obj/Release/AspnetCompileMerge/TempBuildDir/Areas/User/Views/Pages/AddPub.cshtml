@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    string action = MVCHelper.GetAction("Pub_Add",Request);
+}
+@section head{
+    <title>互动信息</title>
+}
+@section content{
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="@Url.Action("Default","Pages")">企业黄页</a></li>
+            <li class="active">互动信息</li>
+        </ol>
+        <form action="@action" method="post">
+            <div class="us_seta" style="margin-top: 10px;" id="manageinfo">
+                <table class="table table-bordered table-hover table-striped">
+                    <tr>
+                        <td colspan="2" class="text-center">@ViewBag.ModelName</td>
+                    </tr>
+                    <tr>
+                        <td align="right">标题</td>
+                        <td>
+                            <input type="text" id="PubTitle" name="PubTitle" class="form-control text_400" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">内容</td>
+                        <td>
+                            <textarea id="PubContent" name="PubContent" class="form-control text_400" style="height:107px;"></textarea>
+                        </td>
+                    </tr>
+                    @MvcHtmlString.Create(ViewBag.ModelHtml)
+                    <tr class="text-center">
+                        <td colspan="2">
+                            <input type="submit" value="保存" class="btn btn-primary" />
+                            <a href="ViewSmallPub?Pubid=@ViewBag.PubID&ID=@ViewBag.Parentid" class="btn btn-primary">返回</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+}
+@section script{
+    <script type="text/javascript" src="/JS/Common.js"></script>
+    <script type="text/javascript" src="/JS/DatePicker/WdatePicker.js"></script>
+}

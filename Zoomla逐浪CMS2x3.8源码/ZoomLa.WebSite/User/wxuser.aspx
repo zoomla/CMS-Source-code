@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="wxuser.aspx.cs" Inherits="Test_wxuser" %>

@@ -1,0 +1,60 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    DataTable Details = (DataTable)ViewBag.Details;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>内容预览</title>
+}
+@section content{
+    <div id="pageflag" data-nav="content" data-ban="cnt"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Defult","")">会员中心</a></li>
+            <li>我的互动</li>
+            <li class="active">信息预览</li>
+        </ol>
+    </div>
+    <div class="container">
+        <ul class="us_seta" style="margin-top: 10px;">
+            <span>信息预览</span>
+            <div>
+                <table class="r_navigation" cellspacing="0" cellpadding="4" style="font-size:12px;width:100%;border-collapse:collapse;margin-bottom: 3px; margin-top: 2px;">
+                    <tbody>
+                        @foreach (DataRow row in Details.Rows)
+                        {
+                            <tr>
+                                <td class="tdbgleft" align="center" style="font-weight:bold;width:15%;">@row["Title"]</td>
+                                <td align="left">@row["Content"]</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </ul>
+        <input type="hidden" id="hfusername" />
+        <ul class="us_seta" style="margin-top: 10px;">
+            <h1 style="text-align: center">
+                <label id="label2">互动信息</label>
+            </h1>
+            @Html.Partial("ShowPub_List",Model,ViewData)
+        </ul>
+    </div>
+}
+@section script{
+    <script language="javascript" type="text/javascript" src="/js/SelectCheckBox.js"></script>
+    <script>
+        function gotourl(Optimal, pubid, gid, id) {
+            location.href = 'ShowPub ?menu=setinfo&Optimal=' + Optimal + '&pid=' + pubid + '&ID=' + gid + '&GID=' + id;
+        }
+        function setdb(Optimal, pubid, gid, id) {
+            location.href = 'ShowPub ?menu=setdb&Optimal=' + Optimal + '&pid=' + pubid + '&ID=' + gid + '&GID=' + id;
+        }
+        function setnodb(Optimal, pubid, gid, id) {
+            location.href = 'ShowPub ?menu=setnodb&Optimal=' + Optimal + '&pid=' + pubid + '&ID=' + gid + '&GID=' + id;
+        }
+
+    </script>
+}

@@ -1,0 +1,33 @@
+﻿<ion-view>
+
+<ion-header-bar class="bar-balanced bar bar-header visible-xs" align-title="center">
+<!--<a href="#/tab/index" class="button icon ion-chevron-left" nav-direction="back"></a>-->
+<div class="title title-center header-item">我的问卷</div>
+<a ng-href="#/tab/ask_add" class="button ion-plus-circled"></a>
+</ion-header-bar>
+<ion-content>
+<div class="design_askbanner hidden-xs"><span>我的问卷</span></div>
+
+<div class="container">
+<div class="row padding5">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 padding10" ng-repeat="item in list">
+<div class="pcask_list_c">
+<div class="pcask_list_ct"><a href="/design/ask/AskResult.aspx?id={{item.ID}}" title="{{item.Title}}"><img src="{{item.PreViewImg}}" alt="{{item.Title}}" onerror="javascript:this.src='/UploadFiles/timg.jpg';" /></a></div>
+<div class="pcask_list_cm">
+<h3><a href="/design/ask/AskResult.aspx?id={{item.ID}}" title="{{item.Title}}">{{item.Title}}</a></h3>
+<p><i class="fa fa-clock-o"></i> 创建时间：{{item.CDate | date:"yyyy-MM-dd"}} 到期时间：{{item.EndDate | date:"yyyy-MM-dd"}}</p>
+<p class="pcask_list_cmp" ng-bind="getRemind(item)"></p>
+<div class="pcask_list_cmb">
+<button type="button" ng-click="toshare(item)" class="btn btn-info btn-xs"><i class="fa fa-share-square-o"></i> 分享</button>
+<a href="/design/ask/AskResult.aspx?id={{item.ID}}" class="btn btn-success btn-xs"><i class="fa fa-th"></i> 结果</a>
+<button type="button" ng-click="toedit(item);" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> 编辑</button>
+<button type="button" ng-click="del(item);" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a ng-href="#/tab/ask_add" class="button button-balanced button-block">新建问卷</a>
+</div>
+</ion-content>
+</ion-view>

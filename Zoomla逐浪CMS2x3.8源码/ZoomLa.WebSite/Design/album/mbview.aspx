@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="mbview.aspx.cs" Inherits="Design_mbh5_album_mbview" %>

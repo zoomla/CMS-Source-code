@@ -1,0 +1,43 @@
+﻿<form name="form4" method="post" action="/PubAction.aspx">
+<div class="form-group">
+<label for="PubTitle">留言标题：</label>
+<input type="text" class="form-control" id="PubTitle" name="PubTitle" autofocus />
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">问题分类：</label>
+<select id="ClassLevel1" name="ClassLevel1" class="form-control" size="8" onChange="putd()">
+{ZL.Label id="添加问题分类" Cate="2" pid="0" /}
+</select>
+<select id="ClassLevel2" class="form-control" size="8"  name="ClassLevel2">
+{ZL.Label id="添加问题分类" Cate="2" pid="{$GetRequest(ClassLevel1)$}" /}
+</select> 
+</div>
+<div class="form-group">
+<label for="PubContent">问题说明：</label>
+<textarea class="form-control" name="PubContent" rows="5" id="PubContent"></textarea>
+</div>
+<div class="form-group text-center">
+<button type="submit" class="btn btn-default">提交问题</button>
+<button type="reset" class="btn btn-default">重置</button>
+</div>
+</form>
+<form name="formL" action="/columnlist.aspx?nodeid=119" method="get" target="_self">
+<input type="hidden" name="nodeid" value="119">
+<input type="hidden" name="ques" value="{$GetRequest(ques)$}">
+<input type="hidden" name="ClassLevel1" id="CL1" value="{$GetRequest(ClassLevel1)$}">
+</form>
+<script>
+document.getElementById("ClassLevel1").value='{$GetRequest(ClassLevel1)$}';
+function putd()
+{
+	document.getElementById("CL1").value=document.getElementById("ClassLevel1").value;
+	formL.submit();
+} 
+function subm()
+{
+	if(document.getElementById("ClassLevel1").value==''&&document.getElementById("ClassLevel2").value=='')
+		document.write("请选择分类！");
+	else
+		form1.submit();
+} 
+</script>

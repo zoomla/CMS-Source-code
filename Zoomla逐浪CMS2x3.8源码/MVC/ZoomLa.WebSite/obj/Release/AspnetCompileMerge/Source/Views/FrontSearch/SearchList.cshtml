@@ -1,0 +1,217 @@
+﻿@using System.Data
+@using ZoomLa.SQLDAL
+@model System.Data.DataTable
+@{
+    int NodeID = DataConvert.CLng(Request.QueryString["node"]);
+    int Order = DataConvert.CLng(Request.QueryString["order"]);
+    int S = DataConvert.CLng(Request.QueryString["S"]);
+    string KeyWord = HttpUtility.UrlDecode(Request.QueryString["KeyWord"] ?? "");
+    Layout = "~/Views/Shared/_empty.cshtml";
+    DataTable dt = SqlHelper.ExecuteTable("select Top 10 * from ZL_CommonModel where (NodeID=1 or FirstNodeID=1) And Status=99 Order by Hits DESC");
+    DataTable dt1 = SqlHelper.ExecuteTable("select Top 10 * from ZL_User Order by LastActiveTime DESC");
+}
+@section head{
+<title>搜索结果</title>
+<link href="/App_Themes/V3.css" rel="stylesheet" />
+<style>
+body { background:#f0f0f0;}
+.dropdown { display:inline-block;}
+</style>
+}
+@section content{
+<div class="relative">
+<div class="navbar navbar-default" id="search_scolls" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">智能切换导航</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/">
+<img src="@Call.LogoUrl" alt="@Call.SiteName" />
+@*<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-home fa-stack-1x fa-inverse"></i>
+</span>*@
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li><a href="/">首页</a></li>
+<li><a href="/ask" target="_blank">线上问答</a></li>
+<li><a href="/office" target="_blank">办公平台</a></li>
+<li><a href="/home" target="_blank">能力中心</a></li>
+<li><a href="/Guest" target="_blank">用户留言</a></li>
+<li><a href="/Index" target="_blank">社区贴吧</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="/User/Register"><i class="fa fa-user-plus"></i> 会员注册</a></li>
+<li><a href="/User/"><i class="fa fa-user"></i> 用户登录</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="search_left">
+<div class="search_left_t">
+<div class="input-group">
+<span class="input-group-addon">正在搜索</span>
+<input type="text" id="TxtKeyword" class="form-control" placeholder="请输入关键字" value="@ViewBag.KeyWord" />
+</div>
+<button type="button" value="搜索" onclick="UpdateSkey();" class="btn btn-default"><i class="fa fa-search"></i></button>
+</div>
+<div class="search_left_c">
+<div role="tabpanel">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active" onclick="UpdateS(0);"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">内容</a></li>
+<li role="presentation" onclick="UpdateS(1);"><a href="#home" aria-controls="profile" role="tab" data-toggle="tab">商品</a></li>
+<li role="presentation" onclick="UpdateS(2);"><a href="#home" aria-controls="messages" role="tab" data-toggle="tab">论坛</a></li>
+<li role="presentation" onclick="UpdateS(3);"><a href="#home" aria-controls="settings" role="tab" data-toggle="tab">问答</a></li>
+<li role="presentation" onclick="UpdateS(4);"><a href="#home" aria-controls="settings" role="tab" data-toggle="tab">留言</a></li>
+<li role="presentation" onclick="UpdateS(5);"><a href="#home" aria-controls="settings" role="tab" data-toggle="tab">店铺</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="home">
+<div class="search_orderby">
+<select id="ddlnode" name="ddlnode" class="form-control pull-left" onchange="UpdateNode()">
+<option value="0">全部栏目</option>
+@MvcHtmlString.Create(ViewBag.nodehtml)
+</select>
+<div class="pull-right">
+<div class="dropdown">
+<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+<span id="node_dr">按栏目检索</span>
+<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+<li><a class="skey" data-type="node" data-val="0" href="javascript:;">所有栏目</a></li>
+@foreach(DataRow dr in Model.Rows)
+{
+<li><a class="skey" data-type="node" data-val="@dr["nodeid"]" href="javascript:;">@dr["NodeName"]</a></li>
+}
+</ul>
+</div>
+<div class="dropdown">
+<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+<span id="order_dr">按时间</span><span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+<li role="presentation"><a class="skey" role="menuitem" tabindex="-1" data-type="order" data-val="0" href="javascript:;">按时间</a></li>
+<li role="presentation"><a class="skey" role="menuitem" tabindex="-1" data-type="order" data-val="1" href="javascript:;">点击数</a></li>
+</ul>
+<a href="/Search/Default" class="btn btn-default margin_l5">进入搜索中心>></a>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+<div id="rpt_div" class="margin_t10"></div>
+</div>
+<div role="tabpanel" class="tab-pane" id="profile">...</div>
+<div role="tabpanel" class="tab-pane" id="messages">...</div>
+<div role="tabpanel" class="tab-pane" id="settings">...</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="search_right">
+<div class="search_hotnews">
+<div class="search_hotnews_t">热门文章</div>
+<ul class="media-list">
+@foreach (DataRow dr in dt.Rows)
+{
+<li class="media">
+<div class="media-left"><a href="/Item/@(dr["GeneralID"]).aspx"><img class="media-object" src="@dr["TopImg"]" alt="@dr["Title"]" onerror="javascript:$(this).parent().parent().remove();" /></a></div>
+<div class="media-body media-middle">
+<h4 class="media-heading"><a href="#">@dr["Title"]</a></h4>
+</div>
+</li>
+}
+</ul>
+</div>
+<div class="search_right_ad"><img src="http://www.z01.com/Template/office/style/images/welcode.png" class="img-responsive" alt="动力逐浪" /></div>
+<div class="search_user">
+<div class="search_user_t">活跃用户</div>
+<ul class="media-list">
+@foreach (DataRow dr in dt1.Rows)
+{
+<li class="media">
+<div class="media-left"><img class="media-object" src="@dr["salt"]" alt="@dr["UserName"]" onerror="javascript:this.src='/Images/userface/noface.png';" /></div>
+<div class="media-body media-middle">
+<h4 class="media-heading">@dr["UserName"]</h4>
+</div>
+</li>
+}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container-fluid searchfoot">
+@Call.MVCLabel("{$Copyright/}")
+</div>
+}
+@section script{
+    <script>
+        var skeyMod = { keywrod: "@KeyWord", node: "@NodeID", order: "@Order",s:"@S" },
+            waitdiv = '<div id="wait_div" style="position:fixed; left:0; right:0; top:0; bottom:0; background:rgba(0, 0, 0, 0.31); z-index:2000;"><i class="fa fa-spinner fa-spin" style="position:absolute; top:50%; left:50%; -webkit-transform:translate(-50%,-50%); transform:translate(-50%,-50%);  font-size: 40px;"></i></div>';
+        function LoadPage() {
+            $("#rpt_div").html(waitdiv);
+            var url = "SearchBody?keyword=" + encodeURI(skeyMod.keywrod) + "&node=" + skeyMod.node + "&order=" + skeyMod.order + "&s="+skeyMod.s+" #main";
+            $("#rpt_div").load(url);
+        }
+        function LoadByAjax(query, page) {
+            $("#rpt_div").html(waitdiv);
+            var url = "SearchBody" + query + "page=" + page;
+            $("#rpt_div").load(url + " #main");
+        }
+        function UpdateNode() {
+            skeyMod.node = $("[name='ddlnode'] option:checked").val();
+            LoadPage();
+        }
+        function UpdateSkey() {
+            skeyMod.keywrod = $("#TxtKeyword").val();
+            LoadPage();
+        }
+        function UpdateS(s)
+        {
+            skeyMod.s = s;
+            LoadPage();
+        }
+        $(function () {
+            $(".skey").click(function () {
+                var obj = $(this);
+                switch (obj.data("type")) {
+                    case "node":
+                        skeyMod.node = obj.data("val");
+                        $("#node_dr").text(obj.text());
+                        break;
+                    case "order":
+                        skeyMod.order = obj.data("val");
+                        $("#order_dr").text(obj.text());
+                        break;
+                }
+                LoadPage();
+            });
+            $("#TxtKeyword").keydown(function () {
+                if (event.keyCode == 13) { UpdateSkey(); return false; }
+            });
+            LoadPage();
+            if (skeyMod.node > 0) {
+                $("#ddlnode").val(skeyMod.node);
+            }
+        })
+    </script>
+}

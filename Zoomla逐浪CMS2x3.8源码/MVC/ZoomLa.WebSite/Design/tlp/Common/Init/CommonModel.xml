@@ -1,0 +1,138 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Result>
+    <GeneralID>1</GeneralID>
+    <OrderID>0</OrderID>
+    <NodeID>2</NodeID>
+    <ModelID>2</ModelID>
+    <ItemID>1</ItemID>
+    <TableName>ZL_C_Article</TableName>
+    <Title>数据解读2015'Zoomla!逐浪CMS</Title>
+    <Inputer>admin</Inputer>
+    <Hits>0</Hits>
+    <CreateTime>2016-04-01T18:29:33+08:00</CreateTime>
+    <Status>99</Status>
+    <EliteLevel>0</EliteLevel>
+    <InfoID />
+    <SpecialID>,,</SpecialID>
+    <IsCreate>0</IsCreate>
+    <HtmlLink />
+    <Titlecolor />
+    <Template />
+    <Tagkey>数据,解读,</Tagkey>
+    <UpDateTime>2016-04-01T18:29:33+08:00</UpDateTime>
+    <UpDateType>2</UpDateType>
+    <cast_file>0</cast_file>
+    <because_back />
+    <PdfLink />
+    <Rtype />
+    <SuccessfulUserID>0</SuccessfulUserID>
+    <ComplianceUserList />
+    <Subtitle />
+    <PYtitle>sjjd2015'zoomla!zlcms</PYtitle>
+    <BidMoney>0.0000</BidMoney>
+    <IsBid>0</IsBid>
+    <Pronum>0</Pronum>
+    <ProWeek>0</ProWeek>
+    <BidType>0</BidType>
+    <DefaultSkins>0</DefaultSkins>
+    <OrederClass>0</OrederClass>
+    <FirstNodeID>2</FirstNodeID>
+    <TitleStyle />
+    <ParentTree>2</ParentTree>
+    <TopImg />
+    <IsCatch>0</IsCatch>
+    <RelatedIDS />
+    <IsComm>1</IsComm>
+  </Result>
+  <Result>
+    <GeneralID>2</GeneralID>
+    <OrderID>0</OrderID>
+    <NodeID>2</NodeID>
+    <ModelID>2</ModelID>
+    <ItemID>2</ItemID>
+    <TableName>ZL_C_Article</TableName>
+    <Title>专注研发的逐浪软件篇</Title>
+    <Inputer>admin</Inputer>
+    <Hits>0</Hits>
+    <CreateTime>2016-04-01T18:32:13+08:00</CreateTime>
+    <Status>99</Status>
+    <EliteLevel>0</EliteLevel>
+    <InfoID />
+    <SpecialID>,</SpecialID>
+    <IsCreate>0</IsCreate>
+    <HtmlLink />
+    <Titlecolor />
+    <Template />
+    <Tagkey>软件,专注,研发,</Tagkey>
+    <UpDateTime>2016-04-01T18:32:13+08:00</UpDateTime>
+    <UpDateType>2</UpDateType>
+    <cast_file>0</cast_file>
+    <because_back />
+    <PdfLink />
+    <Rtype />
+    <SuccessfulUserID>0</SuccessfulUserID>
+    <ComplianceUserList />
+    <Subtitle />
+    <PYtitle>zzyfdzlrjp</PYtitle>
+    <BidMoney>0.0000</BidMoney>
+    <IsBid>0</IsBid>
+    <Pronum>0</Pronum>
+    <ProWeek>0</ProWeek>
+    <BidType>0</BidType>
+    <DefaultSkins>0</DefaultSkins>
+    <OrederClass>0</OrederClass>
+    <FirstNodeID>2</FirstNodeID>
+    <TitleStyle />
+    <ParentTree>2</ParentTree>
+    <TopImg />
+    <IsCatch>0</IsCatch>
+    <RelatedIDS />
+    <IsComm>1</IsComm>
+  </Result>
+  <Result>
+    <GeneralID>3</GeneralID>
+    <OrderID>0</OrderID>
+    <NodeID>2</NodeID>
+    <ModelID>2</ModelID>
+    <ItemID>3</ItemID>
+    <TableName>ZL_C_Article</TableName>
+    <Title>站长网报道：全设备支持的逐浪CMS2全面发布</Title>
+    <Inputer>admin</Inputer>
+    <Hits>0</Hits>
+    <CreateTime>2016-04-01T18:34:25+08:00</CreateTime>
+    <Status>99</Status>
+    <EliteLevel>0</EliteLevel>
+    <InfoID />
+    <SpecialID>,,</SpecialID>
+    <IsCreate>0</IsCreate>
+    <HtmlLink />
+    <Titlecolor />
+    <Template />
+    <Tagkey>设备,全面,站长,支持,发布</Tagkey>
+    <UpDateTime>2016-04-01T18:34:25+08:00</UpDateTime>
+    <UpDateType>2</UpDateType>
+    <cast_file>0</cast_file>
+    <because_back />
+    <PdfLink />
+    <Rtype />
+    <SuccessfulUserID>0</SuccessfulUserID>
+    <ComplianceUserList />
+    <Subtitle />
+    <PYtitle>zzwbd：qsbzcdzlcms2qmfb</PYtitle>
+    <BidMoney>0.0000</BidMoney>
+    <IsBid>0</IsBid>
+    <Pronum>0</Pronum>
+    <ProWeek>0</ProWeek>
+    <BidType>0</BidType>
+    <DefaultSkins>0</DefaultSkins>
+    <OrederClass>0</OrederClass>
+    <FirstNodeID>2</FirstNodeID>
+    <TitleStyle />
+    <ParentTree>2</ParentTree>
+    <TopImg />
+    <IsCatch>0</IsCatch>
+    <RelatedIDS />
+    <IsComm>1</IsComm>
+  </Result>
+</NewDataSet>

@@ -1,0 +1,270 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model System.Data.DataTable
+@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@functions{
+    //截取长字符串
+    protected string CutTitle(string title)
+    {
+        if (title.Length > 30)
+            return title.Substring(0, 30) + "....";
+        return title;
+    }
+}
+@section head{
+    <title>备忘列表</title>
+    <link href="/App_Themes/User.css" type="text/css" rel="stylesheet" />
+    <script>
+        function loadPage(id, url) {
+            $("#" + id).addClass("loader");
+            $("#" + id).append("Loading......");
+            $.ajax({
+                type: "get",
+                url: url,
+                cache: false,
+                error: function () { alert('加载页面' + url + '时出错！'); },
+                success: function (msg) {
+                    $("#" + id).empty().append(msg);
+                    $("#" + id).removeClass("loader");
+                }
+            });
+        }
+        //隐藏DIV
+        function HideDiv(div_id) {
+            $("#" + div_id).animate({ opacity: "hide" }, 300);
+        }
+
+        //隐藏两个DIV
+        function HideDivs(div_id,div_ids) {
+            $("#" + div_id).animate({ opacity: "hide" }, 300);
+            $("#" + div_ids).animate({ opacity: "hide" }, 300);
+        }
+
+        function ShowDiv(div_id) {
+            var div_obj = $("#" + div_id);
+            div_obj.animate({ opacity: "show", left: 300, top: 660, width: div_obj.width, height: div_obj.height }, 300);
+        }
+
+        setTimeout("ShowDiv('TimeDiv')", 3000);
+
+        //加载时间
+        function show2() {
+            var divs = document.getElementById("DateDiv");
+            var Digital = new Date();
+            var year = Digital.getFullYear();
+            var months = Digital.getMonth() + 1;
+            var Days = Digital.getDate();
+            var hours = Digital.getHours();
+            var minutes = Digital.getMinutes();
+            var seconds = Digital.getSeconds();
+            var dn = "AM"
+            if (hours >= 12) {
+                dn = "PM";
+                hours = hours - 12;
+            }
+            if (hours == 0)
+                hours = 12;
+            if (minutes <= 9)
+                minutes = "0" + minutes;
+            if (seconds <= 9)
+                seconds = "0" + seconds;
+            var ctime = year + "年" + months + "月" + Days + "日 " + hours + ":" + minutes + ":" + seconds + " " + dn;
+            divs.innerHTML = ctime;
+            setTimeout("show2()", 1000);
+        }
+        window.onload = show2;
+
+        function Punids(id,Cont)
+        {
+            document.getElementById("HidCommentInfo").value = id;
+            document.getElementById("Txtco").innerText = Cont;
+            document.getElementById("divEdit").style.display = "block";
+            window.open('ComList?pid=' + id,'', 'width=400,height=220,resizable=0,scrollbars=yes');
+        }
+
+        function putid(id) {
+            var url = '/Mis/Memo/ComList?pid=';
+            document.getElementById("HidCommTxt").value = id;
+            //loadPage("Comlist", url + id);
+            document.getElementById("ComLists").style.display = "none";
+            document.getElementById("CommentDiv").style.display = "block";
+            var h = document.getElementById("divcon" + id).getBoundingClientRect().top;
+            document.getElementById("CommentDiv").style.top = (h - 104) + "px";
+            document.getElementById("CommentDiv").style.background = "#fdfce6";
+        }
+
+        //测试用
+        function whatBrowser() {
+            document.Browser.Name.value = navigator.appName;
+            document.Browser.Version.value = navigator.appVersion;
+            document.Browser.Code.value = navigator.appCodeName;
+            document.Browser.Agent.value = navigator.userAgent;
+            document.getElementById("hidappName").value = navigator.appName;
+            document.getElementById("hidappVersion").value = navigator.appVersion;
+            document.getElementById("hidappCodeName").value = navigator.appCodeName;
+            document.getElementById("hiduserAgent").value = navigator.userAgent;
+        }
+    </script>
+    <style>
+.spanU{float:left;  width:35px; padding-top:8px;}
+.uface{width:35px;height:35px;}
+.spedt{ float:right;}
+.divuinfo{position:relative;background-color:#fdfce6;}
+.divuinfo p{float:left; padding:0; margin:0; padding-left:10px;  }
+.divuinfo li{border-bottom:dotted 1px #ccc;}
+.divuinfo .spedt{ display:block; text-align:right;}
+
+#Contents{background-color:#808080;  width:680px; height:228px; padding-top:-100px;}
+#Close { text-align:right;}
+.Close{ float:right; padding-right:10px;}
+#head{ padding-top:-50px;}
+.TextDiv{background-color:#fff; width:660px; margin-left:10px; border:solid 1px #808080;}
+#TxtComment{}
+#BtnSubmit{ text-align:right; padding-right:10px;}
+#hidenComment{display:none;}
+.BtnDiv{ float:right; padding-right:10px;}
+#divEdits{display:none;}
+
+#BtnSubmit{ text-align:right; padding-right:10px;}
+#hidenComment{display:block;}
+.BtnDiv{ float:right; padding-right:10px;}
+#divEdit{display:none;}
+#ComLists{ display:block;}
+</style>
+}
+@section content{
+    <input type="hidden" id="hidappName" />
+    <input type="hidden" id="hidappVersion" />
+    <input type="hidden" id="hidappCodeName" />
+    <input type="hidden" id="hiduserAgent" />
+    <div id="Meno">
+        <div id="Meno_left">
+            <div class="Meno_li">
+                <ul>
+                    <li class="Meno_new"><a href="AddMemo">新建备忘</a></li>
+                    <li class="Meno_all"><a href="Default">全部备忘</a></li>
+                    <li class="Meno_my"><a href="Default?UName=@ViewBag.uname">我的备忘</a></li>
+                    <li class="Meno_share"><a href="Default?Sname@ViewBag.uname">共享给我  </a></li>
+                    <li class="Meno_pin"><a href="Default?Mname=@ViewBag.uname">我的评论</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="Meno_right" style="width:715px;">
+            <div id="Meno_Title">
+                @MvcHtmlString.Create(ViewBag.ltlTitle)
+            </div>
+            <div class="Meno_search">
+                <a href="#">
+                    <img src="/App_Themes/UserThem/images/Mis/icon_att_gray.gif" alt="" />
+                </a>
+                <a href="#">
+                    <img src="/App_Themes/UserThem/images/Mis/icon_remind_gray.gif" alt="" />
+                </a>
+                <a href="#">
+                    <img src="/App_Themes/UserThem/images/Mis/icon_share.gif" alt="" />
+                </a>
+            </div>
+            <div class="Meno_list">
+                <div id="divEmpty" style="text-align:center; height:40px; line-height:40px;">暂时没有备忘记录， 快去<a href="AddMemo">新建</a>一个吧、、、</div>
+                <ul>
+                    @foreach (DataRow dr in Model.Rows)
+                    {
+                        <li style="border-bottom: 1px dotted #cbc6c6;">
+                            <div class="ctop" style="padding:5px;">
+                                <span class="author" style="color:#278139;">@dr["Inputer"]</span> &nbsp; &nbsp;
+                                <span>创建于@(DataConverter.CDate(dr["CreateTime"]).ToString("yyyy-MM-dd HH:mm:ss"))</span>
+                            </div>
+                            <div style="margin-left:20px;">@CutTitle(dr["Title"].ToString()) </div>
+                            <div style="float:right; padding-right:10px;">
+                                <a href="javascript:;">详细信息</a>
+                                <a href="javascript:;">编辑</a> &nbsp; | &nbsp;
+                                <a href="javascript:;">删除</a>&nbsp; | &nbsp;
+                                <a href="#" title="" onclick="putid('@dr["ID"]')">评论</a>
+                            </div>
+                            <div id='divcon<%#Eval("ID")%>'></div>
+                            <div class="clear"></div>
+                        </li>
+                    }
+                    </ul>
+                <ul>
+                    @foreach (DataRow dr in Model.Rows)
+                    {
+                        <li style="border-bottom:1px dotted #808080;">
+                            <div>
+                                <span>@dr["Contents"]</span>&nbsp;&nbsp;<span>(@dr["CommentTime"])</span>
+                            </div>
+                            <div>
+                                <span>我评论</span>&nbsp;<span>@dr["GeneralID"]的备忘</span>&nbsp;&nbsp;<span><a href="MemoDetail?MID=@dr["GeneralID"]" title="">@dr["Title"]"</a></span>
+                            </div>
+                            <div style="text-align:right;">
+                                <a href="#" title="" onclick="Punids('@dr["CommentID"]','@dr["Contents"]')">编辑</a>&nbsp;|&nbsp;<a href="#" title="">删除</a>
+                                <div id='Cous@(dr["GeneralID"])'></div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+                <input type="hidden" id="HidCommentInfo"/>
+                <div id="divEdit">
+                    <div class="heads">
+                        <div class="Close"><a href="#" title="" onclick="HideDiv('divEdit')">关闭</a></div>
+                    </div>
+                    <div class="TextDiv">
+                        <input type="text" id="Txtco" name="Txtco" style="height:139px; width:658px;" />
+                        <br />
+                        <label><input type="checkbox" id="chk" name="chk" />提醒所有共享人</label>
+                    </div>
+                    <div class="BtnDiv">
+                        <input type="button" id="BtnSub" value="提交" />&nbsp;&nbsp;<input type="button" id="BtnColse" value="取消" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="TimeDiv" class="pop_box" style=" height:200px; margin-left:298px; margin-top:-30px;">
+                <div id="TimeHead" style="text-align:right; font-size:14px;" class="p_head">
+                    <div class="p_h_title" style=" text-align:left;">今日提醒</div>
+                    <div class="p_h_close" onclick="HideDiv('TimeDiv')">关闭</div>
+                </div>
+                <div id="TimeInfo">
+                    <div id="DateDiv" style="font-size:20px; color:#278139;font-weight:bold;text-align:left;"></div>
+                    <div id="warnContent" style="height:100px;">
+                        <span style="font-size:x-large;">今天没有提醒</span>
+                        <ul>
+                            @foreach (DataRow dr in Model.Rows)
+                            {
+                            <li style="border-bottom:1px dotted #808080">
+                                标题:<a href="javascript:;">@dr["title"]</a>&nbsp;&nbsp;分享人:@dr["IsShare"]&nbsp;&nbsp;创建时间:@dr["CreateTime"]
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="CommentDiv" style=" position:absolute; padding:8px;border:1px solid #ccc;display:none;">
+                <div style=" text-align:right;">
+                    <span class="closex"><a href="javascript:void(0)" onclick="HideDivs('CommentDiv','Comlist')">×</a></span>
+                </div>
+                <input type="text" id="TxtComment" name="TxtComment" style="height:47px;width:661px;" />
+                <br />
+                <input ID="HidCommTxt" type="hidden" value="11" runat="server" />
+                <input type="button" value="提交评论" id="BtnComment" />
+                <input type="button" value="取消" id="conbtn" onclick="HideDiv('CommentDiv')" />
+                <span style=" float:right;">
+                    <a href="javscript::">查看所有评论</a>
+                </span>
+                <div id="ComLists"style="display:none;">
+                    <ul>
+                        <li>
+                            <input id="HidComID" type="hidden" />
+                            <input type="hidden" id="HidID"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}

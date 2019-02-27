@@ -1,0 +1,115 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    string action = ViewBag.isfirst ? "set" : "update";
+    string btnName = ViewBag.isfirst ? "保 存" : "修 改";
+}
+@section head{
+    <title>支付密码设置</title>
+    <link href="/JS/Plugs/shortPwd/shortPwd.css" rel="stylesheet" />
+    <style>
+        .text_220 { width: 220px; }
+        .title{display:inline-block;margin0;padding:0; width:100px;text-align:right;}
+        .shortPwd_div { display: inline-block; }
+        .margin-l10{margin-left:10px;}
+    </style>
+}
+@section content{
+    <div id="pageflag" data-nav="group" data-ban="SetSecondPwd"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+            <li class="active">二级密码<a href="SetSecondPwd">[设置二级密码]</a></li>
+        </ol>
+    </div>
+    <div class="container btn_green u_cnt">
+        <div class="text-center">
+            <form method="post" action="SecondPwd_Set?action=@action">
+                <div class="panel panel-info margin_t10">
+                    <div class="panel-heading"><i class="fa fa-user-secret"></i> 二级密码设置</div>
+                    <div class="panel-body">
+                        @if (action.Equals("update"))
+                        {
+                            <div style="border-bottom:1px dashed #ddd;padding-bottom:5px;">
+                                <span class="title">原&nbsp;密&nbsp;码：</span>
+                                <div class="shortPwd_div">
+                                    <span class="shortPwd" node-type="shortPassword">
+                                        <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                        <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                        <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                        <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                        <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                        <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                        <input type="password" name="oldpwd_t" id="oldpwd_t" class="shortPwd-hidden" node-type="shortPassword-value" maxlength="6" />
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                        <div class="margin_t5" style="border-bottom:1px dashed #ddd;padding-bottom:5px;">
+                            <span class="title">新&nbsp;密&nbsp;码：</span>
+                            <div class="shortPwd_div">
+                                <span class="shortPwd" node-type="shortPassword">
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" name="pwd_t" id="pwd_t" class="shortPwd-hidden" node-type="shortPassword-value" maxlength="6" />
+                                </span>
+                            </div>
+                        </div>
+                        <div class="margin_t5">
+                            <span class="title">确认密码：</span>
+                            <div class="shortPwd_div">
+                                <span class="shortPwd" node-type="shortPassword">
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" class="shortPwd-input" node-type="shortPassword-input" autocomplete="new-password" maxlength="1" />
+                                    <input type="password" name="chk_pwd" id="chk_pwd" class="shortPwd-hidden" node-type="shortPassword-value" maxlength="6" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <input type="submit" value="@btnName" class="btn btn-primary" />
+                        <button type="button" class="btn btn-primary margin-l10" onclick="history.go(-1);">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+@section script{
+    <script src="/JS/ZL_Regex.js"></script>
+    <script src="/JS/Plugs/shortPwd/shortPwd.js"></script>
+    <script>
+        $(function () {
+            shortPassword();
+            if (window.ZL_Regex) {
+                $.validator.addMethod("paypwd", function (value, element) {
+                    if (ZL_Regex.isEmpty(value)) { return true; }
+                    var price = /^[0-9]{6}$/;
+                    return this.optional(element) || (price.test(value));
+                });
+            };
+            validate.zl_init($("form"), {
+                rules: {
+                    oldpwd_t: { required: true, paypwd:true },
+                    pwd_t: { required: true, paypwd: true },
+                    chk_pwd: { required: true, equalTo: "#pwd_t" }
+                },
+                messages: {
+                    oldpwd_t: { required: "请输入原密码",paypwd:"密码只能为6位数字" },
+                    pwd_t: { required: "请输入密码", paypwd: "密码只能为6位数字" },
+                    chk_pwd: { required: "请确认密码", equalTo: "两次密码输入不一致" }
+                }
+            }, {
+                placement: 'right',
+                style: 'green'
+            });
+        });
+    </script>
+}

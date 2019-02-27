@@ -1,0 +1,35 @@
+﻿@using System.Data;
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+public string GetSurType(object type)
+{
+   switch(type.ToString())
+   {
+       case "1":
+           return "投票";
+       default:
+           return "问卷";
+   }
+}
+}
+@{
+    Model.cols = 5;
+    Model.url = "Survey_Data";
+}
+<table class="table table-bordered table-striped" id="EGV">
+    <tr><td></td><td>ID</td><td>问卷名</td><td>投票类型</td><td>操作</td></tr>
+    @foreach (DataRow dr in Model.dt.Rows)
+    {
+        <tr>
+            <td class="td_s"><input type="checkbox" name="idchk" value="@dr["SurveyID"]" /></td>
+            <td class="td_s">@dr["SurveyID"]</td>
+            <td><a href="/Plugins/UserVote.aspx?SID=@dr["surveyid"]" target="_blank">@dr["SurveyName"]</a></td>
+            <td>@GetSurType(dr["SurType"])</td>
+            <td class="td_l">
+                <a href="/Plugins/UserVote.aspx?SID=@dr["surveyid"]" target="_blank">回答</a> |
+                <a href="/Plugins/VoteResult.aspx?SID=@dr["surveyid"]" target="_blank">结果</a>
+            </td>
+        </tr>
+    }
+    @Html.Partial("_page", Model)
+</table>

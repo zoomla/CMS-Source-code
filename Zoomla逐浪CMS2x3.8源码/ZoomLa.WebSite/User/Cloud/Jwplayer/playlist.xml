@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="gb2312"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+	<trackList>
+		<track>
+			<title>  1.   22.mp3   </title>
+			<location>22.mp3</location>
+		</track>
+
+		
+		
+		<track>
+			<title>  7.   Lemon tree   - Fool's Garden   </title>
+			<location>http://outhouse.devvyn.com/aud/Fool's Garden/03%20Lemon%20Tree.mp3</location>
+		</track>
+		
+		<track>
+			<title>  8.   Lemon tree   - Fool's Garden   </title>
+			<location>http://outhouse.devvyn.com/aud/Fool's Garden/03%20Lemon%20Tree.mp3</location>
+		</track>
+		
+		<track>
+			<title>  9.   Lemon tree   - Fool's Garden   </title>
+			<location>http://outhouse.devvyn.com/aud/Fool's Garden/03%20Lemon%20Tree.mp3</location>
+		</track>
+		
+		<track>
+			<title>  10.   Lemon tree   - Fool's Garden   </title>
+			<location>http://outhouse.devvyn.com/aud/Fool's Garden/03%20Lemon%20Tree.mp3</location>
+		</track>
+	
+		<track>
+			<title>  11.   Lemon tree   - Fool's Garden   </title>
+			<location>http://outhouse.devvyn.com/aud/Fool's Garden/03%20Lemon%20Tree.mp3</location>
+		</track>
+		
+		<track>
+			<title>  12.   Lemon tree   - Fool's Garden   </title>
+			<location>http://outhouse.devvyn.com/aud/Fool's Garden/03%20Lemon%20Tree.mp3</location>
+		</track>
+		
+		<track>
+			<title>  13.   Lemon tree   - Fool's Garden   </title>
+			<location>http://outhouse.devvyn.com/aud/Fool's Garden/03%20Lemon%20Tree.mp3</location>
+		</track>	
+	</trackList>
+</playlist>
+
+

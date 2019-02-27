@@ -1,0 +1,111 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link href="{$CssDir/}fix.css" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/js/jquery.lazyload.js" type="text/javascript"></script>
+<style type="text/css">
+#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/} a span:hover{ text-decoration:underline;}
+#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/} a span{background:url({$CssDir/}Images/top_nav.gif) no-repeat 0px -42px; font-weight:bold; color:#fff; text-decoration:none;width:77px; height:38px; display:block;}
+</style>
+</head>
+<body>
+<body id="header" >
+<div id="home_all"> 
+{ZL.Label id="蓝色头部"/}
+<div id="topbanner"><img src="{$CssDir/}Images/bannertop2.jpg" /></div><!-- 通栏广告位 -->
+<div id="mysite">
+<ul class="breadcrumb">
+<li><a href="/">首页</a></li>
+>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}
+<li class="active">商品比较</li>
+</ul>
+</div>
+
+<!--频道首页主体开始 -->
+<div id="main" style="border:1px solid #ccc; margin-top:10px; border-bottom:none">
+<div id="contrast1" class="contrast" style="width:150px;">
+<ul class="cont_sym">
+<li class="shop_photo">
+商品图片
+ </li>
+ <li>
+ 商城价：
+  </li>
+  <li>
+ 所属品牌：
+  </li>
+   <li>
+ 产地：
+  </li>
+   <li>
+ 售后服务：
+  </li> 
+  <li>
+ 商品重量：
+  </li> 
+  <li class="shop_photo">
+ 商品简介：
+  </li>
+ </ul>
+
+
+</div> 
+<div id="contrast2"  class="contrast">
+<div id="show1">
+{ZL.Label id="根据商品ID得到商品参数" SID="{$GetRequest(Iid1)$}" /}
+
+</div>
+</div> 
+
+<div id="contrast3"  class="contrast">
+<div id="show2">
+
+ {ZL.Label id="根据商品ID得到商品参数" SID="{$GetRequest(Iid2)$}" /}
+</div> </div>
+
+<div id="contrast4"  class="contrast"><div id="show3">
+{ZL.Label id="根据商品ID得到商品参数" SID="{$GetRequest(Iid3)$}" /}</div></div> 
+
+<div id="contrast5"  class="contrast">
+<div id="show4">
+{ZL.Label id="根据商品ID得到商品参数" SID="{$GetRequest(Iid4)$}" /}</div></div> 
+<div id="contrast6"  class="contrast">
+<div id="show5">
+{ZL.Label id="根据商品ID得到商品参数" SID="{$GetRequest(Iid5)$}" /}</div>
+</div> 
+
+<div class="clear"></div>
+</div>
+<!--频道首页主体结束 -->
+<script>
+ var a2='{$GetRequest(Iid2)$}';
+var a3='{$GetRequest(Iid3)$}';
+var a4='{$GetRequest(Iid4)$}';
+var a5='{$GetRequest(Iid5)$}';
+ if(a2==''){
+document.getElementById("contrast3").innerHTML='<ul class="cont_sym"><li class="shop_photo"><em>暂无对比项</em><br/><a href="/ColumnList.aspx?NodeID=2">添加</a> </li><li></li> <li></li><li></li><li></li> <li></li> <li class="shop_photo"></li></ul>';
+ }
+  if(a3==''){
+document.getElementById("contrast4").innerHTML='<ul class="cont_sym"><li class="shop_photo"><em>暂无对比项</em><br/><a href="/ColumnList.aspx?NodeID=2">添加</a></li><li></li> <li></li><li></li><li></li> <li></li> <li class="shop_photo"></li></ul>';
+ }
+  if(a4==''){
+document.getElementById("contrast5").innerHTML='<ul class="cont_sym"><li class="shop_photo"><em>暂无对比项</em><br/><a href="/ColumnList.aspx?NodeID=2">添加</a></li><li></li> <li></li><li></li><li></li> <li></li> <li class="shop_photo"></li></ul>';
+ }
+   if(a5==''){
+document.getElementById("contrast6").innerHTML='<ul class="cont_sym"><li class="shop_photo"><em>暂无对比项</em><br/><a href="/ColumnList.aspx?NodeID=2">添加</a></li><li></li> <li></li><li></li><li></li> <li></li> <li class="shop_photo"></li></ul>';
+ }
+</script>
+<div style="clear:both;"></div>
+{ZL.Label id="蓝色底部"/}
+<div class="clear"></div>
+</div>
+</body>
+</html>

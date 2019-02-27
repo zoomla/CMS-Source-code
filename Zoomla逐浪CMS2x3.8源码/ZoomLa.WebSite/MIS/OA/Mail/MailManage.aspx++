@@ -1,0 +1,49 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MailManage.aspx.cs" Inherits="MIS_OA_Mail_MailManage" EnableViewStateMac="false" MasterPageFile="~/User/Empty.master" %>
+<asp:Content runat="server" ContentPlaceHolderID="head">
+<title>邮箱管理</title>
+<link type="text/css" href="../CSS/ZLOA.css" rel="stylesheet" />     
+<script type="text/javascript" charset="utf-8" src="/Plugins/Ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="Content">
+<div class="mainDiv">
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 padding0 mainDiv_l">
+
+<div class="Messge_mainul">
+<ul class="Messge_nav"> 
+<li><a href="javascript:;" data-target="Message.aspx">收件箱<font color="red">(未读<%=GetUnreadMsg()%>)</font></a></li> 
+<li id="MessageOutbox"><a href="javascript:;" data-target="MessageOutbox.aspx">发件箱</a></li>
+<li id="MessageDraftbox"><a href="javascript:;" data-target="MessageDraftbox.aspx">草稿箱</a></li>
+<li id="MessageGarbagebox"><a href="javascript:;" data-target="MessageGarbagebox.aspx">垃圾箱</a></li>
+</ul>
+</div>
+<div class="clearfix"></div>
+<div class="Messge_mainul">
+<ul>
+ <li id="Mobile"><a href="javascript:;" data-target="Mobile.aspx">手机短信</a></li> 
+<li id="MessageSend"><a href="javascript:;" data-target="MessageSend.aspx"><i class="fa fa-pencil-square"></i>写信</a></li>
+<li id="Message"><a href="javascript:;" data-target="Message.aspx"><i class="fa fa-envelope-square"></i>收信</a></li>
+<li id="Contact"><a href="javascript:;" data-target="Contact.aspx"><i class="fa fa-users"></i>通讯录</a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-10 col-md-10 col-sm-9 col-xs-12 ">
+<iframe id="mailhref" src="" frameborder="0" width="100%" height="750"></iframe>
+</div>
+</div>
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="Script">
+<script>
+$().ready(function (e) { 
+    $(".Messge_nav li a").click(function (e) {
+        var str = $(this).attr("data-target");
+        if (str != "") {
+            $(".Messge_nav li").removeClass("active");
+            $("#mailhref").attr("src", str);
+            $(this).parent().addClass("active");
+        }
+    });
+    $("#mailhref").attr("src","<%=DefUrl%>");
+}); 
+</script>
+</asp:Content>

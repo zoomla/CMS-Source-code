@@ -1,0 +1,29 @@
+﻿@using System.Data
+@{
+
+}
+<div style="border:1px solid #ddd;padding:5px;margin-bottom:3px;">总计：<span class="r_red" id="count_sp">0</span>道相关试题</div>
+<div id="login_div" class="alert alert-danger">你当前是[<span style="color:red;">游客</span>]身份,登录后可以启用更多功能!<a href="/User/Login?ReturnUrl=/User/Exam/QuestionManage">点击登录</a></div>
+@foreach (DataRow dr in dt.Rows)
+{
+    <div class="panel panel-default" style="margin-bottom: 10px;">
+        <div class="panel-body">
+            <%#GetContent()%>
+        </div>
+        <div class="panel-footer">
+            <a href="QuestView?ID=@dr["p_id"]" target="_blank"><i class="fa fa-check-circle"></i>查看解析</a>
+            @*<a href="#" class="disabled"><i class="fa fa-cloud-download"></i>下载</a>*@
+            <a class="cart_op addQid" href="javascript:<%#GetIsContain()?" style="display:none;" data-type="@dr["p_type"]" data-qid="@dr["p_id"]"><i class="fa fa-plus-circle"></i>试题篮</a>
+            <a class="cart_op removeQid" href="javascript:<%#GetIsContain()?" style="display:none;" data-type="@dr["p_type"]" data-qid="@dr["p_id"]"><i class="fa fa-minus-circle">试题篮(已加入试题篮)</i></a>
+            <div style="float: right;">
+                <span>科目:<span class="r_green">@dr["C_ClassName"]</span></span>
+                <span>知识点:<span class="r_green"><%#GetTagKey()%></span></span>
+            </div>
+        </div>
+    </div>
+}
+@*<asp:Literal runat="server" ID="Page_Lit"></asp:Literal>*@
+@MvcHtmlString.Create(ViewBag.modelhtml)
+<div id="empty_div" style="width:100%;text-align:center;">
+    对不起,当前条件下没有试题,@Call.SiteName 正在加速上载试题,敬请期待！
+</div>

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="0">
+<title>字体属性</title>
+</head>
+<script language="javascript" type="text/javascript">
+    //var mainright = window.top.main_right;
+    //var parobjtodo = mainright;
+    //var parobj;
+    //try {
+    //    parobj = parobjtodo.diag.innerFrame.contentWindow;
+    //}
+    //catch (Error) {
+    //    parobj = parobjtodo;
+    //}
+    var parobj = parent;
+    var FONT_NAME = Array(
+	 'Arial', 'Arial Black', 'Courier New', 'Garamond', 'Georgia', 'Tahoma', 'Verdana', 'Times New Roman', 'GulimChe', 'MS Gothic', '方正舒体', '方正姚体', '仿宋', '黑体', '华文彩云', '华文仿宋', '华文行楷', '华文琥珀', '华文楷体', '华文隶书', '华文宋体', '华文细黑', '华文新魏', '华文中宋', '楷体', '隶书', '宋体', '微软雅黑', '新宋体', '幼圆'
+);
+
+    var FONT_SIZE = Array(
+	Array('12px', '初号(12px)'),
+	Array('13px', '初号(13px)'),
+	Array('14px', '初号(14px)'),
+	Array('15px', '初号(15px)'),
+	Array('16px', '初号(16px)'),
+	Array('17px', '初号(17px)'),
+	Array('18px', '小号(18px)'),
+	Array('24px', '二号(24px)'),
+	Array('30px', '小三(30px)'),
+    Array('36px','三号(36px)'),
+    Array('42px','小四(42px)'),
+    Array('48px','四号(48px)'),
+    Array('54px','五号(54px)'),
+    Array('60px','小六(60px)'),
+    Array('66px','六号(66px)'),
+    Array('72px','七号(72px)')
+);
+
+    var Text_Decoration = Array(
+	'line-through', 'underline', 'overline'
+);
+
+    function Result(cmd, value) {
+        if (value != null) {
+            var PreviewObject = document.getElementById('PreviewText');
+            switch (cmd) {
+                case "FontFamily":
+                    PreviewObject.style.fontFamily = value;
+                    break;
+                case "FontSize":
+                    PreviewObject.style.fontSize = value;
+                    break;
+                case "FontColor":
+                    PreviewObject.style.color = value;
+                    break;
+                case "BgColor":
+                    PreviewObject.style.backgroundColor = value;
+                    break;
+                case "FontBold":
+                    PreviewObject.style.fontWeight = 'normal';
+                    PreviewObject.style.fontStyle = 'normal';
+                    if (value == 'bold')
+                        PreviewObject.style.fontWeight = value;
+                    else if (value == 'italic')
+                        PreviewObject.style.fontStyle = value;
+                    else if (value == 'bold italic') {
+                        PreviewObject.style.fontWeight = 'bold';
+                        PreviewObject.style.fontStyle = 'italic';
+                    }
+                    break;
+                case "TextDecoration":
+                    if (PreviewObject.style.textDecoration.indexOf(value) < 0)
+                        PreviewObject.style.textDecoration += ' ' + value;
+                    else {
+                        PreviewObject.style.textDecoration = PreviewObject.style.textDecoration.replace(value, '');
+                        PreviewObject.style.textDecoration = PreviewObject.style.textDecoration.replace('  ', '');
+                    }
+                    break;
+            }
+        }
+    }
+
+    function ReturnStyle() { 
+        var txtTitleObject = parobj.document.getElementById('txtTitle');
+        
+        var PreviewObject = document.getElementById('PreviewText');
+        txtTitleObject.style.fontFamily = PreviewObject.style.fontFamily;
+        txtTitleObject.style.fontSize = PreviewObject.style.fontSize;
+        txtTitleObject.style.color = PreviewObject.style.color;
+        txtTitleObject.style.backgroundColor = PreviewObject.style.backgroundColor;
+        txtTitleObject.style.fontWeight = PreviewObject.style.fontWeight;
+        txtTitleObject.style.fontStyle = PreviewObject.style.fontStyle;
+        txtTitleObject.style.textDecoration = PreviewObject.style.textDecoration;
+
+        var txtTitleStyle = '';
+        if (PreviewObject.style.fontFamily.length > 1) txtTitleStyle += 'font-family:' + PreviewObject.style.fontFamily + ';';
+        if (PreviewObject.style.fontSize.indexOf('px') > 0) txtTitleStyle += 'font-size:' + PreviewObject.style.fontSize + ';';
+        if (PreviewObject.style.color.length > 3) txtTitleStyle += 'color:' + PreviewObject.style.color + ';';
+        if (PreviewObject.style.backgroundColor.length > 3) txtTitleStyle += 'background:' + PreviewObject.style.backgroundColor + ';';
+        if (PreviewObject.style.fontWeight == 'bold') txtTitleStyle += 'font-weight:' + PreviewObject.style.fontWeight + ';';
+        if (PreviewObject.style.fontStyle == 'italic') txtTitleStyle += 'font-style:' + PreviewObject.style.fontStyle + ';';
+        if (PreviewObject.style.textDecoration.length > 7) txtTitleStyle += 'text-decoration:' + PreviewObject.style.textDecoration + ';';
+        
+        parobj.document.getElementById('ThreadStyle').value = txtTitleStyle;
+
+        parent.diag.CloseModal();
+    }
+
+    function ClearStyle() {
+        txtTitleObject.style.fontFamily = '';
+        txtTitleObject.style.fontSize = '';
+        txtTitleObject.style.color = '';
+        txtTitleObject.style.backgroundColor = '';
+        txtTitleObject.style.fontWeight = '';
+        txtTitleObject.style.fontStyle = '';
+        txtTitleObject.style.textDecoration = '';
+        parobj.document.getElementById('ThreadStyle').value = '';
+        parent.diag.CloseModal();
+    }
+</script>
+<script type="text/javascript" src="../js/selectColor.js"></script>
+<body style="font-size: 10pt; background:#fff;">
+<fieldset>
+  <legend>基本设置</legend>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td> 字体： </td>
+      <td> 字体样式： </td>
+      <td> 大小： </td>
+    </tr>
+    <tr>
+      <td><select size="6" name="FontFamily" onchange="Result('FontFamily',this.options[this.selectedIndex].value);">
+          <option value="">(默认字体)</option>
+          <script language="javascript" type="text/javascript">
+			var valuesd = parobj.document.getElementById("txtTitle").fontFamily;
+			for (i = 0; i < FONT_NAME.length; i++) {
+				if (FONT_NAME[i] == parobj.document.getElementById('txtTitle').style.fontFamily)
+					document.write('<option value="' + FONT_NAME[i] + '" selected>' + FONT_NAME[i] + '</option>');
+				else
+					document.write('<option value="' + FONT_NAME[i] + '">' + FONT_NAME[i] + '</option>');
+			}
+		</script>
+        </select></td>
+      <td><select size="6" name="FontBold" onchange="Result('FontBold',this.options[this.selectedIndex].value);"
+                        style="width: 110px">
+          <option value="">(默认样式)</option>
+          <script language="javascript" type="text/javascript">
+			var txtTitleObject = parobj.document.getElementById('txtTitle');
+			if (txtTitleObject.style.fontStyle == 'italic')
+				document.writeln('<option value="italic" selected>倾斜</option>');
+			else
+				document.writeln('<option value="italic">倾斜</option>');
+			if (txtTitleObject.style.fontWeight == 'bold')
+				document.writeln('<option value="bold" selected>加粗</option>');
+			else
+				document.writeln('<option value="bold">加粗</option>');
+			if (txtTitleObject.style.fontWeight == 'bold' && txtTitleObject.style.fontStyle == 'italic')
+				document.writeln('<option value="bold italic" selected>加粗 倾斜</option>');
+			else
+				document.writeln('<option value="bold italic">加粗 倾斜</option>');
+		</script>
+        </select></td>
+      <td><select size="6" name="FontSize" onchange="Result('FontSize',this.options[this.selectedIndex].value);" style="width: 110px">
+          <option value="">(默认大小)</option>
+          <script language="javascript" type="text/javascript">
+			for (i = 0; i < FONT_SIZE.length; i++) {
+				if (FONT_SIZE[i][0] == parobj.document.getElementById('txtTitle').style.fontSize)
+					document.write('<option value="' + FONT_SIZE[i][0] + '" selected>' + FONT_SIZE[i][1] + '</option>');
+				else
+					document.write('<option value="' + FONT_SIZE[i][0] + '">' + FONT_SIZE[i][1] + '</option>');
+			}
+		</script>
+        </select></td>
+    </tr>
+  </table>
+</fieldset>
+<br />
+<fieldset>
+  <legend>效果</legend>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" height="25px">
+    <tr>
+      <td width="8%">&nbsp;</td>
+      <td><span onclick="OpenColorPicker('FontColor', event)" style="cursor: pointer" title="点击选择颜色"> <img id="FontColor" style="background: #000; border: 0; margin-right: 3px" src="../Images/rect.gif" align="absmiddle" />文字颜色</span></td>
+      <td><span onclick="OpenColorPicker('BgColor', event)" style="cursor: pointer" title="点击选择颜色"> <img id="BgColor" style="background: #FFF; border: 0; margin-right: 3px" src="../Images/rect.gif"  align="absmiddle" />突出颜色</span></td>
+      <td><label for="underline">
+          <input id="underline" name="TextDecoration" type="checkbox" value="underline" onclick="Result('TextDecoration',this.value)" />
+          下划线</label></td>
+      <td><label for="line-through">
+          <input id="line-through" name="TextDecoration" type="checkbox" value="line-through"
+                            onclick="Result('TextDecoration',this.value)" />
+          删除线</label></td>
+      <td><label for="overline">
+          <input id="overline" name="TextDecoration" type="checkbox" value="overline" onclick="Result('TextDecoration',this.value)" />
+          上划线</label></td>
+    </tr>
+  </table>
+</fieldset>
+<br />
+<fieldset>
+  <legend>预览</legend>
+  <table width="100%" height="32" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td height="100px" style="border: 1px solid #666;" align="center"><span id="PreviewText" style="">字体效果演示</span></td>
+    </tr>
+  </table>
+</fieldset>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center"><input type="button" value=" 确定 " onclick="ReturnStyle();" />
+      <input type="button" onclick="parent.diag.CloseModal();" value=" 取消 " />
+      <input type="button" onclick="ClearStyle();" value=" 删除效果 " /></td>
+  </tr>
+</table>
+<script language="javascript" type="text/javascript">
+	var txtTitleObject = parobj.document.getElementById('txtTitle');
+	var PreviewObject = document.getElementById('PreviewText');
+	if (parobj.document.getElementById('txtTitle').value != '')
+		PreviewObject.innerHTML = txtTitleObject.value;
+	PreviewObject.style.fontFamily = txtTitleObject.style.fontFamily;
+	PreviewObject.style.fontSize = txtTitleObject.style.fontSize;
+	PreviewObject.style.color = txtTitleObject.style.color;
+	PreviewObject.style.backgroundColor = txtTitleObject.style.backgroundColor;
+	PreviewObject.style.fontWeight = txtTitleObject.style.fontWeight;
+	PreviewObject.style.fontStyle = txtTitleObject.style.fontStyle;
+	PreviewObject.style.textDecoration = txtTitleObject.style.textDecoration;
+
+	if (txtTitleObject.style.color.length > 3)
+		document.getElementById('FontColor').style.backgroundColor = txtTitleObject.style.color;
+	document.getElementById('BgColor').style.backgroundColor = txtTitleObject.style.backgroundColor;
+	for (i = 0; i < Text_Decoration.length; i++) {
+		if (parobj.document.getElementById('txtTitle').style.textDecoration.indexOf(Text_Decoration[i]) >= 0) {
+			document.getElementById(Text_Decoration[i]).checked = true;
+		}
+	}
+</script>
+</body>
+</html>

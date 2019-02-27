@@ -1,0 +1,85 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>254</LabelID>
+    <LabelName>响应式全站底部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="myFoot"&gt;
+&lt;div class="container"&gt;
+&lt;div id="row"&gt;
+&lt;div id="home_footer"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(20)/}" target="_blank"&gt;关于我们&lt;/a&gt;&lt;/li&gt;  
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(22)/}" target="_blank"&gt;法律声明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(77)/}" target="_blank"&gt;帮助中心&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(21)/}" target="_blank"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/Scha.aspx" target="_blank"&gt;防伪查询&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/guest/" target="_blank"&gt;留言反馈&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/Plugins/Camera.aspx" target="_blank"&gt;在线拍照&lt;/a&gt;&lt;/li&gt; 
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(106)/}" target="_blank"&gt;网站地图&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{$ManageDir/}Default.aspx" target="_blank"&gt;管理登录&lt;/a&gt;&lt;/li&gt; 
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;div id="copyright"&gt;{$Copyright/}&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--下面是浮动最下面的客服代码，默认隐藏-通过CSS中的MYbottom定义显示--&gt;
+&lt;div class="navbar navbar-fixed-bottom MYbottom"&gt;
+&lt;div class="container BottomLink" &gt;
+&lt;div class="col-lg-7 col-md-6 col-xs-12"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="pub/listpage.shtml"&gt;Zoomla!逐浪CMS内核&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="m"&gt;Z-Mobile智能移动手机应用开发&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="javascript:;" Onclick="javaScript:alert('抱歉当前仅对商业用户开放')"&gt;RIA交互体验与桌面智能软件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-5 col-md-6 col-xs-12"&gt;
+&lt;span&gt;
+&lt;div class="dl"&gt;&lt;a href="/pub/" target="_blank" title="Free Download"&gt;DownLoad&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="sp"&gt;&lt;a href="/shop/" target="_blank" title="Buy Now"&gt;Buy Now&lt;/a&gt;&lt;/div&gt;
+&lt;div class="ins"&gt;&lt;a href="/help/Install/692.shtml" target="_blank" title="快速安装"&gt;快速安装&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="container Mytel"&gt;
+&lt;div class="col-lg-12"&gt;
+&lt;span class="fa fa-phone-square"&gt;&lt;a href="tel:021-50391046"&gt;联系官方服务热线&lt;/a&gt;&lt;/span&gt;
+&lt;span class="fa fa-phone"&gt;&lt;a href="tel:13177777714"&gt;24小时移动专家在线&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="kefu"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="tel:021-50391046"&gt;&lt;span&gt;联系我们&lt;/span&gt;&lt;i class="fa fa-phone"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://wpa.qq.com/msgrd?v=3&amp;uin=184886758&amp;site=qq&amp;menu=yes" target="_blank"&gt;&lt;span&gt;在线客服&lt;/span&gt;&lt;i class="fa  fa-qq"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class="kefu_qrcode"&gt;&lt;a href="javascript:;"&gt;&lt;span&gt;&lt;img src="{$CssDir/}images/Big_Micro.jpg" alt="微信二维码" /&gt;&lt;/span&gt;&lt;i class="fa fa-qrcode"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/Guset" target="_blank"&gt;&lt;span&gt;留言咨询&lt;/span&gt;&lt;i class="fa fa-pencil"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://weibo.com/zoomla?refer_flag=1001030102_" target="_blank"&gt;&lt;span&gt;新浪微博&lt;/span&gt;&lt;i class="fa fa-weibo"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

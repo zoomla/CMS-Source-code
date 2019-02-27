@@ -1,0 +1,74 @@
+﻿@using ZoomLa.Model
+@model ZoomLa.Model.Message.M_Guest_Bar
+@{
+    M_GuestBookCate cateMod=ViewBag.cateMod; 
+    Layout = "~/Views/PostBar/_PostBar.cshtml";
+}
+@section head{
+<title>@(Call.SiteName)贴吧</title>
+<script src="/Plugins/Ueditor/bar.config.js"></script>
+<script src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+}
+@section content{
+<div class="container">
+    <form method="post" action="@MVCHelper.GetAction("/PostBar/Post_Add", Request, "rurl=/PItem?id=" + (Model.Pid == 0 ? Model.ID : Model.Pid))">
+<div id="send_div">
+        <div style="padding-top:5px;padding-bottom:2px;">
+            <div>
+                <span class="pull-left">  
+                    @if (Model.ID > 1){<span>编辑贴子</span>}
+                    else{<span>发表贴子至<a href='/PClass?id=@cateMod.CateID' title='返回'>@cateMod.CateName</a></span>}
+                    <a href="/PItem?id=@(Model.Pid==0?Model.ID:Model.Pid)"><span>@Model.Title</span>  </a>  
+                </span>
+                <span class="pull-right"><a href="/PClass?id=@cateMod.CateID"><i class='fa fa-arrow-circle-left'></i>返回@(cateMod.CateName)</a></span>   
+                <div class="clearfix"></div>                 
+            </div>
+        </div>
+        @if (Model.Pid == 0){<div><input type="text" id="MsgTitle_T" name="MsgTitle_T" data-type="normal" class="form-control" value="@Model.Title" /></div>} 
+        <div style="padding: 5px 0 5px 0;"><textarea ID="MsgContent_T" name="MsgContent_T" data-type="normal" style="height: 200px;width:100%;" placeholder="说点什么吧...">@Model.MsgContent</textarea></div>
+        <div id="SendDiv">
+            @if (Model.ID == 0)
+            {
+                @*新内容需要验证码*@
+                <span id="Valid_S">
+                    <input type="text" ID="VCode" name="VCode" placeholder="验证码" MaxLength="6" style="display:inline-block" class="form-control text_x" autocomplete="off" />
+                    <img id="VCode_img" class="codeimg" title="点击刷新验证码" style="margin-left:2px;width:80px;" />
+                    <input type="hidden" id="VCode_hid" name="VCode_hid" />
+                </span>
+            }
+          <div style="height:20px;"></div>
+          <div id="bar_editBtn" class="navbar-fixed-bottom">
+          <div class="container text-center">  
+            <input type="submit" value="发布主题" onclick="return CheckData();" class="btn btn-primary" />
+            <input type="button" id="DelMsg_Btn" value="删除主题" onclick="return confirm('确定要删除吗');" class="btn btn-primary" />
+            <input type="reset" value="重置主题"  class="btn btn-primary" />
+          </div>
+          </div>
+        </div>
+    </div>
+</form>
+    @MvcHtmlString.Create(Call.GetUEditor("MsgContent_T", 4))
+</div>
+}
+@section script{
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script>
+    $("#VCode").ValidateCode();
+	function CheckData() {
+	    var msg = UE.getEditor("MsgContent_T").getContent();;
+	    if ($("#MsgTitle_T").val() == "") { alert("贴子标题不能为空!"); return false;}
+		if (msg.replace(" ", "") == "") { alert("内容不能为空"); return false; }
+		if ($("#VCode").val() == "") { alert("验证码不能为空"); return false; }
+		return true;
+	}
+	function GetSource() { return "@Html.Raw(Request.RawUrl)"; }
+    //删除帖子
+    function PostDelMsg(msgid) {
+         
+        if (confirm("确定要删除该条信息吗!!")) { 
+            PostToCS("DeleteMsg", msgid, function (data) { if (data == "failed") alert("删除失败,当前用户无权限!"); });
+        }
+    } 
+</script> 
+
+}

@@ -1,0 +1,30 @@
+﻿<div id="{{comp.id}}_wrap" class="comp" style="max-width:100%;" ng-switch="comp.type">
+    <div ng-switch-when="carousel">
+        <div id="{{comp.id}}" class="carousel slide" data-interval="5000" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li ng-repeat="item in comp.data.value| orderBy: 'order'" data-target="#{{comp.id}}" data-slide-to="{{$index}}" ng-class="{active:$index==0}" style="margin-left:3px;"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div ng-repeat="item in comp.data.value| orderBy: 'order'" class="item" style="padding: 0px;" ng-class="{active:$index==0}">
+                    <img ng-src="{{item.src}}" style="margin:0 auto;">
+                    <div class="carousel-caption">{{item.name}}</div>
+                </div>
+            </div>
+            <a class="carousel-control left" href="#{{comp.id}}" data-slide="prev"><i class="fa fa-chevron-left" style="font-size: 3em;margin-top:80%;"></i></a>
+            <a class="carousel-control right" href="#{{comp.id}}" data-slide="next"><i class="fa fa-chevron-right" style="font-size: 3em;margin-top:80%;"></i></a>
+        </div>
+    </div>
+    <div ng-switch-when="content" class="min100" ng-init="labelToHtml(comp)"><div id="{{comp.id}}_div"></div></div>
+    <div ng-switch-when="nav">
+        <nav class="navbar navbar-default" style="margin:0px;">
+            <div class="navbar-header container" style="float:none;">
+                <a class="navbar-brand" href="javascript:;"><span class="fa fa-th"></span></a>
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="item in comp.data.value"><a href="{{item.url}}" ng-bind="item.text"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div ng-switch-when="label" class="min100" ng-init="labelToHtml(comp)"><div id="{{comp.id}}_div"></div></div>
+    <div class="mask" ng-click="showEdit(comp);" title="点击编辑"><div class="txt">点击编辑{{comp.name}}</div></div>
+</div>

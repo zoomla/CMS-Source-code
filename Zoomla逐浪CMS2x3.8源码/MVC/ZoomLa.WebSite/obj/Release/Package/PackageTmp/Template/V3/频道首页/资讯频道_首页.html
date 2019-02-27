@@ -1,0 +1,204 @@
+{ZL.Source id="节点栏目信息数据源"/}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteTitle/}</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?id={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js"></script>
+<script type="text/javascript" src="{$CssDir/}js/server.js"></script>
+<style type="text/css">
+#nav li#Menu0 a:hover{ text-decoration:underline;}
+#nav li#Menu0 a{background:url({$CssDir/}Images/top_nav.gif) no-repeat 0px -42px; font-weight:bold; color:#fff; text-decoration:none;width:77px; height:38px; display:block;}
+</style>
+</head> 
+<body>
+{ZL.Label id="响应式全站头部"/}
+<div class="home_show">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+<li data-target="#myCarousel" data-slide-to="1"></li>
+<li data-target="#myCarousel" data-slide-to="2"></li>
+<li data-target="#myCarousel" data-slide-to="3"></li>
+</ol>
+<div class="carousel-inner">
+<div class="item active">
+<div class="container">
+<a href="#"><img src="http://www.z01.com/Template/office/style/images/phone1.jpg" alt="领先的全门户网站构建软件"></a>
+<div class="carousel-caption">
+<h2>领先的全门户网站构建软件</h2>
+<p>专注于商业平台、地方门户、企业推广与政府网站之核...</p>
+<p><a class="btn btn-lg btn-primary" href="http://www.z01.com/index.shtml" role="button">进入官网</a></p>
+</div>
+</div>
+</div>
+<div class="item">
+<div class="container">
+<a href="#"><img src="http://www.z01.com/Template/office/style/images/phone2.jpg" alt="App应用与移动门户一体化"></a>
+<div class="carousel-caption">
+<h2>App应用与移动门户一体化</h2>
+<p>微信营销、微博接入、WEB App、全产品线手机客户端-全网覆盖与无处不在的WEB应用体验.</p>
+<p><a class="btn btn-lg btn-primary" href="http://www.z01.com/m/" role="button" target="_blank">了解详情</a></p>
+</div>
+</div>
+</div>
+<div class="item">
+<div class="container">
+<a href="#"><img src="http://www.z01.com/Template/office/style/images/phone3.jpg" alt="智能管理与信息化产品"></a>
+<div class="carousel-caption">
+<h2>智能管理与信息化产品</h2>
+<p>脚比路更长+服务到现场+智慧的思想....</p>
+<p><a class="btn btn-lg btn-primary" href="http://www.z01.com/pub/2090.shtml" role="button" target="_blank">访问体验</a></p>
+</div>
+</div>
+</div>
+<div class="item">
+<div class="container">
+<a href="http://www.z01.com/pub/listpage.shtml" target="_blank"><img src="http://www.z01.com/Template/office/style/images/phone4.jpg" alt="云计算解决方案"></a>
+<div class="carousel-caption">
+<h2>云计算解决方案</h2>
+<p>让您的数据和空间在云上畅享大数据的便利.</p>
+<p><a class="btn btn-lg btn-primary" href="http://www.z01.com/pub/listpage.shtml" role="button" target="_blank">马上开启</a></p>
+</div>
+</div>
+</div>
+</div>
+<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="fa fa-chevron-right"></span></a>
+</div>
+<div class="clearfix"></div>
+</div>
+<!--中部滚动四块到此结束 -->
+
+<div class="container margin-bot">
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-label="输出指定节点标题_无时间属性">
+<div class="borders"> 
+<div class="list-group"><a href="{ZL:GetProposeinfo(1)/}" class="list-group-item active"><span class="badge">更多</span>资讯中心</a></div>
+<div class="first_img">
+{ZL.Label id="文章缩略图_带标题简介v3" NodeID="1" TitleNum="22" ShowNum="1" synNum="100" /}
+</div>
+
+<div class="new_li padding10"> 
+<ul class="list-unstyled"> 
+{ZL.Label id="输出指定节点标题_带时间属性" NodeID="1" TitleNum="36" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6 col-sm-12 col-xs-12 padding5" data-label="输出指定节点标题_无时间属性">
+<div class="borders">
+<div class="list-group"><a href="{ZL:GetNodeLinkUrl(85)/}" class="list-group-item active"><span class="badge">更多</span>图库中心</a></div>
+<ul class="first_img">
+{ZL.Label id="图库缩略图_带标题简介V3" NodeID="85" TitleNum="30" ShowNum="1" synNum="100" /}
+</ul>
+<div class="new_li padding10"> 
+<ul class="list-unstyled">
+{ZL.Label id="输出指定节点标题_带时间属性" NodeID="85" TitleNum="36" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6 col-sm-12 col-xs-12 padding5" data-label="输出指定节点标题_无时间属性">
+<div class="borders"> 
+<div class="list-group"><a href="{ZL:GetNodeLinkUrl(84)/}" class="list-group-item active"><span class="badge">更多</span>资源下载</a></div>
+<ul class="first_img">
+{ZL.Label id="下载缩略图_带标题简介v3" NodeID="84" TitleNum="30" ShowNum="1" synNum="100" /}
+</ul>
+<div class="new_li padding10"> 
+<ul class="list-unstyled"> 
+{ZL.Label id="输出指定节点标题_带时间属性" NodeID="84" TitleNum="36" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6 col-sm-12 col-xs-12 padding5">
+<div class="borders">
+<div class="list-group"><a href="{ZL:GetNodeLinkUrl(99)/}" class="list-group-item active"><span class="badge">更多</span>分类信息</a></div>
+<ul class="media-list first_img">
+{ZL.Label id="分类信息缩略图_带标题简介v3" NodeID="99" TitleNum="30" ShowNum="1" synNum="100" /}
+</ul>
+<div class="new_li padding10"> 
+<ul class="list-unstyled">
+{ZL.Label id="输出指定节点标题_带时间属性" NodeID="99" TitleNum="36" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+<div class="col-lg-4 col-sm-12 col-xs-12 padding5">
+<div class="borders minheight">
+<div class="list-group"><a href="{ZL:GetNodeLinkUrl(76)/}" class="list-group-item active"><span class="badge">更多</span>动态公告</a></div>
+<div class="new_li padding10"> 
+<ul class="list-unstyled"> 
+{ZL.Label id="输出指定节点标题_无时间属性" NodeID="76" TitleNum="40" ShowNum="10" /}
+</ul>
+</div>
+</div>
+<div class="borders minheight">
+<div class="list-group"><a href="#" class="list-group-item active">排行</a></div>
+<div class="new_li padding10"> 
+<ul class="list-unstyled"> 
+{ZL.Label id="输出指定节点标题_按点击" NodeID="1" TitleNum="30" ShowNum="8" /}
+</ul>
+</div>
+</div>
+<div id="botM_dh">
+<a href="/Admin/Panoramic/PanoramicShow.aspx?id=1" class="btn btn-default" target="_blank">三维全景</a>
+<a href="/Dai/" target="_blank" class="btn btn-primary">在线试戴</a> 
+<a href="/D3/" target="_blank" class="btn btn-success ">3D商街</a>
+<a href="/Questions/Default.aspx?id=1" target="_blank" class="btn btn-info">智能组卷</a>
+<a href="/Guest" target="_blank" class="btn btn-warning ">在线留言</a>
+<a href="/User/UserZone/Default" target="_blank"  class="btn btn-info">SNS社区</a>
+<a href="/Edit" target="_blank"  class="btn btn-success">在线助写</a>
+<a href="/Prompt/correct.aspx" target="_blank"  class="btn btn-primary">在线纠错</a>
+<a href="/Prompt/EmailSender.aspx" target="_blank"  class="btn btn-danger">邮件订阅</a>
+</div>
+</div>
+</div>
+</div>
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>
+<script>
+//检测固顶事件
+var IO=document.getElementById('scolls'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+	".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+ if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+//]]>
+
+//兼容wp8
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+</script>

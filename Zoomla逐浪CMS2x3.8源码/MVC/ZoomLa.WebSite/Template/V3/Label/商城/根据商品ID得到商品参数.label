@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>495</LabelID>
+    <LabelName>根据商品ID得到商品参数</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>商城</LabelCate>
+    <LabelDesc />
+    <LabelParam>SID,1,1,商品ID</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Commodities</LabelTable>
+    <LabelField>Brand,ID,LinPrice,Producer,Proinfo,Proname,ServerPeriod,Thumbnails,Weight</LabelField>
+    <LabelWhere>ID=@SID And Sales=1</LabelWhere>
+    <LabelOrder />
+    <LabelContent>&lt;ul class="shopes_sym"&gt;
+&lt;li class="shop_photo"&gt;
+ &lt;a href="{ZL:GetShopUrl({Field="ID"/})/}"&gt;
+&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}" alt="{Field="Proname"/}" /&gt;
+&lt;/a&gt;
+&lt;br/&gt;
+ &lt;a href="{ZL:GetShopUrl({Field="ID"/})/}"&gt;
+{Field="Proname"/}&lt;/a&gt;
+
+ &lt;/li&gt;
+ &lt;li&gt;&lt;b&gt;
+{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/b&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+{Field="Brand"/}  &lt;/li&gt;
+   &lt;li&gt;
+{Field="Producer"/}  &lt;/li&gt;
+   &lt;li&gt;
+{Field="ServerPeriod"/}  &lt;/li&gt; 
+  &lt;li&gt;
+{Field="Weight"/}  &lt;/li&gt; 
+  &lt;li class="shop_photo"&gt;
+{Field="Proinfo"/}  &lt;/li&gt;
+ &lt;/ul&gt;</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

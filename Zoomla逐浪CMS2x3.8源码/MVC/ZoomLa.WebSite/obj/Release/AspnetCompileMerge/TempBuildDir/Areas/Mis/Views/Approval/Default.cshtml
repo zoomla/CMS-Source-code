@@ -1,0 +1,195 @@
+@using System.Data
+@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@functions{
+    public string GetResults(int Rid)
+    {
+        if (Rid == 1)
+        {
+            return "<span style=\"color:#009c0f;\">审核中</span>";
+        }
+        else if (Rid == 2)
+        {
+            return "<span style=\"color:#FA0000;\">已同意</span>";
+        }
+        else
+        {
+            return "<span style=\"color:#FA0000;\">未通过</span>";
+        }
+    }
+}
+@section head{
+    <title>审批</title>
+    <link href="/App_Themes/User.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+function loadPage(id, url) {
+$("#" + id).addClass("loader");
+$("#" + id).append("Loading......");
+$.ajax({
+type: "get",
+url: url,
+cache: false,
+error: function () { alert('加载页面' + url + '时出错！'); },
+success: function (msg) {
+    $("#" + id).empty().append(msg);
+
+    $("#" + id).removeClass("loader");
+}
+});
+}
+function putid(id) {
+document.getElementById("TitComType").innerText = "添加类型";
+document.getElementById("HidCommTxt").value = "0";
+document.getElementById("TxtComment").value = "";
+document.getElementById("CommentDiv").style.display = "block";
+var h = document.getElementById("divcons").getBoundingClientRect().top;
+document.getElementById("CommentDiv").style.top = (h - 104) + "px";
+document.getElementById("CommentDiv").style.background = "#fdfce6";
+}
+
+function Punids(id, Cont) {
+document.getElementById("TitComType").innerText = "修改类型";
+document.getElementById("CommentDiv").style.display = "block";
+var h = document.getElementById("divcon" + id).getBoundingClientRect().top;
+document.getElementById("HidCommTxt").value = id;
+document.getElementById("TxtComment").value = Cont;
+document.getElementById("CommentDiv").style.top = (h-126) + "px";
+document.getElementById("CommentDiv").style.background = "#fdfce6";
+}
+
+function HideDiv(div_id) {
+$("#" + div_id).animate({ opacity: "hide" }, 300);
+}
+
+function HideAndShow(div1,div2,Li1,Li2) {
+document.getElementById(div1).style.display = "block";
+document.getElementById(div2).style.display = "none";
+document.getElementById(Li1).style.background = "#eaeae8";
+document.getElementById(Li2).style.background = "#ccc";
+}
+    </script>
+}
+@section content{
+    <div id="Meno">
+        <div id="pro_left">
+            <div class="new_tar">
+                <a href="AddApproval">新建申请单</a>
+            </div>
+            <div class="pro_li">
+                <ul>
+                    <li><a href="Default?type=1">我的申请</a></li>
+                    <li><a href="Default?type=2">我的审批</a></li>
+                    <li><a href="Default?type=3">已归档</a></li>
+                    <li><a href="Default?type=8">抄送给我的</a></li>
+                    <li><a href="Default?type=7">审批设置</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="pro_right">
+            <div class="Mis_Title">@ViewBag.title</div>
+            <div class="search">
+                <div id="MyApplication">
+                    <a href="Default?type=1">所有(@ViewBag.lblAllof)</a>
+                    <a href="Default?type=4">审批中(@ViewBag.lblInApps)</a>
+                    <a href="Default?type=5">不同意(@ViewBag.lblonApps)</a>
+                </div>
+                <div id="MyApps">
+                    <a href="Default?type=2">所有(@ViewBag.lblAlls)</a>
+                    <a href="Default?type=6">未处理(@ViewBag.lblNosave)</a>
+                </div>
+                <div id="SaveOn">
+                    <a href="#">所有(@ViewBag.lalAllss)</a>
+                    <a href="#">未处理(@ViewBag.lblNoDell)</a>
+                </div>
+                <div id="SendTome">
+                    <a href="Default?type=8">所有(@ViewBag.lblAllMe)</a>
+                    <a href="Default?type=9">不同意(@ViewBag.lblNoPass)</a>
+                </div>
+                <div class="search_r" style="display:none;">
+                    <input type="text" id="TxtKey" name="TxtKey" Class="b_input" value="请输入关键字" style="width:120" />
+                    <input type="button" Class="bottom_bg" />
+                </div>
+            </div>
+            <table class="boder ApproverTd" width="100%">
+                <tr>
+                    <th class="AppTitle">@Html.DropDownList("DrpType", ViewBag.types as IEnumerable<SelectListItem>, new { @class = "form-control text_md" })申请内容</th>
+                    <th class="AppPeson"> 审批人</th>
+                    <th class="AppResult" align="left"> 审批结果 </th>
+                </tr>
+                @foreach (DataRow dr in ((DataTable)ViewBag.rptdt).Rows)
+                {
+                    <tr class="Approval" onmouseover="this.style.backgroundColor='#eaeae8'" onmouseout="this.style.backgroundColor='#fff'">
+                        <td class="AppTitle"><a href="ApproverView?ID=<%#Eval(" ID") %>"><%#Eval("content") %></a></td>
+                        <td class="AppPeson">@dr["Approver"]</td>
+                        <td class="AppResult">@MvcHtmlString.Create(GetResults(Convert.ToInt32(dr["Results"])))</td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="3">
+                        <table width="100%" align="center"></table>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="Approval_list">
+                <ul>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="SetUpType">
+            <div style="overflow:hidden; background-color:#F4F8FB;">
+                <ul>
+                    <li id="SetProLis" style="background-color:#eaeae8;"><a href="#" onclick="HideAndShow('Setprocedure','SetType','SetProLis','SetTypeLis')">流程设置</a></li>
+                    <li id="SetTypeLis"><a href="#" onclick="HideAndShow('SetType','Setprocedure','SetTypeLis','SetProLis')">类型设置</a></li>
+                </ul>
+            </div>
+            <div id="Setprocedure">
+                <div style="float:right;"><a href="EditProcedure" title="新建审批流程">新建审批流程</a></div>
+                <div id="SetPHead">
+                    <div id="ProContent">
+                        @Html.DropDownList("DpList", ViewBag.types as IEnumerable<SelectListItem>, new { @class = "form-control text_md" })
+                </div>
+            </div>
+            <div id="SetPro" style="overflow:hidden;">
+            </div>
+        </div>
+        <div id="SetType" style="display:none;">
+            <div style="float:right;"><a href="#" onclick="putid('SetUpType')">添加类型</a></div>
+            <div id="divcons"></div>
+            <table style="width:705px;" border="0">
+                <tr class="TrHead">
+                    <th class="TdID">序号</th>
+                    <th class="TdType">类型</th>
+                    <th class="TdUse">操作</th>
+                </tr>
+                @foreach (DataRow dr in ((DataTable)ViewBag.typesDt).Rows)
+                {
+                    <tr class="TBodys" onmouseover="this.style.backgroundColor='#eaeae8'" onmouseout="this.style.backgroundColor='#FFF'">
+                        <td class="TdID">@ViewBag.lblNum</td>
+                        <td class="TdType">@dr["TypeName"]</td>
+                        <td class="TdUse">
+                            <a href="#" onclick="Punids('@dr["ID"]','@dr["TypeName"]')">修改</a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" onclick="confirm('确定要删除该条记录么？')">删除</a>
+                            <div id='divcon@(dr["ID"])'></div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div id="CommentDiv" style=" background-color:#fdfce6; position:absolute; padding:8px;border:1px solid #ccc;display:none;">
+            <div style="float:left; width:680px;">@ViewBag.TitComType</div>
+            <div style="text-align:right; float:left;">
+                <span class="closex"><a href="javascript:void(0)" onclick="HideDiv('CommentDiv')">×</a></span>
+            </div>
+            <input type="button" id="TxtComment" style="width:686px;" />
+            <br />
+            <input ID="HidCommTxt" type="hidden" value="" />
+            <span style=" float:right;">
+                <input type="button" id="BtnComment" value="确定" />
+                <input type="button" value="取消" id="conbtn" onclick="HideDiv('CommentDiv')" />
+            </span>
+        </div>
+    </div>
+}

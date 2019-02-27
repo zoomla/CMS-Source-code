@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="batUpload.aspx.cs" Inherits="Edit_test" %>

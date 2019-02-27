@@ -1,0 +1,31 @@
+#CalendarMain {border:1px solid #ccc;margin:0 auto;}
+#CalendarMain #title {width:100%;height:30px;background-color:#3898ef;  font-family:"Î¢ÈíÑÅºÚ";}
+#CalendarMain .selectBtn {font-weight:900;font-size:15px;color:#fff;cursor:pointer;text-decoration:none;padding:4px 10px 5px 10px;}
+#CalendarMain .selectBtn:hover {background-color:#e4e4e4;color:#3898ef;}
+#CalendarMain .selectYear {float:left;margin-left:50px;position:absolute;}
+#CalendarMain .selectMonth {float:left;margin-left:120px;position:absolute;}
+#CalendarMain .month {float:left;position:absolute;}
+#CalendarMain .nextMonth {float:right;}
+#CalendarMain .currentDay {float:right;}
+#CalendarMain #context {background-color:#fff;width:100%;}
+#CalendarMain .week {width:100%;height:30px;}
+#CalendarMain .week>h3 {float:left;color:#808080;text-align:center;margin:0;padding:0;margin-top:5px;font-size:16px;}
+#CalendarMain .dayItem {float:left;}
+#CalendarMain .lastItem>a {color:#d1c7b7 !important;}
+#CalendarMain .item {color:#333;float:left;text-align:center;cursor:pointer;margin:0;font-family:"Î¢ÈíÑÅºÚ";font-size:13px;}
+#CalendarMain .item>a{width:25px;height:25px;display:inline-block; line-height:25px;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;color:#000;}
+#CalendarMain .item .ahover {color:#3898ef;border:1px solid #3898ef;float:left;}
+#CalendarMain .item .aclick {color:#3898ef;border:1px solid #3898ef;}
+#CalendarMain .currentItem>a {background-color:#3898ef;float:left;color:#fff;}
+#CalendarMain #foots {width:100%;height:35px;background-color:#fff;border-top:1px solid #ccc;margin-top:-1px;}
+#CalendarMain #footNow {float:right;margin:6px 15px 0 0;color:#009ad6;font-family:"Î¢ÈíÑÅºÚ";}
+#CalendarMain #Container {overflow:hidden;float:left;}
+#CalendarMain #center {width:100%;overflow:hidden;}
+#CalendarMain #centerMain {width:300%;margin-left:-100%;}
+#CalendarMain #selectYearDiv {float:left;background-color:#fff;}
+#CalendarMain #selectYearDiv>div {float:left;text-align:center;font-family:"Î¢ÈíÑÅºÚ";font-size:16px;border:1px solid #ccc;margin-left:-1px;margin-top:-1px;cursor:pointer;color:#909090;}
+#CalendarMain .currentYearSd,.currentMontSd {color:#ff4400 !important;}
+#CalendarMain #selectMonthDiv {float:left;background-color:#fff;}
+#CalendarMain #selectMonthDiv>div {color:#909090;float:left;text-align:center;font-family:"Î¢ÈíÑÅºÚ";font-size:16px;border:1px solid #ccc;margin-left:-1px;margin-top:-1px;cursor:pointer;}
+#CalendarMain #selectYearDiv>div:hover,#selectMonthDiv>div:hover {background-color:#efefef;}
+#CalendarMain #centerCalendarMain {float:left;}

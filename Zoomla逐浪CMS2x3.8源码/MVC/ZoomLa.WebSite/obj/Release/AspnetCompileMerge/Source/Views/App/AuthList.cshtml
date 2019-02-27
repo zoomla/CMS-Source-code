@@ -1,0 +1,43 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Views/App/_layout.cshtml";
+}
+@section head{
+    <title>授权审核</title>
+}
+@section content{
+<div class="container-fluid mysite" id="BreadDiv">
+    <div class="row">
+        <ol class="breadcrumb navbar-fixed-top"id="BreadNav">
+            @MvcHtmlString.Create(ViewBag.navLabel)
+        </ol>
+    </div>
+</div>
+<ul class="nav nav-tabs" style="margin-top:40px;">
+    <li id="navli_0"><a href="AuthList.aspx">全部</a></li>
+    <li id="navli_1"><a href="AuthList.aspx?Filter=1">未授权</a></li>
+    <li id="navli_2"><a href="AuthList.aspx?Filter=2">已授权</a></li>
+</ul>
+@Html.Partial("AuthList_List",Model)
+<input type="button" value="审核并发送邮件" onclick="mvcpage.bat({ url: 'Auth_Audit' });" class="subcheck btn btn-primary" />
+<input type="button" value="审核不发送邮件" onclick="mvcpage.bat({ url: 'Auth_Audit?sendmail=no' });" class="subcheck btn btn-primary" />
+<input type="button" value="取消审核" onclick="mvcpage.bat({ url: 'Auth_UNAudit' });" class="subcheck btn btn-primary" />
+<input type="button" value="批量删除" onclick="mvcpage.bat({ url: 'Auth_Del', confirm: '确定要批量删除吗' });" class="subcheck btn btn-primary" />
+}
+@section script{
+<style>.user_mimenu{display:none;}</style>
+<script src="/JS/ICMS/ZL_Common.js"></script>
+<script>
+        $(function () {
+            var filter = "<%:Filter%>";
+            $("#navli_" + filter).addClass("active");
+            $(".subcheck").click(function () {
+                var len = $("[name=idchk]:checked").length;
+                if (len < 1) { alert("请先选定需要操作的数据!"); return false; }
+                if (!confirm("确定要执行操作吗?")) { return false; }
+                disBtn(this);
+                return true;
+            });
+        })
+</script>
+}

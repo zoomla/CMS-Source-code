@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>612</LabelID>
+    <LabelName>输出两级子栏目列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ParentID,1,1,父节点ID|ShowNum,10,1,显示数|nums,10,1,显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName</LabelField>
+    <LabelWhere>ParentID=@ParentID</LabelWhere>
+    <LabelOrder>OrderID ASC</LabelOrder>
+    <LabelContent>{Repeate}&lt;dl&gt;&lt;dt&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}" target="{ZL:GetNodeOpen({Field="NodeID"/})/}"&gt;{Field="NodeName"/}&lt;/a&gt;&lt;/dt&gt; 
+&lt;dd&gt;{ZL.Label id="输出一级子栏目列表" ParentID="{Field="NodeID"/}" ShowNum="@nums" /}&lt;/dd&gt;&lt;/dl&gt; {/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

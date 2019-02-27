@@ -1,0 +1,197 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@using ZoomLa.BLL
+@model ZoomLa.Model.M_Ask
+@{
+    Layout = "~/Views/Shared/_ask.cshtml";
+    DataTable dt1 = (DataTable)ViewBag.dt1;
+    DataTable dt2 = (DataTable)ViewBag.dt2;
+    DataTable dt3 = (DataTable)ViewBag.dt3;
+}
+@functions{
+    B_GuestAnswer ansBll = new B_GuestAnswer();
+    public string getanswer(string uid)
+    {
+        SqlParameter[] sp = new SqlParameter[] { new SqlParameter("uid", uid) };
+        DataTable dt = ansBll.Sel("QueID=@uid", "", sp);
+        return dt.Rows.Count.ToString();
+    }
+    public string GetLeftString(string str, int length)
+    {
+        if (str.Length <= length)
+            return str;
+        return str.Substring(0, length) + "..."; ;
+    }
+}
+@section head{
+    <title>已解决-@(Call.SiteName)问答</title>
+}
+@section content{
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>您的位置：<a href="/">网站首页</a></li>
+            <li><a href="/Ask">问答中心</a></li>
+            <li class="active">已解决</li>
+        </ol>
+        @{Html.RenderAction("CommonView");}
+        <div class="myanswer">
+            <div class="question">
+                <span class="questions">问题：</span>
+                <strong>@Model.Qcontent</strong><br />
+                <span class="questions">提问者： @MvcHtmlString.Create((Model.IsNi == 1 ? "匿名" : "<a href='/ShowList?id=" + Model.UserId + "' target='_blank'>" + Model.UserName + "</a>"))</span><br />
+                <span class="questions">提问日期：@Model.AddTime.ToString("yyyy-MM-dd HH:mm")</span><br />
+                @if (!string.IsNullOrEmpty(Model.Supplyment))
+                {
+                    <span class="questions">问题补充：</span>@MvcHtmlString.Create(Model.Supplyment)
+                }
+            </div>
+            <div class="tuijian">
+                <div class="tit">
+                    <div class="bg_tj"><span>推荐答案：</span></div>
+                </div>
+                <div class="tj_content">
+                    <div id="g_show">
+                        @Html.Partial("SearchDetails_List", dt1)
+                    </div>
+                </div>
+            </div>
+            <div class="tuijian">
+                <div class="tit">
+                    <div class="bg_hd"><span>其他回答:</span></div>
+                </div>
+                <div class="tj_content">
+                    <div id="bDiv2">
+                        @Html.Partial("SearchDetails_List", dt2)
+                    </div>
+                </div>
+            </div>
+            <div class="ask_Resolved margin_top10">
+                <div class="ask_Resolved_t"><i class="fa fa-tags"></i> 期待您回答：<span class="pull-right"><i class="fa fa-heart"></i>我们向您承诺：10分钟内给您满意的答复</span></div>
+                <div class="ask_Resolved_c">
+                    <div class="ask_Resolved_cr">
+                        <ul class="list-unstyled">
+                            @foreach (DataRow dr in dt3.Rows)
+                            {
+                                <li>
+                                    <strong>@getanswer(dr["ID"].ToString())回答</strong>
+                                    <a target="_self" href="SearchDetails?ID=@dr["ID"]">@GetLeftString(dr["Qcontent"].ToString(),45)</a>
+                                </li>
+                            }
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ask_bottom">
+        <p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+        <p class="text-center"><%Call.Label("{$Copyright/}"); %></p>
+    </div>
+    <input type="hidden"id="hfsid" name="hfsid" />
+    <input type="hidden" id="zanval" name="zanval" />
+}
+@section script{
+    <script type="text/javascript">
+        function Changtxt(obj) {
+            $("#zanval").val(obj.innerHTML);
+            obj.innerHTML = "赞同";
+        }
+        function rectxt(obj) {
+            obj.innerHTML = $("#zanval").val();
+        }
+        function supplyment() {
+
+            var div = document.getElementById("divSupplyment");
+            if (div.style.display == "none") {
+                div.style.display = "block";
+            }
+            else {
+                div.style.display = "none";
+            }
+        }
+        function reply() {
+
+            var div = document.getElementById("styreply");
+
+
+            if (div.style.display == "none") {
+                div.style.display = "block";
+            }
+            else {
+                div.style.display = "none";
+            }
+            //alert(div.style.display);
+        }
+        function show() {
+            var div = document.getElementById("show");
+            if (div.style.display == "none") {
+                div.style.display = "block";
+            }
+            // else {div.style.display = "none";}
+
+        }
+        function CheckDirty() {
+            var TxtTTitle = document.getElementById("TxtTTitle").value;
+            var TxtValidateCode = document.getElementById("TxtValidateCode").value;
+
+            if (value == "" || TxtTTitle == "" || TxtValidateCode == "") {
+                if (value == "") {
+                    var obj = document.getElementById("RequiredFieldValidator1");
+                    obj.innerHTML = "<font color='red'>内容不能为空！</font>";
+                }
+                else {
+                    var obj = document.getElementById("RequiredFieldValidator1");
+                    obj.innerHTML = "";
+                }
+                if (TxtTTitle == "") {
+                    var obj2 = document.getElementById("RequiredFieldValidator2");
+                    obj2.innerHTML = "<font color='red'>留言标题不能为空！</font>";
+                }
+                else {
+                    var obj2 = document.getElementById("RequiredFieldValidator2");
+                    obj2.innerHTML = "";
+                }
+                if (TxtValidateCode == "") {
+                    var obj3 = document.getElementById("sp1");
+                    obj3.innerHTML = "<font color='red'>验证码不能为空！</font>";
+                } else {
+                    var obj3 = document.getElementById("sp1");
+                    obj3.innerHTML = "";
+                }
+                return false;
+            }
+            else {
+                var obj = document.getElementById("RequiredFieldValidator1");
+                obj.innerHTML = "";
+                var obj2 = document.getElementById("RequiredFieldValidator2");
+                obj2.innerHTML = "";
+                var obj3 = document.getElementById("sp1");
+                obj3.innerHTML = "";
+                document.getElementById("EBtnSubmit2").click();
+            }
+        }
+        function showComment(id) {
+            document.getElementById("divComment" + id).style.display = "";
+        }
+        function hideComment(id) {
+            document.getElementById("divComment" + id).style.display = "none";
+        }
+        function approval(id){
+            $.post("/Ask/Approval",{id:id},function(data){
+                switch(data){
+                    case 1:
+                        alert("您已经赞同过了~~");
+                        break;
+                    case 2:
+                        alert("已赞同!!");
+                        location.href="SearchDetails?ID=@Request["ID"]";
+                        break;
+                    case 3:
+                        alert('赞同失败，请重试!!');
+                        break;
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,75 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Model.Content
+@using ZoomLa.BLL
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@foreach (DataRow dr in Model.fieldDT.Rows)
+{
+    Model.fieldMod = new M_ModelField().GetModelFromReader(dr);
+    <li class="fd_item">
+        <div class="fd_item_head">
+            <div class="fd_alias">@Model.fieldMod.FieldAlias</div>
+            @if(Model.fieldMod.IsNotNull){<span class="fd_item_req">*</span>}
+            <a href="javascript:;" class="pull-right opened" style="margin-right:10px;" onclick="field.toggle(this);">
+                <i class="fa fa-chevron-circle-right" style="font-size:18px;" title="收缩"></i>
+                <i class="fa fa-chevron-circle-down" style="font-size:18px;" title="展开"></i>
+            </a>
+        </div>
+        <div class="fd_item_field">
+            @try
+            {
+                if (Model.config.Mode == ModelConfig.SMode.PreView)
+                {
+                    switch (Model.fieldMod.FieldType)
+                    {
+                        case "Images":
+                        case "MultiPicType":
+                            Html.Partial("Fields/View_Images", Model);
+                            break;
+                        case "PicType":
+                        case "autothumb":
+                        case "CameraType":
+                        case "SwfFileUpload":
+                            Html.Partial("Fields/View_Default", Model);
+                            break;
+                        default:
+                            Html.Partial("Fields/View_Default", Model);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (Model.fieldMod.FieldType)
+                    {
+                        case "MultiPicType":
+                            @Html.Partial("Fields/Images", Model)
+                            break;
+                        default:
+                        @Html.Partial("Fields/" + Model.fieldMod.FieldType, Model)
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex) { <div style="color:red;">@ex.Message</div>; }
+        </div>
+    </li>
+}
+<style type="text/css">
+    .fd_body { }
+    .fd_item { padding: 10px; padding-bottom: 10px; margin-bottom: 20px; border-radius: 4px; background-color: #fff; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 5px 0px, rgba(0, 0, 0, 0.0784314) 0px 2px 10px 0px; }
+    .fd_item_head { border-bottom: 1px solid #ddd; margin-bottom: 5px; font-size: 14px; font-weight: bolder; }
+    .fd_item_head .fd_alias { display: inline-block; width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .fd_item_req { color: #ff0000; margin-left: 10px; }
+    .fd_item .colled .fa-chevron-circle-right { display: none; }
+    .fd_item .opened .fa-chevron-circle-down { display: none; }
+</style>
+<script>
+    var field = {};
+    field.toggle = function (btn) {
+        var $item = $(btn).closest(".fd_item");
+        var css = btn.className;
+        if (css.indexOf("opened") > -1) { btn.className = btn.className.replace("opened", "colled"); $item.find(".fd_item_field").slideUp("fast"); }
+        else { btn.className = btn.className.replace("colled", "opened"); $item.find(".fd_item_field").slideDown("fast"); }
+
+    }
+</script>

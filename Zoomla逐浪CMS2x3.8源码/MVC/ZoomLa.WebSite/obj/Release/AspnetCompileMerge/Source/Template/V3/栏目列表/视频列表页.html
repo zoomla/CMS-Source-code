@@ -1,0 +1,97 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<style type="text/css">
+ .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+</style>
+ </head>
+<body id="header" >
+{ZL.Label id="响应式全站头部"/} 
+<div class="myBanner">
+<div class="container">
+<h3><br/><br/>逐浪软件</h3><br/>
+手機和電腦的网页表现無边界。
+</div>
+</div>
+<!--内页通栏banner广告位 -->
+
+<div class="container mySites">
+<div class="row">
+<ul class="breadcrumb">
+<li><a href="/">首页</a><span class="divider"></span></li>
+<li>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}<span class="divider"></span></li>
+<li>频道首页 </li>
+ </ul>
+ </div>
+</div>
+<!--面包屑导航结束 -->
+
+<!--内容主体开始 -->
+ <div class="container margintop10">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
+<div class="panel  panel-primary">
+   <div class="panel-heading">
+          <h3 class="panel-title">
+ {SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}
+</h3>
+        </div>
+        <div class="panel-body video_img">
+ {ZL.Label id="输出视频列表_分页" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" TitieNum="30" ShowNum="10" /}                   </div>
+</div>
+
+
+</div>
+<div class="col-lg-3 col-md-3  col-sm-12 col-xs-12 padding5">
+<div class="panel-group videoimg" id="accordion">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <span class="badge"><a href="{ZL:GetNodeLinkUrl(96)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        娱乐视频
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+          <ul class="media-list">
+ {ZL.Label id="输出视频列表_带简介" NodeID="96" TitieNum="30" ShowNum="10" Sym="70" /}
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(95)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+      科技视频	
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+ {ZL.Label id="输出视频列表_带简介" NodeID="95" TitieNum="30" ShowNum="10" Sym="70" /}
+      </div>
+    </div>
+  </div>
+   
+</div>
+
+</div>
+
+</div>
+</div>
+<!--内容主体结束 -->
+
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>

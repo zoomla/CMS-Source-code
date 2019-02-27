@@ -1,0 +1,50 @@
+﻿<!--用于内容管理|黄页申请等处,绑定模板,暂一个页面只允许使用一个-->
+@using System.Data
+@model ZoomLa.AppCode.Controls.C_TemplateView
+<div class="template">
+    <ul class="list-unstyled">
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <li class="padding5">
+                <div data-tlpname="@dr["TemplateUrl"]" data-tlpid="@dr["TemplateID"]" class="Template_box">
+                    <div class="tempthumil">
+                        <a href="javascript:;" onclick="CheckTlp(this,'@dr["TemplateID"]','@dr["TemplateUrl"]')" title="点击进入模板管理">
+                            <img onmouseover="this.style.border='1px solid #9ac7f0';" onerror="shownopic(this);" onmouseout="this.style.border='1px solid #eeeeee';" alt="点击进入模板管理" style="width: 100%;" src="@dr["templatepic"]">
+                        </a>
+                    </div>
+                    <span class="pull-left"><a href="javascript:;">@dr["rname"]</a></span>
+                    <div class="clearfix"></div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+<input type="hidden" id="TempleID_Hid" name="TempleID_Hid" value="@Model.selid" />
+<input type="hidden" id="TempleUrl_Hid" name="TempleUrl_Hid" value="@Model.selurl" />
+<script>
+    //选中模板样式
+    function CheckTlp(obj, name, tlp) {
+        $('.Template_box').removeClass('tlp_active');
+        var $box = $(obj).closest(".Template_box");
+        $box.addClass("tlp_active");
+        $("#TempleID_Hid").val(name);
+        $("#TempleUrl_Hid").val(tlp);
+        if (OnTemplateViewCheck)//模板选择事件
+        { OnTemplateViewCheck(tlp) }
+    }
+    //智能模板选择事件
+    function OnTemplateViewCheck(value) {
+        $("#TxtTemplate_hid").val(value);
+    }
+    //初始选择样式
+    function initTlp() {
+        if ($("#TempleID_Hid").val() != "")
+            $("[data-tlpid='" + $("#TempleID_Hid").val() + "']").addClass("tlp_active");
+        else {
+            if ($(".tempthumil>a").length > 0 && "@Model.IsFirstSelect" == "True") {
+                $(".tempthumil>a:first").click();
+            }
+        }
+    }
+    $(function () { initTlp(); })
+</script>

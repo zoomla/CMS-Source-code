@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="/JS/JqueryUI/jquery.ui.resizable.css" rel="stylesheet" />
+    <script src="/JS/jquery-1.11.1.min.js"></script>
+    <script src="/JS/jquery-ui.min.js"></script>
+    <script src="/JS/JqueryUI/jquery.ui.core.js"></script>
+    <script src="/JS/JqueryUI/jquery.ui.widget.js"></script>
+    <script src="/JS/JqueryUI/jquery.ui.mouse.js"></script>
+    <script src="/JS/JqueryUI/jquery.ui.resizable.js"></script>
+    <title></title>
+</head>
+<body>
+    <div id="maindiv" style="float: left; width: 410px;position:absolute;padding-left:12px;">
+        <div id="版块1" class="curDrag">版块1</div>
+        <div>
+            <img id="newimg" style="width: 400px; height: 599px;" />
+        </div>
+    </div>
+    <style>
+        .curDrag{width: 150px; height: 150px; padding: 0.5em;border:2px solid blue;position:absolute;text-align:center;z-index:5;top:20px;left:20px;}
+    </style>
+     <script type="text/javascript">
+         var index = 1;
+         var curid = "版块1";
+         var jsonArr = new Array();//存DivJson
+         jsonArr.push({ id: curid, gid: "", remind: "", x: "", y: "", w: "", h: "" });
+         function CreateDiv() {
+             index++;
+             var did = "版块" + index;
+             var tlp = "<div id='" + did + "' class='curDrag'>" + did + "</div>";//模板
+             $("#maindiv").before(tlp);
+             jsonArr.push({ id: did, gid: "", remind: "", x: "", y: "", w: "", h: "" });
+             InitDrag();
+         }
+         function RemoveDiv() {
+             $("#" + curid).remove();
+             for (var i = 0; i < jsonArr.length; i++) {
+                 if (jsonArr[i].id == curid) {
+                     jsonArr.splice(i, 1); console.log(jsonArr);
+                 }
+             }
+         }
+         function GetMyJson(did) {
+             for (var i = 0; i < jsonArr.length; i++) {
+                 if (jsonArr[i].id == did)
+                 { return jsonArr[i]; }
+             }
+         }
+         function UpdateContent(id) {
+             for (var i = 0; i < jsonArr.length; i++) {
+                 if (jsonArr[i].id == id) {
+                     jsonArr[i].gid = $(parent.document).find("#gid_t").val();
+                     jsonArr[i].remind = $(parent.document).find("#remind_t").val();
+                     return;
+                 }
+             }
+         }
+         function UpdateLocal(id) {
+             for (var i = 0; i < jsonArr.length; i++) {
+                 if (jsonArr[i].id == id) {
+                     jsonArr[i].x = $("#" + id).css("left");
+                     jsonArr[i].y = $("#" + id).css("top");
+                     jsonArr[i].w = $("#" + id).css("width");
+                     jsonArr[i].h = $("#" + id).css("height");
+                     return;
+                 }
+             }
+         }
+         function InitDrag() {
+             $(".curDrag").draggable({
+                 addClasses: false,
+                 axis: false,
+                 cursor: 'crosshair',
+                 //start: function () { alert(12);},
+                 //drag: function (){},
+                 //stop: function () { GetPos(); },
+                 //containment: 'parent'
+             }).resizable();
+             $(".curDrag").click(function () {
+                 UpdateContent(curid);//更新刚操作的div的值
+                 curid = this.id;
+                 var json = GetMyJson(curid);
+                 $(parent.document).find("#curdiv_l").text(curid);
+                 PSet("gid_t", json.gid);
+                 PSet("remind_t", json.remind);
+             });
+         }
+         function SaveAll() {
+             $($(".curDrag")[0]).click();
+             for (var i = 0; i < jsonArr.length; i++) {
+                 UpdateLocal(jsonArr[i].id);//更新定位信息
+             }
+             PSet("Json_Hid", JSON.stringify(jsonArr));
+             return true;
+         }
+         $().ready(function () {
+             InitDrag();
+         });
+         function AnalyJson(json,img) {
+             $(".curDrag").remove();
+             var arr = JSON.parse(json);
+             var tlp = "<div id='@id' class='curDrag' style='width:@w;height:@h;top:@y;left:@x;'>@id</div>";//模板
+             for (var i = 0; i < arr.length; i++) {
+                 var j = arr[i];
+                 var divt = tlp.replace("@x", j.x).replace("@y", j.y).replace("@w", j.w).replace("@h", j.h).replace(/@id/g, j.id);
+                 $("#maindiv").append(divt);
+             }
+             $("#newimg").attr("src", img);
+             jsonArr = arr;
+             InitDrag();
+             curid = jsonArr[0].id;
+             index = $(".curDrag").length;
+             $(parent.document).find("#curdiv_l").text(curid);
+             PSet("gid_t", jsonArr[0].gid);
+             PSet("remind_t", jsonArr[0].remind);
+         }
+         function PSet(id, v)
+         {
+             $(parent.document).find("#" + id).val(v);
+         }
+    </script>
+</body>
+</html>

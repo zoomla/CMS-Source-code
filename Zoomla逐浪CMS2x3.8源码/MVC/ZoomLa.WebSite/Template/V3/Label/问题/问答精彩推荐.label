@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>230</LabelID>
+    <LabelName>问答精彩推荐</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,collect.dbo.ZL_CommonModel.NodeID,collect.dbo.ZL_CommonModel.Subtitle,collect.dbo.ZL_CommonModel.Title</LabelField>
+    <LabelWhere>ParentTree like '%,@NodeID,%'</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+ &lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;
+{ZL:CutText({Field="Title"/} ,25,)/}
+&lt;/a&gt;&amp;nbsp;[{ZL:CutText({Field="Subtitle"/} ,10,)/}]&lt;br&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>686</LabelID>
+    <LabelName>输出店铺产品列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>店铺</LabelCate>
+    <LabelDesc />
+    <LabelParam>TitleNum,25,1,名称长|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_UserShop</LabelTable>
+    <LabelField>ID,LinPrice,Proname,Thumbnails,ShiPrice,AddUser</LabelField>
+    <LabelWhere>Sales=1</LabelWhere>
+    <LabelOrder>AddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li  class="col-lg-3 col-md-3 col-sm-6 col-xs-12"&gt;
+&lt;a href="/Store/Shopinfo.aspx?Itemid={Field="ID"/}&amp;id={ZL.Label id="根据用户名得到店铺ID" UserName="{Field="AddUser"/}" /}"  target="_blank"&gt;
+&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}" alt="{Field="Proname"/}" class="imgs" /&gt;
+&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a  href="/Store/Shopinfo.aspx?Itemid={Field="ID"/}&amp;id={ZL.Label id="根据用户名得到店铺ID" UserName="{Field="AddUser"/}" /}" target="_blank"&gt;{ZL:CutText({Field="Proname"/},@TitleNum,)/}&lt;/a&gt;&lt;/strong&gt;&lt;br /&gt;
+零售价：&lt;strong&gt;￥{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/strong&gt;&lt;br /&gt; 市场价：&lt;span class="throught"&gt;￥{ZL:GetMoney({Field="ShiPrice"/},2,1)/}&lt;/span&gt;
+&lt;p&gt;
+&lt;/li&gt;&lt;!--商品展示之一 --&gt;
+{/Repeate}
+ 
+ 
+ </LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla7x</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

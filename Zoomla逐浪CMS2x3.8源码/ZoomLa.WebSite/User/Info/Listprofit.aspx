@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Listprofit.aspx.cs" Inherits="User_Info_Listprofit" %>

@@ -1,0 +1,29 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{ 
+    Model.url = "AppTlp_Data";
+    Model.cols = 4;
+}
+<table id="EGV" class="table table-bordered table-striped table-hover">
+    @if (Model.itemCount > 0)
+    {
+        <tr>
+            <td class="td_s"></td><td>名称</td><td>创建时间</td><td>操作</td>
+        </tr>
+        foreach(DataRow dr in Model.dt.Rows)
+        {
+            <tr>
+                <td><input type="radio" name="idrad" value="@dr["ID"]" /></td>
+                <td><a href="Design?id=@dr["ID"]&vpath=@dr["tlpurl"]" target="_blank">@dr["Alias"]</a></td>
+                <td>@DataConverter.CDate(dr["CDate"]).ToString("yyyy-MM-dd")</td>
+                <td><a href="Design?id=@dr["ID"]&vpath=@dr["tlpurl"]" target="_blank">修改</a></td>
+            </tr>
+        }
+        @Html.Partial("_page",Model)
+    }
+    else
+    {
+        <tr><td colspan="4" class="text-center">您还没有自己的模板,请点击上方"在线模板"按钮添加模板!</td></tr>
+    }
+</table>

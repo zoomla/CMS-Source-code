@@ -1,0 +1,141 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>发送短消息</title>
+}
+@section content{
+    <div id="pageflag" data-nav="index" data-ban="pub"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="@Url.Action("Message", "Message")">消息中心</a></li>
+            <li class="active">发送短消息</li>
+        </ol>
+    </div>
+    <div class="container">
+        @Html.Partial("MessageTop")
+        <div class="us_seta btn_green">
+            <table class="table_li table-border">
+                <tr>
+                    <td class="text-right td_m">收件人</td>
+                    <td class="tdRight">
+                        <div class="input-group" style="width: 380px;">
+                            <input type="text" class="form-control text_300" id="txtinceptuser" name="txtinceptuser" />
+                            <input type="hidden" id="rxrinceptuser_hid" />
+                            <span class="input-group-btn">
+                                <button type="button" onclick="ShowSelUser(1)" class="btn btn-primary">选择用户</button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">抄送人</td>
+                    <td class="tdRight">
+                        <div class="input-group" style="width: 380px;">
+                            <input type="text" id="ccuser_t" name="ccuser_t" class="form-control text_300">
+                            <span class="input-group-btn">
+                                <button type="button" onclick="ShowSelUser(2)" class="btn btn-primary">选择用户</button>
+                            </span>
+                        </div>
+                        <input type="hidden" id="ccuser_hid" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">邮件标题</td>
+                    <td class="tdRight">
+                        <input type="text" id="txttitle" name="txttitle" class="form-control text_300" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">内容</td>
+                    <td>
+                        <textarea id="editorcontent" name="editorcontent" style="height:240px;width:100%;"></textarea>
+                    </td>
+                </tr>
+                <tr id="hasFileTR">
+                    <td class="text-right">
+                        已上传文件<input type="hidden" id="hasfiledata" />
+                    </td>
+                    <td id="hasFileTD"></td>
+                </tr>
+                <tr>
+                    <td class="text-right">附件</td>
+                    <td>
+                        <input type="button" id="upfile_btn" class="btn btn-primary" value="选择文件" />
+                        <div style="margin-top: 10px;" id="uploader" class="uploader">
+                            <ul class="filelist"></ul>
+                        </div>
+                        <input type="hidden" id="attach_hid" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button id="send_btn" onclick="Send_Btn_Click" class="btn btn-primary">发送</button>
+                        <button id="draft_btn" onclick="draft_Btn_Click" class="btn btn-primary">存草稿</button>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="alert alert-success">
+            <i class="fa fa-lightbulb-o"></i>
+            提示：系统支持以MessageSend?name=[用户名]&content=[内容]方式get将站内信发送,如:MessageSend?name=admin&content=站内信
+        </div>
+    </div>
+
+}
+@section script{
+
+    <link href="/JS/Controls/ZL_Webup.css" rel="stylesheet" />
+    <script src="/Plugins/Ueditor/ueditor.config.js" charset="utf-8"></script>
+    <script src="/Plugins/Ueditor/ueditor.all.min.js" charset="utf-8"></script>
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script src="/JS/Controls/ZL_Webup.js"></script>
+    <%=Call.GetUEditor("EditorContent",2) %>
+    <script>
+        $(function () {
+            $("#upfile_btn").click(ZL_Webup.ShowFileUP);
+        })
+        function AddAttach(file, ret, pval) { return ZL_Webup.AddAttach(file, ret, pval); }
+        function ShowSelUser(n) {
+            var url = "";
+            if (n == 1)
+                url = "/Office/Mail/SelGroup?Type=AllInfo#ReferUser";
+            else
+                url = "/Office/Mail/SelGroup?Type=AllInfo#CCUser";
+            comdiag.maxbtn = false;
+            ShowComDiag(url, "选择用户");
+        }
+        function UserFunc(json, select) {
+            var uname = "";
+            var uid = "";
+            for (var i = 0; i < json.length; i++) {
+                uname += json[i].UserName + ",";
+                uid += json[i].UserID + ",";
+            }
+            if (uid) uid = uid.substring(0, uid.length - 1);
+            if (select == "ReferUser") {
+                $("#TxtInceptUser").val(uname);
+                $("#TxtInceptUser_Hid").val(uid);
+            }
+            if (select == "CCUser") {
+                $("#ccUser_T").val(uname);
+                $("#ccUser_Hid").val(uid);
+            }
+            CloseComDiag();
+        }
+        function SendConfirm() {
+            rece = $("#TxtInceptUser").val();
+            if (rece == "") { alert('未选定收件人!'); return false; }
+            title = $("#TxtTitle").val();
+            if (title == "") { alert('邮件标题不能为空!'); return false; }
+            if (confirm('确定要发送该邮件吗')) {
+                disBtn(this, 3000); return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+}

@@ -1,0 +1,91 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>会员组模型</title>
+}
+@section content{
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="@Url.Action("Default","Pages")">企业黄页</a></li>
+            <li class="active">会员组模型</li>
+        </ol>
+        <div class="us_seta">
+            @Html.Partial("ViewPub_List",Model)
+            <input type="button" value="批量删除" class="btn btn-primary" onclick="mvcpage.bat({ url: 'pub_del?TableName=@ViewBag.TableName', confirm: '不可恢复性删除数据,你确定将该数据删除吗？' });" />
+        </div>
+    </div>
+}
+@section script{
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script language="javascript">
+        function CheckAll(spanChk)//CheckBox全选
+        {
+            var oItem = spanChk.children;
+            var theBox = (spanChk.type == "checkbox") ? spanChk : spanChk.children.item[0];
+            xState = theBox.checked;
+            elm = theBox.form.elements;
+            for (i = 0; i < elm.length; i++)
+                if (elm[i].type == "checkbox" && elm[i].id != theBox.id) {
+                    if (elm[i].checked != xState)
+                        elm[i].click();
+                }
+        }
+        function OpenLink(lefturl, righturl) {
+            if (lefturl != "") {
+                parent.frames["left"].location = lefturl;
+            }
+            parent.frames["main_right"].location = righturl;
+        }
+        //根据传入的checkbox的选中状态设置所有checkbox的选中状态
+        function selectAll(obj) {
+            var allInput = document.getElementsByTagName("input");
+            //alert(allInput.length);
+            var loopTime = allInput.length;
+            for (i = 0; i < loopTime; i++) {
+                //alert(allInput[i].type);
+                if (allInput[i].type == "checkbox") {
+                    allInput[i].checked = obj.checked;
+                }
+            }
+        }
+        //判断是否选中记录，用户确认删除
+        function judgeSelect() {
+            var result = false;
+            var allInput = document.getElementsByTagName("input");
+            var loopTime = allInput.length;
+            for (i = 0; i < loopTime; i++) {
+                if (allInput[i].checked) {
+                    result = true;
+                    break;
+                }
+            }
+            if (!result) {
+                alert("请先选则要删除的记录！");
+                return result;
+            }
+            result = confirm("你确认要删除选定的记录吗？");
+            return result;
+        }
+        //判断是否选中记录，判断是否取消生成
+        function IsCreateSelect() {
+            var result = false;
+            var allInput = document.getElementsByTagName("input");
+            var loopTime = allInput.length;
+            for (i = 0; i < loopTime; i++) {
+                if (allInput[i].checked) {
+                    result = true;
+                    break;
+                }
+            }
+            if (!result) {
+                alert("请先选则要还原的记录！");
+                return result;
+            }
+            result = confirm("你确认要还原选定的记录吗？");
+            return result;
+        }
+    </script>
+}

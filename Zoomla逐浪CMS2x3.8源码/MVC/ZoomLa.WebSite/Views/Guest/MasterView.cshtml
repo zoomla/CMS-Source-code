@@ -1,0 +1,100 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@{ 
+    M_UserInfo mu = ViewBag.mu;
+    DataTable cateDt = ViewBag.cateDt;
+}
+<div id="ask_top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <div class="ask_top_l">
+                    <ul class="list-inline">
+                        <li><a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('@ZoomLa.Components.SiteConfig.SiteInfo.SiteUrl');" href="javascript:;">设为首页</a></li>
+                        <li>
+                            <a href="javascript:;" type="button" id="dropdownMenu1" data-toggle="dropdown">官网频道<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                @Call.GetLabel("{ZL.Label id=\"输出根节点下一级栏目列表\" ShowNum=\"8\" /}");%>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                <div class="ask_top_r">
+                    <ul class="list-inline">
+                        <li><i class="fa fa-graduation-cap"></i><a href="/Baike">百科</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="/Guest">留言</a></li>
+                        <li><i class="fa fa-question-circle"></i><a href="/Ask">问答</a></li>
+                        <li><i class="fa fa-paw"></i><a href="/Index">贴吧</a></li>
+                        @if (mu.IsNull)
+                        {
+                            <li><a href="/User/Login?ReturnUrl=/guest/" target="_blank">登录</a>|<a href="/User/Register?ReturnUrl=/Guest/" target="_blank">注册</a></li>
+                        }
+                        else {
+                            <li>
+                                <div class="dropdown">
+                                    <a id="dLabel" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@mu.UserName<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/" target="_blank">我的空间</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/" target="_blank">我的帖子</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/Content/MyFavori" target="_blank">我的喜欢</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/" target="_blank">我的关注</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/" target="_blank">我的投票</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/User/Info/UserBase" target="_blank">个人设置</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/user/Logout">安全退出</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 ask_logo">
+        <a href="/"> <img src='@ZoomLa.Components.SiteConfig.SiteInfo.LogoUrl' /></a>
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 padding0">
+        <div class="padding10" style="margin-top: 25px;">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"></div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 padding0">
+                <select id="gtype" name="gtype" class="form-control">
+                    <option value="title">留言标题</option>
+                    <option value="id">留言ID</option>
+                </select>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 padding0">
+                <div class="input-group">
+                    <input type="text" id="skey" name="skey" class="form-control mvcparam" tabindex="1" />
+                    <span class="input-group-btn">
+                        <input type="button" value="搜索" class="btn btn-primary" onclick="mvcpage.load();" />
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="position: relative;">
+    <div class="navbar navbar-default navbar-static-top" role="navigation" id="guest_nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand" href="/Guest/Default">留言反馈</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li id="lmenu0"><a href="/Guest/Default" title="留言首页">留言首页</a></li>
+                    @foreach (DataRow dr in cateDt.Rows)
+                    {
+                        <li id='lmenu@(dr["CateID"])'><a href="/Guest/Default?CateID=@dr["CateID"]">@dr["CateName"]</a> </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

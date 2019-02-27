@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>196</LabelID>
+    <LabelName>小类全部问题列表</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>num,默认值,1,参数说明</LabelParam>
+    <LabelTable>zl_pub_tw</LabelTable>
+    <LabelField>ID</LabelField>
+    <LabelWhere>classlevel1={$GetRequest(smallclass)$}</LabelWhere>
+    <LabelOrder>id desc</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;script&gt;
+var puid='{Field="ID"/}';
+var pid='{ZL.Label id="根据pid判断问题是否解决" getid="{Field="ID"/}" /}';
+var con1='{ZL.Label id="根据pubid得到输出问题_已解决" pubID="{Field="ID"/}" /}';
+var con2='{ZL.Label id="根据pubid得到输出问题_未解决" pubID="{Field="ID"/}" /}';
+if(pid==puid)
+{
+document.write(con1);
+}
+else{
+document.write(con2);
+}
+&lt;/script&gt;
+{/Repeate}
+{ZL.Page/}</LabelContent>
+    <LabelCount>@num</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

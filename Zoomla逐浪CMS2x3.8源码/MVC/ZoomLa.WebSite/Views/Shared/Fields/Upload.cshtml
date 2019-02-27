@@ -1,0 +1,34 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    public string GetSwf()
+    {
+        string Name = Model.fieldMod.FieldName;
+        string Description = Model.fieldMod.Description;
+        int ModelID = Model.ModelID;
+        int NodeID = Model.NodeID;
+        string value=Model.GetValue();
+        StringBuilder builder = new StringBuilder();
+        if (string.IsNullOrEmpty(value))
+        {
+            builder.Append("<input type=\"text\" class=\"form-control m715-50\" name=\"txt_" + Name + "\" id=\"txt_" + Name + "\" size=\"35\">" + Description + "");
+            builder.Append("</td></tr>");
+            builder.Append("<tr><td><iframe id=\"Upload_" + Name + "\" src=\"/Common/FileUpload.aspx?ModelID=" + ModelID + "&FieldName=" + Name + "&NodeId=" + NodeID + "\" marginheight=\"0\" marginwidth=\"0\" frameborder=\"0\" width=\"100%\" height=\"30\" scrolling=\"no\"></iframe></td></tr></table>");
+            builder.Append("</td></tr>");
+            return builder.ToString();
+        }
+        builder.Append("<input type=\"text\" class=\"form-control m715-50\" name=\"txt_" + Name + "\" id=\"txt_" + Name + "\" size=\"35\" value=\"" + value + "\">" + Description + "");
+        builder.Append("</td></tr>");
+        builder.Append("<tr><td><iframe id=\"Upload_" + Name + "\" src=\"/Common/FileUpload.aspx?ModelID=" + ModelID + "&FieldName=" + Name + "&NodeId=" + NodeID + "\" marginheight=\"0\" marginwidth=\"0\" frameborder=\"0\" width=\"100%\" height=\"30\" scrolling=\"no\"></iframe></td></tr></table>");
+        builder.Append("</td></tr>");
+        return builder.ToString();
+    }
+}
+@{
+    // 在线浏览
+}
+@MvcHtmlString.Create(GetSwf())

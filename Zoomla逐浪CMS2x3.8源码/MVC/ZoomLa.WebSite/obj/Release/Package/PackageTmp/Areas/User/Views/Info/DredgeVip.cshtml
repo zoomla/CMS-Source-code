@@ -1,0 +1,48 @@
+﻿@using System.Data
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>VIP信息</title>}
+@section content{
+    <form action="@MVCHelper.GetAction(Url.Action("DardgeVip_Open","info"),Request)"  method="post">
+        <div id="pageflag" data-nav="shop" data-ban="shop"></div>
+        <div class="container margin_t5">
+            <ol class="breadcrumb">
+                <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+                <li><a href="@Url.Action("UserInfo","Info")">账户管理</a></li>
+                <li class="active">VIP信息</li>
+            </ol>
+        </div>
+        <div class="container btn_green">
+            <ul class="nav nav-tabs">
+                <li><a href="@Url.Action("UserInfo","Info")">注册信息</a></li>
+                <li><a href="@Url.Action("UserBase","info")">基本信息</a></li>
+                <li><a href="UserBase?sel=Tabs1">头像设置</a></li>
+                <li class="active"><a href="@Url.Action("DardgeVip","info")">VIP卡</a></li>
+            </ul>
+            <div class="text-center">
+                <div class="panel panel-info margin_t10">
+                    <div class="panel-heading"><i class="fa fa-credit-card-alt"></i> VIP卡</div>
+                    <div class="panel-body">
+                        <div style="border-bottom:1px dashed #ddd;padding-bottom:5px;">
+                            <span>VIP号</span>
+                            <input type="text" id="txtVIP" name="txtVIP" class="form-control text_md" title="VIP卡号不能为空" />
+                        </div>
+                        <div class=" margin_t5">
+                            <span>密 码</span>
+                            <input type="password" id="txtPas" name="txtPas" class="form-control text_md" title="VIP密码不能为空" />
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <input type="submit" value="开通VIP" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+}
+@section script{
+    <script>
+        $("form").validate();
+    </script>
+}

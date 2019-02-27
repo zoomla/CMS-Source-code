@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BaoFaoNotify.aspx.cs" Inherits="ZoomLaCMS.PayOnline.Return.BaoFaoNotify" %>

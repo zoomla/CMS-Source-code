@@ -1,0 +1,60 @@
+﻿@using System.Data;
+@using ZoomLa.BLL.Helper
+@model ZoomLaCMS.Areas.User.Models.OrderViewModel
+@{
+    Model.setting.cols = 5;
+    Model.setting.url = "Order_Data";
+    Model.setting.page_wrap_start = "<div class='clearfix'></div><div class='text-center' style='border:1px solid #ddd;padding:5px;border-top:none;'>";
+    Model.setting.page_wrap_end = "</div>";
+    Model.setting.Check = false;
+}
+<div id="EGV">
+    <table class="table">
+        <thead class="top_div">
+            <tr>
+                <th class="text-center">订单详情</th>
+                <th class="td_md">数量</th>
+                <th class="td_md">总计</th>
+                <th class="td_md">状态</th>
+                <th class="td_md">操作</th>
+            </tr>
+        </thead>
+    </table>
+    @foreach (DataRow order in Model.OrderDT.Rows)
+    {
+        DataTable prodt = Model.GetProByOrder(order["OrderNo"].ToString());
+        <div class="order-item">
+            <table class="table prolist">
+                <thead>
+                    <tr class="tips_div">
+                        <th class="orderinfo" colspan="1"><span class="order_ico@(order["OrderType"])"></span> <span class="gray9" style="font-size:12px;">@order["AddTime"]</span> ID：@order["ID"]</th>
+                        <th class="shopinfo" colspan="4">
+                            @Model.GetStoreName(Convert.ToInt32(order["StoreID"]))
+                        </th>
+                        <th class="opinfo">
+                            @*<asp:linkbutton visible="false" runat="server" commandargument='@order["ID"]' commandname="del2" onclientclick="return confirm('您确定要删除该订单吗？');"><i class="fa fa-trash" title="删除"></i></asp:linkbutton>*@
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < prodt.Rows.Count; i++)
+                {
+                    DataRow product = prodt.Rows[i];
+                    <tr>
+                        <td style="text-align:left;border-right:none;border-left:none;">
+                            <span>
+                                <a href="@Model.GetShopUrl(product)" target="_blank"><img src="@Model.GetImgUrl(product)" onerror="shownopic(this);" class="img50" /></a>
+                                <span>@product["Proname"]@MvcHtmlString.Create(Model.GetSnap(product))</span>
+                            </span>
+                        </td>
+                        <td class="td_md goodservice" style="border-left:none;">@MvcHtmlString.Create(Model.GetRepair(product))</td>
+                        <td class="td_md gray9">x@(product["Pronum"])</td>
+                        @if (i == 0)
+                        {@Model.BindOrderOP(product) }
+                    </tr>
+                }
+                @MvcHtmlString.Create(Model.GetMessage(order))
+            </table>
+        </div>
+    }
+    @Html.Partial("_page", Model.setting)
+</div>

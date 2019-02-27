@@ -1,0 +1,33 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<title>消费详情</title>
+}
+@section content{
+<div id="pageflag" data-nav="home" data-ban="UserInfo"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li class="active"><a href="@Request.RawUrl">金额变更详情</a></li>
+    </ol>
+</div>
+<div class="container">
+<div class="input-group" style="width: 640px;">
+    <input type="text" id="stime_t" placeholder="起始时间" class="form-control text_md mvcparam" onclick="WdatePicker({})" />
+    <input type="text" id="etime_t" placeholder="结束时间" class="form-control text_md mvcparam" onclick="WdatePicker({})" />
+    <input type="text" id="skey_t" placeholder="关键词" class="form-control text_md mvcparam" value="@Request["skey_t"]" />
+    <input type="hidden" id="stype" class="mvcparam" value="@Request["SType"]" />
+    <span class="input-group-btn">
+        <button type="button" id="Skey_Btn" class="btn btn-default" onclick="mvcpage.load();"><span class="fa fa-search"></span></button>
+    </span>
+</div>
+<div class="clearfix margin_t5"></div>
+@Html.Partial("ConsumeDetail_List", Model)
+</div>
+}
+@section script{
+<style>.allchk_l{display:none;}</style>
+}

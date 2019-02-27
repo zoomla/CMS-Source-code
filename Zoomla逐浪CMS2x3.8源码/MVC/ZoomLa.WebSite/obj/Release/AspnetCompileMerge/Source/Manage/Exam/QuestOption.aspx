@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="QuestOption.aspx.cs" Inherits="ZoomLaCMS.Manage.Exam.QuestOption" %>

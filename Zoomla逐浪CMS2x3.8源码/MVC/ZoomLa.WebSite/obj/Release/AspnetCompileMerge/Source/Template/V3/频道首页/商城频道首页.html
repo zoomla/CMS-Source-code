@@ -1,0 +1,106 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<style>
+.navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+</style>
+</head>
+<body data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
+{ZL.Label id="响应式全站头部"/}
+<div class="myBanner">
+<div class="container"><h3><br/><br/>逐浪软件</h3><br/>手機和電腦的网页表现無边界。</div>
+</div>
+<!--内页通栏banner广告位 --> 
+<div class="container mySites">
+<ul class="breadcrumb">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">频道首页</li>
+</ul>
+</div>
+<!--面包屑导航结束 -->
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+<div id="navbar-example2" class="bs-sidebar hidden-print" role="complementary"  >
+<ul class="nav bs-sidenav">
+<li  class="active"><a href="#NodeID75" >服装鞋帽</a></li> 
+<li><a href="#NodeID133">营养美食</a> </li>
+<li><a href="#NodeID132">珠宝首饰</a></li>
+<li><a href="#NodeID131">体育用品</a></li>
+<li><a href="#NodeID130" >手机数码</a></li> 
+<li><a href="#NodeID129" >日常用品</a></li>
+</ul>
+</div>
+<div class="shop_hot">
+<div class="shop_hot_t">热卖商品</div>
+<div class="shop_hot_c">
+<ul>
+{ZL.Label id="商城热卖商品标签_不分页列表" NodeID="2" TitleNum="30" ShowNum="2" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" style="margin-top:15px;">
+<div class="list-group" id="NodeID75"><a href="{ZL:GetNodeLinkUrl(75)/}" class="list-group-item active"><span class="badge">更多</span>服装鞋帽</a></div>
+<div class="row">
+<div class="shop_img">
+<ul class="list-unstyled">
+{ZL.Label id="商城普通商品标签_不分页列表V3" NodeID="75" TitleNum="30" ShowNum="4" ClassName="col-lg-3 col-md-3 col-sm-3 col-xs-6" /}
+</ul>
+</div>
+</div>
+<div class="list-group" id="NodeID133"><a href="{ZL:GetNodeLinkUrl(133)/}" class="list-group-item active"><span class="badge">更多</span>营养美食</a></div>
+<div class="row">
+<div class="shop_img">
+<ul class="list-unstyled">
+{ZL.Label id="商城普通商品标签_不分页列表V3" NodeID="133" TitleNum="30" ShowNum="4" ClassName="col-lg-3 col-md-3 col-sm-3 col-xs-6" /}
+</ul>
+</div>
+</div>
+<div class="list-group" id="NodeID132"><a href="{ZL:GetNodeLinkUrl(132)/}" class="list-group-item active"><span class="badge">更多</span>珠宝首饰</a></div>
+<div class="row">
+<div class="shop_img">
+<ul class="list-unstyled">
+{ZL.Label id="商城普通商品标签_不分页列表V3" NodeID="132" TitleNum="30" ShowNum="4" ClassName="col-lg-3 col-md-3 col-sm-3 col-xs-6" /}
+</ul>
+</div>
+</div>
+<div class="list-group" id="NodeID131"><a href="{ZL:GetNodeLinkUrl(131)/}" class="list-group-item active" ><span class="badge">更多</span>体育用品</a></div>
+<div class="row">
+<div class="shop_img">
+<ul class="list-unstyled">
+{ZL.Label id="商城普通商品标签_不分页列表V3" NodeID="131" TitleNum="30" ShowNum="4" ClassName="col-lg-3 col-md-3 col-sm-3 col-xs-6" /}
+</ul>
+</div>
+</div>
+<div class="list-group" id="NodeID130"><a href="{ZL:GetNodeLinkUrl(130)/}" class="list-group-item active" ><span class="badge">更多</span>手机数码</a></div>
+<div class="row">
+<div class="shop_img">
+<ul class="list-unstyled">
+{ZL.Label id="商城普通商品标签_不分页列表V3" NodeID="130" TitleNum="30" ShowNum="4" ClassName="col-lg-3 col-md-3 col-sm-3 col-xs-6" /}
+</ul>
+</div>
+</div>
+<div class="list-group" id="NodeID129"><a href="{ZL:GetNodeLinkUrl(129)/}" class="list-group-item active" id="fat"><span class="badge">更多</span>日常用品</a></div>
+<div class="row">
+<div class="shop_img">
+<ul class="list-unstyled">
+{ZL.Label id="商城普通商品标签_不分页列表V3" NodeID="129" TitleNum="30" ShowNum="4" ClassName="col-lg-3 col-md-3 col-sm-3 col-xs-6" /}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>

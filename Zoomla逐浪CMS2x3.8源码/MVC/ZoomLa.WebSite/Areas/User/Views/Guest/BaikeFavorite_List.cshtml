@@ -1,0 +1,26 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    DataTable dt = new DataTable();
+    Model.cols = 2;
+    Model.url = "BikeFavorite_Data";
+    }
+<div class="container">
+    <div class="us_seta">
+        <table class="table table-bordered table-striped table-hover">
+            <tr class="title">
+                <td>已收藏词条</td>
+                <td>收藏时间</td>
+            </tr>
+            @foreach (DataRow dr in dt.Rows)
+            {
+                <tr>
+                    <td><a href="/Baike/Details?ID=@dr["infoid"]" target="_blank">@dr["GetTitle"]</a></td>
+                    <td>@DateHelper.ToDate(dr["FavoriteDate"], "yyyy-MM-dd")</td>
+                </tr>
+            }
+            @Html.Partial("_page", Model)
+        </table>
+    </div>
+</div> 

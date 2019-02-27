@@ -1,0 +1,40 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@model ZoomLaCMS.Models.Cloud.VM_Cloud
+@{
+    Model.setting.cols = 10;
+    Model.setting.url = "CloudManage?type=" + Model.FType + "&dir=" + HttpUtility.UrlEncode(Model.VDir);
+}
+<div id="EGV">
+    <div class="url_title" style="border: 1px solid #ddd; background-color: #f7f7f7; border-radius: 4px; padding: 8px;">
+        @MvcHtmlString.Create(Model.GetBread(Model.VDir, "/User/Cloud/Index?type=" + Model.FType + "&dir="))
+    </div>
+    <div class="clearfix"></div>
+    <table class="table">
+        <thead>
+            <tr>
+                <td style="width: 50%;">名称</td>
+                <td style="width: 15%;">大小</td>
+                <td style="width: 15%;">创建时间</td>
+                <td style="width: 20%;">操作</td>
+            </tr>
+        </thead>
+        @foreach (DataRow dr in Model.setting.dt.Rows)
+        {
+            <tr>
+                <td class="text-left">
+                    <div style="position: relative; bottom: -10px; display: inline-block;">@Model.GetUrl(dr)</div>
+                    @Model.GetLink(dr)
+                </td>
+                <td>@Model.GetSize(dr)</td>
+                <td>@DateHelper.ToDate(dr["cdate"])</td>
+                <td>
+                    @Model.GetDownUrl(dr)
+                    <button type="button" onclick="mvcpage.del({url:'cloud_del',id:'@dr["guid"]',confirm:'确定要删除吗',target:'EGV'});" class="btn btn-sm btn-info"><i class='fa fa-trash-o' title='删除'></i></button>
+                </td>
+            </tr>
+        }
+    </table>
+    @if (Model.setting.pageCount > 1)
+    {@Html.Partial("_page2", Model.setting)}
+</div>

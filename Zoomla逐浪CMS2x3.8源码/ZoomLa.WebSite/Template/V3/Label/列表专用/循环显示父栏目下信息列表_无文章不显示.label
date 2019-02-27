@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>724</LabelID>
+    <LabelName>循环显示父栏目下信息列表_无文章不显示</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ParentID,0,1,父节点ID|TitleNum,60,1,标题长度|ShowNum,10,1,特环显示信息数</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName</LabelField>
+    <LabelWhere>NodeID in (select NodeID from ZL_CommonModel where (NodeID in (select NodeID from ZL_Node where ParentID=@ParentID)) And Status=99)</LabelWhere>
+    <LabelOrder>OrderID ASC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="news_list"&gt;
+&lt;div class="news_list_t"&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}"&gt;更多&gt;&gt;&lt;/a&gt;&lt;h2&gt;{Field="NodeName"/}&lt;/h2&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="news_list_c"&gt;
+&lt;ul class="list-unstyled"&gt;
+{ZL.Label id="输出指定节点标题_带时间排行属性v3" NodeID="{Field="NodeID"/}" TitleNum="@TitleNum" ShowNum="@ShowNum" /}
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;{/Repeate}</LabelContent>
+    <LabelCount>0</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,137 @@
+﻿@using ZoomLa.Model;
+@using ZoomLa.Model.User;
+@using ZoomLa.SQLDAL;
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    M_UserInfo mu = ViewBag.mu;
+    M_Uinfo basemu = ViewBag.basemu;
+    int step = DataConvert.CLng(ViewBag.step);
+}
+@section head{<title>修改手机</title>}
+@section content{
+<div id="pageflag" data-nav="group" data-ban="ChangeMP"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+        <li><a title="用户信息" href="/User/Info/UserInfo">用户信息</a></li>
+        <li class="active">修改手机</li>
+    </ol>
+</div>
+<div class="container btn_green">
+    
+@{
+    if (step == 1 || step == 0)
+    {
+        <form method="post" action="/User/Change/Mobile_1">
+            <div id="step1_div">
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                        <td class="td_m">原手机：</td>
+                        <td>
+                            <input type="text" class="form-control text_300" id="SMobile_T" disabled="disabled" value="@basemu.Mobile" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>验证码：</td>
+                        <td>
+                            <input type="text" id="VCode" name="VCode" placeholder="验证码" maxlength="6" class="form-control text_x" />
+                            <img id="VCode_img" class="codeimg" title="点击刷新验证码" />
+                            <input type="hidden" id="VCode_hid" name="VCode_hid" />
+                            <input type="button" id="SendCode_Btn" class="btn btn-info" value="发送校验码" onclick="getvcode(this);" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>校验码：</td>
+                        <td>
+                            <input type="text" id="CheckNum_T" name="CheckNum_T" class="form-control text_300 required" maxlength="8" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" id="Next_Btn" value="下一步" class="btn btn-info" /> @*onclick="Next_Btn_Click"*@
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    }
+    else if (step == 2)
+    {
+        <form method="post" action="/User/Change/Mobile_2">
+            <div id="step2_div">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <td class="td_m">新手机号：</td>
+                        <td>
+                            <input type="text" class="form-control text_300 required mobile" value="@ViewBag.newmoblie" id="NewMobile_T" name="NewMobile_T" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>验证码：</td>
+                        <td>
+                            <input type="text" id="VCode" name="VCode" placeholder="验证码" maxlength="6" class="form-control text_x" />
+                            <img id="VCode_img" class="codeimg" title="点击刷新验证码" />
+                            <input type="hidden" id="VCode_hid" name="VCode_hid" />
+                            <input type="button" id="SendCode_Btn" class="btn btn-info" value="发送校验码" onclick="getvcode(this,2);" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>校验码：</td>
+                        <td>
+                            <input type="text" class="form-control text_300 required" id="NewCheckNum_T" name="NewCheckNum_T" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit" id="submit_btn" disabled="disabled" class="btn btn-primary">提交</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    }
+}
+    @if(!string.IsNullOrEmpty(ViewBag.info as string)) { <div class="alert alert-info" id="Remind_Div" style="margin-top:0px;margin-bottom:5px;">@ViewBag.info</div> }
+</div>
+}
+@section script{
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script src="/JS/Controls/Control.js"></script>
+<script>
+$(function () {
+    $("#VCode").ValidateCode({ submitchk: false });
+    $("#NewVCode").ValidateCode({ submitchk: false });
+    //var vaild = $("form").validate({ meta: "validate" });
+    validate.zl_init($("form"), { meta: "validate" });
+    $("#VCode,#NewMobile_T").focus(function () { $(this).tooltip("destroy"); console.log('11'); })
+})
+function getvcode(obj,step) {
+    var info = { key: "", vcode: "", mobile: "" };
+    info.key = $("#VCode_hid").val();
+    info.vcode = $("#VCode").val();
+    if (step == 2) {
+        info.mobile = $("#NewMobile_T").val();
+        if (info.mobile == undefined || info.mobile == '') {
+            $("#NewMobile_T").tooltip({ placement: "right", trigger: 'manual', title: "请输入手机号码" }).tooltip('show');
+            return;
+        }
+    }
+    if (info.vcode == undefined || info.vcode == '') { $("#VCode").tooltip({ placement: "right", trigger: 'manual', title: "请填写验证码" }).tooltip('show'); return; }
+    $("#NewMobile_T").tooltip('hide');
+    $("#VCode").tooltip('hide');
+    Control.btn.wait(obj, 60);
+    $.post("/User/Change/SendValidCode", info, function (data) {
+        APIResult.ifok(data, function (result) {
+            $("#Remind_Div").html("发送成功");
+            $("#submit_btn").removeAttr("disabled");
+        }, function (data) {
+            var model = APIResult.getModel(data);
+            $("#Remind_Div").html(model.retmsg);
+            Control.btn.wait_clear();
+        });
+    });
+}
+</script>
+}

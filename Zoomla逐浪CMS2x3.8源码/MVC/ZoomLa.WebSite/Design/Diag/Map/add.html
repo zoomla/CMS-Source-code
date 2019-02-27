@@ -1,0 +1,30 @@
+﻿<div class="header"><label class="title">添加地图</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-header">
+                <div class="title-line">
+                    <div class="title">添加地图</div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="domItem listItem">
+                    <nav class="navbar navbar-default">
+                        <img class="itemImg" src="/Design/res/img/map.png" />
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //为空则自动获取当前存入(添加时)
+    function GetModel(item) {
+        var $item = $(item);
+        var model = {
+            dataMod: { width: "600", height: "300", position: "", drag: true, zoom: true },
+            config: { type: "map", compid: "", css: "", style: '' }
+        };
+        return model;
+    }
+</script>

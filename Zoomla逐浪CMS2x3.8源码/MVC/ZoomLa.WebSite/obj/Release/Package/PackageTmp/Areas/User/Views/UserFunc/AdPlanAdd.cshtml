@@ -1,0 +1,135 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.Controls
+@model ZoomLa.Model.AdSystem.M_Adbuy
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    string btntxt = Model.ID > 0 ? "修改" : "提交申请";
+    string title = Model.ID > 0 ? "修改广告" : "申请广告";
+    string showtime = Model.ID > 0 ? Model.ShowTime.ToString() : "";
+    string price = Model.ID > 0 ? Model.Price.ToString("f2") : "";
+    DataTable ADID_DT = ViewBag.ADID_DT;
+}
+@section head{
+    <title>申请广告</title>
+}
+@section content{
+    <div id="pageflag" data-nav="group" data-ban="AdPlan"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+            <li><a href="AdPlan">广告计划</a></li>
+            <li class="active">申请广告</li>
+        </ol>
+    </div>
+    <div class="container btn_green">
+        <div class="us_seta">
+            <form method="post" action="@MVCHelper.GetAction("AdPlan_Add",Request)">
+                <table class="ad_info table table-striped table-bordered table-hover">
+                    <tr>
+                        <td colspan="2" class="text-center"><span>@title</span></td>
+                    </tr>
+                    <tr>
+                        <td align="right">版位名称&nbsp;: </td>
+                        <td>
+                            @if (ViewBag.noad){ <div id="nocontent" style="color: #f00;">无版位信息</div> }
+                            else
+                            {
+                                <select id="ADID" name="ADID" class="form-control text_md">
+                                    @foreach(DataRow dr in ADID_DT.Rows)
+                                    {
+                                        <option value="@dr["ZoneID"]">@dr["ZoneName"]</option>
+                                    }
+                                </select>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">广告权重: </td>
+                        <td>
+                            <select id="scale" name="scale" class="form-control text_md">
+                                <option Value="10">10</option>
+                                <option Value="9">9</option>
+                                <option Value="8">8</option>
+                                <option Value="7">7</option>
+                                <option Value="6">6</option>
+                                <option Value="5">5</option>
+                                <option Value="4">4</option>
+                                <option Value="3">3</option>
+                                <option Value="2">2</option>
+                                <option Value="1">1</option>
+                            </select>
+                            <span style="color:red;">*</span>如要购买完整广告请填10
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">购买天数&nbsp;: </td>
+                        <td>
+                            <input type="text" id="ShowTime" name="Showtime" value="@showtime" class="form-control text_md num" placeholder="广告投放时间数(天)" />
+                            <span><span style="color:red;">*</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">计划费用&nbsp;: </td>
+                        <td class="style9">
+                            <input type="text" id="price" name="price" value="@price" class="form-control" style="width:200px;" />
+                            <span><span style="color:red;">*</span>单位：人民币。</span>
+                           
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">广告内容&nbsp;: </td>
+                        <td>
+                            <textarea id="content" name="content" class="form-control text_405" style="height:100px;">@Model.Content</textarea><br />
+                            <span><span style="color:red;">*</span>可以填写您对于广告投放的其它要求。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">广告附件&nbsp;: </td>
+                        <td>
+                            @Html.Partial("C_SFileUP", new C_SFileUP { MaxHeight = 50, MaxWidth = 50, ID = "Files", Value = Model.Files })
+                            <input type="hidden" id="Files" name="Files" />
+                            <span><span style="color:red;">*</span>推荐使用rar|zip|jpg|docx等格式上传您的广告详细附件</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">投放时间&nbsp;: </td>
+                        <td>
+                            <span id="Span2">
+                                <input type="text" id="Ptime" name="ptime" class="form-control" value="@Model.Ptime.ToString("yyyy-MM-dd")" style="width:200px;" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' });" />
+                                <span><span style="color:red;">*</span>选择计划广告投放的时间</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center" style="text-align: center;">
+                            <input type="submit" value="@btntxt" class="btn btn-primary" />
+                            <input class="btn btn-primary" type="reset" value="重置" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+}
+@section script{
+    <style>.sfile_img{display:none;}</style>
+    <script src="/JS/Common.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/JS/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var ADID = '@Model.ADID';
+            if (ADID && ADID != '') { $("#ADID").val(ADID); }
+            var scale = '@Model.Scale';
+            if (scale && scale != '0') { $("#scale").val(scale); }
+            $("form").validate({
+                rules: {
+                    ShowTime: { required: true, range:[1,365] }
+                },
+                message: {
+                    ShowTime: { required: "购买天数不能为空", range: "购买天数必须为1-365的正整数" }
+                }
+            });
+        })
+    </script>
+}

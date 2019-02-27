@@ -1,0 +1,59 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Views/Shared/_ask.cshtml";
+    bool islogin = (bool)ViewBag.islogin;
+}
+@section head{
+    <title>我的回答</title>
+}
+@section content{
+<div class="container">
+    <ul class="breadcrumb">
+        <li>您的位置：<a href="/">网站首页</a></li>
+        <li><a href="/Ask">问答中心</a></li>
+        <li class="active">我的回答</li>
+    </ul>
+</div> 
+<div class="container">
+    <ul class="list-inline">
+        <li class="on"><a title="问答首页" href="#" class="btn btn-primary btn_guest">问答首页</a> </li>
+        <li><a title="问答之星" href="/Ask/Star" class="btn btn-primary btn_guest">问答之星</a></li>
+        <li><a title="分类大全" href="/Ask/Classification" class="btn btn-primary btn_guest">分类大全</a></li>
+        <li><a href="guest/ask/List?QueType=@Server.HtmlEncode(Request["QueType"])" class="btn btn-primary btn_guest">待完善问题</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="h_mid">
+        <div class="h_mid_l"></div>
+        <div id="tdh" class="h_mid_m">
+            @if(islogin) { <span>   <a href="MyAskList">我的提问</a> <a href="MyAnswerlist">我的回答</a></span> }
+            <ul>
+                <li class="on"><a title="问答首页" href="/Ask">问答首页</a> </li>
+                <li><a title="问答之星" href="/Ask/Star">问答之星</a></li>
+                <li><a title="分类大全" href="/Ask/Classification">分类大全</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="h_b">
+        <div class="h_b_m">
+            @{Html.RenderAction("CommonView");}
+            <div class="sybz margintop10">
+                <i class="fa fa-question-circle"></i><a href="http://help.z01.com/?index/help.html" title="帮助" target="_blank">使用帮助</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div style="border-top: 2px solid #3171af; padding: 25px 0 10px 0;">
+        @Html.Partial("MyAnswerlist_List",Model)
+    </div>
+</div>
+<div class="ask_bottom">
+    <p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+    <p class="text-center"><%Call.Label("{$Copyright/}"); %></p>
+</div>
+}
+@section script{
+    
+}

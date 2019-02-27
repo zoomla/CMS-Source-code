@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BatAdd.aspx.cs" Inherits="test_BatAdd" ValidateRequest="false" %>

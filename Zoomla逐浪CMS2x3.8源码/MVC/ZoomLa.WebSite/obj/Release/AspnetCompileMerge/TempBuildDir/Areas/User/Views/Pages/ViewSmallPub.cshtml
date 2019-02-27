@@ -1,0 +1,38 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>互动模块管理</title>
+}
+@section content{
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default")">会员中心</a></li>
+            <li><a href="@Url.Action("Default","Pages")">企业黄页</a></li>
+            <li class="active">互动模块管理</li>
+        </ol>
+        <span>
+            <input type="hidden" id="type" name="type" class="mvcparam" value="" />
+            <a href="javascript:;" onclick="$('#type').val('1'); mvcpage.load();">所有信息</a>|
+            <a href="javascript:;" onclick="$('#type').val('3'); mvcpage.load();">待审核信息</a>|
+            <a href="javascript:;" onclick="$('#type').val('2'); mvcpage.load();">已审核信息</a>
+        </span>
+        @Html.Partial("ViewSmallPub_List", Model)
+        @if (ViewBag.PubRole.ToString() == "1")
+        {
+            <input type="button" class="btn btn-primary" value="批量删除" onclick="mvcpage.bat({ url: 'pub_del?TableName=@ViewBag.TableName', confirm: '不可恢复性删除数据,你确定将该数据删除吗？' });" />
+        }
+    </div>
+}
+@section script{
+    <script src="/JS/Common.js" type="text/javascript"></script>
+    <script>
+        function OpenLink(lefturl, righturl) {
+            if (lefturl != "") {
+                parent.frames["left"].location = lefturl;
+            }
+            parent.frames["main_right"].location = righturl;
+        }
+    </script>
+}

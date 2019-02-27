@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>223</LabelID>
+    <LabelName>精彩问题块</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID</LabelParam>
+    <LabelTable>collect.dbo.ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName,NodePicUrl</LabelField>
+    <LabelWhere>ParentID=@NodeID</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;div  id="list_2{ZL:jsq}" class="none" &gt;
+&lt;div id="user_img"&gt;&lt;img src="{Field="NodePicUrl"/}"&gt;&lt;/div&gt;
+&lt;div id="user_elitm"&gt;
+&lt;div id="user_elitm_tit"&gt;&lt;span&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}"&gt;更多&lt;/a&gt;&lt;/span&gt;&lt;img src="{$CssDir/}Images/elit222.jpg"&gt; &lt;/div&gt;&lt;br&gt;
+&lt;b&gt; {Field="NodeName"/}&lt;/b&gt;
+&lt;ul id="user_elitm_txt"&gt;  {ZL.Label id="问答精彩推荐" NodeID="{Field="NodeID"/}" ShowNum="4" /}
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>4</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>一直累加</addroot>
+    <setroot>不等于</setroot>
+    <Modelvalue>1</Modelvalue>
+    <Valueroot />
+    <IsOpen>1</IsOpen>
+    <FalseContent>&lt;div  id="list_21" &gt;
+&lt;div id="user_img"&gt;&lt;img src="{Field="NodePicUrl"/}"&gt;&lt;/div&gt;
+&lt;div id="user_elitm"&gt;
+&lt;div id="user_elitm_tit"&gt;&lt;span&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}"&gt;更多&lt;/a&gt;&lt;/span&gt;&lt;img src="{$CssDir/}Images/elit222.jpg"&gt; &lt;/div&gt;&lt;br&gt;
+&lt;b&gt; {Field="NodeName"/}&lt;/b&gt;
+&lt;ul id="user_elitm_txt"&gt;  {ZL.Label id="问答精彩推荐" NodeID="{Field="NodeID"/}" ShowNum="4" /}
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;
+</FalseContent>
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

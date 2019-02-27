@@ -1,0 +1,15 @@
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.csprojResolveAssemblyReference.cache
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\bin\Debug\ZoomLa.SQLDAL.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\bin\Debug\ZoomLa.SQLDAL.pdb
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\bin\Debug\MySql.Data.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\bin\Debug\System.Data.SqlServerCe.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\bin\Debug\Zoomla.Model.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\bin\Debug\Newtonsoft.Json.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\bin\Debug\Zoomla.Model.pdb
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.pdb
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\ZoomLa.SQLDAL.dll
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\ZoomLa.SQLDAL.pdb
+D:\Code\ZoomlaCMS\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.csprojResolveAssemblyReference.cache
+D:\Code\ZoomlaCMS\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.dll
+D:\Code\ZoomlaCMS\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.pdb

@@ -1,0 +1,29 @@
+﻿<div class="header"><label class="title">其它组件</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-header"><div class="title-line"><div class="title">列表</div></div></div>
+            <div class="items">
+                <div data-type="progress" data-compid="" class="domItem listItem" style="height:230px;">
+                    <img src="/Design/res/img/progress.png" />
+                </div>
+
+				<div data-type="a001" data-compid="" class="domItem listItem" style="height:230px;">
+                    <img src="http://www.v.hx008.com/images/zh-CN/logo.gif" />
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function GetModel(item) {
+        var $item = $(item);
+        var model = {
+            dataMod: { "list": [] },
+            config: { type: $item.data("type"), compid: $item.data("compid"), css: "candrag", style: 'width:100%;',bodyid:"midBody" }
+        };
+        return model;
+    }
+</script>

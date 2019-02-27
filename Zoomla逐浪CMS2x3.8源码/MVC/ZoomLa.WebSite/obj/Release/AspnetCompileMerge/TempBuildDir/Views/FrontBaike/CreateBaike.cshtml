@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/FrontBaike/_BaikeLayout.cshtml";
+}
+@section head{<title>创建词条-@Call.SiteName 百科</title>}
+@section content{
+<div class="container">
+<ol class="breadcrumb margin_top10">
+<li><a href="/Baike" target="_self">百科中心</a></li>
+<li class="active">创建词条</li>
+</ol>
+    <h1>请输入你要创建的词条：</h1>
+    <form method="post" action="@MVCHelper.GetAction("Baike_Create", Request)">
+        <div class="input-group">
+            <input type="text" class="form-control required" id="creatbai" name="creatbai" />
+            <span class="input-group-btn">
+                <input type="submit" class="btn btn-default" id="save" value="创建词条" />
+            </span>
+        </div>
+    </form>
+</div>
+<div class="ask_bottom">
+<p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+<p class="text-center">@Call.MVCLabel("{$Copyright/}")</p>
+</div>
+}
+@section script{
+<script>
+$("form").validate();
+</script>
+}

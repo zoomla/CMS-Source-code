@@ -1,0 +1,26 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>模板列表</title>
+
+}
+@section content{
+<div id="pageflag" data-nav="shop" data-ban="store"></div> 
+<div class="container margin_t5">
+	<ol class="breadcrumb">
+		<li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+		<li class="active">运费模板[<a href="AddDeliverType">添加模板</a>]</li>
+		<div class="clearfix"></div>
+	</ol>
+</div>
+<div class="container">
+@Html.Partial("UserShopTop")
+@Html.Partial("DeliverType_List",Model)
+<div>说明：“禁用”某送货方式后，前台订购时将不再显示此送货方式，但已有订单中仍然显示。</div>
+</div>
+}
+@section script{
+
+}

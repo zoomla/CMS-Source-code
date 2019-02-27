@@ -1,0 +1,5 @@
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.Components.dll
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.Components.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.Components\obj\Debug\ZoomLa.Components.csprojResolveAssemblyReference.cache
+E:\Code\ZoomlaCMS2\ZoomLa.Components\obj\Debug\ZoomLa.Components.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Components\obj\Debug\ZoomLa.Components.pdb

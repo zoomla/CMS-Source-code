@@ -1,0 +1,63 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>229</LabelID>
+    <LabelName>输出问吧之星详细信息</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_User left join {table1}.dbo.ZL_UserBase on {table1}.dbo.ZL_User.UserID={table1}.dbo.ZL_UserBase.UserID</LabelTable>
+    <LabelField>{table1}.dbo.ZL_User.UserExp,{table1}.dbo.ZL_User.UserID,{table1}.dbo.ZL_User.UserName,{table1}.dbo.ZL_UserBase.UserFace,{table1}.dbo.ZL_UserBase.UserSex</LabelField>
+    <LabelWhere />
+    <LabelOrder>{table1}.dbo.ZL_User.UserExp DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="1"&gt;
+&lt;div class="photo1"&gt;&lt;a href="/ShowList.aspx?id={Field="UserID"/}" target="_blank"&gt;
+&lt;script&gt;
+ var a='{Field="UserFace"/}';
+ if (a=='~/Images/userface/noface.png')
+ {document.write('&lt;img src="/Images/userface/noface.png"/&gt;');
+}
+else{
+	document.write('&lt;img src="{Field="UserFace"/}"/&gt;');
+	}
+&lt;/script&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="dec"&gt;
+&lt;span  class="za"&gt;用户：{Field="UserName"/}&lt;/span&gt;&lt;br/&gt;
+&lt;span&gt;在线答疑&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;级别：&lt;script&gt;
+ var a='{Field="UserExp"/}';
+ if (a&lt;1000)
+ {document.write('初级会员');
+}
+else if(a&lt;4000&amp;&amp;a&gt;1000){
+	document.write('中级会员');
+	}
+else if(a&gt;4000){
+	document.write('高级会员');
+	}
+&lt;/script&gt;
+&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;排名：{ZL:jsq}&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="clear"&gt;&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

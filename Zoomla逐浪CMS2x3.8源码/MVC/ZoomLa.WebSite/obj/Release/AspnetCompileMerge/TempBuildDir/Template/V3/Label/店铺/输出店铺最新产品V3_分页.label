@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>122</LabelID>
+    <LabelName>输出店铺最新产品V3_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>店铺</LabelCate>
+    <LabelDesc />
+    <LabelParam>TitleNum,25,1,名称长|ShowNum,10,1,显示数|NodeID,1,1,节点ID|ClassName,col-lg-3 col-md-3 col-sm-3 col-xs-6,1,自定类名</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Commodities</LabelTable>
+    <LabelField>AddUser,ID,LinPrice,Proname,ShiPrice,Thumbnails</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID or NodeID in (select NodeID from ZL_Node where ParentID=@NodeID)) And Sales=1 And istrue=1 And Recycler=0</LabelWhere>
+    <LabelOrder>AddTime DESC</LabelOrder>
+    <LabelContent>&lt;div class="shop_img"&gt;
+&lt;div class="row"&gt;
+&lt;ul class="list-unstyled"&gt;
+{Repeate}&lt;li  class="@ClassName"&gt;
+&lt;div class="shop_img_t"&gt;&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" title="{Field="Proname"/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}" alt="{Field="Proname"/}" onerror="javascript:this.src='/Images/nopic.gif';" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" title="{Field="Proname"/}"&gt;{ZL:CutText({Field="Proname"/},@TitleNum,)/}&lt;/a&gt;&lt;/p&gt;
+&lt;div class="shop_img_p"&gt;零售价：￥{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/div&gt;
+&lt;div class="shop_img_p1"&gt;市场价：￥{ZL:GetMoney({Field="ShiPrice"/},2,1)/}&lt;/div&gt;
+&lt;/li&gt;{/Repeate}
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{ZL.Page id="大图标响应式列表分页v3"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>ZoomlaCMS</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam>{"PureT1":"ZL_Commodities","PureT2":"","T1":"ZoomlaCMS.dbo.ZL_Commodities","T2":"","JoinType":"left join","OnField1":"ActPrice","OnField2":""}</ProceParam>
+  </Table>
+</NewDataSet>

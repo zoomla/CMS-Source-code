@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NodeElite.aspx.cs" Inherits="Proposeinfo" EnableViewStateMac="false" %>

@@ -1,0 +1,8 @@
+﻿<xapCache source="E:\Code\Zoomla6x\SilverlightClient\Bin\Debug\SilverlightClient.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2013/11/28 16:01:00">
+  <file source="E:\Code\Zoomla6x\SilverlightClient\obj\Debug\SilverlightClient.dll" archivePath="SilverlightClient.dll" lastWriteTime="2013/11/28 16:00:59" />
+  <file source="E:\Code\Zoomla6x\SilverlightClient\DLL\SLMitsuControls.dll" archivePath="SLMitsuControls.dll" lastWriteTime="2012/10/15 3:42:04" />
+  <file source="E:\Code\Zoomla6x\SilverlightClient\Bin\Debug\System.Xml.Linq.dll" archivePath="System.Xml.Linq.dll" lastWriteTime="2012/10/15 3:42:04" />
+  <file source="E:\Code\Zoomla6x\SilverlightClient\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll" archivePath="zh-Hans\System.Xml.Linq.resources.dll" lastWriteTime="2013/9/27 16:57:26" />
+  <file source="E:\Code\Zoomla6x\SilverlightClient\DLL\SLMitsuControls.dll" archivePath="DLL\SLMitsuControls.dll" lastWriteTime="2012/10/15 3:42:04" />
+  <file source="E:\Code\Zoomla6x\SilverlightClient\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2013/9/30 10:32:01" />
+</xapCache>

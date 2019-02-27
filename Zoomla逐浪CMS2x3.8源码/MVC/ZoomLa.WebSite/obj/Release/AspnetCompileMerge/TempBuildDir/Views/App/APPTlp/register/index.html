@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>div css手机网站login表单</title>
+<script src="/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style>
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,input,button,p,th,td{margin:0;padding:0;}
+:focus{outline:none;}
+em,strong,th{font-style:normal;font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+li{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+sup,sub{font-size:100%;vertical-align:baseline;}
+button{cursor:pointer;}
+textarea{display:block;resize:none;overflow-y:auto;}
+body{font:12px/1.5 "Microsoft Yahei","微软雅黑",Tahoma,Arial,Helvetica,STHeiti;color:#333;background-color:#FFF;}
+a{color:#369;text-decoration:none;}
+a:hover{text-decoration:underline;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{zoom:1;}
+
+html {height: 100%;width: 100%;}
+html{ font:normal 62.5%/1.5rem "Arial","Microsoft YaHei";}
+body{ overflow:scroll; overflow-y:hidden;overflow:hidden; background:#b0b0b0;}
+
+@media screen and (min-width:360px){.index table{ top:26%;}.ku{border: medium none;color: #666;font-size: 1rem; margin-bottom:8px; padding:3%;width:60%; height:25px;}
+}
+@media screen and (min-width:600px){.index table{ top:26%;}.ku{border: medium none;color: #666;font-size: 1rem; margin-bottom:8px; padding:3%;width:60%;}
+}
+@media screen and (min-width:320px)and (max-width:375px){.index table{ top:17%;}.gz_wrapImgList2 p{ font-size:0.8rem;}.ku{border: medium none;color: #666;font-size: 1rem; margin-bottom:8px; padding:3%;width:60%;}.hj_wrapImgList2 { margin-top:100px;}
+}
+@media screen and (min-width:320px)and (max-width:360px){.index table{ top:17%;}.gz_wrapImgList2 p{ font-size:0.8rem;}.ku{border: medium none;color: #666;font-size: 1rem; margin-bottom:8px; padding:3%;width:60%;}
+}
+@media screen and (min-width:375px)(max-width:414px){.index table{ top:16%;font-size:0.8rem;}.ku{border: medium none;color: #666;font-size: 1rem; margin-bottom:8px; padding:3%;width:60%;}}
+.wrapImgList2  table img{ width:19rem;}	
+.wrapImgList table img{ width:19rem;}
+/* iphone6  */
+@media (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {  .wrapImgList table img{ width:240px;}.gz_wrapImgList2 p{ font-size:1.5rem;}.ku{border: medium none;color: #666;font-size: 1rem; margin-bottom:8px; padding:4%;width:60%; height:18px;}}
+/* iphone6 plus */
+@media (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {.wrapImgList table img{ width:250px; margin-left:10px; margin-right:10px;}.gz_wrapImgList2 p{ font-size:1.5rem;}.ku{border: medium none;color: #666;font-size: 1rem; margin-bottom:8px; padding:4%;width:60%;}}
+.clear {zoom:1;}
+
+.hj_wrapPage {height: 100%;width: 100%;overflow: hidden;}
+.hj_wrapImgList {width: 100%;background:#0099ff;background-size:100% 100%;background-repeat:no-repeat; height: 84px}
+.hj_wrapImgList1 {top:30%;left:50%; width:100%; padding-left:5px; padding-right:5px;color: #000;font-size: 1.5rem;}
+.hj_wrapImgList2 { margin-top:20px;}
+.hj_wrapImgList p{ padding:2px; font-size:1.5rem;font-weight:bold; color:#FFFFFF;}
+.hj_wrapImgList2 td{ line-height:30px;}
+.hj_wrapImgList3 {top:70%;left:50%; width:80%; padding-left:5px; padding-right:5px;color:#fff; font-size:14px;}
+.hj_wrapImgList4 {width:100%;color:#fff;font-size: 1rem;margin-top:11px; height:40px;}
+.hj_wrapImgList4 a{border-radius:5px;background:#009dd9;font-size:2rem; font-weight:bold; color:#ffffff; font-family:"微软雅黑";padding:10px 28%;}
+.hj_wrapImgList5 {width:100%;color:#fff;font-size:0.8rem; position:absolute;bottom:35px;}
+.bd{height: 100%;background:#b0b0b0;}
+.bd1{height: 100%;height: 80%; margin: 0 auto;}
+.bd_wrapImgList {width:100%; padding-left:5px; padding-right:5px;color:#FFFFFF; font-size:2rem; margin-top:50px;}
+.bd_wrapImgList1 {width:100%; padding-left:5px; padding-right:5px;color:#FFFFFF; font-size:1.5rem; margin-top:70px;}
+.bd_wrapImgList00{ font-size:1.5rem; color:#FFFFFF;  margin:0 auto;}
+.bd_wrapImgList1 {color:#FFFFFF; font-size:1.5rem;margin-top:60px; margin-bottom:10px;}
+.bd_wrapImgList00 p{}
+.ku{border: medium none;color: #666;font-size: 1.3rem; margin-bottom:15px;width:60%; padding:10px;}
+
+.wa_wrapImgList{ margin-top:30px; font-size:1.6rem; color:#FFFFFF; text-align:center; font-weight:bold;}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+<meta name="viewport" content="minimal-ui">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+</head>
+<body>
+<div class="hj_wrapPage">
+    <div class="hj_wrapImgList">
+      	<center><p>xxxx</p></center>
+		<center><p>用户注册</p></center>
+      	<center><p>xxxx</p></center>
+    </div>
+</div>
+<div class="bd1">
+	<div class="wa">
+	 <div class="wa_wrapImgList">
+       <p>xxxxxxxx</p>
+	   <p>xxxxxxxx</p>
+    </div>
+	</div>
+	 <div class="hj_wrapImgList2">
+       <center>
+			<input type="" placeholder="请输入邮箱" class="ku">
+			<input type="" placeholder="请输入密码" class="ku">
+	   </center>
+    </div>
+<div class="hj_wrapImgList4">
+<center>
+<a href="javascript:;">提交</a>
+</center>
+</div>
+</div>
+</div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+<p></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+
+<table id="EGV" class="table table-bordered table-striped table-hover">
+    @if (Model.itemCount > 0)
+    {
+        <tr><th class="td_s"></th><th>名称</th><th>模板文件名</th><th>创建时间</th><th>操作</th></tr>
+        foreach (DataRow dr in Model.dt.Rows)
+        {
+            <tr>
+                <td><input type="checkbox" name="idchk" value="@dr["ID"]" /></td>
+                <td><a href="/App/Design.aspx?id=@dr["ID"]&vpath=@dr["TlpUrl"]" target="_blank">@dr["Alias"]</a></td>
+                <td>@System.IO.Path.GetFileName(dr["TlpUrl"].ToString())</td>
+                <td>@DataConverter.CDate("CDate").ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a href="/App/Design?id=@dr["ID"]&vpath=@dr["TlpUrl"]" target="_blank">修改</a>
+                    <a href="javascript:;" onclick="PreTlp('@dr["TlpUrl"]')" target="_blank">浏览</a>
+                    <a href="Tlp_Down?id=@dr["ID"]" >下载</a>
+                </td>
+            </tr>
+        }
+        @Html.Partial("_page",Model)
+    }
+    else
+    {
+        <tr><td colspan="5" class="text-center">您还没有自己的模板,请点击上方"在线模板"按钮添加模板!</td></tr>
+    }
+</table>

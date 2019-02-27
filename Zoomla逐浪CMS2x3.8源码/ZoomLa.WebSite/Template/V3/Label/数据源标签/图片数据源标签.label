@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>98</LabelID>
+    <LabelName>图片数据源标签</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>数据源标签</LabelCate>
+    <LabelDesc>图片数据源标签</LabelDesc>
+    <LabelParam>InfoID,0,2,内容ID</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_C_image on ZL_CommonModel.ItemID=ZL_C_image.ID</LabelTable>
+    <LabelField>ZL_CommonModel.*,ZL_C_image.*</LabelField>
+    <LabelWhere>ZL_CommonModel.GeneralID=@InfoID</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount />
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

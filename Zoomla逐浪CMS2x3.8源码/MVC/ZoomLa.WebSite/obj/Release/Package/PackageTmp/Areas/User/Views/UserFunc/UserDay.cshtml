@@ -1,0 +1,88 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.Model
+@model System.Data.DataTable
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    M_UserDay dayMod = ViewBag.dayMod;
+    string btnstr = dayMod.id > 0 ? "修改" : "添加";
+    string d_date = dayMod.id > 0 ? dayMod.D_date.ToString("yyyy-MM-dd HH:mm:ss") : "";
+}
+@section head{
+    <title>节日提醒</title>
+}
+@section content{
+    <div id="pageflag" data-nav="group" data-ban="UserDay"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+            <li class="active">节日提醒</li>
+        </ol>
+    </div>
+    <input type="hidden" id="hidenid" name="hidenid" />
+    <div class="container ">
+        <div class="us_seta" style="margin-top: 5px;">
+            <table width="100%" cellpadding="2" cellspacing="1" class="table table-striped table-bordered table-hover">
+                <tr class="tdbgleft" style="text-align: center; font-weight: bold; height: 26px">
+                    <td width="10%">ID </td>
+                    <td width="10%">时间 </td>
+                    <td width="70%">节日标题 </td>
+                    <td width="10%">操作 </td>
+                </tr>
+                @for (int i = 0; i < Model.Rows.Count; i++)
+                {
+                    DataRow dr = Model.Rows[i];
+                    <tr class="tdbg" onmouseover="this.className='tdbgmouseover'" onmouseout="this.className='tdbg'" style="text-align: center">
+                        <td>@(i + 1)</td>
+                        <td>@DataConverter.CDate(dr["D_date"]).ToString("yyyy/MM/dd")</td>
+                        <td>@dr["D_name"]</td>
+                        <td><a href="?menu=edit&id=@dr["id"]">修改</a> <a href="javascript:;" onclick="return confirm('不可恢复性删除数据,你确定将该数据删除吗？');">删除</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="container btn_green">
+        <div class="us_seta" style="margin-top: 5px;">
+            <form method="post" action="@MVCHelper.GetAction("UserDay_Add",Request)">
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                        <td colspan="2" class="text-center"><span>节日提醒</span></td>
+                    </tr>
+                    <tr>
+                        <td>节日标题： </td>
+                        <td>
+                            <input type="text" id="D_name" name="D_name" value="@dayMod.D_name" class="form-control text_md required" title="节日标题不能为空！" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>节日日期： </td>
+                        <td>
+                            <input type="text" id="D_date" name="D_date" value="@d_date" class="form-control text_md" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" title="节日日期不能为空！" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>节日说明： </td>
+                        <td>
+                            <textarea id="D_Content" name="D_Content" class="form-control text_md" style="width:425px;height:80px;">@dayMod.D_Content</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center" colspan="2">
+                            <input type="submit" value="@btnstr" class="btn btn-primary" />
+                            <input type="reset" value="取消" class="btn btn-primary" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+}
+@section script{
+    <script type="text/javascript" src="/JS/DatePicker/WdatePicker.js"></script>
+    <script>
+        $(function () {
+            $("form").validate();
+        })
+    </script>
+}

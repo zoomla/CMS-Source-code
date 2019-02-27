@@ -1,0 +1,62 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@model System.Data.DataTable
+@functions{
+    B_AskCommon askcomBll = new B_AskCommon();
+    B_User buser = new B_User();
+    public string getstatus(string status)
+    {
+        switch (status)
+        {
+            case "1": return "推荐答案";
+            default: return "";
+        }
+    }
+    public int GetAskComNum(int id)
+    {
+        DataTable dt = askcomBll.U_SelByAnswer(buser.GetLogin().UserID, id, 0);
+        return dt.Rows.Count;
+    }
+    public DataTable GetAskComDt(int id)
+    {
+        return askcomBll.U_SelByAnswer(buser.GetLogin().UserID, id, 1);
+    }
+    public string GetUName(int uid)
+    {
+        return buser.SeachByID(uid).UserName;
+    }
+}
+<div id="EGV">
+    @foreach (DataRow dr in Model.Rows)
+    {
+        <div class="g_show_txt">@dr["Content"] <div style="float:right;color:red" id="Div@(dr["ID"])">@getstatus(dr["Status"].ToString())</div></div>
+        <div class="btm">
+            <span class="btmlabe ad">回答者：@MvcHtmlString.Create(dr["isNi"].ToString().Equals("1") ? "匿名" : "<a href='/ShowList?id=" + dr["UserID"] + "' target='_blank'>" + dr["UserName"] + "</a>")</span>
+            <span class="btmlabe date">回答日期：@DataConverter.CDate(dr["AddTime"]).ToString("yyyy-MM-dd")</span><span class="btmlabel"><a href="#" onclick="showComment(@dr["ID"])">评论</a></span>
+            <span class="btmlabel">
+                <a href="javascript:;" onclick="approval(@dr["ID"]);" onmouseover="Changtxt(this);" onmouseout="rectxt(this);">@GetAskComNum(DataConverter.CLng(dr["ID"]))</a>
+            </span>
+            <div id="divComment@(dr["ID"])" style="display:none; width:75%">
+                <div class="clear"></div>
+                <ul>
+                    @foreach (DataRow row in GetAskComDt(DataConverter.CLng(dr["ID"])).Rows)
+                    {
+                        <li style="width:100%">
+                            <span>@GetUName(DataConverter.CLng(row["UserID"]))</span><span>@row["Content"]</span>
+                        </li>
+                    }
+                </ul>
+                <form method="post" action="@MVCHelper.GetAction("/Ask/Comment",Request)">
+                    <textarea id="txtSupplyment" name="txtSupplyment" class="form-control" style="width:500px;height:120px;"></textarea>
+                    <input type="hidden" name="mid" value="@dr["ID"]" />
+                    <div style="float:right;">
+                        <a href="javascript:;" onclick="hideComment(@dr["ID"]);">取消  </a>
+                        <a href="javascript:;" onclick="comment(@dr["id"]);">提交</a>
+                    </div>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    }
+</div>

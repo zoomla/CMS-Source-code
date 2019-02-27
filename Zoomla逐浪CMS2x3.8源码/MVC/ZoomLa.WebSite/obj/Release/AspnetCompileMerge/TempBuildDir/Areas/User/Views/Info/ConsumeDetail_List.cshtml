@@ -1,0 +1,22 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@using ZoomLa.SQLDAL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 3;
+    Model.url = "ConsumeDetail";
+}
+<div id="EGV">
+    <table class="table table-bordered table-striped">
+        <tr><td class="td_md">金额变更</td><td>详情备注</td><td>日期</td></tr>
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <tr>
+                <td class="td_s">@DataConvert.CDouble(dr["score"]).ToString("f2")</td>
+                <td>@dr["Detail"]</td>
+                <td>@DateHelper.ToDate(dr["HisTime"])</td>
+            </tr>
+        }
+        @Html.Partial("_page", Model)
+    </table>
+</div>

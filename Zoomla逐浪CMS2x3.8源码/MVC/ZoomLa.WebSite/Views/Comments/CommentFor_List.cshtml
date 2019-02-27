@@ -1,0 +1,98 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+M_UserInfo mu = new B_User().GetLogin();
+public string GetUserName(DataRow dr)
+{
+    string uname = DataConverter.CStr(dr["UserName"]);
+    return string.IsNullOrEmpty(uname) ? "匿名" : uname;
+}
+public string GetReport(DataRow dr)
+{
+    if (DataConverter.CStr(dr["ReprotIDS"]).IndexOf("," + mu.UserID + ",") > -1)
+        return "<span class='comm_btns gray_9'>已举报</span>";
+    else
+        return "<span class='comm_btns' onclick='Report(this)' data-cid='" + dr["CommentID"] + "'>举报</span>";
+}
+//支持表情等
+public MvcHtmlString ShowContent(DataRow dr)
+{
+    string temphtml = "<div class='clearfix'></div><div class='replybody'>{5}<h5>{0}评论人：{1}<span class='comm-date'>@Level</span></h5>"
+                                   + "<p class='list-group-item-text'><script>document.write(emotion.strToEmotion(\"{4}\"))</script></p><div class='text-right'>"
+                                   + "<span class='comm_btns support' data-id='{6}' data-flag='1' onclick='Support(this)'>支持(<span class='count'>{7}</span>)</span>"
+                                   + "<span class='comm_btns support' data-id='{6}' data-flag='0' onclick='Support(this)'>反对(<span class='count'>{8}</span>)</span>{3}"
+                                   + "<span class='comm_btns' onclick='showHuiFu(this,{6})'>回复</span></div></div>";
+    int level = 0;
+    string html = SelChildComment(Model.dt, dr, temphtml, ref level);
+    return MvcHtmlString.Create(html);
+}
+private string SelChildComment(DataTable dt, DataRow dr, string temp, ref int level)
+{
+    string str = "";
+    dt.DefaultView.RowFilter = ""; dt = dt.DefaultView.ToTable();
+    dt.DefaultView.RowFilter = "CommentID=" + dr["pid"];
+    foreach (DataRow item in dt.DefaultView.ToTable().Rows)
+    {
+        string content = Convert.ToInt32(item["Audited"]) == 1 ? item["Contents"].ToString() : "<span class='comm_audited'><span class='fa fa-check-circle'></span>感谢回复,编辑正在审核中</span>";
+        content = content.Replace("\"", "");
+        str = string.Format(temp, "", item["UserName"].ToString(), GetPK(item["PKS"].ToString())
+                            , GetReport(dr), content, SelChildComment(dt, item, temp, ref level)
+                            , item["CommentID"], item["AgreeCount"], item["DontCount"]);
+        str = str.Replace("@Level", (++level).ToString());
+    }
+    return str;
+}
+public string GetPK(string pk)
+{
+    if (DataConverter.CBool(pk))
+    {
+        return "我支持";
+    }
+    else
+    {
+        return "我反对";
+    }
+}
+public string GetContent(DataRow dr)
+{
+    if (!DataConverter.CBool(dr["Audited"].ToString()))
+    {
+        return "已开启评论审核功能,待审核通过后即可显示";
+    }
+    else
+    {
+        string content = DataConverter.CStr(dr["Contents"]).Replace("\"", "");
+        return content;
+    }
+}
+}
+@{
+    Model.cols = 10;
+    Model.page_wrap_start = "<li style='width:100%' class='text-center margin_t10'>";
+    Model.page_wrap_end = "</li>";
+}
+@foreach (DataRow dr in Model.dt.Rows)
+{
+    <li class="list-group-item" style="width: 100%;">
+        <h5 class="list-group-item-heading">
+            <span class="padding_r2px">@dr["Layer"] 楼</span>
+            <span class="gray_9">评论人：@GetUserName(dr)</span>  <span class="text-right comm-date">发表时间：@dr["CommentTime"]</span>
+        </h5>
+        <p class="list-group-item-text">
+                @ShowContent(dr)
+            <script>
+                document.write(emotion.strToEmotion("@GetContent(dr)"))
+            </script>
+        </p>
+        <div class="text-right comment_func">
+            <span class="comm_btns support" data-id="@dr["commentid"]" data-flag="1" onclick="Support(this)">支持(<span class="count">@dr["AgreeCount"]</span>)</span>
+            <span class="comm_btns support" data-id="@dr["commentid"]" data-flag="-1" onclick="Support(this)">反对(<span class="count">@dr["DontCount"]</span>)</span>
+            @MvcHtmlString.Create(GetReport(dr))
+            <span class="comm_btns" onclick='showHuiFu(this,@dr["commentID"])'>回复</span>
+        </div>
+    </li>
+}
+@if(Model.pageCount>1){@Html.Partial("_page2",Model)}

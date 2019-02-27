@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DownImg.aspx.cs" Inherits="test_DownImg" %>

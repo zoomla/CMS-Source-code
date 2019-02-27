@@ -1,0 +1,35 @@
+﻿@using System.Data
+@{
+    DataTable Details = (DataTable)ViewBag.Details;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>查看信息</title>
+}
+@section content{
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li><a href="@Url.Action("Default","Pages")">企业黄页</a></li>
+        <li class="active">查看信息</li>
+    </ol>
+    <table class="table table-striped table-bordered table-hover" cellspacing="0" cellpadding="4" style="font-size:12px;width:100%;border-collapse:collapse;margin-bottom: 3px; margin-top: 2px;">
+        <tbody>
+            @foreach (DataRow row in Details.Rows)
+            {
+                <tr>
+                    <td class="tdbgleft" align="center" style="font-weight:bold;width:15%;">@row["Title"]</td>
+                    <td align="left">@row["Content"]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div style="text-align: center;">
+        <a href="@ViewBag.AddUrl" class="btn btn-primary">回复</a>
+        <a href="@ViewBag.ReturnUrl" class="btn btn-primary">返回</a>
+    </div>
+</div>
+}
+@section script{
+
+}

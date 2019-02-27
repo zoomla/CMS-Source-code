@@ -1,0 +1,7 @@
+C:\Users\admin\Desktop\加解密与重写\源码与dll\TestUrl\bin\TestUrl.dll
+C:\Users\admin\Desktop\加解密与重写\源码与dll\TestUrl\bin\TestUrl.pdb
+C:\Users\admin\Desktop\加解密与重写\源码与dll\TestUrl\bin\URLRewriter.dll
+C:\Users\admin\Desktop\加解密与重写\源码与dll\TestUrl\bin\URLRewriter.pdb
+C:\Users\admin\Desktop\加解密与重写\源码与dll\TestUrl\obj\Debug\TestUrl.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\加解密与重写\源码与dll\TestUrl\obj\Debug\TestUrl.dll
+C:\Users\admin\Desktop\加解密与重写\源码与dll\TestUrl\obj\Debug\TestUrl.pdb

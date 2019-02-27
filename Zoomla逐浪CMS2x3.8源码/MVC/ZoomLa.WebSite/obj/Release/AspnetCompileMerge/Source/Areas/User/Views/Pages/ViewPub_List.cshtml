@@ -1,0 +1,87 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 6;
+    Model.url = MVCHelper.GetAction(Url.Action("ViewPub", "Pages"), Request);
+}
+@functions{
+    public string returnlen(object str)
+    {
+        string intostr = str.ToString();
+        return BaseClass.Left(intostr, 20);
+    }
+    public string showuse(int Pubstart, int id, int PubRole, int PubID)
+    {
+
+        if (PubRole == 1)
+        {
+            if (Pubstart == 1)
+            {
+                return "<a href=EditPubstart?Pubid=" + PubID + "&ID=" + id + "&menu=true><span style='color:red;'>取消审核</span></a>";
+            }
+            else
+            {
+                return "<a href=EditPubstart?Pubid=" + PubID + "&ID=" + id + "&menu=false>审核</a>";
+            }
+        }
+        else
+        {
+            return "";
+        }
+    }
+    public string GetPubType(int pubtype)
+    {
+        switch (pubtype)
+        {
+            case 0: return "评论";
+            case 1: return "投票";
+            case 2: return "活动";
+            case 3: return "留言";
+            case 4: return "调查";
+            case 5: return "统计";
+            default:return "";
+        }
+    }
+}
+<div id="EGV">
+    <table class="table table-striped table-bordered table-hover">
+        @if (Model.dt.Rows.Count > 0)
+        {
+            <tr class="text-center">
+                <td width="5%"></td>
+                <td width="5%">ID</td>
+                <td width="27%">@GetPubType(DataConverter.CLng(ViewBag.PubType))标题</td>
+                <td width="10%">参与人数</td>
+                <td width="18%">添加时间</td>
+                <td width="45%">操作</td>
+            </tr>
+            foreach (DataRow dr in Model.dt.Rows)
+            {
+                <tr>
+                    <td><input type="checkbox" name="idchk" value="@dr["ID"]" /></td>
+                    <td class="text-center">@dr["ID"]</td>
+                    <td class="text-left">
+                        <a href="javascript:;" onclick="ShowComDiag('ViewSmallPub?Pubid=@ViewBag.PubID&ID=@dr["ID"]', '互动模块管理');">
+                            @returnlen(dr["PubTitle"])
+                        </a>
+                    </td>
+                    <td class="text-center">@dr["Pubnum"]</td>
+                    <td class="text-center">@dr["PubAddTime"]</td>
+                    <td class="text-center">
+                        <a href="javascript:void();" onclick="ShowComDiag('ViewSmallPub?Pubid=@ViewBag.PubID&ID=@dr["ID"]', '相关信息与回复管理');">相关信息与回复管理</a>&nbsp;
+                        <a href="javascript:void();" onclick="ShowComDiag('AddPub?Pubid=@ViewBag.PubID&Parentid=@dr["ID"]', '回复');">回复</a>&nbsp;
+                        <a href="PubView?Pubid=@ViewBag.PubID&ID=@dr["ID"]">查看</a>&nbsp;
+                        @MvcHtmlString.Create(showuse(DataConverter.CLng(dr["Pubstart"]), DataConverter.CLng(dr["ID"]), DataConverter.CLng(ViewBag.PubRole), DataConverter.CLng(ViewBag.PubID)))&nbsp;
+                        <a href="Delpub?Pubid=@ViewBag.PubID&ID=@dr["ID"]" onclick="return confirm('不可恢复性删除数据,你确定将该数据删除吗？');">删除</a>
+                    </td>
+                </tr>
+            }
+            @Html.Partial("_page", Model)
+        }
+        else
+        {
+            <tr><td colspan="6">没有数据！</td></tr>
+        }
+    </table>
+</div>

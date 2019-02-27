@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://woxp.cn/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://woxp.cn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://woxp.cn/">
+      <s:element name="GetErrorHint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ErrorId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrorHintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetErrorHintResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditPWD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_md5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditPWDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditPWDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIdentityMark">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Eid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="gateId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIdentityMarkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIdentityMarkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMoneyResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FastSend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TargetNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MsgContent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSubId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FastSendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FastSendResult" type="tns:SendResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SendResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BlackWords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FailNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShieldNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TargetNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MsgContent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSubId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendExResult" type="tns:SendResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TargetNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MsgContent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSubId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid_pwd_gateId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="double" type="s:double" />
+      <s:element name="SendResult" nillable="true" type="tns:SendResult" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetErrorHintSoapIn">
+    <wsdl:part name="parameters" element="tns:GetErrorHint" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintSoapOut">
+    <wsdl:part name="parameters" element="tns:GetErrorHintResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDSoapIn">
+    <wsdl:part name="parameters" element="tns:EditPWD" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDSoapOut">
+    <wsdl:part name="parameters" element="tns:EditPWDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIdentityMark" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIdentityMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneySoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoney" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneySoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="FastSendSoapIn">
+    <wsdl:part name="parameters" element="tns:FastSend" />
+  </wsdl:message>
+  <wsdl:message name="FastSendSoapOut">
+    <wsdl:part name="parameters" element="tns:FastSendResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendExSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEx" />
+  </wsdl:message>
+  <wsdl:message name="SendExSoapOut">
+    <wsdl:part name="parameters" element="tns:SendExResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSoapIn">
+    <wsdl:part name="parameters" element="tns:Send" />
+  </wsdl:message>
+  <wsdl:message name="SendSoapOut">
+    <wsdl:part name="parameters" element="tns:SendResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadXml" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintHttpGetIn">
+    <wsdl:part name="ErrorId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDHttpGetIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+    <wsdl:part name="newPwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkHttpGetIn">
+    <wsdl:part name="Eid" type="s:string" />
+    <wsdl:part name="uid" type="s:string" />
+    <wsdl:part name="pwd" type="s:string" />
+    <wsdl:part name="gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneyHttpGetIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneyHttpGetOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="FastSendHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FastSendHttpGetOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="SendExHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendExHttpGetOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="SendHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlHttpGetIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintHttpPostIn">
+    <wsdl:part name="ErrorId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorHintHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDHttpPostIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+    <wsdl:part name="newPwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EditPWDHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkHttpPostIn">
+    <wsdl:part name="Eid" type="s:string" />
+    <wsdl:part name="uid" type="s:string" />
+    <wsdl:part name="pwd" type="s:string" />
+    <wsdl:part name="gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIdentityMarkHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneyHttpPostIn">
+    <wsdl:part name="eid_pwd_md5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMoneyHttpPostOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="FastSendHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FastSendHttpPostOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="SendExHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendExHttpPostOut">
+    <wsdl:part name="Body" element="tns:SendResult" />
+  </wsdl:message>
+  <wsdl:message name="SendHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+    <wsdl:part name="TargetNo" type="s:string" />
+    <wsdl:part name="MsgContent" type="s:string" />
+    <wsdl:part name="SendTime" type="s:string" />
+    <wsdl:part name="strSubId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlHttpPostIn">
+    <wsdl:part name="eid_pwd_gateId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WebSMSSoap">
+    <wsdl:operation name="GetErrorHint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过错误代码获取详细中文描述</wsdl:documentation>
+      <wsdl:input message="tns:GetErrorHintSoapIn" />
+      <wsdl:output message="tns:GetErrorHintSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改登陆密码</wsdl:documentation>
+      <wsdl:input message="tns:EditPWDSoapIn" />
+      <wsdl:output message="tns:EditPWDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取网关的身份标识串</wsdl:documentation>
+      <wsdl:input message="tns:GetIdentityMarkSoapIn" />
+      <wsdl:output message="tns:GetIdentityMarkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户余额,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetMoneySoapIn" />
+      <wsdl:output message="tns:GetMoneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">快速发送短信,直接提交到运营商,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendSoapIn" />
+      <wsdl:output message="tns:FastSendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送短信,返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:SendExSoapIn" />
+      <wsdl:output message="tns:SendExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送短信,返回值:&gt;0成功提交条数,否则提交失败</wsdl:documentation>
+      <wsdl:input message="tns:SendSoapIn" />
+      <wsdl:output message="tns:SendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取上行短信,最小间隔&gt;10秒.返回数字代表身份验证失败</wsdl:documentation>
+      <wsdl:input message="tns:ReadXmlSoapIn" />
+      <wsdl:output message="tns:ReadXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebSMSHttpGet">
+    <wsdl:operation name="GetErrorHint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过错误代码获取详细中文描述</wsdl:documentation>
+      <wsdl:input message="tns:GetErrorHintHttpGetIn" />
+      <wsdl:output message="tns:GetErrorHintHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改登陆密码</wsdl:documentation>
+      <wsdl:input message="tns:EditPWDHttpGetIn" />
+      <wsdl:output message="tns:EditPWDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取网关的身份标识串</wsdl:documentation>
+      <wsdl:input message="tns:GetIdentityMarkHttpGetIn" />
+      <wsdl:output message="tns:GetIdentityMarkHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户余额,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetMoneyHttpGetIn" />
+      <wsdl:output message="tns:GetMoneyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">快速发送短信,直接提交到运营商,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendHttpGetIn" />
+      <wsdl:output message="tns:FastSendHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送短信,返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:SendExHttpGetIn" />
+      <wsdl:output message="tns:SendExHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送短信,返回值:&gt;0成功提交条数,否则提交失败</wsdl:documentation>
+      <wsdl:input message="tns:SendHttpGetIn" />
+      <wsdl:output message="tns:SendHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取上行短信,最小间隔&gt;10秒.返回数字代表身份验证失败</wsdl:documentation>
+      <wsdl:input message="tns:ReadXmlHttpGetIn" />
+      <wsdl:output message="tns:ReadXmlHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebSMSHttpPost">
+    <wsdl:operation name="GetErrorHint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过错误代码获取详细中文描述</wsdl:documentation>
+      <wsdl:input message="tns:GetErrorHintHttpPostIn" />
+      <wsdl:output message="tns:GetErrorHintHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改登陆密码</wsdl:documentation>
+      <wsdl:input message="tns:EditPWDHttpPostIn" />
+      <wsdl:output message="tns:EditPWDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取网关的身份标识串</wsdl:documentation>
+      <wsdl:input message="tns:GetIdentityMarkHttpPostIn" />
+      <wsdl:output message="tns:GetIdentityMarkHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询账户余额,返回值:&gt;=0 当前余额,否则返回失败代码</wsdl:documentation>
+      <wsdl:input message="tns:GetMoneyHttpPostIn" />
+      <wsdl:output message="tns:GetMoneyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">快速发送短信,直接提交到运营商,本站不存储任何数据.返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:FastSendHttpPostIn" />
+      <wsdl:output message="tns:FastSendHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送短信,返回值:SendResult 自定义类</wsdl:documentation>
+      <wsdl:input message="tns:SendExHttpPostIn" />
+      <wsdl:output message="tns:SendExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送短信,返回值:&gt;0成功提交条数,否则提交失败</wsdl:documentation>
+      <wsdl:input message="tns:SendHttpPostIn" />
+      <wsdl:output message="tns:SendHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取上行短信,最小间隔&gt;10秒.返回数字代表身份验证失败</wsdl:documentation>
+      <wsdl:input message="tns:ReadXmlHttpPostIn" />
+      <wsdl:output message="tns:ReadXmlHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebSMSSoap" type="tns:WebSMSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetErrorHint">
+      <soap:operation soapAction="http://woxp.cn/GetErrorHint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <soap:operation soapAction="http://woxp.cn/EditPWD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <soap:operation soapAction="http://woxp.cn/GetIdentityMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <soap:operation soapAction="http://woxp.cn/GetMoney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <soap:operation soapAction="http://woxp.cn/FastSend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEx">
+      <soap:operation soapAction="http://woxp.cn/SendEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <soap:operation soapAction="http://woxp.cn/Send" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <soap:operation soapAction="http://woxp.cn/ReadXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebSMSSoap12" type="tns:WebSMSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetErrorHint">
+      <soap12:operation soapAction="http://woxp.cn/GetErrorHint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <soap12:operation soapAction="http://woxp.cn/EditPWD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <soap12:operation soapAction="http://woxp.cn/GetIdentityMark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <soap12:operation soapAction="http://woxp.cn/GetMoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <soap12:operation soapAction="http://woxp.cn/FastSend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEx">
+      <soap12:operation soapAction="http://woxp.cn/SendEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <soap12:operation soapAction="http://woxp.cn/Send" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <soap12:operation soapAction="http://woxp.cn/ReadXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebSMSHttpGet" type="tns:WebSMSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetErrorHint">
+      <http:operation location="/GetErrorHint" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <http:operation location="/EditPWD" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <http:operation location="/GetIdentityMark" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <http:operation location="/GetMoney" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <http:operation location="/FastSend" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEx">
+      <http:operation location="/SendEx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <http:operation location="/Send" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <http:operation location="/ReadXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebSMSHttpPost" type="tns:WebSMSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetErrorHint">
+      <http:operation location="/GetErrorHint" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPWD">
+      <http:operation location="/EditPWD" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdentityMark">
+      <http:operation location="/GetIdentityMark" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoney">
+      <http:operation location="/GetMoney" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FastSend">
+      <http:operation location="/FastSend" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEx">
+      <http:operation location="/SendEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <http:operation location="/Send" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXml">
+      <http:operation location="/ReadXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebSMS">
+    <wsdl:port name="WebSMSSoap" binding="tns:WebSMSSoap">
+      <soap:address location="http://122.102.8.194:6630/utf8/ws_api/WebSMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebSMSSoap12" binding="tns:WebSMSSoap12">
+      <soap12:address location="http://122.102.8.194:6630/utf8/ws_api/WebSMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebSMSHttpGet" binding="tns:WebSMSHttpGet">
+      <http:address location="http://122.102.8.194:6630/utf8/ws_api/WebSMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebSMSHttpPost" binding="tns:WebSMSHttpPost">
+      <http:address location="http://122.102.8.194:6630/utf8/ws_api/WebSMS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

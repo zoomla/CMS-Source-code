@@ -1,0 +1,92 @@
+﻿@using System.Data
+@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+    string action = MVCHelper.GetAction("AddApproval_Add",Request);
+}
+@section head{
+    <title>新建申请单</title>
+    <script src="/JS/MisView.js"></script>
+    <script>
+        function loadPage(id, url) {
+            $("#" + id).addClass("loader");
+            $("#" + id).append("Loading......");
+            $("#" + id).load(url);
+        }
+    </script>
+}
+@section content{
+<form method="post" action="@action">
+    <div id="Meno">
+        <div id="pro_left">
+            <div class="new_tar">
+                <a href="AddApproval">新建申请单</a>
+            </div>
+            <div class="pro_li">
+                <ul>
+                    <li><a href="Default?type=2">我的审批</a></li>
+                    <li><a href="Default?type=3">已归档</a></li>
+                    <li><a href="Default?type=8">抄送给我的</a></li>
+                    <li><a href="Default?type=7">审批设置</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="pro_right">
+            <div class="Mis_Title">我的申请  >> 新建申请单 </div>
+            <div class="Approvalli">
+                <table style="width:100%;">
+                    <tr><td style="width:150px;">申请人：</td><td>@ViewBag.inputer </td></tr>
+                    <tr><td>申请部门：</td><td> 初始化向导 </td></tr>
+                    <tr>
+                        <td>申请流程：</td>
+                        <td>
+                            @ViewBag.lblPro <a href="#" onclick="PopupDiv2('div_Procedure','lblChecked')">选择流程</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>申请内容：</td>
+                        <td>
+                            <input type="text" id="TxtContent" name="TxtContent" value="@ViewBag.content" style="width:300px;height:50px" class="M_input" />
+                        </td>
+                    </tr>
+                    <tr style="display:none;"><td>审批人</td><td><input type="text" id="TxtApprover" name="TxtApprover" value="@ViewBag.approver" class="M_input" /><a href="javascript:void(0)" onclick="PopupDiv2('div_share','lblChecked')">选择</a></td></tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="确定" Class="i_bottom" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="div_share" class="pop_box" style="width:500px;">
+                <div class="p_head">
+                    <div class="p_h_title">人员选择</div>
+                    <div class="p_h_close" onclick="HideDiv('div_share')">关闭</div>
+                </div>
+                <iframe src="/Mis/SelUser?OpenerText=TxtApprover" width="480" height="200" scrolling="no" frameborder="0"></iframe>
+                <div class="p_bottom">
+                    <input type="button" value="确定" class="i_bottom" onclick="HideDiv('div_share')" />
+                </div>
+            </div>
+            <div id="div_Procedure" class="pop_box" style="width:500px;">
+                <div class="p_head">
+                    <div class="p_h_title">流程选择</div>
+                    <div class="p_h_close" onclick="HideDiv('div_Procedure');">关闭</div>
+                </div>
+                <div class="p_bodys">
+                    @Html.DropDownList("DrpType", ViewBag.types as IEnumerable<SelectListItem>, new { @class = "form-control text_md" })
+                    <ul>
+                        @foreach (DataRow dr in ((DataTable)ViewBag.pros).Rows)
+                        {
+                            <li><a href="javascript:void(0)" onclick="GetProcedure('div_Procedure','@dr["ID"]','@dr["ProcedureName"]')">@dr["ProcedureName"]</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="HidPro" />
+    <input type="hidden" id="TxtResults" value="@ViewBag.results" />
+</form>
+}
+@section script{
+
+}

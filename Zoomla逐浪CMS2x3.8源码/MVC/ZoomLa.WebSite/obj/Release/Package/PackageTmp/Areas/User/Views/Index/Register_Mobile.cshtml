@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Index/_RegisterLayout.cshtml";
+}
+@section head{<title>用户注册</title>}
+@section content{
+<form method="post" action="/User/Index/Register_MobileCheck">
+    <div id="MobileRegis" class="reg_sub">
+        <h1>第一步：手机验证</h1>
+        <ul>
+            <li>
+                <div class="form-group">
+                    <label class="col-sm-3 col-lg-3 col-md-3 col-xs-12 text-right padding0">手机号：</label>
+                    <div class="col-sm-6 col-lg-6 col-md-6 col-xs-12 ">
+                        <input type="text" ID="TxtMobile" name="TxtMobile" class="form-control required mobile" placeholder="请输入手机号" />
+                    </div>
+                    <div class="col-sm-3 col-lg-3 col-md-3 col-xs-12 "></div>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+            <li>
+                <div class="form-group">
+                    <label class="col-sm-3 col-lg-3 col-md-3 col-xs-12 text-right padding0">验证码：</label>
+                    <div class="col-sm-6 col-lg-6 col-md-6 col-xs-12 ">
+                        <input type="text" ID="MobileCode" name="MobileCode" placeholder="验证码" MaxLength="6" Style="width: 90%;" class="form-control" />
+                        <input type="hidden" id="MobileCode_hid" name="MobileCode_hid" />
+                    </div>
+                    <div class="col-sm-3 col-lg-3 col-md-3 col-xs-12 ">
+                        <img id="MobileCode_img" title="点击刷新验证码" class="codeimg" style="height: 34px; width: 100px;" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+            <li>
+                <div class="form-group">
+                    <label class="col-sm-3 col-lg-3 col-md-3 col-xs-12 text-right padding0">短信验证码：</label>
+                    <div class="col-sm-6 col-lg-6 col-md-6 col-xs-12 ">
+                        <input type="text" ID="MobileCode_T" name="MobileCode_T" class="form-control required" />
+                    </div>
+                    <div class="col-sm-3 col-lg-3 col-md-3 col-xs-12 padding0 text-left">
+                        <button type="button" id="send_btn" class="btn btn-info">获取验证码</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+            <li class="text-center margint5">
+                <input type="submit" value="下一步" class="btn btn-primary margin-top" />
+            </li>
+        </ul>
+    </div>
+</form>
+}
+@section script{
+<script src="/JS/Controls/Control.js"></script>
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script src="/JS/Modal/APIResult.js"></script>
+<script>
+    $(function () {
+        //短信发送
+        $("#send_btn").click(function () {
+            Control.Mobile.SendVaildMsg("send_btn", "MobileCode", "MobileCode_hid", $("#TxtMobile").val());
+        });
+        $("form").validate();
+        $("#MobileCode").ValidateCode();
+    })
+</script>
+}

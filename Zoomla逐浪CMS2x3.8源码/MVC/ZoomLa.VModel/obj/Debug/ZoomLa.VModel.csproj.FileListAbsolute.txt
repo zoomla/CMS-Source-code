@@ -1,0 +1,5 @@
+E:\Code\ZoomlaCMS2\MVC\ZoomLa.WebSite\Bin\ZoomLa.VModel.dll
+E:\Code\ZoomlaCMS2\MVC\ZoomLa.WebSite\Bin\ZoomLa.VModel.pdb
+E:\Code\ZoomlaCMS2\MVC\ZoomLa.VModel\obj\Debug\ZoomLa.VModel.dll
+E:\Code\ZoomlaCMS2\MVC\ZoomLa.VModel\obj\Debug\ZoomLa.VModel.pdb
+E:\Code\ZoomlaCMS2\MVC\ZoomLa.VModel\obj\Debug\ZoomLa.VModel.csprojResolveAssemblyReference.cache

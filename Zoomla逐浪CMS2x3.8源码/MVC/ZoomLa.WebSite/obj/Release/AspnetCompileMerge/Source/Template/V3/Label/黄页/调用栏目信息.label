@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>282</LabelID>
+    <LabelName>调用栏目信息</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>调用栏目信息</LabelDesc>
+    <LabelParam>nodeid,默认值,2,栏目ID|pageid,默认值,2,黄页ID</LabelParam>
+    <LabelTable>ZL_PageTemplate</LabelTable>
+    <LabelField>TemplateID,TemplateName,TemplateUrl,TemplateType,OpenType,UserGroup,Addtime,IsTrue,Userid,UserName,OrderID,ParentID,Modelinfo,identifiers,NodeFileEx,ContentFileEx,Nodeimgurl,Nodeimgtext,Pagecontent,PageMetakeyword,PageMetakeyinfo,linkurl,linkimg,linktxt</LabelField>
+    <LabelWhere>TemplateID=@nodeid And IsTrue=1 And TemplateType&lt;&gt;4</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

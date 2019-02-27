@@ -1,0 +1,17 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+//图片入库与文件入库合并  
+string Name=Model.fieldMod.FieldName;    
+string Value=Model.GetValue();
+}
+<div>
+    <input type="text" class='form-control text_md' name="txt_@Name" id="txt_@Name" size="35" value="@Value"> <span style='color:green;'>请上传10m以下的文件</span><input type="hidden" name="FIT_@Name" id="FIT_@Name" value="@Value"> @Model.fieldMod.Description
+</div>
+<div>
+    <iframe id="Upload_@Name" src="/Common/DBFileUpload.aspx?ModelID=@(Model.ModelID)&FieldName=@Name" marginheight="0" marginwidth="0" frameborder="0" width="100%" height="30" scrolling="no"></iframe>
+</div>

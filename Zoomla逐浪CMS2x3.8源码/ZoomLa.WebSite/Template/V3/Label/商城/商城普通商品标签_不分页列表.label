@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>120</LabelID>
+    <LabelName>商城普通商品标签_不分页列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>商城</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|TitleNum,30,1,标题长度|ShowNum,20,1,每页显示数</LabelParam>
+    <LabelTable>ZL_Commodities</LabelTable>
+    <LabelField>ID,LinPrice,Proname,Thumbnails</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID)  and sales=1</LabelWhere>
+    <LabelOrder>addtime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" target="_blank"&gt;&lt;img src="/{Field="Thumbnails"/}" alt="{Field="Proname"/}" class="imgs" /&gt;&lt;/a&gt;
+&lt;p&gt;&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" target="_blank"&gt;{ZL:CutText({Field="Proname"/},@TitleNum,)/}&lt;/a&gt;&lt;/p&gt;
+&lt;span&gt;商城价：&lt;font class="red"&gt;￥{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/font&gt;&lt;/span&gt;
+&lt;div class="gobuy"&gt;
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}"&gt;查看详情&lt;/a&gt;&lt;span&gt;
+&lt;input type="checkbox" id="a{Field="ID"/}" value="{Field="Proname"/}" onclick="dblist({Field="ID"/},event)" /&gt;对比&lt;/span&gt;
+
+ &lt;/div&gt;
+
+
+&lt;/li&gt;&lt;!--商品展示之一 --&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

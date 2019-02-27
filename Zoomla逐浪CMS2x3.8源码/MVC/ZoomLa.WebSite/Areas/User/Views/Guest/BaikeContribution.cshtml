@@ -1,0 +1,40 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>词条贡献</title>}
+@section content{
+<div id="pageflag" data-nav="index" data-ban="baike"></div>
+<div class="container margin_t10">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li class="active">我的词条贡献</li>
+        <div class="clearfix"></div>
+    </ol>
+</div>
+<div class="container">
+    <div class="input-group" style="width:440px;">
+        <span class="input-group-addon">状态</span>
+        <select class="form-control text_150 mvcparam" id="status" onchange="mvcpage.load();">
+            <option value="1">已通过</option>
+            <option value="0">待审核</option>
+            <option value="-2">未通过</option>
+            <option value="-100" selected="selected">全部</option>
+        </select>
+        @*<asp:DropDownList runat="server" ID="Filter_DP" CssClass="form-control text_150" AutoPostBack="true" OnSelectedIndexChanged="Filter_DP_SelectedIndexChanged">
+            <asp:listitem value="1">已通过</asp:listitem>
+            <asp:listitem value="0">待审核</asp:listitem>
+            <asp:listitem value="-2">未通过</asp:listitem>
+            <asp:listitem value="-100" selected="True">全部</asp:listitem>
+        </asp:DropDownList>*@
+        <input type="text" id="skey" class="form-control text_md mvcparam" placeholder="关键词" />
+        <span class="input-group-btn">
+            <input type="button" value="搜索" class="btn btn-info" onclick="mvcpage.load();" /> @*OnClick="Skey_Btn_Click"*@ 
+        </span>
+    </div>
+    @Html.Partial("BaikeContribution_List",Model)
+</div>
+}
+@section script{
+
+}

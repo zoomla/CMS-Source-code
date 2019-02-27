@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>MIS能力中心-首页</title>
+<link href="/App_Themes/User.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/JS/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript">
+    function loadPage(id, url) {
+        $("#" + id).addClass("loader");
+        $("#" + id).append("Loading......");
+        $("#" + id).load(url);
+    }
+    window.onload = function () {
+        loadPage('ProShow', 'MisPunch');
+    }
+</script>
+}
+@section content{
+<div id="Meno">
+    <div id="pro_left">
+        <ul class="AttenLis list-unstyled">
+            <li onmouseover="this.style.backgroundColor='#e0e8fc'" onmouseout="this.style.backgroundColor='#f6f9fe'"><a href="javascript:void(0)" onclick="loadPage('ProShow','MisPunch')">考勤打卡</a></li>
+            <li onmouseover="this.style.backgroundColor='#e0e8fc'" onmouseout="this.style.backgroundColor='#f6f9fe'"><a href="javascript:void(0)" onclick="loadPage('ProShow','MisAttDaily')">我的考勤</a></li>
+            <li onmouseover="this.style.backgroundColor='#e0e8fc'" onmouseout="this.style.backgroundColor='#f6f9fe'"><a href="javascript:void(0)" onclick="loadPage('ProShow','MisAttendanceInfo')">考勤统计</a></li>
+            <li onmouseover="this.style.backgroundColor='#e0e8fc'" onmouseout="this.style.backgroundColor='#f6f9fe'"><a href="javascript:void(0)" onclick="loadPage('ProShow','MisSignSet')">考勤设置</a></li>
+        </ul>
+    </div>
+    <div id="pro_right">
+        <div id="SetSign" style="margin-left:24px;">
+            <div class="Chkdays">
+                工作日：
+                <div>
+                    <label><input type="checkbox" id="cbkDays" name="cbkDays" />周一</label>
+                    <label><input type="checkbox" id="cbkDays" name="cbkDays" />周二</label>
+                    <label><input type="checkbox" id="cbkDays" name="cbkDays" />周三</label>
+                    <label><input type="checkbox" id="cbkDays" name="cbkDays" />周四</label>
+                    <label><input type="checkbox" id="cbkDays" name="cbkDays" />周五</label>
+                    <label><input type="checkbox" id="cbkDays" name="cbkDays" />周六</label>
+                    <label><input type="checkbox" id="cbkDays" name="cbkDays" />周日</label>
+                </div>
+            </div>
+            <div class="SetTime">
+                上班时间：
+                <input id="B_time" class="M_input" type="text" onfocus="WdatePicker({dateFmt:'HH:mm'});"/>
+                下班时间：
+                <input id="E_time" type="text" class="M_input" onfocus="WdatePicker({dateFmt:'HH:mm'});" />
+            </div>
+            <div class="BPTime">
+                开始执行日期：
+                <input type="text" class="M_input" onclick="WdatePicker({ dateFmt: 'yyyy/MM/dd HH:mm:ss' });" />
+            </div>
+            <div>
+                <input type="button" class="btn btn-primary" value="提交" />
+                &nbsp;
+                <a href="MisAttendance" class="btn btn-primary i_bottom">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+}
+@section script{
+    
+}

@@ -1,0 +1,12 @@
+E:\Code\工具\ConsoleApplication1\SQLDAL\obj\Debug\SQLDAL.csprojResolveAssemblyReference.cache
+E:\Code\工具\ConsoleApplication1\SQLDAL\bin\Debug\SQLDAL.dll
+E:\Code\工具\ConsoleApplication1\SQLDAL\bin\Debug\SQLDAL.pdb
+E:\Code\工具\ConsoleApplication1\SQLDAL\obj\Debug\SQLDAL.dll
+E:\Code\工具\ConsoleApplication1\SQLDAL\obj\Debug\SQLDAL.pdb
+E:\Code\工具\ConsoleApplication1\SQLDAL\bin\Debug\System.Net.Http.dll
+E:\Code\工具\ConsoleApplication1\SQLDAL\bin\Debug\System.Net.Http.xml
+D:\Me\MeFiles\项目记录\Font\ConsoleApplication1\SQLDAL\bin\Debug\SQLDAL.dll
+D:\Me\MeFiles\项目记录\Font\ConsoleApplication1\SQLDAL\bin\Debug\SQLDAL.pdb
+D:\Me\MeFiles\项目记录\Font\ConsoleApplication1\SQLDAL\obj\Debug\SQLDAL.csprojResolveAssemblyReference.cache
+D:\Me\MeFiles\项目记录\Font\ConsoleApplication1\SQLDAL\obj\Debug\SQLDAL.dll
+D:\Me\MeFiles\项目记录\Font\ConsoleApplication1\SQLDAL\obj\Debug\SQLDAL.pdb

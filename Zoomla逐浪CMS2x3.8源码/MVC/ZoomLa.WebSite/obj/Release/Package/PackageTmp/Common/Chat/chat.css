@@ -1,0 +1,92 @@
+﻿/*默认为me 增加other*/
+*{font-family:'Microsoft YaHei';}
+ul{padding-left:0px;}
+ul li{list-style-type:none;}
+.fa{cursor:pointer;}
+.fa:hover{color:#57A5CA;}
+.opbtn{cursor:pointer;}
+.opbtn:hover{color:#428bca;}
+/*好友列表*/
+#edui1_bottombar{display:none;}
+.list_group{padding:5px;padding-top:8px;border-bottom:1px solid #ddd;cursor:pointer;}
+.list_item_body{display:none;}
+.list_item{cursor:pointer;background:whitesmoke;border-top:1px solid #e3e3e3;padding:5px;}
+.member_nick{overflow:hidden;}
+.member_face{width:30px;height:30px;float:left;margin-right:10px;}
+.remindgray { font-size:12px;}
+/*聊天框*/
+.chat_container { }
+.chat_header{color:#fff;font-weight:bold;width:100%;height:30px;line-height:30px;background:linear-gradient(#555,#222);border-radius:4px;text-align:center;}
+#chat_body_list { height:calc(100vh - 374px);}
+.chat_body { height:100%; overflow-y:auto;}
+.chat_body .chat_div{padding:15px;}
+.chat_body img{max-width:80%;margin:0 auto;}
+.chat_nick{text-align:right;font-size:12px;color:#333;font-weight:normal;line-height:20px;}
+.other_nick{text-align:left;font-size:12px;color:#333;font-weight:normal;line-height:20px;}
+.chat_content { display:inline-block; border:1px solid #7570BD; padding:10px 15px; border-radius:4px; background:#7570BD; color:#fff; text-align:left;}
+.othercontent { display:inline-block; border:1px solid #D5D5D5; padding:10px 15px; border-radius:4px; color:#333; background:none;}
+.mychat { position:relative; text-align:right; padding:0 70px;}
+.mychat_c { position:relative;}
+.otherchat { position:relative; padding-left:70px;}
+.otherchat_face { position:absolute; left:0; top:22px; width:50px; height:50px;}
+.otherchat_face img { max-width:50px; width:50px; height:50px; border-radius:50px; border:1px solid #ddd;}
+.mychat .otherchat_face { left:auto; right:0;}
+.userface {height:40px;width:40px;}
+.other_time { margin-top:0; margin-bottom:0; padding-top:5px; padding-bottom:5px; text-align:center;}
+.myface{float:right;margin-left:5px;}
+.otherface{float:left;margin-right:5px;}
+.badge{background-color:rgba(230, 16, 16, 0.57);}
+.chat_content p { margin-bottom:0;}
+.chat_cont_c { position:relative; padding-right:70px;}
+.arrow { position:absolute; top:41px; border-radius:2px; }
+.arrow-before { left:-13px; border:6px solid transparent; border-right:8px solid #D5D5D5; }
+.arrow-after { left:-11px; border:6px solid transparent; border-right:8px solid #FFF; }
+.mychat .arrow-after { left:auto; right:-10px; border:6px solid transparent; border-left: 7px solid #7570BD; }
+.mychat .arrow-before { left:auto; right:-12px; border:6px solid transparent; border-left:7px solid #7570BD;}
+.chat_top { margin-top:20px; padding:10px 20px; background:#494464; opacity:0.9; height:70px; border-radius:6px 6px 0 0; color:#fff; font-size:1.3em; line-height:50px;}
+.chat_top .chat_top_l { display:block; float:left; margin-right:10px; width:50px; height:50px;border-radius:50%; }
+.chat_top_r { float:right; font-size:0.9em; line-height:50px;}
+.chat_top_r a { color:#fff;}
+.chat_top_r a i { float:left; margin-top:17px; margin-right:5px; font-size:1.2em;}
+.chat_main_l { background:#fff;}
+.chat_main_r { background:#EDEDF3; border-right:1px solid #DEDEE7; height:calc(100vh - 162px); overflow-y:auto;}
+.chat_main_rt { padding-left:15px; padding-right:15px; padding-top:10px;}
+.chat_main_rt ul { border-bottom:1px solid #D5D5D5;}
+.chat_main_rt li { float:left;}
+.chat_main_rt li a { display:block; padding:10px 15px; color:#333; text-decoration:none; background:none; border:none;}
+.chat_main_rt li.active a { background:none; border:none; border-bottom:2px solid #929199; }
+.chat_main_rt li.active a:hover,.chat_main_rt li.active a:focus { background:none; border:none; border-bottom:2px solid #929199;}
+.chat_main_rt li a:hover { background:none; border:none;}
+.chat_main_rc { padding-left:15px; padding-right:15px; padding-top:10px;}
+.chat_main_rc li { padding-bottom:15px; border-bottom:1px dotted #D5D5D5; cursor:pointer;}
+.chat_main_rc li img { width:50px; height:50px; border-radius:50px;}
+.chat_main_rc li h4 span { color:#ff7000;}
+.chat_main_rc li p { margin-bottom:0; color:#999;}
+.chat_main_rc li p span { color:#ff7000;}
+.chat_send { padding:5px 5px 5px 10px; border-left:1px solid #ddd; background:#fff; }
+.chat_send span { float:left; margin-top:6px; font-size:1.15em;color:gray;}
+.mychat_c .other_time { color:#7570BD;}
+
+.chat_history { padding:15px; background:#fff; border-bottom-left-radius:6px; border-bottom-right-radius:6px; }/*聊天记录*/
+.chat_history .chat_body { overflow:visible; padding:0;}
+.chat_history .arrow { top:55px;}
+.chat_history .otherchat { padding-left:120px; padding-bottom:10px;}
+.chat_history .chat_cont_c { padding-right:120px;}
+.chat_history .mychat { padding:0 120px; padding-bottom:10px;}
+.chat_history .otherchat_face { top:15px; width:100px; height:auto; text-align:center; overflow:hidden;}
+.chat_history .otherchat_face img { display:block; float:none; margin:auto;}
+.chat_history .chat_body>div:nth-child(odd) { background:#f1f1f1;}
+.chat_history .chat_body>div:hover { background:#f5f5f5;}
+.chat_history .chat_body>div:nth-child(odd) .chat_content {}
+
+
+@media (max-width:768px){
+	.mychat { padding-left:0;}
+	.arrow { top:51px;}
+	.chat_cont_c { padding-right:0;}
+	.chat_history .chat_cont_c { padding-right:0;}
+	.chat_history .otherchat_face { width:50px;}
+	.chat_history .otherchat { padding-left:70px; }
+	.chat_history .mychat { padding-left:0; padding-right:70px;}
+	.chat_top { font-size:1em;}
+}

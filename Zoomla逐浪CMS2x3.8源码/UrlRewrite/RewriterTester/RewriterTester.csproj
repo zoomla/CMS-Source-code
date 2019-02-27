@@ -1,0 +1,355 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Web"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{3F6E6742-814C-4851-A379-D39FEF87EFB6}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "RewriterTester"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "RewriterTester"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "..\..\..\WINNT\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "..\..\..\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "..\..\..\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Web"
+                    AssemblyName = "System.Web"
+                    HintPath = "..\..\..\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Web.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "..\..\..\WINNT\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "URLRewriter"
+                    Project = "{31740848-5613-4864-8AEA-473B2483D982}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "ActionlessForm"
+                    Project = "{9675A0B1-4824-4E3B-9373-3BB90C82C179}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "asp.net.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Default.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Default.aspx.cs"
+                    DependentUpon = "Default.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Default.aspx.resx"
+                    DependentUpon = "Default.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Global.asax"
+                    SubType = "Component"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Global.asax.cs"
+                    DependentUpon = "Global.asax"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Global.asax.resx"
+                    DependentUpon = "Global.asax.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "ListCategories.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ListCategories.aspx.cs"
+                    DependentUpon = "ListCategories.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ListCategories.aspx.resx"
+                    DependentUpon = "ListCategories.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "ListProductsByCategory.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ListProductsByCategory.aspx.cs"
+                    DependentUpon = "ListProductsByCategory.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ListProductsByCategory.aspx.resx"
+                    DependentUpon = "ListProductsByCategory.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Login.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Login.aspx.cs"
+                    DependentUpon = "Login.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Login.aspx.resx"
+                    DependentUpon = "Login.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Logout.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Logout.aspx.cs"
+                    DependentUpon = "Logout.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Logout.aspx.resx"
+                    DependentUpon = "Logout.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "ShowBlogContent.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ShowBlogContent.aspx.cs"
+                    DependentUpon = "ShowBlogContent.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ShowBlogContent.aspx.resx"
+                    DependentUpon = "ShowBlogContent.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Web.config"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\01\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\02\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\03\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\04\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\05\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\06\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\07\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\08\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\09\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\10\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\11\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2003\12\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\01\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\02\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\03\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\04\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\05\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\06\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\07\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\08\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\09\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\10\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\11\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "2004\12\Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Products\Default.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Products\Default.aspx.cs"
+                    DependentUpon = "Default.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Products\Default.aspx.resx"
+                    DependentUpon = "Default.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

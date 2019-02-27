@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C86DF849-CF83-469B-BAB7-622E969E62E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZoomLa.Components</RootNamespace>
+    <AssemblyName>ZoomLa.Components</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.ADODB">
+      <HintPath>..\ZoomlaCMS\bin\Interop.ADODB.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.CDO">
+      <HintPath>..\ZoomlaCMS\bin\Interop.CDO.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OpenPop">
+      <HintPath>..\ZoomlaCMS\bin\OpenPop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BankComm.cs" />
+    <Compile Include="BarOption.cs" />
+    <Compile Include="BKOption.cs" />
+    <Compile Include="ExcelImport.cs" />
+    <Compile Include="GuestConfig.cs" />
+    <Compile Include="IPLockConfig.cs" />
+    <Compile Include="JobsConfig.cs" />
+    <Compile Include="MailConfig.cs" />
+    <Compile Include="MailInfo.cs" />
+    <Compile Include="Mail\FactoryPop3.cs" />
+    <Compile Include="Mail\OpenPopPop3.cs" />
+    <Compile Include="Mail\Pop3.cs" />
+    <Compile Include="Mail\SendMail.cs" />
+    <Compile Include="Mail\Smtp.cs" />
+    <Compile Include="M_CRM_XML.cs" />
+    <Compile Include="OAConfig.cs" />
+    <Compile Include="OrderStatusConfig.cs" />
+    <Compile Include="PlatConfig.cs" />
+    <Compile Include="PlatModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopConfig.cs" />
+    <Compile Include="ShopConfigInfo.cs" />
+    <Compile Include="SiteConfig.cs" />
+    <Compile Include="SiteConfigInfo.cs" />
+    <Compile Include="SiteInfo.cs" />
+    <Compile Include="SiteOption.cs" />
+    <Compile Include="StationGroup.cs" />
+    <Compile Include="StationGroupInfo.cs" />
+    <Compile Include="ThumbsConfig.cs" />
+    <Compile Include="UserConfig.cs" />
+    <Compile Include="UserModuleConfig.cs" />
+    <Compile Include="UserModuleConfigInfo.cs" />
+    <Compile Include="WaterConfig.cs" />
+    <Compile Include="WaterImages.cs" />
+    <Compile Include="WaterMarkConfig.cs" />
+    <Compile Include="WaterMarkImage.cs" />
+    <Compile Include="WaterMarkText.cs" />
+    <Compile Include="WaterModuleConfig.cs" />
+    <Compile Include="WaterModuleConfigInfo.cs" />
+    <Compile Include="WDOption.cs" />
+    <Compile Include="YPage.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

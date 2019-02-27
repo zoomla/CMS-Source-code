@@ -1,0 +1,28 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>常用客户管理</title>    
+}
+@section content{
+<div id="pageflag" data-nav="group" data-ban="ConstPassen"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+        <li class="active">客户管理<a href="AddConstPassen?FieldName=Person_Add">[添加客户]</a></li>
+    </ol>
+</div>
+<div class="container u_cnt btn_green">
+    <ul class="nav nav-tabs" id="type_ul">
+        <li data-id="2" role="presentation"><a href="ConstPassen?type=2">所有客户</a></li>
+        <li data-id="0" role="presentation"><a href="ConstPassen?type=0">个人客户</a></li>
+        <li data-id="1" role="presentation"><a href="ConstPassen?type=1">企业客户</a></li>
+    </ul>
+    @Html.Partial("ConstPassen_List",Model)
+    <a href="javascript:;" onclick="" class="btn btn-primary">批量删除</a>
+</div>
+}
+@section script{
+
+}

@@ -1,0 +1,55 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+}
+@section head{
+    <title>选择学校</title>
+}
+@section content{
+    <div class="input-group" style="width:628px;">
+        <select id="tbProvince" class="form-control schooldp" style="width:120px;"></select>
+        <select id="tbCity" class="form-control schooldp" style="width:120px;"></select>
+        <select id="tbCounty" class="form-control schooldp" style="width:150px;"></select>
+        <input type="text" id="search_t" name="search_t" class="form-control text_md" placeholder="学校名" />
+        <span class="input-group-btn">
+            <button id="search_btn" onclick="Search_Btn_Click" class="btn btn-primary"><span class="fa fa-search"></span></button>
+        </span>
+    </div>
+    @Html.Partial("SelSchool_List", Model)
+    <div class="text-center hidden">
+        <button type="button" class="btn btn-primary" onclick="GetSchoolName()">确定</button>
+        <button type="button" class="btn btn-primary" onclick="parent.CloseDiag()">取消</button>
+    </div>
+    <input type="hidden" id="address_hid" />
+}
+@section script{
+<style>
+    .allchk_l {
+        display: none;
+    }
+</style>
+<script src="/JS/ICMS/area.js"></script>
+<script src="/JS/Controls/ZL_PCC.js"></script>
+<script>
+    var pcc = new ZL_PCC("tbProvince", "tbCity", "tbCounty");//,null, { text: "全部", value: "" }
+    $(function () {
+        $(".schooldp").change(function () {
+            setTimeout(function () {
+                var val = $("#tbProvince").val() + "," + $("#tbCity").val() + "," + $("#tbCounty").val();
+                $("#address_hid").val(val);
+            }, 200);
+        });
+        if ($("#address_hid").val() != "") {
+            var defdata = $("#address_hid").val().split(',');
+            pcc.SetDef(defdata[0], defdata[1], defdata[2]);
+            pcc.ProvinceInit();
+        }
+        else { pcc.ProvinceInit(); }
+    });
+    function GetSchoolName(name) {
+        parent.GetSchoolName(name);
+    }
+</script>
+}
+}
+

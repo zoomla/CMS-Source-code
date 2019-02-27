@@ -1,0 +1,1097 @@
+﻿<!doctype html>
+<meta charset='utf-8'>
+<link href="/design/album/tlps/1/res/style.css" rel="stylesheet" />
+<title></title>
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script>
+var album = {};
+album.model = "{album}";
+album.model.Photos = album.model.Photos.split('|');
+var slider_images_url = [];
+for (var i = 0; i < album.model.Photos.length; i++) {
+    var photo = album.model.Photos[i];
+    slider_images_url.push(photo);
+}
+var e_music_url = album.model.Music+"";
+var e_desc = album.model.AlbumName;
+document.ontouchmove = function (e) { e.preventDefault(); }
+</script>
+<script>
+
+var _speedMark = new Date();
+function init_viewport()
+{
+    if(/Android (\d+\.\d+)/.test(navigator.userAgent))
+    {
+        var version = parseFloat(RegExp.$1);
+
+        if(version>2.3)
+        {
+            var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
+            var phoneScale = parseInt(width)/500;
+                document.write('<meta name="viewport" content="width=500, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+        }
+        else
+        {
+            document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi">');    
+        }
+    }
+    else if(navigator.userAgent.indexOf('iPhone') != -1)
+    {
+        var phoneScale = parseInt(window.screen.width)/500;
+        document.write('<meta name="viewport" content="width=500; min-height=750;initial-scale=' + phoneScale +'; user-scalable=no;" /> ');         //0.75   0.82
+    }
+    else 
+    {
+        document.write('<meta name="viewport" content="width=500, height=750, initial-scale=0.64" /> ');         //0.75   0.82
+
+    }
+}
+
+init_viewport();
+
+</script>   
+<script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
+<script>
+
+    var module_inits = [];
+    var upload_permission = true;
+    var atkname = 'huandong';
+    wx.config({
+        debug     : false,
+        appId     : 'wx1d2a10805a12cfa3',
+        timestamp : 10000,
+        nonceStr  : 'hellohuandong',
+        signature : '09938b73a93214aba87855b70e49bb4292defdc5',
+        jsApiList : [
+            'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQZone', 'closeWindow', 'hideAllNonBaseMenuItem', 'showMenuItems', 'showAllNonBaseMenuItem', 'chooseImage', 'uploadImage']
+        });     
+    function load_init_modules()
+    {
+        for(var i=0; i<module_inits.length; i++)
+        {
+            module_inits[i]();
+        }
+    }
+    function call_me(fun)
+    {
+        module_inits.push(fun);
+    }
+    var ua = navigator.userAgent.toLowerCase();  
+    if(ua.match(/MicroMessenger/i) == 'micromessenger')
+    {  
+        wx.ready(load_init_modules);
+    }
+    else
+    {
+        onload = load_init_modules;
+    }
+</script>
+<script>
+var date = 20160930;
+var zan_num = 0;
+var e_bookid = 'Fpx5HcVlzcp5IHJe2S29sxMbpa6ip8QS';
+var e_openid = null;
+var e_scene = 'xiangyin';
+var editmode = false;
+var wxid = 'chaoliu';
+var shareid = '';
+var guanzhu_url = 'http://mp.weixin.qq.com/s?__biz=MzAxMzc0NDIyNg==&mid=525005214&idx=1&sn=c77600fddac68a2e8438abf6a240622b#rd';
+var words = {"ch_203047905105":"\u6b22\u6b22\u5b9d\u8d1d","ch_203047939849":"\u5e78\u798f\u7684\u4e00\u5bb6","ch_203047912277":"\u6c38\u8fdc\u7231\u4f60\u4eec","ch_203047898669":"\u6d3b\u6cfc\u53ef\u7231","ch_203047928339":"\u751c\u5fc3\u5c0f\u516c\u4e3b","ch_203047881561":"\u4e56\u5de7\u6587\u9759","ch_203047875871":"\u5929\u5929\u5f00\u5fc3","ch_203047869784":"\u5c0f\u7cbe\u7075"};
+var app = '';
+              var e_music_title = '';
+              var tbssaveoff = false;
+              var isguangchang = '';
+             </script>
+<div id="bac"></div>
+<div id='container'>
+    <img src='/design/album/tlps/1/res/bg.jpg'>
+        
+    <div id='page1' class='page'>
+        <div id='div1v'>
+            <div id='img1v'>
+                <span id='word1v' class='showwords'></span>
+            </div>
+            <img class='kuang1v' src='/design/album/tlps/1/res/kuang1.png'>
+        </div>
+        <div id='div1h'>
+            <div id='img1h'>
+                <span id='word1h' class='showwords'></span>
+            </div>
+            <img class='kuang1h' src='/design/album/tlps/1/res/kuang1.png'>
+        </div>
+    </div>
+
+    <div id='page2' class='page' style='display:none'>
+        <div id='div21h' class='div'>
+            <div id='img21h'>
+                <span id='word21h' class='showwords'></span>
+            </div>
+            <img class='kuang21h' src='/design/album/tlps/1/res/kuang21.png'>
+        </div>
+        <div id='div21v' class='div'>
+            <div id='img21v'>
+                <span id='word21v' class='showwords'></span>
+            </div>
+            <img class='kuang21v' src='/design/album/tlps/1/res/kuang21.png'>
+        </div>
+        <div id='div22v' class='div'>
+            <div id='img22v'>
+                <span id='word22v' class='showwords'></span>
+            </div>
+            <img class='kuang22v' src='/design/album/tlps/1/res/kuang22.png'>
+        </div>
+        <div id='div22h' class='div'>
+            <div id='img22h'>
+                <span id='word22h' class='showwords'></span>
+            </div>
+            <img class='kuang22h' src='/design/album/tlps/1/res/kuang22.png'>
+        </div>
+        <img id='dai2' src='/design/album/tlps/1/res/dai2.png'>
+    </div>
+
+    <div id='page3' class='page'  style='display:none'>
+        <div id='div3v' class='div'>
+            <div id='img3v'>
+                <span id='word3v' class='showwords'></span>
+            </div>
+            <img class='kuang3v' src='/design/album/tlps/1/res/kuang3.png'>
+            <img class='dai3v' src='/design/album/tlps/1/res/dai3.png'>
+        </div>
+
+        <div id='div3h' class='div'>
+            <div id='img3h'>
+                <span id='word3h' class='showwords'></span>
+            </div>
+            <img class='kuang3h' src='/design/album/tlps/1/res/kuang3.png'>
+            <img class='dai3h' src='/design/album/tlps/1/res/dai3.png'>
+        </div>
+        <img id='en3' src='/design/album/tlps/1/res/en3.png'>
+    </div>
+
+    <div id='page4' class='page' style='display:none'>
+        <div id='div41h' class='div'>
+            <div id='img41h'>
+                <span id='word41h' class='showwords'></span>
+            </div>
+            <img class='kuang41h' src='/design/album/tlps/1/res/kuang1.png'>
+        </div>
+
+        <div id='div41v' class='div'>
+            <div id='img41v'>
+                <span id='word41v' class='showwords'></span>
+            </div>
+            <img class='kuang41v' src='/design/album/tlps/1/res/kuang1.png'>
+        </div>
+        <div id='div42v' class='div'>
+            <div id='img42v'>
+                <span id='word42v' class='showwords'></span>
+            </div>
+            <img class='kuang42v' src='/design/album/tlps/1/res/kuang1.png'>
+        </div>
+        <div id='div42h' class='div'>
+            <div id='img42h'>
+                <span id='word42h' class='showwords'></span>
+            </div>
+            <img class='kuang42h' src='/design/album/tlps/1/res/kuang1.png'>
+        </div>
+        <img id='dai4' src='/design/album/tlps/1/res/dai4.png'>
+        <img id='en4' src='/design/album/tlps/1/res/en4.png'>
+    </div>
+
+    <div id='page5' class='page'  style='display:none'>
+        <div id='div5h'>
+            <div id='img5h'>
+                <span id='word5h' class='showwords'></span>
+            </div>
+            <img class='kuang5h' src='/design/album/tlps/1/res/kuang3.png'>
+        </div>
+        <div id='div5v'>
+            <div id='img5v'>
+                <span id='word5v' class='showwords'></span>
+            </div>
+            <img class='kuang5v' src='/design/album/tlps/1/res/kuang3.png'>
+        </div>
+
+        <img id='dai5' src='/design/album/tlps/1/res/dai5.png'>
+        <img id='en5' src='/design/album/tlps/1/res/en5.png'>
+    </div>
+
+
+    <div id='page6' class='page' style='display:none'>
+        <img id='en61' src='/design/album/tlps/1/res/en61.png'>
+        <img id='en62' src='/design/album/tlps/1/res/en62.png'>
+
+        <div id='div61h'>
+            <div id='img61h'>
+                <span id='word61h' class='showwords'></span>
+            </div>
+            <img class='kuang61h' src='/design/album/tlps/1/res/kuang21.png'>
+        </div>
+
+        <div id='div61v' class='div'>
+            <div id='img61v'>
+                <span id='word61v' class='showwords'></span>
+            </div>
+            <img class='kuang61v' src='/design/album/tlps/1/res/kuang21.png'>
+        </div>
+        <div id='div62v' class='div'>
+            <div id='img62v'>
+                <span id='word62v' class='showwords'></span>
+            </div>
+            <img class='kuang62v' src='/design/album/tlps/1/res/kuang21.png'>
+            <img class='dai6v' src='/design/album/tlps/1/res/dai6.png'>
+        </div>
+        <div id='div62h'>
+            <div id='img62h'>
+                <span id='word62h' class='showwords'></span>
+            </div>
+            <img class='kuang62h' src='/design/album/tlps/1/res/kuang21.png'>
+            <img class='dai6' src='/design/album/tlps/1/res/dai6.png'>
+        </div>
+
+
+
+    </div>
+
+    <div id='pagetitle' style='position:absolute;width:340px;height:226px;top:250px;left:80px;font-size:30px;color:#FF437F;overflow:hidden;line-height:55px;text-shadow: #fff 2px 0 0,#fff 0 2px 0,#fff -2px 0 0,#fff 0 -2px 0;font-weight: bold;opacity:0;'>
+        <div style='position:absolute;width:340px;height:226px;top:0px;left:0px;overflow:hidden;'>
+            <div style='position:absolute;width:340px;height:226px;display:table;overflow:hidden;'>
+                <div id='titlecontent' style='width:340px;height:226px;vertical-align:middle;display:table-cell;text-align:center;'></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <img id='love520' src='/design/album/tlps/1/res/520.png'>
+
+    <img id='dai1' src='/design/album/tlps/1/res/dai1.png'>
+    <img id='heart1' src='/design/album/tlps/1/res/11.png'>
+    <img id='heart2' src='/design/album/tlps/1/res/12.png'>
+    <img id='heart4' src='/design/album/tlps/1/res/14.png'>
+    <img id='heart3' src='/design/album/tlps/1/res/13.png'>
+    <img id='heart5' src='/design/album/tlps/1/res/15.png'>
+</div>
+<div class="code_div">
+<div class="title_div">扫描并分享场景：</div>
+<div class="img_div">
+<img id="shareCode" src="/common/common.ashx?url=">
+<script>
+document.getElementById("shareCode").src = document.getElementById("shareCode").src+window.location.href;
+</script>
+</div>
+<div class="bdsharebuttonbox">
+	    <a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
+	    <a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
+	    <a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a>
+	    <a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
+	    <a class="bds_more" href="#" data-cmd="more"></a>
+	    </div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdUrl":document.URL,"bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<div class="view_div">这么漂亮的相册&nbsp;→<span><a target="_blank" href="http://v.z01.com/">我也来制作</a></span></div>
+</div>
+<script>
+function id(name)
+{
+    return document.getElementById(name);
+}
+
+var get_pid = function(url){
+    var index1 = url.indexOf("?");
+    if(index1 != -1)
+    {
+        url = url.substr(0, index1);
+    }
+    return url.toString().substr(url.lastIndexOf("/") + 1);
+}
+
+function showtitle()
+{
+    id('heart1').style.webkitAnimation = 'beat1 0.3s 2 ease-in alternate both';
+    id('heart2').style.webkitAnimation = 'beat2 0.3s 2 0.2s ease-in alternate both';
+    id('heart3').style.webkitAnimation = 'beat3 0.3s 2 0.4s ease-in alternate both';
+    id('heart4').style.webkitAnimation = 'beat4 0.3s 2 0.6s ease-in alternate both';
+    id('heart5').style.webkitAnimation = 'beat5 0.3s 2 0.8s ease-in alternate both';
+
+    timeout[1] = setTimeout(function()
+    {
+        id('heart1').style.webkitAnimation = 'p1_1 2s ease-in-out both';
+        id('heart2').style.webkitAnimation = 'p1_2 2s ease-in-out both';
+        id('heart3').style.webkitAnimation = 'p1_3 2s ease-in-out both';
+        id('heart4').style.webkitAnimation = 'p1_4 2s ease-in-out both';
+        id('heart5').style.webkitAnimation = 'p1_5 2s ease-in-out both';
+        id('dai1').style.webkitAnimation = 'dai1-in 1.5s 0.5s linear both';
+
+        id('titlecontent').innerHTML = e_desc;
+        id('pagetitle').style.webkitAnimation = 'title_in 1s 2s linear both';
+
+        timeout[2] = setTimeout(function()
+        {
+            id('dai1').style.webkitClipPath = 'polygon(0px 0px,0px 146px,357px 146px,357px 0px)';
+            id('dai1').style.webkitAnimation = 'title_in1 1s ease-out both';
+
+        },2000)
+    },1500)
+}
+
+
+function liangziyun_kawa()
+{
+    setpage(1);
+    setImage('1');
+    id('page6').style.display = 'none';
+    id('dai1').style.webkitAnimation = 'p1_7 2s ease-out both';
+    id('love520').style.webkitAnimation = 'p1_6 2s ease-out both';
+    id('pagetitle').style.webkitAnimation = 'title_out 0.5s ease-out both';
+
+    id('page1').style.display = 'block';
+    id('page1').style.webkitAnimation = 'div1_in 1s 1s ease-out both';
+    timeout[3] = setTimeout(show2, 5000)
+}
+
+
+function show2()
+{
+    setpage(2);
+    setImage('21');
+    setImage('22');
+
+    id('heart1').style.webkitAnimation = 'p2_1 2s ease-in-out both';
+    id('heart2').style.webkitAnimation = 'p2_2 2s ease-in-out both';
+    id('heart3').style.webkitAnimation = 'p2_3 2s ease-in-out both';
+    id('heart4').style.webkitAnimation = 'p2_4 2s ease-in-out both';
+    id('heart5').style.webkitAnimation = 'p2_5 2s ease-in-out both';
+
+    id('love520').style.webkitAnimation = 'out1_520 1s ease-in-out both';
+    id('dai1').style.webkitAnimation = 'out1_dai1 1s ease-in-out both';
+    id('page1').style.webkitAnimation = 'div1_out 1s ease-in-out both';
+
+    id('page2').style.display = 'block';
+    id('pagetitle').style.display = 'block';
+
+    id('dai2').style.webkitAnimation = 'dai2_in 1.5s 1s ease-out both';
+    id('div21h').style.webkitAnimation = 'div21_in 1.5s 1s ease-out both';
+    id('div22h').style.webkitAnimation = 'div22_in 1.5s 1s ease-out both';
+    id('div21v').style.webkitAnimation = 'div21_in 1.5s 1s ease-out both';
+    id('div22v').style.webkitAnimation = 'div22_in 1.5s 1s ease-out both';
+
+    timeout[4] = setTimeout(show3,7000)
+}
+
+function show3()
+{
+    setpage(3);
+    setImage('3');
+
+    id('dai2').style.webkitAnimation = 'dai2_out 1s linear both';
+    id('div21h').style.webkitAnimation = 'div21_out 1s linear both';
+    id('div22h').style.webkitAnimation = 'div22_out 1s linear both';
+    id('div21v').style.webkitAnimation = 'div21_out 1s linear both';
+    id('div22v').style.webkitAnimation = 'div22_out 1s linear both';
+
+    id('heart1').style.webkitAnimation = 'p3_1 2s ease-in-out both';
+    id('heart2').style.webkitAnimation = 'p3_2 2s ease-in-out both';
+    id('heart3').style.webkitAnimation = 'p3_3 2s ease-in-out both';
+    id('heart4').style.webkitAnimation = 'p3_4 2s ease-in-out both';
+    id('heart5').style.webkitAnimation = 'p3_5 2s ease-in-out both';
+
+    id('page3').style.display = 'block';
+    id('div3v').style.webkitAnimation = 'aa_in_bounce_center 1.5s 1s ease-out both';
+    id('div3h').style.webkitAnimation = 'aa_in_bounce_center 1.5s 1s ease-out both';
+    id('love520').style.webkitAnimation = 'in3_520 1.5s 1s ease-out both';
+    id('en3').style.webkitAnimation = 'in_en3 1.5s 1s ease-out both';
+
+
+    timeout[5] = setTimeout(show4,5000)
+}
+
+function show4()
+{
+    setpage(4);
+    setImage('41');
+    setImage('42');
+
+    id('div3v').style.webkitAnimation = 'aa_out_bounce_center 1s ease-out both';
+    id('div3h').style.webkitAnimation = 'aa_out_bounce_center 1s ease-out both';
+    id('love520').style.webkitAnimation = 'out3_520 1s ease-out both';
+    id('en3').style.webkitAnimation = 'out_en3 1s ease-out both';
+
+    id('heart1').style.webkitAnimation = 'p4_1 2s ease-in-out both';
+    id('heart2').style.webkitAnimation = 'p4_2 2s ease-in-out both';
+    id('heart3').style.webkitAnimation = 'p4_3 2s ease-in-out both';
+    id('heart4').style.webkitAnimation = 'p4_4 2s ease-in-out both';
+    id('heart5').style.webkitAnimation = 'p4_5 2s ease-in-out both';
+
+    id('page4').style.display = 'block';
+    id('div41v').style.webkitAnimation = 'div41_in 1.5s 1s ease-out both';
+    id('div42v').style.webkitAnimation = 'div42_in 1.5s 1s ease-out both';
+    id('div41h').style.webkitAnimation = 'div41_in 1.5s 1s ease-out both';
+    id('div42h').style.webkitAnimation = 'div42_in 1.5s 1s ease-out both';
+    id('en4').style.webkitAnimation = 'in_en3 1.5s 1s ease-out both';
+    id('dai4').style.webkitAnimation = 'dai4_in 1.5s 1s ease-out both';
+
+
+    timeout[6] = setTimeout(show5,7000)
+}
+
+function show5()
+{
+    setpage(5);
+    setImage('5');
+
+    id('dai4').style.webkitAnimation = 'dai4_out 1s linear both';
+    id('en4').style.webkitAnimation = 'out_en3 1.5s linear both';
+    id('div41v').style.webkitAnimation = 'div41_out 1.5s linear both';
+    id('div42v').style.webkitAnimation = 'div42_out 1.5s linear both';
+    id('div41h').style.webkitAnimation = 'div41_out 1.5s linear both';
+    id('div42h').style.webkitAnimation = 'div42_out 1.5s linear both';
+    // 本模板及模板代码为深圳量子云科技有限公司版权所有，抄袭必究
+    id('heart1').style.webkitAnimation = 'p5_1 2s ease-in-out both';
+    id('heart2').style.webkitAnimation = 'p5_2 2s ease-in-out both';
+    id('heart3').style.webkitAnimation = 'p5_3 2s ease-in-out both';
+    id('heart4').style.webkitAnimation = 'p5_4 2s ease-in-out both';
+    id('heart5').style.webkitAnimation = 'p5_5 2s ease-in-out both';
+
+    id('page5').style.display = 'block';
+    id('div5h').style.webkitAnimation = 'div5_in 1.5s 1s ease-out both';
+    id('div5v').style.webkitAnimation = 'div5_in 1.5s 1s ease-out both';
+    id('dai5').style.webkitAnimation = 'dai5_in 1.5s 2s ease both';
+    id('en5').style.webkitAnimation = 'in_en3 1.5s 2s ease-out both';
+
+    timeout[7] = setTimeout(show6, 5000)
+}
+
+function show6()
+{
+    setpage(6);
+    setImage('61');
+    setImage('62');
+
+    id('en5').style.webkitAnimation = 'out_en3 1.5s linear both';
+    id('div5h').style.webkitAnimation = 'div5_out 1.5s linear both';
+    id('div5v').style.webkitAnimation = 'div5_out 1.5s linear both';
+    id('dai5').style.webkitAnimation = 'dai5_out 1.5s linear both';
+
+    id('heart1').style.webkitAnimation = 'p6_1 2s ease-in-out both';
+    id('heart2').style.webkitAnimation = 'p6_2 2s ease-in-out both';
+    id('heart3').style.webkitAnimation = 'p6_3 2s ease-in-out both';
+    id('heart4').style.webkitAnimation = 'p6_4 2s ease-in-out both';
+    id('heart5').style.webkitAnimation = 'p6_5 2s ease-in-out both';
+
+    id('page6').style.display = 'block';
+    id('div61v').style.webkitAnimation = 'div61_in 1.5s 1s ease-out both';
+    id('div62v').style.webkitAnimation = 'div62_in 1.5s 1s ease-out both';
+    id('div61h').style.webkitAnimation = 'div61_in 1.5s 1s ease-out both';
+    id('div62h').style.webkitAnimation = 'div62_in 1.5s 1s ease-out both';
+
+    id('en61').style.webkitAnimation = 'in_en3 1.5s 2s ease-out both';
+    id('en62').style.webkitAnimation = 'left_in 1.5s 2s ease-out both';
+    id('love520').style.webkitAnimation = 'love_in 1.5s 3s ease-out both';
+
+    timeout[8] = setTimeout(show1,7000)
+}
+
+function show1()
+{
+    setpage(1);
+    setImage('1');
+
+    console.log(id('page6').style.display);
+
+    id('en61').style.webkitAnimation = 'out_en3 1.5s linear both';
+    id('en62').style.webkitAnimation = 'left_out 1.5s linear both';
+    id('love520').style.webkitAnimation = 'love_out 1.5s linear both';
+    id('div61v').style.webkitAnimation = 'div61_out 1.5s linear both';
+    id('div62v').style.webkitAnimation = 'div62_out 1.5s linear both';
+    id('div61h').style.webkitAnimation = 'div61_out 1.5s linear both';
+    id('div62h').style.webkitAnimation = 'div62_out 1.5s linear both';
+
+    id('heart1').style.webkitAnimation = 'p0_1 2s ease-in-out both';
+    id('heart2').style.webkitAnimation = 'p0_2 2s ease-in-out both';
+    id('heart3').style.webkitAnimation = 'p0_3 2s ease-in-out both';
+    id('heart4').style.webkitAnimation = 'p0_4 2s ease-in-out both';
+    id('heart5').style.webkitAnimation = 'p0_5 2s ease-in-out both';
+
+    id('page1').style.webkitAnimation = 'show1_3 1.5s 1s linear both';
+    id('love520').style.webkitAnimation = 'show1_1 1.5s 1.5s linear both';
+    id('dai1').style.webkitAnimation = 'show1_2 1.5s 1s linear both';
+
+    timeout[9] = setTimeout(show2, 5000)
+}
+
+
+var divwidth  = {'1h':457,'1v':355,'21h':383,'21v':270,'22h':383,'22v':273,'3h':406,'3v':351,'41h':335,'41v':254,'42h':351,'42v':252,'5h': 414,'5v': 349,'61h':319,'61v':243,'62h':322,'62v': 240};
+var divheight = {'1h':354,'1v':456,'21h':275,'21v':382,'22h':275,'22v':370,'3h':314,'3v':437,'41h':261,'41v':321,'42h':281,'42v':315,'5h': 330,'5v': 439,'61h':221,'61v':318,'62h':232,'62v': 315};
+
+function setImage(idname)
+{
+    if(reshow == true)
+        return;
+
+    while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+    {
+        if(image_url_index % step_loadnum == 0)
+        {
+            step_load();
+        }
+        image_url_index++;
+        if(image_url_index == Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    if(image_url_index % step_loadnum == 0)
+    {
+        step_load();
+    }
+    var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+
+    var div;
+    var div1;
+    var img;
+
+    if(img_bili > 1)
+    {
+        div = id('div'+idname + 'h');
+        div1 = id('div'+idname + 'v');
+        idname = idname + 'h';
+    }
+    else
+    {
+        div = id('div'+idname + 'v');
+        div1 = id('div'+idname + 'h');
+        idname = idname + 'v';
+    }
+
+    div.style.display = 'block';
+    div1.style.display = 'none';
+
+    var height = divheight[idname];
+    var width = divwidth[idname];
+
+    var img = id('img'+idname);
+    img.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+    // console.log('setimg:'+ img.style.backgroundImage);
+
+    var word = id('word'+idname);
+    var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+    if(word_string != undefined)
+    {
+        word_string = word_string.replace(/[\n]/ig,'');
+        word.style.top = "85%";
+        var word_length = word_string.length;
+        if(word_length < 6)
+            word.style.fontSize = "26px";
+        else
+        {
+            word.style.fontSize = "23px";
+            if(word_length > 10)
+            {
+                word_string = insertEnter(word_string, 5);
+                word.style.top = "80%";
+            }
+        }
+        word.innerText = word_string;
+    }
+    else
+    {
+        word.innerText = "";
+    }
+
+    if(img_bili > (width/height))
+    {
+        img.style.backgroundSize = height*img_bili + 'px '+ height + 'px';
+        img.style.backgroundPosition = -((height*img_bili-width)/2)+'px 0px';
+        // img.style.top = '0px';
+        // img.style.height = height + 'px';
+        // img.style.width = height*img_bili + 'px';
+        // img.style.left = -((height*img_bili-width)/2)+'px';
+    }
+    else
+    {
+        img.style.backgroundSize = width + 'px '+ width/img_bili + 'px';
+        img.style.backgroundPosition = '0px ' +(-((width/img_bili-height)/2)) + 'px';
+        // img.style.left = '0px';
+        // img.style.width = width+'px';
+        // img.style.height = width/img_bili + 'px';
+        // img.style.top = -((width/img_bili-height)/2) + 'px';
+    }
+    image_url_index ++;
+    if(image_url_index == Onload_imgs_url.length)
+      image_url_index = 0;
+}
+
+function insertEnter(str,n){
+    var len = str.length;
+    var strTemp = '';
+    if(len > n){
+    strTemp = str.substring(0,n);
+    str = str.substring(n,len);
+    return strTemp+'\n'+str;
+    }else{
+    return str;
+    }
+}
+
+var image_size_width=[];
+var image_size_height=[];
+var image_url_index=0;
+var have_num = 0;
+var error_num = 0;
+var canshow = true;
+var reshow = false;
+var delaytime=9000;
+var timeout = [];
+var showfont = false;
+
+
+// 本模板及模板代码为深圳量子云科技有限公司版权所有 抄袭必究
+function id (name) 
+{
+    return document.getElementById(name);
+}
+
+//每次执行加载后10张图片
+var bl_keepload = 'first';
+var step_loadnum = 5;
+function step_load()
+{
+    var load_num = 0
+    //初步加载X张
+    if(image_url_index  == 0 && bl_keepload == 'first')
+    {
+        console.log('loading continue');
+        if(slider_images_url.length > step_loadnum)
+        {
+            load_num = step_loadnum;
+            bl_keepload = 'next';
+        }
+        else
+        {
+            load_num = slider_images_url.length;
+            bl_keepload = 'end';
+        }
+        for(var i = 0; i< load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+    else if(bl_keepload == 'end')
+    {
+        return;
+    }
+    else
+    {
+         console.log('loading continue');
+        if(slider_images_url.length - image_url_index >step_loadnum*2)
+        { 
+            load_num = step_loadnum;
+        }
+        else
+        {
+            load_num = slider_images_url.length - image_url_index - step_loadnum;
+            bl_keepload = 'end';
+        }
+        for(var i = image_url_index +step_loadnum; i< image_url_index + step_loadnum + load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+}
+
+function load_images()
+{ 
+    reshow = false;
+    image_size_width=[];
+    image_size_height=[];
+    Onload_imgs_url=[];
+    image_url_index=0;
+    have_num = 0;
+    error_num = 0;
+    begin_titletime = new Date();
+    begin_titletime = begin_titletime.getTime();
+    canshow = true;
+    showtitle();
+    bl_keepload = 'first';
+    // loading_first(); 
+    step_load();     
+}
+
+function image_onerror(event)
+{
+    var img = event.target;
+    var index = img.index;
+    if(index<step_loadnum)
+        error_num ++;
+    Onload_imgs_url[index] = 'not find';
+
+    if((have_num+error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            liangziyun_kawa();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout[0] = setTimeout(function()
+                {
+                    liangziyun_kawa();
+                },dis_titletime);
+        }
+    }
+}
+
+function image_onload(event)
+{
+    if(reshow == true)
+        return;
+
+    var img = event.target;
+    var index = img.index;
+
+    if(index<step_loadnum)
+    {
+        have_num++;
+    }
+    Onload_imgs_url[index] = img.src;
+    image_size_height[index] = img.height;
+    image_size_width[index] = img.width;
+
+    console.log(Onload_imgs_url[index]);
+
+    if((have_num + error_num >= step_loadnum ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            liangziyun_kawa();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout[0] = setTimeout(function()
+                {
+                    liangziyun_kawa();
+                },dis_titletime);
+        }
+
+    }
+}
+
+function setpage(pageindex)
+{
+    for(var i =1 ; i< 7;i++)
+    {
+        if(i != pageindex)
+        {
+            id('page' + i).style.display = 'none';
+            if(pageindex == 1)
+            {
+                id('page6').style.display = 'block';
+            }
+            else
+                id('page'+(pageindex-1)).style.display = 'block';
+        }
+        else
+        {
+            id('page' + i).style.display = 'block';
+
+        }
+
+    }
+}
+call_me(load_images)
+
+function reload_scene()
+{
+    clearnode();
+    reshow = true;
+    setTimeout(load_images,100);
+}
+
+
+function clearnode()
+{
+    for(var i=0; i<timeout.length;i++)
+    {
+        clearTimeout(timeout[i])
+    }
+
+    for(var i = 1;i<7;i++)
+    {
+        id('page'+i).style.display = 'none';
+    }
+
+    id('pagetitle').style.display = 'block';
+    id('pagetitle').style.webkitAnimation = '';
+    id('dai1').style.webkitAnimation = '';
+    id('love520').style.webkitAnimation = '';
+    id('heart1').style.webkitAnimation = '';
+    id('heart2').style.webkitAnimation = '';
+    id('heart3').style.webkitAnimation = '';
+    id('heart4').style.webkitAnimation = '';
+    id('heart5').style.webkitAnimation = '';
+    id('dai1').style.webkitClipPath = 'polygon(180px 0px,180px 146px,180px 146px,180px 0px)';
+
+}
+</script>
+<script type="text/javascript">
+
+		if(typeof(objid) === "undefined")
+		{
+			var objid = function(id)
+			{
+				return document.getElementById(id);
+			}
+		}
+
+		function random(min,max)
+		{
+		    return Math.floor(min+Math.random()*(max-min));
+		}
+
+		function on_wx_music_init()
+		{
+			if(e_desc != "")
+			{
+				document.title = e_desc.replace("<br>", "\n").replace("<br/>", "\n");;
+			}
+			else
+			{
+				document.title = "音乐相册";
+			}
+			loadingdiv_out();
+			create_music();
+
+			// read_localstorage();
+			var locationurl = window.location.href;
+			// if(locationurl.indexOf('debug')!=-1)
+			// {
+				check_cookie();
+			// }
+
+			
+			var locationurl = window.location.href;
+			if(locationurl.indexOf('hidden')!=-1)
+			{
+				objid('guanzhu_container').style.display = 'none';
+			}
+
+
+			if(locationurl.indexOf('noshow')!=-1)
+			{
+				objid('guanzhu_container').style.display = 'none';
+			}
+
+
+			if(tbssaveoff && isguangchang == "guangchang")
+			{
+				objid("saveoff").style.display = "block";
+			}
+		}
+
+		//创建存储cookie的函数
+		function set_cookie(value)
+		{
+			// value = "";
+			// if(wxid == 'youyi')
+			// 	document.cookie = "books="+value+';domain=.kawabody.cn';
+			// else
+				document.cookie = "books="+value+';domain=.kagirl.cn';
+			// alert('write:'+document.cookie);
+		}
+
+		function get_cookie(c_name)
+		{
+			// alert(document.cookie);
+			if(document.cookie.length > 0)
+			{	
+				var c_start = document.cookie.indexOf(c_name + '=');
+				if (c_start != -1)
+				{
+					c_start = c_start + c_name.length + 1;
+					var c_end = document.cookie.indexOf(';', c_start);
+					if(c_end == -1)
+						c_end = document.cookie.length;
+					return unescape(document.cookie.substring(c_start,c_end));
+				}
+
+			}
+			return '';
+		}
+
+
+		function check_cookie()
+		{
+
+
+			var thisbook = e_bookid + '&' + wxid;
+
+			books = get_cookie('books');
+		}
+
+
+
+		call_me(on_wx_music_init);
+
+		//音乐播放
+
+		var music_header   = 'http://kawaweika.qiniudn.com/sound/';
+		var e_music_player = new Audio();
+
+		function play_music()
+		{
+		    if (!e_music_url) { return; }
+		    e_music_player.src = e_music_url;
+		    e_music_player.loop = 'loop';
+		    e_music_player.onerror = function () {
+		        e_music_player.src = url;
+		        e_music_player.play();
+		        e_music_player.onerror = null;
+		    }
+		    
+		    e_music_player.play();
+		    
+		    //检查音乐是否缓冲成功
+		    setTimeout(function()
+		    {
+				var timeRanges = e_music_player.buffered;
+				var timeBuffered = timeRanges.end(timeRanges.length - 1);
+				var bufferPercent = timeBuffered /e_music_player.duration; 
+				console.log('music:'+bufferPercent);
+
+				if(isNaN(bufferPercent) || bufferPercent == 0)
+				{
+			    	if(e_music_url.indexOf("http://sound.kagirl.net") != -1)
+			    	{
+			    		var url = e_music_url.replace("http://sound.kagirl.net", "https://music.kagirl.cn");
+			    	}
+			    	else
+			    	{
+			    		var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");	
+			    	}
+			    	e_music_player.src = url;
+			    	e_music_player.play();
+				}
+		    },5000);
+
+
+		    if(objid('sound_image'))
+		    {
+		        objid('sound_image').style.webkitAnimation     = "zhuan 1s linear infinite";
+		    }
+		    
+		    bplay = 1;
+		}
+
+		function create_music()
+		{
+		    if(e_music_url == '')
+		    {
+		        return ;
+		    }
+		    
+		    play_music();
+
+		    sound_div = document.createElement("div");
+		    sound_div.setAttribute("ID", "cardsound");
+		    sound_div.style.cssText = "position:fixed;right:20px;top:25px;z-index:50;visibility:visible;";
+		    sound_div.onclick = switchsound;
+
+		    bg_htm  = "<img id='sound_image' src='/design/album/tlps/1/res/music_note_big.png' style='-webkit-animation:zhuan 1s linear infinite'>";
+		    txt_htm = "<div id='music_txt' style='color:white;position:absolute;left:-40px;top:30px;width:60px'></div>"
+
+		    sound_div.innerHTML = bg_htm  + txt_htm;
+
+		    document.body.appendChild(sound_div);
+		} 
+
+		var bplay = 0;              
+		
+		function switchsound()
+		{
+		    au = e_music_player;
+		    ai = objid('sound_image');
+		    if(au.paused)
+		    {
+		        bplay = 1;
+		        au.play();
+		        ai.style.webkitAnimation     = "zhuan 1s linear infinite";
+		        objid("music_txt").innerHTML = "打开";
+		        objid("music_txt").style.visibility = "visible";
+		        setTimeout(function(){objid("music_txt").style.visibility="hidden"}, 2500);
+		    }
+		    else
+		    {
+		        bplay = 0;
+		        au.pause();
+		        ai.style.webkitAnimation     = "";
+		        objid("music_txt").innerHTML = "关闭";
+		        objid("music_txt").style.visibility = "visible";
+		        setTimeout(function(){objid("music_txt").style.visibility="hidden"}, 2500);
+		    }
+		}
+
+	function visit_guangchang()
+	{
+		var locationurl = location.href;
+		if(shareid != '' && shareid != undefined)
+		{
+			if(locationurl.indexOf('hidden') != -1)
+			{
+				if(locationurl.indexOf('menu') != -1)
+					location.href = 'http://photo.kagirl.cn/kphoto/menu.php?wxid='+shareid;
+				else
+					location.href = 'http://photo.kagirl.cn/kphoto/more1.php?back=true&wxid='+shareid;
+			}
+			else
+				location.href = 'http://photo.kagirl.cn/kphoto/more1.php?back=true&show=true&wxid='+shareid;
+		}
+	}
+	function loadingdiv_out()
+	{
+		objid('loadingdiv').style.webkitAnimation = 'fadeout 0.3s linear both';
+		if(navigator.userAgent.indexOf('Windows Phone')!=1)
+		{
+			objid('loadingdiv').style.display = 'none';
+		}
+
+		setTimeout(function()
+		{
+			objid('loadingdiv').style.display = 'none';
+		},400)
+	}
+	</script>
+<div id='loadingdiv'>
+	<div class='loadingword'>相册正在加载中<br>请稍等……</div>
+</div>
+<script>
+$().ready(function(e) {
+    var num=Math.floor(Math.random()*4)+1;
+	$("#bac").css("background","url(http://code.z01.com/web/Photo/"+num+".png) top center no-repeat").css("background-size","cover");
+});
+</script>

@@ -1,0 +1,73 @@
+﻿@using System.Data
+@model System.Data.DataTable
+@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@functions{
+    protected string GetStatus(int stu)
+    {
+        if (stu == 1)
+        {
+            return "结束";
+        }
+        else
+        {
+            return "未结束";
+        }
+    }
+}
+@section head{
+<title>协商信息</title>
+<script type="text/javascript">
+    function loadPage(id, url) {
+        $("#" + id).addClass("loader");
+        $("#" + id).append("Loading......");
+        $("#" + id).load(url);
+    };
+</script>
+}
+@section content{
+<div class="tab">
+    <ul>
+        <li class="log_tab"> <a href="ProjectView" class="clk">项目概览</a></li>
+        <li><a href="MisInfo?ProID=@Request[" ProID"]&MID=@Request["MID"]&Type=5" >协商</a></li>
+        <li><a href="FilesList?ProID=<%=Request[" ProID"] %>&MID=<%=Request["MID"] %>&Type=7" >文档</a></li>
+        <li><a href="javascript:void(0)" class="clk">人员</a></li>
+        <li><a href="subProject" class="clk">子项目</a></li>
+        <li><a href="javascript:void(0)" class="clk">活动记录</a></li>
+    </ul>
+</div> 
+<div id="see">
+    <div class="Mis_Title"><strong><a href="javascript:void(0)" onclick="loadPage('see', 'AddMisInfo?ProID=@Request["ProID"]&MID=@Request["MID"]&Type=@Request["Type"]')">新建协商</a></strong></div>
+    <div class="td_center">
+        <table width="100%" cellspacing="1" cellpadding="0" rules="all" border="0" class="border">
+            <tr class="title" style="background:#e7f3ff" height="25">
+                <th width="25"></th>
+                <th>标题 </th>
+                <th width="100">消息</th>
+                <th width="100">创建人</th>
+                <th width="100">最近更新</th>
+                <th width="100">状态</th>
+                <th width="80">操作</th>
+            </tr>
+            @foreach (DataRow dr in Model.Rows)
+            {
+                <tr>
+                    <td width="25">@dr["ID"]</td>
+                    <td style="text-align:left"><a href="javascript:void(0)" onclick="loadPage('see', 'MisInfoView?ID=@dr["ID"]&ProID=@Request["ProID"]&MID=@Request["MID"]&Type=@Request["Type"]')" >@dr["Title"]</a>     </td>
+                    <td width="100">0</td>
+                    <td width="100"> @dr["Inputer"]</td>
+                    <td width="100">@dr["CreateTime"]</td>
+                    <td width="100">@GetStatus(Convert.ToInt32(dr["Status"])) %> </td>
+                    <td width="80">
+                        <a href="javascript:;" onclick="confirm('确定吗？');">结束</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+}
+@section script{
+    
+}

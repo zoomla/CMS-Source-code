@@ -1,0 +1,32 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    // 多级选项
+    //GradeCate=b,Direction=1(1:竖,0:横)
+    string Name = Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+    string value = Model.GetValue();
+    string gradeCate = model.GetValue("GradeCate");
+    int direction = model.GetValInt("Direction");
+    string height = "40px;";
+    if(direction==1){height="125px;";}
+}
+<div>
+    <input type='hidden' name='txt_@Name' id='txt_@Name' value='@value' />
+@switch (gradeCate)
+{
+    case "a":
+        <iframe id='Drop_@Name' src='/Common/PPC.aspx?FieldName=@Name&FValue=@value&Direction=@direction' style='border:none;width:100%;height:@height;' scrolling='no'></iframe>
+        break;
+    case "b":
+        <iframe id='Drop_@Name' src='/Common/PPC.aspx?dptype=1&CateID=@gradeCate&FieldName=@Name&FValue=@value&Direction=@direction' style='border:none;width:100%;height:@height;' scrolling='no'></iframe>
+        break;
+    default:
+         <iframe id='Drop_@Name' src="/Common/MultiDropList.aspx?CateID=@gradeCate&FieldName=@Name&FValue=@value&Direction=@direction" style='border:none;width:100%;height:@height;' scrolling="no"></iframe>
+        break;
+}
+</div>

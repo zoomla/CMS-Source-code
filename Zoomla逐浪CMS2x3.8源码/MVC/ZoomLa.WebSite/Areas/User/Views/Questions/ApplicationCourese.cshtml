@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>申请课程</title>
+}
+@section content{
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default" target="_parent">会员中心</a></li>
+        <li class="active"><a href="ApplicationCourese">申请课程</a></li>
+        <div class="clearfix"></div>
+    </ol>
+    <div class="container">
+        <div class="s_body" style="width: 100%">
+            <div class="s_bleft" style="width: 20%; float: left;">
+            </div>
+            <div style="width: 80%; float: left">
+                <div class="us_seta" style="margin-top: 5px;">
+                    <h1 align="center"> 申请课程</h1>
+                </div>
+                <div class="divbox" id="nocontent" runat="server"> 暂无课程信息</div>
+            </div>
+        </div>
+    </div>
+}
+@section script{
+
+}

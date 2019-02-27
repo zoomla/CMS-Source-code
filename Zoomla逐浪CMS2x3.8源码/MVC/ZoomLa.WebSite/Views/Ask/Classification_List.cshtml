@@ -1,0 +1,50 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{ 
+    Model.url = "Classification_Data";
+    Model.cols = 5;
+}
+@functions{
+    B_GuestAnswer ansBll = new B_GuestAnswer();
+    public string GetLeftString(string str, int length)
+    {
+        if (str.Length <= length)
+            return str;
+        return str.Substring(0, length) + "..."; ;
+    }
+    public string GetAnserCount(int id)
+    {
+        return ansBll.GetAnserCountByQid(id) + "回答";
+    }
+}
+<div id="EGV">
+    <table class="table table-bordered">
+        @if (Model.itemCount > 0)
+        {
+            <tr>
+                <th>积分</th>
+                <th>问题</th>
+                <th>回答</th>
+                <th>用户</th>
+                <th>时间</th>
+            </tr>
+            foreach (DataRow dr in Model.dt.Rows)
+            {
+                <tr>
+                    <td><i class="fa fa-trophy"></i> @dr["Score"]</td>
+                    <td><a target="_self" href="SearchDetails?ID=@dr["ID"]">@GetLeftString(dr["Qcontent"].ToString(),20)</a></td>
+                    <td>@GetAnserCount(DataConverter.CLng(dr["ID"]))</td>
+                    <td><a href="/ShowList?id=@dr["UserID"]" target='_blank'>@(dr["IsNi"].ToString()=="1"?"匿名":dr["UserName"])</a></td>
+                    <td>@DataConverter.CDate(dr["AddTime"]).ToString("yyyy-MM-dd HH:mm")</td>
+                </tr>
+            }
+            @Html.Partial("_page", Model)
+        }
+        else
+        {
+            <tr><td colspan="5">当前没有数据</td></tr>
+        }
+    </table>
+</div>

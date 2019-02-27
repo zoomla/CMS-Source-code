@@ -1,0 +1,11 @@
+D:\Code\ZoomlaCMS\URLRewriter\bin\Debug\URLRewriter.dll
+D:\Code\ZoomlaCMS\URLRewriter\bin\Debug\URLRewriter.pdb
+D:\Code\ZoomlaCMS\URLRewriter\obj\Debug\URLRewriter.dll
+D:\Code\ZoomlaCMS\URLRewriter\obj\Debug\URLRewriter.pdb
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\URLRewriter.dll
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\URLRewriter.pdb
+E:\Code\ZoomlaCMS2\MVC\ZoomLa.WebSite\Bin\URLRewriter.dll
+E:\Code\ZoomlaCMS2\MVC\ZoomLa.WebSite\Bin\URLRewriter.pdb
+E:\Code\ZoomlaCMS2\MVC\URLRewriter\obj\Debug\URLRewriter.csprojResolveAssemblyReference.cache
+E:\Code\ZoomlaCMS2\MVC\URLRewriter\obj\Debug\URLRewriter.dll
+E:\Code\ZoomlaCMS2\MVC\URLRewriter\obj\Debug\URLRewriter.pdb

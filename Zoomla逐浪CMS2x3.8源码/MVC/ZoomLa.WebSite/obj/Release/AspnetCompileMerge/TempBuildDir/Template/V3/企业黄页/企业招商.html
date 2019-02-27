@@ -1,0 +1,103 @@
+{ZL.Source id="标准黄页申请信息数据源_内容页"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="标准黄页申请信息数据源_内容页" FD="Title" page="0"/}</title>
+<link href="{$CssDir/}global.css" rel="stylesheet" type="text/css" />
+<link href="{$CssDir/}fix.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top_box">
+<div id="xtop">
+<span>欢迎您，{ZL:IPcity()/}的{ZL:GetuserName()/}</span>
+<ul>
+<li><a href="#">购物车</a></li>
+<li><a href="#">|</a></li>
+<li><a href="#">我要买</a></li>
+<li>|</li>
+<li><a href="{ZL:GetNodeLinkUrl(140)/}">我要开店</a></li>
+<li>|</li>
+<li><a href="/user">会员中心</a></li>
+<li>|</li>
+<li><a href="{ZL:GetNodeLinkUrl(170)/}">帮助中心</a></li>
+<li>|</li>
+<li><a href="#">官方网店</a></li>
+<li>|</li>
+<li><a href="{ZL.Label id="论坛链接"/}">论坛</a></li>
+<li>|</li>
+<li >    <span id="btnNoBlank">原窗口</span> </li>
+<li>|</li>
+ <li>   <span id="btnNewBlank">新窗口</span><span id="setOk" style="display:none;">设置成功!</span>    </li>
+</ul>
+</div>
+<div class="clear"></div>
+</div> 
+
+<!--top_box end -->
+<div id="head1">
+<img src="{$CssDir/}Images/g1.jpg">
+</div>
+<!--head end -->
+
+<div id="nav_y">
+  <ul>
+    <li><a href="/">首  页</a></li>
+   
+{ZL.Label id="输出黄页节点" UserName="{SField sid="标准黄页申请信息数据源_内容页" FD="UserName" page="0"/}" ShowNum="10" /}
+  
+    <div class="clear"></div>
+  </ul>
+</div><!--nav end -->
+<div id="massage">
+<div id="massage_L">
+<div id="phone">
+<div class="mas_tit"><span><a href="#">商家信息</a></span>全部商品</div>
+<ul>
+  <li>联系人：{SField sid="标准黄页申请信息数据源_内容页" FD="lxr" page="0"/}</li>
+  <li>QQ：<a href='tencent://message/?uin=3394987&Site=点击QQ会话&Menu=yes'><img src="{$CssDir/}Images/QQL.jpg"></a></li>
+  <li>手机:{SField sid="标准黄页申请信息数据源_内容页" FD="tel" page="0"/}</li>
+  <li>区域:{SField sid="标准黄页申请信息数据源_内容页" FD="city" page="0"/}</li>
+</ul>
+</div>
+<div id="Lo_mas">
+<div class="Lo_tit">站内搜索</div>
+ <form>
+    <input type="text" name="ps_search" onBlur="this.style.color='#ccc';if(this.value=='')this.value='输入关键字';" onFocus="this.style.color='#333';if(this.value=='输入关键字')this.value='';" value="输入关键字" class="order_input"  width="100px"/> 
+			<a href="#"><img src="{$CssDir/}Images/go.jpg"></a>
+            </form>  
+</div>
+<div id="ty_mas">
+<div class="Lo_tit">信息分类</div>
+<p>所有信息 »</p>
+</div>
+<div id="pic_mas">
+<div class="Lo_tit">公司相册</div>
+<p><a href="#"><img src="{$CssDir/}Images/up.jpg"></a>
+<div class="photos">
+{ZL.Label id="输出黄页商家相册左" UserName="{SField sid="标准黄页申请信息数据源_内容页" FD="UserName" page="0"/}" ShowNum="10" TilteNum="20" /}
+</div>
+<b><a href="#"><img src="{$CssDir/}Images/dow.jpg"></a></b>
+</p>
+</div>
+
+</div>
+<div id="massage_R">
+<div id="com_masaa">
+<div class="Lo_tit">{ZL.Label id="输出黄页节点标题" UserName="{SField sid="标准黄页申请信息数据源_内容页" FD="UserName" page="0"/}" NodeID="{$GetRequest(NodeID)$}" /}
+</div>
+{ZL.Label id="输出黄页招商信息" UserName="{SField sid="标准黄页申请信息数据源_内容页" FD="UserName" page="0"/}" ShowNum="10" NodeID="{$GetRequest(NodeID)$}" /}
+
+
+
+<div class="clear"></div>
+</div>
+
+
+
+</div>
+<div class="clear"></div>
+</div>
+<SCRIPT src="/js/openType.js" type=text/javascript></SCRIPT> 
+</body>
+</html>

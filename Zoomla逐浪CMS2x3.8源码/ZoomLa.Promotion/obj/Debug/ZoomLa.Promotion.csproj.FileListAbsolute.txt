@@ -1,0 +1,172 @@
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\obj\Debug\ResolveAssemblyReference.cache
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.IDAL.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\itextsharp.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\Interop.MSXML2.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\Interop.Excel.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ChinaPay_tsl.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.IDAL.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLaCMS\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.IDAL.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\itextsharp.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\Interop.MSXML2.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\Interop.Excel.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ChinaPay_tsl.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.IDAL.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.pdb
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\obj\Debug\ResolveAssemblyReference.cache
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.dll
+E:\tech03\ZoomLaCMS5.6 运宝(86)\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.pdb
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.pdb
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\itextsharp.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\Newtonsoft.Json.Net20.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\Interop.MSXML2.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\Interop.Excel.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.IDAL.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ChinaPay_tsl.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.pdb
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.pdb
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.pdb
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.pdb
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.IDAL.pdb
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.pdb
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\obj\Debug\ResolveAssemblyReference.cache
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.dll
+F:\Hosting\ZoomlaCmsCode\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.pdb
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.pdb
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\itextsharp.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\Newtonsoft.Json.Net20.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\Interop.MSXML2.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\Interop.Excel.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ChinaPay_tsl.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.pdb
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.pdb
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.pdb
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.pdb
+E:\working\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.pdb
+E:\working\Zoomla6x\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.dll
+E:\working\Zoomla6x\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.pdb
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.pdb
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\itextsharp.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\Interop.MSXML2.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\Newtonsoft.Json.Net20.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\Interop.Excel.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ChinaPay_tsl.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.pdb
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.pdb
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.pdb
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\obj\Debug\ResolveAssemblyReference.cache
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.dll
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.pdb
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.pdb
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.pdb
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\itextsharp.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\Newtonsoft.Json.Net20.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\Interop.MSXML2.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\Interop.Excel.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ChinaPay_tsl.dll
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.pdb
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.pdb
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.pdb
+E:\working\zoomla6\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.pdb
+E:\working\zoomla6\ZoomLa.Promotion\obj\Debug\ResolveAssemblyReference.cache
+E:\working\zoomla6\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.dll
+E:\working\zoomla6\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.pdb
+F:\Hosting\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.pdb
+E:\working\Zoomla6x\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.csprojResolveAssemblyReference.cache
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.pdb
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\itextsharp.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\Interop.MSXML2.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\Interop.Excel.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ChinaPay_tsl.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.pdb
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.pdb
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.pdb
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.pdb
+E:\Code\Zoomla6x\ZoomLa.Promotion\bin\Debug\ZoomLa.ZLEnum.pdb
+E:\Code\Zoomla6x\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.dll
+E:\Code\Zoomla6x\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.pdb
+E:\Code\Zoomla6x\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.csprojResolveAssemblyReference.cache
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.Promotion.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.Common.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.csprojResolveAssemblyReference.cache
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\obj\Debug\ZoomLa.Promotion.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.SQLDAL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.Components.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\OpenPop.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\System.Data.SqlServerCe.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\SharpCompress.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\Newtonsoft.Json.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\ZoomLa.Model.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\itextsharp.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\itextsharp.xmlworker.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\MySql.Data.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\Interop.CDO.dll
+E:\Code\ZoomlaCMS2\ZoomLa.Promotion\bin\Debug\Interop.ADODB.dll

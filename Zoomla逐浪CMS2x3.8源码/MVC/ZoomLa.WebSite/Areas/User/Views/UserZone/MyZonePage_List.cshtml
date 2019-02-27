@@ -1,0 +1,21 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.url = "";
+}
+<div id="EGV">
+    <ul class="list-ustyled" id="tlp_ul">
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <li>
+                <img src="@dr["StylePic"]" class="tlpimg" onerror="shownopic(this);" />
+                <div class="tlp_opdiv">
+                    <strong class="r_gray">@dr["StyleName"]</strong>
+                    <a href="MyZonePage_Apply?ID=@dr["ID"]" onclick="return confirm('确定要应用此模板吗,将会覆盖你原有配置');" class="btn btn-xs btn-info pull-right"><i class="fa fa-adjust"></i> 应用</a>
+                </div>
+            </li>
+        }
+    </ul>
+    <div class="clear"></div>
+    <div class="text-center">@Html.Partial("_page2")</div>
+</div>

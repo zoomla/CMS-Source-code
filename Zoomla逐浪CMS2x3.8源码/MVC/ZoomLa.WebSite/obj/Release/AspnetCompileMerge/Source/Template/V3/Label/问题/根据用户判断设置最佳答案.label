@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>214</LabelID>
+    <LabelName>根据用户判断设置最佳答案</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>pubid,1,1,问题ID|getId,1,1,内容ID</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Pub_ZJDA</LabelTable>
+    <LabelField>daid,getid,ID</LabelField>
+    <LabelWhere>'{ZL.Label id="发布问题用户"/}'='{ZL:GetuserID()/}' and 1=1</LabelWhere>
+    <LabelOrder>ID DESC</LabelOrder>
+    <LabelContent>&lt;div id="ustyle" style="display:none;"&gt;&lt;form name='form6' method='post' action='/PubAction.aspx'&gt;{PubCode/}&lt;input type='hidden' name='PubTitle' value='答案' /&gt;&lt;input type='hidden' name='PubID' id='PubID' value='11'&gt;&lt;input type='hidden' name='PubContentid' id='PubContentid' value='{PubContentid/}'&gt;&lt;input type='hidden' name='PubContent' value='最佳答案' /&gt;&lt;input type='hidden' name='daid' value='@pubid' /&gt;&lt;input type='hidden' name='getid' value='@getId' /&gt;&lt;input type='submit' name='button2' id='button3' value='设为最佳答案' /&gt;&lt;/form&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>参数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>{ZL:GetuserID()/}</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent>&amp;nbsp;</FalseContent>
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

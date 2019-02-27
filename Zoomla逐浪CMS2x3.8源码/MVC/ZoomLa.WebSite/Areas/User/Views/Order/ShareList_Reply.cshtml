@@ -1,0 +1,55 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Model.Shop
+@using ZoomLa.BLL
+@using ZoomLa.BLL.Helper
+@using ZoomLa.BLL.Shop
+@using ZoomLa.Common
+@using ZoomLa.Components
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    public string GetReplyStr(DataRow dr)
+    {
+        string result = " ：";
+        if (DataConverter.CLng(dr["ReplyID"]) != DataConverter.CLng(dr["Pid"]))
+        {
+            string uname = B_User.GetUserName(dr["RHoney"], dr["RUName"]);
+            result = " 回复 " + uname + "：";
+        }
+        return result;
+    }
+    public string GetUserName(DataRow dr)
+    {
+        return B_User.GetUserName(dr["CHoney"], dr["CUName"]);
+    }
+}
+@{
+    string Mode=Request.QueryString["Mode"]??"";
+    Model.cols = 10;
+    Model.url = "Share_Data";
+    Model.mvcparam = "." + Model.target;
+}
+<div id="@Model.target">
+    @if(Model.dt.Rows.Count>0){<input type="hidden" class="@Model.target" id="pid" value="@Model.dt.Rows[0]["Pid"]" />}
+    @foreach (DataRow dr in Model.dt.Rows)
+    {
+        <div class="comment-reply-item">
+            <div class="reply-infor">
+                <a class="user-name" href="javascript:;">@GetUserName(dr)</a>@GetReplyStr(dr)
+                <span class="words">@dr["MsgContent"]</span>
+                <span class="time">@DateHelper.ToDate(dr["CDate"])</span>
+            </div><div class="comment-operate">
+                <span class="reply-trigger" data-info='{"id":"@dr["Pid"]","uname":"@GetUserName(dr)","rid":"@dr["ID"]"}'>回复</span>
+                      @if (Mode.Equals("admin"))
+                      {
+                          <a class="btn btn-primary btn-xs" href="@("/" + SiteConfig.SiteOption.ManageDir + "/Shop/EditShare.aspx?id=" + dr["ID"])">修改</a>
+                          <button class="btn btn-primary btn-xs del-trigger" type="button" id="Del_Btn">删除</button>
+                      }
+            </div>
+        </div>
+    }
+    @if (Model.pageCount > 1)
+    {
+        @Html.Partial("_page2", Model)
+    }
+</div>

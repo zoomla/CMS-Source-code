@@ -1,0 +1,38 @@
+﻿@using ZoomLa.Controls
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="/App_Themes/User.css" rel="stylesheet" type="text/css" />
+    <title>添加文档</title>
+</head>
+<body>
+    <form method="post" action="@Url.Action("AddFiles_Add","Home")">
+        <table class="dialog" style="width: 740px;" border="0" cellSpacing="8" cellPadding="0">
+            <tr>
+                <th width="6%" noWrap="">标题* :</th>
+                <td>
+                    <input type="text" id="txttit" name="txttit" value="@ViewBag.txttit" class="M_input" />
+                </td>
+            </tr>
+            <tr>
+                <th width="6%" noWrap="">选择文档 :</th>
+                <td>
+                    @Html.Partial("C_SFileUP", new C_SFileUP())
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" class="i_bottom" value="提交" />
+                    &nbsp;<input type="button" id="concle" class="i_bottom" value="取消" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

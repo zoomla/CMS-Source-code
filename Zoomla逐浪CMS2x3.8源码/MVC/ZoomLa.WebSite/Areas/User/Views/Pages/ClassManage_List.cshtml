@@ -1,0 +1,52 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 5;
+    Model.url = "Node_Data";
+}
+<div id="EGV">
+    <table class="table table-bordered table-hover table-striped">
+        <tr><td colspan="5" class="text-center">黄页栏目管理</td></tr>
+        @if (Model.dt.Rows.Count > 0)
+        {
+            <tr>
+                <td></td>
+                <td width="10%"><b>栏目ID</b></td>
+                <td width="30%"><b>栏目名称</b></td>
+                <td width="30%"><b>显示状态</b></td>
+                <td width="30%"><b>相关操作</b></td>
+            </tr>
+            foreach (DataRow dr in Model.dt.Rows)
+            {
+                <tr>
+                    <td class="td_s"><input type="checkbox" name="idchk" value="@dr["TemplateID"]" /></td>
+                    <td width="10%">@dr["TemplateID"]</td>
+                    <td width="30%">@dr["TemplateName"]</td>
+                    <td width="30%">@(dr["IsTrue"].ToString() == "1" ? "显示" : "隐藏")</td>
+                    <td width="30%">
+                        @if (dr["userid"].ToString() != "0")
+                        {
+                            <a href='AddNode?menu=edit&id=@dr["TemplateID"]'>修改</a>
+                            <a href='javascript:;' onclick='mvcpage.del({ id: "@dr["TemplateID"]", url: "node_del", confirm: "确定要删除吗" });'>删除</a>
+                        }
+                        else
+                        {
+                            <font color='#999999'>修改 删除</font>
+                        }
+                    </td>
+                </tr>
+            }
+            @Html.Partial("_page", Model)
+            <tr class="text-center">
+                <td colspan="5">
+                    <input type="button" class="btn btn-primary" onclick="mvcpage.bat({ url: 'node_hide' });" value="批量隐藏" />
+                    <input type="button" class="btn btn-primary" onclick="mvcpage.bat({ url: 'node_del', confirm: '是否删除' });" value="批量删除" />
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr><td colspan="5" class="text-center">没有数据</td></tr>
+        }
+    </table>
+</div>

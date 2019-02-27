@@ -1,0 +1,98 @@
+﻿@using System.Data
+@model ZoomLaCMS.Areas.User.Models.UserShop.VM_OrderList
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>我的店铺</title>
+<link href="/App_Themes/V3.css" rel="stylesheet" type="text/css" />
+}
+@section content{
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+            <li><a href="ProductList">我的店铺</a></li>
+            <li class="active">我的店铺订单</li>
+        </ol>
+    </div>
+    <div class="container btn_green">
+        @Html.Partial("UserShopTop")
+        <div class="top_opbar">
+            <div class="input-group pull-left text_300">
+                <span class="input-group-addon">快速筛选</span>
+                <select id="QuickSearch_DP" name="QuickSearch_DP" class="form-control text_md mvcparam" onchange="mvcpage.load();">
+                    <option value="0">所有订单</option>
+                    <option value="2">今天的新订单</option>
+                    <option value="4">最近10天内的新订单</option>
+                    <option value="5">最近一个月内的新订单</option>
+                    <option value="6">未确认的订单</option>
+                    <option value="7">未付款的订单</option>
+                    <option value="8">未付清的订单</option>
+                    <option value="9">未送货的订单</option>
+                    <option value="10">未签收的订单</option>
+                    <option value="11">未结清的订单</option>
+                    <option value="12">未开发票的订单</option>
+                    <option value="13">已经作废的订单</option>
+                    <option value="14">暂停处理的订单</option>
+                    <option value="15">已发货的订单</option>
+                    <option value="16">已签收的订单</option>
+                    <option value="17">已结清的订单</option>
+                    <option value="18">已申请退款的订单</option>
+                </select>
+            </div>
+            <div class="input-group pull-left" style="width:505px;">
+                <span class="input-group-addon">高级查询</span>
+                <select id="SkeyType_DP" class="form-control text_md mvcparam" style="border-right:none;">
+                    <option value="1">订单编号</option>
+                    <option value="2">客户名称</option>
+                    <option value="3">用户名</option>
+                    <option value="4">收货人</option>
+                    <option value="5">联系地址</option>
+                    <option value="6">联系电话</option>
+                    <option value="7">下单时间</option>
+                    <option value="8">备注留言</option>
+                    <option value="9">商品名称</option>
+                    <option value="10">收货人邮箱</option>
+                    <option value="11">发票信息</option>
+                    <option value="12">内部记录</option>
+                    <option value="13">跟单员</option>
+                </select>
+                <input type="text" id="Skey_T" name="Skey_T" class="form-control text_md mvcparam" placeholder="请输入需要搜索的内容" />
+                <span class="input-group-btn">
+                    <button id="Sley_Btn" name="Sley_Btn" class="btn btn-default" onclick="mvcpage.load();"><span class="fa fa-search"></span> </button>
+                </span>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        @Html.Partial("OrderList_List",Model)
+    </div>
+  }
+@section script{
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script src="/JS/SelectCheckBox.js"></script>
+    <script>
+        $(function () {
+            $("#chkAll").click(function () {
+                selectAllByName(this, "idchk");
+            });
+        })
+        function IsSelectedId() {
+            var checkArr = $("input[type=checkbox][name=idchk]:checked");
+            if (checkArr.length > 0)
+                return true
+            else
+                return false;
+        }
+        function ShowDetail(orderno) {
+            comdiag.maxbtn = false;
+            comdiag.reload = true;
+            ShowComDiag("/User/Order/OrderDetails?OrderNo=" + orderno, "订单明细");
+        }
+        function CloseDetail() {
+            CloseComDiag();
+        }
+        function ShowElement(id) {
+            $("#" + id).show();
+        }
+    </script>
+}

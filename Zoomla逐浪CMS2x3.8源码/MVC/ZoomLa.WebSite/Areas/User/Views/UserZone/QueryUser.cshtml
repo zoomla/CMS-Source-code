@@ -1,0 +1,34 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>搜索用户</title>
+}
+@section content{
+<div id="pageflag" data-nav="index" data-ban="zone"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default.aspx">会员中心</a></li>
+        <li class="active">搜索结果 [<a href="/User/UserFriend/Default">我的好友</a>]</li>
+    </ol>
+</div>
+<div class="container btn_green">
+    @Html.Partial("QueryUser_List",Model)
+</div>
+}
+@section script{
+<style type="text/css">.allchk_l {display:none; }</style>
+<script src="/JS/Modal/APIResult.js"></script>
+<script src="/JS/Controls/B_User.js"></script>
+<script>
+    function addFriend(obj, uid) {
+        var $a = $(obj);
+        if ($a.hasClass("disabled")) { return; }
+        var tlp = '<i class="fa fa-user-plus"></i> 已 申 请';
+        $a.html(tlp);
+        $a.addClass("disabled");
+        Friend.add(uid, function (model) { if (APIResult.isok(model)) { } });
+    }
+</script>
+}

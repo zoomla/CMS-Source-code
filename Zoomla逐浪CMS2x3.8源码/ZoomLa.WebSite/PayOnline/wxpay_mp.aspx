@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="wxpay_mp.aspx.cs" Inherits="PayOnline_wxpay_mp" %>

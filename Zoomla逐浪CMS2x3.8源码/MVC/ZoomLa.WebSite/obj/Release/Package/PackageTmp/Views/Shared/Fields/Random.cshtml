@@ -1,0 +1,15 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    string value = Model.GetValue();
+    string Name = Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+    int type = DataConverter.CLng(model.GetValue("type"));
+    int len = DataConverter.CLng(model.GetValue("len"));
+    if (string.IsNullOrEmpty(value)) { value = function.GetRandomString(len, type); }
+}
+<input type='text' id='txt_@Name' name='txt_@Name' value='@value' class='form-control text_300' />

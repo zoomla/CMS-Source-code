@@ -1,0 +1,56 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Views/Shared/_ask.cshtml";
+
+}
+@section head{
+    <title>问题列表-@(Call.SiteName)问答</title>
+}
+@section content{
+<div class="container">
+    <ol class="breadcrumb">
+        <li>您的位置：<a href="/">网站首页</a></li>
+        <li><a href="/Ask">问答中心</a></li>
+        <li class="active"><a href="List?strWhere=&QueType=">我要回答</a></li>
+    </ol>
+</div>
+<div class="container">
+    <ul class="list-inline">
+        <li class="on"><a title="问答首页" href="#" class="btn btn-primary btn_guest">问答首页</a> </li>
+        <li><a title="问答之星" href="Star" class="btn btn-primary btn_guest">问答之星</a></li>
+        <li><a title="分类大全" href="Classification" class="btn btn-primary btn_guest">分类大全</a></li>
+        <li><a href="List?QueType=@Server.HtmlEncode(Request["QueType"])" class="btn btn-primary btn_guest">待完善问题</a></li>
+    </ul>
+</div>
+<div class="container">
+    @{Html.RenderAction("CommonView");}
+    <ul class="nav nav-tabs">
+        <li id="all_li"><a href="list?QueType=@Request.QueryString["QueType"]">全部问答</a></li>
+        <li id="wait_li"><a href="list?type=1&QueType=@Request.QueryString[" QueType"]">待完善问题</a></li>
+    </ul>
+    <div class="asklist">
+        @Html.Partial("List_List",Model)
+    </div>
+</div>
+<div class="ask_bottom">
+    <p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+    <p class="text-center">@MvcHtmlString.Create(Call.GetLabel("{$Copyright/}"))</p>
+</div>
+}
+@section script{
+<script type="text/javascript">
+    function show() {
+        var div = document.getElementById("show");
+        if (div.style.display == "none") {
+            div.style.display = "block";
+        }
+    }
+    $(function () {
+        $("#top_nav_ul li[title='问题库']").addClass("active");
+        var type = '@Request.QueryString["type"]';
+        if(type=='1')
+            $("#wait_li").addClass('active');
+        else
+            $("#all_li").addClass('active');
+    });
+</script>}

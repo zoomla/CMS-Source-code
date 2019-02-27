@@ -1,0 +1,150 @@
+﻿@model ZoomLa.Model.Shop.M_Shop_FareTlp
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>运费管理</title>}
+@section content{
+    <div id="pageflag" data-nav="shop" data-ban="store"></div> 
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="DeliverType">运费模板</a></li>
+            <li class="active">运费管理</li>
+            <div class="clearfix"></div>
+        </ol>
+    </div>
+<form method="post" action="@MVCHelper.GetAction("Deliver_Add",Request)">
+    <div class="container">
+    @Html.Partial("UserShopTop")
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td class="td_l">模板名称:</td>
+                <td>
+                    <input type="text" id="TlpName_T" name="TlpName_T" class="form-control text_300 required" maxlength="100" value="@Model.TlpName"/>
+                </td>
+            </tr>
+            <tr>
+                <td>计价方式:</td>
+                <td>
+                    <label><input type="radio" value="1" name="pricemod_rad" checked="checked" />按件数</label>
+                </td>
+            </tr>
+            <tr>
+                <td>设置运费:</td>
+                <td>
+                    <div>
+                        <label><input type="checkbox" id="exp_chk" name="exp_chk" />快递</label>
+                        <span>运费：<input type="text" class="text_xs num" id="exp_price_t" />元,每超过一件需加运费<input type="text" class="text_xs num" id="exp_plus_t" />元</span>
+                        <select id="exp_free_sel" data-exdiv="exp_free_sp" onchange="Showexdiv(this);">
+                            <option value="0">不包邮</option>
+                            <option value="1">计件包邮</option>
+                            <option value="2">金额包邮</option>
+                            <option value="3">件数+金额</option>
+                        </select>
+                        <span class="exdiv" id="exp_free_sp1">满<input type="text" class="text_xs" id="exp_free_num" />件</span>
+                        <span class="exdiv" id="exp_free_sp2">满<input type="text" class="text_xs" id="exp_free_money" />金额</span>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" id="ems_chk" name="ems_chk" />EMS</label>
+                        <span>运费：<input type="text" class="text_xs num" id="ems_price_t" />元,每超过一件需加运费<input type="text" class="text_xs num" id="ems_plus_t" />元</span>
+                        <select id="ems_free_sel" data-exdiv="ems_free_sp" onchange="Showexdiv(this);">
+                            <option value="0">不包邮</option>
+                            <option value="1">计件包邮</option>
+                            <option value="2">金额包邮</option>
+                            <option value="3">件数+金额</option>
+                        </select>
+                        <span class="exdiv" id="ems_free_sp1">满<input type="text" class="text_xs" id="ems_free_num" />件</span>
+                        <span class="exdiv" id="ems_free_sp2">满<input type="text" class="text_xs" id="ems_free_money" />金额</span>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" id="mail_chk" name="mail_chk" />平邮</label>
+                        <span>运费：<input type="text" class="text_xs num" id="mail_price_t" />元,每超过一件需加运费<input type="text" class="text_xs num" id="mail_plus_t" />元</span>
+                        <select id="mail_free_sel" data-exdiv="mail_free_sp" onchange="Showexdiv(this);">
+                            <option value="0">不包邮</option>
+                            <option value="1">计件包邮</option>
+                            <option value="2">金额包邮</option>
+                            <option value="3">件数+金额</option>
+                        </select>
+                        <span class="exdiv" id="mail_free_sp1">满<input type="text" class="text_xs" id="mail_free_num" />件</span>
+                        <span class="exdiv" id="mail_free_sp2">满<input type="text" class="text_xs" id="mail_free_money" />金额</span>
+                    </div>
+                </td>
+            </tr>
+            <tr><td>备注(买家可见):</td><td><textarea ID="Remind_T" name="Remind_T"  class="form-control text_300"  style="height:120px;" placeholder="请输入备注">@Model.Remind</textarea></td></tr>
+            <tr><td>备注(仅卖家可见):</td><td><textarea ID="Remind2_T" name="Remind2_T"  class="form-control text_300" style="height:120px;" placeholder="请输入备注">@Model.Remind2</textarea></td></tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="保存" class="btn btn-primary" onclick="BeginSave();"/>
+                    @*<asp:Button runat="server" ID="Save_Btn" Text="保存" OnClientClick="return BeginSave();" OnClick="Save_Btn_Click" CssClass="btn btn-primary" />*@
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" id="Fare_Hid" name="Fare_Hid" value="@Model.Express" />
+    </div>
+</form>
+}
+@section script{
+<link type="text/css" href="/dist/css/bootstrap-switch.min.css" rel="stylesheet" />
+<script src="/dist/js/bootstrap-switch.js"></script>
+<script src="/JS/ZL_Regex.js"></script>
+<style type="text/css">
+    .exdiv{display:none;}
+</style>
+<script type="text/javascript">
+    var fareArr = [];
+    var fareStr = "exp,ems,mail".split(',');
+    function BeginSave() {
+        fareArr = [];
+        var priceMode = $("[name=pricemod_rad]").val();
+        for (var i = 0; i < fareStr.length; i++) {
+            //快递名,计价方式,初始价,续价,包邮方式,多少件包邮,多少钱包邮
+            var fareMod = { name: "", mode: "", enabled: "", price: 0, plus: 0, free_sel: "", free_num: "", free_money: "" };
+            fareMod.name = fareStr[i];
+            fareMod.mode = priceMode;
+            fareMod.enabled = $("#" + fareMod.name + "_chk")[0].checked;
+            fareMod.price = $("#" + fareMod.name + "_price_t").val();
+            fareMod.plus = $("#" + fareMod.name + "_plus_t").val();
+            fareMod.free_sel = $("#" + fareMod.name + "_free_sel").val();
+            fareMod.free_num = $("#" + fareMod.name + "_free_num").val();
+            fareMod.free_money = $("#" + fareMod.name + "_free_money").val();
+            fareArr.push(fareMod);
+        }
+        $("#Fare_Hid").val(JSON.stringify(fareArr));
+        $("form").submit();
+        return true;
+    }
+    function ShowPrice() {
+        var val = $("#Fare_Hid").val();
+        if (ZL_Regex.isEmpty(val)) { return; }
+        fareArr = JSON.parse(val);
+        for (var i = 0; i < fareArr.length; i++) {
+            var model = fareArr[i];
+            $("#" + model.name + "_chk")[0].checked = model.enabled;
+            $("#" + model.name + "_price_t").val(model.price);
+            $("#" + model.name + "_plus_t").val(model.plus);
+            $("#" + model.name + "_free_sel").val(model.free_sel);
+            $("#" + model.name + "_free_num").val(model.free_num);
+            $("#" + model.name + "_free_money").val(model.free_money);
+            Showexdiv($("#" + model.name + "_free_sel"));
+        }
+    }
+    //-----Tools
+    function Showexdiv(obj) {//显示包邮条件
+        var $obj = $(obj);
+        switch ($obj.val()) {
+            case "3":
+                $obj.closest("div").find(".exdiv").show();
+                break;
+            default:
+                $obj.closest("div").find(".exdiv").hide();
+                $("#" + $obj.data("exdiv") + $obj.val()).show();
+                break;
+        }
+    }
+    $(function () {
+        ShowPrice();
+        $("form").validate();
+    })
+</script>
+}

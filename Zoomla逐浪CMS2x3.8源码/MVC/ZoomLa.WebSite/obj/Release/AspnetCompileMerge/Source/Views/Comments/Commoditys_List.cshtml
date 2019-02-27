@@ -1,0 +1,31 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.url = "Commoditys_List?tagkey?="+Request["tagkey"];
+}
+<div id="EGV">
+    @if (Model.itemCount > 0)
+    {
+        <div class="coms">
+            <ul class="list-unstyled">
+                @foreach (DataRow dr in Model.dt.Rows)
+                {
+                    <li>
+                        <div class="img_div" onclick="window.open('/Shop/@(dr["ID"]).aspx');"><img src="@function.GetImgUrl(dr["Thumbnails"].ToString())" /></div>
+                        <span class="proname">@dr["ProName"]</span>
+                        <span class="price">商城价:￥@Convert.ToDouble(dr["LinPrice"]).ToString("f2")</span>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="text-center">
+            @Html.Partial("_page2", Model)
+        </div>
+    }
+    else
+    {
+        <div class="empty">没有数据</div>
+    }
+</div>

@@ -1,0 +1,22 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>评论管理</title>
+}
+@section content{
+    <div id="pageflag" data-nav="group" data-ban="pub"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+            <li class="active">评论管理</li>
+        </ol>
+    </div>
+    <div class="container" id="selallno">
+        @Html.Partial("PubManage_List",Model)
+    </div>
+}
+@section script{
+
+}

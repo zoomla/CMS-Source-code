@@ -1,0 +1,117 @@
+﻿@using System.Data
+@model ZoomLa.Model.Exam.M_Exam_Version
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>教材版本</title>
+
+}
+@section content{
+<form method="post" action="@MVCHelper.GetAction("Version_Add",Request)">
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Default","")">用户中心</a></li>
+            <li><a href="@Url.Action("VersionList","Exam")">教材列表</a></li>
+            <li>教材版本</li>
+        </ol>
+    </div>
+    <div id="pageflag" data-nav="edu" data-ban="ke"></div>
+    <div class="container">
+        <div class="input-group" style="width:600px;margin-bottom:10px;">
+            <span class="input-group-addon">所属目录</span>
+            <label id="pnode_l" class="form-control text_300 disabled"></label>
+            <span class="input-group-addon">上传人</span>
+            <label id="inputer_l" class="form-control text_300 disabled"></label>
+            <span class="input-group-addon">学校</span>
+            <label id="school_l" class="form-control text_md disabled"></label>
+        </div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td style="width:120px;">版本名称：</td>
+                <td>
+                    <input type="text" id="vname_t" name="vname_t" class="form-control text_300 required" placeholder="名称不能为空" />
+                </td>
+            </tr>
+            <tr>
+                <td>科目：</td>
+                <td>
+                    @Html.Partial("C_TreeTlpDP", ViewBag.treeMod as ZoomLa.AppCode.Controls.C_TreeTlpDP)
+                </td>
+            </tr>
+            <tr><td>版本时间：</td><td><input type="text" id="vtime_t" name="vtime_t" class="form-control text_300" onfocus="    WdatePicker({ dateFmt: 'yyyy' })" /></td></tr>
+            <tr>
+                <td>册序：</td>
+                <td>
+                    <input type="text" id="Volume_T" name="Volume_T" class="form-control text_300" />
+                    <div id="btnlist" class="btn btn-group">
+                        <button type="button" class="btn btn-default">上册</button>
+                        <button type="button" class="btn btn-default">中册</button>
+                        <button type="button" class="btn btn-default">下册</button>
+                        <button type="button" class="btn btn-default">全册</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>年级：</td>
+                <td>
+                    @MVCHelper.H_Radios("grade_rad", (DataTable)ViewBag.gradeDT, "GradeID", "GradeName",Model.Grade.ToString())
+                </td>
+            </tr>
+            <tr><td>标价：</td><td><input type="text" id="price_t" name="price_t" class="form-control text_300 float" value="0.00"></td></tr>
+            <tr id="Chapter_Tr"><td>章(单元)名称：</td><td><input type="text" id="chapter_t" name="chapter_t" class="form-control text_300" /></td></tr>
+            <tbody id="Section_Body">
+                <tr><td>节名称：</td><td><input type="text" id="sectionname_t" name="sectionname_t" class="form-control text_300" /></td></tr>
+                <tr><td>课名称：</td><td><input type="text" id="coursename_t" name="coursename_t" class="form-control text_300" /></td></tr>
+                <tr>
+                    <td>知识点：</td>
+                    <td>
+                        <div id="Examkeyword"></div>
+                        <button type="button" onclick="SelKnow()" class="btn btn-primary btn-sm">选择知识点</button>
+                        <input type="hidden" id="tagkey_t" />
+                    </td>
+                </tr>
+            </tbody>
+            <tr>
+                <td></td>
+                <td>
+                    <button id="save_btn" class="btn btn-primary" onclick="Save_Btn_Click">确定</button>
+                    <a href="@Url.Action("VersionList","Exam")" class="btn btn-primary">返回</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+}
+@section script{
+    <script src="/JS/DatePicker/WdatePicker.js"></script>
+    <script src="/JS/Controls/ZL_Array.js"></script>
+    <script src="/JS/Controls/ZL_Dialog.js"></script>
+    <script src="/JS/ZL_Regex.js"></script>
+    <script src="/JS/OAKeyWord.js"></script>
+    <script src="/JS/ICMS/ZL_Exam_Controls.js"></script>
+    <script>
+        $("form").validate();
+        $(function () {
+            ZL_Regex.B_Float(".float");
+            InitKeyWord($("#TagKey_T").val());
+            $("#btnlist button").click(function () {
+                $("#Volume_T").val($(this).text());
+            });
+            //科目改变时初始化知识点
+            var oNodeID = "";
+            $("#NodeTree ul li").click(function () {
+                var NodeID = $("#NodeID_Hid").val();
+                console.log(NodeID);
+                if (oNodeID != NodeID) {
+                    InitKeyWord($("#TagKey_T").val());
+                    $("#TagKey_T").val("");
+                    oNodeID = NodeID;
+                }
+            });
+        })
+        var readonly = function () {
+            $('#NodeTree button').attr('disabled', 'true');
+            $('#VTime_T').removeAttr('onfocus');
+        }
+    </script>
+}

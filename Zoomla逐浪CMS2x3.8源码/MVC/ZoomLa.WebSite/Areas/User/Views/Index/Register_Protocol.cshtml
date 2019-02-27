@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Index/_RegisterLayout.cshtml";
+}
+@section head{<title>用户注册-@Call.SiteName</title>}
+@section content{
+<form method="post">
+    <h1>第一步：服务条款和声明</h1>
+    <textarea name="textarea" cols="20" rows="2" readonly="readonly" style="font-weight: normal; font-size: 9pt; width: 99%; line-height: normal; font-style: normal; height: 372px; font-variant: normal">
+    @ZoomLa.BLL.SafeSC.ReadFileStr(Server.MapPath("~/BU/Protocol.txt"), true);
+    </textarea>
+    <div class="rsubmit">
+        <input type="submit" class="btn btn-primary" value="同意" onclick="" id="agree_btn" />
+    </div>
+</form>
+}
+@section script{
+<script type="text/javascript">
+    var secs = 9;
+    var wait = secs * 1000;
+    var agreeBtn = document.getElementById("agree_btn");
+    agreeBtn.disabled = true;
+
+    function regload() {
+        agreeBtn.value = "我同意[" + secs + "]";
+        for (i = 1; i <= secs; i++) {
+            window.setTimeout("Update(" + i + ")", i * 1000);
+        }
+        window.setTimeout("Timer()", wait);
+    }
+
+    function Update(num) {
+        if (num != secs) {
+            printnr = (wait / 1000) - num;
+            agreeBtn.value = "我同意[" + printnr + "]";
+        }
+    }
+    function Timer() { agreeBtn.disabled = false; agreeBtn.value = "我同意"; }
+    function endbtn() { agreeBtn.disabled = false; }
+</script>    
+    
+    }

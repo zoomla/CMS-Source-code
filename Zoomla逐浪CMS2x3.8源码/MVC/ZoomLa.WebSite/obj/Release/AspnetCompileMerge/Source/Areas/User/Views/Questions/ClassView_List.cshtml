@@ -1,0 +1,42 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    //根据学生申请状态显示对应按钮
+    public string GetButton(DataRow dr)
+    {
+        if (DataConverter.CLng(dr["StuCount"]) > 0)
+        {
+            return "<button type='button' class='btn btn-primary' disabled='disabled'>已申请该班级</button>";
+        }
+        string tearcher = string.IsNullOrEmpty(dr["UserName"].ToString()) ? "管理员" : dr["UserName"].ToString();
+        return "<button type='button' class='btn btn-primary' data-tearch='" + tearcher + "' data-info='" + dr["ClassInfo"] + "' type='button' data-id='" + dr["RoomID"] + "' onclick='ShowRemark(this)'>申请加入班级</button>";
+    }
+}
+@{
+    Model.url = "ClassView_Data";
+}
+<div id="EGV">
+    @if (Model.itemCount < 1)
+    {
+        <div class="emptydata_div" id="emptydata_div">
+            <div class="tips_div">
+                <h2><span class="fa fa-graduation-cap"></span> 没有找到相关班级!</h2>
+            </div>
+        </div>
+    }
+    else
+    {
+        foreach (DataRow dr in Model.dt.Rows)
+        {
+            <div class="col-md-3 classlist">
+                <div class="text-center class_title">@dr["RoomName"]</div>
+                <div><img src="@dr["Monitor"]" onerror="shownopic(this);" /></div>
+                <div class="class_info">@dr["ClassInfo"]</div>
+                <div>@MvcHtmlString.Create(GetButton(dr))</div>
+            </div>
+        }
+        <div class="clearfix"></div>
+        @Html.Partial("_page", Model)
+    }
+</div>

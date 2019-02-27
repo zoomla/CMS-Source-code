@@ -1,0 +1,53 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Model.User
+@using ZoomLa.BLL
+@using ZoomLa.BLL.User
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    M_UserInfo mu = ViewBag.mu;
+    M_Group gpMod = ViewBag.gpMod;
+    DataTable gpdt = ViewBag.gpdt;
+}
+@section head{
+    <title>会员组切换</title>
+}
+@section content{
+  <div id="pageflag" data-nav="home" data-ban="UserInfo"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+            <li><a href="/User/Info/UserInfo">账户管理</a></li>
+            <li class="active">注册信息</li>
+        </ol>
+    </div>
+    <form id="mvcform" action="Group_Change" method="post">
+    <div class="container margin_t10" style="width:600px;">
+        <div class="panel panel-info">
+            <div class="panel-heading"><i class="fa fa-users"></i> 会员组切换 (切换会员组后,商品的价格会即时变更)</div>
+            <div class="panel-body">
+                <div class="input-group" style="margin-left:50px;">
+                    <div class="input-group-addon">你当前是<label>@gpMod.GroupName</label>,可切换为</div>
+                    @Html.DropDownList("Group_DP", MVCHelper.ToSelectList(gpdt, "GroupName", "GroupID"), new { @class = "form-control text_md" })
+                </div>
+            </div>
+            <div class="panel-footer text-center">
+                <input type="button" value="切换会员组" onclick="mvcSubmit('change')" class="btn btn-info" />
+                <input type="button" value="恢复会员组" onclick="mvcSubmit('recover')" class="btn btn-info margin_l5" />
+                @*<asp:Button runat="server" ID="Sure_Btn" Text="切换会员组" OnClick="Sure_Btn_Click" class="btn btn-info" />
+                    <asp:Button runat="server" ID="Reconver_Btn" Text="恢复会员组" OnClick="Reconver_Btn_Click" class="btn btn-info margin_l5" />*@
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="action_hid" name="action_hid" />
+</form>
+}
+@section script{
+ <script>
+     function mvcSubmit(action) {
+         $("#action_hid").val(action);
+         $("#mvcform").submit();
+     }
+</script>
+}

@@ -1,0 +1,155 @@
+﻿@{
+    ViewBag.Title = "MemoView";
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>备忘列表</title>
+<link href="/App_Themes/User.css" type="text/css" rel="stylesheet" />
+<script>
+    function loadPage(id, url) {
+        $("#" + id).addClass("loader");
+        $("#" + id).append("Loading......");
+        $.ajax({
+            type: "get",
+            url: url,
+            cache: false,
+            error: function () { alert('加载页面' + url + '时出错！'); },
+            success: function (msg) {
+                $("#" + id).empty().append(msg);
+                $("#" + id).removeClass("loader");
+            }
+        });
+    }
+    $(function () {
+
+    })
+    //隐藏DIV
+    function HideDiv(div_id) {
+        $("#" + div_id).animate({ opacity: "hide" }, 300);
+    }
+
+    function ShowDiv(div_id) {
+        var div_obj = $("#" + div_id);
+        div_obj.animate({ opacity: "show", left: 300, top: 660, width: div_obj.width, height: div_obj.height }, 300);
+    }
+
+    setTimeout("ShowDiv('TimeDiv')", 3000);
+
+    //给隐藏域赋值
+    function HidenFile() {
+
+    }
+
+    //加载时间
+    function show2() {
+        var divs = document.getElementById("DateDiv");
+        var Digital = new Date();
+        var year = Digital.getFullYear();
+        var months = Digital.getMonth() + 1;
+        var Days = Digital.getDate();
+        var hours = Digital.getHours();
+        var minutes = Digital.getMinutes();
+        var seconds = Digital.getSeconds();
+        var dn = "AM"
+        if (hours >= 12) {
+            dn = "PM";
+            hours = hours - 12;
+        }
+        if (hours == 0)
+            hours = 12;
+        if (minutes <= 9)
+            minutes = "0" + minutes;
+        if (seconds <= 9)
+            seconds = "0" + seconds;
+        var ctime = year + "年" + months + "月" + Days + "日 " + hours + ":" + minutes + ":" + seconds + " " + dn;
+        divs.innerHTML = ctime;
+        setTimeout("show2()", 1000);
+    }
+    window.onload = show2;
+
+
+function putid(id) {
+var url = '/Mis/Memo/ComList?pid=';
+document.getElementById("HidCommTxt").value = id;
+loadPage("Comlist", url + id)
+document.getElementById("CommentDiv").style.display = "block";
+var h = document.getElementById("divcon" + id).getBoundingClientRect().top;
+document.getElementById("CommentDiv").style.top = (h - 100) + "px";
+document.getElementById("CommentDiv").style.background = "#fdfce6";
+}
+</script>
+}
+@section content{
+<div id="Meno">
+<div id="Meno_left">
+<div class="Meno_new"><a href="AddMemo">新建备忘</a></div>
+<div class="Meno_li">
+    <ul>
+	<li class="Meno_all"><a href="MemoView">全部备忘</a></li>
+	<li class="Meno_my"><a href="Default?UName=@ViewBag.uname">我的备忘</a></li>
+	<li class="Meno_share"><a href="Default?Sname=@ViewBag.uname">共享给我  </a></li>
+	<li class="Meno_pin"><a href="#">我的评论</a></li>
+    </ul>
+</div>
+</div>
+<div id="Meno_right">
+<div>
+<div id="Meno_Title">
+    <asp:Literal ID="ltlTitle"></asp:Literal></div>
+<div class="Meno_search">
+    <a href="#">
+	<img src="/App_Themes/UserThem/images/Mis/icon_att_gray.gif" alt="" /></a>
+    <a href="#">
+	<img src="/App_Themes/UserThem/images/Mis/icon_remind_gray.gif" alt="" /></a>
+    <a href="#">
+	<img src="/App_Themes/UserThem/images/Mis/icon_share.gif" alt="" /></a>
+</div>
+<div class="Meno_list"  >
+    <div id="divEmpty" style="text-align:center; height:40px; line-height:40px;">暂时没有备忘记录， 快去<a href="AddMemo">新建</a>一个吧、、、</div>
+	
+    <div id="CommentDiv" style=" position:absolute; padding:8px;border:1px solid #ccc; display:none;">
+	    <span class="closex"> <a href="javascript:void(0)" onclick="HideDiv('CommentDiv')" >×</a> </span>
+	<input type="text" id="TxtComment" name="TxtComment" style="height:47px;width:661px;" />
+	<br />
+	<input ID="HidCommTxt" type="hidden" value="11" />
+	<input type="button" id="BtnComment" class="i_bottom" value="提交" />
+	<input type="button" value="取消" class="i_bottom" id="conbtn" onclick="HideDiv('CommentDiv')" />
+	<div id="Comlist"> </div>
+    </div>
+</div>
+      
+    <div id="TimeDiv" class="pop_box" style=" height:200px; margin-left:298px; margin-top:-30px;">
+    <div id="TimeHead" style="text-align:right; font-size:14px;" class="p_head">
+	<div class="p_h_title" style=" text-align:left;">今日提醒</div>
+	<div class="p_h_close" onclick="HideDiv('TimeDiv')">关闭</div>
+	</div>
+	<div id="TimeInfo">
+	    <div id="DateDiv" style="font-size:20px; color:#278139;font-weight:bold;text-align:left;"></div>
+	    <div id="warnContent" style="height:100px;">
+	    </div>
+	</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div id="div_memo" class="pop_box">
+<div class="p_head">
+<div class="p_h_title">备忘提醒</div>
+<div class="p_h_close" onclick="HideDiv('div_share')">关闭</div>
+</div>
+<div class="p_body">
+<div>
+    kefeffff 标题：
+</div>
+    <div id="userlst">
+	<ul>
+	    <li>jiefja</li>
+	    <li>jiefja</li>
+	    <li>jiefja</li>
+	</ul>
+    </div>
+</div>
+</div>
+}

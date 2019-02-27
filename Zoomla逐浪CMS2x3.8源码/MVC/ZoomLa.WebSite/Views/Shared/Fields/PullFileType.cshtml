@@ -1,0 +1,13 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    // 下拉文件
+    string value = Model.GetValue();
+    string Name = Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+}
+<select name="txt_@Name" class="form-control m715-50" id="txt_@Name"><option value="@value">@value</option></select>

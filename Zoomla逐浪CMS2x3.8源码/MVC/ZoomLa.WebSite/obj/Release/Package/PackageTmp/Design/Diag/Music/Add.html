@@ -1,0 +1,24 @@
+﻿<div class="header"><label class="title">添加音乐</label></div>
+<div class="category-view" style="overflow-x:hidden;">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-header">
+                <div class="title-line">
+                    <div class="title">播放器</div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="domItem preset-item-1" id="barui_bar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="/Design/Diag/Music/barui/css/bar-ui.css" rel="stylesheet" />
+<script>
+    function GetModel(item) {
+        var $item = $(item);
+        var model = { dataMod: { }, config: { type: "music", compid: "", label: "", css: "onlydrag", style: '' } };
+        return model;
+    }
+    $("#barui_bar").load("/Design/Diag/Music/barui/index.html", function (data) { $(".sm2-bar-ui").addClass("playlist-open"); });
+</script>

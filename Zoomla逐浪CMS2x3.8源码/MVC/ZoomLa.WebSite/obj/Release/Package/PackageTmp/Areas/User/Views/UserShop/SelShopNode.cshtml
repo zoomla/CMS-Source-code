@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>选择商品类型</title>
+}
+@section content{
+  <div id="pageflag" data-nav="shop" data-ban="store"></div>
+ <div class="container margin_t5">
+        <ol class="breadcrumb" style="margin-bottom: 0px;">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li class="active">选择商品类别</li>
+        </ol>
+    </div>
+    <div class="container" ng-app="APP" ng-controller="ZLCtrl">
+        @Html.Partial("UserShopTop")
+        <div ng-repeat="box in boxs track by $index" class="class_box">
+            <select class="form-control text_md" style="height:280px;" multiple="multiple" onchange="loadchild(this);" data-layer="{{box.layer}}" ng-model="box.seled">
+                <option ng-repeat="node in box.list track by $index" ng-bind="node.NodeName" value="{{node.NodeID}}"></option>
+            </select>
+        </div>
+        <div class="text-center"><input type="button" value="添加商品" class="btn btn-primary" ng-click="save();"/></div>
+    </div>
+}
+@section script{
+<style type="text/css">
+    .class_box { display: inline-block; width: 200px; margin-right: 30px;margin-top:10px; }
+</style>
+<script src="/JS/Plugs/angular.min.js"></script>
+<script src="/JS/Modal/APIResult.js"></script>
+<script>
+    var scope = null;
+    angular.module("APP", []).controller("ZLCtrl", function ($scope) {
+        scope = $scope;
+        //节点数
+        $scope.boxs = [];//{layer:1,pid:0,list:[]}
+        $scope.newbox = function () { return { layer: 1, pid: 0, list: [],seled:[] }; }
+        $scope.getbynid = function (nid, callback) {
+            $.post("ShopNode_API", { "nid": nid }, function (data) {
+                APIResult.ifok(data, function (result) {
+                    callback(result);
+                }, function (data) { console.log("failed", data); })
+            })
+        }
+        //选取layer最大的一级,传入添加商品页
+        $scope.save = function () {
+            var nid = "";
+            for (var i = (scope.boxs.length - 1) ; i > 0; i--) {
+                if (scope.boxs[i].seled.length > 0) { nid = scope.boxs[i].seled[0]; break; }
+            }
+            if (nid == "") { alert("请选先选择节点"); return false; }
+            location = "SelShopNode?NodeID="+nid;
+        }
+        //---------------------------
+        $scope.getbynid(0, function (result) {
+            var box = $scope.newbox();
+            box.list = result;
+            $scope.boxs.push(box);
+            $scope.$digest();
+        });
+    });
+    function loadchild(dp) {
+        var nid = dp.value;
+        var layer = $(dp).data("layer");
+        //先清除掉layer比其大的一下级(第一级可不检测)
+        for (var i = (scope.boxs.length - 1) ; i > 0; i--) {
+            if (scope.boxs[i].layer > layer) { scope.boxs.splice(i, 1); }
+        }
+        var nid = $(dp).val();
+        scope.getbynid(nid[0], function (result) {
+            if (result.length < 1) { return; }
+            var box = scope.newbox();
+            box.pid = nid;
+            box.layer = ++layer;
+            box.list = result;
+            scope.boxs.push(box);
+            scope.$digest();
+        });
+    }
+</script>
+}

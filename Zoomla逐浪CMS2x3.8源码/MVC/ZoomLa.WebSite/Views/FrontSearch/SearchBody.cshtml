@@ -1,0 +1,119 @@
+﻿@using System.Data
+@using System.Text.RegularExpressions
+@using ZoomLa.Components
+@using ZoomLa.BLL
+@using ZoomLa.SQLDAL
+@using ZoomLa.BLL.Helper
+@model System.Data.DataTable
+@functions{
+    string KeyWord { get { return HttpUtility.UrlDecode(Request.QueryString["KeyWord"] ?? ""); } }
+    // 跳转页面地址
+    public string GetUrl(DataRow dr)
+    {
+        B_Product proBll = new B_Product();
+        string itemid = dr["ID"].ToString();
+        if (!string.IsNullOrEmpty(dr["PageUrl"].ToString()))//如为子站数据,则直接返回链接
+        {
+            return dr["PageUrl"].ToString();
+        }
+        else if (!string.IsNullOrEmpty(dr["HtmlLink"].ToString()))//有静态链接
+        {
+            return SiteConfig.SiteInfo.SiteUrl.TrimEnd('/') + dr["HtmlLink"];
+        }
+        else
+        {
+            string url = string.Empty;
+            string tbname = dr["TableName"].ToString();
+            switch (Convert.ToInt32(dr["s"]))
+            {
+                case 0:
+                    url = "/Item/" + itemid + ".aspx";
+                    break;
+                case 1:
+                    {
+                        url = "/shop/" + itemid + ".aspx";
+
+                        //DataTable protable = proBll.SelectProByCmdID(DataConvert.CLng(itemid));
+                        //if (protable != null && protable.Rows.Count > 0)//当内容表与商品表同步时，取商品地址
+                        //    url = "/Shop/" + protable.Rows[0]["ID"] + ".aspx";
+                        //else//否则取内容地址
+                        //url = "/Item/" + itemid + ".aspx";
+                    }
+                    break;
+                case 2:
+                    url = "/PItem?id=" + itemid;
+                    break;
+                case 3:
+                    url = "/Ask/Interactive?ID=" + itemid;
+                    break;
+                case 4:
+                    url = "/Guest/GuestShow?GID=" + itemid;
+                    break;
+                case 5:
+                    url = "/shop/" + itemid + ".aspx";
+                    break;
+            }
+            return url;
+        }
+    }
+    public MvcHtmlString ToRed(string de)
+    {
+        return MvcHtmlString.Create(Regex.Replace(de, Regex.Escape(KeyWord), "<span style='color:red;'>" + KeyWord + "</span>", RegexOptions.IgnoreCase));
+    }
+}
+@{
+    int count = ViewBag.count;
+    
+}
+<div id="main">
+@if (string.IsNullOrEmpty(KeyWord))
+{
+<div id="nonemsg">
+<div class="alert alert-info" role="alert">没有输入查询关键字！</div>
+</div>
+}
+else if (count < 1)
+{
+<div class="alert alert-info" role="alert">
+抱歉，没有找到与<span class="red">@KeyWord</span>相关的信息<br/>
+搜索建议您： 看看输入的文字是否有误!<br/>
+去掉可能不必要的字词:如"的","什么"等
+</div>
+}
+else
+{
+<div class="search_tips">找到约<span>@count</span>个结果</div>
+<div class="searchlist">
+<div class="row">
+<ul>
+@foreach (DataRow dr in Model.Rows)
+{
+if (dr["S"].ToString() == "1" || dr["S"].ToString() == "5")
+{
+<li class="col-lg-3 col-md-3 col-sm-3 col-xs-6 search_pro">
+<div class="search_pro_t"><a href="@GetUrl(dr)" target="_blank"><img src="@("/"+dr["TopImg"])" onerror="javascript:this.src='/Images/nopic.gif';" alt="@ToRed(DataConvert.CStr(dr["TagKey"]))" /></a></div>
+<p><a href="@GetUrl(dr)" target="_blank" title="@ToRed(DataConvert.CStr(dr["Title"]))">@ToRed(DataConvert.CStr(dr["Title"]))</a></p>
+<div class="shop_img_p"><span>商城价：￥@ToRed(DataConvert.CDouble(dr["LinPrice"]).ToString("f2"))</span></div>
+</li>
+}
+else
+{
+<li class="col-12">
+<h3><a href="@GetUrl(dr)" target="_blank" title="@ToRed(DataConvert.CStr(dr["Title"]))">@ToRed(DataConvert.CStr(dr["Title"]))</a></h3>
+<p>
+<span><i class="fa fa-tags"></i> @ToRed(DataConvert.CStr(dr["TagKey"]))</span>
+<span><i class="fa fa-clock-o"></i> 发表时间：@DateHelper.ToDate(dr["CreateTime"])</span>
+<span><a href="@GetUrl(dr)" target="_blank">访问详情>></a></span>
+</p>
+</li>
+}
+}
+<div class="clearfix"></div>
+</ul>
+</div>
+<div class="serch_page">
+@MvcHtmlString.Create(ViewBag.pagehtml)
+</div>
+</div>
+}
+</div>

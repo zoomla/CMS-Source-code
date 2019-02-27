@@ -1,0 +1,46 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@functions{
+public DataTable GetChild(DataRow dr)
+{
+    int Gid = DataConverter.CLng(dr["GradeID"]);
+    return B_GradeOption.GetGradeList(3, Gid);
+}
+public string GetGradeName(DataRow dr)
+{
+    return HttpUtility.UrlEncode(DataConverter.CStr(dr["GradeName"]));
+}
+}
+@{
+    DataTable dt= B_GradeOption.GetGradeList(3, 0);
+    Layout = "~/Views/FrontBaike/_BaikeLayout.cshtml";
+}
+@section head{<title>开放分类--@(Call.SiteName)百科</title>}
+@section content{
+<div class="container">
+<ol class="breadcrumb margin_top10">
+    <li><a href="/Baike" target="_self">百科中心</a></li>
+    <li class="active">按开放分类浏览</li>
+</ol>
+@foreach(DataRow dr in dt.Rows)
+{
+    DataTable items = GetChild(dr);
+        <div style="border-bottom:1px solid #ddd;padding-bottom:5px;margin-bottom:5px;">
+            <a href="/Baike/Search?btype=@GetGradeName(dr)" class="btn btn-info" target="_blank" title="点击浏览">@dr["GradeName"]</a>
+        </div>
+        <ul>
+        @foreach (DataRow item in items.Rows)
+        {
+            <li class="btn btn-default"><a href="Search?btype=@GetGradeName(item)" title="@item["GradeName"]" target="_blank">@item["GradeName"]</a></li>
+        }
+        </ul>
+}
+<div class="clearfix"></div> 
+</div>
+<div class="ask_bottom">
+    <p class="text-center"><a target="_blank" title="如何提问" href="http://help.z01.com/?index/help.html#如何提问">如何提问</a> <a target="_blank" title="如何回答" href="http://help.z01.com/?index/help.html#如何回答">如何回答</a> <a target="_blank" title="如何获得积分" href="http://help.z01.com/?index/help.html#如何获得积分">如何获得积分</a> <a target="_blank" title="如何处理问题" href="http://help.z01.com/?index/help.html#如何处理问题">如何处理问题</a></p>
+    <p class="text-center">@Call.MVCLabel("{$Copyright/}")</p>
+</div>
+}
+@section script{}

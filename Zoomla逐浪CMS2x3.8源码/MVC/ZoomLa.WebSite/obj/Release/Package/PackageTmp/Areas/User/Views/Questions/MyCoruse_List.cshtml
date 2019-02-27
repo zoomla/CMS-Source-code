@@ -1,0 +1,203 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 6;
+    Model.url = "MyCoruse_Data";
+}
+@functions{
+    public string GetCourse(string courseID)
+    {
+        B_Course bcourse = new B_Course();
+        M_Course cour = bcourse.GetSelect(DataConverter.CLng(courseID));
+        if (cour != null)
+        {
+            return cour.CourseName;
+        }
+        else
+        {
+            return "";
+        }
+    }
+    public string GetClass(string classid, int ucid, string type)
+    {
+        B_ExClassgroup ell = new B_ExClassgroup();
+        B_UserCourse busercourse = new B_UserCourse();
+        M_ExClassgroup mex = ell.GetSelect(DataConverter.CLng(classid));
+        M_UserCourse muc = busercourse.GetSelect(ucid);
+        if (mex != null)
+        {
+            if (type == "1" || type == "2")
+            {
+                int courseDay = ((new TimeSpan(mex.Endtime.Ticks)) - (new TimeSpan(mex.Setuptime.Ticks))).Days;
+                int userDay = ((new TimeSpan(DateTime.Now.Ticks)) - (new TimeSpan(muc.AddTime.Ticks))).Days;
+                if (courseDay - userDay > 0)
+                {
+                    return courseDay - userDay + "/" + courseDay;
+                }
+                else
+                {
+                    B_Payment bpm = new B_Payment();
+                    M_Payment mpm = bpm.SelModelByPayNo(muc.OrderID);
+                    if (mpm == null || mpm.Status != 3)
+                    {
+                        if (!(muc.State == 1 && muc.Aunit == 0))
+                        {
+                            muc.State = 1;
+                            muc.Aunit = 0;
+                            muc.OrderID = "";
+                            busercourse.GetUpdate(muc);
+                        }
+                        return "0/" + courseDay + "<br><font style='color:#999999'>(请续费)</font>"; ;
+                    }
+                    else
+                    {
+                        return "0/" + courseDay + "<br><font style='color:#999999'>(已续费)</font>"; ;
+                    }
+                }
+            }
+            if (type == "3")
+            {
+                return mex.CourseHour.ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+        else
+        {
+            return "";
+        }
+    }
+    public string getStartLesson(int id, int ucid)
+    {
+        B_UserCourse buc = new B_UserCourse();
+        M_UserCourse muc = buc.GetSelect(ucid);
+        string result = "";
+        if (isCoruseExpireByUcid(ucid))
+        {
+
+            result = "<input type=\"button\" value=\"开始上课\" class=\"C_input\" onclick=\"onShow('" + id + "')\" />";
+        }
+        else
+        {
+            B_Payment bpm = new B_Payment();
+            M_Payment mpm = bpm.SelModelByPayNo(muc.OrderID);
+            if (mpm == null || mpm.Status != 3)
+            {
+                result = "<a  href=\"CreateCourse?courseid=" + muc.CourseID + "&ucid=" + ucid + "&xufei=true\" onclick=\"\" >续费</a><br><font style='color:#999999'>(已到期)</font>";
+
+            }
+            else
+            {
+
+                result = " <font style='color:#999999'>已续费<br>(等待审核)</font>";
+            }
+        }
+        return result;
+    }
+    public bool isCoruseExpireByUcid(int UserCoruseID)
+    {
+        B_UserCourse buc = new B_UserCourse();
+        M_UserCourse muc = buc.GetSelect(UserCoruseID);
+        B_ExClassgroup bex = new B_ExClassgroup();
+        M_ExClassgroup mex = bex.GetSelect(muc.ClassID);
+        int courseDay = ((new TimeSpan(mex.Endtime.Ticks)) - (new TimeSpan(mex.Setuptime.Ticks))).Days;
+        int userDay = ((new TimeSpan(DateTime.Now.Ticks)) - (new TimeSpan(muc.AddTime.Ticks))).Days;
+        if (courseDay - userDay > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public string GetState(string classid)
+    {
+        B_ExClassgroup ell = new B_ExClassgroup();
+        M_ExClassgroup mex = ell.GetSelect(DataConverter.CLng(classid));
+        if (mex != null)
+        {
+            if (mex.Setuptime <= DateTime.Now)
+            {
+                return "开放";
+            }
+            else
+            {
+                return "未开放";
+            }
+        }
+        else
+        {
+            return "未开放";
+        }
+    }
+    public DataTable GetDetailDT(int CourseID)
+    {
+        B_Courseware bcourseware = new B_Courseware();
+        return bcourseware.Select_CourseID(CourseID);
+    }
+}
+<div id="EGV">
+    @if (Model.itemCount < 1)
+    {
+        <div style="background-color:#f9f9f9;border:1px solid #ddd;padding:10px 15px;">没有您的课程信息</div>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover">
+            <tr class="tdbgleft">
+                <td style="width: 10%"> 选择 </td>
+                <td> 课程名称 </td>
+                <td> 剩余/总(单位：天) </td>
+                <td> 总课时 </td>
+                <td> 开放状态 </td>
+                <td> 操作 </td>
+            </tr>
+            @foreach (DataRow dr in Model.dt.Rows)
+            {
+                <tr>
+                    <td><input type="hidden" id="hfId" name="hfId" value="" /><input type="checkbox" id="chkSel" name="chkSel" /> </td>
+                    <td>@GetCourse(dr["CourseID"].ToString())</td>
+                    <td>@GetClass(dr["ClassID"].ToString(), DataConverter.CLng(dr["ID"]), "1")</td>
+                    <td>@GetClass(dr["ClassID"].ToString(), DataConverter.CLng(dr["ID"]), "3")</td>
+                    <td>@GetState(dr["ClassID"].ToString())</td>
+                    <td>@getStartLesson(DataConverter.CLng(dr["ID"]), DataConverter.CLng(dr["ID"]))</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="5" style="width: 100%">
+                        <div id="@("DetDiv"+dr["ID"].ToString())" style="display: none;">
+                            <table class="table table-bordered table-hover">
+                                <tr style="border: 1px solid #C6E3F7; background-color: #185D84; color: #FFF">
+                                    <td> 课件名称 </td>
+                                    <td> 开放时间 </td>
+                                    <td> 主讲人 </td>
+                                    <td> 设计者 </td>
+                                    <td> 操作 </td>
+                                </tr>
+                                @foreach (DataRow row in GetDetailDT(DataConverter.CLng(dr["CouresID"])).Rows)
+                                {
+                                    <tr>
+                                        <td>@("第" + dr["CoursNum"] + "课 " + dr["Courseware"])</td>
+                                        <td>@dr["UpdateTime"]</td>
+                                        <td>@dr["Speaker"]</td>
+                                        <td>@dr["SJName"] </td>
+                                        <td>
+                                            @Ajax.ActionLink("开始学习", "MyCoruse_Study", "Questions", new { fileurl = dr["FileUrl"] }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "" })
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+        <input type="hidden" name="skey" />
+    }
+</div>

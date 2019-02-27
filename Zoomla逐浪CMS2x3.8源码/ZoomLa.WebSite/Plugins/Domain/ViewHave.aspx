@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewHave.aspx.cs" Inherits="Plugins_Domain_ViewHave" MasterPageFile="~/Common/Common.master" %>

@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>293</LabelID>
+    <LabelName>获取购物车商品</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>商城</LabelCate>
+    <LabelDesc>用于支持飞印打印小票</LabelDesc>
+    <LabelParam>订单ID,0,1,</LabelParam>
+    <LabelTable>ZL_CartPro</LabelTable>
+    <LabelField>AllMoney,Proname,Pronum,Shijia</LabelField>
+    <LabelWhere> ZL_CartPro.Orderlistid=@订单ID</LabelWhere>
+    <LabelOrder>ZL_CartPro.ID DESC</LabelOrder>
+    <LabelContent>{Repeate}
+{Field="Proname"/} {ZL:GetMoney({Field="Shijia"/},2,1)/}    {Field="Pronum"/}     {ZL:GetMoney({Field="AllMoney"/},2,1)/}
+{/Repeate}</LabelContent>
+    <LabelCount>500</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

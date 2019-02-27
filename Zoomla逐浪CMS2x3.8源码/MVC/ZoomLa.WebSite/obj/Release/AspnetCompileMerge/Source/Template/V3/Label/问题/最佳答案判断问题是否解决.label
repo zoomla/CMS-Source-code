@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>205</LabelID>
+    <LabelName>最佳答案判断问题是否解决</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>getid,默认值,1,参数说明</LabelParam>
+    <LabelTable>ZL_Pub_ZJDA left join ZL_Pub_WTHD on ZL_Pub_ZJDA.daid=ZL_Pub_WTHD.ID</LabelTable>
+    <LabelField>count (ZL_Pub_ZJDA.ID) as num</LabelField>
+    <LabelWhere>zl_pub_wthd.getid=@getid</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}{Field="num"/}{/Repeate}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

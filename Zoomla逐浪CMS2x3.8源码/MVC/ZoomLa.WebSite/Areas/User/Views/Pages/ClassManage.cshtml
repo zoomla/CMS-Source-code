@@ -1,0 +1,32 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>栏目管理</title>
+}
+@section content{
+    <div id="pageflag" data-nav="page" data-ban="page"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href='@Url.Action("Default","Pages")'>企业黄页</a></li>
+            <li class="active">栏目管理<a href="@Url.Action("AddNode","Pages")">[添加栏目]</a></li>
+        </ol>
+    </div>
+    <div class="container btn_green">
+        @Html.Partial("ClassManage_List", Model)
+    </div>
+}
+@section script{
+    <script>
+        $(function () {
+            $("#CheckAll").click(function () {
+                var allcheck = $(this)[0];
+                $("[name='idchk']").each(function () {
+                    $(this)[0].checked = allcheck.checked;
+                });
+            });
+        })
+    </script>
+}

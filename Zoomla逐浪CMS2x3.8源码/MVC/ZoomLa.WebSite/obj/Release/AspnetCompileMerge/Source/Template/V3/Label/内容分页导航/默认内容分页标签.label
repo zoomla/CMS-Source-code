@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>97</LabelID>
+    <LabelName>默认内容分页标签</LabelName>
+    <LabelType>6</LabelType>
+    <LabelCate>内容分页导航</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent> &lt;a href="{firsturl/}"&gt;&lt;p&gt;首页&lt;/p&gt;&lt;/a&gt;  &lt;a href="{prvurl/}"&gt;&lt;p&gt;上一页&lt;/p&gt;&lt;/a&gt;  {loop range=\'显示半径\'}&lt;a href="{pageurl/}" class="p{pageid/}"&gt;&lt;span&gt;{pageid/}&lt;/span&gt;&lt;/a&gt;$$$&lt;a href="{currenturl/}"  class="p{pageid/}"&gt;&lt;span&gt;{currentpage/}&lt;/span&gt;&lt;/a&gt;{/loop}  &lt;a href="{nexturl/}"&gt;&lt;p&gt;下一页&lt;/p&gt;&lt;/a&gt; &lt;a href="{endurl/}"&gt;&lt;p&gt;末页&lt;/p&gt;&lt;/a&gt;
+ &lt;a href="{allurl/}"&gt;&lt;p&gt;全部&lt;/p&gt;&lt;/a&gt;
+</LabelContent>
+    <LabelCount>0</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

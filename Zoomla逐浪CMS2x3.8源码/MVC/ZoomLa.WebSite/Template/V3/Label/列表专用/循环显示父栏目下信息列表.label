@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>150</LabelID>
+    <LabelName>循环显示父栏目下信息列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ParentID,0,1,父节点ID|TitleNum,60,1,标题长度|ShowNum,10,1,特环显示信息数</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName</LabelField>
+    <LabelWhere>ParentID=@ParentID</LabelWhere>
+    <LabelOrder>OrderID aSC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="main_title"&gt;&lt;span&gt;&lt;a href="{ZL:GetNodeUrl({Field="NodeID"/})/}"&gt;More...&lt;/a&gt;&lt;/span&gt;{Field="NodeName"/}&lt;/div&gt;
+&lt;ul&gt;
+{ZL.Label id="输出指定节点标题_带时间属性" NodeID="{Field="NodeID"/}" TitleNum="@TitleNum" ShowNum="@ShowNum" /}
+&lt;/ul&gt;
+
+{/Repeate}</LabelContent>
+    <LabelCount>100</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

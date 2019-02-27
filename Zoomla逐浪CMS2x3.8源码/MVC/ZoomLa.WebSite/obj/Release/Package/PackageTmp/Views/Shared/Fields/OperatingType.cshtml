@@ -1,0 +1,80 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@functions{
+    private string GetOperatingType()
+    {
+        string Name=Model.fieldMod.FieldName;
+        string[] strArray = Model.fieldMod.Content.Split(new char[] { ',' });
+        string[] strArray2 = null;
+        string[] strArray3 = null;
+        string[] strArray4 = null;
+
+        if (strArray != null && strArray.Length > 0)
+        {
+            strArray2 = strArray[0].Split(new char[] { '=' });
+        }
+        if (strArray != null && strArray.Length > 1)
+        {
+            strArray3 = strArray[1].Split(new char[] { '=' });
+        }
+        if (strArray != null && strArray.Length > 2)
+        {
+            strArray4 = strArray[2].Split(new char[] { '=' });
+        }
+        string str = "";
+        string str3 = "";
+        string s2 = "";
+        string s3 = "";
+        string s4 = "";
+
+        if (strArray2 != null && strArray2.Length > 1)
+        {
+            s2 = strArray2[1];
+        }
+        if (strArray3 != null && strArray3.Length > 1)
+        {
+            s3 = strArray3[1];
+        }
+        if (strArray4 != null && strArray4.Length > 1)
+        {
+            s4 = strArray4[1];
+        }
+        string[] strArr = s3.Split(new char[] { '|' });
+        for (int i = 0; i < strArr.Length; i++)
+        {
+            if (string.IsNullOrEmpty(str3))
+            {
+                str3 = "<a href=\"javascript:ToSystem('" + strArr[i] + "','txt_" + Name + "')\">" + strArr[i] + "</a>";
+            }
+            else
+            {
+                str3 = "/" + "<a href=\"javascript:ToSystem('" + strArr[i] + "','txt_" + Name + "')\">" + strArr[i] + "</a>";
+            }
+        }
+        StringBuilder builder = new StringBuilder();
+        if (string.IsNullOrEmpty(Model.GetValue()))
+        {
+            str = "<input type=\"text\" class=\"form-control m715-50\" name=\"txt_" + Name + "\" id=\"txt_" + Name + "\" size=\"" + s2 + "\" value=\"" + s4 + "\">" + Model.fieldMod.Description + "<br/>";
+            str = str + str3;
+            builder.Append(str);
+            builder.Append("</td></tr>");
+            return builder.ToString();
+        }
+        str = "<input type=\"text\" class=\"form-control m715-50\" name=\"txt_" + Name + "\" id=\"txt_" + Name + "\" size=\"" + s2 + "\" value=\"" + HttpUtility.HtmlEncode(Model.GetValue()) + "\"> " + Model.fieldMod.Description + "<br/>";
+        str = str + str3;
+        builder.Append(str);
+        return builder.ToString();
+    }
+
+}
+@{
+    // 运行平台
+    //string value = Model.GetValue();
+    //string Name = Model.fieldMod.FieldName;
+    //FieldModel model = new FieldModel(Model.fieldMod.Content);
+}
+@MvcHtmlString.Create(GetOperatingType())

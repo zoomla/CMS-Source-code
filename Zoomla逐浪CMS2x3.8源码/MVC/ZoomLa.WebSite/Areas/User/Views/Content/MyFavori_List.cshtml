@@ -1,0 +1,29 @@
+﻿@using System.Data;
+@using ZoomLa.BLL;
+@using ZoomLa.Common;
+@using ZoomLa.BLL.Helper;
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+}
+@{
+    Model.cols = 6;
+    Model.url = "Favour_Data";
+}
+<table class="table table-bordered table-striped" id="EGV">
+    <tr><td></td><td>ID</td><td>标题</td><td>收藏类型</td><td>收藏时间</td><td>操作</td></tr>
+    @foreach (DataRow dr in Model.dt.Rows)
+    {
+        <tr>
+            <td><input type="checkbox" name="idchk" value="@dr["FavoriteID"]" /></td>
+            <td>@dr["FavoriteID"]</td>
+            <td><a href="@dr["favurl"]" target="_blank">@StringHelper.SubStr(dr["Title"],30)</a></td>
+            <td>@B_Favorite.GetFavType(DataConverter.CLng(dr["FavoriType"]))</td>
+            <td>@DateHelper.ToDate(dr["FavoriteDate"])</td>
+            <td>
+                <a href="javascript:;" class="option_style" onclick="mvcpage.del({ id: '@dr["FavoriteID"]', url: 'favour_del', confirm: '确定要移除吗' });"><i class="fa fa-trash-o"></i></a>
+            </td>
+        </tr>
+    }
+    @Html.Partial("_page", Model)
+</table>
+

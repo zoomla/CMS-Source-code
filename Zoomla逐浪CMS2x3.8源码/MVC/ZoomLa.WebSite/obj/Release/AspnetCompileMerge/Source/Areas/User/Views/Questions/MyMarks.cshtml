@@ -1,0 +1,35 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>系统试题管理</title>
+<script src="/JS/SelectCheckBox.js"></script>
+<script>
+    function OpenSelect2(obj) {
+    window.open('/User/Questions/ExamViewLX?id='+obj,'','width=600,height=450,resizable=1,scrollbars=yes');
+    return false;
+}
+</script> 
+}
+@section content{
+<div id="pageflag" data-nav="edu" data-ban="ke"></div>
+<div class="container">
+<ol class="breadcrumb">
+    <li><a title="会员中心" href="@Url.Action("Default","")" target="_parent">会员中心</a></li>
+    <li class="active"><a href="MyMarks">我的考试</a></li>
+    <div class="clearfix"></div>
+</ol>
+<div class="margin_t10">
+    <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2">
+        @Html.Partial("_treeview", ViewBag.treeMod as ZoomLa.Controls.C_TreeView)
+    </div>
+    <div class="col-lg-10 col-md-10 col-xs-10 col-sm-10">
+        @Html.Partial("MyMarks_List", Model)
+    </div>
+</div>
+</div>
+<input id="cid" name="cid" type="hidden" class="mvcparam" />
+}
+@section script{
+}

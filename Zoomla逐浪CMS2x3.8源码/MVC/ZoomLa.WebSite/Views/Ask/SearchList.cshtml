@@ -1,0 +1,44 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Views/Shared/_ask.cshtml";
+}
+@section head{
+    <title>问题列表_@Call.SiteName</title>
+}
+@section content{
+<div class="container">
+    <ul class="breadcrumb">
+        <li>您的位置：<a href="/">网站首页</a></li>
+        <li><a href="/Ask">问答中心</a></li>
+        <li class="active">搜索列表</li>
+    </ul>
+</div>
+<div class="container">
+    <div class="h_mid">
+        <div class="h_mid_l"></div>
+        <div id="tdh" class="h_mid_m">
+            @if(ViewBag.islogin) { <span> <a href="MyAskList">我的提问</a> <a href="MyAnswerlist">我的回答</a></span> }
+            <ul class="list-inline">
+                <li><a title="问答首页" href="/Ask" class="btn btn-primary btn_guest">问答首页</a> </li>
+                <li class="on"><a title="问答之星" href="/Ask/Star" class="btn btn-primary btn_guest">问答之星</a></li>
+                <li><a title="分类大全" href="/Ask/Classification" class="btn btn-primary btn_guest">分类大全</a></li>
+                <li><a href="List?QueType=@Server.HtmlEncode(Request["QueType"])" class="btn btn-primary btn_guest">待完善问题</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="h_b">
+        <div class="h_b_l"></div>
+        <div class="h_b_m">
+            @{Html.RenderAction("CommonView");}
+            <div class="clr"></div>
+        </div>
+        <div class="h_b_r"></div>
+    </div>
+    <div class="asklist">
+        @Html.Partial("SearchList_List",Model)
+    </div>
+</div>
+}
+@section script{
+    
+}

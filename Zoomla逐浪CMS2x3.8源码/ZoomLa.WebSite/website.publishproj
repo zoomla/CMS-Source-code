@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+***********************************************************************************************
+website.publishproj
+
+警告: 请勿修改此文件，它将用于 Web 发布过程。
+
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+***********************************************************************************************
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ddf70221-0856-46ae-91fe-02cbca27f6e1}</ProjectGuid>
+    <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
+    <SourceWebVirtualPath>/ZoomLa.WebSite</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SourceWebProject>
+    </SourceWebProject>
+    <SourceWebMetabasePath>
+    </SourceWebMetabasePath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- for VS2010 we need to use 10.5 but for VS2012+ we should use VisualStudioVersion -->
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)' =='' and '$(VisualStudioVersion)' == 10.0 ">10.5</WebPublishTargetsVersion>
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)'=='' ">$(VisualStudioVersion)</WebPublishTargetsVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(WebPublishTargetsVersion)</VSToolsPath>
+    <_WebPublishTargetsPath Condition=" '$(_WebPublishTargetsPath)'=='' ">$(VSToolsPath)</_WebPublishTargetsPath>
+    <AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">1.0.0.0</AssemblyFileVersion>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZoomLa.Ajax\ZoomLa.Ajax.csproj">
+      <Project>{A3E37CDE-B75F-4CAD-B75B-F8C37A223D9C}</Project>
+      <Name>ZoomLa.Ajax</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.BLL\ZoomLa.BLL.csproj">
+      <Project>{74416C57-8828-44D9-AEE2-460589F26F80}</Project>
+      <Name>ZoomLa.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Common\ZoomLa.Common.csproj">
+      <Project>{CF5BF041-1B6D-407C-83BF-8DA71B231036}</Project>
+      <Name>ZoomLa.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Components\ZoomLa.Components.csproj">
+      <Project>{747DF7FC-C7C8-4485-B7D1-2679BFB0D6A2}</Project>
+      <Name>ZoomLa.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.DALFactory\ZoomLa.DALFactory.csproj">
+      <Project>{C2F87049-1861-458D-8C7D-E42782C1EC49}</Project>
+      <Name>ZoomLa.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.IDAL\ZoomLa.IDAL.csproj">
+      <Project>{531535E0-E542-4608-8D7A-8D01068757FC}</Project>
+      <Name>ZoomLa.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Model\ZoomLa.Model.csproj">
+      <Project>{823C9A18-F5A6-4F0A-9303-3392BF82AEA1}</Project>
+      <Name>ZoomLa.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Promotion\ZoomLa.Promotion.csproj">
+      <Project>{5CAA43AA-CD38-4BC2-AA52-C1D7C618FE0F}</Project>
+      <Name>ZoomLa.Promotion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.SQLDAL\ZoomLa.SQLDAL.csproj">
+      <Project>{B7B158C7-A753-41A2-9193-633EC50F0912}</Project>
+      <Name>ZoomLa.SQLDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
+</Project>

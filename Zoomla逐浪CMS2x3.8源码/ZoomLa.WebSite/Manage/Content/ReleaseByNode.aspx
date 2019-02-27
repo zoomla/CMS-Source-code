@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReleaseByNode.aspx.cs" Inherits="Manage_Content_ReleaseByNode"%>

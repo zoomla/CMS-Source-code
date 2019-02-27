@@ -1,0 +1,23 @@
+﻿body {background-color:#F4F4F4;}
+.breadcrumb {background-color: #fff;margin-bottom:10px;margin-left:0px;}
+/*---------------*/
+.siteinfo {padding: 5px;}
+.info_head { margin-bottom:20px;}
+.info_head_img{float:left;}
+.info_head_img img{ padding:1px;max-width: 220px; max-height: 140px; border:1px solid #ccc;}
+
+.panel-default>.panel-heading {background-color:#fff;}
+/*--------------*/
+.itemBody {background-color:#fff;border-radius:4px;}
+.itemBody .item {color:#20455e;margin-left:23px;margin-right:23px;border-bottom:1px solid #f0f4f7;line-height:60px;height:60px;}
+.item .left_sp {width:120px;font-weight:bold;display:inline-block;color:#20455e;}
+.item .mid_sp {width:500px;margin-right:40px;display:inline-block;}
+.item .right_sp {display:inline-block;}
+#shortcut_ul li {width:106px;height:100px;float:left;text-align:center;padding-top:5px;border-right:1px solid #ddd;border-bottom:1px solid #ddd;cursor:pointer;}
+#shortcut_ul li:hover {background-color:#ddd;}
+#shortcut_ul li .fa {display:block;font-size:25px;padding-top:20px;margin-bottom:5px;}
+/*模板页*/
+#tlp_ul {}
+#tlp_ul li {float:left;margin-left:10px;margin-bottom:10px;}
+#tlp_ul .tlp_opdiv {margin-top:5px;}
+#tlp_ul .tlpimg {display:inline-block;height:285px;width:364px;border:1px solid #ddd;padding:3px;}

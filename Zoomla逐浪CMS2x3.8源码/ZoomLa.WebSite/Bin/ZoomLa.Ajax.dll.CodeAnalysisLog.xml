@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="d:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="11.0">
+ <Namespaces>
+  <Namespace Name="ZoomLa.Framework.Noebe.Jsons.WebControls">
+   <Messages>
+    <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+     <Issue Certainty="50" Level="Warning">考虑将“ZoomLa.Framework.Noebe.Jsons.WebControls”中定义的类型与另一个命名空间合并。</Issue>
+    </Message>
+    <Message Id="La" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">更正命名空间名称“ZoomLa.Framework.Noebe.Jsons.WebControls”中“La”的大小写，将其改为“LA”。</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+  <Namespace Name="ZoomLa.Reflection">
+   <Messages>
+    <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+     <Issue Certainty="50" Level="Warning">考虑将“ZoomLa.Reflection”中定义的类型与另一个命名空间合并。</Issue>
+    </Message>
+    <Message Id="La" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">更正命名空间名称“ZoomLa.Reflection”中“La”的大小写，将其改为“LA”。</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+  <Namespace Name="ZoomLa.Tools">
+   <Messages>
+    <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+     <Issue Certainty="50" Level="Warning">考虑将“ZoomLa.Tools”中定义的类型与另一个命名空间合并。</Issue>
+    </Message>
+    <Message Id="La" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">更正命名空间名称“ZoomLa.Tools”中“La”的大小写，将其改为“LA”。</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+ </Namespaces>
+ <Targets>
+  <Target Name="E:\Code\Zoomla6x\ZoomLa.WebSite\Bin\ZoomLa.Ajax.dll">
+   <Modules>
+    <Module Name="zoomla.ajax.dll">
+     <Messages>
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+       <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">用强名称密钥对 'ZoomLa.Ajax.dll' 进行签名。</Issue>
+      </Message>
+      <Message Id="La" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+       <Issue Name="Assembly" Certainty="85" Level="Error">更正程序集名称 'ZoomLa.Ajax.dll' 中“La”的大小写，将其改为“LA”。</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">使用 CLSCompliant(true)来标记 'ZoomLa.Ajax.dll'，因为它公开外部可见的类型。</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="ZoomLa.Framework.Noebe.Jsons.WebControls">
+       <Types>
+        <Type Name="ZoomLaAjaxBase" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="La" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="85" Level="Error">更正类型名称 'ZoomLaAjaxBase' 中“La”的大小写，将其改为“LA”。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#ArrayToJsString(System.String[])" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\WebControls" File="ZoomLaAjaxBase.cs" Line="196">从未使用 'ZoomLaAjaxBase.ArrayToJsString(params string[])' 的“this”参数(Visual Basic 中为“Me”)。根据需要，将成员标记为 static (Visual Basic 中为“Shared”)，或者在方法体或至少一个属性访问器中使用“this”/“Me”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDefaultCallbackFunction(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\WebControls" File="ZoomLaAjaxBase.cs" Line="155">从未使用 'ZoomLaAjaxBase.GetDefaultCallbackFunction(string)' 的“this”参数(Visual Basic 中为“Me”)。根据需要，将成员标记为 static (Visual Basic 中为“Shared”)，或者在方法体或至少一个属性访问器中使用“this”/“Me”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetJsMethodName(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\WebControls" File="ZoomLaAjaxBase.cs" Line="102">从未使用 'ZoomLaAjaxBase.GetJsMethodName(string)' 的“this”参数(Visual Basic 中为“Me”)。根据需要，将成员标记为 static (Visual Basic 中为“Shared”)，或者在方法体或至少一个属性访问器中使用“this”/“Me”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetJsParameters(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\WebControls" File="ZoomLaAjaxBase.cs" Line="111">从未使用 'ZoomLaAjaxBase.GetJsParameters(string)' 的“this”参数(Visual Basic 中为“Me”)。根据需要，将成员标记为 static (Visual Basic 中为“Shared”)，或者在方法体或至少一个属性访问器中使用“this”/“Me”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RaiseCallbackEvent(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Name="TooGeneric" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\WebControls" File="ZoomLaAjaxBase.cs" Line="94">'ZoomLaAjaxBase.RaiseCallbackEvent(string)' 创建类型为 'Exception' 的异常，该异常类型不够具体，不应由用户代码引发。如有可能引发此异常实例，请使用其他异常类型。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SystemMethodList()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\WebControls" File="ZoomLaAjaxBase.cs" Line="215">从未使用 'ZoomLaAjaxBase.SystemMethodList()' 的“this”参数(Visual Basic 中为“Me”)。根据需要，将成员标记为 static (Visual Basic 中为“Shared”)，或者在方法体或至少一个属性访问器中使用“this”/“Me”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ZoomLaAjaxBaseDesigner" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="La" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="85" Level="Error">更正类型名称 'ZoomLaAjaxBaseDesigner' 中“La”的大小写，将其改为“LA”。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#ZoomLa" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">似乎从未使用过字段 'ZoomLaAjaxBaseDesigner.ZoomLa' 或只对它进行过赋值。请使用此字段或将它移除。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="ZoomLa.Reflection">
+       <Types>
+        <Type Name="MethodReflector" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+           <Issue Name="CSharp2_0" Certainty="90" Level="Error">由于类型 'MethodReflector' 仅包含“static”成员，因此将它标记为“static”可阻止编译器添加默认公共构造函数。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#GetArgs(System.Type,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="165">修改 'MethodReflector.GetArgs(Type, string)' 以便捕捉比 'object' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="137">更改 'MethodReflector.GetArgs(Type, string)' 中的 'List&lt;string&gt;' 以使用 Collection&lt;T&gt;、ReadOnlyCollection&lt;T&gt; 或 KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+            <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="146">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'MethodReflector.GetArgs(Type, string)' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="146">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'MethodReflector.GetArgs(Type, string)' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetMethods(System.Type)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="122">更改 'MethodReflector.GetMethods(Type)' 中的 'List&lt;string&gt;' 以使用 Collection&lt;T&gt;、ReadOnlyCollection&lt;T&gt; 或 KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetValidArgs(System.Reflection.MethodInfo,System.Object[])" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Name="TooGeneric" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="51">'MethodReflector.GetValidArgs(MethodInfo, object[])' 创建类型为 'Exception' 的异常，该异常类型不够具体，不应由用户代码引发。如有可能引发此异常实例，请使用其他异常类型。</Issue>
+             <Issue Name="TooGeneric" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="61">'MethodReflector.GetValidArgs(MethodInfo, object[])' 创建类型为 'Exception' 的异常，该异常类型不够具体，不应由用户代码引发。如有可能引发此异常实例，请使用其他异常类型。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetValue(System.Type,System.Object,System.String,System.Object[])" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="obj" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Name="LanguageIndependentMemberParameter" Certainty="75" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="14">在成员 'MethodReflector.GetValue(Type, object, string, params object[])' 中，考虑将参数名称 'obj' 中的数据类型标识符“obj”替换为一个更通用的词条，如“value”。</Issue>
+            </Message>
+            <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="26">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'MethodReflector.GetValue(Type, object, string, params object[])' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="26">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'MethodReflector.GetValue(Type, object, string, params object[])' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#HasReturn(System.Type,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Name="TooGeneric" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="175">'MethodReflector.HasReturn(Type, string)' 创建类型为 'Exception' 的异常，该异常类型不够具体，不应由用户代码引发。如有可能引发此异常实例，请使用其他异常类型。</Issue>
+             <Issue Name="TooGeneric" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="178">'MethodReflector.HasReturn(Type, string)' 创建类型为 'Exception' 的异常，该异常类型不够具体，不应由用户代码引发。如有可能引发此异常实例，请使用其他异常类型。</Issue>
+             <Issue Name="TooGeneric" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="183">'MethodReflector.HasReturn(Type, string)' 创建类型为 'Exception' 的异常，该异常类型不够具体，不应由用户代码引发。如有可能引发此异常实例，请使用其他异常类型。</Issue>
+            </Message>
+            <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="188">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'MethodReflector.HasReturn(Type, string)' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="175">由于 'string.Format(string, object, object)' 的行为可能会因当前用户的区域设置不同而不同，请将 'MethodReflector.HasReturn(Type, string)' 中的此调用替换为对 'string.Format(IFormatProvider, string, params object[])' 的调用。如果要向用户显示 'string.Format(IFormatProvider, string, params object[])' 的结果，请指定 'CultureInfo.CurrentCulture' 作为“IFormatProvider”参数。或者，如果软件将存储和访问此结果(例如，当将此结果保留到磁盘或数据库中时)，则指定 'CultureInfo.InvariantCulture'。</Issue>
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="178">由于 'string.Format(string, object, object)' 的行为可能会因当前用户的区域设置不同而不同，请将 'MethodReflector.HasReturn(Type, string)' 中的此调用替换为对 'string.Format(IFormatProvider, string, params object[])' 的调用。如果要向用户显示 'string.Format(IFormatProvider, string, params object[])' 的结果，请指定 'CultureInfo.CurrentCulture' 作为“IFormatProvider”参数。或者，如果软件将存储和访问此结果(例如，当将此结果保留到磁盘或数据库中时)，则指定 'CultureInfo.InvariantCulture'。</Issue>
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="183">由于 'string.Format(string, object, object)' 的行为可能会因当前用户的区域设置不同而不同，请将 'MethodReflector.HasReturn(Type, string)' 中的此调用替换为对 'string.Format(IFormatProvider, string, params object[])' 的调用。如果要向用户显示 'string.Format(IFormatProvider, string, params object[])' 的结果，请指定 'CultureInfo.CurrentCulture' 作为“IFormatProvider”参数。或者，如果软件将存储和访问此结果(例如，当将此结果保留到磁盘或数据库中时)，则指定 'CultureInfo.InvariantCulture'。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetValue(System.Object,System.String,System.Object[])" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="obj" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Name="LanguageIndependentMemberParameter" Certainty="75" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="77">在成员 'MethodReflector.SetValue(object, string, params object[])' 中，考虑将参数名称 'obj' 中的数据类型标识符“obj”替换为一个更通用的词条，如“value”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetValue(System.Type,System.Object,System.String,System.Object[])" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="113">修改 'MethodReflector.SetValue(Type, object, string, params object[])' 以便捕捉比 'object' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="obj" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Name="LanguageIndependentMemberParameter" Certainty="75" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="87">在成员 'MethodReflector.SetValue(Type, object, string, params object[])' 中，考虑将参数名称 'obj' 中的数据类型标识符“obj”替换为一个更通用的词条，如“value”。</Issue>
+            </Message>
+            <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="97">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'MethodReflector.SetValue(Type, object, string, params object[])' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="MethodReflector.cs" Line="97">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'MethodReflector.SetValue(Type, object, string, params object[])' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ReflectHelper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#IsBaseClass(System.Type)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Name="TooGeneric" Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ReflectHelper.cs" Line="36">'ReflectHelper.IsBaseClass(Type)' 创建类型为 'Exception' 的异常，该异常类型不够具体，不应由用户代码引发。如有可能引发此异常实例，请使用其他异常类型。</Issue>
+            </Message>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ReflectHelper.cs" Line="35">从未使用 'ReflectHelper.IsBaseClass(Type)' 的“this”参数(Visual Basic 中为“Me”)。根据需要，将成员标记为 static (Visual Basic 中为“Shared”)，或者在方法体或至少一个属性访问器中使用“this”/“Me”。</Issue>
+            </Message>
+            <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ReflectHelper.cs" Line="38">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'ReflectHelper.IsBaseClass(Type)' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ReflectHelper.cs" Line="38">由于 'string.ToUpper()' 的行为可能因当前用户的区域设置不同而不同，请将 'ReflectHelper.IsBaseClass(Type)' 中的此调用替换为对 'string.ToUpper(CultureInfo)' 的调用。如果要向用户显示 'string.ToUpper(CultureInfo)' 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="ZoomLa.Tools">
+       <Types>
+        <Type Name="ParserHelper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+           <Issue Name="CSharp2_0" Certainty="90" Level="Error">由于类型 'ParserHelper' 仅包含“static”成员，因此将它标记为“static”可阻止编译器添加默认公共构造函数。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#TryParse(System.Object,System.Boolean&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="146">在外部可见方法 'ParserHelper.TryParse(object, out bool)' 中，请在使用参数“input”之前先对其进行验证。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TryParse(System.Object,System.Byte&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="176">在外部可见方法 'ParserHelper.TryParse(object, out byte)' 中，请在使用参数“input”之前先对其进行验证。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TryParse(System.Object,System.Char&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="186">在外部可见方法 'ParserHelper.TryParse(object, out char)' 中，请在使用参数“input”之前先对其进行验证。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TryParse(System.Object,System.DateTime&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="196">在外部可见方法 'ParserHelper.TryParse(object, out DateTime)' 中，请在使用参数“input”之前先对其进行验证。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TryParse(System.Object,System.Double&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="166">在外部可见方法 'ParserHelper.TryParse(object, out double)' 中，请在使用参数“input”之前先对其进行验证。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TryParse(System.Object,System.Int32&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="116">在外部可见方法 'ParserHelper.TryParse(object, out int)' 中，请在使用参数“input”之前先对其进行验证。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TryParse(System.Object,System.Int64&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="136">在外部可见方法 'ParserHelper.TryParse(object, out long)' 中，请在使用参数“input”之前先对其进行验证。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TryParse(System.Object,System.Single&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="156">在外部可见方法 'ParserHelper.TryParse(object, out float)' 中，请在使用参数“input”之前先对其进行验证。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TryParse(System.Type,System.Object,System.Object&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="UseGenericsWhereAppropriate" Category="Microsoft.Design" CheckId="CA1007" Status="Active" Created="2013-09-27 02:19:39Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Code\Zoomla6x\ZoomLa.Ajax\Core" File="ParserHelper.cs" Line="25">考虑在 'ParserHelper.TryParse(Type, object, out object)' 中使用泛型，而不是对 System.Object 的引用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+   <Name>程序集应具有有效的强名称</Name>
+   <Description>程序集没有强名称，强名称无效，或者强名称只有经过计算机配置后才有效。不应部署处于这种状态的程序集。出现这种情况最常见原因有: 1) 对程序集进行签名后，修改了该程序集的内容；2) 签名过程失败；3) 延迟了程序集签名；4) 存在一个允许检查通过(原本不应通过)的注册表项。</Description>
+   <Resolution Name="NoStrongName">用强名称密钥对 {0} 进行签名。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182127(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+   <Name>避免使用类型极少的命名空间</Name>
+   <Description>命名空间一般应具有五个以上的类型。</Description>
+   <Resolution Name="Default">考虑将“{0}”中定义的类型与另一个命名空间合并。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182130(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">Warning</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+   <Name>避免未使用的私有字段</Name>
+   <Description>检测到程序集内有似乎未访问过的私有字段。如果错误地引发了此冲突，请向 Visual Studio 代码分析团队发送问题报告。</Description>
+   <Resolution Name="Default">似乎从未使用过字段 {0} 或只对它进行过赋值。请使用此字段或将它移除。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245042(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+   <Name>不要捕捉一般异常类型</Name>
+   <Description>不应捕捉 Exception 或 SystemException。捕捉一般异常类型会使库用户看不到运行时问题，并会使调试复杂化。您应该仅捕捉自己可以进行适当处理的异常。</Description>
+   <Resolution Name="Default">修改 {0} 以便捕捉比 {1} 更具体的异常，或者再次引发该异常。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182137(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+   <Name>不要公开泛型列表</Name>
+   <Description>不要在对象模型中公开 List&lt;T&gt;。应使用 Collection&lt;T&gt;、ReadOnlyCollection&lt;T&gt; 或 KeyedCollection&lt;K,V&gt;。List&lt;T&gt; 应通过实现来使用，而不是在对象模型 API 中使用。List&lt;T&gt; 针对性能进行了优化，但代价是需要长期进行版本管理。例如，如果将 List&lt;T&gt; 返回到客户端代码，您将无法再在客户端代码修改集合时收到通知。</Description>
+   <Resolution Name="Default">更改 {1} 中的 {0} 以使用 Collection&lt;T&gt;、ReadOnlyCollection&lt;T&gt; 或 KeyedCollection&lt;K,V&gt;</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182142(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
+   <Name>不要引发保留的异常类型</Name>
+   <Description>用户代码不应创建和引发某些类型的异常，即属于运行时保留的异常类型或太通用的异常类型。太通用的异常类型包括 Exception、SystemException 和 ApplicationException。运行时保留的异常类型包括 ThreadAbortException、OutOfMemoryException、ExecutionEngineException 和 IndexOutOfRangeException。</Description>
+   <Resolution Name="TooGeneric">{0} 创建类型为 {1} 的异常，该异常类型不够具体，不应由用户代码引发。如有可能引发此异常实例，请使用其他异常类型。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182338(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>标识符的大小写应当正确</Name>
+   <Description>类型、命名空间和成员标识符应采用 Pascal 大小写格式。参数标识符应采用 Camel 大小写格式。这些标识符内由两个字母组成的首字母缩略词应全部大写，例如，应采用 System.IO，而不是 System.Io。由三个或更多个字母组成的首字母缩略词应采用 Pascal 大小写格式，例如，应采用 System.Xml，而不是 System.XML。Pascal 大小写格式约定每个单词的首字母大写，如 BackColor。Camel 大小写格式约定第一个单词的首字母小写，所有后续单词的首字母都大写，如 backgroundColor。尽管有些由两个字母组成的首字母缩略词习惯采用不完全大写形式，但不能因此而排斥此规则。例如，“DbConnection”很常见，但并不正确，应采用 DBConnection。为了与现有的非托管符号方案兼容，可能需要违反此规则。但一般来说，这些符号在使用它们的程序集之外不可见。</Description>
+   <Resolution Name="Assembly">更正程序集名称 {1} 中“{0}”的大小写，将其改为“{2}”。</Resolution>
+   <Resolution Name="Namespace">更正命名空间名称“{1}”中“{0}”的大小写，将其改为“{2}”。</Resolution>
+   <Resolution Name="Type">更正类型名称 {1} 中“{0}”的大小写，将其改为“{2}”。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182240(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+   <Name>标识符不应包含类型名称</Name>
+   <Description>应避免在参数和成员中使用特定于某一种语言的类型名称，避免在参数中使用数据类型标识符。类型名对于所有开发人员来说可能不够直观。建议选用通用名称，如“value”。如果不足以区分，应确保采用 .NET Framework 库中定义的类型名，并完全避免采用特定于某一种语言的类型名称。例如，特定于 C# 的类型名有“float”(如果通用名称不足以区分，则使用“Single”)和“ulong”(如果通用名称不足以区分，则使用“UInt64”)等等。</Description>
+   <Resolution Name="LanguageIndependentMemberParameter">在成员 {0} 中，考虑将参数名称 {2} 中的数据类型标识符“{1}”替换为一个更通用的词条，如“value”。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb531486(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+   <Name>用 CLSCompliantAttribute 标记程序集</Name>
+   <Description>程序集应使用 CLSCompliant 特性显式说明其 ClS 遵从性。没有此特性的程序集不符合 CLS。即使程序集、模块或类型的某些部分不符合 CLS，这些程序集、模块或类型本身也可以是符合 CLS 的。适用下列规则: 1) 如果元素标记为 CLSCompliant，则所有不符合 CLS 的成员都必须有参数设置为 false 的 CLSCompliant 特性。2) 对于每个不符合 CLS 的成员，都必须提供一个相应的符合 CLS 的备选成员。</Description>
+   <Resolution Name="Default">使用 CLSCompliant(true)来标记 {0}，因为它公开外部可见的类型。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182156(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+   <Name>将成员标记为 static</Name>
+   <Description>不访问实例数据或调用实例方法的方法可标记为 Static (在 Visual Basic 中为 Shared)。这样，编译器会向这些成员发出非虚拟调用站点，以防止在运行时对每个调用进行旨在确保当前对象指针为非 null 的检查。这样可以使对性能比较敏感的代码获得显著的性能提升。在某些情况下，无法访问当前对象实例表明存在正确性问题。</Description>
+   <Resolution Name="Default">从未使用 {0} 的“this”参数(Visual Basic 中为“Me”)。根据需要，将成员标记为 static (Visual Basic 中为“Shared”)，或者在方法体或至少一个属性访问器中使用“this”/“Me”。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245046(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304">
+   <Name>指定 CultureInfo</Name>
+   <Description>如果存在一个采用 CultureInfo 参数的重载，则应始终调用该重载，而不调用未采用该参数的重载。CultureInfo 类型包含区域性特定的信息，这些信息是执行数字和字符串运算(如大小写转换、格式设置和字符串比较)所必需的。如果区域性之间的转换和分析行为应始终不变，请指定 CultureInfo.InvariantCulture，否则，请指定 CultureInfo.CurrentCulture。</Description>
+   <Resolution Name="Default">由于 {0} 的行为可能因当前用户的区域设置不同而不同，请将 {1} 中的此调用替换为对 {2} 的调用。如果要向用户显示 {2} 的结果，请将“CultureInfo.CurrentCulture”指定为“CultureInfo”参数；如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182189(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>指定 IFormatProvider</Name>
+   <Description>如果存在一个采用 IFormatProvider 参数的重载，则应始终调用该重载，而不调用未采用该参数的重载。运行时中的某些方法可以将值与字符串表示形式相互进行转换，并采用一个字符串参数。该参数中包含一个或多个称为格式说明符的字符，用于指示如何对值进行转换。如果格式说明符的含义因区域性而异，则格式设置对象提供在字符串表示形式中使用的实际字符。如果排序和比较行为不得因区域性而改变，请指定 CultureInfo.InvariantCulture，否则，请指定 CultureInfo.CurrentCulture。</Description>
+   <Resolution Name="IFormatProviderAlternateString">由于 {0} 的行为可能会因当前用户的区域设置不同而不同，请将 {1} 中的此调用替换为对 {2} 的调用。如果要向用户显示 {2} 的结果，请指定 {3} 作为“IFormatProvider”参数。或者，如果软件将存储和访问此结果(例如，当将此结果保留到磁盘或数据库中时)，则指定 {4}。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053">
+   <Name>静态容器类型不应具有构造函数</Name>
+   <Description>不需要创建只定义静态成员的类型的实例。如果没有指定构造函数，许多编译器都会自动添加公共的默认构造函数。为了避免出现这种情况，可能需要添加一个空的私有构造函数。</Description>
+   <Resolution Name="CSharp2_0">由于类型 {0} 仅包含“static”成员，因此将它标记为“static”可阻止编译器添加默认公共构造函数。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182169(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="UseGenericsWhereAppropriate" Category="Microsoft.Design" CheckId="CA1007">
+   <Name>在适用处使用泛型</Name>
+   <Description>传递给 ref 参数的引用必须恰好是该参数的类型。使用泛型可使该方法成为通用方法。</Description>
+   <Resolution Name="Default">考虑在 {0} 中使用泛型，而不是对 System.Object 的引用。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182179(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062">
+   <Name>验证公共方法的参数</Name>
+   <Description>应检查传递给外部可见方法的所有引用参数是否为 Null (在 VB 中为 Nothing)。如果适用，在参数为 null 时，引发 System.ArgumentNullException。</Description>
+   <Resolution Name="Default">在外部可见方法 {0} 中，请在使用参数“{1}”之前先对其进行验证。</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182182(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">类别</String>
+  <String Key="Certainty">确定性</String>
+  <String Key="CollapseAll">全部折叠</String>
+  <String Key="CheckId">检查 ID</String>
+  <String Key="Error">错误</String>
+  <String Key="Errors">错误</String>
+  <String Key="ExpandAll">全部展开</String>
+  <String Key="Help">帮助</String>
+  <String Key="Line">行</String>
+  <String Key="Messages">消息</String>
+  <String Key="LocationNotStoredInPdb">[位置未存储在 Pdb 中]</String>
+  <String Key="Project">项目</String>
+  <String Key="Resolution">解析</String>
+  <String Key="Rule">规则</String>
+  <String Key="RuleFile">规则文件</String>
+  <String Key="RuleDescription">规则说明</String>
+  <String Key="Source">源</String>
+  <String Key="Status">状态</String>
+  <String Key="Target">目标</String>
+  <String Key="Warning">警告</String>
+  <String Key="Warnings">警告</String>
+  <String Key="ReportTitle">代码分析报告</String>
+ </Localized>
+</FxCopReport>

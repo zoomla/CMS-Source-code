@@ -1,0 +1,71 @@
+﻿@using ZoomLa.Model
+@model ZoomLa.Model.M_Baike
+@{
+    M_BaikeEdit editMod = ViewBag.editMod;
+    Layout = "~/Views/FrontBaike/_BaikeLayout.cshtml";
+}
+@section head{
+<title>词条版本</title>
+<style>
+.compbaike{padding:10px 150px;}
+.compbaike table{border-bottom:1px solid #ddd;}
+.compbaike .table th,td{padding:8px 20px!important; color:#666; font-weight:normal; border-bottom:none;}
+.compbaike h4{color:#111}
+</style>
+}
+@section content{
+<div class="compbaike">
+<div class="container-fluid">
+	<div class="col-md-6 col-lg-6">
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>更新时间</th>
+					<th>版本</th>
+					<th>贡献者</th>
+					<th>修改原因</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>@Model.AddTime.ToString()</td>
+					<td><a href='Details?id=@Model.ID' target='_blank'>查看</a></td>
+					<td>@Model.UserName</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		<div><h4>正文</h4></div>
+		<div>
+			 <div id="precode">@MvcHtmlString.Create(Model.Contents)</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-lg-6">
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>更新时间</th>
+					<th>版本</th>
+					<th>贡献者</th>
+					<th>修改原因</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>@editMod.AddTime</td>
+					<td><a href='Details?EditID=@editMod.ID' target='_blank'>查看</a></td>
+					<td>@editMod.UserName</td>
+					<td>@editMod.UserRemind</td>
+				</tr>
+			</tbody>
+		</table>
+		<div><h4>正文</h4></div>
+		<div>
+			 <div id="curcode">@MvcHtmlString.Create(editMod.Contents)</div>
+		</div>
+	</div>
+
+</div>
+</div>
+}
+@section script{}

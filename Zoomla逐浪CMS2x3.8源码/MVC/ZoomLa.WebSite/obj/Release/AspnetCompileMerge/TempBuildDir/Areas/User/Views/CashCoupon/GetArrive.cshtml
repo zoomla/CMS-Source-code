@@ -1,0 +1,64 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@model System.Data.DataTable
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@functions{ 
+    B_Arrive avBll = new B_Arrive();
+    public string GetMoneyRegion(object minAmount ,object maxAmount)
+    {
+        double min = DataConverter.CDouble(minAmount);
+        double max = DataConverter.CDouble(maxAmount);
+        return avBll.GetMoneyRegion(min, max);
+    }
+}
+@section head{
+    <title>优惠券领取</title>
+}
+@section content{
+    <div id="pageflag" data-nav="group" data-ban="ArriveManage"></div>
+    <div class="container arrive">
+        <ol class="breadcrumb">
+            <li><a href="/User/">会员中心</a></li>
+            <li><a href="ArriveManage">我的优惠券</a></li>
+            <li>领取优惠券</li>
+        </ol>
+        <div class="margin_t5">
+            @if (Model.Rows.Count > 0)
+            {
+                <div id="data_div">
+                    <ul class="list-unstyled">
+                        @foreach (DataRow dr in Model.Rows)
+                        {
+                            <li class="a_item boxborder" title="点击领取">
+                                <div class="type">
+                                    <div>
+                                        <i class="fa fa-rmb"></i>
+                                        <span class="amount">@DataConverter.CDouble(dr["AMount"]).ToString("f0")</span>
+                                        <span class="region">@GetMoneyRegion(dr["MinAmount"],dr["MaxAmount"])</span>
+                                    </div>
+                                    <div class="r_gray r_item">全平台可用</div>
+                                    <div class="r_gray r_item">@DataConverter.CDate(dr["AgainTime"]).ToString("yyyy.MM.dd")-@DataConverter.CDate(dr["EndTime"]).ToString("yyyy.MM.dd")</div>
+                                </div>
+                                <div class="opbtns">
+                                    <a href="javascript:;" onclick="mvcpage.del({ids:'@dr["Flow"]',url:'Arrive_Get'});">立即领取</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div id="empty_div">
+                    <div class="alert alert-info">没有待领的优惠券</div>
+                </div>
+            }
+        </div>
+    </div>
+}
+@section script{
+
+}

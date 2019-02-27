@@ -1,0 +1,38 @@
+﻿@using ZoomLa.BLL.Shop
+@model ZoomLa.Model.M_OrderList
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+}
+@section head{
+<title>申请退款</title>
+}
+@section content{
+    <ol class="breadcrumb">
+        <li>会员中心</li>
+        <li>我的订单</li>
+        <li class="active"><a href="<%=Request.RawUrl %>">取消订单</a></li>
+    </ol>
+    <form method="post" action="@MVCHelper.GetAction("DrawBack_Add",Request)">
+        <div>
+            <table class="table table-bordered table-striped">
+                <tr><td class="td_md">订单号</td><td>@Model.OrderNo</td></tr>
+                <tr><td class="td_md">订单金额</td><td>@OrderHelper.GetPriceStr(Model)</td></tr>
+                <tr><td class="td_md">下单日期</td><td>@Model.AddTime.ToString("yyyy-MM-dd HH:mm")</td></tr>
+                <tr>
+                    <td>退款理由:<br />(10-500字)</td>
+                    <td>
+                        <textarea id="Back_T" name="Back_T" class="form-control" style="height:120px;width:100%;max-width:100%;"></textarea>
+                    </td>
+                </tr>
+                <tr><td></td><td><input type="submit" value="提交" class="btn btn-primary" /></td></tr>
+            </table>
+        </div>
+    </form>
+}
+@section script{
+    <script>
+        function CloseCur() {
+            parent.window.location = parent.location;
+        }
+    </script>
+}

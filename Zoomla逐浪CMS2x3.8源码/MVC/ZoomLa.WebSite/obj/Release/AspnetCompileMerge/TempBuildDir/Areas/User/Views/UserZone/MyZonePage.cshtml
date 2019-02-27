@@ -1,0 +1,72 @@
+﻿@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    int showtype = DataConverter.CLng(ViewBag.showtype);
+}
+@section head{
+    <title>我的空间</title>
+}
+@section content{
+    <div id="pageflag" data-nav="index" data-ban="zone"></div>
+    <div class="container margin_t5">   
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+            <li class="active">设定空间模板</li>
+        </ol>
+    </div>
+    <div class="container btn_green">
+        <div class="btn-group hidden">
+            <a class="btn btn-primary" href='/User/userzone/Default'>空间信息</a>
+            <a class="btn btn-primary" href='/User/UserZone/UserInfo/UserReg_Move1'>个人信息</a>
+            <a class="btn btn-primary" href='/User/UserFriend/Default'>好友</a>
+            <a class="btn btn-primary" href='/User/UserZone/LogManage/SelfLogManage'>日志</a>
+            <a class="btn btn-primary" href='/User/UserZone/Pic/CategList'>相册</a>
+            <a class="btn btn-primary" href='/User/userzone/GatherStrainManage/GSManage'>族群</a>
+            <a class="btn btn-primary" href='/User/UserZone/Memo/MemoList'>备忘录</a>
+            <a class="btn btn-primary" href='/User/UserZone/Message/MyMessage'>留言板</a>
+            <a class="btn btn-primary" href='/User/UserZone/Parking/Default'>抢车位</a>
+            <a class="btn btn-primary" href='/User/UserZone/Home/MyHome'>小屋</a>
+            <a class="btn btn-primary" href='/User/UserZone/ChitChat'>黑灯瞎火</a>
+            <a class="btn btn-primary" href='/User/UserZone/Book/BookList'>读书</a>
+            <a class="btn btn-primary" href='/User/UserZone/Book/MusicList'>音乐</a>
+            <a class="btn btn-primary" href='/User/UserZone/Book/MovieList'>电影</a>
+            <a class="btn btn-primary" href='/User/UserZone/Book/ItineraryList'>旅途</a>
+            <a class="btn btn-primary" href='/User/Exam/ClassManage'>班级</a>
+            <a class="btn btn-primary" href='/User/UserZone/SetCenter/SC_ANotification'>设置中心</a>
+            <a class="btn btn-primary" href='/User/UserZone/kiss/kiss'>我的秋波</a>
+        </div>
+    </div>
+    <div class="container" id="main_div">
+        @switch (showtype)
+        {
+            case 1:
+                {
+                    <div class='alert alert-info'>未通过聚合认证会员无法开启个人主页!</div>
+                }
+                break;
+            case 2:
+                {
+                    <div class='alert alert-info'><i class='fa fa-exclamation-triangle'></i>&nbsp系统未提供可用模板!</div>
+                }
+                break;
+            default:
+                {
+                    <div class="alert alert-success">
+                        当前模板:<span>@MvcHtmlString.Create(ViewBag.sname)</span>
+                    </div>
+                    @Html.Partial("MyZonePage_List",Model)
+                }
+                break;
+        }
+    </div>
+}
+@section script{
+    <style type="text/css">
+        #tlp_ul { }
+        #tlp_ul li { float: left; margin-left: 10px; margin-bottom: 10px; }
+        #tlp_ul .tlp_opdiv { margin-top: 5px; }
+        #tlp_ul .tlpimg { display: inline-block; height: 142px; width: 182px; border: 1px solid #ddd; padding: 3px; }
+        #main_div .alert{margin:10px auto;}
+    </style>
+}

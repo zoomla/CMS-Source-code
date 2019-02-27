@@ -1,0 +1,103 @@
+﻿@using System.Data;
+@using ZoomLa.SQLDAL
+@using ZoomLa.BLL
+@using ZoomLaCMS.Models.Field
+@model ZoomLa.Model.M_CommonData
+@{
+    DataTable ds = (DataTable)ViewBag.ds;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    string action = MVCHelper.GetAction(Url.Action("Content_Add", "Content"), Request);
+}
+@section head{
+<style type="text/css">
+body { background-color: #f1f1f1; }
+</style>
+<title>内容管理</title>
+<script charset="utf-8" src="/Plugins/Ueditor/ueditor.config.js"></script>
+<script charset="utf-8" src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+}
+@section content{
+<div id="pageflag" data-nav="content" data-ban="cnt"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li><a href="Mycontent?NodeID=@Model.NodeID">投稿管理</a></li>
+        <li class="active">@MvcHtmlString.Create(ViewBag.tip) <a href="javascript:;" title="百度翻译" id="BaiduTrans_a"><i class="fa fa-book"></i></a></li>
+    </ol>
+</div>
+<form action="@action" method="post">
+    <div class="container btn_green addcontent">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Tabs0" data-toggle="tab">内容信息</a></li>
+            <li><a href="#Tabs1" data-toggle="tab">补充信息</a></li>
+        </ul>
+        <div class="tab-content panel-body padding0">
+            <div id="Tabs0" class="tab-pane active manage_content">
+                <ul class="fd_body">
+                    <li class="fd_item">
+                        <div class="fd_item_head"><div class="fd_alias">@B_Content.GetFieldAlias("Title", ds)</div><span class="fd_item_req">*</span></div>
+                        <div class="fd_item_field">
+                            <input type="text" id="txtTitle" name="Title" value="@Model.Title" style="background: url(/Images/bg1.gif) repeat-x;" class="form-control m715-50" onkeyup="isgoEmpty('Title', 'span_txtTitle'); Getpy('Title', 'PYtitle')" />
+                            @*@Html.TextBoxFor(Model => Model.Title, new { @style = "background:url(/Images/bg1.gif) repeat-x;", @class = "form-control m715-50", onkeyup = "isgoEmpty('Title','span_txtTitle');Getpy('Title','PYtitle')" })*@
+                            <a href="javascript:;" class="btn btn-info btn-sm" onclick="ShowTitle()"><i class="fa fa-info"></i>标题属性</a>
+                            <button type="button" class="btn btn-info btn-sm" onclick="ShowSys();"><i class="fa fa-list"></i></button>
+                            <span id="span_txtTitle" name="span_txtTitle"></span>
+                            <input type="hidden" id="ThreadStyle" name="TitleStyle" value="@Model.TitleStyle" />
+                        </div>
+                    </li>
+                    @Html.Partial("Fields/Index_User_AddContent", new VM_FieldModel(Model.ModelID, Model.NodeID, new ModelConfig() { Source = ModelConfig.SType.UserContent }, Model.GeneralID))
+                </ul>
+            </div>
+            <div id="Tabs1" class="tab-pane">
+                <ul class="fd_body">
+                    <li class="fd_item">
+                        <div class="fd_item_head"><div class="fd_alias">@B_Content.GetFieldAlias("PYtitle", ds)</div></div>
+                        <div class="fd_item_field"><input type="text" id="PYtitle" name="PYtitle" class="form-control m715-50" value="@Model.PYtitle" /></div>
+                    </li>
+                    <li class="fd_item">
+                        <div class="fd_item_head"><div class="fd_alias">@B_Content.GetFieldAlias("TagKey", ds)</div></div>
+                        <div class="fd_item_field">
+                            <div id="OAkeyword"></div>
+                            <input type="text" id="TagKey" name="TagKey" class="form-control" value="@Model.TagKey" style="display:none;" /><span>(空格或回车键分隔，长度不超过10字符或5汉字)</span>
+                        </div>
+                    </li>
+                    <li class="fd_item">
+                        <div class="fd_item_head"><div class="fd_alias">@B_Content.GetFieldAlias("Subtitle", ds)</div></div>
+                        <div class="fd_item_field"><input type="text" id="Subtitle" name="Subtitle" class="form-control m715-50" value="@Model.Subtitle" /></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center">
+            <input type="submit" class="btn btn-primary" value="@ViewBag.op" />
+            <a href="MyContent?NodeID=@Model.NodeID" class="btn btn-primary">返回列表</a>
+        </div>
+    </div>
+</form>
+}
+@section script{
+<script>
+var zlconfig = {
+    updir: "@ZoomLa.Components.SiteConfig.SiteOption.UploadDir.ToLower()",
+    duptitlenum: "@ZoomLa.Components.SiteConfig.SiteOption.DupTitleNum",
+    modelid: "@Model.ModelID"
+};
+</script>
+<script src="/JS/OAKeyWord.js"></script>
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<script src="/JS/chinese.js"></script>
+<script src="/JS/Common.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/JS/ICMS/tags.json"></script>
+<script src="/JS/ZL_Content.js?v=20160514"></script>
+<script src="/JS/Plugs/transtool.js"></script>
+<script>
+    $(function () {
+        Tlp_initTemp();
+        $("#BaiduTrans_a").TransTools({ top: 120 });
+        $("#txt_Edit,#txt_pages").parents("tr").hide();
+        $("form").validate();
+    });
+    function OnTemplateViewCheck(value) { $("#TxtTemplate_hid").val(value); }
+</script>
+}

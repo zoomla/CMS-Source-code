@@ -1,0 +1,12 @@
+D:\Code\ZoomlaCMS\ZoomlaCMS\Zoomla.Model\obj\Debug\Zoomla.Model.csprojResolveAssemblyReference.cache
+D:\Code\ZoomlaCMS\ZoomlaCMS\Zoomla.Model\bin\Debug\Zoomla.Model.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\Zoomla.Model\bin\Debug\Zoomla.Model.pdb
+D:\Code\ZoomlaCMS\ZoomlaCMS\Zoomla.Model\bin\Debug\Newtonsoft.Json.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\Zoomla.Model\obj\Debug\Zoomla.Model.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\Zoomla.Model\obj\Debug\Zoomla.Model.pdb
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.WebSite\Bin\Zoomla.Model.dll
+D:\Code\ZoomlaCMS\ZoomlaCMS\ZoomLa.WebSite\Bin\Zoomla.Model.pdb
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\Zoomla.Model.dll
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\Zoomla.Model.pdb
+D:\Code\ZoomlaCMS\Zoomla.Model\obj\Debug\Zoomla.Model.dll
+D:\Code\ZoomlaCMS\Zoomla.Model\obj\Debug\Zoomla.Model.pdb

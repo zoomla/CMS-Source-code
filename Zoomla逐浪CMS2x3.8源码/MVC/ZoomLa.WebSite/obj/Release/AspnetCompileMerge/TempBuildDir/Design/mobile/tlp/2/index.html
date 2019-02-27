@@ -1,0 +1,133 @@
+﻿<div class="page" id="page-index" ng-app="app" ng-controller="APPCtrl">
+    <div class="content">
+        <div class="content-inner">
+            <div class="mb2_body">
+                <div class="mb2_top">
+                    <div class="mb2_top_t">TO CREATE THE MOST INFLUENTIAL BRAND OF HARDWARE</div>
+                    <div class="mb2_top_m">打造五金最具影响力品牌</div>
+                    <div class="mb2_top_b">提高品牌影响力，提高品牌价值，提高品牌责任感</div>
+                </div>
+                <div class="com mb2_menu" id="conbody">
+                    <ul>
+                        <li ng-repeat="item in coms.conbody.list"><a href="{{getlink(item)}}"><span ng-bind="item.title"></span></a></li>
+                    </ul>
+                </div>
+                <div class="com mb2_footer" id="footbar">
+                    <ul>
+                        <li ng-repeat="item in coms.footbar.list"><a href="{{getlink(item)}}"><i ng-class="item.wxico"></i><span ng-bind="item.title"></span></a></li>
+                        <div class="clearfix"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .mb2_body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        background: url(/design/mobile/tlp/2/bg.jpg) center no-repeat;
+        background-size: cover;
+        font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+        font-size: 0.7rem;
+    }
+
+    .mb2_top {
+        margin-top: 40%;
+        text-align: center;
+        color: #fff;
+    }
+
+    .mb2_top_t {
+        font-size: 0.6rem;
+    }
+
+    .mb2_top_m {
+        font-size: 1.5rem;
+    }
+
+    .mb2_menu {
+        margin-top: 0.5rem;
+        padding: 0 1rem;
+    }
+
+        .mb2_menu ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .mb2_menu li {
+            float: left;
+            padding: 5px;
+            width: 50%;
+        }
+
+            .mb2_menu li a {
+                display: block;
+                padding: 0.5rem 0;
+                background: rgba(255,255,255,0.4);
+                text-align: center;
+                color: #333;
+                text-decoration: none;
+                font-size: 0.75rem;
+            }
+
+    .mb2_footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #252525;
+    }
+
+        .mb2_footer ul {
+            margin-bottom: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .mb2_footer li {
+            float: left;
+            width: 33.3333%;
+        }
+
+            .mb2_footer li a {
+                display: block;
+                padding: 0.25rem 0;
+                text-align: center;
+                color: #fff;
+            }
+
+                .mb2_footer li a i {
+                    display: block;
+                    font-size: 1.5rem;
+                }
+</style>
+<script>
+    angular.module("app", []).controller("APPCtrl", function ($scope) {
+        Zepto.init();
+        Zepto.showIndicator();
+        tools.site = "{$site}";
+        tools.extend($scope);
+        $scope.coms = [];
+        //---------------------------------------------------------------------------//
+        $scope.coms["conbody"] = { type: "list", list: [] };
+        $scope.coms["footbar"] = { type: "footbar", list: [] };
+        //---------------------------------------------------------------------------//
+        //能否优化为一次取出,然后再划分(微站内容中的数据)
+        tools.getdata({ nodename: escape("微站内容"), dbtype: "footbar" }, function (result) {
+            $scope.coms["footbar"].list = result;
+            $scope.$digest();
+        })
+        tools.getdata({ nodename: escape("微站内容"), dbtype: "list" }, function (result) {
+            var list = result;
+            $scope.coms["conbody"].list = list;
+            $scope.$digest();
+            Zepto.hideIndicator();
+            tools.init();
+        });
+    });
+</script>

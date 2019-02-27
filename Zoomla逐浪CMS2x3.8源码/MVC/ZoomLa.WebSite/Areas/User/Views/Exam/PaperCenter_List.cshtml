@@ -1,0 +1,32 @@
+﻿@using System.Data
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    DataTable dt = new DataTable();
+}
+<div class="panel-body" style="height:500px;overflow-y:auto;">
+    @foreach (DataRow dr in Model.dt.Rows)
+    {
+        <div style="margin-top: 5px;">
+            <%#ZoomLa.BLL.Helper.StrHelper.ConvertIntegral(Container.ItemIndex+1) +"．"+@dr["QName"]+"（有"+@dr["QNum"]+"小题,共"+@dr["TotalScore"]+"分）" %>
+            @foreach (DataRow dr2 in Model.dt.Rows)
+            {
+                <div class="item" data-id="@dr2["p_id"]" id="item_@dr2["p_id"]">
+                    <div class="content">
+                        <div class="opdiv alert-info">
+                            <input type="text" id="score_@dr2["p_id"]" style="width:40px;" value="@dr2["p_defaultScore"]" /><span>分</span>
+                            <a href="QuestView?ID=@dr2["p_id"]" target="_blank">查看解析</a>
+                            <a href="javascript:UPFunc(@dr2["p_id"]);">上移</a>
+                            <a href="javascript:DownFunc(@dr2["p_id"]);">下移</a>
+                            <a href="javascript:DelThis(@dr2["p_id"]);">删除</a>
+                        </div>
+                        <span><%#Container.ItemIndex+1+"．"+@dr2["P_Title"]%></span>@dr2["p_content"]
+                    </div>
+                    <div class="submit">
+                        <ul class="submitul"><%#GetSubmit() %></ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

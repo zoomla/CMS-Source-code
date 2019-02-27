@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PromoRecord.aspx.cs" Inherits="User_PromotUnion_PromoRecord" EnableViewStateMac="false" %>

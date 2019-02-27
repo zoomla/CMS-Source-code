@@ -1,0 +1,37 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+    string action = ViewBag.action;
+}
+@section head{
+<title>好友申请</title>
+}
+@section content{
+<div id="pageflag" data-nav="index" data-ban="zone"></div>
+<div id="pageflag" data-nav="index" data-ban="zone"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li class="active">搜索结果 [<a href="/User/UserZone/FollowList">我的好友</a>]</li>
+    </ol>
+</div>
+<div class="container btn_green">
+    <ul id="action_ul" class="nav nav-tabs">
+        <li data-action="rece"><a href="FriendApply?action=rece">我收到的申请</a></li>
+        <li data-action="send"><a href="FriendApply?action=send">我发送的申请</a></li>
+    </ul>
+    
+    @if (action.Equals("send")) { @Html.Partial("FriendApply_SendList", Model); }
+    else {  @Html.Partial("FriendApply_ReceList", Model); }
+</div>
+}
+@section script{
+    <style>#EGV .contr td{line-height:50px;}.allchk_l{display:none;}</style>
+    <script>
+        $(function () {
+            var menu = "@Request["action"]";
+            if (ZL_Regex.isEmpty(menu)) { menu = "rece"; }
+            $(".nav li[data-action=" + menu + "]").addClass("active");
+        })
+    </script>
+}

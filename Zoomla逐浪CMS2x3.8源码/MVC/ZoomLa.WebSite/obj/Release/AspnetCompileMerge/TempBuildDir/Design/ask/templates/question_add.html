@@ -1,0 +1,59 @@
+﻿<ion-view>
+<ion-header-bar class="bar-balanced bar bar-header visible-xs" align-title="center">
+<a href="#/tab/ask_qlist/{{model.AskID}}" class="button"><i class="fa fa-align-justify"></i></a>
+<div class="title title-center header-item" ng-bind="getType(model.QType)"></div>
+</ion-header-bar>
+<ion-content>
+<div class="design_askbanner hidden-xs"><span ng-bind="getType(model.QType)"></span></div>
+<div class="container padding0-xs lgmargin_top10">
+<div class="list">
+<label class="item item-input">
+<input type="text" placeholder="请输入题目名称" ng-model="model.QTitle">
+</label>
+
+<div ng-switch="showByQType()">
+<div ng-switch-when="radio">
+<div class="msel_wrap">
+<div class="col left" ng-click="changeQType('radio')" ng-class="model.QType=='radio'?'active':'';">单选题</div>
+<div class="col right" ng-click="changeQType('checkbox')" ng-class="model.QType=='checkbox'?'active':'';">多选题</div>
+</div>
+
+<label class="item item-input" ng-repeat="item in model.QOption track by $index">
+<input type="text" placeholder="请输入选项名称" ng-model="item.text">
+</label>
+<div style="text-align:center;" class="padding"><button type="button" class="button button-positive button-outline" ng-click="addOption();"><i class="fa fa-plus"></i> 添加新项</button></div>
+</div>
+<div ng-switch-when="blank">
+<label class="item item-input item-select">
+<div class="input-label">
+输入框行数
+</div>
+<select ng-model="model.QFlag.rows" ng-options="m for m in rowArr"></select>
+</label>
+</div>
+<div ng-switch-when="score">
+<label class="item item-input item-select">
+<div class="input-label">请打分</div>
+<select ng-model="model.QFlag.maxscore" ng-options="m for m in maxscoreArr"></select>
+</label>
+</div>
+<div ng-switch-when="sort">
+<label class="item item-input" ng-repeat="item in model.QOption track by $index">
+<input type="text" placeholder="请输入选项名称,为空自动忽略" ng-model="item.text">
+</label>
+<div style="text-align:center;" class="padding"><button type="button" class="button button-positive button-outline" ng-click="addOption();"><i class="fa fa-plus"></i> 添加新项</button></div>
+</div>
+<div ng-switch-default></div>
+</div>
+<div class="item item-toggle">
+是否必填
+<label class="toggle toggle-balanced">
+<input type="checkbox" ng-model="model.Required" />
+<div class="track"><div class="handle"></div></div>
+</label>
+</div>
+</div>
+<div class="pcask_addbtn"><button type="button" class="button button-balanced button-block" ng-click="submit();">确认</button></div>
+</div>
+</ion-content>
+</ion-view>

@@ -1,0 +1,255 @@
+﻿<style>
+.padding5 {
+padding-left: 5px;
+padding-right: 5px;
+}
+
+.mb3_top {
+background: #000;
+line-height: 2.5rem;
+height: 2.5rem;
+text-align: center;
+color: #fff;
+}
+
+.swiper-container {
+width: 100%;
+background: #fff;
+}
+
+.swiper-slide {
+display: block;
+width: 100%;
+margin-right: 0px;
+padding-top: 46.875%;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center; /* Center slide text vertically*/
+display: -webkit-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+display: flex;
+-webkit-box-pack: center;
+-ms-flex-pack: center;
+-webkit-justify-content: center;
+justify-content: center;
+-webkit-box-align: center;
+-ms-flex-align: center;
+-webkit-align-items: center;
+align-items: center;
+}
+
+.swiper-slide a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.swiper-pagination-bullet {
+width: 8px;
+height: 2px;
+border-radius: 0px;
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+margin: 0 3px;
+}
+
+.mb3_banner .swiper-slide a {
+}
+
+.mb3_banner .swiper-slide a img {
+    max-width: 100%;
+}
+
+.mb3_nav {
+background: #fff;
+font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+}
+
+.mb3_nav ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.mb3_nav li {
+    float: left;
+    width: 25%;
+}
+
+    .mb3_nav li a {
+        display: block;
+        padding: 0.5rem 0;
+        text-align: center;
+        font-size: 0.7rem;
+        color: #5c6066;
+    }
+
+        .mb3_nav li a i {
+            display: block;
+            font-size: 1.5rem;
+        }
+
+.mb3_pro {
+background: #fff;
+font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+}
+
+.mb3_pro_t {
+margin-bottom: 0.5rem;
+padding: 0.5rem 0.5rem;
+margin-top: 0.5rem;
+border-bottom: 2px solid #000;
+font-size: 1rem;
+}
+
+.mb3_pro_t span {
+    margin-top: 0.25rem;
+    font-size: 0.7rem;
+}
+
+    .mb3_pro_t span a {
+        color: #666;
+    }
+
+.mb3_pro_c {
+}
+
+.mb3_pro_c img {
+    width: 100%;
+}
+
+.mb3_pro_c h3 {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+    .mb3_pro_c h3 a {
+        color: #333;
+    }
+
+.mb3_footer {
+position: fixed;
+bottom: 0;
+width: 100%;
+background: #000;
+font-family: "STHeiti","Microsoft YaHei","黑体","arial";
+}
+
+.mb3_footer ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.mb3_footer li {
+    float: left;
+    width: 20%;
+}
+.mb3_footer li a {
+display: block;
+padding: 0.25rem 0;
+text-align: center;
+font-size: 0.6rem;
+color: #fff;
+text-decoration: none;
+}
+
+.mb3_footer li a i {
+    display: block;
+    font-size: 1.5rem;
+}
+</style>
+<div class="page" id="page-index" ng-app="app" ng-controller="APPCtrl">
+    <div class="content">
+        <div class="content-inner">
+            <div class="mb3_top">TEMPLATE</div>
+            <div class="com swiper-container mb3_banner" id="topnav" style="height:210px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="item in coms.topnav.list">
+                        <a href="{{getlink(item)}}">
+                            <img ng-src="{{item.wxico}}" />
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
+            <div class="mb3_nav">
+                <ul id="conbody" class="com">
+                    <li ng-repeat="item in coms.conbody.list"><a href="{{getlink(item)}}"><i ng-class="item.wxico"></i><span ng-bind="item.title"></span></a></li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+
+            <div class="com mb3_pro" id="probody">
+                <div class="mb3_pro_t">新品上市<span class="pull-right"><a href="javascript:;">更多</a></span></div>
+                <div class="padding5">
+                    <div class="col-xs-6 padding5" ng-repeat="item in coms.probody.list">
+                        <div class="mb3_pro_c">
+                            <a href="{{pro.getlink(item)}}"><img ng-src="{{item.pics}}" /></a>
+                            <h3><a href="{{pro.getlink(item)}}" ng-bind="item.proname"></a></h3>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div style="height:58px;"></div>
+            <div class="mb3_footer">
+                <ul id="footbar" class="com">
+                    <li ng-repeat="item in coms.footbar.list">
+                        <a href="{{getlink(item)}}"><i ng-class="item.wxico"></i><span ng-bind="item.title"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="/design/h5/css/swiper.min.css" rel="stylesheet" />
+<script src="/design/h5/js/swiper.min.js"></script>
+<script>
+    angular.module("app", []).controller("APPCtrl", function ($scope) {
+        Zepto.init();
+        Zepto.showIndicator();
+        tools.site = "{$site}";
+        tools.extend($scope);
+        $scope.coms = [];
+        //---------------------------------------------------------------------------//
+        $scope.coms["topnav"] = { type: "nav", list: [] };
+        $scope.coms["conbody"] = { type: "list", list: [] };
+        $scope.coms["probody"] = { type: "product", list: [] };
+        $scope.coms["footbar"] = { type: "footbar", list: [] };
+        //---------------------------------------------------------------------------//
+        tools.getdata({ nodename: escape("微站图片") }, function (result) {
+            $scope.coms["topnav"].list = result;
+            $scope.$digest();
+            setTimeout(tools.nav.init, 500);
+        })
+        //tools.getdata({ nodename: escape("微站内容"), dbtype: "product" }, function (result) {
+        //    $scope.coms["probody"].list = result;
+        //    $scope.$digest();
+        //})
+        tools.product.get({}, function (result) {
+            $scope.coms["probody"].list = result;
+            $scope.$digest();
+        });
+        tools.getdata({ nodename: escape("微站内容"), dbtype: "footbar" }, function (result) {
+            $scope.coms["footbar"].list = result;
+            $scope.$digest();
+        })
+        tools.getdata({ nodename: escape("微站内容"), dbtype: "list",psize:4 }, function (result) {
+            var list = result;
+            $scope.coms["conbody"].list = list;
+            $scope.$digest();
+            Zepto.hideIndicator();
+            tools.init();
+        });
+    });
+</script>

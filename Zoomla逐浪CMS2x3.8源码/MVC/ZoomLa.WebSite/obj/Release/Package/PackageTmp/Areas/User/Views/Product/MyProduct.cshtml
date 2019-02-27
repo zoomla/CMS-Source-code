@@ -1,0 +1,45 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>我的商品</title>
+
+}
+@section content{
+    <div id="pageflag" data-nav="content" data-ban="cnt"></div>
+    <div class="container margin_t10">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li class="active">我的内容</li>
+        </ol>
+    </div>
+    <div class="container btn_green">
+        <div class="us_pynews">
+            <div class="us_seta" style="margin-bottom:10px;">
+                <label id="lbladdcontent"></label>
+                <a href="Myproduct?NodeID=<%=Request">回收站</a>
+            </div>
+        </div>
+    </div>
+    <div class="container btn_green">
+        <div class="us_pynews">
+            <div class="us_seta">
+                @Html.Partial("MyProduct_List", Model)
+                <div style="margin-top: 5px;">
+                    <button id="button2" onclick="btnDeleteAll_Click" class="btn btn-primary">批量删除</button>
+                    <select id="dropdownlist1" class="form-control text_md" style="width:150px;">
+                        <option value="0">按标题查找</option>
+                        <option value="1">按ID查找</option>
+                    </select>
+                    <input type="text" id="txtsearchtitle" name="txtsearchtitle" class="form-control text_md" />
+                    <button id="btn_search" class="btn btn-primary" onclick="Btn_Search_Click">搜索</button>
+                    <input type="hidden" id="hiddenfile1" />
+                    <input type="hidden" id="hiddenfile2" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section script{
+
+}

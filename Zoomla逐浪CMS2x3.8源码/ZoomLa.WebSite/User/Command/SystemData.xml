@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<china>
+<province name="北京市" code="01" />
+<province name="安徽省" code="02" />
+<province name="福建省" code="03" />
+<province name="甘肃省" code="04" />
+<province name="广东省" code="05" />
+<province name="广西省" code="06" />
+<province name="贵州省" code="07" />
+<province name="海南省" code="08" />
+<province name="河北省" code="09" />
+<province name="河南省" code="10" />
+<province name="黑龙江" code="11" />
+<province name="湖北省" code="12" />
+<province name="湖南省" code="13" />
+<province name="吉林省" code="14" />
+<province name="江苏省" code="15" />
+<province name="江西省" code="16" />
+<province name="辽宁省" code="17" />
+<province name="内蒙古" code="18" />
+<province name="宁夏省" code="19" />
+<province name="青海省" code="20" />
+<province name="山东省" code="21" />
+<province name="山西省" code="22" />
+<province name="陕西省" code="23" />
+<province name="上海省" code="24" />
+<province name="四川省" code="25" />
+<province name="天津省" code="26"/>
+<province name="西藏省" code="27" />
+<province name="新疆省" code="28" />
+<province name="浙江省" code="30" />
+<province name="重庆省" code="31" />
+
+  <city fcode="01" code="01" name="北京" />
+  <city fcode="02" code="01" name="合肥" />
+  <city fcode="02" code="02" name="安庆" />
+  <city fcode="02" code="03" name="蚌埠" />
+  <city fcode="02" code="04" name="巢湖" />
+  <city fcode="02" code="05" name="池州" />
+  <city fcode="02" code="06" name="滁州" />
+  <city fcode="02" code="07" name="阜阳" />
+  <city fcode="02" code="08" name="淮北" />
+  <city fcode="02" code="09" name="淮南" />
+  <city fcode="02" code="10" name="黄山" />
+  <city fcode="02" code="11" name="六安" />
+  <city fcode="02" code="12" name="马鞍山" />
+  <city fcode="02" code="13" name="宿州" />
+  <city fcode="02" code="14" name="铜陵" />
+  <city fcode="02" code="15" name="芜湖" />
+  <city fcode="02" code="16" name="宣城" />
+  <city fcode="02" code="17" name="亳州" />
+
+  <city fcode="03" code="01" name="福州" />
+  <city fcode="03" code="02" name="龙岩" />
+  <city fcode="03" code="03" name="南平" />
+  <city fcode="03" code="04" name="宁德" />
+  <city fcode="03" code="05" name="莆田" />
+  <city fcode="03" code="06" name="泉州" />
+  <city fcode="03" code="07" name="三明" />
+  <city fcode="03" code="08" name="厦门" />
+  <city fcode="03" code="09" name="漳州" />
+
+  <city fcode="04" code="01" name="兰州" />
+  <city fcode="04" code="02" name="白银" />
+  <city fcode="04" code="03" name="定西" />
+  <city fcode="04" code="04" name="甘南藏族自治州" />
+  <city fcode="04" code="05" name="嘉峪关" />
+  <city fcode="04" code="06" name="金昌" />
+  <city fcode="04" code="07" name="酒泉" />
+  <city fcode="04" code="08" name="临夏回族自治州" />
+  <city fcode="04" code="09" name="陇南" />
+  <city fcode="04" code="10" name="淮南" />
+  <city fcode="04" code="11" name="平凉" />
+  <city fcode="04" code="12" name="庆阳" />
+  <city fcode="04" code="13" name="天水" />
+  <city fcode="04" code="14" name="武威" />
+  <city fcode="04" code="15" name="张掖" />
+
+  <city fcode="05" code="01" name="深圳" />
+  <city fcode="05" code="02" name="潮州" />
+  <city fcode="05" code="03" name="东莞" />
+  <city fcode="05" code="04" name="佛山" />
+  <city fcode="05" code="05" name="广州" />
+  <city fcode="05" code="06" name="河源" />
+  <city fcode="05" code="07" name="惠州" />
+  <city fcode="05" code="08" name="江门" />
+  <city fcode="05" code="09" name="揭阳" />
+  <city fcode="05" code="10" name="茂名" />
+  <city fcode="05" code="11" name="梅州" />
+  <city fcode="05" code="12" name="清远" />
+  <city fcode="05" code="13" name="汕头" />
+  <city fcode="05" code="14" name="汕尾" />
+  <city fcode="05" code="15" name="韶关" />
+  <city fcode="05" code="16" name="阳江" />
+  <city fcode="05" code="17" name="云浮" />
+  <city fcode="05" code="18" name="湛江" />
+  <city fcode="05" code="19" name="肇庆" />
+  <city fcode="05" code="20" name="中山" />
+  <city fcode="05" code="21" name="珠海" />
+
+  <city fcode="06" code="01" name="南宁" />
+  <city fcode="06" code="02" name="百色" />
+  <city fcode="06" code="03" name="北海" />
+  <city fcode="06" code="04" name="崇左" />
+  <city fcode="06" code="05" name="防城港" />
+  <city fcode="06" code="06" name="桂林" />
+  <city fcode="06" code="07" name="贵港" />
+  <city fcode="06" code="08" name="河池" />
+  <city fcode="06" code="09" name="贺州" />
+  <city fcode="06" code="10" name="来宾" />
+  <city fcode="06" code="11" name="柳州" />
+  <city fcode="06" code="12" name="钦州" />
+  <city fcode="06" code="13" name="梧州" />
+  <city fcode="06" code="14" name="玉林" />
+
+  <city fcode="07" code="01" name="贵阳" />
+  <city fcode="07" code="02" name="安顺" />
+  <city fcode="07" code="03" name="毕节" />
+  <city fcode="07" code="04" name="六盘水" />
+  <city fcode="07" code="05" name="黔东南苗族侗族自治州" />
+  <city fcode="07" code="06" name="黔南布依族苗族自治州" />
+  <city fcode="07" code="07" name="黔西南布依族苗族自治州" />
+  <city fcode="07" code="08" name="遵义" />
+
+  <city fcode="08" code="01" name="海口" />
+  <city fcode="08" code="02" name="白沙黎族自治县" />
+  <city fcode="08" code="03" name="保亭黎族苗族自治县" />
+  <city fcode="08" code="04" name="昌江黎族自治县" />
+  <city fcode="08" code="05" name="澄迈县" />
+  <city fcode="08" code="06" name="定安县" />
+  <city fcode="08" code="07" name="东方" />
+  <city fcode="08" code="08" name="乐东黎族自治县" />
+  <city fcode="08" code="09" name="临高县" />
+  <city fcode="08" code="10" name="陵水黎族自治县" />
+  <city fcode="08" code="11" name="琼海" />
+  <city fcode="08" code="12" name="琼中黎族苗族自治县" />
+  <city fcode="08" code="13" name="三亚" />
+  <city fcode="08" code="14" name="屯昌县" />
+  <city fcode="08" code="15" name="万宁" />
+  <city fcode="08" code="16" name="文昌" />
+  <city fcode="08" code="17" name="五指山" />
+  <city fcode="08" code="18" name="儋州" />
+
+  <city fcode="09" code="01" name="石家庄" />
+  <city fcode="09" code="02" name="保定" />
+  <city fcode="09" code="03" name="沧州" />
+  <city fcode="09" code="04" name="承德" />
+  <city fcode="09" code="05" name="邯郸" />
+  <city fcode="09" code="06" name="衡水" />
+  <city fcode="09" code="07" name="廊坊" />
+  <city fcode="09" code="08" name="秦皇岛" />
+  <city fcode="09" code="09" name="唐山" />
+  <city fcode="09" code="10" name="邢台" />
+  <city fcode="09" code="11" name="张家口" />
+
+  <city fcode="10" code="01" name="郑州" />
+  <city fcode="10" code="02" name="安阳" />
+  <city fcode="10" code="03" name="鹤壁" />
+  <city fcode="10" code="04" name="济源" />
+  <city fcode="10" code="05" name="焦作" />
+  <city fcode="10" code="06" name="开封" />
+  <city fcode="10" code="07" name="洛阳" />
+  <city fcode="10" code="08" name="南阳" />
+  <city fcode="10" code="09" name="平顶山" />
+  <city fcode="10" code="10" name="三门峡" />
+  <city fcode="10" code="11" name="商丘" />
+  <city fcode="10" code="12" name="新乡" />
+  <city fcode="10" code="13" name="信阳" />
+  <city fcode="10" code="14" name="许昌" />
+  <city fcode="10" code="15" name="周口" />
+  <city fcode="10" code="16" name="驻马店" />
+  <city fcode="10" code="17" name="漯河" />
+  <city fcode="10" code="18" name="濮阳" />
+
+  <city fcode="11" code="01" name="哈尔滨" />
+  <city fcode="11" code="02" name="大庆" />
+  <city fcode="11" code="03" name="大兴安岭" />
+  <city fcode="11" code="04" name="鹤岗" />
+  <city fcode="11" code="05" name="黑河" />
+  <city fcode="11" code="06" name="鸡西" />
+  <city fcode="11" code="07" name="佳木斯" />
+  <city fcode="11" code="08" name="牡丹江" />
+  <city fcode="11" code="09" name="七台河" />
+  <city fcode="11" code="10" name="齐齐哈尔" />
+  <city fcode="11" code="11" name="双鸭山" />
+  <city fcode="11" code="12" name="绥化" />
+  <city fcode="11" code="13" name="伊春" />
+
+  <city fcode="12" code="01" name="武汉" />
+  <city fcode="12" code="02" name="鄂州" />
+  <city fcode="12" code="03" name="恩施土家族苗族自治州" />
+  <city fcode="12" code="04" name="黄冈" />
+  <city fcode="12" code="05" name="黄石" />
+  <city fcode="12" code="06" name="荆门" />
+  <city fcode="12" code="07" name="荆州" />
+  <city fcode="12" code="08" name="潜江" />
+  <city fcode="12" code="09" name="神农架林区" />
+  <city fcode="12" code="10" name="十堰" />
+  <city fcode="12" code="11" name="随州" />
+  <city fcode="12" code="12" name="天门" />
+  <city fcode="12" code="13" name="仙桃" />
+  <city fcode="12" code="14" name="咸宁" />
+  <city fcode="12" code="15" name="襄樊" />
+  <city fcode="12" code="16" name="孝感" />
+  <city fcode="12" code="17" name="宜昌" />
+
+  <city fcode="13" code="01" name="长沙" />
+  <city fcode="13" code="02" name="常德" />
+  <city fcode="13" code="03" name="郴州" />
+  <city fcode="13" code="04" name="衡阳" />
+  <city fcode="13" code="05" name="娄底" />
+  <city fcode="13" code="06" name="邵阳" />
+  <city fcode="13" code="07" name="湘潭" />
+  <city fcode="13" code="08" name="湘西土家族苗族自治州" />
+  <city fcode="13" code="09" name="益阳" />
+  <city fcode="13" code="10" name="永州" />
+  <city fcode="13" code="11" name="岳阳" />
+  <city fcode="13" code="12" name="张家界" />
+  <city fcode="13" code="13" name="株洲" />
+
+  <city fcode="14" code="01" name="吉林" />
+  <city fcode="14" code="02" name="白城" />
+  <city fcode="14" code="03" name="白山" />
+  <city fcode="14" code="04" name="长春" />
+  <city fcode="14" code="05" name="辽源" />
+  <city fcode="14" code="06" name="四平" />
+  <city fcode="14" code="07" name="松原" />
+  <city fcode="14" code="08" name="通化" />
+  <city fcode="14" code="09" name="延边朝鲜族自治州" />
+
+  <city fcode="15" code="01" name="南京" />
+  <city fcode="15" code="02" name="常州" />
+  <city fcode="15" code="03" name="淮安" />
+  <city fcode="15" code="04" name="连云港" />
+  <city fcode="15" code="05" name="南通" />
+  <city fcode="15" code="06" name="苏州" />
+  <city fcode="15" code="07" name="宿迁" />
+  <city fcode="15" code="08" name="泰州" />
+  <city fcode="15" code="09" name="无锡" />
+  <city fcode="15" code="10" name="徐州" />
+  <city fcode="15" code="11" name="盐城" />
+  <city fcode="15" code="12" name="扬州" />
+  <city fcode="15" code="13" name="镇江" />
+  
+  <city fcode="16" code="01" name="南昌" />
+  <city fcode="16" code="02" name="九江" />
+  <city fcode="16" code="03" name="抚州" />
+  <city fcode="16" code="04" name="赣州" />
+  <city fcode="16" code="05" name="吉安" />
+  <city fcode="16" code="06" name="景德镇" />
+  <city fcode="16" code="07" name="萍乡" />
+  <city fcode="16" code="08" name="上饶" />
+  <city fcode="16" code="09" name="新余" />
+  <city fcode="16" code="10" name="宜春" />
+  <city fcode="16" code="11" name="鹰潭" />
+
+  <city fcode="17" code="01" name="沈阳" />
+  <city fcode="17" code="02" name="鞍山" />
+  <city fcode="17" code="03" name="本溪" />
+  <city fcode="17" code="04" name="朝阳" />
+  <city fcode="17" code="05" name="大连" />
+  <city fcode="17" code="06" name="丹东" />
+  <city fcode="17" code="07" name="抚顺" />
+  <city fcode="17" code="08" name="阜新" />
+  <city fcode="17" code="09" name="葫芦岛" />
+  <city fcode="17" code="10" name="锦州" />
+  <city fcode="17" code="11" name="辽阳" />
+  <city fcode="17" code="12" name="盘锦" />
+  <city fcode="17" code="13" name="铁岭" />
+  <city fcode="17" code="14" name="营口" />
+
+  <city fcode="18" code="01" name="包头" />
+  <city fcode="18" code="02" name="阿拉善盟" />
+  <city fcode="18" code="03" name="巴彦淖尔盟" />
+  <city fcode="18" code="04" name="赤峰" />
+  <city fcode="18" code="05" name="鄂尔多斯" />
+  <city fcode="18" code="06" name="呼和浩特" />
+  <city fcode="18" code="07" name="呼伦贝尔" />
+  <city fcode="18" code="08" name="通辽" />
+  <city fcode="18" code="09" name="乌海" />
+  <city fcode="18" code="10" name="乌兰察布盟" />
+  <city fcode="18" code="11" name="锡林郭勒盟" />
+  <city fcode="18" code="12" name="兴安盟" />
+
+  <city fcode="19" code="01" name="银川" />
+  <city fcode="19" code="02" name="固原" />
+  <city fcode="19" code="03" name="石嘴山" />
+  <city fcode="19" code="04" name="吴忠" />
+
+  <city fcode="20" code="01" name="西宁" />
+  <city fcode="20" code="02" name="果洛藏族自治州" />
+  <city fcode="20" code="03" name="海北藏族自治州" />
+  <city fcode="20" code="04" name="海南藏族自治州" />
+  <city fcode="20" code="05" name="海西蒙古族藏族自治州" />
+  <city fcode="20" code="06" name="黄南藏族自治州" />
+  <city fcode="20" code="07" name="玉树藏族自治州" />
+
+  <city fcode="21" code="01" name="济南" />
+  <city fcode="21" code="02" name="滨州" />
+  <city fcode="21" code="03" name="德州" />
+  <city fcode="21" code="04" name="东营" />
+  <city fcode="21" code="05" name="菏泽" />
+  <city fcode="21" code="06" name="济宁" />
+  <city fcode="21" code="07" name="莱芜" />
+  <city fcode="21" code="08" name="聊城" />
+  <city fcode="21" code="09" name="临沂" />
+  <city fcode="21" code="10" name="青岛" />
+  <city fcode="21" code="11" name="日照" />
+  <city fcode="21" code="12" name="泰安" />
+  <city fcode="21" code="13" name="威海" />
+  <city fcode="21" code="14" name="潍坊" />
+  <city fcode="21" code="15" name="烟台" />
+  <city fcode="21" code="16" name="枣庄" />
+  <city fcode="21" code="17" name="淄博" />
+
+  <city fcode="22" code="01" name="太原" />
+  <city fcode="22" code="02" name="长治" />
+  <city fcode="22" code="03" name="大同" />
+  <city fcode="22" code="04" name="晋城" />
+  <city fcode="22" code="05" name="晋中" />
+  <city fcode="22" code="06" name="临汾" />
+  <city fcode="22" code="07" name="吕梁" />
+  <city fcode="22" code="08" name="朔州" />
+  <city fcode="22" code="09" name="忻州" />
+  <city fcode="22" code="10" name="阳泉" />
+  <city fcode="22" code="11" name="运城" />
+
+  <city fcode="23" code="01" name="西安" />
+  <city fcode="23" code="02" name="安康" />
+  <city fcode="23" code="03" name="宝鸡" />
+  <city fcode="23" code="04" name="汉中" />
+  <city fcode="23" code="05" name="商洛" />
+  <city fcode="23" code="06" name="铜川" />
+  <city fcode="23" code="07" name="渭南" />
+  <city fcode="23" code="08" name="咸阳" />
+  <city fcode="23" code="09" name="延安" />
+  <city fcode="23" code="10" name="榆林" />
+
+  <city fcode="24" code="01" name="上海" />
+  
+  <city fcode="25" code="01" name="成都" />
+  <city fcode="25" code="02" name="阿坝藏族羌族自治州" />
+  <city fcode="25" code="03" name="巴中" />
+  <city fcode="25" code="04" name="达州" />
+  <city fcode="25" code="05" name="德阳" />
+  <city fcode="25" code="06" name="甘孜藏族自治州" />
+  <city fcode="25" code="07" name="广安" />
+  <city fcode="25" code="08" name="广元" />
+  <city fcode="25" code="09" name="乐山" />
+  <city fcode="25" code="10" name="凉山彝族自治州" />
+  <city fcode="25" code="11" name="眉山" />
+  <city fcode="25" code="12" name="绵阳" />
+  <city fcode="25" code="13" name="南充" />
+  <city fcode="25" code="14" name="内江" />
+  <city fcode="25" code="15" name="攀枝花" />
+  <city fcode="25" code="16" name="遂宁" />
+  <city fcode="25" code="17" name="雅安" />
+  <city fcode="25" code="18" name="宜宾" />
+  <city fcode="25" code="19" name="资阳" />
+  <city fcode="25" code="20" name="自贡" />
+  <city fcode="25" code="21" name="泸州" />
+
+  <city fcode="26" code="01" name="天津" />
+  
+  <city fcode="27" code="01" name="拉萨" />
+  <city fcode="27" code="02" name="阿里" />
+  <city fcode="27" code="03" name="昌都" />
+  <city fcode="27" code="04" name="林芝" />
+  <city fcode="27" code="05" name="那曲" />
+  <city fcode="27" code="06" name="日喀则" />
+  <city fcode="27" code="07" name="山南" />
+
+  <city fcode="28" code="01" name="乌鲁木齐" />
+  <city fcode="28" code="02" name="阿克苏" />
+  <city fcode="28" code="03" name="阿拉尔" />
+  <city fcode="28" code="04" name="巴音郭楞蒙古自治州" />
+  <city fcode="28" code="05" name="博尔塔拉蒙古自治州" />
+  <city fcode="28" code="06" name="昌吉回族自治州" />
+  <city fcode="28" code="07" name="哈密" />
+  <city fcode="28" code="08" name="和田" />
+  <city fcode="28" code="09" name="喀什" />
+  <city fcode="28" code="10" name="克拉玛依" />
+  <city fcode="28" code="11" name="克孜勒苏柯尔克孜自治州" />
+  <city fcode="28" code="12" name="石河子" />
+  <city fcode="28" code="13" name="图木舒克" />
+  <city fcode="28" code="14" name="吐鲁番" />
+  <city fcode="28" code="15" name="五家渠" />
+  <city fcode="28" code="16" name="伊犁哈萨克自治州" />
+
+  <city fcode="29" code="01" name="昆明" />
+  <city fcode="29" code="02" name="保山" />
+  <city fcode="29" code="03" name="楚雄彝族自治州" />
+  <city fcode="29" code="04" name="大理白族自治州" />
+  <city fcode="29" code="05" name="德宏傣族景颇族自治州" />
+  <city fcode="29" code="06" name="迪庆藏族自治州" />
+  <city fcode="29" code="07" name="红河哈尼族彝族自治州" />
+  <city fcode="29" code="08" name="丽江" />
+  <city fcode="29" code="09" name="临沧" />
+  <city fcode="29" code="10" name="怒江傈傈族自治州" />
+  <city fcode="29" code="11" name="曲靖" />
+  <city fcode="29" code="12" name="思茅" />
+  <city fcode="29" code="13" name="文山壮族苗族自治州" />
+  <city fcode="29" code="14" name="西双版纳傣族自治州" />
+  <city fcode="29" code="15" name="玉溪" />
+  <city fcode="29" code="16" name="昭通" />
+
+  <city fcode="30" code="01" name="杭州" />
+  <city fcode="30" code="02" name="湖州" />
+  <city fcode="30" code="03" name="嘉兴" />
+  <city fcode="30" code="04" name="金华" />
+  <city fcode="30" code="05" name="丽水" />
+  <city fcode="30" code="06" name="宁波" />
+  <city fcode="30" code="07" name="绍兴" />
+  <city fcode="30" code="08" name="台州" />
+  <city fcode="30" code="09" name="温州" />
+  <city fcode="30" code="10" name="舟山" />
+  <city fcode="30" code="11" name="衢州" />
+
+  <city fcode="31" code="01" name="重庆" />
+     
+  <county fcode="01" ccode="01" code="01" name="东城区" />
+  <county fcode="01" ccode="01" code="02" name="西城区" />
+  <county fcode="01" ccode="01" code="03" name="宣武区" />
+  <county fcode="01" ccode="01" code="04" name="崇文区" />
+  <county fcode="01" ccode="01" code="05" name="近郊区" /> 
+  <county fcode="16" ccode="01" code="01" name="新建县" />
+  <county fcode="16" ccode="01" code="02" name="南昌县" />
+  <county fcode="16" ccode="01" code="03" name="进贤县" />
+  <county fcode="16" ccode="01" code="04" name="安义县" />
+  <county fcode="16" ccode="01" code="05" name="招贤镇" />
+  <county fcode="16" ccode="01" code="06" name="长堎镇" />
+
+  <District pcode="23" ccode="01" dcode="01" name="东郊" />
+  <District pcode="23" ccode="01" dcode="02" name="西郊" />
+  <District pcode="23" ccode="01" dcode="03" name="南郊" />
+  <District pcode="23" ccode="01" dcode="04" name="北郊" />
+	
+  <School pcode="23" ccode="01" dcode="01" scode="01" name="西北军医大学" />
+  <School pcode="23" ccode="01" dcode="01" scode="02" name="西安工程科技学院" />
+  <School pcode="23" ccode="01" dcode="01" scode="03" name="西安市卫生学校" />
+  <School pcode="23" ccode="01" dcode="01" scode="04" name="西安工业大学北方信息工程学院" />
+  <School pcode="23" ccode="01" dcode="02" scode="01" name="西安交大" />
+  <School pcode="23" ccode="01" dcode="03" scode="01" name="西北大学" />
+  <School pcode="23" ccode="01" dcode="03" scode="02" name="西安市卫生学校" />
+  <School pcode="23" ccode="01" dcode="03" scode="03" name="西安科技大学家" />
+  <School pcode="23" ccode="01" dcode="03" scode="04" name="西安理工大学" />
+  <School pcode="23" ccode="01" dcode="04" scode="01" name="西安医学院" />
+  <School pcode="23" ccode="01" dcode="04" scode="02" name="陕西科技大学" />
+  <School pcode="23" ccode="01" dcode="04" scode="03" name="西北工业大学" />
+  <School pcode="23" ccode="01" dcode="04" scode="04" name="长安大学" />
+  <School pcode="23" ccode="01" dcode="04" scode="05" name="西安交通大学城市学院" />
+
+</china>

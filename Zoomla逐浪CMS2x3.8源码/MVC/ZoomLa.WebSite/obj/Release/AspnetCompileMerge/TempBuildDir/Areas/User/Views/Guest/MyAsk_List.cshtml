@@ -1,0 +1,38 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 3;
+    Model.url = "MyApproval_Data";
+    DataTable dt = new DataTable();
+}
+<div class="us_seta">
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <td style="width: 70%;">我的提问</td>
+            <td style="width: 30%;">
+                <select id="switch" onchange="switchChange(this)" class="form-control">
+                    <option value="0">全部提问</option>
+                    <option value="2">已解决提问</option>
+                    <option value="1">待解决提问</option>
+                </select>
+            </td>
+        </tr>
+        @foreach(DataRow dr in dt.Rows)
+        {
+           <tr>
+                    <td style="width: 50%; padding-left: 10px;">
+                        <a href='/Guest/Ask/Interactive?ID=@dr["ID"]' target="_blank">@dr["Qcontent"]</a><br />
+                        <label  id="count"></label>
+                        个回答 | @DateHelper.ToDate(dr["AddTime"],"yyyy-MM-dd")
+                    </td>
+                    <td style="width: 30%; padding-left: 10px;">
+                        <label  id="lbstatus"></label>
+                    </td>
+                    
+                    <td style="width:30%; padding-left:10px;"><label id="txtview" ><button id="lbupdate" >处理</button></label>  </td>
+                </tr>  
+        }
+        @Html.Partial("_page",Model)
+    </table>
+</div>

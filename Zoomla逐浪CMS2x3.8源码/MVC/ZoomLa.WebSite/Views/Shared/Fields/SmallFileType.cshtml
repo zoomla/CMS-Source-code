@@ -1,0 +1,43 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    string value = Model.GetValue();
+    string Name = Model.fieldMod.FieldName;
+    FieldModel fieldMod = new FieldModel(Model.fieldMod.Content);
+    JObject obj = new JObject();
+    obj.Add(new JProperty("nodeid", Model.NodeID));
+    obj.Add(new JProperty("inputid", Name));
+    obj.Add(new JProperty("uploaddir", Model.UploadDir));
+}
+<div>
+@if (string.IsNullOrEmpty(value))
+{
+    <input type="text" class="form-control m715-50" name="txt_@Name" id="txt_@Name" size="35">@Model.fieldMod.Description
+    if (fieldMod.GetValue("SelUpfile") == "1")
+    {
+        <a href='javascript:;' onclick="g({'name':'@Name'})" title='在线选取' class='btn btn-info'><i class='fa fa-picture-o'></i> 在线选取</a>
+    }
+    if (fieldMod.GetValInt("isbigfile") == 1)
+    {<div><button type='button' class='btn btn-primary' onclick='UpFileDiag(@JsonConvert.SerializeObject(obj))'>点击上传</button></div>}
+    else
+    {<iframe id="Upload_@Name" src="/Common/FileUpload.aspx?Showtype=0&ModelID=@Model.ModelID&FieldName=@Name&NodeId=@Model.NodeID" marginheight="0" marginwidth="0" frameborder="0" width="100%" height="45" scrolling="no"></iframe>}
+}
+else
+{
+    <input type="text" class="form-control m715-50" style="float:left" name="txt_@Name" id="txt_@Name" size="35" value="@value">@Model.fieldMod.Description
+    <a href="@(Model.UploadDir+value)" target="_blank" style="color:#fff;" class="download">下载</a>
+    if (fieldMod.GetValue("SelUpfile") == "1")
+    {
+        <a href='javascript:;' onclick="SelectUppic({'name':'@Name'})" title='在线选取' class='btn btn-info'><i class='fa fa-picture-o'></i> 在线选取</a>
+    }
+    <div>
+        <iframe id="Upload_@Name" src="/Common/FileUpload.aspx?Showtype=0&ModelID=@Model.ModelID&FieldName=@Name&NodeId=@Model.NodeID" marginheight="0" marginwidth="0" frameborder="0" width="100%" height="45" scrolling="no"></iframe>
+    </div>
+}
+</div>

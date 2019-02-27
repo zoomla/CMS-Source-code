@@ -1,0 +1,8 @@
+﻿﻿操作人：(用户名:,管理员名:,IP:)
+时间：(2016/11/16 16:15:58),操作：(exception),来源：()
+详情：(更新管理员最后登录时间失败,原因:Message:对象名 'ZL_Manager' 无效。,SQL:UPDATE ZL_Manager SET LastLogoutTime =@value  WHERE AdminName=@adminName,SP:value|2016/11/16 16:05:58,adminName|admin,,admin)
+/*-----------------------------------------------------------------------------------*/ 
+操作人：(用户名:,管理员名:,IP:)
+时间：(2016/11/16 16:15:58),操作：(exception),来源：()
+详情：(TaskCenterMessage:对象名 'ZL_Content_ScheTask' 无效。,SQL:SELECT * FROM ZL_Content_ScheTask A  WHERE Status=0,SP:)
+/*-----------------------------------------------------------------------------------*/ 

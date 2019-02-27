@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "NodeTree";
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+}
+@section head{
+    <title>黄页节点</title>
+}
+@section content{
+    <div id="nodeNav" style="padding: 0 0 0 0;width:95%;">
+        <div>
+            <div class="tvNavDiv">
+                <div class="left_ul">
+                    @MvcHtmlString.Create(ViewBag.NodeHtml)
+                </div>
+            </div>
+            <span style="color: green;" id="remind" />
+        </div>
+    </div>
+}
+@section script{
+
+}

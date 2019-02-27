@@ -1,0 +1,80 @@
+﻿@using System.Data
+@functions{
+    public MvcHtmlString HasCheck(DataRow dr)
+    {
+        string html = Convert.ToInt32(dr["ChildCount"]) > 0 ? "<span class='fa fa-chevron-right'></span>" : "";
+        return MvcHtmlString.Create(html);
+    }
+}
+@{
+    DataTable dt=ViewBag.dt;
+    Layout = "~/Views/Shared/_empty.cshtml";
+}
+@section head{
+<link type="text/css" href="/App_Themes/Guest.css" rel="stylesheet"/>
+<title>选择分类</title>
+}
+@section content{
+<div id="main">
+<div class="list-group catediv" id="catediv1">
+    @foreach (DataRow dr in dt.Rows)
+    {
+        <a href="javascript:;" class="list-group-item" data-id="@dr["GradeID"]">
+            @dr["GradeName"]
+        @HasCheck(dr)
+    </a>
+    }
+</div>
+<div class="list-group catediv" id="catediv2"></div>
+<div class="list-group catediv" id="catediv3"></div>
+</div>
+<input type="hidden" ID="Cate_Hid" name="Cate_Hid" value="@ViewBag.json"/>
+<input type="hidden" ID="txtBtype_Hid" name="txtBtype_Hid"/>
+}
+@section script{
+<style type="text/css">
+.catediv { width:200px;float:left;margin-right:10px;}
+</style>
+<script>
+$(function () {
+    $("#catediv1 a").click(function () {
+        var id = $(this).data("id");
+        $("#catediv2").html(""); $("#catediv3").html("");
+        SelCate(id, 2);
+    });
+    CateBind();
+})
+function CateBind() {
+    $(".catediv a").click(function () {
+        $(".list-group-item").removeClass("active");
+        $(this).closest(".list-group-item").addClass("active");
+        //var id = $(this).data("id");
+        //$("#txtBtype_Hid").val(id);
+        //$("#txtBtype").val($(this).text());
+    })
+}
+function SelCate(gid, layer) {
+    var $obj = $("#catediv" + layer);
+    var liTlp = " <a href='javascript:;' class='list-group-item' data-id='@@GradeID'>@@GradeName"
+            + "@@ChildCount</a>";
+    var childTlp = "<span class='fa fa-chevron-right'</span>";
+    $obj.html("");
+    var gradelist = JSON.parse($("#Cate_Hid").val());
+    for (var i = 0; i < gradelist.length; i++) {
+        if (gradelist[i].ParentID == gid) {
+            var tlp = liTlp.replace("@@GradeID", gradelist[i].GradeID).replace("@@GradeName", gradelist[i].GradeName);
+            tlp = tlp.replace("@@ChildCount", gradelist[i].ChildCount > 0 ? childTlp : "");
+            $obj.append(tlp);
+        }
+    }
+    if (layer == 2) {
+        $("#catediv2 a").click(function () {
+            var id = $(this).data("id");
+            $("#catediv3").html("");
+            SelCate(id, 3);
+        });
+    }
+    CateBind();
+}
+</script>
+}

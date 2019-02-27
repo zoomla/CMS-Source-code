@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Areas/Mis/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>引用备忘</title>
+<link href="/App_Themes/User.css" type="text/css" rel="stylesheet" />
+<script>
+function ProTypes(obj) { 
+document.getElementById("ProID").value = obj.value;
+}
+function Cquote() {
+parent.document.getElementById("QuoteContent").style.display = "none";
+}
+</script>
+}
+@section content{
+<div class="Qutote_Tit">
+    <span class="rights"><a href="javascript:void(0)" onclick="Cquote()">关闭</a></span>
+@ViewBag.QTitle
+</div>
+<div class="Qutote_li">
+<ul> 
+</ul>
+<div class="bot_bor"><input type="button" id="BtnCommit" value="引用" class="i_bottom" /></div>
+</div>
+<input type="hidden" ID="ProID" name="ProID" />
+<input type="hidden" ID="HiddenField1" name="HiddenField1"/>
+}
+@section script{
+}

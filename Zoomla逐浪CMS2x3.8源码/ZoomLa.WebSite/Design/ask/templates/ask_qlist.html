@@ -1,0 +1,45 @@
+﻿<!--问卷所拥有的问题列表-->
+<ion-view>
+<ion-header-bar class="bar-balanced bar bar-header visible-xs" align-title="center">
+<a href="#/tab/ask_my" class="button" nav-direction="back"><i class="fa fa-align-justify"></i></a>
+<div class="title title-center header-item" ng-bind="askMod.Title"></div>
+<button type="button" ng-click="toview()" class="button"><i class="fa fa-eye"></i></button>
+</ion-header-bar>
+<ion-content>
+<div class="design_askbanner hidden-xs"><span>{{askMod.Title}}</span></div>
+<div class="container padding0-xs lgmargin_top10">
+<ion-list can-swipe="true">
+<a class="item" href="#/tab/ask_edit/{{askMod.ID}}">
+<span ng-bind="getRemind()"></span>
+<span class="item-note"><i class="fa fa-edit"></i> 编辑</span>
+</a>
+<ion-item ng-repeat="item in qlist|orderBy:'OrderID' track by $index">
+<div class="pull-right">
+<button type="button" class="btn btn-info" ng-click="move('pre',item)"><i class="icon ion-android-arrow-up"></i></button>
+<button type="button" class="btn btn-info" ng-click="move('next',item);"><i class="icon ion-android-arrow-down"></i></button>
+</div>
+<h2 ng-bind="item.QTitle"></h2>
+<span style="color:#999;font-size:12px;" ng-bind="getType(item.QType)"></span>
+<ion-option-button class="button-positive icon ion-edit" ng-click="toedit(item);"></ion-option-button>
+<!--<ion-option-button class="button-calm icon ion-android-arrow-up" ng-click="move('pre',item)" style="border-right: 1px solid #08a2ce; "></ion-option-button>
+<ion-option-button class="button-calm icon ion-android-arrow-down" ng-click="move('next',item);"></ion-option-button>-->
+<ion-option-button class="button-assertive icon ion-trash-a" ng-click="del(item);"></ion-option-button>
+</ion-item>
+</ion-list>
+<div class="pcask_addbtn">
+<button type="button" class="button button-balanced button-block" ng-click="selQType();"><i class="fa fa-plus"></i> 添加新题</button>
+</div>
+</div>
+<div class="h44"></div>
+</ion-content>
+<div class="ask_tips">
+<span>创建于{{askMod.CDate | date:"yyyy-MM-dd HH:mm"}} 将于{{askMod.EndDate | date:"yyyy-MM-dd HH:mm"}}到期</span>
+<button type="button" class="btn btn-info btn-xs">停用</button>
+<button type="button" class="btn btn-danger btn-xs">删除</button>
+</div>
+<style>
+.item-complex .item-content, .item-radio .item-content { padding-right:16px;}
+.popup-container .popup {width: 95%;}
+.popup-container .popup-buttons {display: none;}
+</style>
+</ion-view>

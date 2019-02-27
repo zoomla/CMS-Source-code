@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SendResume.aspx.cs" Inherits="ZoomLa.WebSite.Jobs.SendResume" EnableViewStateMac="false" %>

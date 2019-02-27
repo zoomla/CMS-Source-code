@@ -1,0 +1,31 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>互动页面</title>
+}
+@section content{
+    <div id="pageflag" data-nav="content" data-ban="cnt"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li><a href="ManagePub">互动管理</a></li>
+            <li class="active">我发布的互动</li>
+        </ol>
+    </div>
+    <div class="container">
+        <div>
+            <input type="text" id="skey" name="skey" class="form-control text_300 mvcparam" />
+            <button id="btn_search" class="btn btn-primary" onclick="mvcpage.load();">搜索</button>
+        </div>
+        @Html.Partial("Pub_List", Model)
+    </div>
+
+}
+@section script{
+
+}

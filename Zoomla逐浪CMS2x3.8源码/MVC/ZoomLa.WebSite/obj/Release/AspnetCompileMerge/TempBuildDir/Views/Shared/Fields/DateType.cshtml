@@ -1,0 +1,15 @@
+﻿@using System.Text
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Components
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    // 日期时间,0:默认空,1:自抽取
+    string value = Model.GetValue();
+    string Name = Model.fieldMod.FieldName;
+    FieldModel model = new FieldModel(Model.fieldMod.Content);
+}
+<div>
+    <input type="text" class="form-control m715-50" name="txt_@Name" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' });" value="@value">@Model.fieldMod.Description
+</div>

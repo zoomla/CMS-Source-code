@@ -1,0 +1,26 @@
+﻿@using System.Data
+@using ZoomLa.BLL.Helper
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    DataTable dt = new DataTable();
+    Model.cols = 2;
+    Model.url = "BikeDraft_Data";
+    }
+<div class="us_seta">
+    <table class="table table-bordered table-striped table-hover">
+        <tr class="title">
+            <td>词条</td>
+            <td>添加时间</td>
+        </tr>
+        @foreach (DataRow dr in dt.Rows)
+        {
+            <tr>
+                <td style="width: 70%; line-height: 22px; padding-left: 10px;"><a href='/Baike/Details?soure=manager&tittle=@Server.UrlEncode(dr["Title"].ToString())' target="_blank">@dr["Title"]</a></td>
+                <td style="width: 26%; padding-left: 10px;"><label id="lbstatus">@DateHelper.ToDate(dr["EditTime"], "yyyy-MM-dd")</label></td>
+
+            </tr>
+        }
+        @Html.Partial("_page", Model)
+    </table>
+</div>
+

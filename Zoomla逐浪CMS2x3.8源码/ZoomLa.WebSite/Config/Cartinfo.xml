@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CartConfig>
+  <Cartinfo>
+    <message1>商品数量大于最高购买数量，系统自动将数量调整到</message1>
+    <message2>商品数量小于最低购买数量，系统自动将数量调整到</message2>
+	<message3>系统消息：</message3>
+	<message4>加入购物车失败！缺货!系统不允许缺货时购买!</message4>
+	<message5>加入购物车成功!</message5>
+	<message6>批发加入购物车成功!</message6>
+	<message7>加入购物车失败!系统不允许单独购买!或者购买数量少于1件!</message7>
+	<message8>加入购物车成功!</message8>
+	<message9>批发加入购物车成功!</message9>
+	<message10>系统消息：系统不允许单独购买，而您购买商品的数量未达到此商品批发的最低数量</message10>
+	<message11>此商品已经停止了销售!</message11>
+	<message12>商品信息查询错误 或者 无购物车信息! 请返回!</message12>
+	<message13>首页</message13>
+	<message14>上一页</message14>
+	<message15>下一页</message15>
+	<message16>尾页</message16>
+	<message17>删除购物车内商品ID:</message17>
+	<message18>修改购物车内商品ID:</message18>
+	<message19>成功!</message19>
+	<message20>特价</message20>
+	<message21>正常</message21>
+	<message22>提交成功，您的订单ID:</message22>
+	<message23>提交失败,原因:购物车内无任何商品!</message23>
+	<message24>提交失败,购物车数据信息不完整!</message24>
+	<message25>提交失败!购物车内包含缺货商品：</message25>
+	<message26>!无法提交订单!</message26>
+	<message27>无购物车信息!请把商品加入购物车!</message27>
+	<message28>您的订单号码是：</message28>
+	<message29>恭喜,您的订单已经提交成功,我们将安排相关产品寄送与联系事宜</message29>
+	<message30>自选商品数量不符!</message30>
+	<message31>自选商品中的商品有误!该商品不能捆绑此礼品包中!</message31>
+	<message32>匿名</message32>
+	<message33>积分商品</message33>
+  </Cartinfo>
+</CartConfig>

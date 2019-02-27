@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DelJobsinfos.aspx.cs" Inherits="manage_User_DelJobsinfos" EnableViewStateMac="false" MasterPageFile="~/Manage/I/Default.master"%>

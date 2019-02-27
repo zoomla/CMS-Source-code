@@ -1,0 +1,41 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Model.Shop
+@using ZoomLa.BLL.Helper
+@using ZoomLa.BLL.Shop
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    public string GetToPay(DataRow dr)
+    {
+        if (Convert.ToInt32(dr["Paymentstatus"])==(int)M_OrderList.PayEnum.NoPay)
+        {
+            return "<a href='/PayOnline/Orderpay.aspx?OrderCode=" + dr["OrderNo"] + "' target='_blank' title='前往完成付款'>前往付款</a>";
+        }
+        return "";
+    }
+}
+@{
+    Model.cols = 8;
+    Model.url = "Trip_Data";
+}
+<div id="EGV">
+    <table class="table table-bordered table-striped">
+        <tr><td></td><td>订单编号</td><td>客户名称</td><td>出发时间</td><td>金额</td><td>订单状态</td><td>付款状态</td><td>操作</td></tr>
+        @foreach (DataRow dr in Model.dt.Rows)
+        {
+            <tr>
+                <td class="td_s"><input type="checkbox" name="idchk" value="@dr["id"]" /></td>
+                <td class="td_s"><a href="OrderProList?OrderNo=@dr["orderno"]">@dr["orderno"]</a></td>
+                <td>@dr["Reuser"]</td>
+                <td>@DateHelper.ToDate(dr["AddTime"])</td>
+                <td>@Convert.ToDouble(dr["Ordersamount"]).ToString("f2")</td>
+                <td>@MvcHtmlString.Create(OrderHelper.GetOrderStatus(Convert.ToInt32(dr["OrderStatus"])))</td>
+                <td>@MvcHtmlString.Create(OrderHelper.GetPayStatus(Convert.ToInt32(dr["PaymentStatus"])))</td>
+                <td>
+                    @MvcHtmlString.Create(GetToPay(dr))
+                </td>
+            </tr>
+        }
+        @Html.Partial("_page", Model)
+    </table>
+</div>

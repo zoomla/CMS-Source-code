@@ -1,0 +1,5 @@
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.SQLDAL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.WebSite\Bin\ZoomLa.SQLDAL.pdb
+E:\Code\ZoomlaCMS2\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.csprojResolveAssemblyReference.cache
+E:\Code\ZoomlaCMS2\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.dll
+E:\Code\ZoomlaCMS2\ZoomLa.SQLDAL\obj\Debug\ZoomLa.SQLDAL.pdb

@@ -1,0 +1,372 @@
+﻿@using System.Data
+@using ZoomLa.Components
+@model System.Data.DataTable
+@{
+    Layout = "~/Views/Shared/_site.cshtml";
+    string step = ViewBag.step;
+    string prompt = "请输入需要查询的域名，回车换行";
+}
+@functions{
+    public string GetCheck(object o, object p)
+    {
+        string success = "checked='checked'";
+        string failed = "disabled='disabled'";
+        string result = failed;
+        if (p == null || string.IsNullOrEmpty(p.ToString()))//未定价格，不允许勾选
+        { }
+        else if (o.ToString().Equals("100"))
+            result = success;
+        return result;
+    }
+    public string GetRegAble(object o)
+    {
+        string result = "";
+        if (o.ToString().Equals("100"))
+            result = "可以注册";
+        else if (o.ToString().Equals("0"))
+            result = "(无法注册)";
+        else result = "(查询失败：请检测API配置是否正确)";
+        return result;
+    }
+    public string GetIsOK(object o)
+    {
+        string result = "<img src='/App_Themes/AdminDefaultTheme/PromptSkin/images/err.gif' title='信息不完整' /> ";
+        if (Convert.ToBoolean(o))
+            result = "<img src='/App_Themes/AdminDefaultTheme/PromptSkin/images/right.gif' title='信息完整'/>";
+        return result;
+    }
+}
+@section head{
+    <title>域名注册</title>
+    <link rel="stylesheet" href="/Plugins/Domain/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/Plugins/Domain/css/css.css" type="text/css" />
+    <script type="text/javascript" src="/Plugins/Domain/Site.js"></script>
+    <style type="text/css">
+        .dpclass { width: 200px; }
+        .allChk { margin-left: 2px; position: relative; bottom: 2px; }
+        .leftnone { margin-left: 0px; }
+        body, button, input, select, textarea { font: 14px/1.6 Arial,"Microsoft YaHei"; color: #444; }
+    </style>
+}
+@section content{
+    <div id="site_main">
+        @switch (step)
+        {
+            case "one":
+                {
+                    <div id="stepOneDiv">
+                        <div class="domainContont">
+                            <div class="cartSteps">
+                                <dl>
+                                    <dd class="stepLeft_hover"></dd>
+                                    <dd class="stepOne_hover">1.查询域名并加入购物车<span class="step_one"></span></dd>
+                                    <dd class="stepTwo">2.购物车<span class="step_one"></span></dd>
+                                    <dd class="stepThree">开始支付</dd>
+                                    <dd class="stepRight"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <form method="post" action="TwoStep" onsubmit="return checkTwoStep();">
+                            <div class="domainlist">
+                                <table style="width:540px;" border="0" class="allDomain">
+                                    <tbody>
+                                        @foreach (DataRow dr in Model.Rows)
+                                        {
+                                        <tr>
+                                            <td style="width:30px;">
+                                                <input type="checkbox" name="domainChk" @GetCheck(dr["isRegAble"], dr["DomPrice"]) class="cb" value='@dr["domName"]' />
+                                            </td>
+                                            <td style="width:160px;"><span class="domainResult">@dr["DomName"]</span></td>
+                                            <td style="width:160px;"><span class="domainResult">@dr["DomPrice"]</span></td>
+                                            <td style="width:200px;">@GetRegAble(dr["isRegAble"])</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <table style="width:100%;" border="0" class="allDomain">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3" align="center">
+                                                <input type="submit" class="site_button" value="加入购物车" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                }
+                break;
+            case "two":
+                {
+                    <div id="stepTwoDiv">
+                        <div class="cartSteps">
+                            <dl>
+                                <dd class="stepLeft"></dd>
+                                <dd class="stepOne">1.查询域名并加入购物车<span></span></dd>
+                                <dd class="stepTwo hover">2.购物车结算<span></span></dd>
+                                <dd class="stepThree">开始支付</dd>
+                                <dd class="stepRight"></dd>
+                            </dl>
+                        </div>
+                        <form method="post" action="ThreeStep" onsubmit="return checkThreeStep();">
+                            <table style="width:540px;" border="0" id="twoStepTable">
+                                <tr><td></td><td>域名</td><td>年限</td><td>单价</td><td>金额</td><td>操作</td></tr>
+                                <tbody>
+                                    @foreach (DataRow dr in Model.Rows)
+                                    {
+                                        <tr>
+                                            <td><input type="checkbox" name="twoStepChk" value="@dr["DomName"]" checked="checked"></td>
+                                            <td>@dr["DomName"]</td>
+                                            <td>
+                                                <select name="twoYearSelect" onchange="UpdateMoney(this);">
+                                                    <option value="1"> 1年</option>
+                                                    <option value="2"> 2年</option>
+                                                    <option value="3"> 3年</option>
+                                                    <option value="4"> 4年</option>
+                                                    <option value="5"> 5年</option>
+                                                </select>
+                                                <input type="hidden" name="twoHid" value="@dr["DomName"]" />
+                                            </td>
+                                            <td name="unitPrice">@dr["DomPrice"]</td>
+                                            <td name="totalPrice">@dr["Money"]</td>
+                                            <td>
+                                                <a href="/Plugins/Domain/CartEdit.aspx?Index=@dr["Index"]" target="_blank" title="编辑"><img src="/Images/ModelIcon/Edit.gif" /></a>
+                                                <a href="javascript:;" onclick="delTr(this);" title="删除"><img src="/App_Themes/AdminDefaultTheme/images/del.png" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <table style="width:100%;" border="0" class="allDomain">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3" align="center">
+                                            <input type="button" class="site_button" value="结算" />
+                                            <input type="button" class="site_button" onclick="location.href='TwoStep?action=clear'" value="清空购物车" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="cart_info">
+                                <div class="head"><p>我的购物车</p><span class="cart-btn"><a href="https://www.ename.net/cart/deleteall" onclick="return confirmDelCart()">清空购物车</a></span></div>
+                                <div class="left">
+                                    <div>
+                                        <p>
+                                            可用余额：<span>￥</span>@ViewBag.purse<span class="recharge">
+                                                <a href="/PayOnline/OrderPay.aspx?Money=200" target="_blank">充值</a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p>本次总消费：<span>￥</span><span id="allMoney">@ViewBag.price</span></p>
+                                        <p>本次需支付：<span>￥</span><span class="resultMoney">@ViewBag.price</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                }
+                break;
+            case "three":
+                {
+                    <div id="stepFourDiv" class="allDomain">
+                        <div class="cartSteps">
+                            <dl>
+                                <dd class="stepLeft"></dd>
+                                <dd class="stepTwo" style="width:33%;">1.查询域名并加入购物车<span></span></dd>
+                                <dd class="stepTwo">2.购物车结算<span class="step_one"></span></dd>
+                                <dd class="stepThree hover">开始支付<span></span></dd>
+                                <dd class="stepRight"></dd>
+                            </dl>
+                            <form method="post" action="FourStep">
+                                <table style="width:540px;" border="0">
+                                    <tr><td>注册信息</td><td>域名</td><td>年限</td><td>总计</td><td>操作</td></tr>
+                                    <tbody>
+                                        @foreach (DataRow dr in Model.Rows)
+                                        {
+                                            <tr>
+                                                <td>@MvcHtmlString.Create(GetIsOK(dr["Isok"]))</td><!--用于注册的信息是否完整-->
+                                                <td>@dr["DomName"]<input type="hidden" name="fourthHid" value="@dr["DomName"]" /></td>
+                                                <td>@dr["Year"]</td>
+                                                <td>@dr["Money"]</td>
+                                                <td>
+                                                    <a href="javascript:;" onclick="editFrame(@dr["Index"]);" title="编辑"><img src="/Images/ModelIcon/Edit.gif" /></a>
+                                                    <a href="javascript:;" onclick="delTr(this);" title="删除"><img src="/App_Themes/AdminDefaultTheme/images/del.png" /></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <table style="width:100%;" border="0" class="allDomain">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3" align="center">
+                                                <input type="submit" class="site_button" value="确定购买" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                            <div id="lastEditDiv">
+                                <iframe id="lastEditFrame" height="1000" src="/Plugins/Domain/CartEdit.aspx?Index=0" style="width:98%;" frameborder=0 scrolling=no></iframe>
+                            </div>
+                        </div>
+                    </div>
+                }
+                break;
+            case "reg":
+                {
+                    <form method="post" action="OneStep" onsubmit="return checkOneStep();">
+                        <div id="regDiv" class="domain_register">
+                            <div class="domain_left">www.</div>
+                            <div class="domain_middle">
+                                <textarea name="domainBody" id="Textarea1" class="medium small domain_textarea" style="color:#DDD;" onfocus="empty(this);" onblur="fill(this);">@prompt</textarea>
+                                <br />
+                                <input type="submit" value="查询" class="btn btn-primary" />
+                            </div>
+                            <div class="domain_right">
+                                <div class="tab">
+                                    <div class="tab_menu">
+                                        <ul class="r_tit">
+                                            <li class="selected">
+                                                <a href="javascript:void(0)">
+                                                    域名
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <p class="checkall"><span id="Span1"> &nbsp;</span></p>
+                                    </div>
+                                    <div class="tab_box">
+                                        <div id="Div1" style="display: block;">
+                                            <p class="checkall0 allcheck"><label for="allChk">全选</label><input type="checkbox" id="Checkbox1" class="allChk" onclick="selectAllByName(this, 'ext');" /></p>
+                                            <ul>@MvcHtmlString.Create(ViewBag.strli)</ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                }
+                break;
+        }
+    </div><br />
+    <input type="hidden" id="tempID" />
+    <script type="text/javascript">
+        $(function(){
+            var step = '@step';
+            if(step=='one'){
+                setDefaultCheck('@StationGroup.DefaultCheck');
+            }
+        });
+        function checkOneStep(){
+            var domainBody = $('[name="domainBody"]').val();
+            var ext = $('[name="ext"]').val();
+            var ext2 = $('[name="ext2"]').val();
+            if (domainBody == '@prompt') {
+                alert('请先输入域名');
+                setDefaultCheck(ext+','+ext2);
+                return false;
+            }
+            else if((ext+ext2)==''){
+                alert('请选定需要查询的后缀名!');
+                return false;
+            }
+            return true;
+        }
+        function checkTwoStep(){
+            var domainChk = $('[name="domainChk"]').val();
+            if(domainChk==''){ alert("未选定需要购买的域名!"); return false; }
+            return true;
+        }
+        function checkThreeStep(){
+            var twoStepChk = $('[name="twoStepChk"]').val();
+            if(twoStepChk==''){ alert("未选定需要购买的域名!"); return false; }
+            return true;
+        }
+        function editFrame(index)
+        {
+            //$("#lastEditDiv").show();
+            $("#lastEditFrame").attr("src", "/Plugins/Domain/CartEdit.aspx?Index="+index);
+        }
+        //-----------------第二步
+        function UpdateMoney(obj) {
+            ye = $(obj).select().val();//年限
+            up = $(obj).parent().siblings("[name='unitPrice']").text();//单价
+            tp = up * ye;
+            $(obj).parent().siblings("[name='totalPrice']").text(tp + ".00");
+            //更新本行的价格,再汇总所有的money更新总计
+            TotalMoney();
+        }
+        //统计所有金额
+        function TotalMoney() {
+            arr = $("#twoStepTable tr>td[name='totalPrice']");
+            total = 0;
+            for (var i = 0; i <arr.length; i++) {
+                total += parseInt(arr[i].innerText);
+            }
+            $(".domainResult").text(total);
+            $(".domainResult").text(total);
+        }
+        function disDiv(id) {
+            $("#" + id).show();
+        }
+        function getTempValue(obj)
+        {
+            a="getTempValue";
+            v = $(obj).parent().parent().find("[name='twoTempSelect']").select().val();
+            $("#tempID").val(v);//存最近一次的更改
+            $.ajax({
+                type: "Post",
+                url: "Default.aspx",
+                //dataType: "json",
+                data: { action:a, value: v },
+                success: function (data)
+                {
+                    setValue(data);
+                },
+                error: function (data) { alert("失败"); }
+            });
+            // return result;
+        }
+        //--------------
+        function clearSelect(cn)
+        {
+            $("select:[name='" + cn + "']").empty();
+        }
+        function setSelectValue(cn, dpValue) {
+            var temp, arr = dpValue.split(",");
+            for (var i = 0; i <arr.length; i++) {
+                temp = arr[i].split(":");
+                $("select:[name='" + cn + "']").append("<option value='" + temp[0] + "'>" + temp[1] + "</option>");
+            }
+        }
+        //更改选中
+        function setSelectOption(cn) {
+            $("select:[name='" + cn + "'] option:[value='-1']").attr('selected', 'true')
+        }
+        function delTr(obj) {
+            if(confirm("你确定要删除吗!!"))
+                $(obj).parent().parent().remove();
+        }
+        function setDefaultCheck(v) {
+            a = v.split(',');
+            for (var i = 0; i <a.length; i++) {
+                $("input:[value='" + a[i] + "']").attr("checked", "checked");
+            }
+        }
+        //------
+        function empty(obj) {
+            if ($(obj).val() == "@prompt") {
+                $(obj).css("color", "black");
+                $(obj).val("");
+            }
+        }
+        function fill(obj) {
+            if ($(obj).val() == "") {
+                $(obj).css("color", "#DDD");
+                $(obj).val("@prompt");
+            }
+        }
+    </script>
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<confige>
+  <data type="honor">
+    <cash>40</cash>
+    <sitecash>8900</sitecash>
+    <meil>您好,{$UserName}！&lt;br/&gt;
+      您在{$SiteName}于{$DataTime}申请的兑现金额，已成功支付,请及时查收。</meil>
+    <mobile>您好,{$UserName}！&lt;br/&gt;
+      您在{$SiteName}于{$DataTime}申请的兑现金额，已成功支付,请及时查收。</mobile>
+    <important>1、第一次兑现超过300元返利者，必须使用注册邮箱发送收款人真实姓名到：admin@sina.com，以便确认！发送成功后会收到自动回复Email。&lt;br /&gt;
+2、会员每次兑现金额须为40元的整数倍(40元起),兑换前确保您的&lt;a href="/user/Profile/Accountinfo.aspx"&gt;收款账户信息&lt;/a&gt;填写准确；&lt;br /&gt;
+3、为了账户安全，2009年4月1日之后申请兑现者，必须在&amp;ldquo;帐户设置-收款设置&amp;rdquo;里绑定您的真实姓名。&lt;br /&gt;
+      4、会员提交兑现申请后，{$SiteName}财务部会在1~4个工作日内把钱支付到您在{$SiteName}填写的&lt;a href="/user/Profile/Accountinfo.aspx"&gt;账户信息&lt;/a&gt;里，完成支付后，中国工商银行和支付宝的收款用户可以实时到账，其他银行卡收款用户到帐时间取决于中国银联的跨行处理时间；&lt;br /&gt;
+5、转帐手续费将按规定从您申请支付的金额里扣除（使用银行卡收款的手续费为1%，最低1元）；&lt;br /&gt;
+&lt;b&gt;6、2009年7月1日起用支付宝收款者免手续费，成本由{$SiteName}承担；&lt;/b&gt;</important>
+  </data>
+  <data type="smallCash">
+    <cash>5</cash>
+    <profect>10</profect>
+    <important>
+1、会员返利余额必须满10元才可申请小额兑现,申请后会从会员的返利余额扣除相应返利；&lt;br /&gt;
+2、以前曾经兑现过返利的会员和正在兑现返利的会员不可再申请；&lt;br /&gt;
+&lt;b&gt;3、2009年7月1日起用支付宝收款者免手续费，成本由{$SiteName}承担；&lt;/b&gt;&lt;/span&gt;</important>
+  </data>
+  <data type="redEnv">
+    <profects proVal="1000" money="68" />
+    <regurl>1、一次性兑现200元返利者(含200元以上)，额外奖励10元现金红包；&lt;br /&gt;
+2、一次性兑现500元返利者(含500元以上)，额外奖励28元现金红包；&lt;br /&gt;
+3、一次性兑现1000元返利者(含1000元以上)，额外奖励68元现金红包；&lt;br /&gt;
+4、一次性兑现为1000元的N倍者，将奖励68元的N倍作为红包，不设上限,比如一次性兑现金额为10500元者，倍数取整后，奖励68的10倍即680元作为现金红包； </regurl>
+    <important>
+      1、每个{$SiteName}帐户每月只能领取一次红包（按申请日期计算）；&lt;br /&gt;
+2、请在返利到帐1个星期内申请红包，过期无效；&lt;br /&gt;
+3、红包自申请之日起1-4个工作日到帐；&lt;br /&gt;
+4、符合条件者申请兑现后，红包为礼品卡者将会直接发送到会员本人的注册邮箱,红包为现金者将会直接发送到会员本人的银行或支付宝账户，如果使用银行收款，将代扣1%（最低1元）银行转账费；&lt;br /&gt;
+&lt;b&gt;5、2009年7月1日起用支付宝收款者免手续费，成本由{$SiteName}承担；&lt;/b&gt;&lt;br /&gt;
+6、本方案自2007年9月1日起实施，长期有效！ </important>
+    <profect id="3" proVal="500" money="28" isCon="0" />
+    <profect id="2" proVal="200" money="10" isCon="0" />
+    <profect id="4" proVal="1000" money="68" isCon="0" />
+  </data>
+  <data type="MakeMoney">
+    <important>1、为保证推荐会员的质量，不允许以注册送钱或注册送积分等利益诱导来吸引注册，否则将给予处罚；&lt;br /&gt;
+      2、为了合作商城的正常利益，不允许到{$SiteName}的合作商城内进行推广；&lt;br /&gt;
+      3、{$SiteName}保留对本活动的最终解释权。</important>
+    <profect id="3" MinNum="1" MaxNum="10" money="0.2" />
+    <profect id="2" MinNum="11" MaxNum="50" money="0.4" />
+    <profect id="4" MinNum="51" MaxNum="100" money="0.8" />
+    <profect id="-1" MinNum="100" MaxNum="-1" money="1.0" />
+    <profects money="2.0" />
+  </data>
+</confige>

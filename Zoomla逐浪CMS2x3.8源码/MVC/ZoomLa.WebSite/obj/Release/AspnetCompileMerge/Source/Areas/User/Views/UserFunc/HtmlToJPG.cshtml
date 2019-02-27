@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_empty.cshtml";
+}
+@section head{
+    <title>@ViewBag.title</title>
+    <link href="/App_Themes/User.css" rel="stylesheet" />
+}
+@section content{
+    <div class="container text-center"><img ID="CerPic_Img" src="@ViewBag.imgsrc" alt="@ViewBag.imgalt" class="center-block" /></div>
+    <div class="container text-center btn_green">
+        <a href="DownFile?url=@ViewBag.imgsrc" class="btn btn-primary" >保存图片</a>
+    </div>
+}
+@section script{
+
+}

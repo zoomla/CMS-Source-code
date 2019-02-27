@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>279</LabelID>
+    <LabelName>栏目下获得子栏目列表</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>栏目下获得子栏目列表</LabelDesc>
+    <LabelParam>nodeid,默认值,2,栏目ID|pageid,默认值,2,黄页ID|username,默认值,1,参数说明|Styles,默认值,1,参数说明</LabelParam>
+    <LabelTable>ZL_PageTemplate</LabelTable>
+    <LabelField>TemplateID,TemplateName,TemplateUrl,TemplateType,OpenType,UserGroup,Addtime,IsTrue,Userid,UserName,OrderID,ParentID,Modelinfo,identifiers,NodeFileEx,ContentFileEx,Nodeimgurl,Nodeimgtext,Pagecontent,PageMetakeyword,PageMetakeyinfo,linkurl,linkimg,linktxt</LabelField>
+    <LabelWhere>(UserName='@username' And UserGroup=@Styles And ParentID=@nodeid And IsTrue=1 And TemplateType&lt;&gt;4) Or (userid=0 And UserGroup=@Styles And ParentID=@nodeid And IsTrue=1 And TemplateType&lt;&gt;4)</LabelWhere>
+    <LabelOrder>OrderID DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;a href="Pagelist.aspx?Nodeid={Field="TemplateID"/}&amp;pageid={ZL.Label id="栏目下获取黄页ID" /}"&gt;{Field="TemplateName"/}&lt;/a&gt;
+{/Repeate}
+</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

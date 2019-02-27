@@ -1,0 +1,198 @@
+﻿@using ZoomLa.Model
+@using System.Data
+@using ZoomLa.BLL.Helper
+@using ZoomLa.Common
+@model ZoomLaCMS.Models.Exam.VM_ExamDetail
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+}
+@section head{
+<style type="text/css">
+label {font-weight:normal;}
+#quelist li{ float:left;}
+#quelist li a{ padding-left:10px; padding-right:10px; color:#fff; font-size:1.5em;}
+.opitem p {display:inline-block;}
+.item {border:1px solid #ddd; padding-left:20px;padding-top:5px;text-align:left;margin-bottom:5px;}
+.opitem:hover {color:#ff6a00;}
+.submitul li {float:left;margin-left:20px;}
+.answerdiv {border:1px dashed #ddd;height:50px;color:green;width:100%;padding:5px;height:80px;overflow:auto;}
+.answersp {border-bottom:1px solid #286090;padding:5px 15px 3px 15px; color:green;}
+.answersp p {display:inline;}
+.answersp p img {padding-bottom:8px;}
+#answer_ue_div {width:500px;display:none;position:absolute;top:300px;right:30%; border:1px solid #ddd;box-shadow:0 4px 20px 1px rgba(0,0,0,0.2);background:#ffffff;}
+.rightanswer { font-family: 宋体, sans-serif; font-size: 13px; font-weight: bold; letter-spacing: 1px; line-height: 25px; background-color: #FFFFFF; }
+</style>
+<script src="/Plugins/Ueditor/ueditor.config.js" charset="utf-8"></script>
+<script src="/Plugins/Ueditor/ueditor.all.min.js" charset="utf-8"></script>
+<title>参加考试</title>
+}
+@section content{
+<form method="post" action="@MVCHelper.GetAction("ExamDetail_Submit",Request)">
+    <div class="panel panel-primary"  ng-app="app">
+            <div class="panel-heading navbar-fixed-top" id="quelist"><i class="fa fa-file-text-o"></i>
+                <span class="margin_l5">@Model.GetPTitle()</span>
+                <span><i class="a fa-clock-o"></i><span id="time_sp" class="margin_l5" data-time="0">@Model.useTime</span></span>
+                <span id="totalscore_sp" style="font-size:1.8em;min-width:80px;">@Model.totalScore</span>
+                <div class="uinfo_div">
+                    <div class="input-group">
+                        <span class="input-group-addon">学校</span>
+                        <input type="text" ID="MySchool_T" name="MySchool_T" MaxLength="50" class="form-control text_150" value="@Model.answerMod.MySchool" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">班级</span>
+                        <input type="text" ID="MyClass_T" name="MyClass_T" MaxLength="50" class="form-control text_150" value="@Model.answerMod.MyClass" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">姓名</span>
+                        <input type="text" ID="UName_T" name="UName_T" value="@Model.mu.HoneyName" MaxLength="50" class="form-control text_150" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <ul class="list-unstyled pull-right">
+                    @if (!Model.Action.Equals("view"))
+                    {
+                        <li><button type="button" id="Submit_Btn" onclick="if (PreSubmit()) { $('form').submit(); }"  title="交卷" class="btn btn-info"><i class="fa fa-check"></i> 交卷</button></li>}
+                    else
+                    {
+                                            <li><a href="/" title="首页"><i class="fa fa-home"></i></a></li>
+                    <li><a href="MyMarks" id="return_a" title="退出"><i class="fa fa-close"></i></a></li>}
+                </ul>
+            </div>
+            <div style="height:50px;"></div>
+                <div class="panel-body" ng-controller="appController">
+                @for(int i=0;i<Model.typeDT.Rows.Count;i++)
+                    {
+                            DataRow typedr=Model.typeDT.Rows[i];
+                            DataTable questDT = Model.GetByType(typedr);
+                    <div class="margin_t5"> @(StrHelper.ConvertIntegral(i + 1))．@typedr["QName"]（有@(typedr["QNum"])小题,共@(typedr["TotalScore"])分) </div>
+                    <div>@typedr["LargeContent"]</div>
+                    for (int j = 0; j < questDT.Rows.Count; j++)
+                        {
+                            DataRow quest=questDT.Rows[j];
+                        <div class="item" data-id="@quest["p_id"]" id="item_@quest["p_id"]">
+                            <div class="content"><span>@(j+1)．@(quest["P_Title"])</span>@Model.GetContent(quest)</div>
+                            <div class="submit">
+                                <ul class="submitul">@Model.GetSubmit(quest)</ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            @if (Model.Action.Equals("view"))
+                                {
+                                <div class="remark_div margin_t5">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading"><i class="fa fa-file-text-o"></i><span class="margin_l5">教师批阅</span></div>
+                                        <div class="panel-body">
+                                            <div>@Model.GetIsRight(quest)</div>
+                                            <div><div class='answerdiv remark'>@quest["Remark"]</div></div>
+                                        </div>
+                                    </div>
+                                </div><!--remark_div end-->
+                                <div class="panel panel-info">
+                                    <div class="panel-heading"><i class="fa fa-file-text-o"></i><span class="margin_l5">答案&试题解析</span></div>
+                                    <div class="panel-body">
+                                        <p style="white-space: normal;"><span class="rightanswer">【正确答案】</span></p>
+                                        @MvcHtmlString.Create(DataConverter.CStr(quest["p_shuming"]))
+                                        @MvcHtmlString.Create(DataConverter.CStr(quest["Jiexi"]))
+                                    </div>
+                                </div>
+                                }
+                        </div>
+                        }
+                    }
+            </div>
+            <div class="panel-footer text-center"></div>
+        </div>
+    <div>
+        <input type="hidden" ID="QuestDT_Hid" name="QuestDT_Hid" value="@Model.QuestDT_Hid"/>
+        <input type="hidden" ID="Answer_Hid" name="Answer_Hid" value="@Model.Answer_Hid"/>
+    </div>
+    <div id="answer_ue_div" data-scroll="0">
+        <textarea id="editor" style="height: 120px;"></textarea>
+        <div style="text-align: center; padding: 5px;">
+            <input type="button" value="确定" class="btn btn-primary" onclick="LoadContent();" />
+            <input type="button" value="关闭" class="btn btn-default" onclick="$('#answer_ue_div').hide();" />
+        </div>
+    </div>
+    <input type="hidden" ID="QuestId_Hid" name="QuestId_Hid" value="@Model.paperMod.id" />
+    <input type="hidden" ID="QuestTime_Hid" name="QuestTime_Hid" />
+</form>
+}
+@section script{
+<script src="/Plugins/Ueditor/kityformula-plugin/addKityFormulaDialog.js"></script>
+<script src="/Plugins/Ueditor/kityformula-plugin/getKfContent.js"></script>
+<script src="/Plugins/Ueditor/kityformula-plugin/defaultFilterFix.js"></script>
+<script src="/JS/jquery-ui.min.js"></script>
+<script src="/JS/Controls/ZL_Array.js"></script>
+<script src="/JS/Plugs/angular.min.js"></script>
+<script>
+    var page={scope:null};
+    var app=angular.module("app",[]).controller("appController",function($scope,$compile){
+        page.scope=$scope;
+        $scope.list={};
+        var idsArr=[];//仅用于显示答案
+        @MvcHtmlString.Create(Model.AngularJS)
+        if("@Model.Action"=="view")
+        {
+            var answerArr = JSON.parse($("#Answer_Hid").val());
+            //model即一个完形填空的问题集合,问题集合-->问题(答案)-->选项
+            for (var i = 0; i < idsArr.length; i++) {
+                var model=$scope.list["filltextblank_"+idsArr[i]];
+                var answer= answerArr.GetByID(idsArr[i],"QID");
+                if(!answer||answer==null||answer==""){return;}
+                answer=JSON.parse(answer.Answer);
+                for (var j = 0; j < model.length; j++) {
+                    model[j].answer=answer[j].answer;
+                }
+            }
+        }
+    });
+    app.filter(
+         'to_trusted', ['$sce', function ($sce) {
+             return function (text) {
+                 return $sce.trustAsHtml(text);
+             }
+         }]
+     );
+</script>
+<script>
+    var ue, $curAnswer, boundary = "|||", action = "@Model.Action",exTime= parseInt("@Model.ExTime"); force = "@(Model.ExTime>0?"true":"false")";
+    $(function () {
+        ue = UE.getEditor('editor', {
+            toolbars: [[
+                'bold', 'italic', 'underline', '|', 'fontsize', '|', 'kityformula'
+            ]],
+            elementPathEnabled: false,wordCount: false
+        });
+        if (action != "view") {
+            //缓存考试时间
+            if(localStorage.questid==""||localStorage.questid!=$("#QuestId_Hid").val())
+            {
+                localStorage.questid=$("#QuestId_Hid").val();
+                localStorage.second=0;
+            }
+            var timer = $("#time_sp");
+            timer.data("time", localStorage.second);
+            setInterval(BeginTimer, 1000);
+            $("#answer_ue_div").draggable({ handle: '#ue_foot,#edui1_toolbarbox' });
+            $(".answersp,.answerdiv").click(function () {
+                //OpenFormula();
+                $curAnswer = $(this);
+                SetContent($curAnswer);
+                $("#answer_ue_div").show();
+            });
+        }
+    });
+    $(window).scroll(function(){
+        var scrollTop = $(this).scrollTop();//已滚动多少
+        //var scrollHeight = $(document).height();//窗体高度
+        //var windowHeight = $(this).height();//总高度,滚动条+窗体高
+        var nowTop=parseInt($("#answer_ue_div").css("top"));//支持拖动
+        var scroll=parseInt($("#answer_ue_div").data("scroll"));
+        $("#answer_ue_div").css("top",scrollTop+(nowTop-scroll));
+        $("#answer_ue_div").data("scroll",scrollTop);
+    });
+</script>
+<script src="/JS/ICMS/ZL_Exam_Paper.js"></script>
+<script>
+    if ("view" == "@Model.Action") { LoadAnswer(); }
+</script>
+}

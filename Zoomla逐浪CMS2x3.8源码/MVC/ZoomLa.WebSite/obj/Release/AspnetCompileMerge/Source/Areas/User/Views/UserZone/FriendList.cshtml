@@ -1,0 +1,29 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+ <title>好友管理</title>
+}
+@section content{
+<div id="pageflag" data-nav="index" data-ban="zone"></div>
+<div class="container margin_t5">
+	<ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li class="active">我的好友</li> 
+        <li><a href="/User/UserZone/UserQuestFriend">[<i class="fa fa-user-plus"></i>添加好友]</a></li>
+    </ol>
+</div>
+<div class="container btn_green margin_t5">
+    <div class="margin_t5 input-group text_300" style="margin-bottom:5px;">
+        <input type="text" name="skey" class="form-control mvcparam" placeholder="好友名称" />
+        <span class="input-group-btn">
+            <input type="button" class="btn btn-primary" value="搜索" onclick="mvcpage.load();"/>
+        </span>
+    </div>
+        @Html.Partial("FriendList_List",Model)
+    </div>
+}
+@section script{
+<style>.allchk_l{display:none; }</style>
+}

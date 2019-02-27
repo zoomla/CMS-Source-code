@@ -1,0 +1,6 @@
+﻿@model ZoomLaCMS.Models.Field.VM_FieldModel
+@{
+    string id = "txt_" + Model.fieldMod.FieldName;
+   //每个必须支持两种模式:PreView和编辑模式 
+}
+<input type="text" id="@id" name="@id" class="form-control m715-50" value="@Model.GetValue()" />

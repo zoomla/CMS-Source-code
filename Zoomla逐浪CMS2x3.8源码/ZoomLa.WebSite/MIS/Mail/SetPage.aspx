@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SetPage.aspx.cs" Inherits="MIS_Mail_SetPage" %> 

@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>搜索好友</title>
+}
+@section content{
+    <div id="pageflag" data-nav="index" data-ban="zone"></div>
+    <div class="container margin_t5">
+        <ol class="breadcrumb">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li class="active">用户搜索 [<a href="/User/UserZone/FriendList">我的好友</a>]</li>
+        </ol>
+    </div>
+    <div class="container btn_green">
+        <form method="post" action="QueryUser?action=vague">
+            <table style="width: 569px; height: 175px;" class="table table-hover table-bordered padding0">
+                <tr>
+                    <td colspan="2">
+                        <font color="#336699"><strong class="f14">模糊查找</strong></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="value-right">
+                        性别：
+                    </td>
+                    <td>
+                        <select id="sex_dp" name="sex" class="form-control value_150 mvcparam">
+                            <option value="0">所有</option>
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="value-right">
+                        年龄范围：
+                    </td>
+                    <td>
+                        <select class="form-control value_150 mvcparam" name="age">
+                            <option value="0">全部</option>
+                            <option value="0-18">18以下</option>
+                            <option value="18-25">18-25</option>
+                            <option value="25-33">25-33</option>
+                            <option value="33-45">33-45</option>
+                            <option value="45-100">45以上</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="value-right">
+                        &nbsp;
+                    </td>
+                    <td>
+                        <span class="btmbian">
+                            <input type="submit" ID="btnSecher" class="btn btn-primary" value="查找" />
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br />
+        <br />
+        <table style="width: 569px; height: 165px;" class="table table-bordered table-hover padding0">
+            <tr>
+                <td colspan="2">
+                    <font color="#336699"><strong>精确查找</strong></font>
+                </td>
+            </tr>
+            <tr>
+                <td class="value-right">对方昵称：</td>
+                <td>
+                    <form method="post" action="QueryUser?action=username">
+                        <div class="input-group text_300">
+                            <input type="text" name="username" size="40" maxlength="20" class="form-control" style="width:250px;" />
+                            <span class="input-group-btn">
+                                <input type="submit" class="btn btn-primary" value="查找" />
+                            </span>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td class="value-right">
+                    对方会员ID号：
+                </td>
+                <td>
+                    <form method="post" action="QueryUser?action=uid">
+                        <div class="input-group text_300">
+                            <input type="text" name="userid" class="form-control" maxlength="10" style="width:250px;"  />
+                            <span class="input-group-btn">
+                                <input type="submit" value="查找" class="btn btn-primary" />
+                            </span>
+                        </div>
+                    </form>
+                    @*<asp:RangeValidator ID="UidR1" MaximumValue="99999" MinimumValue="1" Type="Integer" ErrorMessage="请输入数字" ControlToValidate="UserID_T" Display="Dynamic" ValidationGroup="UserID"/>
+                        <asp:RequiredFieldValidator ID="UidR2" ForeColor="Red" ErrorMessage="用户ID不能为空" ValidationGroup="UserID" ControlToValidate="UserID_T" Display="Dynamic" />*@
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+@section script{}

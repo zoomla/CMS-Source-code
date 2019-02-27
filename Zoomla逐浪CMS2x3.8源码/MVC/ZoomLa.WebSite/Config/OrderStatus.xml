@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<OrderStatusInfo>
+  <OrderStatus>
+    <Status code="0">&lt;span&gt;等待确认&lt;/span&gt;</Status>
+    <Status code="1">&lt;span style='color:#2740cc;'&gt;已确认&lt;/span&gt;</Status>
+    <Status code="99">&lt;span style='color:green'&gt;已完结&lt;/span&gt;</Status>
+    <Status code="100">&lt;span style='color:green'&gt;已完结并分成&lt;/span&gt;</Status>
+    <Status code="-1">&lt;span style='color:red'&gt;已申请退款&lt;/span&gt;</Status>
+    <Status code="-2">&lt;span style='color:red'&gt;已拒绝退款&lt;/span&gt;</Status>
+    <Status code="-3">&lt;span style='color:green'&gt;已确认退款&lt;/span&gt;</Status>
+    <Status code="-5">&lt;span style='color:orange'&gt;取消订单&lt;/span&gt;</Status>
+    <Status code="-99">&lt;span style='color:#999'&gt;已删除&lt;/span&gt;</Status>
+  </OrderStatus>
+  <ExpStatus>
+    <Status code="0">&lt;span&gt;等待配送&lt;/span&gt;</Status>
+    <Status code="1">&lt;span style='color:#015fb6;'&gt;已配送&lt;/span&gt;</Status>
+    <Status code="2">&lt;span style='color:green;'&gt;已签收&lt;/span&gt;</Status>
+    <Status code="-1">&lt;span style='color:red;'&gt;拒签收&lt;/span&gt;</Status>
+  </ExpStatus>
+  <PayStatus>
+    <Status code="0">&lt;span style='color:red;'&gt;未付款&lt;/span&gt;</Status>
+    <Status code="1">&lt;span style='color:green;'&gt;已付款&lt;/span&gt;</Status>
+    <Status code="-1">&lt;span style='color:red;'&gt;申请退款&lt;/span&gt;</Status>
+    <Status code="-2">&lt;span style='color:green;'&gt;已退款&lt;/font&gt;</Status>
+    <Status code="10">&lt;span style='color:green;'&gt;确认收款&lt;/span&gt;</Status>
+  </PayStatus>
+  <PayType>
+    <Status code="0">
+    </Status>
+    <Status code="1">&lt;span style='color:green;'&gt;预付(@money)&lt;/span&gt;</Status>
+    <Status code="2">&lt;span style='color:green;'&gt;代收款&lt;/font&gt;</Status>
+  </PayType>
+</OrderStatusInfo>

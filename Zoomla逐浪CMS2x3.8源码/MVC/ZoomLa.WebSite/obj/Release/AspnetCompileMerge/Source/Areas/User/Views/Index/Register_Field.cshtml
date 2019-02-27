@@ -1,0 +1,249 @@
+﻿@using ZoomLa.Components
+@model System.String
+@{
+    string css = "required";
+    MvcHtmlString required = MvcHtmlString.Create("<span class=\"required_sp\">*</span>");
+    string[] fields = SiteConfig.UserConfig.RegFieldsMustFill.Split(',');
+    switch (Model)
+    {
+        case "select":
+            css = "";
+            required = MvcHtmlString.Create("");
+            fields = SiteConfig.UserConfig.RegFieldsSelectFill.Split(',');
+            break;
+        case "must":
+            break;
+    }
+}
+@if (fields.Contains("ParentUser"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">推荐人</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtParentUser" name="TxtParentUser" class="form-control @css" title="推荐人不能为空" onblur="CheckParentUser(this)" />
+            @required
+        </div>
+        <div class="col-sm-3 col-lg-3 col-md-3 msg"></div>
+        <div class="clearfix"></div>
+        <script>
+                function CheckParentUser(input) {
+                    var $sp = reghelp.getsp(input);
+                    if (ZL_Regex.isEmpty(input.value)) { return; }
+                    reghelp.check("puser", input.value, function () { $sp.text(""); }, function (model) { $sp.text(model.retmsg); });
+                }
+                $("#TxtParentUser").val($("#ParentUser_Hid").val());
+        </script>
+    </li>
+}
+@if (fields.Contains("InvitCode"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">邀请码</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtInvitCode" name="TxtInvitCode" title="邀请码不能为空" class="form-control @css" onblur="CheckInvitCode(this)" />
+            @required
+        </div>
+        <div class="col-sm-3 col-lg-3 col-md-3 msg"></div>
+        <div class="clearfix"></div>
+        <script>
+            function CheckInvitCode(input) {
+                var $sp = reghelp.getsp(input);
+                if (ZL_Regex.isEmpty(input.value)) { return; }
+                reghelp.check("invite", input.value, function () { $sp.text(""); }, function (model) { $sp.text(model.retmsg); });
+            }
+        </script>
+    </li>
+}
+@if (fields.Contains("UserSex"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">性别</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <select name="DropSex" id="DropSex" class="form-control">
+                <option value="1" selected="selected">男</option>
+                <option value="0">女</option>
+            </select>
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("Birthday"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">出生日期</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtBirthday" name="TxtBirthday" onblur="CheckBirthDay(this)" title="出生日期不能为空" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' });" class="form-control @css" />
+            @required
+        </div>
+        <div class="col-sm-3 col-lg-3 col-md-3 msg"></div>
+        <div class="clearfix"></div>
+        <script>
+            function CheckBirthDay(input) {
+                var $sp = reghelp.getsp(input);
+                if (ZL_Regex.isEmpty(input.value)) { return; }
+                reghelp.check("birth", input.value, function () { $sp.text(""); }, function (model) { $sp.text(model.retmsg); });
+            }
+        </script>
+    </li>
+}
+@if (fields.Contains("Homepage"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">主页</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtHomepage" name="TxtHomepage" class="form-control @css" value="http://" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("QQ"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">QQ号码</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtQQ" name="TxtQQ" class="form-control @css" title="QQ号码不能为空   " />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("OfficePhone"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">办公电话</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtOfficePhone" name="TxtOfficePhone" class="form-control @css" title="办公电话不能为空" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("HomePhone"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">家庭电话：</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtHomePhone" name="TxtHomePhone" title="家庭电话不能为空" class="form-control @css" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("Fax"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">传真号码：</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtFax" name="TxtFax" class="form-control @css" title="传真号码不能为空" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("Mobile"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">手机号码：</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtMobile" name="TxtMobile" title="手机号码格式不正确" class="form-control mobile" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("Address"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">联系地址</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtAddress" name="TxtAddress" title="联系地址不能为空" class="form-control @css" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("ZipCode"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">邮政编码</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtZipCode" name="TxtZipCode" maxlength="6" title="邮政编码格式不正确" class="form-control zipcode" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("Permissions"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">真实姓名</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtTrueName" name="TxtTrueName" class="form-control @css" title="真实姓名不能为空" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("IDCard"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">身份证号码</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <input type="text" id="TxtIDCard" name="TxtIDCard" class="form-control idcard @css" maxlength="20" title="身份证格式不正确" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("UserFaceR"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">头像地址</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 text-left padding0">
+            <input type="text" id="TxtUserFace" name="TxtUserFace" title="头像不址不能为空" class="form-control @css" />
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("Province"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">省市县</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <select name="selprovince" id="selprovince" class="form-control"></select>
+            <select name="selcity" id="selcity" class="form-control"></select>
+            <select name="selcoutry" id="selcoutry" class="form-control"></select>
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("Sign"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">签名档</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <textarea id="TxtSign" name="TxtSign" title="签名档不能为空" class="form-control @css" style="height:100px;"></textarea>
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}
+@if (fields.Contains("Privacy"))
+{
+    <li>
+        <label class="col-sm-3 col-lg-3 col-md-3 col-xs-5">隐私设定</label>
+        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-7 padding0">
+            <select id="DropPrivacy" class="form-control">
+                <option value="0" selected="selected">公开信息</option>
+                <option value="1">只对好友公开</option>
+                <option value="2">完全保密</option>
+            </select>
+            @required
+        </div>
+        <div class="clearfix"></div>
+    </li>
+}

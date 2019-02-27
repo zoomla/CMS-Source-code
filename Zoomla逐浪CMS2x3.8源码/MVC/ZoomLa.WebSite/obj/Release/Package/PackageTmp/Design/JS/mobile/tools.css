@@ -1,0 +1,7 @@
+﻿.com_edit {display:none;}
+.popifr {border: none;width:100%;height:100%;}
+.com .edit {position:absolute;background-color:#35aae7;border:#0e6fa1;color:#fff;padding:5px; z-index:10;right:0px;top:0px;border-bottom-left-radius:3px;border-bottom-left-radius:3px;}
+/*顶部按钮*/
+#btns_wrap {position:fixed;right:20px;bottom:50px; z-index:2000;}
+#btns_wrap .btnlink {background-color:#35aae7;border-radius:50%;box-shadow:-2px 0 5px #ddd;width:50px;height:50px;text-align:center;border:2px solid #ddd;padding-top:10px;}
+#btns_wrap .btnlink i {font-size:25px;color:#fff;}

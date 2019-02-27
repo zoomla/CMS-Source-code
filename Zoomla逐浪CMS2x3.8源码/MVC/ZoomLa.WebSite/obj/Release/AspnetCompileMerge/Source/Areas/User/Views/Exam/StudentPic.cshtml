@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>成绩曲线</title>
+
+}
+@section content{
+
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")" target="_parent">会员中心</a></li>
+        <li class="active"><a href="<%=Request.RawUrl %>">成绩分析</a></li>
+        <div class="clearfix"></div>
+    </ol>
+    <div class="padding5">
+        <div class="input-group" style="width:812px;">
+            <span class="input-group-addon">起始时间</span>
+            <input type="text" id="stime_t" name="stime_t" class="form-control text_md" onclick="WdatePicker():" />
+            <span class="input-group-addon">结束时间</span>
+            <input type="text" id="etime_t" class="form-control text_md" onclick="WdatePicker();" />
+            <input type="text" id="papername_t" class="form-control text_md" placeholder="试卷,作业标题" />
+            <span class="input-group-btn">
+                <button id="skey_btn" class="btn btn-primary" onclick="Skey_Btn_Click">查询分析</button>
+            </span>
+        </div>
+        <div id="chart1" style="width:950px;height:400px;"></div>
+        <div id="empty_div" class="alert alert-info">没有匹配的数据</div>
+    </div>
+    <input type="hidden" id="score_hid" />
+}
+@section script{
+    <script src="/JS/DatePicker/WdatePicker.js"></script>
+    <script src="/Plugins/ECharts/build/source/echarts.js"></script>
+    <script>
+        var option = {
+            title: {
+                text: '<%:ChartTitle%>',
+                subtext: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {},
+                    dataView: { readOnly: false },
+                    magicType: { type: ['line', 'bar'] },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: []
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value} 分'
+                }
+            },
+            series: [
+                {
+                    name: '分数',
+                    type: 'line',
+                    //得分
+                    data: [],
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: '最高分' },
+                            { type: 'min', name: '最低分' }
+                        ]
+                    },
+                    markLine: {
+                        data: [
+                            { type: 'average', name: '平均分' }
+                        ]
+                    }
+                }
+            ]
+        };
+        $(function () {
+            if ($("#Score_Hid").val() != "") {
+                var scoreArr = JSON.parse($("#Score_Hid").val());
+                for (var i = 0; i < scoreArr.length; i++) {
+                    //试卷名称
+                    option.xAxis.data.push(scoreArr[i].name);
+                    //只有一个学生
+                    option.series[0].data.push(scoreArr[i].score);
+                }
+                var chart = echarts.init(document.getElementById('chart1'));
+                chart.setOption(option);
+            }
+        })
+    </script>
+}
