@@ -1,11 +1,10 @@
-# Zoomla!逐浪CMS开源项目库
-
 <p align="center">
   <a href="http://z01.com">
     <img width="900" src="dist/images/ico.svg">
   </a>
 </p>
 
+<h1 align="center">Zoomla!逐浪CMS开源项目库</h1>
 
 ## 专注web开发-做中国原创顶级网站内容管理系统
 
