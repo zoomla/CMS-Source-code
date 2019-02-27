@@ -23,8 +23,20 @@
     <img src="dist/images/t1.jpg">
   </a>
 尤其是对于当前有中国win7+ppt的时代，企业级CMS系统非常少。
-即使是在2019年3月1日，这个时间点上，被誉为民族IT代表X米所售主流笔记本电脑还是“8GB内存”，主流出机还是以DDR3为配置，这并值得我们这上民族自豪。
+即使是在2019年3月1日，这个时间点上，被誉为民族IT代表X米所售[八代]主流笔记本电脑还是“8GB内存”，主流出机还是以DDR3为配置，这并值得我们这上民族自豪。
 鼓吹大数据、移动互联网弯道超车，而没有低头做事、披星戴月的精神，凭空不会出未来。
+
+
+### 🖥 支持环境
+
+* 现代浏览器和 IE9 及以上。
+* 支持服务端渲染。
+* [Electron](http://electron.atom.io/)
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
+| --------- | --------- | --------- | --------- | --------- | --------- |
+| IE9, IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+
 
 ### 对未来的理解
  <a href="http://www.z01.com/corp/music">
