@@ -147,20 +147,20 @@ Zoomla!逐浪CMS用技术推进研发。
 我们产品是基于Microsoft.Net4.0（开源版本为NET2.0）+MSSQ2005以及更高版本，产品免费开放，并提供云模板。
   
 
-我们的官网：http://www.z01.om  
+我们的官网：http://www.z01.com  
 
-关于逐浪CMS的最新版本，我们发布在官方平台，免费下载：http://www.z01.om/pub  
+关于逐浪CMS的最新版本，我们发布在官方平台，免费下载：http://www.z01.com/pub  
 
-视频教程：http://www.z01.om/mtv
+视频教程：http://www.z01.com/mtv
 
 
-使用手册：http://help.z01.om
+使用手册：http://help.z01.com
 
-在线社区：http://bbs.z01.om
+在线社区：http://bbs.z01.com
 
 技术服务热线：021-50391046/13177777714
 
-全新移动平台上线：http://app.z01.om
+全新移动平台上线：http://app.z01.com
 
 <hr style="margin-top:10rem"/>
 
