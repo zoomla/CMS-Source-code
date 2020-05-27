@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="ZoomLaCMS.Design.Master.User" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+    <link rel="stylesheet" href="/dist/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/App_Themes/User.css" />
+    <link href="/Design/res/css/user.css" rel="stylesheet" />
+    <script src="/JS/jquery-1.11.1.min.js"></script>
+    <script src="/dist/js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navbar-fixed-top u_fixed">
+            <div class="u_top">
+                <div class="container">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <a href="/" target="_blank">
+                            <img src="<%Call.Label("{$LogoUrl/}"); %>" class="img-responsive" alt="<%Call.Label("{$SiteName/}"); %>" /></a>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 u_search">
+                        <div class="u_top_btn">
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <div class="u_search_form">
+                                        <input type="text" name="key" id="key" class="form-control" placeholder="快速搜索" onkeydown="return IsEnter(this);" /><i class="fa fa-search" id="sub_btn" title="可按回车键快速检索"></i></div>
+                                </li>
+                                <li class="text-center"><i class="fa fa-user"></i>
+                                    <asp:Label ID="uName" runat="server"></asp:Label></li>
+                                <li class="text-center"><a href="/User/Info/UserBase.aspx"><i class="fa fa-cog"></i></a></li>
+                                <li><a href="/design/user/TlpShop.aspx" target="_blank" style="width: 75px; text-align: center;">模板集市</a></li>
+                                <li class="text-center"><a href="/User/LogOut.aspx">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="u_nav">
+                <nav class="navbar navbar-default">
+                    <div class="container-fuild">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand visible-xs" href="#">快速导航</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div style="height: 90px;" id="holder_div"></div>
+        <div class="siteinfo container">
+            <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <asp:ContentPlaceHolder runat="server" ID="Script"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

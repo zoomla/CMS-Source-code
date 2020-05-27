@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>123</LabelID>
+    <LabelName>二级栏目导航</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>Parentid,0,1,父栏目ID|ShowNum,30,1,调用数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName,Description</LabelField>
+    <LabelWhere>Parentid=@Parentid</LabelWhere>
+    <LabelOrder>orderid asc</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="{ZL:GetNodeUrl({Field="NodeID"/})/}" target="_blank"&gt;&lt;img src="/skin/caa/images/view.jpg" /&gt;&lt;/a&gt;&lt;strong&gt;{Field="NodeName"/}&lt;/strong&gt;[{Field="Description"/}]&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

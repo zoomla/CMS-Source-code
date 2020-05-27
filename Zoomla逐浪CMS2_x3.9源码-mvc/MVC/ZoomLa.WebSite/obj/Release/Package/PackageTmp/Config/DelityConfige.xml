@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<deconfi >
+  <!-- 发货时间的配置 -->
+  <deliverType>1</deliverType>
+  <deliverMoney>20</deliverMoney>
+  <!--订单提醒 信息格式配置-->
+  <orderConfi>
+    <!--订单状态：有效订单-->
+    <orderstate1>您好,{$UserName}！&lt;br/&gt;
+您在{$SiteName}于{$DataTime}下的订单{$OrderCode}的订单已确认,{$Remark}</orderstate1>
+    <!--订单状态：无效订单-->
+    <orderstate2>您好,{$UserName}！&lt;br/&gt;
+您在{$SiteName}于{$DataTime}下的订单{$OrderCode}的订单无效,因为地址sfddsfd,{$Remark}
+    </orderstate2>
+    <!-- 付款状态：全部付款和部分付款-->
+    <paystate1>您好,{$UserName}！&lt;br/&gt;
+您在{$SiteName}于{$DataTime}下的订单{$OrderCode}的订单已付款,{$Remark}
+    </paystate1>
+    <!-- 付款状态：退款提示-->
+    <paystate2>您好,{$UserName}！&lt;br/&gt;
+      您在{$SiteName}于{$DataTime}下的订单{$OrderCode}的订单已退款,{$Remark}
+    </paystate2>
+    <!--物流状态：已配送-->
+    <StateLogistics1>您好,{$UserName}！&lt;br/&gt;
+您在{$SiteName}于{$DataTime}下的订单{$OrderCode}的订单已发货,送货员：{$DeliveryUser}手机号：{$DeliUserMobile},{$Remark}
+    </StateLogistics1>
+    <!--物流状态：订单完成,本人签收，等待客户确认-->
+    <StateLogistics2>您好,{$UserName}！&lt;br/&gt;
+您在{$SiteName}于{$DataTime}下的订单{$OrderCode}的订单本人签收,,{$Remark}
+    </StateLogistics2>
+    <!--物流状态：订单完成,他人签收，等待客户确认-->
+    <StateLogistics3>您好,{$UserName}！&lt;br/&gt;
+您在{$SiteName}于{$DataTime}下的订单{$OrderCode}的订单已送到，是他人本人签收{$SignUserName},手机：{$SignUserMobil}请确认,送货员：{$DeliveryUser}手机号：{$DeliUserMobile},{$Remark}
+    </StateLogistics3>
+    <!--物流状态：未签收,未送到-->
+    <StateLogistics4>您好,{$UserName}！&lt;br/&gt;
+您在{$SiteName}于{$DataTime}下的订单{$OrderCode}的订单未送到/未签收{$Remark},送货员：{$DeliveryUser}手机号：{$DeliUserMobile}
+    </StateLogistics4>
+  </orderConfi>
+</deconfi>

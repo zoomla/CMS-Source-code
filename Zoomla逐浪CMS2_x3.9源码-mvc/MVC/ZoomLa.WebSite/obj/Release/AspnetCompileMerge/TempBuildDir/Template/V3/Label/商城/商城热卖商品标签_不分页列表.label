@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>89</LabelID>
+    <LabelName>商城热卖商品标签_不分页列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>商城</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|TitleNum,30,1,标题长度|ShowNum,20,1,每页显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Commodities</LabelTable>
+    <LabelField>ID,LinPrice,Proname,Thumbnails</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And Sales=1 And Recycler=0</LabelWhere>
+    <LabelOrder>AddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" target="_blank" title="{Field="Proname"/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}" alt="{Field="Proname"/}" onerror="javascript:this.src='/Images/nopic.gif';" /&gt;&lt;/a&gt;
+&lt;p&gt;&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" target="_blank" title="{Field="Proname"/}"&gt;{ZL:CutText({Field="Proname"/},@TitleNum,)/}&lt;/a&gt;&lt;/p&gt;
+&lt;span&gt;商城价：&lt;font class="red"&gt;￥{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/font&gt;&lt;/span&gt;
+&lt;/li&gt;{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>ZoomlaCMS</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam>{"PureT1":"ZL_Commodities","PureT2":"","T1":"ZoomlaCMS.dbo.ZL_Commodities","T2":"","JoinType":"left join","OnField1":"ActPrice","OnField2":""}</ProceParam>
+  </Table>
+</NewDataSet>

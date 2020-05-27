@@ -1,0 +1,46 @@
+﻿.design_top{position: fixed; width: 100%;top:0px;}/*设计工作台头部*/
+.design_top .navbar-nav i{font-size:2em;}
+.design_top .navbar-right i{font-size:1.5em;}
+
+.navbar-nav li{border-right:1px solid #ddd;}
+.navbar-nav li:hover {background-color:#e7e7e7;}
+.left-bar {position:fixed;top:82px;left:12px;z-index:99;transition:0.6s cubic-bezier(0.645, 0.045, 0.355, 1) left;}
+.left-bar-items {display:inline-block;list-style:none;margin:0;padding:0;}
+.left-bar-items .left-bar-item {
+    font-size:2em;background:linear-gradient(to bottom, rgba(255, 255, 255, 0.96) 0%, rgba(238, 238, 238, 0.96) 100%);
+    box-shadow:0 2px 5px 0 rgba(22, 45, 61, 0.58);border-radius:24px;line-height:48px;height:48px;text-align:left;color:#2b5672;
+    position:relative;cursor:pointer;margin-bottom:12px;
+    padding-left:11px;padding-right:11px;
+}
+.left-bar-items .left-bar-item:hover {color:#428bca;}
+.left-bar-items .left-bar-item .fontsp {font-size:0.56em;color:#162d3d;padding-left:10px;font-family:'Microsoft YaHei';}
+.left-bar-item.disabled {color:#ccc;cursor:default;}
+.left-bar-item.disabled:hover {color:#ccc;}
+.left-bar-item.disabled .fontsp {color:#ccc;}
+.rootcomp-toolbar {font-size:14px;position:fixed;border-radius:8px;background-color:rgba(255, 255, 255, 0.94);
+                    width:96px;z-index:99;box-shadow:0 0 14px 0 rgba(22, 45, 61, 0.36);
+}
+.rootcomp-toolbar .header {height:30px;line-height:30px;font-size:16px;}
+.rootcomp-toolbar .header i {margin-left:13px;cursor:pointer;color:#2d4150;}
+.rootcomp-toolbar .header .drag-zone {height:30px;cursor:move;width:100%;}
+.rootcomp-toolbar .inner {text-align:center;display:block;}
+.rootcomp-toolbar .sperator {margin:0 0 9px 0;width:100%;box-sizing:border-box;border-bottom:1px solid #f0f3f5;}
+.rootcomp-toolbar .button-grid .button {
+    display:inline-block;width:33px;height:33px;border:0;border-radius:6px;
+    color:#2d4150;font-size:15px;line-height:33px;margin:3px;padding:0px;vertical-align:top;text-align:center;cursor:pointer;
+}
+.rootcomp-toolbar .button-grid .button.disabled {color:#bcbcbc;}
+.rootcomp-toolbar .inner.form {text-align:left;padding:0 12px;padding-right:6px;padding-bottom:8px;color:#2b5672;}
+.rootcomp-toolbar .inner.form .fontsp {line-height:30px;padding:0 7px 0 7px;font-size:12px;}
+.rootcomp-toolbar .inner.form .form-control {
+    border-radius:8px;border:1px solid transparent;position:relative;text-align:center;display:inline-block;
+    background-color:rgba(0, 0, 0, 0.00);padding:0 2px !important;cursor:pointer;
+}
+.rootcomp-toolbar .inner.form .form-control:hover {
+    background-color:#d3edff;
+}
+/*----------------*/
+.design_pc {width:100%;border:0;margin-top:48px;overflow-x:hidden;overflow-y:hidden;}
+.form-control.small {width:45px;}
+.wid1200 {width:1200px;}
+.width1100{width:1100px;}

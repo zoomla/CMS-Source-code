@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>246</LabelID>
+    <LabelName>首页显示店铺商品列表_无商品不显示_主体</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>ParentID,,1,父节点ID</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Node</LabelTable>
+    <LabelField>*</LabelField>
+    <LabelWhere />
+    <LabelOrder>OrderID ASC</LabelOrder>
+    <LabelContent>&lt;div class="tab-content"&gt;
+ {Repeate}
+&lt;div class="tab-pane" id="menu_plist{Field="NodeID"/}"&gt;
+&lt;div class="row"&gt;
+&lt;ul class="list-unstyled"&gt;
+{ZL.Label id="首页输出店铺商品图片列表" NodeID="{Field="NodeID"/}" ShowNum="6" TitleNum="22" ClassName="col-lg-2 col-md-2 col-sm-2 col-xs-12" /}
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}
+&lt;/div&gt;$</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

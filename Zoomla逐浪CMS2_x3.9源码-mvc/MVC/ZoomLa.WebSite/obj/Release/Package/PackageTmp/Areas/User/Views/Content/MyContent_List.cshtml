@@ -1,0 +1,25 @@
+﻿@using System.Data;
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 5;
+    Model.url = "Content_Data";
+}
+<table class="table table-bordered table-striped" id="EGV">
+<tr><td></td><td>ID</td><td>标题</td><td>状态</td><td>操作</td></tr>
+    @foreach (DataRow dr in Model.dt.Rows)
+{
+    <tr>
+        <td><input type="checkbox" name="idchk" value="@dr["GeneralID"]" /></td>
+        <td>@dr["GeneralID"]</td>
+        <td>@dr["Title"]</td>
+        <td>@ZoomLa.BLL.B_Content.GetStatusStr(Convert.ToInt32(dr["Status"]))</td>
+        <td>
+            @*<a href="ShowContent/@dr["GeneralID"]" class="option_style"><i class="fa fa-eye"></i></a>*@
+            <a href="AddContent?ID=@dr["GeneralID"]" class="option_style"><i class="fa fa-pencil"></i></a>
+            <a href="/Item/@dr["GeneralID"]" class="option_style" target="_blank"><i class="fa fa-globe"></i>预览</a>
+            <a href="javascript:;" class="option_style" onclick="mvcpage.del({ id: '@dr["GeneralID"]', url: 'content_del', confirm: '确定要删除吗' });"><i class="fa fa-trash"></i></a>
+        </td>
+    </tr>
+}
+    @Html.Partial("_page",Model)
+</table>

@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>668</LabelID>
+    <LabelName>打印数据源标签</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>数据源标签</LabelCate>
+    <LabelDesc>打印数据源标签</LabelDesc>
+    <LabelParam />
+    <LabelTable>ZL_CommonModel left join ZL_C_Article on ZL_CommonModel.ItemID=ZL_C_Article.ID</LabelTable>
+    <LabelField>ZL_CommonModel.*,ZL_C_Article.*</LabelField>
+    <LabelWhere>ZL_CommonModel.GeneralID={$GetRequest(generalid)$} and ModelID=2</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount>0</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla7x</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

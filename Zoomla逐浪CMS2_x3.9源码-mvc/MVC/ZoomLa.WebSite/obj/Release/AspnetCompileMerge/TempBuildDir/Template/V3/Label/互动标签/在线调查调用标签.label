@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>505</LabelID>
+    <LabelName>在线调查调用标签</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>互动标签</LabelCate>
+    <LabelDesc>ZL_Pub_ZXDC分页标签</LabelDesc>
+    <LabelParam />
+    <LabelTable>ZL_Pub_ZXDC left join ZL_Pub on ZL_Pub_ZXDC.Pubupid=ZL_Pub.Pubid</LabelTable>
+    <LabelField>ZL_Pub_ZXDC.*,ZL_Pub.*</LabelField>
+    <LabelWhere>ZL_Pub_ZXDC.Pubupid=3 And ZL_Pub_ZXDC.PubContentid=-1 And ZL_Pub_ZXDC.Pubstart=1</LabelWhere>
+    <LabelOrder>ZL_Pub_ZXDC.ID DESC</LabelOrder>
+    <LabelContent>{Repeate}
+用户名:{Field="PubUserName"/}&lt;br /&gt;
+问券内容:{Field="PubContent"/}&lt;br /&gt;
+用户IP:{Field="PubIP"/}&lt;br /&gt;
+提交时间:{Field="PubAddTime"/}
+{/Repeate}&lt;br /&gt;
+{ZL.Page/}&lt;br /&gt;</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>1</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

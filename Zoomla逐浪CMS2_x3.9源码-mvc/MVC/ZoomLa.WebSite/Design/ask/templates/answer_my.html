@@ -1,0 +1,14 @@
+﻿<ion-view>
+    <ion-header-bar class="bar-calm bar bar-header" align-title="center">
+        <a href="#/tab/index" class="button icon ion-chevron-left" nav-direction="back"></a>
+        <div class="title title-center header-item">我的回答</div>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list can-swipe="true">
+            <ion-item ng-repeat="item in list">
+                <h2><span ng-bind="item.Title"></span></h2>
+                <span class="item-note"  ng-bind="item.CDate| date:'yyyy-MM-dd HH:mm'"></span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

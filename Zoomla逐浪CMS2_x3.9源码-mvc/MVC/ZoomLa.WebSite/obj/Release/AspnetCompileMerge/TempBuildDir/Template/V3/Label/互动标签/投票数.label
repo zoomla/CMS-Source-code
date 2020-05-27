@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>497</LabelID>
+    <LabelName>投票数</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>互动标签</LabelCate>
+    <LabelDesc>ZL_Pub_WZTP分页标签</LabelDesc>
+    <LabelParam>mood,默认值,1,心情|ItemID,,2,文章ID</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Pub_WZTP</LabelTable>
+    <LabelField>count (ID) as num</LabelField>
+    <LabelWhere>Pubupid=2 And PubContentid=@ItemID And Mood='@mood' And Pubstart=1
+</LabelWhere>
+    <LabelOrder />
+    <LabelContent>&lt;script&gt;
+ var a='{Field="num"/}';
+ if(a=='[err:无记录]'){
+	 document.write("0");}
+	 else{
+ document.write(a); 
+}
+&lt;/script&gt;
+</LabelContent>
+    <LabelCount>0</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

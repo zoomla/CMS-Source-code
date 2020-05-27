@@ -1,0 +1,829 @@
+﻿<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>快速开发助手-Powerd by Zoomla!逐浪CMS</title>
+<link href="dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<link href="dist/css/font-awesome.min.css" rel="stylesheet"/>
+<link type="text/css" rel="stylesheet" href="/App_Themes/User.css" />
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="/JS/JQueryAjax.js"></script>
+<script src="/JS/scrolltopcontrol.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+</head>
+<body class="sys_help">
+<div class="help_top navbar-fixed-top">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 help_top_l">
+<a href="http://www.z01.com" target="_blank" title="Zoomla!逐浪CMS官网"><img src="/App_Themes/User/ilogo.jpg" alt="Zoomla!逐浪CMS官网" /></a>
+<span>Zoomla!逐浪CMS快速操作指南</span>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 help_top_r">
+<div class="help_top_menu pull-right">
+<ul class="list-inline">
+<li><a href="http://bbs.z01.com" target="_blank" title="开发者论坛"><i class="fa fa-user"></i>技术论坛</a></li>
+<li><a href="http://www.z01.com/help/mtv/" target="_blank" title="视频使用教程"><i class="fa fa-video-camera"></i>视频开发教程</a></li>
+<li><a href="http://www.z01.com/pub/" target="_blank" title="获取最新逐浪CMS版本"><i class="fa fa-cloud-download"></i>下载最新逐浪CMS程序</a></li>
+</ul>
+</div> 
+<div class="pull-right">
+<form action="http://www.z01.com/search/SearchList.aspx" method="get" target="_blank">
+<div class="input-group text_300">
+<input name="keyword" type="text" class="form-control" placeholder="关键字...">
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">搜索</button>
+</span> 
+</div>
+</form>
+</div>
+</div> 
+</div>
+<div class="help_menu"> 
+<div class="help_syn"><img src="/App_Themes/User/help_ico.gif" class="img-responsive" alt="开发助手" />
+<span>用心服务·共创价值</span>
+</div>
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active"><a href="#install" aria-controls="install" role="tab" data-toggle="tab"><i class="fa fa-question-circle"></i>安装指引</a></li>
+<li role="presentation"><a href="#mall" aria-controls="mall" role="tab" data-toggle="tab"><i class="fa fa-shopping-cart"></i>商城实例</a></li>
+<li role="presentation"><a href="#develop" aria-controls="develop" role="tab" data-toggle="tab"><i class="fa fa-leaf"></i>开发实例</a></li>
+<li role="presentation"><a href="#temp" aria-controls="temp" role="tab" data-toggle="tab"><i class="fa fa-tags"></i>模板标签</a></li>
+<li role="presentation"><a href="#tool" aria-controls="tool" role="tab" data-toggle="tab"><i class="fa fa-sign-in"></i>工具技巧</a></li>
+<li role="presentation"><a href="#dictionary" aria-controls="dictionary" role="tab" data-toggle="tab"><i class="fa fa-book"></i>数据字典</a></li>
+<li role="presentation"><a href="#words" aria-controls="words" role="tab" data-toggle="tab"><i class="fa fa-font"></i>名词解释</a></li>
+<li role="presentation"><a href="#link" aria-controls="link" role="tab" data-toggle="tab"><i class="fa fa-link"></i>快速链接</a></li>
+<li role="presentation"><a href="#doc" aria-controls="doc" role="tab" data-toggle="tab"><i class="fa fa fa-file-word-o"></i>生成word</a></li>
+<li role="presentation"><a href="#api" aria-controls="api" role="tab" data-toggle="tab"><i class="fa fa fa-database"></i>数据接口</a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+<div class="help_cnt"> 
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="install"> 
+<div id="c01" class="content payment">
+<div class="page-head">
+<div class="title">
+<h2>安装指引</h2>
+<div class="slogan">快速安装 使用逐浪</div>
+</div>
+<div class="links"><a href="http://www.z01.com/pub" target="_blank" class="link-record">下载Zoomla!逐浪CMS|最新版本号:<script type="text/javascript" src="http://www.z01.com/ad/201203/8.js"></script></a></div>
+</div> 
+<div class="info">
+<div class="info-title">安装流程：</div>
+<img src="/App_Themes/User/ins_.jpg" width="485" height="60" />
+<div class="info-title">感谢您使用Zoomla!逐浪CMS，在安装时，您需要准备以下的环境：</div>
+<ul>
+<li>1、服务器端脚本解释器最低要支持asp.NET4.0。</li>
+<li>2、需要有开放db_ower权限的MSSQL数据库，版本为MSSQL2005或更高版本。</li>
+<li>3、网站所在目录需要开放Users、aspnet用户的可读写权限</li>
+</ul>
+</div> 
+<div class="tip-faq">
+<h3>安装遇到问题？</h3>
+<dl>
+<dt>问：为什么启动Install文件，不能进入安装程式？</dt>
+<dd>答：首先检查一下Config/AppSettings.config的Installed是否为False，只有当Installed值为False才代表系统未进行安装。</dd>
+<dt>问：系统打开就报错是什么原因？</dt>
+<dd>答：一般出现这样的原因的是.net版本不对，比如win2003操作系统下，IIS中的asp.net版本需要如下选择才正确：<br />
+<img src="/App_Themes/User/ins1.JPG" alt=".net选择器界面" />
+</dd>
+<dt>问：我用虚拟目录安装逐浪提示：Error!请在根目录下执行本系统安装! </dt>
+<dd>答：是的，您应该安装在根目录下，而不是建立虚拟目录，如果是WIN2008及更高企业版操作系统，可以采用多端口配置，如下图：<br />
+<img src="/App_Themes/User/ins2.JPG" alt="必须安装在根目录下" /><br/>
+</dd>
+<dt>问：如何初始化配置？</dt>
+<dd>一般恢复config下文件就可以初始化，对于数据连接正常的站点系统升级，您可点击使用<a href="Tools/Default.aspx" target="_blank">此超级工具进行缓存及信息维护</a>（操作前先备份全站文件及数据）。
+</dl>  
+<a class="J-scroll-to-top" href="#top">↑回到顶部</a>
+</div>	
+<div class="foot">Zoomla!逐浪软件 版权所有 2016 沪ICP备09077823号</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="mall"> 
+<div id="c09" class="content payment">
+<div class="page-head">
+<div class="title"><h2>商城购物</h2><div class="slogan">诚信进取 大道逐浪</div></div>
+<div class="links"><a href="http://www.z01.com/Article/news/526.shtml" target="_blank" class="link-record">软件免费、服务收费--永久免费申明，欢迎更多的用户加入逐浪CMS开发阵营。</a></div>
+</div>
+<div class="tip-faq" style="padding-bottom:20px;">
+<dl><dt id="demo1">商城/店铺/积分商品标准购物车：</dt>
+<dd><textarea rows="2" cols="20" class="tb_dm scrollbar">
+&lt;form id=&quot;form2&quot; method=&quot;post&quot; target=&quot;_blank&quot; action=&quot;/Cart/Cart.aspx&quot;&gt;
+&lt;div&gt;
+商品ID：&lt;input type=&quot;text&quot; name=&quot;id&quot; value=&quot;1&quot; /&gt;&lt;br /&gt;
+商品数：&lt;input type=&quot;text&quot; name=&quot;pronum&quot; value=&quot;1&quot; /&gt;&lt;br /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&lt;/div&gt;
+&lt;/form&gt;</textarea>
+<div class="user_ac">
+<input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+<input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm"  />
+<input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+<input type="button" name="btn_save" value="保存代码" class="user_btn savedm"/>
+</div>
+</dd>
+</dl>
+<dl>
+<dt id="demo1">酒店快速订单(支持酒店快速入住场景):</dt>
+<dd>
+<textarea rows="2" cols="20" class="tb_dm scrollbar">
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+&lt;form id=&quot;form3&quot; method=&quot;post&quot; action=&quot;/Prompt/ShopCart/hotelform.aspx&quot; target=&quot;_blank&quot;&gt;
+//提交JSON数据
+&lt;div&gt;
+商品ID：&lt;input type=&quot;text&quot; id=&quot;proid1&quot; value=&quot;4&quot; /&gt;入住时间：&lt;input type=&quot;text&quot; id=&quot;godate1&quot; value=&quot;2015/03/26 8:30&quot; /&gt;离店时间：&lt;input type=&quot;text&quot; id=&quot;levedate&quot; value=&quot;2015/03/28 15:30&quot; /&gt;房间数：&lt;input type=&quot;text&quot; id=&quot;pronum1&quot; value=&quot;2&quot; /&gt;备注：&lt;input type=&quot;text&quot; id=&quot;remind1&quot; value=&quot;包住宿与饮食&quot; /&gt;
+&lt;/div&gt;
+<!--&lt;div&gt;
+酒店商品ID：&lt;input type=&quot;text&quot; id=&quot;proid2&quot; value=&quot;6&quot; /&gt;入住时间：&lt;input type=&quot;text&quot; id=&quot;godate2&quot; value=&quot;2015/01/28 16:30&quot; /&gt;离店时间：&lt;input type=&quot;text&quot; id=&quot;levedate&quot; value=&quot;2015/03/28 15:30&quot; /&gt;房间数：&lt;input type=&quot;text&quot; id=&quot;pronum2&quot; value=&quot;2&quot; /&gt;
+&lt;/div&gt;-->
+&lt;input type=&quot;button&quot; value=&quot;提交&quot; onclick=&quot;return BeginSubmit();&quot; /&gt;
+&lt;input type=&quot;hidden&quot; id=&quot;pros&quot; name=&quot;pros&quot; /&gt;
+&lt;script&gt;
+function BeginSubmit() {
+var arr = [];
+arr.push({ ProID: $(&#39;proid1&#39;),Pronum: $(&#39;pronum1&#39;), GoDate: $(&#39;godate1&#39;),OutDate:$(&#39;levedate&#39;),Remind: escape($(&#39;remind1&#39;)) });
+//arr.push({ ProID: $(&#39;proid2&#39;),Pronum: $(&#39;pronum2&#39;), GoDate: $(&#39;godate2&#39;),OutDate:$(&#39;levedate&#39;) });
+document.getElementById(&quot;pros&quot;).value = JSON.stringify(arr);
+form3.submit();
+}
+function $(id)
+{
+return document.getElementById(id).value;
+}
+&lt;/script&gt;
+&lt;/form&gt;
+</textarea>
+<div class="user_ac">
+<input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+<input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+<input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+<input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div>
+</dd>
+</dl>
+<dl>
+<dt id="demo1">分步式订单(支持如旅游多人信息填写下单场景):</dt>
+<dd>
+<textarea rows="2" cols="20" class="tb_dm scrollbar">
+    &lt;form id=&quot;form3&quot; method=&quot;post&quot; action=&quot;/Prompt/ShopCart/Passengers.aspx&quot; target=&quot;_blank&quot;&gt;
+    //提交JSON数据
+    &lt;div&gt;
+    旅游商品ID：&lt;input type=&quot;text&quot; id=&quot;proid1&quot; value=&quot;6&quot; /&gt;出发日期：&lt;input type=&quot;text&quot; id=&quot;godate1&quot; value=&quot;2015/01/28 15:30&quot; /&gt;人数：&lt;input type=&quot;text&quot; id=&quot;pronum1&quot; value=&quot;2&quot; /&gt;编号:&lt;input type=&quot;text&quot; id=&quot;code1&quot; value=&quot;5bd6u8&quot; /&gt;备注：&lt;input type=&quot;text&quot; id=&quot;remind1&quot; value=&quot;包住宿与饮食&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+    旅游商品ID：&lt;input type=&quot;text&quot; id=&quot;proid2&quot; value=&quot;6&quot; /&gt;出发日期：&lt;input type=&quot;text&quot; id=&quot;godate2&quot; value=&quot;2015/01/28 16:30&quot; /&gt;人数：&lt;input type=&quot;text&quot; id=&quot;pronum2&quot; value=&quot;1&quot; /&gt;编号:&lt;input type=&quot;text&quot; id=&quot;code2&quot; value=&quot;pzfu9c&quot; /&gt;备注：&lt;input type=&quot;text&quot; id=&quot;remind2&quot; value=&quot;儿童&quot; /&gt;
+    &lt;/div&gt;
+    &lt;input type=&quot;button&quot; value=&quot;提交&quot; onclick=&quot;return BeginSubmit();&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; id=&quot;pros&quot; name=&quot;pros&quot; /&gt;
+    &lt;script&gt;
+    function BeginSubmit() {
+    var arr = [];
+    arr.push({ ProID: $(&#39;proid1&#39;), GoDate: $(&#39;godate1&#39;), Pronum: $(&#39;pronum1&#39;), code: escape($(&#39;code1&#39;)), Remind: escape($(&#39;remind1&#39;)) });
+    arr.push({ ProID: $(&#39;proid2&#39;), GoDate: $(&#39;godate2&#39;), Pronum: $(&#39;pronum2&#39;), code: escape($(&#39;code2&#39;)), Remind: escape($(&#39;remind2&#39;)) });
+    document.getElementById(&quot;pros&quot;).value = JSON.stringify(arr);
+    form3.submit();
+    }
+    function $(id) {
+    return document.getElementById(id).value;
+    }
+    &lt;/script&gt;
+    &lt;/form&gt;
+</textarea>
+<div class="user_ac">
+<input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+<input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+<input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+<input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div>
+</dd>
+</dl>
+<dl>
+        <dt id="demo4">代购一步实例：</dt>
+        <dd>
+            <textarea name="tb_Dmcontent31" rows="2" cols="20" id="Textarea3" class="tb_dm scrollbar">
+                &lt;form id=&quot;form&quot; name=&quot;form&quot; method=&quot;post&quot; action=&quot;/Cart/FastOrder.aspx&quot; runat=&quot;server&quot;&gt;<br>
+                &lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; &gt;<br>
+                function onkeychange()<br>
+                {<br>
+                var values = document.getElementById(&quot;ProUrl&quot;).value;<br>
+                if(values.indexOf(&quot;http://&quot;)==0)<br>
+                {<br>
+                document.getElementById(&quot;ProUrl&quot;).value = values.replace(&quot;http://&quot;,&quot;&quot;);<br>
+                }<br>
+                }<br>
+                &lt;/script&gt;</p>
+                商品页网址 &lt;input type=&quot;text&quot; id=&quot;ProUrl&quot; name=&quot;ProUrl&quot; class=&quot;but&quot; onkeypress=&quot;onkeychange()&quot; onchange=&quot;onkeychange()&quot; onkeyup=&quot;onkeychange()&quot; /&gt;<br>
+                &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;粘贴您要购买商品的网页地址,我们以此为依据帮您购买&lt;br /&gt;购买 <br>
+                商品名称&lt;input type=&quot;text&quot; value=&quot;商品名称&quot; id=&quot;Proname&quot; name=&quot;Proname&quot;/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;您要购买商品的详细名称&lt;br /&gt;<br>
+                来源卖家&lt;input type=&quot;text&quot; value=&quot;国外卖家&quot; id=&quot;ProSeller&quot; name=&quot;ProSeller&quot;/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;店铺名称或掌柜旺旺账号&lt;br /&gt;<br>
+                商品价格&lt;input type=&quot;text&quot; value=&quot;100&quot; id=&quot;Price&quot; name=&quot;Price&quot; onKeyUp=&quot;value=value.replace(/[^\d\.]/g,'')&quot; /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;不包括国内运费,国内运费会在结算时一并计算&lt;br /&gt;<br>
+                商品数量&lt;input type=&quot;text&quot; value=&quot;3&quot; id=&quot;Pronum&quot; name=&quot;Pronum&quot; onKeyUp=&quot;value=value.replace(/[^\d\.]/g,'')&quot;  /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;您要购买商品的数量&lt;br /&gt;<br>
+                商品类型&lt;input type=&quot;text&quot; value=&quot;1&quot; id=&quot;ProClass&quot; name=&quot;ProClass&quot; /&gt;&amp;nbsp;&amp;nbsp;商品类型：1为正常 2为特价 3 为积分&lt;br /&gt;<br>
+                您的备注&lt;input type=&quot;text&quot; value=&quot;请尽快&quot; id=&quot;Proinfo&quot; name=&quot;Proinfo&quot; /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br /&gt;<br>
+                手机号码&lt;input type=&quot;text&quot; id=&quot;Phone&quot; name=&quot;Phone&quot; /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br /&gt;<br>
+                商品属性&lt;input type=&quot;text&quot; id=&quot;Attribute&quot; name=&quot;Attribute&quot; /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br /&gt;<br>
+                &lt;input type=&quot;submit&quot; name=&quot;button&quot; id=&quot;button&quot; value=&quot;提交&quot; /&gt;<br>
+                &lt;/form&gt;
+            </textarea>
+            <div class="user_ac">
+                <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+                <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+                <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+                <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+            </div>
+        </dd>
+    </dl>
+    <dl>
+    <dt id="demo5">IDC订单实例：</dt>
+        <dd>
+            <textarea rows="2" cols="20" class="tb_dm scrollbar">
+                &lt;form id=&quot;idcform&quot; method=&quot;post&quot; target=&quot;_blank&quot; action=&quot;/Cart/FillIDCInfo.aspx&quot;&gt;
+                &lt;div&gt;
+                IDC商品ID：&lt;input type=&quot;text&quot; name=&quot;proid&quot; id=&quot;proid&quot; value=&quot;7&quot; /&gt;&lt;br /&gt;
+                &lt;input type=&quot;button&quot; id=&quot;idcsubmit&quot; value=&quot;提交&quot; /&gt;
+                &lt;/div&gt;
+                &lt;/form&gt;
+                &lt;script type="text/javascript" src="/js/jquery-1.11.1.min.js"&gt;&lt;/script&gt;
+                &lt;script&gt;
+                $(&#39;#idcsubmit&#39;).click(function(){
+                    var proid = $(&#39;#proid&#39;).val();
+                    window.open('/Cart/FillIDCInfo.aspx?proid='+proid);
+                });
+                &lt;/script&gt;
+            </textarea>
+            <div class="user_ac">
+                <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+                <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+                <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+                <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+            </div>
+        </dd>
+    </dl>
+</div>
+<div class="foot">Zoomla!逐浪软件 版权所有 2016 沪ICP备09077823号</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="develop">
+<div id="c02" class="content payment">
+<div class="page-head">
+	<div class="title">
+		<h2>开发实例</h2>
+		<div class="slogan">引用实例 开发示范</div>
+	</div>
+	
+<div class="links">
+<select onchange="window.location.href=this.options[selectedIndex].value" >
+    <Option selected>选择实例</Option>
+    <option value="#demo6" >订阅实例</option> 
+    <option value="#demo8" >添加收藏夹</option> 
+    <option value="#demo9" >酒店预计实例</option> 
+    <option value="#demo10" >机票预计实例</option> 
+    <option value="#demo11" >JQuery登录实例</option> 
+    <option value="#demo12" >Iframe嵌入式登录</option> 
+    <option value="#demo13" >获取商品推广url</option> 
+    <option value="#demo14" >获得团购价格</option> 
+</select> 
+<a href="http://www.z01.com/help/" target="_blank" class="link-record">线上实例更多指引</a>
+</div>
+</div>
+<div class="tip-faq">
+<dl><dt id="demo6">订阅实例：</dt>
+<dd>
+ <textarea name="tb_Dmcontent4" rows="2" cols="20" class="tb_dm scrollbar">
+<script type="text/javascript">
+    function attention() {
+        document.getElementById("OrderType").value = "0";
+        gopost();
+    }
+
+    function subscribe() {
+        document.getElementById("OrderType").value = "1";
+        gopost();
+    }
+
+    function gopost() {
+        document.forms[0].submit();
+    }
+</script>
+  &lt;form action=&quot;GoMySubscription.aspx&quot; method=&quot;post&quot;&gt;<br />
+  内容ID：&lt;input type=&quot;text&quot; name=&quot;ReferenceID&quot; /&gt;&lt;br /&gt;<br />
+  订阅时间(月份为单位)：&lt;input type=&quot;text&quot; name=&quot;Period&quot; /&gt;&lt;br /&gt;<br />
+  开始订阅日期：&lt;input type=&quot;text&quot; name=&quot;StartDate&quot; /&gt;&lt;br /&gt;<br />
+  &lt;!--订阅人：&lt;input type=&quot;text&quot; name=&quot;UserName&quot; /&gt;&lt;br /--&gt;<br />
+  接收电话：&lt;input type=&quot;text&quot; name=&quot;Tel&quot; /&gt;&lt;br /&gt;<br />
+  接收邮箱：&lt;input type=&quot;text&quot; name=&quot;Email&quot; /&gt;&lt;br /&gt;<br />
+  &lt;input type=&quot;hidden&quot; name=&quot;OrderType&quot; id=&quot;OrderType&quot; /&gt;<br />
+  &lt;input type=&quot;button&quot; onclick=&quot;attention()&quot; value=&quot;关注&quot; /&gt;<br />
+  &lt;input type=&quot;button&quot; onclick=&quot;subscribe()&quot; value=&quot;直接定阅&quot; /&gt;<br />
+  &lt;/form&gt;
+ </textarea>
+<div class="user_ac">
+    <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+    <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+    <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+    <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div> 
+</dd></dl>
+<dl><dt id="demo8">添加收藏夹实例：</dt>
+<dd>
+<textarea name="tb_Dmcontent6" rows="2" cols="20" class="tb_dm scrollbar">
+&lt;!-- get/post都可以,加链接形式也行 --&gt;<br>
+  &lt;form id=&quot;form1&quot; runat=&quot;server&quot; action=&quot;/User/Content/AddToFav.aspx&quot; method=&quot;get&quot; &gt;<br>
+  &lt;div align=&quot;center&quot;&gt;<br>
+  &lt;table style=&quot;font-size:12px&quot;&gt;<br>
+  &lt;tr&gt;&lt;td colspan=&quot;3&quot; align=&quot;center&quot;&gt;添加收藏夹&lt;/td&gt;&lt;/tr&gt;<br>
+  &lt;tr&gt;<br>
+  &lt;td&gt;收藏内容ID：&lt;/td&gt;&lt;td&gt;&lt;input id=&quot;itemid&quot; name=&quot;itemid&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;<br>
+  &lt;tr&gt;&lt;td&gt;收藏内容URL：&lt;/td&gt;&lt;td&gt;&lt;input id=&quot;Url&quot; name=&quot;Url&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;<br>
+  &lt;tr&gt;&lt;td&gt;收藏内容类型：&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;&lt;select id=&quot;type&quot; name=&quot;type&quot; style=&quot;font-size:12px&quot;&gt;<br>
+  &lt;option value=&quot;1&quot;&gt;内容收藏&lt;/option&gt; <br>
+  &lt;option value=&quot;2&quot;&gt;商品收藏&lt;/option&gt; <br>
+  &lt;option value=&quot;3&quot;&gt;网店收藏&lt;/option&gt; <br>
+  &lt;/select&gt;&lt;/td&gt;&lt;/tr&gt;
+<p>&lt;tr&gt;&lt;td&gt;收藏相关内容ID：&lt;/td&gt;&lt;td&gt;&lt;input id=&quot;Content&quot; name=&quot;Content&quot; /&gt;&lt;/td&gt;&lt;td&gt;(多个ID以逗号隔开)&lt;/td&gt;&lt;/tr&gt;<br>
+  &lt;tr&gt;&lt;td colspan=&quot;3&quot; align=&quot;center&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;<br>
+  &lt;/table&gt;<br>
+  &lt;/div&gt;<br>
+  &lt;/form&gt;<br>
+</textarea>
+<div class="user_ac">
+    <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+    <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+    <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+    <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div> 
+</dd></dl>
+<dl><dt id="demo11">JQuery登录实例：</dt>
+<dd>
+<textarea name="tb_Dmcontent9" rows="2" cols="20" id="Textarea1" class="tb_dm scrollbar">
+引入：
+  &lt;script type="text/javascript" src="/js/jquery-1.11.1.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="/js/jqueryajax.js"&gt;&lt;/script&gt;
+Ajax登录
+ZoomLa.ajaxlogin(username, password,callback); 
+实例：
+ZoomLa.ajaxlogin('admin','t_admin888',function(){
+	alert("登录成功");
+	//Do Something  登录成功回调函数
+});
+
+Ajax退出
+ZoomLa.ajaxlogout(callback);
+实例：
+ZoomLa.ajaxlogout(function(){
+	//Do Something  退出成功回调函数
+});
+</textarea>
+<div class="user_ac">
+    <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+    <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+    <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+    <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div> 
+</dd></dl>
+<dl><dt id="demo12">Iframe嵌入式登录：</dt>
+<dd>
+<textarea name="tb_Dmcontent10" rows="2" cols="20" id="Textarea3" class="tb_dm scrollbar">
+iframe嵌入登录： 样式参数Style（1 为纵向，2 为横向） 默认为纵向
+
+横向实例：&lt;iframe src="/login.aspx?Style=2" frameborder="0" width="600" height="30"&gt;&lt;/iframe&gt;
+
+纵向实例：&lt;iframe src="/login.aspx?Style=1" frameborder="0" width="600" height="150"&gt;&lt;/iframe&gt;
+</textarea>
+<div class="user_ac">
+    <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+    <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+    <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+    <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div> 
+</dd></dl>
+<dl><dt id="demo13">获取商品推广url实例：</dt>
+<dd>
+<textarea name="tb_Dmcontent10" rows="2" cols="20" id="Textarea2" class="tb_dm scrollbar">
+
+    &lt;script&gt;
+    //surl商品地址
+
+var xmlHttp = new XMLHttpRequest();
+function updatePage() {
+    //readState == 4，表示请求成功完成
+    if (xmlHttp.readyState == 4) {
+        if (xmlHttp.status == 200) {
+            var response = xmlHttp.responseText; //HTTP请求返回的文本内容
+            document.write("<a href='"+response+"' id='temp'>"+response+"</a>");
+        } else if (request.status == 404) {
+            //HTTP状态码为404，无法找到资源
+            alert ("404 Not Found");
+        } else if (request.status == 403) {
+            //HTTP状态码为403，资源不可用
+            alert ("403 Forbidden");
+        } else if (request.status == 401) {
+            //HTTP状态码为401，未经授权
+            alert  ("401 Unauthorized");
+        }
+    }
+}
+function callServer(url) {
+    //联系服务器，打开连接
+    xmlHttp.open("GET", url, true); //"true"代表该请求是异步的
+    //设置请求完成时的响应函数,注意这里是请求完成时，并不是响应完成时
+    xmlHttp.onreadystatechange = updatePage;
+    //发送请求,因为已经在请求URL中添加了要发送给服务器的数据(city和state)，所以请求中 无需再发送其他数据.
+    xmlHttp.send(null);
+}
+        callServer(&quot;/api/ShopUrl.aspx?surl=http://win100/shop.aspx?ItemID=3&quot;);
+        &lt;/script&gt;
+</textarea>
+<div class="user_ac">
+    <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+    <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+    <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+    <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div> 
+</dd></dl>
+<dl><dt id="demo14">根据商品ID、团定人数获得团购价格：</dt>
+<dd>
+<textarea name="tb_Dmcontent11" rows="2" cols="20" id="Textarea2" class="tb_dm scrollbar">
+&lt;script src="JS/jquery-1.11.1.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        window.onload = loadtxt;
+        var jiage = "";
+        function loadtxt() {
+            $.get("/Common/GetGroupMoney.aspx?proid=1&groupnum=11", '', function (data) {
+                jiage = data;
+                document.write(jiage);
+            }, "");
+            }
+    //其中proid 为商品ID，groupnum为当前团定人数，jiage为返回当前的团购价格
+    &lt;/script&gt;
+</textarea>
+<div class="user_ac">
+    <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+    <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+    <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+    <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div> 
+</dd>
+</dl>
+</div>	
+<div class="foot">Zoomla!逐浪软件 版权所有 2016  沪ICP备09077823号</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="temp">
+<div id="c03" class="content payment"><div class="page-head">
+<div class="title">
+    <h2>模板标签</h2>
+    <div class="slogan">快速构建 精彩网页与应用</div>
+</div>
+<div class="links">
+		<a href="http://www.z01.com/templet/" target="_blank" class="link-record">线上模板共享专区</a>
+	</div>
+</div>
+<div class="info">
+	<div class="info-title">Zoomla!逐浪CMS模板风格基本约定：</div>
+	<ul>
+		<li>1、模板与风格分别存于Template与Skin文件夹下。</li>
+		<li>2、遵循标准的HTML规则。</li>
+        <li>3、官方模板统一采用HTML5规范与UTF-8语境规则</li>
+	</ul>
+<div class="info-title">标签开发引导：</div>
+<ul>
+    <li>1、Zoomla!逐浪CMS标签查询为系统所有表，开发者可以根据需要自由组装字段。</li>
+    <li>2、动态标签的调用格式为{ZL.Label id="标签名" NodeID="0" /}心。</li>
+    <li>3、标签支持在任意动态页面输出，如&lt;%Call.Label(&quot;{ZL.Label id=\&quot;标签名称\&quot; NodeID=\&quot;91\&quot; /}&quot;); %&gt;方法则能在非模板引擎页输出(即在任何动态页输出标签)。</li>
+    <li>4、系统采用智能多库算法，数据库名请不要采用数字开头并夹带小数点等特殊符号，如[2009data.1]格式则是非法数据库名格式，不符合数据库联查标准。</li>
+    <li>5、和模型对应的主表规范为ZL_CommonModel.itemID对应ZL_C_[个性表名]的ID。</li>
+	<li>6、多表查询应采用ID关联,比如文章模型则采用ZL_CommonModel left join ZL_C_Article on ZL_CommonModel.ItemID=ZL_C_Article.ID方法关联查询。</li>
+</ul>
+</div>
+
+<div class="tip-faq">
+<a class="J-scroll-to-top" href="#top">↑回到顶部</a>
+<h3>标签模板开发技巧</h3>
+<dl>
+<dt>问：如何更改模板？</dt>
+<dd>答：后台-系统设置-网站信息配置，将模板目录更改为目标模板目录即可。</dd>
+<dt>问：如何使标签运行更具效率？</dt>
+<dd>答：仅查询您所需要的字段，而不要每个标签都查询所有字段，这样可以使系统内存得到有效利用。</dd>
+</dl>
+<p class="tip-faq-link"><a href="http://www.z01.com/help" target="_blank">更多相关帮助>></a></p>
+</div>	
+<div class="foot">Zoomla!逐浪软件 版权所有 2016  沪ICP备09077823号</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="tool">
+<div id="c04" class="content payment"><div class="page-head">
+<div class="title">
+    <h2>工具技巧</h2>
+    <div class="slogan">自由开发 技术之美</div>
+</div>
+
+<div class="links">
+    <a href="http://bbs.z01.com/PClass?id=5" target="_blank" class="link-record">开发论坛专区</a>
+</div>
+</div>
+
+<div class="main"><div class="info">
+<div class="info-title">没错，您也可以在逐浪CMS中使用快捷健来操作后台！快捷键列表：</div>
+<ul>
+	<li><strong>ALT+Q</strong>  锁定后台屏幕，使当前未完成的操作不被中断，类似windows的“切换用户”功能。</li>
+	<li><strong>ALT+U</strong>  快速从后台进入会员中心(user)</li>
+	<li><strong>ALT+I</strong>  进入网站首页(index)</li>
+	<li><strong>ALT+J</strong>  启动智能计算器</li>
+	<li><strong>ALT+D</strong>  万年历（day）</li>
+	<li><strong>ALT+C</strong>  云模板(Cloud)</li>
+	<li><strong>ALT+M</strong>  模型管理(Model)</li>
+	<li><strong>ALT+T</strong>  模板方案管理(Template)</li>
+	<li><strong>ALT+S</strong>  风格管理(Skin)</li>
+	<li><strong>ALT+L</strong>  标签管理(Lable)</li>
+	<li><strong>ALT+N</strong>  启动新选项卡-快速切换新应用程式 </li>
+	<li><strong>ALT+H</strong>  启动系统帮助(help)</li>
+    <li><strong>ALT+A</strong>  进入标签助手</li>
+    <li><strong>Ctrl+Shift+F</strong>  启动翻译工具</li>
+
+</ul>
+</div>
+</div>
+
+<div class="tip-faq">
+<h3>快速开发工具</h3>
+<dl>
+<dt>启动数据库快速工具？</dt>
+<dd>1、管理员进入命令行：cd %windir%\system32\inetsrv</dd>
+<dd>2、然后运行：appcmd set config /section:staticContent /+"[fileExtension='.sql',mimeType='text/x-sql']"</dd>
+<dd>3、打开文件：在Chrome浏览器下<a href="Tools/DB_tool.sql" target="_blank">点击这里获取DB_tool开发工具</a>(IE为下载模式)</dd>
+<dd>4、删除MIME：appcmd set config /section:staticContent /-"[fileExtension='.sql',mimeType='text/x-sql']"</dd>
+<dt>命令行建立站点？</dt>
+<dd>1、管理员进入命令行：cd %windir%\system32\inetsrv</dd>
+<dd>2、创建站点：appcmd add site /name:"网站名称" /bindings:http://网址:端口 /physicalpath:"D:\目录"</dd>
+<dd>3、建立进程池：appcmd.exe add apppool /name:"进程池名称"</dd>
+<dd>4、分配进程池：appcmd.exe set app "网站名/" /applicationpool:"进程池名称"</dd>
+<dd>5、列出所有站点：appcmd list site，查找与指定的 url 关联的站点：appcmd list site http://localhost/app1。
+</dd>
+<dd>点此启用智能建站工具<a href="http://www.z01.com/tool" target="_blank">http://www.z01.com/tool</a></dd>
+</dl>
+</div>	
+<div class="foot">Zoomla!逐浪软件 版权所有 2016  沪ICP备09077823号</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="dictionary">
+<div id="c05" class="content payment"><div class="page-head">
+<div class="title">
+    <h2>数据字典</h2>
+    <div class="slogan">高效运营 数据之美</div>
+</div>
+
+<div class="links">
+    <a href="http://help.z01.com/data/" target="_blank" class="link-record">在线完整版数据字典</a>
+</div>
+</div>
+
+<div class="main"><div class="info">
+<div class="info-title">关键表定义</div>
+<ul>
+    <li>用户主表：ZL_User</li>
+    <li>用户详情表：ZL_UserBase</li>
+    <li>内容主表：ZL_CommonModel</li>
+    <li>商城主表：ZL_Commodities</li>
+</ul>
+</div>
+
+</div>
+
+<div class="tip-faq">
+<h3>数据库操作释疑</h3>
+<dl>
+<dt>问：Zoomla!逐浪CMS支持哪些数据库版本？</dt>
+<dd>答：MSSQL2000及更高版本的微软SQL Server数据库都支持，而Oracle(甲骨文)数据版我们仅对高级商业订制用户开放。</dd>
+<dt>问：主表和内容表间如何关联</dt>
+<dd>答：主表ItemID和副表ID是关联字段，如：<br />
+zoomla_cn.dbo.ZL_CommonModel left join zoomla_cn.dbo.ZL_C_Article on zoomla_cn.dbo.ZL_CommonModel.ItemID=zoomla_cn.dbo.ZL_C_Article.ID
+</dl>
+</div>	
+<div class="foot">Zoomla!逐浪软件 版权所有 2016  沪ICP备09077823号</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="words">
+<div id="c06" class="content payment">
+<div class="page-head">
+<div class="title">
+    <h2>名词解释</h2>
+    <div class="slogan">模型模板 概念解析</div>
+</div>
+</div>
+
+<div class="links">
+<a href="http://help.z01.com/" target="_blank" class="link-record">线上文档</a>
+</div>
+
+
+<div class="tip-faq">
+<dl>
+<dt>系统关键目录定义</dt>
+<dd>
+Config:系统配置目录<br />
+Install：安装程式目录<br />
+Skin：风格目录<br />
+Template：模板目录<br />
+API：接口数据文件夹<br />
+</dd>
+<dt>Config文件关键定义</dt>
+<dd>
+AppSettings.config：系统安装控制配置阀<br />
+ConnectionStrings.config：数据库连接配置文件<br />
+Site.config：网站配置信息文件<br />	
+</dd>
+<dt>根目录文件定义</dt>
+<dd>
+Default.aspx：首页解释文件<br />
+Login.aspx：预留登陆文件<br />
+web.config：全局配置文件(一般情况不需要定义此文件)<br />	
+</dd>
+</dl>
+</div>	
+<div class="foot">Zoomla!逐浪软件 版权所有 2016  沪ICP备09077823号</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="link">
+<div id="c07" class="content payment"><div class="page-head">
+	<div class="title">
+		<h2>快速链接</h2>
+		<div class="slogan">诚信进取 大道逐浪</div>
+	</div>
+	
+<div class="links">
+		<a href="http://www.z01.com/Article/news/526.shtml" target="_blank" class="link-record">软件免费、服务收费--永久免费申明，欢迎更多的用户加入逐浪CMS开发阵营。</a>
+	</div>
+</div>
+
+<div class="info">
+	<div class="info-title">Zoomla!逐浪CMS官网的快速接链：</div>
+	<ul>
+		<li>官方网址:<a href="http://www.hx008.com" target="_blank">www.hx008.com</a></li>
+		<li>开发社区:<a href="http://bbs.z01.com" target="_blank">bbs.z01.com</a></li>
+		<li>帮助中心:<a href="http://www.z01.com/help" target="_blank">www.z01.com/help</a></li>
+		<li>帮助文档:<a href="http://help.z01.com" target="_blank">help.z01.com</a></li>
+		<li>建站学园:<a href="http://edu.z01.com" target="_blank">edu.z01.com</a></li>
+		<li>商业认证:<a href="http://www.z01.com/biz" target="_blank">www.z01.com/biz</a></li>
+		<li>数据字典:<a href="http://help.z01.com/data" target="_blank">help.z01.com/data</a></li>
+	</ul>
+    <a class="J-scroll-to-top" href="#top">↑回到顶部</a>
+</div>
+
+<div class="foot">Zoomla!逐浪软件 版权所有 2016  沪ICP备09077823号</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="doc">
+<div id="c08" class="content payment"><div class="page-head">
+	<div class="title">
+		<h2>生成Word</h2>
+		<div class="slogan">诚信进取 大道逐浪</div>
+	</div>
+<div class="links">
+		<a href="http://www.z01.com/Article/news/526.shtml" target="_blank" class="link-record">软件免费、服务收费--永久免费申明，欢迎更多的用户加入逐浪CMS开发阵营。</a>
+	</div>
+</div>
+<div class="info">
+	<div class="info-title">Zoomla!逐浪CMS官网的网页生成Word：</div>
+	<ul>
+        <li>将做好的Word模版转成XML格式存放在网站的/UploadFiles/Template目录下</li>
+ 		<li>在需要生成的页面中调用扩展函数中的"生成Word"标签</li>
+		<li>页面中input的id名要与Word模版进行匹配，如：id名为zoomla则在Word需要读取该input数据的地方填写$zoomla</li>
+		<li>页面通过a链接或按钮调用方法outToWord()。如：用按钮调用&lt;input type="button" onClick="outToWord()" value="生成Word"&gt;</li>
+ 	</ul>
+    <div class="tip-faq"><dl><dt class="demo15">生成Word：</dt>
+<dd>
+    <textarea name="tb_Dmcontent15" rows="2" cols="20" id="Textarea4" class="tb_dm scrollbar">
+        &lt;script src="/JS/jquery-1.11.1.min.js"&gt;&lt;/script&gt;
+        &lt;script src="/JS/Label/ZLHelper.js"&gt;&lt;/script&gt;
+        &lt;script&gt;
+        var ExportWord = function () {
+            $txt = $(".word_txt");
+            var tlp = '&lt;h2&gt;生成Word&lt;/h2&gt;&lt;div&gt;文本一:' + $txt[0].value + '&lt;/div&gt;&lt;div&gt;文本二:' + $txt[1].value + '&lt;/div&gt;';
+            ZLHelper.OutToWord(tlp, "生成Word");
+        }
+        var ExportExcel = function () {
+            $txt = $(".excel_txt");
+            var tlp = '&lt;table&gt;&lt;tr&gt;&lt;td style="border:1px solid #d4cfcf;padding:5px 15px;text-align:center;background-color:#fff;" colspan="2"&gt;生成Excel&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;文本一:&lt;/td&gt;&lt;td&gt;'+$txt[0].value+'&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;文本二&lt;/td&gt;&lt;td&gt;'+$txt[1].value+'&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;';
+            ZLHelper.OutToExcel(tlp, "生成Excel");
+        }
+        &lt;/script&gt;
+        &lt;div id="word_info"&gt;
+            &lt;div style="border:1px solid #d4cfcf;margin:5px;padding:0 10px 10px 10px;width:480px" &gt;
+                &lt;h2&gt;生成Word&lt;/h2&gt;
+                &lt;div style="margin:5px;"&gt;
+                    &lt;strong&gt;文本一 : &lt;/strong&gt;&lt;input class="word_txt" type="text" value="测试文本一" /&gt;
+                &lt;/div&gt;
+                &lt;div style="margin:5px;"&gt;
+                    &lt;strong&gt;文本二 : &lt;/strong&gt;&lt;input class="word_txt" type="text" value="测试文本二" /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;input type="button" id="ToWord_B" onclick="ExportWord()" value="生成Word" /&gt;
+        &lt;div id="excel_info"&gt;
+        &lt;table style="border-collapse:collapse; margin:5px; width:500px;padding:2px;"&gt;
+        &lt;tr&gt;&lt;td style="border:1px solid #d4cfcf;padding:5px 15px;text-align:center;background-color:#fff;" colspan="2"&gt;生成Excel&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;
+        &lt;td style="border:1px solid #d4cfcf;padding:5px 15px;text-align:right;"&gt;文本一:&lt;/td&gt;
+        &lt;td style="border:1px solid #d4cfcf;padding:5px 15px;"&gt;&lt;input class="excel_txt" value="测试文本一" type="text" onchange="valChange(this);" /&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        &lt;td style="border:1px solid #d4cfcf;padding:5px 15px;text-align:right;"&gt;文本二:&lt;/td&gt;
+        &lt;td style="border:1px solid #d4cfcf;padding:5px 15px;"&gt;&lt;input class="excel_txt" value="测试文本二" type="text" onchange="valChange(this);" /&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;input id="ToExcel_B" type="button" onclick="ExportExcel();" value="生成Excel" /&gt;
+        &lt;/div&gt;
+    </textarea>
+<div class="user_ac">
+    <input type="button" name="btn_action" value="运行代码" class="user_btn rundm" />
+    <input type="button" name="btn_allselect" value="全选代码" class="user_btn seldm" />
+    <input type="button" name="btn_copy" value="复制代码" class="user_btn copydm" />
+    <input type="button" name="btn_save" value="保存代码" class="user_btn savedm" />
+</div> 
+</dd></dl>
+</div>
+<div class="foot">Zoomla!逐浪软件 版权所有 2016  沪ICP备09077823号</div>
+</div></div>
+</div>
+<div role="tabpanel" class="tab-pane" id="api">
+<div id="c10" class="content payment"><div class="page-head">
+	<div class="title">
+		<h2>数据接口</h2>
+		<div class="slogan">诚信进取 大道逐浪</div>
+	</div>
+<div class="links">
+		<a href="http://www.z01.com/Article/news/526.shtml" target="_blank" class="link-record">软件免费、服务收费--永久免费申明，欢迎更多的用户加入逐浪CMS开发阵营。</a>
+	</div>
+</div>
+<div class="info">
+<iframe src="/Tools/API.html" width="100%" height="2100" frameborder="0" scrolling="no"></iframe>
+</div>
+<div class="foot">Zoomla!逐浪软件 版权所有 2016  沪ICP备09077823号</div>
+</div>
+</div>
+</div>
+</div> 
+    <script type="text/javascript">
+        function scrollDoor() {
+        }
+        scrollDoor.prototype = {
+            sd: function (menus, divs, openClass, closeClass) {
+                var _this = this;
+                if (menus.length != divs.length) {
+                    alert("菜单层数量和内容层数量不一样!");
+                    return false;
+                }
+                for (var i = 0 ; i < menus.length ; i++) {
+                    _this.$(menus[i]).value = i;
+                    _this.$(menus[i]).onclick = function () {
+
+                        for (var j = 0 ; j < menus.length ; j++) {
+                            _this.$(menus[j]).className = closeClass;
+                            _this.$(divs[j]).style.display = "none";
+                        }
+                        _this.$(menus[this.value]).className = openClass;
+                        _this.$(divs[this.value]).style.display = "block";
+                    }
+                }
+            },
+            $: function (oid) {
+                if (typeof (oid) == "string")
+                    return document.getElementById(oid);
+                return oid;
+            }
+        }
+        var tb_Dmcontentp;
+        $(function () {
+            $(".rundm").click(function () { var obj = $(this).closest("dl").find("textarea")[0]; runDm(obj); });
+            $(".seldm").click(function () { var obj = $(this).closest("dl").find("textarea")[0]; obj.select(); });
+            $(".copydm").click(function () { var obj = $(this).closest("dl").find("textarea")[0]; copyDm(obj); });
+            $(".savedm").click(function () { var obj = $(this).closest("dl").find("textarea")[0]; saveDm(obj); });
+        })
+        function runDm(obj) {
+            var winname = window.open('', "_blank", '');
+            winname.document.open('text/html', 'replace');
+            winname.opener = null;
+            winname.document.write(obj.value);
+            winname.document.close();
+        }
+        function saveDm(obj) {
+            var winname = window.open('', '_blank', 'top=10000');
+            winname.document.open('text/html', 'replace');
+            winname.document.write(obj.value);
+            winname.document.execCommand('saveas', '', 'Zoomla!逐浪CMS实例.html');
+            winname.close();
+        }
+        function copyDm(obj) {
+            obj.select();
+            js = obj.createTextRange();
+            js.execCommand("Copy");
+            ymPrompt.succeedInfo({ title: '恭喜您！', message: '代码已经被成功复制！' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>253</LabelID>
+    <LabelName>响应式全站头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="container myTop"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-lg-4 col-md-3 col-xs-12"&gt;
+&lt;div id="logo"&gt;&lt;a href="/" target="_blank"&gt;&lt;img src="{$LogoUrl/}" alt="{$SiteName/}" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-7 col-md-3 col-xs-12"&gt;
+&lt;div id="TopNavBar"&gt;
+&lt;ul&gt;
+&lt;li class="set_home"&gt;&lt;a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$SiteURL/}');" href="#"&gt;设为首页&lt;/a&gt;&lt;/li&gt;
+&lt;li class="havior"&gt;&lt;a href="javascript:window.external.addFavorite('{$SiteURL/}','{$SiteName/}');"&gt;加入收藏&lt;/a&gt;&lt;/li&gt;
+&lt;li class="non"&gt;&lt;a href="/user/"&gt;登录&lt;/a&gt;&lt;/li&gt;
+&lt;li class="non"&gt;&lt;a href="/user/Register.aspx"&gt;注册&lt;/a&gt;&lt;/li&gt; 
+&lt;li class="non"&gt;{ZL:Big5()/}&lt;/li&gt; 
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;form action="/search/SearchList.aspx" method="get" &gt;
+&lt;div class="pull-right searchtxt"&gt;
+&lt;div class="input-group pull-right" style="width:200px;"&gt;
+&lt;input name="keyword" type="text" id="TxtKeyword" class="form-control" placeholder="全站搜索" style="width:150px;" /&gt;
+&lt;span class="input-group-btn"&gt;
+&lt;input type="submit" name="Button1" value="搜索" id="Button1" class="btn btn-default" /&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="relative"&gt;
+&lt;div class="navbar navbar-default" role="navigation" id="scolls"&gt;
+&lt;div class="container "&gt;
+&lt;div class="navbar-header"&gt;
+&lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;
+&lt;span class="sr-only"&gt;智能切换导航&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;div class="menua"&gt;&lt;a class="navbar-brand normal" href="/"&gt;开启WEB云计算内核之门：&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="navbar-collapse collapse"&gt;
+&lt;ul class="nav navbar-nav"&gt;
+&lt;li&gt;&lt;a href="/"&gt;网站首页&lt;/a&gt;&lt;/li&gt;
+{ZL.Label id="蓝色经典_顶部节点列表" ParentID="0" ShowNum="7" /}
+&lt;li&gt;&lt;a href="/Ask"&gt;问答系统&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- 导航到此结束 --&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

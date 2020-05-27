@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>183</LabelID>
+    <LabelName>全部问题列表未解决总数_所有</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>zl_pub_tw</LabelTable>
+    <LabelField>count (id) as num</LabelField>
+    <LabelWhere>classlevel1  in ({ZL.Label id="根据cate得到Gid" /})
+and id not in(
+select getid from ZL_Pub_ZJDA 
+)</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Field="num"/}</LabelContent>
+    <LabelCount>1</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

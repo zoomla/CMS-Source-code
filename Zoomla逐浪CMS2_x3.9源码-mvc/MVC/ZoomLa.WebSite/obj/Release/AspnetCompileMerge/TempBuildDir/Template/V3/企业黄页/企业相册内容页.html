@@ -1,0 +1,195 @@
+﻿{ZL.Source id="相册数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="相册数据源标签" FD="Title" page="0"/}_{$SiteName/}_阅读文章内容</title>
+<meta name="Keywords" content="{SField sid="图库模型数据源标签" FD="Tagkey" page="0"/}">
+<link href="{$CssDir/}global.css" rel="stylesheet" type="text/css" />
+<link href="{$CssDir/}fix.css" rel="stylesheet" type="text/css" />
+<SCRIPT language=javascript src="/skin/ajax.js"></SCRIPT>
+<script language="javascript">
+//多行滚动JS 
+function chang(id){
+
+var chi = 0;
+while (chi < 13){
+chi++;
+eval("btnContent"+chi+".style.display='none';");
+}
+eval("btnContent"+id+".style.display='';");
+}
+</script>
+</head>
+<body>
+<div id="top_box">
+<div id="xtop">
+<span>欢迎您，{ZL:IPcity()/}的{ZL:GetuserName()/}</span>
+<ul>
+<li><a href="#">购物车</a></li>
+<li><a href="#">|</a></li>
+<li><a href="#">我要买</a></li>
+<li>|</li>
+<li><a href="{ZL:GetNodeLinkUrl(140)/}&city={$GetUrlencode({$GetRequest(city)$})$}">我要开店</a></li>
+<li>|</li>
+<li><a href="/user">会员中心</a></li>
+<li>|</li>
+<li><a href="{ZL:GetNodeLinkUrl(170)/}&city={$GetUrlencode({$GetRequest(city)$})$}">帮助中心</a></li>
+<li>|</li>
+<li><a href="#">官方网店</a></li>
+<li>|</li>
+<li><a href="{ZL.Label id="论坛链接"/}">论坛</a></li>
+<li>|</li>
+<li >    <span id="btnNoBlank">原窗口</span> </li>
+<li>|</li>
+ <li>   <span id="btnNewBlank">新窗口</span><span id="setOk" style="display:none;">设置成功!</span>    </li>
+</ul>
+</div>
+<div class="clear"></div>
+</div> 
+
+<!--top_box end -->
+<div id="head1">
+<img src="{$CssDir/}Images/g1.jpg">
+</div>
+<!--head end -->
+
+<div id="nav_y">
+  <ul>
+    <li><a href="/">首  页</a></li>
+   
+{ZL.Label id="输出黄页节点" UserName="{SField sid="相册数据源标签" FD="Inputer" page="0"/}" ShowNum="10" /}
+  
+    <div class="clear"></div>
+  </ul>
+</div>
+<div id="massage">
+<div id="mysite">
+<p>您的位置：<a href="/">{$SiteName/}</a>>>公司黄页>>{SField sid="相册数据源标签" FD="Title" page="0"/}</p>
+</div>
+
+<!--内容主体开始 -->
+<div id="content">
+<h1 style="color:{SField sid="相册数据源标签" FD="Titlecolor" page="0"/}">{SField sid="相册数据源标签" FD="Title" page="0"/}</h1>
+<h2>{SField sid="相册数据源标签" FD="iTitle" page="0"/}</h2>
+<address>作者：{SField sid="相册数据源标签" FD="Inputer" page="0"/} 来源：{SField sid="相册数据源标签" FD="source" page="0"/}  发布时间：{ZL:FormatDate({SField sid="相册数据源标签" FD="CreateTime" page="0"/},yyyy-MM-dd)/}  更新时间：{ZL:FormatDate({SField sid="相册数据源标签" FD="UpDateTime" page="0"/},yyyy-MM-dd)/} 点击数：<SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="相册数据源标签" FD="GeneralID"/}"></SCRIPT><span>
+<img src="http://v.t.qq.com/share/images/s/weiboicon16.png" align="absmiddle"/> <a href="javascript:void(0)" onClick="postToWb();" style="height:16px;font-size:12px;line-height:16px;">转播到腾讯微博</a><script type="text/javascript"> 
+	function postToWb(){
+		var _t = encodeURI(document.title);
+		var _url = encodeURIComponent(document.location);
+		var _appkey = encodeURI("App Key：c3f7533887ef491fa82dda1144b9e3c3");//你从腾讯获得的appkey
+		var _pic = encodeURI('');//（例如：var _pic='图片url1|图片url2|图片url3....）
+		var _site = '';//你的网站地址
+		var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic+'&title='+_t;
+		window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+	}
+</script>
+</span></address>
+
+<div id="content_txt">
+<table class="center_tdbgall" cellSpacing=0 cellPadding=0 width=90% align=center border=0>
+    <tr>
+      <td align=center vAlign=center align=middle width="100%" height="400" style="text-align:center;"><div id='imgBox'></div>
+<script language='javascript'>
+var siteurl="{$UploadDir/}";
+var firstpho="";
+var photos="{SField sid="相册数据源标签" FD="PhotoUrl"/}";
+var pho=photos.split("$");
+var arrUrlName=new Array();
+var arrUrl=new Array();
+for(i=0;i<pho.length;i++)
+{
+   arrUrlName[i]=pho[i].split("|")[0];
+   if(pho[i].split("|")[1].indexOf("http://")==-1)
+   {
+   arrUrl[i]=siteurl+"/"+pho[i].split("|")[1];
+   }else
+   {
+	   arrUrl[i]= pho[i].split("|")[1];
+	   }
+   
+   if(i==0)
+   {
+	   if(pho[i].split("|")[1].indexOf("http://")==-1)
+	   {
+      firstpho=siteurl+"/"+pho[i].split("|")[1];
+	   }else
+	   {
+		   irstpho=pho[i].split("|")[1];
+	   }
+   }	
+}
+</script>
+<script language='javascript'>
+function ViewPhoto(PhotoUrl){
+  var strHtml;
+  var FileExt=PhotoUrl.substr(PhotoUrl.lastIndexOf('.')+1).toLowerCase();
+  if(FileExt=='gif'||FileExt=='jpg'||FileExt=='png'||FileExt=='bmp'||FileExt=='jpeg'){
+    strHtml="<a href='"+PhotoUrl+"' target='PhotoView'><img src='"+PhotoUrl+"' border='0' onload='if(this.width>600) this.width=600'></a>";
+  }else if(FileExt=='swf'){
+    strHtml="<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' width='600' height='400' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0'><param name='movie' value='"+PhotoUrl+"'><param name='quality' value='high'><embed src='"+PhotoUrl+"' pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' type='application/x-shockwave-flash' width='550' height='400'></embed></object>";
+  }else{
+    strHtml=PhotoUrl;
+  }
+   document.getElementById('imgBox').innerHTML=strHtml;
+	}
+	
+	if(firstpho=="")
+	{
+	ViewPhoto(arrUrl[0]);
+	}else
+	{
+	ViewPhoto(firstpho);
+	}
+</script>
+
+</td>
+    </tr>
+
+    <tr>
+      <td class=Article_tdbgall align=middle>
+<div id='PhotoUrlList'></div>
+<script language='javascript'>
+function ShowUrlList(page){
+  if(arrUrl.length<=1) return '';
+  var dTotalPage=arrUrl.length/5;
+  var TotalPage;
+  var MaxPerPage=5;
+  if(arrUrl.length%MaxPerPage==0){TotalPage=Math.floor(dTotalPage);}else{TotalPage=Math.floor(dTotalPage)+1;}
+  if(page<1) page=1;
+  if(page>TotalPage) page=TotalPage;
+  var strPage='<table><tr>';
+  for(var i=(page-1)*MaxPerPage;i<arrUrl.length&&i<page*MaxPerPage;i++){
+    strPage+="<td><a href='#Title' onclick=ViewPhoto('"+arrUrl[i]+"')><img src='"+arrUrl[i]+"' border='0'  width='130'></a></td>";
+    if((i+1)%5==0&&i+1<page*MaxPerPage){strPage+='</tr><tr>';}
+  }
+  strPage+="</tr></table>";
+  if(TotalPage>1){strPage+="<table><tr><td><a href='javascript:ShowUrlList(1)'>首页</a> <a href='javascript:ShowUrlList("+(page-1)+")'>上一页</a> <a href='javascript:ShowUrlList("+(page+1)+")'>下一页</a> <a href='javascript:ShowUrlList("+TotalPage+")'>尾页</a></td></tr></table>";}
+  document.getElementById('PhotoUrlList').innerHTML=strPage;
+}
+ShowUrlList(1);
+</script></td>
+    </tr>
+    <tr>
+      <td class=main_tdbg_760>
+  </td>
+    </tr>
+    <tr>
+      <td class=main_shadow></td>
+    </tr>
+  </table>
+
+</div>
+
+<div id="content_synopsis">
+
+<b>相册简介</b>
+{SField sid="相册数据源标签" FD="connect" page="0"/}</div>
+</div>
+<!--内容主体结束 -->
+
+{ZL.Label id="全站底部"/}
+</div>
+<SCRIPT src="/js/openType.js" type=text/javascript></SCRIPT> 
+</body>
+</html>

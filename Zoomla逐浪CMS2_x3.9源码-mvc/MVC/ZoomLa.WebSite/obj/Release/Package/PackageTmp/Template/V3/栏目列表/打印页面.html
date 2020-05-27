@@ -1,0 +1,103 @@
+﻿{ZL.Source id="打印数据源标签" /}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link href="{$CssDir/}fix.css" rel="stylesheet" type="text/css" />
+<title>打印页面</title>
+<style type="text/css" media="screen">
+.content{ margin: 30px auto; padding: 16px; border: 1px solid #ccc; text-align: left; }
+.con { width:596px;}
+</style>
+<style type="text/css" media="print">
+body{ font-size: 14pt; font-family: '宋体';}
+.printtop{ display: none; visibility: hidden; }
+.content{ width: 96%; padding: 16pt; }
+.content h1{ font-size: 22px; font-family: Microsoft YaHei,SimHei; font-weight: normal; text-align:center; line-height:40px; padding-bottom:5px;}
+.content p{ text-align:left; text-indent: 2em;}
+.content .center{ text-align: center;}
+.content a{ text-decoration: underline; }
+</style>
+</head>
+<body><!--startprint-->
+<div id="print_top" class="printtop">
+<span class="print-title">打印页面</span>
+<label class="text" for="">大小：</label>
+<select id="paper" onchange="changeSize(this)">
+<option selected="selected" value="A4">A4</option>
+<option value="A3">A3</option></select>
+<label class="text">字号：</label>
+<select id="fontSize" onchange="changeFont(this)">
+<option selected="selected" value="14px">14px</option>
+<option value="16px">16px</option>
+<option value="18px">18px</option>
+<option value="20px">20px</option>
+</select>
+<label class="text" for="">行高：</label>
+<select id="lineHeight" onchange="changeLh(this)">
+<option selected="selected" value="24">24px</option>
+<option value="26">26px</option>
+<option value="28">28px</option>
+<option value="30">30px</option>
+</select>
+<input onclick="havepic(this)" checked="checked" type="checkbox">
+<label class="isimg">带图打印</label>
+<span><img class="startprint" onclick="doprint()" alt="" src="{$CssDir/}images/print-btn.png"></span>
+</div><!--top end-->
+<div id="content" class="content con" style="margin-top:10px;">
+<h1>{SField sid="打印数据源标签" FD="Title" page="0"/}</h1>
+<div class="cont-wrap" style="line-height:24px;">
+{SField sid="打印数据源标签" FD="content" page="0"/}
+</div>
+</div><!--endprint-->
+    <script type="text/javascript" src="/JS/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var positions = $('.position span');
+		positions.each(function(k){
+			if(k==positions.length-1) return;
+			$(this).after('&nbsp;>');
+		})
+	});
+	function changeFont(t){
+		$('.cont-wrap').css('font-size',$(t).val());
+	}
+
+	function changeLh(t){
+		$('.cont-wrap').css('line-height',$(t).val()+'px');
+	}
+
+	var content = '';//全文缓存
+	function havepic(t){
+		if($(t).attr('checked')){
+			$('.cont-wrap').html(content);
+		}
+		else{
+			content = content==''?$('.cont-wrap').html():content;
+			$('.cont-wrap')[0].innerHTML =  $('.cont-wrap').html().replace(/<img\s*[^>]*[\/]?>/img,'');
+		}
+	}
+	function changeSize(t){
+		var wid = $(t).val()=='A3'?'998px':'596px';
+		$('#content').css('width',wid);
+	}
+	var isprintHtml = false;
+    function doprint() {
+        var bdhtml = window.document.body.innerHTML;
+        if(!isprintHtml){
+        	var sprnstr="<!--startprint-->";
+	        var eprnstr="<!--endprint-->";
+	        var prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+	        prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+	        window.document.body.innerHTML=prnhtml;
+    	}
+        isprintHtml = true;
+        window.print();
+    }
+</script>
+
+</body>
+</html>

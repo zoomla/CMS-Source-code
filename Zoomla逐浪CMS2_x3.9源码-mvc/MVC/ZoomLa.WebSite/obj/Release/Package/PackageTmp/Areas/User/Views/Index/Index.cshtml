@@ -1,0 +1,132 @@
+﻿@using ZoomLa.Model;
+@using ZoomLa.Model.User;
+@using ZoomLa.Common;
+@model ZoomLa.Model.M_UserInfo
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+    M_PointGrounp pgMod = (M_PointGrounp)ViewBag.pgMod;
+    M_Uinfo basemu = (M_Uinfo)ViewBag.basemu;
+}
+@section head{
+<title>会员中心-@Call.SiteName</title>
+}
+@section content{
+@RenderPage("~/Areas/User/Views/Shared/ASCX/DefaultTop.cshtml") 
+<div class="u_fix_height"></div>
+<div class="u_info">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 u_face">
+                <a href="/User/Info/UserInfo.aspx">
+                    <img src="@Model.UserFace" onerror="shownoface(this);" />
+                </a>
+                @*<ZL:UserBar ID="UserBar_U" runat="server" Width="100" />*@
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-8 u_syn">
+                <ul class="list-unstyled">
+                    <li>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-user"></i> 会员名称：<label>@Model.UserName</label></li>
+                            <li><i class="fa fa-certificate"></i> 等级：@MvcHtmlString.Create(StringHelper.GetItemIcon(pgMod.ImgUrl)); <label>@pgMod.GroupName</label></li>
+                            <li class="hidden-xs"><i class="fa fa-clock-o"></i> 加入时间：<label>@Model.RegTime.ToString()</label></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </li>
+                    <li><i class="fa fa-map-marker"></i> 地址：<label>@basemu.Address</label></li>
+                    <li class="hidden-xs"><i class="fa fa-edit"></i> 个性签名：<label>@basemu.Sign</label></li>
+                    <li>
+                        <ul class="list-unstyled">
+                            <li>
+                                <i class="fa fa-usd"></i> 余额：<a href="info/ConsumeDetail.aspx?SType=1" title="点击查看资金明细"><label>@Model.Purse.ToString("f2")</label></a>
+                                <a href="/PayOnline/SelectPayPlat.aspx" target="_blank">[在线充值]</a>
+                                <a href="UserFunc/Money/WithDraw.aspx">[申请提现]</a>
+                            </li>
+                            <li class="hidden-xs">银币：<label>@Model.SilverCoin.ToString("f0")</label></li>
+                            <li><i class="fa fa-credit-card-alt"></i> 积分：<label>@Model.UserExp.ToString("f0")</label></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="u_site margin_t5 hidden-xs">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="/User/">会员中心</a></li>
+            <li class="active">功能引导</li>
+        </ol>
+    </div>
+</div>
+<div class="container u_menu">
+    <div class="row padding5">
+        @ViewBag.userhtml
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="u_menu_more text-center">
+    <a href="javascript:;" id="more_btn" title="点击显示更多">More <i class="fa fa-angle-double-down"></i></a>
+</div>
+<div class="user_menu_sub">
+    <ul class="list-unstyled text-center">
+        
+     @ViewBag.ontherhtml
+    </ul>
+    <div class="clearfix"></div>
+</div>
+<div class="u_footer text-center fixed_bottom">
+    <div class="footer_border hidden-xs"></div>
+    <div class="container">
+        @MvcHtmlString.Create(ZoomLa.Components.SiteConfig.SiteInfo.Copyright)
+    </div>
+</div>
+}
+@section script{
+<script>
+    $().ready(function (e) {//菜单颜色配置
+        var colorArr = new Array('#c47f3e', '#669933', '#27a9e3', '#f05033', '#990066', '#9999FF', '#E48632', '#990000', '#22afc2', '#6633FF', '#9900FF', '#1FA67A');
+        var count = $(".user_menu_sub li").length;
+        for (var i = 0; i < count; i++) {
+            $(".user_menu").eq(i).css("background", colorArr[i % 12]);
+        }
+        if ($(".user_menu_sub li").length < 1)
+            $(".u_menu_more").remove();
+    })
+    $("#mimenu_btn").click(function (e) {
+        if ($(".user_mimenu_left").width() > 0) {
+            $(".user_mimenu_left ul").fadeOut(100);
+            $(".user_mimenu_left").animate({ width: 0 }, 200);
+        }
+        else {
+            $(".user_mimenu_left").animate({ width: 150 }, 300);
+            $(".user_mimenu_left ul").fadeIn();
+        }
+    });
+    //会员菜单更多显示/隐藏
+    $("#more_btn").click(function (e) {
+        if ($(".user_menu_sub").css("display") == "none") {
+            $(".user_menu_sub").slideDown();
+            $(this).find("i").removeClass("fa-angle-double-down");
+            $(this).find("i").addClass("fa-angle-double-up");
+        }
+        else {
+            $(".user_menu_sub").slideUp(200);
+            $(this).find("i").removeClass("fa-angle-double-up");
+            $(this).find("i").addClass("fa-angle-double-down");
+        }
+    });
+    //会员搜索
+    $("#sub_btn").click(function (e) {
+        if ($("#key").val() == "")
+            alert("搜索关键字为空!");
+        else
+            window.location = "/User/SearchResult.aspx?key=" + escape($("#key").val());
+    });
+    //搜索回车事件
+    function IsEnter(obj) {
+        if (event.keyCode == 13) {
+            $("#sub_btn").click(); return false;
+        }
+    }
+</script>
+}

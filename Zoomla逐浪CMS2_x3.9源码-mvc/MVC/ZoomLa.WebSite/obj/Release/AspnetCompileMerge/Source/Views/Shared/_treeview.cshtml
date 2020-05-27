@@ -1,0 +1,155 @@
+﻿@using System.Data;
+@model ZoomLa.Controls.C_TreeView
+@functions{
+    string hasChild_tlp = "<li data-id='@NodeID' class='showchild'><span class='fa fa-minus-circle treeicon'></span><span class='tree_name'>@url</span><ul>@childs</ul></li>";
+    string childs_tlp = "<li data-id='@NodeID' class='lastchild' style='@islast'><span class='tree_name'>@url</span></li>";
+    public string MyBind()
+    {
+        DataTable DataSource = Model.DataSource;
+        DataSource.Columns[Model.NodeID].ColumnName = "NodeID";
+        DataSource.Columns[Model.NodePid].ColumnName = "ParentID";
+        DataSource.Columns[Model.NodeName].ColumnName = "NodeName";
+        return GetAllQuest(DataSource, 0);
+    }
+    public string GetAllQuest(DataTable questTypes, int pid)
+    {
+        string html = "";
+        questTypes.DefaultView.RowFilter = "ParentID=" + pid;//抽出父节点
+        DataTable parents = questTypes.DefaultView.ToTable();
+        for (int i = 0; i < parents.Rows.Count; i++)
+        {
+            DataRow item = parents.Rows[i];
+            if (questTypes.Select("ParentID=" + item["NodeID"]).Length > 0)
+            {
+                html += TlpReplace(hasChild_tlp, liField, parents, item)
+                    .Replace("@childs", GetAllQuest(questTypes, Convert.ToInt32(item["NodeID"]))).Replace("@url", TlpReplace(Model.LiContentTlp, liconField, parents, item));
+            }
+            else
+            {
+                html += TlpReplace(childs_tlp, liField, parents, item).Replace("@islast", i == parents.Rows.Count - 1 ? "background-position:0 -1766px;" : "")
+                        .Replace("@url", TlpReplace(Model.LiContentTlp, liconField, parents, item));
+            }
+        }
+        return html;
+    }
+    //----------------------
+    private string[] liField = "NodeID,NodeName,ParentID".Split(',');
+    private string[] liconField = "NodeID,Link,NodeName".Split(',');
+    //填充与替换模板中的内容
+    private string TlpReplace(string tlp, string[] fields, DataTable dt, DataRow dr)
+    {
+        foreach (string field in fields)
+        {
+            if (dt.Columns.Contains(field)) { tlp = tlp.Replace("@" + field, dr[field].ToString()); }
+        }
+        return tlp;
+    }
+}
+<div class="treediv">
+    <ul>
+        <li><span class='fa fa-list-alt' style="color:#999;"></span>@MvcHtmlString.Create(Model.liAllTlp)</li>
+        @MvcHtmlString.Create(MyBind())
+    </ul>
+</div>
+<script>
+    $().ready(function () {
+        var isshrink = "True";//是否收缩
+        if (isshrink == "True") {
+            $('.treediv').addClass('tree_shrink');
+            $('.treediv li').removeClass('showchild');
+            $('.treeicon').removeClass("fa fa-minus-circle");
+            $('.treeicon').addClass("fa fa-plus-circle");
+        }
+        var nodeid = "@Model.SelectedNode";//初始节点id(选中节点)
+        if (nodeid) { SelectNode($('.treediv [data-id=' + nodeid + ']')); }
+        InitTreeEvent();
+    });
+    var activetlp = "<span class='fa fa-arrow-left tree_active'></span>";//选中模板
+    //初始化树形事件
+    function InitTreeEvent() {
+        $(".treeicon").click(function () {
+            var $ul = $(this).closest('li');
+            if ($ul.hasClass("showchild")) {
+                ShrinkNode($ul)
+            } else {
+                ExtendNode($ul);
+            }
+        });
+        $(".treediv .tree_name").click(function () {
+            $(".tree_active").remove();
+            $(this).append(activetlp);
+        });
+    }
+    //选中节点
+    function SelectNode($obj) {
+        var $gen = $obj.parents('li');
+        while ($gen[0])//展开上一级节点
+        {
+            ExtendNode($gen);
+            $gen = $gen.parents('li');
+        }
+        $obj.find('.tree_name').first().append(activetlp);
+    }
+    //展开节点
+    function ExtendNode($gen) {
+        $gen.addClass("showchild");
+        $gen.find("ul:first").show();
+        $gen.find(".treeicon").first().removeClass("fa fa-plus-circle");
+        $gen.find(".treeicon").first().addClass("fa fa-minus-circle");
+    }
+    //收缩节点，参数为根节点(包含ul标签的li)
+    function ShrinkNode($gen) {
+        $gen.removeClass("showchild");
+        $gen.find("ul:first").hide();
+        $gen.find(".treeicon").first().removeClass("fa fa-minus-circle");
+        $gen.find(".treeicon").first().addClass("fa fa-plus-circle");
+    }
+</script>
+<style>
+    .treediv {
+        border: 1px solid #ddd;
+        padding: 10px 0px;
+    }
+
+        .treediv ul, .treediv li {
+            list-style: none;
+            min-height: 30px;
+        }
+
+        .treediv ul {
+            margin-left: 20px;
+        }
+
+            .treediv ul .lastchild {
+                padding-left: 16px;
+                background-position: 0 0;
+                min-height: 20px;
+            }
+
+            .treediv ul ul {
+                margin-top: 5px;
+            }
+
+        .treediv li {
+            background: url(/Images/TreeLineImages/treedash.gif) 0 0 no-repeat;
+            background-position: 0 -176px;
+        }
+
+            .treediv li:last-child {
+                background-position: -9999px -9999px;
+            }
+
+        .treediv .treeicon {
+            font-size: 16px;
+            cursor: pointer;
+            color: #999;
+        }
+
+    .tree_shrink ul ul {
+        display: none;
+    }
+
+    .tree_active {
+        color: #999;
+    }
+</style>

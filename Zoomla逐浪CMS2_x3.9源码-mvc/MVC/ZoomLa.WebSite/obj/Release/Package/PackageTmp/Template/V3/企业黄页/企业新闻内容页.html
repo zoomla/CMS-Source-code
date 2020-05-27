@@ -1,0 +1,94 @@
+﻿{ZL.Source id="企业信息数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="企业信息数据源标签" FD="Title" page="0"/}_{$SiteName/}_阅读文章内容</title>
+<meta name="Keywords" content="{SField sid="图库模型数据源标签" FD="Tagkey" page="0"/}">
+<link href="{$CssDir/}global.css" rel="stylesheet" type="text/css" />
+<link href="{$CssDir/}fix.css" rel="stylesheet" type="text/css" />
+<SCRIPT language=javascript src="/skin/ajax.js"></SCRIPT>
+<script language="javascript">
+//多行滚动JS 
+function chang(id){
+var chi = 0;
+while (chi < 13){
+chi++;
+eval("btnContent"+chi+".style.display='none';");
+}
+eval("btnContent"+id+".style.display='';");
+}
+</script>
+</head>
+<body>
+<div id="top_box">
+<div id="xtop">
+<span>欢迎您，{ZL:IPcity()/}的{ZL:GetuserName()/}</span>
+<ul>
+<li><a href="#">购物车</a></li>
+<li><a href="#">|</a></li>
+<li><a href="#">我要买</a></li>
+<li>|</li>
+<li><a href="{ZL:GetNodeLinkUrl(140)/}&city={$GetUrlencode({$GetRequest(city)$})$}">我要开店</a></li>
+<li>|</li>
+<li><a href="/user">会员中心</a></li>
+<li>|</li>
+<li><a href="{ZL:GetNodeLinkUrl(170)/}&city={$GetUrlencode({$GetRequest(city)$})$}">帮助中心</a></li>
+<li>|</li>
+<li><a href="#">官方网店</a></li>
+<li>|</li>
+<li><a href="{ZL.Label id="论坛链接"/}">论坛</a></li>
+<li>|</li>
+<li >    <span id="btnNoBlank">原窗口</span> </li>
+<li>|</li>
+ <li>   <span id="btnNewBlank">新窗口</span><span id="setOk" style="display:none;">设置成功!</span>    </li>
+</ul>
+</div>
+<div class="clear"></div>
+</div> 
+
+<!--top_box end -->
+<div id="head1">
+<img src="{$CssDir/}Images/g1.jpg">
+</div>
+<!--head end -->
+<div id="nav_y">
+  <ul>
+    <li><a href="/">首  页</a></li>
+   
+{ZL.Label id="输出黄页节点" UserName="{SField sid="企业信息数据源标签" FD="Inputer" page="0"/}" ShowNum="10" /}
+    <div class="clear"></div>
+  </ul>
+</div>
+<div id="massage">
+<div id="mysite">
+<p>您的位置：<a href="/">{$SiteName/}</a>>>公司黄页>>{SField sid="企业信息数据源标签" FD="Title" page="0"/}</p>
+</div>
+<!--内容主体开始 -->
+<div id="massage">
+{ZL.Label id="输出黄页左" inputer="{SField sid="企业信息数据源标签" FD="Inputer" page="0"/}" /}
+<div id="massage_R">
+<div id="com_masq">
+<div class="Lo_tit">{ZL.Label id="输出黄页节点标题" UserName="{SField sid="企业信息数据源标签" FD="Inputer" page="0"/}" NodeID="{$GetRequest(NodeID)$}" /}</div>
+<h1 style="color:{SField sid="企业信息数据源标签" FD="Titlecolor" page="0"/};text-align:center; font-size:16px; line-height:30px;" >{SField sid="企业信息数据源标签" FD="Title" page="0"/}</h1>
+<h2>{SField sid="企业信息数据源标签" FD="iTitle" page="0"/}</h2>
+<address>作者：{SField sid="企业信息数据源标签" FD="Inputer" page="0"/} 来源：{SField sid="企业信息数据源标签" FD="source" page="0"/}  发布时间：{ZL:FormatDate({SField sid="企业信息数据源标签" FD="CreateTime" page="0"/},yyyy-MM-dd)/}  更新时间：{ZL:FormatDate({SField sid="企业信息数据源标签" FD="UpDateTime" page="0"/},yyyy-MM-dd)/} 点击数：<SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="企业信息数据源标签" FD="GeneralID"/}"></SCRIPT><span>
+<img src="http://v.t.qq.com/share/images/s/weiboicon16.png" align="absmiddle"/> <a href="javascript:void(0)" onClick="postToWb();" style="height:16px;font-size:12px;line-height:16px;">转播到腾讯微博</a><script type="text/javascript"> 
+	function postToWb(){
+		var _t = encodeURI(document.title);
+		var _url = encodeURIComponent(document.location);
+		var _appkey = encodeURI("App Key：c3f7533887ef491fa82dda1144b9e3c3");//你从腾讯获得的appkey
+		var _pic = encodeURI('');//（例如：var _pic='图片url1|图片url2|图片url3....）
+		var _site = '';//你的网站地址
+		var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic+'&title='+_t;
+		window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+	}
+</script>
+</span></address>
+{SField sid="企业信息数据源标签" FD="connect" page="0"/}
+</div>
+</div>
+</div>
+<SCRIPT src="/js/openType.js" type=text/javascript></SCRIPT> 
+</body>
+</html>

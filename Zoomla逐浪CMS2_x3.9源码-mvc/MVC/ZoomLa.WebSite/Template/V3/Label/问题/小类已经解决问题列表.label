@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>197</LabelID>
+    <LabelName>小类已经解决问题列表</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>num,默认值,1,参数说明</LabelParam>
+    <LabelTable>zl_pub_tw</LabelTable>
+    <LabelField>ID,PubTitle,ClassLevel1,PubAddTime</LabelField>
+    <LabelWhere>classlevel1={$GetRequest(smallclass)$}
+and id in(
+select getid from ZL_Pub_ZJDA 
+)</LabelWhere>
+    <LabelOrder>id desc</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;dl&gt;
+&lt;dt &gt;&lt;a href="/NodePage.aspx?nodeid=120&amp;getid={Field="ID"/}" title="{Field="PubTitle"/}" target="_blank"&gt;
+{ZL:CutText({Field="PubTitle"/},35,..)/}
+&lt;/a&gt;&lt;span&gt;&lt;a href='{ZL:GetNodeListUrl(115)/}&amp;smallclass={Field="ClassLevel1"/}'&gt;[{ZL.Label id="获取问题分类名" parentid="{Field="ClassLevel1"/}" /}]&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;span&gt;0&lt;/span&gt;
+&lt;span&gt;{ZL.Label id="问题回答数" getid="{Field="ID"/}" /}&lt;/span&gt;
+&lt;span&gt;&lt;img src="{$CssDir/}images/Know/icn_time.gif" width="16" height="16" /&gt;&lt;/span&gt;
+&lt;p&gt;{ZL:FormatDate({Field="PubAddTime"/},yyyy-MM-dd)/}&lt;/p&gt;
+&lt;/dd&gt;
+&lt;div style="clear:both"&gt;&lt;/div&gt;
+&lt;/dl&gt;
+{/Repeate}
+{ZL.Page/}</LabelContent>
+    <LabelCount>@num</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

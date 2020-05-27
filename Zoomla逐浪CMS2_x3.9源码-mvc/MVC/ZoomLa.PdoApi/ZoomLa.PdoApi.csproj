@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F26E81DC-BAAD-46A4-BCFB-22DCB406B72A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZoomLa.PdoApi</RootNamespace>
+    <AssemblyName>ZoomLa.PdoApi</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZoomlaCMS\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiAction.cs" />
+    <Compile Include="ApiConfig.cs" />
+    <Compile Include="ApiData.cs" />
+    <Compile Include="BaiduUE\Config.cs" />
+    <Compile Include="BaiduUE\ConfigHandler.cs" />
+    <Compile Include="BaiduUE\CrawlerHandler.cs" />
+    <Compile Include="BaiduUE\Handler.cs" />
+    <Compile Include="BaiduUE\ListFileHandler.cs" />
+    <Compile Include="BaiduUE\NotSupportedHandler.cs" />
+    <Compile Include="BaiduUE\PathFormater.cs" />
+    <Compile Include="BaiduUE\UploadHandler.cs" />
+    <Compile Include="Common\APIHelper.cs" />
+    <Compile Include="CopyRight\C_CopyRight.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\APIRequestException.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\AudienceConverter.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\BaseHttpClient.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\BaseResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\DeviceType.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\PlatformConverter.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\ResponseWrapper.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\resp\APIConnectionException.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\resp\BooleanResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\resp\DefaultResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\ServiceHelper.cs" />
+    <Compile Include="JPush\cn.jpush.api\common\TimeUnit.cs" />
+    <Compile Include="JPush\cn.jpush.api\device\AliasDeviceListResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\device\DeviceClient.cs" />
+    <Compile Include="JPush\cn.jpush.api\device\TagAliasResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\device\TagListResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\JPushClient.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\audience\AudienceTarget.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\audience\AudienceType.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\MessageResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\mode\Audience.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\mode\Message.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\mode\Notification.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\mode\Options.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\mode\Platform.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\mode\PushPayload.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\mode\SmsMessage.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\notification\AndroidNotification.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\notification\IosNotification.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\notification\PlatformNotification.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\notification\WinphoneNotification.cs" />
+    <Compile Include="JPush\cn.jpush.api\push\PushClient.cs" />
+    <Compile Include="JPush\cn.jpush.api\report\MessagesResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\report\ReceivedResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\report\ReportClient.cs" />
+    <Compile Include="JPush\cn.jpush.api\report\UsersResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\enabled\Enabled.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\name\Name.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\ScheduleClient.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\ScheduleListResult.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\SchedulePayload.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\trigger\Periodical.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\trigger\Single.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\trigger\Trigger.cs" />
+    <Compile Include="JPush\cn.jpush.api\schedule\trigger\TriggerPayload.cs" />
+    <Compile Include="JPush\cn.jpush.api\util\Base64.cs" />
+    <Compile Include="JPush\cn.jpush.api\util\JsonTool.cs" />
+    <Compile Include="JPush\cn.jpush.api\util\Md5.cs" />
+    <Compile Include="JPush\cn.jpush.api\util\Preconditions.cs" />
+    <Compile Include="JPush\cn.jpush.api\util\StringUtil.cs" />
+    <Compile Include="JPush\C_JPush.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinaWeiBo\MemoryFileContent.cs" />
+    <Compile Include="SinaWeiBo\OpenAuthenticationClientBase.cs" />
+    <Compile Include="SinaWeiBo\SinaHelper.cs" />
+    <Compile Include="SinaWeiBo\SinaWeiboClient.cs" />
+    <Compile Include="TencentIM\C_QQIM_Bll.cs" />
+    <Compile Include="TencentIM\M_QQIM_User.cs" />
+    <Compile Include="TencentMVS\C_TencentMvs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZoomLa.BLL\ZoomLa.BLL.csproj">
+      <Project>{d20da302-1beb-4672-a037-8568c47662f0}</Project>
+      <Name>ZoomLa.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Common\ZoomLa.Common.csproj">
+      <Project>{7c0b5fba-dadd-48e2-b70b-7d0e7352adff}</Project>
+      <Name>ZoomLa.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Components\ZoomLa.Components.csproj">
+      <Project>{c86df849-cf83-469b-bab7-622e969e62e7}</Project>
+      <Name>ZoomLa.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zoomla.Model\Zoomla.Model.csproj">
+      <Project>{c3be96f0-0469-4af3-b15f-96813626f494}</Project>
+      <Name>Zoomla.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.SQLDAL\ZoomLa.SQLDAL.csproj">
+      <Project>{ea2fc94a-7e4b-4511-a9fb-752138836be0}</Project>
+      <Name>ZoomLa.SQLDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

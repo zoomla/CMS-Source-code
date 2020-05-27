@@ -1,0 +1,37 @@
+﻿<ion-view>
+    <ion-header-bar class="bar-calm bar bar-header" align-title="center">
+        <a href="#/tab/ask_my" nav-direction="back" class="button icon ion-chevron-left"></a>
+        <div class="title title-center header-item">创建问卷</div>
+    </ion-header-bar>
+    <ion-content class="has-header" style="background:#fff;">
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">问卷名称</span>
+                <input type="text" placeholder="请输入问卷名称" ng-model="model.Title" maxlength="30">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">到期时间</span>
+                <input type="date" placeholder="到期后不可提交" ng-model="model.EndDate">
+            </label>
+            <label class="item item-input item-stacked-label">
+                 <div class="padding-bottom"><span class="input-label">问卷封面</span><button type="button" onclick="$('#file_up').click();" class="button button-calm button-small"><i class="fa fa-image"></i> 选择图片</button></div>
+                 <img ng-src="{{model.PreViewImg}}" style="max-width:95%;height:auto;" />
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">问卷说明</span>
+                <textarea style="resize:none;height:120px;" ng-model="model.Remind" maxlength="500"></textarea>
+            </label>
+        </div>
+        <button type="button" class="button button-full button-positive" ng-click="add();">
+            提交
+        </button>
+    </ion-content>
+    <input type="file" accept="image/*" id="file_up" onchange="picup.upload();" />
+    <script src="/JS/Controls/ZL_Webup.js"></script>
+    <script src="/JS/Mobile/ResizeImg/lrz.js"></script>
+    <script>
+        picup.zip.enable = true;
+        picup.zip.width = 600;
+        picup.$up = $("#file_up");
+    </script>
+</ion-view>

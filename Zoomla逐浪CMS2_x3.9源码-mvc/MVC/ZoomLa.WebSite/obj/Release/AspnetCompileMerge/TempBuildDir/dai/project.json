@@ -1,0 +1,16 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 1,
+
+
+    "jsList" : [
+        "src/StartScene.js?ver=2",
+        "src/PlayScene.js?ver=2",
+        "src/GlassSprite.js?ver=2"
+    ]
+}

@@ -1,0 +1,72 @@
+﻿@using System.Data;
+@using ZoomLa.BLL;
+@using ZoomLa.Model;
+@using ZoomLa.Common;
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 9;
+    Model.url = "Quest_Data?NodeID=" + ViewBag.NodeID+"&qtype="+ViewBag.QType;
+}
+@functions{
+    B_Exam_Sys_Questions questBll = new B_Exam_Sys_Questions();
+    B_Exam_Class bqc = new B_Exam_Class();
+    public DataTable KnowsNames = new DataTable();
+    public string GetTitle(DataRow dr)
+    {
+        return function.GetStr(dr["p_title"].ToString(), 10);
+    }
+    public string GetClass(string classid)
+    {
+        int id = DataConverter.CLng(classid);
+        M_Exam_Class mec = bqc.GetSelect(id);
+        if (mec != null && mec.C_id > 0)
+        {
+            return mec.C_ClassName;
+        }
+        else
+        {
+            return "";
+        }
+    }
+    public string GetType(string id)
+    {
+        return M_Exam_Sys_Questions.GetTypeStr(DataConverter.CLng(id));
+    }
+    public string GetTagKeys(DataRow dr)
+    {
+        if (KnowsNames != null && KnowsNames.Rows.Count > 0 && !string.IsNullOrEmpty(dr["Tagkey"].ToString()))
+        {
+            string knownames = "";
+            DataRow[] drs = KnowsNames.Select("k_id IN (" + dr["Tagkey"].ToString().Trim(',') + ")");
+            foreach (DataRow item in drs)
+            {
+                knownames += item["k_name"].ToString() + ",";
+            }
+            string names = knownames.Trim(',');
+            names = names.Length > 10 ? names.Substring(0, 10) + "..." : names;
+            return names.Length > 10 ? names.Substring(0, 10) + "..." : names;
+        }
+        return "";
+    }
+}
+<table class="table table-bordered table-striped" id="EGV">
+    <tr><td></td><td>ID</td><td>试题标题</td><td>作者</td><td>难度</td><td>类别</td><td>题型</td><td>创建时间</td><td>操作</td></tr>
+    @foreach (DataRow dr in Model.dt.Rows)
+    {
+        <tr>
+            <td><input type="checkbox" name="idchk" value="@dr["p_id"]" /></td>
+            <td>@dr["p_id"]</td>
+            <td><a href="AddEngLishQuestion?p_id=@dr["p_id"]">@GetTitle(dr)</a></td>
+            <td>@dr["p_Inputer"]</td>
+            <td>@questBll.GetDiffStr(Convert.ToDouble(dr["p_Difficulty"]))</td>
+            <td>@GetClass(dr["p_Class"].ToString())</td>
+            <td>@GetType(dr["p_Type"].ToString())</td>
+            <td>@dr["p_createtime"].ToString()</td>
+            <td>
+                <a href="AddEngLishQuestion?p_id=@dr["p_id"]"><span class="fa fa-pencil"></span></a>
+                <a href="javascript:;" onclick="mvcpage.del({id:'@dr["p_id"]',url:'Quest_Del',confirm:'确定要删除吗'});"><span class="fa fa-trash-o"></span>删除</a>
+            </td>
+        </tr>
+    }
+    @Html.Partial("_page", Model)
+</table>

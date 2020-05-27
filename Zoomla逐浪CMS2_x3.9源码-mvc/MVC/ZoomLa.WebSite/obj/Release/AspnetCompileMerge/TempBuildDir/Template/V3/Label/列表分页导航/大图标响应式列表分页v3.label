@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>291</LabelID>
+    <LabelName>大图标响应式列表分页v3</LabelName>
+    <LabelType>5</LabelType>
+    <LabelCate>列表分页导航</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="center-block text-center" id="pageDiv" totalPage="{totalpage/}"&gt; 
+&lt;ul class="pagination pagination-lg" style="display:inline-table;"&gt;
+&lt;li&gt;&lt;a href="{firsturl/}"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+{loop range=\'4\'}&lt;li&gt;&lt;a href="{pageurl/}" id="bots{pageid/}"&gt;{pageid/}&lt;/a&gt;&lt;/li&gt;$$$&lt;li class="active"&gt;&lt;a href="{currenturl/}"&gt;{currentpage/}&lt;/a&gt;&lt;/li&gt;{/loop} 
+&lt;li&gt;&lt;a href="{endurl/}"&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style="margin:auto;display:block;width:200px;"&gt;
+&lt;div class="input-group input-group-lg"&gt;
+&lt;span class="input-group-addon"&gt;共{totalpage/}页 到&lt;/span&gt;
+&lt;input type="text" value="1" class="pages form-control" id="pages_t" size="3" style="width: auto; text-align: center;"&gt;
+&lt;span class="input-group-btn"&gt;
+&lt;button type="button" class="btn btn-primary" onclick="pages()" &gt;&lt;i class="fa fa-hand-o-up"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+ &lt;script&gt;
+ function pages(){
+ var a=document.getElementById("pages_t").value;
+ document.getElementById("bots"+a).click();
+ }
+function pages(){  //动态分页下跳转
+var a=document.getElementById("pages_t").value;
+var firsturl='{firsturl/}';
+var n1=firsturl.replace(/\.\w+$/,'').replace('1','').replace('_','');
+var n2=/\.[^\.]+$/.exec(firsturl);
+if(a&gt;{endpage/})
+window.location.href='{endurl/}';
+else
+{
+if(a==1)
+window.location.href=n1+n2;
+else
+window.location.href=n1+"_"+a+n2;
+}
+}
+&lt;/script&gt;</LabelContent>
+    <LabelCount>0</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>618</LabelID>
+    <LabelName>新驻店铺</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>店铺</LabelCate>
+    <LabelDesc />
+    <LabelParam>TitleNum,25,1,标题长|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_CommonModel left join {table1}.dbo.ZL_Store_reg on {table1}.dbo.ZL_CommonModel.ItemID={table1}.dbo.ZL_Store_reg.ID</LabelTable>
+    <LabelField>{table1}.dbo.ZL_Store_reg.ID,{table1}.dbo.ZL_Store_reg.logo,{table1}.dbo.ZL_Store_reg.StoreName</LabelField>
+    <LabelWhere>ZL_CommonModel.TableName like '%ZL_Store_%' And ZL_CommonModel.Status=99</LabelWhere>
+    <LabelOrder>{table1}.dbo.ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="/Store/StoreIndex.aspx?id={Field="ID"/}" title="{Field="StoreName"/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="logo"/})/}" alt="{Field="StoreName"/}"&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="/Store/StoreIndex.aspx?id={Field="ID"/}" title="{Field="StoreName"/}"&gt;{ZL:CutText({Field="StoreName"/},@TitleNum,..)/}&lt;/a&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,76 @@
+﻿@using System.Data;
+@using ZoomLa.SQLDAL.SQL;
+@{
+    PageSetting setting = (PageSetting)ViewBag.setting;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>投稿管理</title>}
+@section content{
+<div id="pageflag" data-nav="content" data-ban="cnt"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default.aspx">会员中心</a></li>
+        <li class="active">投稿管理 [<a href="/User/Content/MyContent.aspx?NodeID=<%=NodeID%>&status=-2">回收站</a>]</li>
+    </ol>
+</div>
+<div class="container btn_green">
+    <div class="row">
+        <div id="nodeNav" class="col-lg-2 col-md-2 col-sm-2 col-xs-12 divBorder" style="height:500px;overflow-y:auto;">
+            <div>
+                @Html.Partial("_treeview", ViewBag.treeMod as ZoomLa.Controls.C_TreeView)
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+            <div>
+                <div class="pull-left">
+                    @MvcHtmlString.Create(ViewBag.addhtml)
+                </div>
+                <form method="post" action="/User/Content/MyContent">
+                    <div class="input-group hidden-xs" style="max-width: 404px;">
+                        <select class="form-control text_150" style="border-right:none;">
+                            <option value="0">按标题查找</option>
+                            <option value="1">按ID查找</option>
+                        </select>
+                        <input type="text" class="form-control text_md" name="skey_t" value="@setting.skey" />
+                        <span class="input-group-btn">
+                            <input type="submit" class="btn btn-primary" value="搜索" />
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="margin_t5 table-responsive">
+                @Html.Partial("MyContent_List", setting)
+            </div>
+            <div class="margin_t5">
+                <input type="button" value="批量删除" class="btn btn-info" onclick="mvcpage.bat({url: 'content_del', confirm: '确定要批量移除吗' });" />
+                @*<input type="button" value="批量还原" class="btn btn-info" onclick="mvcpage.bat({url: 'content_recover' });" />*@
+            </div>
+        </div>
+    </div>
+</div> 
+}
+@section script{
+<script src="/JS/SelectCheckBox.js"></script>
+<script>
+    $(function () {
+        $(".tvNav a.list1").click(function () { showlist(this); });
+        if (window.localStorage.Content_tvNav) {
+            expand($("#" + window.localStorage.Content_tvNav));
+        }
+    })
+    function showlist(obj) {
+        $(obj).parent().parent().find("a").removeClass("activeLi");//a-->li-->ul
+        $(obj).parent().children("a").addClass("activeLi");//li
+        $(obj).parent().siblings("li").find("ul").slideUp();
+        $(obj).parent().children("ul").slideToggle();
+        window.localStorage.Content_tvNav = obj.id;
+    }
+    function expand(obj)//超链接,不以动画效果显示
+    {
+        $a = $(obj).parent().parent(".tvNav ul").parent("li").find("a:first");
+        if ($a.length > 0) expand($a);
+        $(obj).addClass("activeLi");
+        $(obj).parent("li").children("ul").show();
+    }
+</script>
+}

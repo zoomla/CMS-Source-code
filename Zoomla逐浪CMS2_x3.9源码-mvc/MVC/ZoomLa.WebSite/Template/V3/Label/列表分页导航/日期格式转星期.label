@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>666</LabelID>
+    <LabelName>日期格式转星期</LabelName>
+    <LabelType>5</LabelType>
+    <LabelCate>列表分页导航</LabelCate>
+    <LabelDesc>参数设置</LabelDesc>
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;script&gt;
+
+ var a='{Field="num"/}';
+ if(a=='[err:无记录]'){
+	 document.write("0");}
+	 else{
+ document.write(a); 
+}
+&lt;/script&gt;
+ 
+</LabelContent>
+    <LabelCount>0</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+  </Table>
+</NewDataSet>

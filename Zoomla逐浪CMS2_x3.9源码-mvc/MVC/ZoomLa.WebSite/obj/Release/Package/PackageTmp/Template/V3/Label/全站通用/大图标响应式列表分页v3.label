@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>682</LabelID>
+    <LabelName>大图标响应式列表分页v3</LabelName>
+    <LabelType>5</LabelType>
+    <LabelCate>列表分页导航</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="center-block text-center"&gt; 
+&lt;ul class="pagination pagination-lg"&gt;
+&lt;li&gt;&lt;a href="{firsturl/}"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+{loop range=\'4\'}&lt;li&gt;&lt;a href="{pageurl/}"&gt;{pageid/}&lt;/a&gt;&lt;/li&gt;$$$&lt;li class="active"&gt;&lt;a href="{currenturl/}"&gt;{currentpage/}&lt;/a&gt;&lt;/li&gt;{/loop} 
+&lt;li&gt;&lt;a href="{endurl/}"&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt; 
+&lt;/ul&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+  </Table>
+</NewDataSet>

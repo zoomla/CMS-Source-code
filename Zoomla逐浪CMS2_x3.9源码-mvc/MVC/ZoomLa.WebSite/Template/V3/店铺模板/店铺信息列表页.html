@@ -1,0 +1,156 @@
+{ZL.Source id="节点栏目信息数据源"/}
+{ZL.Source id="店铺模型数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+<div id="top_l">{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</div>
+ <div class="clear"></div>
+</div>
+ <div class="navbar navbar-default">
+<div class="navbar navbar-static-top Myheader" role="navigation" id="scolls">
+<div class="container ">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">智能切换导航</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+ </div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+    <li><a href="/Store/StoreIndex.aspx?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺首页</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(128)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">公司介绍</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(124)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺公告</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(126)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">店铺商品</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(125)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">促销信息</a></li>
+   <li><a href="{ZL:GetNodeLinkUrl(127)/}?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}">人才招聘</a></li> 
+    </ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 导航到此结束 -->
+ <div class="container mySites">
+<div class="row">
+<ul class="breadcrumb">
+<li><a href="/">首页</a><span class="divider"></span></li>
+ <li>店铺介绍 </li>
+ </ul>
+ </div>
+</div>
+<!--面包屑导航结束 -->
+ 
+<!--内容主体开始 -->
+ <div class="container">
+ <div class="row">
+<div  class="col-lg-3  col-md-3 col-sm-6 col-xs-12">
+
+  <div class="list-group  margintop10 padding0">
+ 
+   <a href="#" class="list-group-item active">
+ 店铺信息
+  </a>
+<a href="/Store/StoreIndex.aspx?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}"  class="list-group-item"><img src="{ZL:GetPicUrl({SField sid="店铺模型数据源标签" FD="logo" page="0"/})/}"></a>
+<a href="/Store/StoreIndex.aspx?id={SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}"  class="list-group-item">{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</a>
+<a href="#" class="list-group-item">联系人：{SField sid="店铺模型数据源标签" FD="lxr" page="0"/}</a>
+<a href="#" class="list-group-item">联系方式：{SField sid="店铺模型数据源标签" FD="tel" page="0"/}</a> 
+<a href="#" class="list-group-item">所在城市：{SField sid="店铺模型数据源标签" FD="area" page="0"/}</a> 
+<a href="#" class="list-group-item">店铺地址：{SField sid="店铺模型数据源标签" FD="addr" page="0"/}</a>
+  <div class="clearfix"></div>
+</div>
+
+  
+ <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <span class="badge"><a href="{ZL:GetNodeLinkUrl(8)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+       男人
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+          <ul class="media-list">
+{ZL.Label id="节点列表" ParentID="8" ShowNum="10" /}
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(9)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+   女人
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <ul class="media-list">
+{ZL.Label id="节点列表" ParentID="9" ShowNum="10" /}
+</ul>
+      </div>
+    </div>
+  </div>
+  
+    <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(17)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+ 运动
+        </a>
+      </h4>
+    </div>
+   </div>
+   
+      <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(16)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+手机数码
+        </a>
+      </h4>
+    </div>
+   </div>
+   
+       <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <span class="badge"><a href="{ZL:GetNodeLinkUrl(15)/}">更多</a></span>
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+ 母婴
+        </a>
+      </h4>
+    </div>
+   </div> 
+ 
+</div><!--左 -->
+
+<div  class="col-lg-9  col-md-9 col-sm-6 col-xs-12">
+ 
+<div class="s_tit"> {SField sid="节点栏目信息数据源" FD="NodeName" page="0"/} </div>
+ 
+{ZL.Label id="店铺信息列表带时间_分页" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" TitleNum="70" ShowNum="10" Inputer="{SField sid="店铺模型数据源标签" FD="UserName" page="0"/}" /}
+ 
+</div>
+</div> 
+</div>
+</div> 
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>

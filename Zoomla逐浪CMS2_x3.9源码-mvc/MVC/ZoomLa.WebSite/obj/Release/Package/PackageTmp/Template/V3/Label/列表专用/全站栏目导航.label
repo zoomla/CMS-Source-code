@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>124</LabelID>
+    <LabelName>全站栏目导航</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,30,1,调用数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName,Description</LabelField>
+    <LabelWhere>Depth=1</LabelWhere>
+    <LabelOrder>orderid asc</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="dao_show"&gt;&lt;p&gt;&lt;a href="{ZL:GetNodeUrl({Field="NodeID"/})/}" target="_blank"&gt;&lt;img src="/skin/caa/images/view.jpg" /&gt;&lt;/a&gt;&lt;strong&gt;{Field="NodeName"/}&lt;/strong&gt;{Field="Description"/}&lt;/p&gt;
+&lt;ul&gt;
+{ZL.Label id="二级栏目导航" Parentid="{Field="NodeID"/}" ShowNum="30" /}
+&lt;/ul&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

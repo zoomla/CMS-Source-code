@@ -1,0 +1,56 @@
+﻿@using ZoomLa.BLL;
+@using ZoomLa.Model;
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+
+@section head{<title>修改密码提示问题</title>}
+@section content{
+<div class="container" style="align-content: center;">
+    <ol class="breadcrumb">
+        <li><a href="/User/">会员中心</a></li>
+        <li class="active">修改密码提示问题</li>
+    </ol>
+</div>
+<div class="container btn_green " style="margin-top: 10px; list-style-type:none;">
+  <form action="/User/Change/Answer_Submit" method="post">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td colspan="2" class="title" style="text-align: center"><strong>修改密码提示问题</strong></td>
+        </tr>
+        <tr>
+            <td class="text-right"><strong>安全问题：</strong></td>
+            <td class="text-left">
+                <input type="text" ID="TxtQuestion" name="quest" class="form-control text_300 required" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right"><strong>安全问题答案：</strong></td>
+            <td class="text-left">
+                <input type="text" ID="TxtNewAnswer" name="answer" class="form-control text_300 required" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right"><strong>新安全问题答案：</strong></td>
+            <td class="text-left">
+                <input type="text" ID="TxtNewAnswer2" name="newanswer" class="form-control text_300 required" />
+                @*<asp:CompareValidator ID="CompareValidator1" ControlToValidate="TxtNewAnswer2" ControlToCompare="TxtNewAnswer" ErrorMessage="两次输入的密码提示答案不一致！" runat="server" class="color_red" />*@
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="text-left">
+                <input type="submit" value="修改" class="btn btn-primary"/>
+                <a href="/User/Info/" class="btn btn-default">取消</a>
+            </td>
+    </table>
+  </form> 
+</div>
+}
+@section script{
+<script>
+    $(function () {
+        $("form").validate();
+    })
+</script>
+}

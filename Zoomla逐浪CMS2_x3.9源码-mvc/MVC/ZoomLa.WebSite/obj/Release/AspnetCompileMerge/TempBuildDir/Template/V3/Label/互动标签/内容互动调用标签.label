@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>365</LabelID>
+    <LabelName>内容互动调用标签</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>互动标签</LabelCate>
+    <LabelDesc>ZL_Pub_NRHD分页标签</LabelDesc>
+    <LabelParam />
+    <LabelTable>ZL_Pub_NRHD left join ZL_Pub on ZL_Pub_NRHD.Pubupid=ZL_Pub.Pubid</LabelTable>
+    <LabelField>ZL_Pub_NRHD.*,ZL_Pub.*</LabelField>
+    <LabelWhere>ZL_Pub_NRHD.Pubupid=1 And ZL_Pub_NRHD.PubContentid={$GetRequest(ItemID)$} And ZL_Pub_NRHD.Pubstart=1</LabelWhere>
+    <LabelOrder>ZL_Pub_NRHD.ID DESC</LabelOrder>
+    <LabelContent>{Repeate}
+用户名:{Field="PubUserName"/}&lt;br /&gt;
+评论说明:{Field="PubContent"/}&lt;br /&gt;
+用户IP:{Field="PubIP"/}&lt;br /&gt;
+评论时间:{Field="PubAddTime"/}&lt;br /&gt;{/Repeate}&lt;br /&gt;
+{ZL.Page/}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>1</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+  </Table>
+</NewDataSet>

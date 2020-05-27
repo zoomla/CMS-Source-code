@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>273</LabelID>
+    <LabelName>查询栏目下内容</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>查询栏目下内容</LabelDesc>
+    <LabelParam>username,默认值,1,黄页用户名|nodeid,默认值,2,栏目ID|pageid,默认值,2,黄页ID</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,NodeID,ModelID,ItemID,TableName,Title,Inputer,Hits,CreateTime,Status,EliteLevel,InfoID,SpecialID,IsCreate,HtmlLink,Template</LabelField>
+    <LabelWhere>TableName like 'ZL_Page_%' And Status=99 And Inputer='@username' And NodeID=@nodeid</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="PageContent.aspx?ItemID={Field="GeneralID"/}"&gt;{Field="Title"/}&lt;a/&gt;&lt;/li&gt;&lt;br&gt;
+{/Repeate}
+{ZL.Page/}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

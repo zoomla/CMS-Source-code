@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>170</LabelID>
+    <LabelName>输出指定贴吧帖子_带时间</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>贴吧</LabelCate>
+    <LabelDesc />
+    <LabelParam>CateID,1,1,贴吧ID|TitleNum,30,1,30|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Guest_Bar</LabelTable>
+    <LabelField>CDate,CateID,ID,Title</LabelField>
+    <LabelWhere>status=1 and pid=0 and CateID=@CateID</LabelWhere>
+    <LabelOrder>CDate DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;span&gt;{ZL:FormatDate({Field="CDate"/},MM-dd)/}&lt;/span&gt;&lt;a href="/PItem?id={Field="ID"/}" title="{Field="Title"/}" target="_blank"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;&lt;/li&gt;{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

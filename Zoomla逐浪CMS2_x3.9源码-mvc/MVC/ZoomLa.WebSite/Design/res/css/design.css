@@ -1,0 +1,38 @@
+﻿/*仅用于设计页面 editor*/
+* {font-family:'Microsoft YaHei';}
+#editorBody {width:100%;height:100%;}
+#editorBody .candrag,.onlydrag,.onlyresize,.dragy {cursor:move;display:inline-block; max-width:100%;}
+#editorBody .designLine {position:fixed;height:100%;background-color:#fff;border-right:2px dashed #000;z-index:10;}
+/*拖动时*/
+#editorBody .drag_alignLine { position: absolute;display: none;z-index:9999;}
+#editorBody #compinfo_div {height:20px;line-height:20px; background-color:rgba(8, 0, 0, 0.76);color:#fff;border-radius:10px;padding:0 8px;}
+/*菜单*/
+#editorBody .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {background:#0081c2;color:#fff;}
+/*对部分设计元素,样式处理*/
+#editorBody .btn_icon_circular {padding-top:0px;}
+#editorBody .diy_drag_div {margin:20px;}
+#editorBody .diy_ifr {border:none;overflow:hidden;}
+.bdshare-button-style2-32 a {
+    height:32px;line-height:32px;display:block;width:32px;float:left;
+    background-image:url(http://bdimg.share.baidu.com/static/api/img/share/icons_2_32.png?v=1bc5c881.png);
+    background-repeat:no-repeat;cursor:pointer;margin:6px 6px 6px 0;text-indent:-100em;overflow:hidden;}
+
+.ui-resizable-handle {display:none;visibility:hidden;}
+.active .ui-resizable-handle {display:block;visibility:visible;}
+.editor .ui-resizable-n,.ui-resizable-e,.ui-resizable-s,.ui-resizable-w {background-color:#19A6FF;}
+
+.bar.bar-radius {border-radius:50%;width:20px;height:20px;display:block;cursor:url(/design/res/img/mouserotate.ico) 10 10,default;}
+.bar.bar-s1 {border:1px solid #08a1ef;background-color:#fff;}
+.bar.bar-s2 {background-color:#44cb83;}
+
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 3px; width: 100%; top: -5px; left: 0; }
+.ui-resizable-s { cursor: s-resize; height: 3px; width: 100%; bottom: -5px; left: 0; }
+.ui-resizable-e { cursor: e-resize; width: 3px; right: -5px; top: 0; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 3px; left: -5px; top: 0; height: 100%; }
+.ui-resizable-se { cursor: se-resize; border-radius:50%;width:12px;height:12px;border:1px solid #08a1ef;background-color:#fff; right: -7px; bottom: -7px; }
+.ui-resizable-sw { cursor: sw-resize; border-radius:50%;width:12px;height:12px;border:1px solid #08a1ef;background-color:#fff; left: -7px; bottom: -7px; }
+.ui-resizable-nw { cursor: nw-resize; border-radius:50%;width:12px;height:12px;border:1px solid #08a1ef;background-color:#fff; left: -7px; top: -7px;}
+.ui-resizable-ne { cursor: ne-resize; border-radius:50%;width:12px;height:12px;border:1px solid #08a1ef;background-color:#fff; right: -7px; top: -7px;}

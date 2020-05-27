@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>96</LabelID>
+    <LabelName>节点栏目信息数据源</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>数据源标签</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,2,当前栏目ID赋值</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>*</LabelField>
+    <LabelWhere>NodeID=@NodeID</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount>10</LabelCount>
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

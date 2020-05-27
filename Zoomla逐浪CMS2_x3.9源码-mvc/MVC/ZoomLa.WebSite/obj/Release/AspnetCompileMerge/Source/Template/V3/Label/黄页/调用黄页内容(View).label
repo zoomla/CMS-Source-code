@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>285</LabelID>
+    <LabelName>调用黄页内容(View)</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>调用黄页内容</LabelDesc>
+    <LabelParam>ItemID,默认值,2,内容ID</LabelParam>
+    <LabelTable>ZL_CommonModel Inner join ZL_Page_productlist on ZL_CommonModel.ItemID=ZL_Page_productlist.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.NodeID,ZL_CommonModel.ModelID,ZL_CommonModel.ItemID,ZL_CommonModel.TableName,ZL_CommonModel.Title,ZL_CommonModel.Inputer,ZL_CommonModel.Hits,ZL_CommonModel.CreateTime,ZL_CommonModel.Status,ZL_CommonModel.EliteLevel,ZL_CommonModel.InfoID,ZL_CommonModel.SpecialID,ZL_CommonModel.IsCreate,ZL_CommonModel.HtmlLink,ZL_CommonModel.Template,ZL_Page_productlist.ID,ZL_Page_productlist.content,ZL_Page_productlist.addd</LabelField>
+    <LabelWhere>ZL_CommonModel.GeneralID=@ItemID</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

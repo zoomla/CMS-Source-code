@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>692</LabelID>
+    <LabelName>商城商品标签_分页V3</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>商城</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|TitleNum,30,1,标题长度|ShowNum,20,1,每页显示数|ClassName,,1,自定类名</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Commodities</LabelTable>
+    <LabelField>ID,LinPrice,Proname,Thumbnails</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID)  and sales=1</LabelWhere>
+    <LabelOrder>addtime DESC</LabelOrder>
+    <LabelContent>&lt;div class="shop_img"&gt;
+&lt;ul class="list-unstyled"&gt;
+{Repeate}
+&lt;li class="@ClassName"&gt;
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" target="_blank"&gt;&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}" onerror="javascript:this.src='/Images/nopic.gif';" alt="{Field="Proname"/}" class="img-responsive img-thumbnail" /&gt;&lt;/a&gt;
+&lt;p&gt;&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" target="_blank"&gt;{ZL:CutText({Field="Proname"/},@TitleNum,)/}&lt;/a&gt;&lt;/p&gt;
+&lt;span&gt;商城价：&lt;font class="red"&gt;￥{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/font&gt;&lt;/span&gt;
+&lt;/li&gt;
+{/Repeate}
+&lt;/ul&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+{ZL.Page id="大图标响应式列表分页v3"/}
+ </LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

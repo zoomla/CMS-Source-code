@@ -1,0 +1,53 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<script type="text/javascript" src="{$CssDir/}js/flv.js"></script>
+<link href="{$CssDir/}global.css" rel="stylesheet" />
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/js/jquery.lazyload.js" type="text/javascript"></script> 
+<style>
+.navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+</style>
+</head>
+<body id="header" >
+{ZL.Label id="响应式全站头部"/} 
+ 
+<!--内容主体开始 -->
+<div id="CuPlayer1">
+</div>
+ 
+<script type="text/javascript">
+var so = new SWFObject("{$CssDir/}swf/CuPlayerMiniV3_Black_S.swf","CuPlayer","100%","735","9","#000000");
+so.addParam("allowfullscreen","true");
+so.addParam("allowscriptaccess","always");
+so.addParam("wmode","opaque");
+so.addParam("quality","high");
+so.addParam("salign","lt");
+so.addVariable("CuPlayerFile", 'http://www.z01.com/the_sea.flv');
+so.addVariable("CuPlayerImage",'http://www.z01.com/Template/office/style/images/phone1.jpg');
+so.addVariable("CuPlayerShowImage","true");
+so.addVariable("CuPlayerWidth","100%");
+so.addVariable("CuPlayerHeight","735");
+so.addVariable("CuPlayerAutoPlay","false");
+so.addVariable("CuPlayerAutoRepeat","false");
+so.addVariable("CuPlayerShowControl","true");
+so.addVariable("CuPlayerAutoHideControl","false");
+so.addVariable("CuPlayerAutoHideTime","6");
+so.addVariable("CuPlayerVolume","80");
+so.write("CuPlayer1");	
+</script>
+<!--内容主体结束 -->
+<a class="aside" href="{ZL:GetNodeListUrl(86)/}"> </a>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+</nav>
+
+{ZL.Label id="响应式全站底部"/}
+
+</body>
+</html>

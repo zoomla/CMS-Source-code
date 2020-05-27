@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://sdkhttp.eucp.b2m.cn/" targetNamespace="http://sdkhttp.eucp.b2m.cn/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cancelMOForward" type="tns:cancelMOForward" />
+  <xs:element name="cancelMOForwardResponse" type="tns:cancelMOForwardResponse" />
+  <xs:element name="chargeUp" type="tns:chargeUp" />
+  <xs:element name="chargeUpResponse" type="tns:chargeUpResponse" />
+  <xs:element name="getBalance" type="tns:getBalance" />
+  <xs:element name="getBalanceResponse" type="tns:getBalanceResponse" />
+  <xs:element name="getEachFee" type="tns:getEachFee" />
+  <xs:element name="getEachFeeResponse" type="tns:getEachFeeResponse" />
+  <xs:element name="getMO" type="tns:getMO" />
+  <xs:element name="getMOResponse" type="tns:getMOResponse" />
+  <xs:element name="getReport" type="tns:getReport" />
+  <xs:element name="getReportResponse" type="tns:getReportResponse" />
+  <xs:element name="getVersion" type="tns:getVersion" />
+  <xs:element name="getVersionResponse" type="tns:getVersionResponse" />
+  <xs:element name="logout" type="tns:logout" />
+  <xs:element name="logoutResponse" type="tns:logoutResponse" />
+  <xs:element name="registDetailInfo" type="tns:registDetailInfo" />
+  <xs:element name="registDetailInfoResponse" type="tns:registDetailInfoResponse" />
+  <xs:element name="registEx" type="tns:registEx" />
+  <xs:element name="registExResponse" type="tns:registExResponse" />
+  <xs:element name="sendSMS" type="tns:sendSMS" />
+  <xs:element name="sendSMSResponse" type="tns:sendSMSResponse" />
+  <xs:element name="sendVoice" type="tns:sendVoice" />
+  <xs:element name="sendVoiceResponse" type="tns:sendVoiceResponse" />
+  <xs:element name="serialPwdUpd" type="tns:serialPwdUpd" />
+  <xs:element name="serialPwdUpdResponse" type="tns:serialPwdUpdResponse" />
+  <xs:element name="setMOForward" type="tns:setMOForward" />
+  <xs:element name="setMOForwardEx" type="tns:setMOForwardEx" />
+  <xs:element name="setMOForwardExResponse" type="tns:setMOForwardExResponse" />
+  <xs:element name="setMOForwardResponse" type="tns:setMOForwardResponse" />
+  <xs:complexType name="registEx">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registExResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logout">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logoutResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getVersion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getVersionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getBalance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getBalanceResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chargeUp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chargeUpResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMOResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:mo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="addSerial" type="xs:string" />
+      <xs:element minOccurs="0" name="addSerialRev" type="xs:string" />
+      <xs:element minOccurs="0" name="channelnumber" type="xs:string" />
+      <xs:element minOccurs="0" name="mobileNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="sentTime" type="xs:string" />
+      <xs:element minOccurs="0" name="smsContent" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registDetailInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registDetailInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReportResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:statusReport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+      <xs:element minOccurs="0" name="memo" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" type="xs:string" />
+      <xs:element minOccurs="0" name="receiveDate" type="xs:string" />
+      <xs:element name="reportStatus" type="xs:int" />
+      <xs:element name="seqID" type="xs:long" />
+      <xs:element minOccurs="0" name="serviceCodeAdd" type="xs:string" />
+      <xs:element minOccurs="0" name="submitDate" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cancelMOForward">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cancelMOForwardResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setMOForwardEx">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg2" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setMOForwardExResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendSMS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element name="arg7" type="xs:int" />
+      <xs:element name="arg8" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendSMSResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendVoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element name="arg7" type="xs:int" />
+      <xs:element name="arg8" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendVoiceResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serialPwdUpd">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serialPwdUpdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEachFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEachFeeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setMOForward">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setMOForwardResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

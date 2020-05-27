@@ -1,0 +1,117 @@
+﻿{ZL.Source id="信息模型数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="信息模型数据源标签" FD="Title" page="0"/}</title> 
+<meta name="Keywords" content="{SField sid="信息模型数据源标签" FD="Tagkey" page="0"/}">
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<style>
+.navbar-default .navbar-nav>#Menu{SField sid="信息模型数据源标签" FD="FirstNodeID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="信息模型数据源标签" FD="FirstNodeID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="信息模型数据源标签" FD="FirstNodeID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+</style>
+</head>
+<body id="header" >
+{ZL.Label id="响应式全站头部"/} 
+<div class="myBanner">
+<div class="container">
+<h3><br/><br/>逐浪软件</h3><br/>
+手機和電腦的网页表现無边界。
+</div>
+</div>
+<!--内页通栏banner广告位 -->
+
+<div class="container mySites">
+<ul class="breadcrumb">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="信息模型数据源标签" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">{SField sid="信息模型数据源标签" FD="Title" page="0"/}</li>
+<li>
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6550456" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+</li>
+</ul>
+</div>
+<!--面包屑导航结束 -->
+
+<!--主体开始 -->
+<div class="container">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-xs-12 ">
+ <div class="container myAnnoun">
+<div class="row">
+<div class="col-lg-9 col-md-12 col-xs-12 ">
+ <h1>{SField sid="信息模型数据源标签" FD="Title" page="0"/}</h1>
+<div class="myAbbr">  <span id="CreateTime">发布时间：{ZL:FormatDate({SField sid="信息模型数据源标签" FD="CreateTime" page="0"/},yyyy-MM-dd)/}</span> <span id="Hits">浏览次数：<SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="信息模型数据源标签" FD="GeneralID" page="0"/}"></SCRIPT></span>
+</div>
+
+ 
+<div class="clear"></div>
+<strong >所属地区：{SField sid="信息模型数据源标签" FD="addr" page="0"/}</strong>
+<p class="org">  <a href="javascript:AddFavorite(window.location.href,window.document.title);">收藏该信息>></a>
+     <span id="Incept"><A href="javascript:void(0);" onClick="javascript:window.open('/user/Message/MessageSend.aspx?UserID=1','newwin','height=600,width=600,top=200,left=200;')">发送站内短消息>></A></span> 
+</p>
+
+<div class="xx_info">
+<div class="xx_t"><span>详细信息</span></div>
+<div class="xx_con">{SField sid="信息模型数据源标签" FD="Content" page="0"/}</div>
+<div>
+<ul><li>联 系 人：{SField sid="信息模型数据源标签" FD="lxr" page="0"/}</li>
+<li>联系电话：{SField sid="信息模型数据源标签" FD="tel" page="0"/}</li>
+</ul>
+</div>
+<div class="red">友情提醒：让您提前汇款或者不见面交易的都是骗子！ </div>
+</div>
+ </div><!--左 -->
+ 
+
+<div class="col-lg-3 col-md-12 col-xs-12 myContent_rbox">
+<div class="bs-sidebar hidden-print" role="complementary">
+<div class="border">
+    <div class="list-group">
+   <a class="list-group-item active">{ZL.Label id="输出指定ID节点名" NodeID="{SField sid="信息模型数据源标签" FD="NodeID" page="0"/}" /}</a>
+  </div>
+  <ul class="nav">
+{ZL.Label id="输出指定节点标题_无时间属性" NodeID="{SField sid="信息模型数据源标签" FD="NodeID" page="0"/}" TitleNum="40" ShowNum="10" /}
+  </ul>
+ </div>
+ 
+ </div>
+ <div id="botM_dh" style="padding:0px;"> 
+ 
+<a href="/manage/Panoramic/PanoramicShow.aspx?id=1" class="btn btn-default" target="_blank">三维全景</a>
+<a href="/try/" target="_blank" class="btn btn-primary">在线试戴</a> 
+<a href="/3d/" target="_blank"  class="btn btn-success ">3D商街</a>
+<a href="/Questions/Default.aspx?id=1" target="_blank"  class="btn btn-info ">智能组卷</a>
+<a href="/guest/" target="_blank"  class="btn btn-warning ">在线留言</a>
+<a href="/User/UserZone/Cut/" target="_blank"  class="btn btn-danger ">网页剪刀</a>
+<a href="/user/UserZone/Default.aspx" target="_blank"  class="btn btn-info">SNS社区</a>
+<a href="/Edit" target="_blank"  class="btn btn-success">在线助写</a> 
+<a href="/Prompt/correct.aspx" target="_blank"  class="btn btn-primary">在线纠错</a>
+<a href="/Prompt/EmailSender.aspx" target="_blank"  class="btn btn-default">邮件订阅</a>
+<div class="clearfix"></div>
+</div>
+
+ 
+</div>
+</div>
+</div></div></div></div>
+<!--主体结束 -->
+ 
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>

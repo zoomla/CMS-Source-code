@@ -1,0 +1,527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D20DA302-1BEB-4672-A037-8568C47662F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZoomLa.BLL</RootNamespace>
+    <AssemblyName>ZoomLa.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.ADODB">
+      <HintPath>..\ZoomlaCMS\bin\Interop.ADODB.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.CDO">
+      <HintPath>..\..\..\ZLCMS\ZLCMS\bin\Interop.CDO.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.MSXML2">
+      <HintPath>..\ZoomlaCMS\bin\Interop.MSXML2.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\ZoomlaCMS\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZoomlaCMS\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZoomlaCMS\bin\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Winista.HtmlParser">
+      <HintPath>..\ZoomlaCMS\bin\Winista.HtmlParser.dll</HintPath>
+    </Reference>
+    <Reference Include="ZoomLa.Safe, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZoomLa.WebSite\Bin\ZoomLa.Safe.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdSystem\B_Adbuy.cs" />
+    <Compile Include="AdSystem\B_AddRessList.cs" />
+    <Compile Include="AdSystem\B_Advertisement.cs" />
+    <Compile Include="AdSystem\B_ADZone.cs" />
+    <Compile Include="AdSystem\B_ADZoneJs.cs" />
+    <Compile Include="Amination\B_Examination.cs" />
+    <Compile Include="Amination\B_ExAnswer.cs" />
+    <Compile Include="Amination\B_ExAttendance.cs" />
+    <Compile Include="Amination\B_ExClassgroup.cs" />
+    <Compile Include="Amination\B_Exroom.cs" />
+    <Compile Include="Amination\B_ExStudent.cs" />
+    <Compile Include="Amination\B_ExStudytime.cs" />
+    <Compile Include="API\Proxy.cs" />
+    <Compile Include="API\WxAPI.cs" />
+    <Compile Include="API\ZLAPI.cs" />
+    <Compile Include="Auth\B_ARoleAuth.cs" />
+    <Compile Include="Auth\CacheCenter.cs" />
+    <Compile Include="Auth\ZLCache.cs" />
+    <Compile Include="Auth\ZLEvent.cs" />
+    <Compile Include="BLLCommon.cs" />
+    <Compile Include="B_Base.cs" />
+    <Compile Include="Chat\B_3DShop.cs" />
+    <Compile Include="Chat\B_ChatMsg.cs" />
+    <Compile Include="Chat\B_UAction.cs" />
+    <Compile Include="Client\B_Client_Basic.cs" />
+    <Compile Include="Client\B_Client_Enterprise.cs" />
+    <Compile Include="Client\B_Client_Penson.cs" />
+    <Compile Include="Client\B_Client_Service.cs" />
+    <Compile Include="Client\B_CrmAuth.cs" />
+    <Compile Include="Collect\B_CollectionInfo.cs" />
+    <Compile Include="Collect\B_CollectionItem.cs" />
+    <Compile Include="Collect\B_Coll_Worker.cs" />
+    <Compile Include="Common\B_Common_Notify.cs" />
+    <Compile Include="Common\B_Common_UserApply.cs" />
+    <Compile Include="Content\Addon\B_Content_CR.cs" />
+    <Compile Include="Content\B_Bid.cs" />
+    <Compile Include="Content\B_BigLog.cs" />
+    <Compile Include="Content\B_Card.cs" />
+    <Compile Include="Content\B_Chat.cs" />
+    <Compile Include="Content\B_Comment.cs" />
+    <Compile Include="Content\B_Content.cs" />
+    <Compile Include="Content\B_Content_Chart.cs" />
+    <Compile Include="Content\B_Content_Count.cs" />
+    <Compile Include="Content\B_Content_FileBuy.cs" />
+    <Compile Include="Content\B_Content_WordChain.cs" />
+    <Compile Include="Content\B_DataSource.cs" />
+    <Compile Include="Content\B_DocPermission.cs" />
+    <Compile Include="Content\B_Favorite.cs" />
+    <Compile Include="Content\B_Group.cs" />
+    <Compile Include="Content\B_Hits.cs" />
+    <Compile Include="Content\B_KeyWord.cs" />
+    <Compile Include="Content\B_Label.cs" />
+    <Compile Include="Content\B_MailIdiograph.cs" />
+    <Compile Include="Content\B_MailInfo.cs" />
+    <Compile Include="Content\B_MailManage.cs" />
+    <Compile Include="Content\B_ModelField.cs" />
+    <Compile Include="Content\B_MoneyManage.cs" />
+    <Compile Include="Content\B_MTit.cs" />
+    <Compile Include="Content\B_Node.cs" />
+    <Compile Include="Content\B_NodeBindDroit.cs" />
+    <Compile Include="Content\B_NodeRole.cs" />
+    <Compile Include="Content\B_PageStyle.cs" />
+    <Compile Include="Content\B_PayPlat.cs" />
+    <Compile Include="Content\B_Permission.cs" />
+    <Compile Include="Content\B_Pub.cs" />
+    <Compile Include="Content\B_Pub_Excel.cs" />
+    <Compile Include="Content\B_Result.cs" />
+    <Compile Include="Content\B_Scheme.cs" />
+    <Compile Include="Content\B_SchemeInfo.cs" />
+    <Compile Include="Content\B_Spec.cs" />
+    <Compile Include="Content\B_Templata.cs" />
+    <Compile Include="Content\ContentHelper.cs" />
+    <Compile Include="Content\Schedule\B_Content_ScheLog.cs" />
+    <Compile Include="Content\Schedule\B_Content_ScheTask.cs" />
+    <Compile Include="Content\Sentiment\B_Con_GetArticle.cs" />
+    <Compile Include="Content\Sentiment\B_Sen_Data.cs" />
+    <Compile Include="Content\Sentiment\B_Sen_Task.cs" />
+    <Compile Include="CreateJS\B_API_JsonP.cs" />
+    <Compile Include="CreateJS\B_APP_Auth.cs" />
+    <Compile Include="CreateJS\B_CodeModel.cs" />
+    <Compile Include="CreateJS\B_CreateJS.cs" />
+    <Compile Include="CreateJS\B_Release.cs" />
+    <Compile Include="Design\B_Design_AnsDetail.cs" />
+    <Compile Include="Design\B_Design_Answer.cs" />
+    <Compile Include="Design\B_Design_Ask.cs" />
+    <Compile Include="Design\B_Design_Helper.cs" />
+    <Compile Include="Design\B_Design_MBSite.cs" />
+    <Compile Include="Design\B_Design_Node.cs" />
+    <Compile Include="Design\B_Design_Page.cs" />
+    <Compile Include="Design\B_Design_Pub.cs" />
+    <Compile Include="Design\B_Design_Question.cs" />
+    <Compile Include="Design\B_Design_RES.cs" />
+    <Compile Include="Design\B_Design_Scence.cs" />
+    <Compile Include="Design\B_Design_SiteInfo.cs" />
+    <Compile Include="Design\B_Design_Tlp.cs" />
+    <Compile Include="Design\B_Design_TlpClass.cs" />
+    <Compile Include="Exam\B_Content_Publish.cs" />
+    <Compile Include="Exam\B_Course.cs" />
+    <Compile Include="Exam\B_Courseware.cs" />
+    <Compile Include="Exam\B_EDU_AutoPK.cs" />
+    <Compile Include="Exam\B_EDU_Subject.cs" />
+    <Compile Include="Exam\B_EnrollList.cs" />
+    <Compile Include="Exam\B_ExamPoint.cs" />
+    <Compile Include="Exam\B_Exam_Answer.cs" />
+    <Compile Include="Exam\B_Exam_Class.cs" />
+    <Compile Include="Exam\B_Exam_PaperNode.cs" />
+    <Compile Include="Exam\B_Exam_Sys_Papers.cs" />
+    <Compile Include="Exam\B_Exam_Sys_Questions.cs" />
+    <Compile Include="Exam\B_Exam_Type.cs" />
+    <Compile Include="Exam\B_Exam_Version.cs" />
+    <Compile Include="Exam\B_ExLecturer.cs" />
+    <Compile Include="Exam\B_ExTeacher.cs" />
+    <Compile Include="Exam\B_Paper_Questions.cs" />
+    <Compile Include="Exam\B_Publish_Node.cs" />
+    <Compile Include="Exam\B_Recruitment.cs" />
+    <Compile Include="Exam\B_UserCourse.cs" />
+    <Compile Include="FTP\B_FTP.cs" />
+    <Compile Include="Helper\Addon\CMDHelper.cs" />
+    <Compile Include="Helper\Addon\ReflectionHelper.cs" />
+    <Compile Include="Helper\APIHelper.cs" />
+    <Compile Include="Helper\DateHelper.cs" />
+    <Compile Include="Helper\DeviceHelper.cs" />
+    <Compile Include="Helper\ECharts.cs" />
+    <Compile Include="Helper\EChartsHelper.cs" />
+    <Compile Include="Helper\EncryptHelper.cs" />
+    <Compile Include="Helper\FileUDHelper.cs" />
+    <Compile Include="Helper\FTPHelper.cs" />
+    <Compile Include="Helper\HtmlHelper.cs" />
+    <Compile Include="Helper\HttpHelper.cs" />
+    <Compile Include="Helper\ImageDealLib.cs" />
+    <Compile Include="Helper\ImgHelper.cs" />
+    <Compile Include="Helper\IOHelper.cs" />
+    <Compile Include="Helper\IPScaner.cs" />
+    <Compile Include="Helper\ISPScaner.cs" />
+    <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Helper\MobileHelper.cs" />
+    <Compile Include="Helper\PageHelper.cs" />
+    <Compile Include="Helper\QQHelper.cs" />
+    <Compile Include="Helper\RegexHelper.cs" />
+    <Compile Include="Helper\SocketHelper.cs" />
+    <Compile Include="Helper\StrHelper.cs" />
+    <Compile Include="Helper\ThumbHelper.cs" />
+    <Compile Include="Helper\UEHelper.cs" />
+    <Compile Include="Helper\VideoHelper.cs" />
+    <Compile Include="Helper\WistaHelper.cs" />
+    <Compile Include="HtmlLabel\CreateContent.cs" />
+    <Compile Include="HtmlLabel\CreateIndex.cs" />
+    <Compile Include="HtmlLabel\CreateList.cs" />
+    <Compile Include="HtmlLabel\DownField.cs" />
+    <Compile Include="HtmlLabel\GetRemote.cs" />
+    <Compile Include="IIS\ApplicationPool.cs" />
+    <Compile Include="IIS\VirtualDirectory.cs" />
+    <Compile Include="IIS\WebSite.cs" />
+    <Compile Include="iServer\B_IServer.cs" />
+    <Compile Include="iServer\B_IServerReply.cs" />
+    <Compile Include="Message\B_Answer.cs" />
+    <Compile Include="Message\B_Answer_Recode.cs" />
+    <Compile Include="Message\B_Ask.cs" />
+    <Compile Include="Message\B_AskCommon.cs" />
+    <Compile Include="Message\B_Baike.cs" />
+    <Compile Include="Message\B_BaikeEdit.cs" />
+    <Compile Include="Message\B_GuestAnswer.cs" />
+    <Compile Include="Message\B_GuestBook.cs" />
+    <Compile Include="Message\B_GuestBookCate.cs" />
+    <Compile Include="Message\B_Guest_Bar.cs" />
+    <Compile Include="Message\B_Guest_BarAuth.cs" />
+    <Compile Include="Message\B_Guest_Medals.cs" />
+    <Compile Include="Message\B_MailTemp.cs" />
+    <Compile Include="Message\B_MailType.cs" />
+    <Compile Include="Message\B_Mail_BookRead.cs" />
+    <Compile Include="Message\B_Message.cs" />
+    <Compile Include="MIS\B_MailSet.cs" />
+    <Compile Include="MIS\B_Mis.cs" />
+    <Compile Include="MIS\B_MisApproval.cs" />
+    <Compile Include="MIS\B_MisAttendance.cs" />
+    <Compile Include="MIS\B_MisInfo.cs" />
+    <Compile Include="MIS\B_MisProcedure.cs" />
+    <Compile Include="MIS\B_MisProLevel.cs" />
+    <Compile Include="MIS\B_MisSign.cs" />
+    <Compile Include="MIS\B_MisType.cs" />
+    <Compile Include="MIS\B_Mis_AppProg.cs" />
+    <Compile Include="MIS\B_Mis_Model.cs" />
+    <Compile Include="MIS\B_OAFormUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MIS\B_OA_BC.cs" />
+    <Compile Include="MIS\B_OA_Borrow.cs" />
+    <Compile Include="MIS\B_OA_DocSigned.cs" />
+    <Compile Include="MIS\B_OA_Document.cs" />
+    <Compile Include="MIS\B_OA_FreePro.cs" />
+    <Compile Include="MIS\B_OA_ShowField.cs" />
+    <Compile Include="MIS\B_OA_Sign.cs" />
+    <Compile Include="MIS\B_OA_UserConfig.cs" />
+    <Compile Include="Mobile\B_Mobile_PushAPI.cs" />
+    <Compile Include="Mobile\B_Mobile_PushMsg.cs" />
+    <Compile Include="Other\AddRunlist.cs" />
+    <Compile Include="Other\B_AuditingState.cs" />
+    <Compile Include="Other\B_Author.cs" />
+    <Compile Include="Other\B_BossInfo.cs" />
+    <Compile Include="Other\B_CardType.cs" />
+    <Compile Include="Other\B_Cash.cs" />
+    <Compile Include="Other\B_DataList.cs" />
+    <Compile Include="Other\B_Defray.cs" />
+    <Compile Include="Other\B_DocList.cs" />
+    <Compile Include="Other\B_DocModel.cs" />
+    <Compile Include="Other\B_Flow.cs" />
+    <Compile Include="Other\B_GradeOption.cs" />
+    <Compile Include="Other\B_IPOperation.cs" />
+    <Compile Include="Other\B_MiUserInfo.cs" />
+    <Compile Include="Other\B_MySubscription.cs" />
+    <Compile Include="Other\B_Process.cs" />
+    <Compile Include="Other\B_QrCode.cs" />
+    <Compile Include="Other\B_Safe_Mobile.cs" />
+    <Compile Include="Other\B_ServiceSeat.cs" />
+    <Compile Include="Other\B_Sns_Kiss.cs" />
+    <Compile Include="Other\B_Source.cs" />
+    <Compile Include="Other\B_SQL.cs" />
+    <Compile Include="Other\B_Subscribe.cs" />
+    <Compile Include="Other\B_Survey.cs" />
+    <Compile Include="Other\B_WX_APPID.cs" />
+    <Compile Include="Other\B_WX_Model.cs" />
+    <Compile Include="Other\B_WX_ReplyMsg.cs" />
+    <Compile Include="Other\B_WX_User.cs" />
+    <Compile Include="Other\Code\B_Code_Page.cs" />
+    <Compile Include="Other\Security.cs" />
+    <Compile Include="Other\ZLLog.cs" />
+    <Compile Include="Page\B_Page.cs" />
+    <Compile Include="Page\B_PageReg.cs" />
+    <Compile Include="Panoramic\B_3DMusic.cs" />
+    <Compile Include="Panoramic\B_3DPanoramic.cs" />
+    <Compile Include="Pay\AlipayBank\AlipayConfig.cs" />
+    <Compile Include="Pay\AlipayBank\AlipayCore.cs" />
+    <Compile Include="Pay\AlipayBank\AlipayNotify.cs" />
+    <Compile Include="Pay\AlipayBank\AlipaySubmit.cs" />
+    <Compile Include="Pay\AlipayBank\MD5.cs" />
+    <Compile Include="Pay\Alipay\B_Alipay_function.cs" />
+    <Compile Include="Pay\Alipay\B_Alipay_notify.cs" />
+    <Compile Include="Pay\Alipay\B_Alipay_shipments_service.cs" />
+    <Compile Include="Pay\Alipay\B_AliPay_trades_Services.cs" />
+    <Compile Include="Pay\Alipay\B_Alipay_trade_service.cs" />
+    <Compile Include="Pay\Alipay\B_Alipay_user_service.cs" />
+    <Compile Include="Pay\Ebatong\AskForTimestamp.cs" />
+    <Compile Include="Pay\Ebatong\CommonHelper.cs" />
+    <Compile Include="Pay\ICBCHelper.cs" />
+    <Compile Include="Pay\MobaoPay\Mobo360Merchant.cs" />
+    <Compile Include="Pay\MobaoPay\Mobo360SignUtil.cs" />
+    <Compile Include="Pay\Pay_BaoFa.cs" />
+    <Compile Include="Pay\WxPay\Config.cs" />
+    <Compile Include="Pay\WxPay\Data.cs" />
+    <Compile Include="Pay\WxPay\Exception.cs" />
+    <Compile Include="Pay\WxPay\HttpService.cs" />
+    <Compile Include="Pay\WxPay\Notify.cs" />
+    <Compile Include="Pay\WxPay\WxPayApi.cs" />
+    <Compile Include="Plan\B_Plan.cs" />
+    <Compile Include="Plan\B_PlanSql.cs" />
+    <Compile Include="Plat\B_Blog_Msg.cs" />
+    <Compile Include="Plat\B_Blog_Sdl.cs" />
+    <Compile Include="Plat\B_Plat_Common.cs" />
+    <Compile Include="Plat\B_Plat_Comp.cs" />
+    <Compile Include="Plat\B_Plat_CompDoc.cs" />
+    <Compile Include="Plat\B_Plat_File.cs" />
+    <Compile Include="Plat\B_Plat_Group.cs" />
+    <Compile Include="Plat\B_Plat_Like.cs" />
+    <Compile Include="Plat\B_Plat_Mail.cs" />
+    <Compile Include="Plat\B_Plat_MailConfig.cs" />
+    <Compile Include="Plat\B_Plat_Pro.cs" />
+    <Compile Include="Plat\B_Plat_Sign.cs" />
+    <Compile Include="Plat\B_Plat_Task.cs" />
+    <Compile Include="Plat\B_Plat_TaskMsg.cs" />
+    <Compile Include="Plat\B_Plat_Topic.cs" />
+    <Compile Include="Plat\B_Plat_UserRole.cs" />
+    <Compile Include="Plat\B_User_Token.cs" />
+    <Compile Include="Project\B_Pro_Flow.cs" />
+    <Compile Include="Project\B_Pro_Msg.cs" />
+    <Compile Include="Project\B_Pro_Progress.cs" />
+    <Compile Include="Project\B_Pro_Project.cs" />
+    <Compile Include="Project\B_Pro_Step.cs" />
+    <Compile Include="Project\B_Pro_Type.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Questions\B_Papers_System.cs" />
+    <Compile Include="Questions\B_Questions.cs" />
+    <Compile Include="Questions\B_Questions_Class.cs" />
+    <Compile Include="Questions\B_Questions_Knowledge.cs" />
+    <Compile Include="Room\B_ClassRoom.cs" />
+    <Compile Include="Room\B_EDU_School.cs" />
+    <Compile Include="Room\B_RoomActive.cs" />
+    <Compile Include="Room\B_RoomActiveJoin.cs" />
+    <Compile Include="Room\B_RoomMessage.cs" />
+    <Compile Include="Room\B_RoomNotify.cs" />
+    <Compile Include="Room\B_School.cs" />
+    <Compile Include="Room\B_Student.cs" />
+    <Compile Include="SafeSC.cs" />
+    <Compile Include="Search\B_Search.cs" />
+    <Compile Include="Sensitivity\B_Sensitivity.cs" />
+    <Compile Include="Shop\Addon\B_Shop_MoneyRegular.cs" />
+    <Compile Include="Shop\B_Accountinfo.cs" />
+    <Compile Include="Shop\B_Arrive.cs" />
+    <Compile Include="Shop\B_ArticlePromotion.cs" />
+    <Compile Include="Shop\B_BindFlolar.cs" />
+    <Compile Include="Shop\B_BindPro.cs" />
+    <Compile Include="Shop\B_Cart.cs" />
+    <Compile Include="Shop\B_CartPro.cs" />
+    <Compile Include="Shop\B_ChangeProduct.cs" />
+    <Compile Include="Shop\B_DownServer.cs" />
+    <Compile Include="Shop\B_GiftCard_shop.cs" />
+    <Compile Include="Shop\B_GiftCard_User.cs" />
+    <Compile Include="Shop\B_GroupBuyList.cs" />
+    <Compile Include="Shop\B_InviteRecord.cs" />
+    <Compile Include="Shop\B_InvtoType.cs" />
+    <Compile Include="Shop\B_Manufacturers.cs" />
+    <Compile Include="Shop\B_MtrlsMrktng.cs" />
+    <Compile Include="Shop\B_OrderBaseField.cs" />
+    <Compile Include="Shop\B_OrderList.cs" />
+    <Compile Include="Shop\B_Order_LuckCode.cs" />
+    <Compile Include="Shop\B_Order_PayLog.cs" />
+    <Compile Include="Shop\B_Order_Repair.cs" />
+    <Compile Include="Shop\B_Order_Share.cs" />
+    <Compile Include="Shop\B_PointGrounp.cs" />
+    <Compile Include="Shop\B_Product.cs" />
+    <Compile Include="Shop\B_PromoCount.cs" />
+    <Compile Include="Shop\B_Promotion.cs" />
+    <Compile Include="Shop\B_Promotions.cs" />
+    <Compile Include="Shop\B_Rebates.cs" />
+    <Compile Include="Shop\B_RedEnvelope.cs" />
+    <Compile Include="Shop\B_Redindulgence.cs" />
+    <Compile Include="Shop\B_Shopconfig.cs" />
+    <Compile Include="Shop\B_ShopGrade.cs" />
+    <Compile Include="Shop\B_Shop_FareTlp.cs" />
+    <Compile Include="Shop\B_Stock.cs" />
+    <Compile Include="Shop\B_StoreStyleTable.cs" />
+    <Compile Include="Shop\B_S_FloPack.cs" />
+    <Compile Include="Shop\B_Trademark.cs" />
+    <Compile Include="Shop\B_UserStoreTable.cs" />
+    <Compile Include="Shop\B_ZL_GroupBuy.cs" />
+    <Compile Include="Shop\OrderHelper.cs" />
+    <Compile Include="Shop\Order\B_Order_Exp.cs" />
+    <Compile Include="Shop\Order\B_Order_IDC.cs" />
+    <Compile Include="Shop\Price\B_Shop_RegionPrice.cs" />
+    <Compile Include="Shop\Printer\B_Shop_APIPrinter.cs" />
+    <Compile Include="Shop\Printer\B_Shop_PrintDevice.cs" />
+    <Compile Include="Shop\Printer\B_Shop_PrintMessage.cs" />
+    <Compile Include="Shop\Printer\B_Shop_PrintTlp.cs" />
+    <Compile Include="Site\B_IDC_DBList.cs" />
+    <Compile Include="Site\B_IDC_DNSSubDom.cs" />
+    <Compile Include="Site\B_IDC_DNSTable.cs" />
+    <Compile Include="Site\B_IDC_DomainList.cs" />
+    <Compile Include="Site\B_IDC_DomainLog.cs" />
+    <Compile Include="Site\B_IDC_DomainOrder.cs" />
+    <Compile Include="Site\B_IDC_DomainPrice.cs" />
+    <Compile Include="Site\B_IDC_DomainTemp.cs" />
+    <Compile Include="Site\B_IDC_Sites.cs" />
+    <Compile Include="Site\B_Site_Log.cs" />
+    <Compile Include="Site\B_Site_SiteList.cs" />
+    <Compile Include="System\B_Create.cs" />
+    <Compile Include="System\B_CreateHtml.cs" />
+    <Compile Include="System\B_CreateShopHtml.cs" />
+    <Compile Include="System\B_Data.cs" />
+    <Compile Include="System\B_DataDicCategory.cs" />
+    <Compile Include="System\B_DataDictionary.cs" />
+    <Compile Include="System\B_FunLabel.cs" />
+    <Compile Include="System\B_History.cs" />
+    <Compile Include="System\B_MailHtml.cs" />
+    <Compile Include="System\B_Model.cs" />
+    <Compile Include="System\B_PageStart.cs" />
+    <Compile Include="System\B_Payment.cs" />
+    <Compile Include="System\B_ReadWrite.cs" />
+    <Compile Include="System\B_Route.cs" />
+    <Compile Include="System\B_ShowField.cs" />
+    <Compile Include="System\B_SiteMap.cs" />
+    <Compile Include="System\B_UserModelShow.cs" />
+    <Compile Include="System\CollectionField.cs" />
+    <Compile Include="System\Install.cs" />
+    <Compile Include="System\LabelCache.cs" />
+    <Compile Include="Third\B_Third_Info.cs" />
+    <Compile Include="Third\B_Third_PlatInfo.cs" />
+    <Compile Include="User\Addon\B_Com_VisitCount.cs" />
+    <Compile Include="User\Addon\B_UserAPP.cs" />
+    <Compile Include="User\Addon\B_User_Follow.cs" />
+    <Compile Include="User\Addon\B_User_Friend.cs" />
+    <Compile Include="User\Addon\B_User_FriendApply.cs" />
+    <Compile Include="User\Addon\B_User_Notify.cs" />
+    <Compile Include="User\Addon\VisitCounter.cs" />
+    <Compile Include="User\B_Admin.cs" />
+    <Compile Include="User\B_App.cs" />
+    <Compile Include="User\B_App_AppTlp.cs" />
+    <Compile Include="User\B_Deposit.cs" />
+    <Compile Include="User\B_Role.cs" />
+    <Compile Include="User\B_Structure.cs" />
+    <Compile Include="User\B_Temp.cs" />
+    <Compile Include="User\B_TempUser.cs" />
+    <Compile Include="User\B_Ucenter.cs" />
+    <Compile Include="User\B_User.cs" />
+    <Compile Include="User\B_UserBank.cs" />
+    <Compile Include="User\B_UserBaseField.cs" />
+    <Compile Include="User\B_UserDay.cs" />
+    <Compile Include="User\B_UserMagazine.cs" />
+    <Compile Include="User\B_UserPromotions.cs" />
+    <Compile Include="User\B_UserPurview.cs" />
+    <Compile Include="User\B_UserRecei.cs" />
+    <Compile Include="User\B_UserRegisterIP.cs" />
+    <Compile Include="User\B_User_API.cs" />
+    <Compile Include="User\B_User_Cloud.cs" />
+    <Compile Include="User\B_User_Consume.cs" />
+    <Compile Include="User\B_User_Plat.cs" />
+    <Compile Include="User\B_User_Signin.cs" />
+    <Compile Include="User\B_User_Temp.cs" />
+    <Compile Include="User\B_ViewHistory.cs" />
+    <Compile Include="User\Develop\B_EditPage.cs" />
+    <Compile Include="User\KaiXin\Getters.cs" />
+    <Compile Include="User\KaiXin\HTTPBase.cs" />
+    <Compile Include="User\KaiXin\JSON.cs" />
+    <Compile Include="User\KaiXin\JsonParser.cs" />
+    <Compile Include="User\KaiXin\JsonSerializer.cs" />
+    <Compile Include="User\KaiXin\KxApi.cs" />
+    <Compile Include="User\KaiXin\KxOAuth2.cs" />
+    <Compile Include="User\KaiXin\SafeDictionary.cs" />
+    <Compile Include="User\KaiXin\Unit.cs" />
+    <Compile Include="User\Promo\B_User_Promo.cs" />
+    <Compile Include="User\SNS\B_User_BlogStyle.cs" />
+    <Compile Include="Video\B_Content_Video.cs" />
+    <Compile Include="ZL_Bll_InterFace.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZoomLa.Common\ZoomLa.Common.csproj">
+      <Project>{7c0b5fba-dadd-48e2-b70b-7d0e7352adff}</Project>
+      <Name>ZoomLa.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Components\ZoomLa.Components.csproj">
+      <Project>{c86df849-cf83-469b-bab7-622e969e62e7}</Project>
+      <Name>ZoomLa.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zoomla.Model\Zoomla.Model.csproj">
+      <Project>{c3be96f0-0469-4af3-b15f-96813626f494}</Project>
+      <Name>Zoomla.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.SQLDAL\ZoomLa.SQLDAL.csproj">
+      <Project>{ea2fc94a-7e4b-4511-a9fb-752138836be0}</Project>
+      <Name>ZoomLa.SQLDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Counter\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

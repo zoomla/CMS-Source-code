@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sdkhttp.eucp.b2m.cn/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SDKService" targetNamespace="http://sdkhttp.eucp.b2m.cn/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://sdk229ws.eucp.b2m.cn:8080/sdk/SDKService?xsd=1" namespace="http://sdkhttp.eucp.b2m.cn/" />
+    </xsd:schema>
+  </types>
+  <message name="getVersion">
+    <part name="parameters" element="tns:getVersion" />
+  </message>
+  <message name="getVersionResponse">
+    <part name="parameters" element="tns:getVersionResponse" />
+  </message>
+  <message name="getReport">
+    <part name="parameters" element="tns:getReport" />
+  </message>
+  <message name="getReportResponse">
+    <part name="parameters" element="tns:getReportResponse" />
+  </message>
+  <message name="cancelMOForward">
+    <part name="parameters" element="tns:cancelMOForward" />
+  </message>
+  <message name="cancelMOForwardResponse">
+    <part name="parameters" element="tns:cancelMOForwardResponse" />
+  </message>
+  <message name="chargeUp">
+    <part name="parameters" element="tns:chargeUp" />
+  </message>
+  <message name="chargeUpResponse">
+    <part name="parameters" element="tns:chargeUpResponse" />
+  </message>
+  <message name="getBalance">
+    <part name="parameters" element="tns:getBalance" />
+  </message>
+  <message name="getBalanceResponse">
+    <part name="parameters" element="tns:getBalanceResponse" />
+  </message>
+  <message name="getEachFee">
+    <part name="parameters" element="tns:getEachFee" />
+  </message>
+  <message name="getEachFeeResponse">
+    <part name="parameters" element="tns:getEachFeeResponse" />
+  </message>
+  <message name="getMO">
+    <part name="parameters" element="tns:getMO" />
+  </message>
+  <message name="getMOResponse">
+    <part name="parameters" element="tns:getMOResponse" />
+  </message>
+  <message name="logout">
+    <part name="parameters" element="tns:logout" />
+  </message>
+  <message name="logoutResponse">
+    <part name="parameters" element="tns:logoutResponse" />
+  </message>
+  <message name="registDetailInfo">
+    <part name="parameters" element="tns:registDetailInfo" />
+  </message>
+  <message name="registDetailInfoResponse">
+    <part name="parameters" element="tns:registDetailInfoResponse" />
+  </message>
+  <message name="registEx">
+    <part name="parameters" element="tns:registEx" />
+  </message>
+  <message name="registExResponse">
+    <part name="parameters" element="tns:registExResponse" />
+  </message>
+  <message name="sendSMS">
+    <part name="parameters" element="tns:sendSMS" />
+  </message>
+  <message name="sendSMSResponse">
+    <part name="parameters" element="tns:sendSMSResponse" />
+  </message>
+  <message name="sendVoice">
+    <part name="parameters" element="tns:sendVoice" />
+  </message>
+  <message name="sendVoiceResponse">
+    <part name="parameters" element="tns:sendVoiceResponse" />
+  </message>
+  <message name="serialPwdUpd">
+    <part name="parameters" element="tns:serialPwdUpd" />
+  </message>
+  <message name="serialPwdUpdResponse">
+    <part name="parameters" element="tns:serialPwdUpdResponse" />
+  </message>
+  <message name="setMOForward">
+    <part name="parameters" element="tns:setMOForward" />
+  </message>
+  <message name="setMOForwardResponse">
+    <part name="parameters" element="tns:setMOForwardResponse" />
+  </message>
+  <message name="setMOForwardEx">
+    <part name="parameters" element="tns:setMOForwardEx" />
+  </message>
+  <message name="setMOForwardExResponse">
+    <part name="parameters" element="tns:setMOForwardExResponse" />
+  </message>
+  <portType name="SDKClient">
+    <operation name="getVersion">
+      <input message="tns:getVersion" />
+      <output message="tns:getVersionResponse" />
+    </operation>
+    <operation name="getReport">
+      <input message="tns:getReport" />
+      <output message="tns:getReportResponse" />
+    </operation>
+    <operation name="cancelMOForward">
+      <input message="tns:cancelMOForward" />
+      <output message="tns:cancelMOForwardResponse" />
+    </operation>
+    <operation name="chargeUp">
+      <input message="tns:chargeUp" />
+      <output message="tns:chargeUpResponse" />
+    </operation>
+    <operation name="getBalance">
+      <input message="tns:getBalance" />
+      <output message="tns:getBalanceResponse" />
+    </operation>
+    <operation name="getEachFee">
+      <input message="tns:getEachFee" />
+      <output message="tns:getEachFeeResponse" />
+    </operation>
+    <operation name="getMO">
+      <input message="tns:getMO" />
+      <output message="tns:getMOResponse" />
+    </operation>
+    <operation name="logout">
+      <input message="tns:logout" />
+      <output message="tns:logoutResponse" />
+    </operation>
+    <operation name="registDetailInfo">
+      <input message="tns:registDetailInfo" />
+      <output message="tns:registDetailInfoResponse" />
+    </operation>
+    <operation name="registEx">
+      <input message="tns:registEx" />
+      <output message="tns:registExResponse" />
+    </operation>
+    <operation name="sendSMS">
+      <input message="tns:sendSMS" />
+      <output message="tns:sendSMSResponse" />
+    </operation>
+    <operation name="sendVoice">
+      <input message="tns:sendVoice" />
+      <output message="tns:sendVoiceResponse" />
+    </operation>
+    <operation name="serialPwdUpd">
+      <input message="tns:serialPwdUpd" />
+      <output message="tns:serialPwdUpdResponse" />
+    </operation>
+    <operation name="setMOForward">
+      <input message="tns:setMOForward" />
+      <output message="tns:setMOForwardResponse" />
+    </operation>
+    <operation name="setMOForwardEx">
+      <input message="tns:setMOForwardEx" />
+      <output message="tns:setMOForwardExResponse" />
+    </operation>
+  </portType>
+  <binding name="SDKServiceBinding" type="tns:SDKClient">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getVersion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getReport">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="cancelMOForward">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="chargeUp">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getBalance">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getEachFee">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getMO">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="logout">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registDetailInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registEx">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="sendSMS">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="sendVoice">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="serialPwdUpd">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setMOForward">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setMOForwardEx">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SDKService">
+    <port name="SDKService" binding="tns:SDKServiceBinding">
+      <soap:address location="http://sdk229ws.eucp.b2m.cn:8080/sdk/SDKService" />
+    </port>
+  </service>
+</definitions>

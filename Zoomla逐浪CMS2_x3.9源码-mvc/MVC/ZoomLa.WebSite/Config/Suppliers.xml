@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SuppliersList>
+  <Baidu Key="eQC30EjmHn95kaSYhgpwVIZL" Secret="uawx3ICqou8rr5L3UBD7eAECTau91YhA" CallBackUrl="http://demo.z01.com/user/AppBack.aspx" Enable="0" />
+  <Netease Key="Md3dHUMjmm3jAQOE" Secret="OIFFzmsy3C85Vho4vgeG4xQsFyhpb4mm" CallBackUrl="http://demo.z01.com/user/AppBack.aspx?type=Netease" Enable="0" />
+  <Renren Key="df5a5510cc6348d7a9e9a9646ef6fc4c" Secret="234d0ea5ee6b4861b5635e599327c19c" CallBackUrl="http://demo.z01.com/user/appback.aspx?type=Renren" Enable="0" />
+  <Kaixin Key="72761839760795ff82a320f020db07bc" Secret="3952c70293dbad8af394c93cd70896cb" CallBackUrl="http://demo.z01.com/user/AppBack.aspx?type=Kaixiu" Enable="0" />
+  <QQ ID="101187045" Key="101187045" Secret="b945d32693955c6da6ca4d337e206bd8" CallBackUrl="http://demo.z01.com/User/APPBack.aspx?Type=QQ" Enable="0" />
+  <Sina Key="3681618526" Secret="287082520fc3b8a5d9c3bb6a1e97551a" CallBackUrl="http://demo.z01.com/user/APPBack.aspx?Type=sina" Enable="0" />
+  <SohuChat Key="cyr3Bnwnr" Secret="78f8cf0e89ba5f28b60f2a659ba7ef32" CallBackUrl="" Enable="0" />
+  <BaiduTrans ID="" Secret="" AppID="20160202000010557" Key="Lk4ulnuPcFf7pLQc0weE" Enable="0" />
+  <wechat ID="" Key="" Secret="" Enable="0" CallBackUrl="" />
+  <printer ID="" Key="123" Secret="123" Enable="0" CallBackUrl="" />
+  <CR ID="" Key="24165684208467970" Secret="241656842084679711" Enable="0" CallBackUrl="" />
+</SuppliersList>

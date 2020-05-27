@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>225</LabelID>
+    <LabelName>获取问题分类名</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>parentid,默认值,1,参数说明</LabelParam>
+    <LabelTable>ZL_Grade</LabelTable>
+    <LabelField>GradeName</LabelField>
+    <LabelWhere> cate=2 and GradeID=@parentid</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Field="GradeName"/}</LabelContent>
+    <LabelCount>20</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>537</LabelID>
+    <LabelName>问题回答调用标签</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>ZL_Pub_WTHD left join ZL_Pub on ZL_Pub_WTHD.Pubupid=ZL_Pub.Pubid</LabelTable>
+    <LabelField>ZL_Pub_WTHD.*,ZL_Pub.*</LabelField>
+    <LabelWhere>ZL_Pub_WTHD.Pubupid=5 And ZL_Pub_WTHD.PubContentid={$GetRequest(Nodeid)$} And ZL_Pub_WTHD.Pubstart=1</LabelWhere>
+    <LabelOrder>ZL_Pub_WTHD.ID DESC</LabelOrder>
+    <LabelContent>{Repeate}
+用户名:{Field="PubUserName"/}&lt;br /&gt;
+留言内容:{Field="PubContent"/}&lt;br /&gt;
+用户IP:{Field="PubIP"/}&lt;br /&gt;
+提交时间:{Field="PubAddTime"/}
+{/Repeate}&lt;br /&gt;
+{ZL.Page/}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

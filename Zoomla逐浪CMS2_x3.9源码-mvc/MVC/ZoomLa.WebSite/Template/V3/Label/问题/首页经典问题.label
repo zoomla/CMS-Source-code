@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>248</LabelID>
+    <LabelName>首页经典问题</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>num ,默认值,1,参数说明|length,默认值,1,参数说明</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Pub_TW</LabelTable>
+    <LabelField>ID,ClassLevel1,ClassLevel2,PubAddTime,PubContent,PubTitle,PubUserName</LabelField>
+    <LabelWhere />
+    <LabelOrder>PubAddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="/nodepage.aspx?nodeid=120&amp;getid={Field="ID"/}"&gt;{ZL:CutText({Field="PubTitle"/} ,@length,)/}&lt;/a&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@num</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

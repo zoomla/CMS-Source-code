@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>213</LabelID>
+    <LabelName>根据大类ID得到子类ID</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>ParentID,默认值,1,父ID </LabelParam>
+    <LabelTable>ZL_Grade</LabelTable>
+    <LabelField>Cate,GradeID,GradeName,ParentID</LabelField>
+    <LabelWhere> cate=2 and (ParentID=@ParentID  OR GradeID=@ParentID)</LabelWhere>
+    <LabelOrder>GradeID asc</LabelOrder>
+    <LabelContent>{Repeate}{Field="GradeID"/},{/Repeate}0</LabelContent>
+    <LabelCount>100</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

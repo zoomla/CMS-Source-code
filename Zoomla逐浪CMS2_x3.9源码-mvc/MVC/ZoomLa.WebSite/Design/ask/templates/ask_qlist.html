@@ -1,0 +1,33 @@
+﻿<!--问卷所拥有的问题列表-->
+<ion-view>
+    <ion-header-bar class="bar-calm bar bar-header" align-title="center">
+        <a href="#/tab/ask_my" class="button icon ion-chevron-left" nav-direction="back"></a>
+        <div class="title title-center header-item" ng-bind="askMod.Title"></div>
+        <button type="button" ng-click="toview()" class="button button-balanced">预览</button>
+    </ion-header-bar>
+<ion-content>
+    <ion-list can-swipe="true">
+        <a class="item" href="#/tab/ask_edit/{{askMod.ID}}">
+            <span ng-bind="getRemind()"></span>
+            <span class="item-note">说明</span>
+        </a>
+        <ion-item ng-repeat="item in qlist|orderBy:'OrderID' track by $index">
+            <div class="pull-right">
+                <button type="button" class="button button-small button-calm icon ion-android-arrow-up" ng-click="move('pre',item)"></button>
+                <button type="button" class="button button-small button-calm icon ion-android-arrow-down" ng-click="move('next',item);"></button>
+            </div>
+            <h2 ng-bind="item.QTitle"></h2>
+            <span style="color:#999;font-size:12px;" ng-bind="getType(item.QType)"></span>
+            <ion-option-button class="button-positive icon ion-edit" ng-click="toedit(item);"></ion-option-button>
+            <!--<ion-option-button class="button-calm icon ion-android-arrow-up" ng-click="move('pre',item)" style="border-right: 1px solid #08a2ce; "></ion-option-button>
+        <ion-option-button class="button-calm icon ion-android-arrow-down" ng-click="move('next',item);"></ion-option-button>-->
+            <ion-option-button class="button-assertive icon ion-trash-a" ng-click="del(item);"></ion-option-button>
+        </ion-item>
+    </ion-list>
+<button type="button" class="button button-balanced button-block" ng-click="selQType();"><i class="fa fa-plus"></i> 添加新题</button>
+</ion-content>
+<style type="text/css">
+.popup-container .popup {width: 95%;}
+.popup-container .popup-buttons {display: none;}
+</style>
+</ion-view>

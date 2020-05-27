@@ -1,0 +1,56 @@
+﻿<div class="header"><label class="title">基本</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="items">
+                <div class="domItem listItem" data-type="div" data-compid="div">
+                    <i style="font-size: 50px;" class="fa fa-th-large"></i>
+                    <div class="content">
+                        <div class="title">Div</div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-header"><div class="title-line"><div class="title">底部布局</div></div></div>
+            <div class="items">
+                <div class="domItem listItem" style="height:230px;" data-type="div" data-compid="footer_s1">
+                    <img src="/Design/res/img/footer_s1.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function GetModel(item) {
+    var $item = $(item);
+    var model = {
+        dataMod: {},
+        config: { type: "div", compid: $item.data("compid"), bodyid: "mainBody", css: "candrag", style: "z-index:-1;" }
+    };
+    switch (model.config.compid) {
+        case "div":
+            model.config.style += "background-color:#f8f8f8;border-color:#e7e7e7;width:100%;height:30px;";
+            break;
+        case "footer_s1":
+            var blogs = GetItemModel(3);
+            blogs[0].name = "新浪微博";
+            blogs[0].fa = "fa fa-weibo";
+            blogs[0].target = "_blank";
+            blogs[1].name = "腾迅博客";
+            blogs[1].fa = "fa fa-qq";
+            blogs[1].target = "_blank";
+            blogs[2].name = "微信";
+            blogs[2].fa = "fa fa-wechat";
+            blogs[2].target = "_blank";
+            var links = GetItemModel(4);
+            links[0].name = "关于我们";
+            links[1].name = "工作机会";
+            links[2].name = "反馈邮箱";
+            links[3].name = "联系我们";
+            model.dataMod.links = links;
+            model.dataMod.blogs = blogs;
+            model.config.style += "bottom:0px;width:100%;background:#464646;";
+            break;
+    }
+    return model;
+}
+</script>

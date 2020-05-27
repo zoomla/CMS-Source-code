@@ -1,0 +1,106 @@
+﻿@using System.Data;
+@using ZoomLa.SQLDAL
+@using ZoomLa.BLL
+@model ZoomLa.Model.M_CommonData
+@{
+    int NodeID =DataConvert.CLng(ViewBag.NodeID);
+    DataTable ds = (DataTable)ViewBag.ds;
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>内容管理</title>
+<script charset="utf-8" src="/Plugins/Ueditor/ueditor.config.js"></script>
+<script charset="utf-8" src="/Plugins/Ueditor/ueditor.all.min.js"></script>
+}
+@section content{
+<div id="pageflag" data-nav="content" data-ban="cnt"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+        <li><a href="Mycontent?NodeID=@NodeID">投稿管理</a></li>
+        <li class="active">@MvcHtmlString.Create(ViewBag.tip) <a href="javascript:;" title="百度翻译" id="BaiduTrans_a"><i class="fa fa-book"></i></a></li>
+    </ol>
+</div>
+<div class="container btn_green addcontent">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#Tabs0" data-toggle="tab">内容信息</a></li>
+        <li><a href="#Tabs1" data-toggle="tab">补充信息</a></li>
+    </ul>
+    <div class="tab-content panel-body padding0">
+        <div id="Tabs0" class="tab-pane active manage_content">
+            <table class="table table-bordered table_padding0 addcontent_modeltale">
+                <tr>
+                    <td style="overflow-x:hidden;" class="col-sm-1 col-xs-1 text-right">
+                        <label>@B_Content.GetFieldAlias("Title", ds)</label>
+                    </td>
+                    <td class="col-sm-11 col-xs-11">
+                        <input type="text" id="title" name="title" style="background:url(/Images/bg1.gif) repeat-x;" class="form-control m715-50" onkeyup="isgoEmpty('txtTitle','span_txtTitle');Getpy('txtTitle','PYtitle')" />
+                        <span class="vaild_tip">*</span>
+                        <a href="javascript:;" class="btn btn-info btn-sm" onclick="ShowTitle()"><i class="fa fa-info"></i>标题属性</a>
+                        <button type="button" class="btn btn-info btn-sm" onclick="ShowSys();"><i class="fa fa-list"></i></button>
+                        <span id="span_txtTitle" name="span_txtTitle"></span>
+                    </td>
+                </tr>
+                @MvcHtmlString.Create(ViewBag.modelhtml);
+            </table>
+        </div>
+        <div id="Tabs1" class="tab-pane">
+            <table class="table table-bordered table_padding0 addcontent_modeltale">
+                <tr>
+                    <td class="text-right"><label>@B_Content.GetFieldAlias("PYtitle", ds)</label></td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.PYtitle, new { @class = "form-control m715-50" })
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdbgleft" align="right">
+                        <label>@B_Content.GetFieldAlias("TagKey", ds)</label>
+                    </td>
+                    <td>
+                        <div id="OAkeyword"></div>
+                        @Html.TextBoxFor(Model => Model.TagKey, new { @class = "form-control" })<span>(空格或回车键分隔，长度不超过10字符或5汉字)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right"><label>@B_Content.GetFieldAlias("Subtitle", ds);</label></td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.Subtitle, new { @class = "form-control m715-50" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary" value="@ViewBag.op" />
+        <a href="MyContent?NodeID=@NodeID" class="btn btn-primary">返回列表</a>
+    </div>
+</div>
+}
+@section script{
+<script>
+    var zlconfig = {
+        updir: "<%=ZoomLa.Components.SiteConfig.SiteOption.UploadDir.ToLower()%>",
+        duptitlenum: "<%=ZoomLa.Components.SiteConfig.SiteOption.DupTitleNum%>",
+        modelid: "<%=ModelID%>"
+    };
+</script>
+<script src="/JS/OAKeyWord.js"></script>
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<script src="/JS/chinese.js"></script>
+<script src="/JS/Common.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/JS/ICMS/tags.json"></script>
+<script src="/JS/ZL_Content.js?v=20160514"></script>
+<script src="/JS/jquery.zclip.min.js"></script>
+<script src="/JS/Plugs/transtool.js"></script>
+<script>
+    $(function () {
+        Tlp_initTemp();
+        $("#BaiduTrans_a").TransTools({ top: 120 });
+        $("#txt_Edit,#txt_pages").parents("tr").hide();
+        $("form").validate();
+    });
+    function OnTemplateViewCheck(value) { $("#TxtTemplate_hid").val(value); }
+</script>
+
+}

@@ -1,0 +1,100 @@
+﻿<div ng-app="app" ng-controller="APPCtrl">
+    <div class="page pro_page">
+        <header class="bar bar-nav pro_head">
+            <a class="button button-link button-nav pull-left back" href="javascript:tools.route.index();">
+                <span class="icon icon-left"></span>
+                返回
+            </a>
+            <h1 class="title">商品详情</h1>
+        </header>
+        <nav class="bar bar-tab">
+            <a class="tab-item external pro_buy" href="/cart/cart.aspx?id={$gid}">
+                <span class="tab-label">立即购买</span>
+            </a>
+            <a class="tab-item external pro_cart" href="/cart/cart.aspx?id={$gid}">
+                <span class="tab-label">加入购物车</span>
+            </a>
+        </nav>
+        <div class="content pro_content com" id="model">
+            <div class="swiper-container pro_img">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img ng-src="{{model.pics}}" />
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
+            <div class="content-block pro_info">
+                <span class="pro_title" ng-bind="model.proname + ' ' + model.proinfo"></span>
+                <span class="pro_price"><i class="fa fa-rmb"></i><span ng-bind="model.price|number:2"></span></span>
+            </div>
+            <div class="card">
+                <div class="card-header">商品信息</div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <span class="flowtext" ng-bind="model.proinfo"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-tab">
+                <a href="#tab1" class="tab-link active button">图文详情</a>
+                <a href="#tab2" class="tab-link button">基本参数</a>
+            </div>
+            <div class="content-block">
+                <div class="tabs">
+                    <div id="tab1" class="tab active pro_con">
+                        <div class="content-block" ng-bind-html="model.content|html"></div>
+                    </div>
+                    <div id="tab2" class="tab">
+                        <div class="content-block" ng-bind="model.proinfo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+html{font-size:20px;}
+.pro_page .pro_head{background-color:#fff;}
+.pro_page .pro_head .open-panel{height:2.2rem;line-height:2.2rem;}
+.pro_page .pro_head .bar-text{line-height:2.3rem;}
+.pro_page .pro_buy{background-color:#f40;color:#fff;}
+.pro_page .pro_cart{background-color:#ff9402;color:#fff;}
+.pro_page .pro_content{background-color:#f5f5f5;}
+.pro_page .pro_content .pro_img{width:100%;height:11rem;text-align:center;}
+.pro_page .pro_content .pro_img img{max-width:100%;max-height:100%;border:1px solid #e3e3e3;}
+.pro_page .pro_content .content-block{margin:0;padding:0.6rem 0.5rem;background-color:#fff;}
+.pro_page .pro_content .pro_title{flex:1;color:#000;font-size:0.8rem;margin-bottom:0.25rem;}
+.pro_page .pro_content .pro_price{display:block;color:#f40;font-size:1.2rem;}
+.pro_page .pro_content .pro_info{box-shadow: 0 .05rem .1rem rgba(0,0,0,.3);}
+.pro_page .pro_content .card{margin:0.6rem 0;border-top:1px solid #ddd;}
+.pro_page .pro_content .flowtext{width: 90%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;}
+.pro_page .pro_content .pro_con{text-align:center;font-size:0.7rem;}
+.pro_page .pro_content .pro_con img{width:100%;}
+img {max-width:100%;}
+</style>
+<link href="/design/h5/css/swiper.min.css" rel="stylesheet" />
+<script src="/design/h5/js/swiper.min.js"></script>
+<script>
+    angular.module("app", []).controller("APPCtrl", function ($scope) {
+        Zepto.init();
+        Zepto.showIndicator();
+        tools.scope = $scope;
+        tools.site = "{$site}";
+        $scope.model = {};
+        $scope.coms = [];
+        //---------------------------------------------------------------------------//
+        $scope.coms["model"] = { type: "product", list: null };
+        //---------------------------------------------------------------------------//
+		tools.product.get({ id: "{$gid}" }, function (result) {
+			$scope.coms["model"].list = result;
+			$scope.model = $scope.coms["model"].list[0];
+			$scope.$digest();
+			tools.init();
+			Zepto.hideIndicator();
+        });
+    }).filter("html", ["$sce", function ($sce) {
+        return function (text) { return $sce.trustAsHtml(text); }
+    }]);
+</script>

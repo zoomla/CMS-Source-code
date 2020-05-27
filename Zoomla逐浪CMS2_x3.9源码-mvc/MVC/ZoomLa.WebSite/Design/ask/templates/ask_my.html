@@ -1,0 +1,22 @@
+﻿<ion-view>
+    <ion-header-bar class="bar-calm bar bar-header" align-title="center">
+        <!--<a href="#/tab/index" class="button icon ion-chevron-left" nav-direction="back"></a>-->
+        <div class="title title-center header-item">我的问卷</div>
+        <a ng-href="#/tab/ask_add" class="button button-balanced">新建问卷</a>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list can-swipe="true">
+            <ion-item ng-repeat="item in list">
+                <div class="pull-right">
+                    <button type="button" ng-click="toshare(item)" class="button button-small button-calm icon ion-share"> 分享</button>
+                    <a href="/design/ask/AskResult.aspx?id={{item.ID}}" class="button button-small button-calm icon ion-android-apps"> 结果</a>
+                </div>
+                <h2><span ng-bind="item.Title"></span></h2>
+                <span style="color:#999;font-size:12px;" ng-bind="getRemind(item)"></span>
+                <ion-option-button class="button-positive icon ion-edit" ng-click="toedit(item);"></ion-option-button>
+                <ion-option-button class="button-assertive icon ion-trash-a" ng-click="del(item);"></ion-option-button>
+            </ion-item>
+        </ion-list>
+        <a ng-href="#/tab/ask_add" class="button button-balanced button-block margin-top">新建问卷</a>
+    </ion-content>
+</ion-view>

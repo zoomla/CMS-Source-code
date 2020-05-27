@@ -1,0 +1,70 @@
+﻿<div class="header"><label class="title">菜单导航</label></div>
+<div class="category-view">
+    <div class="sections">
+        <div class="section-wrapper live-comps">
+            <div class="section-header">
+                <div class="title-line">
+                    <div class="title">水平菜单</div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="domItem listItem" data-compid="h1">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#"><span class="fa fa-th"></span></a>
+                            <ul class="nav navbar-nav" style="margin:0px;padding-top:5px;">
+                                <li class="active" style="display:inline-block;"><a href="#">菜单1<span class="sr-only">(current)</span></a></li>
+                                <li style="display:inline-block;"><a href="#">菜单2</a></li>
+                                <li style="display:inline-block;"><a href="#">菜单3</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="domItem listItem" data-compid="h2">
+                    <ul class="nav nav-pills">
+                        <li role="presentation" class="active"><a href="#">菜单1</a></li>
+                        <li role="presentation"><a href="#">菜单2</a></li>
+                        <li role="presentation"><a href="#">菜单3</a></li>
+                    </ul>
+                </div>
+                <div class="domItem listItem" data-compid="h3">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <a class="btn btn-primary active">菜单1</a>
+                        <a class="btn btn-primary">菜单2</a>
+                        <a class="btn btn-primary">菜单3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-wrapper live-comps">
+            <div class="section-header">
+                <div class="title-line"><div class="title">垂直菜单</div></div>
+            </div>
+            <div class="domItem preset-item" data-compid="v1">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-success active">菜单1</a>
+                    <a href="#" class="list-group-item list-group-item-success">菜单2</a>
+                    <a href="#" class="list-group-item list-group-item-success">菜单3</a>
+                </div>
+            </div>
+            <div class="domItem preset-item" data-compid="v2">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-info active">菜单1</a>
+                    <a href="#" class="list-group-item list-group-item-info">菜单2</a>
+                    <a href="#" class="list-group-item list-group-item-info">菜单3</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function GetModel(item) {
+        var $item = $(item);
+        var model = {
+            dataMod: { list: [], },
+            config: { type: "menu", compid: "", css: "candrag", style: '' }
+        };
+        model.config.compid = $item.data("compid");
+        return model;
+    }
+</script>

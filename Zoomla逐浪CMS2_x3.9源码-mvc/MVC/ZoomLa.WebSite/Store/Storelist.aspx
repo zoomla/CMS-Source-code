@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Storelist.aspx.cs" Inherits="ZoomLaCMS.Store.Storelist" %>

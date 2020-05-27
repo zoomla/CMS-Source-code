@@ -1,0 +1,12 @@
+D:\Code\ZoomlaCMS\Zoomla.Controls\bin\Release\ZoomLa.Controls.dll
+D:\Code\ZoomlaCMS\Zoomla.Controls\bin\Release\ZoomLa.Controls.pdb
+D:\Code\ZoomlaCMS\Zoomla.Controls\bin\Release\ZoomLa.Safe.dll
+D:\Code\ZoomlaCMS\Zoomla.Controls\bin\Release\ZoomLa.Safe.pdb
+D:\Code\ZoomlaCMS\Zoomla.Controls\obj\Release\ZoomLa.Controls.csprojResolveAssemblyReference.cache
+D:\Code\ZoomlaCMS\Zoomla.Controls\obj\Release\ZoomLa.Controls.Properties.Resource.en_us.resources
+D:\Code\ZoomlaCMS\Zoomla.Controls\obj\Release\Controls.Properties.Resources.resources
+D:\Code\ZoomlaCMS\Zoomla.Controls\obj\Release\ZoomLa.Controls.csproj.GenerateResource.Cache
+D:\Code\ZoomlaCMS\Zoomla.Controls\obj\Release\ZoomLa.Controls.dll
+D:\Code\ZoomlaCMS\Zoomla.Controls\obj\Release\ZoomLa.Controls.pdb
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\ZoomLa.Controls.dll
+D:\Code\ZoomlaCMS\ZoomLa.WebSite\Bin\ZoomLa.Controls.pdb

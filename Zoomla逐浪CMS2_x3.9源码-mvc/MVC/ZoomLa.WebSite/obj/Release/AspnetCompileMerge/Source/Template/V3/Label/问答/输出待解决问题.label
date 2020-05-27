@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>180</LabelID>
+    <LabelName>输出待解决问题</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问答</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数|TitleNum,30,1,标题长|Type,1,1,问题分类</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Ask</LabelTable>
+    <LabelField>AddTime,ID,Qcontent</LabelField>
+    <LabelWhere>Status=1 And QueType=@Type</LabelWhere>
+    <LabelOrder>AddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}&lt;li class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding5"&gt;&lt;div&gt;&lt;span&gt;{ZL:FormatDate({Field="AddTime"/},yyyy-MM-dd)/}&lt;/span&gt;&lt;a href="/Guest/Ask/MyAnswer.aspx?ID={Field="ID"/}" title="{Field="Qcontent"/}" target="_blank"&gt;{ZL:CutText({Field="Qcontent"/},@TitleNum,)/}&lt;/a&gt;&lt;/div&gt;&lt;/li&gt;{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

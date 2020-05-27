@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>256</LabelID>
+    <LabelName>点击复制网址代码</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc>23</LabelDesc>
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>当前网址：
+&lt;script language="javascript" type="text/javascript"&gt;
+  document.writeln ("&lt;input class=\"form-control\" id=\"thisweburl\" type=\"text\" size=\"78\" value=\"" + location + "\" onmouseover=\"this.select()\"/&gt;")
+  &lt;/script&gt;&lt;br /&gt;
+
+&lt;input type="button" class="btn btn-info" name="Submit" onClick='copyToClipBoard()' value="复制当前网址，传给QQ/MSN上的好友"&gt;
+&lt;script language="javascript"&gt;
+    function copyToClipBoard(){
+     var clipBoardContent="";
+       clipBoardContent+=this.location.href;
+     window.clipboardData.setData("Text",clipBoardContent);
+     alert("{$SiteName/}恭喜您:网址复制成功，请使用CTRL+V粘贴到你的QQ/MSN上推荐给你的好友!");
+   }
+&lt;/script&gt;
+
+
+</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

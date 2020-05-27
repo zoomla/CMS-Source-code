@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>101</LabelID>
+    <LabelName>公告数据源标签</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>数据源标签</LabelCate>
+    <LabelDesc>公告数据源标签</LabelDesc>
+    <LabelParam>InfoID,0,2,内容ID</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_C_Announce on ZL_CommonModel.ItemID=ZL_C_Announce.ID</LabelTable>
+    <LabelField>ZL_CommonModel.*,ZL_C_Announce.*</LabelField>
+    <LabelWhere>ZL_CommonModel.GeneralID=@InfoID</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount />
+    <LabelIdentity />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <IsOpen>0</IsOpen>
+  </Table>
+</NewDataSet>

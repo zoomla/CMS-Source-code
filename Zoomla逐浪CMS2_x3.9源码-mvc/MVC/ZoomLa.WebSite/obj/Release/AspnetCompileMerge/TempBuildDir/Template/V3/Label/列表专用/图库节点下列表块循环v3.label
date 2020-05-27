@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>57</LabelID>
+    <LabelName>图库节点下列表块循环v3</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ParentID,0,1,父节点ID|ShowNum,10,1,调用栏目数|TitleNum,30,1,标题长度|Nums,10,1,每块抽取数</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName</LabelField>
+    <LabelWhere>ParentID=@ParentID</LabelWhere>
+    <LabelOrder>OrderID ASC</LabelOrder>
+    <LabelContent>{Repeate}&lt;div class="panel panel-primary"&gt;
+&lt;div class="panel-heading"&gt;
+&lt;h3 class="panel-title"&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}" target="{ZL:GetNodeOpen({Field="NodeID"/})/}"&gt;{Field="NodeName"/}&lt;/a&gt;&lt;span class="pull-right"&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}" target="{ZL:GetNodeOpen({Field="NodeID"/})/}"&gt;更多&gt;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="panel-body pan_img"&gt;
+&lt;div class="row padding10"&gt;
+&lt;ul&gt;
+{ZL.Label id="图库缩略图列表V3" NodeID="{Field="NodeID"/}" TitleNum="@TitleNum" ShowNum="@Nums" /}
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>ZoomlaCMS</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam>{"PureT1":"ZL_Node","PureT2":"","T1":"ZoomlaCMS.dbo.ZL_Node","T2":"","JoinType":"left join","OnField1":"AddMoney","OnField2":""}</ProceParam>
+  </Table>
+</NewDataSet>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SubScriptCheck.aspx.cs" Inherits="ZoomLaCMS.Common.SubScriptCheck" %>

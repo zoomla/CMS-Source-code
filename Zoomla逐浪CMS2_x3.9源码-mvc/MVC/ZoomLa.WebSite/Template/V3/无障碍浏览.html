@@ -1,0 +1,101 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>无障碍浏览-{$SiteName/}首页</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link href="/dist/css/animate.min.css" rel="stylesheet"/>
+<script src="{$CssDir/}js/server.js"></script>
+<script src="https://code.z01.com/jquery/snowfall.jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="/App_Themes/User.css" />
+</head>
+<body>
+<div class="home_main" >
+
+<div class="relative">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="home_scolls">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">智能切换导航</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img alt='{$SiteName/}' src="{$LogoUrl/}" /></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="active"><a href="{ZL:GetNodeListUrl(1)/}" target="_blank">首页</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(1)/}">门户网站</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(2)/}" target="_blank">线上商城</a></li>
+<li><a href="/office" target="_blank">办公平台</a></li>
+<li><a href="/Index" target="_blank">社区贴吧</a></li>
+</ul>
+<form class="navbar-form navbar-left" role="search" method="get" action="/Search/SearchList.aspx" target="_blank">
+<div class="input-group">
+<input type="text" class="form-control" name="keyword" placeholder="全站检索">
+<span class="input-group-btn">
+<button type="submit" class="btn btn-default">搜索</button>
+</span>
+</div><!-- /input-group -->
+</form>
+<ul class="nav navbar-nav navbar-right">
+<li class="dropdown nav_list">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-navicon"></i></a>
+<ul class="dropdown-menu" role="menu">
+{ZL.Label id="蓝色经典_顶部节点列表" ParentID="0" ShowNum="7" /}
+</ul>
+</li>
+<li class="nav_user"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>登录 <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="/User/" target="_blank">用户登录</a></li>
+<li><a href="/User/Register.aspx" target="_blank">用户注册</a></li>
+<li><a href="/User/Info/UserInfo.aspx" target="_blank">注册信息</a></li>
+<li><a href="javascript:;" onClick="LogoutFun();">安全退出</a></li>
+</ul>
+</li>
+<li><a href="{ZL:GetNodeListUrl(1)/}" target="_blank"><i class="fa  fa-wheelchair"></i>无障碍浏览</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- 导航到此结束 -->
+
+<div class="container" style="margin-top:8em;">
+<h1 class="sounder">{$SiteName/}无障碍浏览平台示例</h1>
+    <div class="sounder">
+      <p>通往自由的路有多远？<br>
+        Zoomla!逐浪CMS就陪你走多远！<br>
+        <br>
+      作为国内领先的CMS系统，上海逐浪软件团队始终坚持以人为本，推进产品研发，其中包括金融级的SSL服务以及无障碍的语音版本浏览支持。<br>
+      根据中华人民共和国关于政府网站无障碍浏览的要求，只有使用了相应无障碍技术的网站才符合需求，而逐浪CMS作为政府门户的首选，率先响应并开放此功能。<br>
+        您可以自由的基于本系统构建无障碍浏览版本，为广大残疾人用户提供使得的访问，其使用的方法很简单：<br>
+        1、相应的页面需嵌入下面代码：<br>
+  &lt;script src=&quot;/JS/Plugs/Sounder.js&quot;&gt;&lt;/script&gt; <br>
+        2、 纯文本区域建议以Class=&quot;sounder&quot; 样式定义
+  <br>
+        3、图片语音提示采用 data-sounder=&quot;未定指头像&quot;格式指定，按钮则读取value中内容。<br>
+        4、
+        语音文件会存于系统UploadFiles\Sounder目录下，从而为第二次读取提供效率。<br>
+        4、
+        按钮与图形示例： </p>
+      <p>&nbsp;</p>
+  </div>
+    <img src="/Images/userface/noface.png" data-sounder="未定指头像" style="width:100px;height:100px;" class="sounder"/>
+    <input type="button" value="我是按钮" />
+<div class="navbar-fixed-bottom" style="height:100px; line-height:100px;border:1px solid #000; background:#ccc; text-align:center; font-size:3em;">
+<i class="fa fa-bullhorn"></i>{$SiteName/}无障碍版本
+</div>
+
+
+</div>
+</body>
+</html>
+<script src="/JS/Plugs/Sounder.js"></script>

@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>164</LabelID>
+    <LabelName>获取当前用户指定贴吧的发帖数</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>贴吧</LabelCate>
+    <LabelDesc />
+    <LabelParam>CateID,1,1,贴吧ID</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Guest_Bar</LabelTable>
+    <LabelField>COUNT(*) AS PubNum</LabelField>
+    <LabelWhere>CateID=@CateID And Status=1 And CUName='{ZL:GetuserName()/}' And Pid=0</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Field="PubNum"/}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

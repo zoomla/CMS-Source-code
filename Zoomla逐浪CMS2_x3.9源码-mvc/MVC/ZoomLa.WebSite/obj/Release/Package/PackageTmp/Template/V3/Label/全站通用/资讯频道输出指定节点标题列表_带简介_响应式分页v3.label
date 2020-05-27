@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>726</LabelID>
+    <LabelName>资讯频道输出指定节点标题列表_带简介_响应式分页v3</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,30,1,标题长度|ShowNum,10,1,分页显示数|SysNum,200,1,简介数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_CommonModel left join {table1}.dbo.ZL_C_Article on {table1}.dbo.ZL_CommonModel.ItemID={table1}.dbo.ZL_C_Article.ID</LabelTable>
+    <LabelField>{table1}.dbo.ZL_CommonModel.GeneralID,{table1}.dbo.ZL_CommonModel.Hits,{table1}.dbo.ZL_CommonModel.NodeID,{table1}.dbo.ZL_CommonModel.Title,{table1}.dbo.ZL_CommonModel.TitleStyle,{table1}.dbo.ZL_C_Article.synopsis</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) and status=99</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>&lt;div class="news_con"&gt;
+&lt;ul class="list-unstyled"&gt;
+{Repeate}
+&lt;li&gt;
+&lt;h2&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}" target="{ZL:GetInfoOpen({Field="NodeID"/})/}" style="{Field="TitleStyle"/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;{ZL:CutText({Field="synopsis"/},@SysNum,)/}&lt;/p&gt;
+&lt;div&gt;
+&lt;div class="pull-left"&gt;&lt;span&gt;&lt;i class="fa fa-eye"&gt;&lt;/i&gt; {Field="Hits"/}&lt;/span&gt;&lt;span&gt;&lt;a href="/User/Content/AddToFav.aspx?itemid={Field="GeneralID"/}&amp;Url=/Item/{Field="GeneralID"/}.aspx&amp;type=1"&gt;&lt;i class="fa fa-star-o"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div class="pull-right"&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" class="btn btn-warning" target="{ZL:GetInfoOpen({Field="NodeID"/})/}"&gt;查看更多&lt;/a&gt;&lt;/div&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+{/Repeate}
+&lt;/ul&gt;
+&lt;/div&gt;
+{ZL.Page id="大图标响应式列表分页v3"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

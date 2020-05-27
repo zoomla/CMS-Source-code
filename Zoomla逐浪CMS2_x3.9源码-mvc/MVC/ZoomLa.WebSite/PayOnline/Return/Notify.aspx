@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" ResponseEncoding="UTF-8" AutoEventWireup="true" enableEventValidation="false" viewStateEncryptionMode ="Never" CodeBehind="Notify.aspx.cs" Inherits="ZoomLaCMS.PayOnline.Return.Notify" EnableViewStateMac="false" %>

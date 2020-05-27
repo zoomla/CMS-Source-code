@@ -1,0 +1,78 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<style type="text/css">
+.navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:hover, .navbar-default .navbar-nav>#Menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}>a:focus { color: #555; background-color: #e7e7e7 }
+</style>
+</head>
+<body id="header" >
+{ZL.Label id="响应式全站头部"/}
+<div class="myBanner">
+<div class="container">
+<h3><br/><br/>逐浪软件</h3><br/>
+手機和電腦的网页表现無边界。
+</div>
+</div>
+<!--内页通栏banner广告位 --> 
+<div class="container mySites">
+<div class="row">
+<ul class="breadcrumb">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">栏目列表</li>
+</ul>
+</div>
+<div class="clearfix"></div>
+</div>
+<!--面包屑导航结束 -->
+<div class="container margintop10">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 padding5">
+<div class="list-group">
+<a href="{ZL:GetNodeLinkUrl(75)/}" class="list-group-item active"><span class="badge">更多</span>服装鞋帽</a>
+<a href="{ZL:GetNodeLinkUrl(75)/}" class="list-group-item" >服装鞋帽</a> 
+<a href="{ZL:GetNodeLinkUrl(133)/}" class="list-group-item" >营养美食</a>  
+<a href="{ZL:GetNodeLinkUrl(132)/}" class="list-group-item" >珠宝首饰</a> 
+<a href="{ZL:GetNodeLinkUrl(131)/}" class="list-group-item" >体育用品</a> 
+<a href="{ZL:GetNodeLinkUrl(130)/}" class="list-group-item" >手机数码</a> 
+<a href="{ZL:GetNodeLinkUrl(129)/}" class="list-group-item" >日常用品</a> 
+</div>
+
+<div id="botM_dh" > 
+<div class="botM_er">
+<a href="/manage/Panoramic/PanoramicShow.aspx?id=1" class="btn btn-default" target="_blank">三维全景</a>
+<a href="/try/" target="_blank" class="btn btn-primary">在线试戴</a> 
+<a href="/3d/" target="_blank"  class="btn btn-success ">3D商街</a>
+<a href="/Questions/Default.aspx?id=1" target="_blank"  class="btn btn-info ">智能组卷</a>
+<a href="/guest/" target="_blank"  class="btn btn-warning ">在线留言</a>
+<a href="/user/UserZone/Default.aspx" target="_blank"  class="btn btn-info">SNS社区</a>
+<a href="/Edit" target="_blank"  class="btn btn-success">在线助写</a></li>
+<a href="/Prompt/correct.aspx" target="_blank"  class="btn btn-primary">在线纠错</a>
+<a href="/Prompt/EmailSender.aspx" target="_blank"  class="btn btn-danger">邮件订阅</a>
+</div>
+</div>
+
+</div>
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 padding5">
+<div class="list-group"><a href="{ZL:GetNodeLinkUrl({SField sid="节点栏目信息数据源" FD="NodeID" page="0"/})/}" class="list-group-item active">{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}</a></div>
+<div class="media-list">
+<div class="row">
+<div class="padding10">
+{ZL.Label id="商城商品标签_分页V3" NodeID="{SField sid="节点栏目信息数据源" FD="Nodeid" page="0"/}" TitleNum="30" ShowNum="16" ClassName="col-lg-3 col-md-3 col-sm-3 col-xs-6 padding5" /}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>

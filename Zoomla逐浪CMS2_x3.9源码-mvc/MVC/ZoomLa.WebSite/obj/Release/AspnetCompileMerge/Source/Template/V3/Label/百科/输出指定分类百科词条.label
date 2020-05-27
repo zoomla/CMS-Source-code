@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>824</LabelID>
+    <LabelName>输出指定分类百科词条</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>百科</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数|TitleNum,30,1,标题长</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_Baike</LabelTable>
+    <LabelField>ID,Tittle</LabelField>
+    <LabelWhere>(status=1 or status=3)</LabelWhere>
+    <LabelOrder>AddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="/Guest/Baike/Details.aspx?action=new&amp;soure=user&amp;id={Field="ID"/}&amp;tittle={$GetUrlencode({Field="Tittle"/})$}" title="{Field="Tittle"/}" target="_blank"&gt;{ZL:CutText({Field="Tittle"/},@TitleNum,)/}&lt;/a&gt;&lt;/li&gt;{/Repeate}
+</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>ZoomlaCMS</DataSourceType>
+    <ConnectString>DBO</ConnectString>
+    <ProceName />
+    <ProceParam>{"PureT1":"ZL_Baike","PureT2":"","T1":"ZoomlaCMS.dbo.ZL_Baike","T2":"","JoinType":"left join","OnField1":"AddTime","OnField2":""}</ProceParam>
+  </Table>
+</NewDataSet>

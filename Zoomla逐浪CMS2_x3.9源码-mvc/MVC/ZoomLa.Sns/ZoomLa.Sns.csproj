@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3720AD41-C898-4CAF-A6AE-E19CAA629821}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZoomLa.Sns</RootNamespace>
+    <AssemblyName>ZoomLa.Sns</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ZoomLa.WebSite\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Active.cs" />
+    <Compile Include="ActiveJoin.cs" />
+    <Compile Include="ActiveModel.cs" />
+    <Compile Include="ActivePic.cs" />
+    <Compile Include="ActiveType.cs" />
+    <Compile Include="Answer.cs" />
+    <Compile Include="Astro_BLL.cs" />
+    <Compile Include="Astro_Logic.cs" />
+    <Compile Include="BlogStyleTable.cs" />
+    <Compile Include="BlogStyleTableBLL.cs" />
+    <Compile Include="BlogStyleTableLogic.cs" />
+    <Compile Include="blogTable.cs" />
+    <Compile Include="blogTableBLL.cs" />
+    <Compile Include="blogTableLogic.cs" />
+    <Compile Include="BooDouSystem.cs" />
+    <Compile Include="BooDouSystem_BLL.cs" />
+    <Compile Include="BooDouSystem_Logic.cs" />
+    <Compile Include="BooDouUser.cs" />
+    <Compile Include="BooDouUser_BLL.cs" />
+    <Compile Include="BooDouUser＿Logic.cs" />
+    <Compile Include="BookBLL.cs" />
+    <Compile Include="BookLogic.cs" />
+    <Compile Include="BookTable.cs" />
+    <Compile Include="ChatLog.cs" />
+    <Compile Include="ChatLogBLL.cs" />
+    <Compile Include="ChatLogLogic.cs" />
+    <Compile Include="ChitchatBLL.cs" />
+    <Compile Include="ChitchatLogic.cs" />
+    <Compile Include="ChitchatRoom.cs" />
+    <Compile Include="CollectTable.cs" />
+    <Compile Include="CollectTableBLL.cs" />
+    <Compile Include="CollectTableLogic.cs" />
+    <Compile Include="CommendCommentOn.cs" />
+    <Compile Include="CommendCommentOn_BLL.cs" />
+    <Compile Include="CommendCommentOn_Logic.cs" />
+    <Compile Include="CommendTable.cs" />
+    <Compile Include="CommendTable_BLL.cs" />
+    <Compile Include="CommendTable_Logic.cs" />
+    <Compile Include="CommentAll.cs" />
+    <Compile Include="commentbll.cs" />
+    <Compile Include="commentlogic.cs" />
+    <Compile Include="Common\PagePagination.cs" />
+    <Compile Include="Common\SystemLogType.cs" />
+    <Compile Include="FileShare.cs" />
+    <Compile Include="Fortune.cs" />
+    <Compile Include="Fortune_BLL.cs" />
+    <Compile Include="Fortune_Logic.cs" />
+    <Compile Include="FriendGroup.cs" />
+    <Compile Include="FriendGroupBLL.cs" />
+    <Compile Include="FriendGroupLogic.cs" />
+    <Compile Include="FriendKnowBLL.cs" />
+    <Compile Include="FriendKnowLogic.cs" />
+    <Compile Include="FriendRespond.cs" />
+    <Compile Include="GatherPicCateg.cs" />
+    <Compile Include="GatherStrain.cs" />
+    <Compile Include="GroupPicCateg.cs" />
+    <Compile Include="GSHuatee.cs" />
+    <Compile Include="GSReverCricicism.cs" />
+    <Compile Include="GSRoom.cs" />
+    <Compile Include="GSType.cs" />
+    <Compile Include="HomeCollocate.cs" />
+    <Compile Include="HomeHeadCollocate.cs" />
+    <Compile Include="HomeSetBLL.cs" />
+    <Compile Include="HomeSetLogic.cs" />
+    <Compile Include="I4GiveU.cs" />
+    <Compile Include="I4GiveUForgive.cs" />
+    <Compile Include="I4GiveUForgive_BLL.cs" />
+    <Compile Include="I4GiveUForgive_Logic.cs" />
+    <Compile Include="I4GiveUType.cs" />
+    <Compile Include="I4GiveUType_BLL.cs" />
+    <Compile Include="I4GiveUType_Logic.cs" />
+    <Compile Include="I4GiveU_BLL.cs" />
+    <Compile Include="I4GiveU_Logic.cs" />
+    <Compile Include="InboxBLL.cs" />
+    <Compile Include="InboxLogic.cs" />
+    <Compile Include="InboxTable.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="LogCriticism.cs" />
+    <Compile Include="LogManageBLL.cs" />
+    <Compile Include="LogManageLogic.cs" />
+    <Compile Include="LogTypePWD.cs" />
+    <Compile Include="LookLog.cs" />
+    <Compile Include="LotMessage.cs" />
+    <Compile Include="LotNote.cs" />
+    <Compile Include="LottestBLL.cs" />
+    <Compile Include="LotTestLogic.cs" />
+    <Compile Include="Memo.cs" />
+    <Compile Include="Memo_BLL.cs" />
+    <Compile Include="Memo_Logic.cs" />
+    <Compile Include="Messageboard.cs" />
+    <Compile Include="MessageboardBLL.cs" />
+    <Compile Include="MessageboardLogic.cs" />
+    <Compile Include="MoneyFlux.cs" />
+    <Compile Include="MoneyFlux_BLL.cs" />
+    <Compile Include="MoneyFlux_Logic.cs" />
+    <Compile Include="MovieBookBLL.cs" />
+    <Compile Include="MovieBookLogic.cs" />
+    <Compile Include="Parking_BLL.cs" />
+    <Compile Include="Parking_Logic.cs" />
+    <Compile Include="Pen.cs" />
+    <Compile Include="PenFoster.cs" />
+    <Compile Include="PenFoster_BLL.cs" />
+    <Compile Include="PenFoster_Logic.cs" />
+    <Compile Include="PicCateg.cs" />
+    <Compile Include="PicCateg_BLL.cs" />
+    <Compile Include="PicCateg_Logic.cs" />
+    <Compile Include="PicCritique.cs" />
+    <Compile Include="PicTure.cs" />
+    <Compile Include="PicTure_BLL.cs" />
+    <Compile Include="PicTure_Logic.cs" />
+    <Compile Include="PresentBLL.cs" />
+    <Compile Include="PresentLogic.cs" />
+    <Compile Include="ProductTable.cs" />
+    <Compile Include="ProductTableBLL.cs" />
+    <Compile Include="ProductTableLogic.cs" />
+    <Compile Include="ProductTypetable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="P_CarList.cs" />
+    <Compile Include="Question.cs" />
+    <Compile Include="ReplayLog.cs" />
+    <Compile Include="Servant.cs" />
+    <Compile Include="ServantItem.cs" />
+    <Compile Include="ServantItem_Logic.cs" />
+    <Compile Include="Servant_Logic.cs" />
+    <Compile Include="StockBLL.cs" />
+    <Compile Include="StockLogic.cs" />
+    <Compile Include="SystemBDModule.cs" />
+    <Compile Include="SystemBooDouChance.cs" />
+    <Compile Include="SystemBooDouChance_BLL.cs" />
+    <Compile Include="SystemBooDouChance_Logic.cs" />
+    <Compile Include="SystemConfig.cs" />
+    <Compile Include="SystemLog.cs" />
+    <Compile Include="SystemLogBLL.cs" />
+    <Compile Include="SystemLogLogic.cs" />
+    <Compile Include="SystemManageBLL.cs" />
+    <Compile Include="SystemManageLogic.cs" />
+    <Compile Include="SystemMovieBook.cs" />
+    <Compile Include="SystemPen.cs" />
+    <Compile Include="SystemPen_BLL.cs" />
+    <Compile Include="SystemPen_Logic.cs" />
+    <Compile Include="SystemPresent.cs" />
+    <Compile Include="SystemStock.cs" />
+    <Compile Include="SystemUser.cs" />
+    <Compile Include="SystemUser_BLL.cs" />
+    <Compile Include="SystemUser_Logic.cs" />
+    <Compile Include="UserEducationWork.cs" />
+    <Compile Include="UserEdusBll.cs" />
+    <Compile Include="UserEdusLogic.cs" />
+    <Compile Include="UserEmailValidate.cs" />
+    <Compile Include="UserEmailValidateBLL.cs" />
+    <Compile Include="UserEmailValidateLogic.cs" />
+    <Compile Include="Userfriend.cs" />
+    <Compile Include="UserfriendBLL.cs" />
+    <Compile Include="UserfriendLogic.cs" />
+    <Compile Include="UserLog.cs" />
+    <Compile Include="UserLogType.cs" />
+    <Compile Include="UserMemo.cs" />
+    <Compile Include="UserMoreinfo.cs" />
+    <Compile Include="UserPen.cs" />
+    <Compile Include="UserPen_BLL.cs" />
+    <Compile Include="UserPen_Logic.cs" />
+    <Compile Include="UserPresent.cs" />
+    <Compile Include="UserShopProduct.cs" />
+    <Compile Include="UserStock.cs" />
+    <Compile Include="UserTable.cs" />
+    <Compile Include="UserTableBLL.cs" />
+    <Compile Include="UserTableLogic.cs" />
+    <Compile Include="User_R_GS.cs" />
+    <Compile Include="User_R_Module.cs" />
+    <Compile Include="ZL_Sns_CarConfig.cs" />
+    <Compile Include="ZL_Sns_CarLog.cs" />
+    <Compile Include="ZL_Sns_MyCar.cs" />
+    <Compile Include="ZL_Sns_MyPose.cs" />
+    <Compile Include="ZL_Sns_Report.cs" />
+    <Compile Include="ZoneFun.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZoomLa.BLL\ZoomLa.BLL.csproj">
+      <Project>{d20da302-1beb-4672-a037-8568c47662f0}</Project>
+      <Name>ZoomLa.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Common\ZoomLa.Common.csproj">
+      <Project>{7c0b5fba-dadd-48e2-b70b-7d0e7352adff}</Project>
+      <Name>ZoomLa.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.Components\ZoomLa.Components.csproj">
+      <Project>{c86df849-cf83-469b-bab7-622e969e62e7}</Project>
+      <Name>ZoomLa.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zoomla.Model\Zoomla.Model.csproj">
+      <Project>{c3be96f0-0469-4af3-b15f-96813626f494}</Project>
+      <Name>Zoomla.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZoomLa.SQLDAL\ZoomLa.SQLDAL.csproj">
+      <Project>{ea2fc94a-7e4b-4511-a9fb-752138836be0}</Project>
+      <Name>ZoomLa.SQLDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

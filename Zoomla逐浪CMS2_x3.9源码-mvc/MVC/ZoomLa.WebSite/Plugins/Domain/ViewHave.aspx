@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewHave.aspx.cs" Inherits="ZoomLaCMS.Plugins.Domain.ViewHave" MasterPageFile="~/Common/Common.master" %>

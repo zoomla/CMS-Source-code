@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>224</LabelID>
+    <LabelName>精彩问题导航块</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID ,1,1,节点ID</LabelParam>
+    <LabelTable>collect.dbo.ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName,NodePicUrl</LabelField>
+    <LabelWhere>ParentID=@NodeID</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;li onMouseOver="switchTab(2,{ZL:jsq},4)" id="tab_2{ZL:jsq}" &gt; {Field="NodeName"/}&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>4</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>一直累加</addroot>
+    <setroot>不等于</setroot>
+    <Modelvalue>1</Modelvalue>
+    <Valueroot />
+    <IsOpen>1</IsOpen>
+    <FalseContent>&lt;li onMouseOver="switchTab(2,1,4)" id="tab_2{ZL:jsq}" class="user_cu"&gt; {Field="NodeName"/}&lt;/li&gt;</FalseContent>
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

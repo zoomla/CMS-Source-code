@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>620</LabelID>
+    <LabelName>搜索商家列表</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>店铺</LabelCate>
+    <LabelDesc />
+    <LabelParam>TitleNum,25,1,标题长|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_Store_reg on ZL_CommonModel.ItemID=ZL_Store_reg.ID</LabelTable>
+    <LabelField>ZL_Store_reg.addr,ZL_Store_reg.area,ZL_Store_reg.ID,ZL_Store_reg.logo,ZL_Store_reg.lxr,ZL_Store_reg.StoreName,ZL_Store_reg.tel,ZL_Store_reg.weibo,UserName</LabelField>
+    <LabelWhere>ZL_CommonModel.TableName like '%ZL_Store_%' And ZL_CommonModel.Status=99 And (area like '%{$PostRequest(shi)$}%' And area like '%{$PostRequest(prov)$}%' And area like '%{$PostRequest(xian)$}%') and StoreName like '%{$PostRequest(keyword)$}%' </LabelWhere>
+    <LabelOrder>{table1}.dbo.ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;tr&gt;&lt;td width="15%" align="center"&gt;&lt;a href="/Store/StoreIndex.aspx?id={Field="ID"/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="logo"/})/}"&gt;&lt;/a&gt;&lt;/td&gt;&lt;td width="25%"&gt;&lt;b&gt;&lt;a href="/Store/StoreIndex.aspx?id={Field="ID"/}"&gt;{ZL:CutText({Field="StoreName"/},@TitleNum,..)/}&lt;/a&gt;&lt;/b&gt;  &lt;br&gt; {Field="area"/} &lt;/td&gt;&lt;td width="40%"&gt;&lt;p&gt;联系人：{Field="lxr"/} 联系方式：{Field="tel"/} 详细地址：{Field="addr"/} &lt;/p&gt;&lt;/td&gt;&lt;td width="15%"&gt; &lt;input type="button" onClick="javascript:window.location.href='/Store/StoreIndex.aspx?id={Field="ID"/}'" value="访问店铺" class="sto_btn"&gt;&lt;/td&gt;&lt;/tr&gt;
+{/Repeate}
+{ZL.Page/} </LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

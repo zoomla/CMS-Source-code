@@ -1,0 +1,237 @@
+﻿@using ZoomLa.Components;
+@using ZoomLa.SQLDAL;
+@using ZoomLa.Model.Third;
+@using ZoomLa.BLL.Third;
+@{
+    Layout = "~/Views/Shared/_empty.cshtml";
+    B_Third_Info thirdBll = new B_Third_Info();
+    M_Third_Info SinaInfo = thirdBll.SelModelByName("Sina");
+
+    bool login_sina = false, login_qq = false, login_wx = false, login_baidu = false, login_all = false;
+    string login_qq_url = "";
+    if (SinaInfo != null && SinaInfo.Enabled)
+    {
+        login_sina = true;
+    }
+    M_Third_Info qqInfo = thirdBll.SelModelByName("QQ");
+    if (qqInfo != null && qqInfo.Enabled)
+    {
+        login_qq = true;
+        login_qq_url = "https://graph.qq.com/oauth2.0/authorize?client_id=" + qqInfo.ID.Trim() + "&response_type=token&scope=all&redirect_uri=" + qqInfo.CallBackUrl.Trim();
+    }
+    M_Third_Info wxInfo = thirdBll.SelModelByName("wechat");
+    if (wxInfo != null && wxInfo.Enabled)
+    {
+        login_wx = true;
+    }
+    if (login_sina || login_qq || login_wx) { login_all = true; }
+}
+@functions{
+    public string GetBKImg()
+    {
+        if (SiteConfig.SiteOption.SiteManageMode == 1) { return ""; }
+        else { return "http://code.z01.com/user_login.jpg"; }
+    }
+    public int getLoginCount() { return DataConvert.CLng(Session["ValidateCount"]); }
+    public string GetReturnUrl()
+    {
+        string url = HttpUtility.UrlDecode(Request.QueryString["ReturnUrl"] ?? "").Split(' ')[0];
+        url = string.IsNullOrEmpty(url) ? SiteConfig.SiteOption.LoggedUrl : url;
+        return url;
+    }
+}
+@section head{
+<link href="/App_Themes/User.css" rel="stylesheet" type="text/css" />
+<title>用户登录-@Call.SiteName</title>
+<style type="text/css">
+.plat_sp {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.plat_sp_btn {
+    font-size: 32px;
+    color: #EB4E62;
+}
+
+    .plat_sp_btn:hover {
+        color: rgb(10, 164, 231);
+    }
+</style>
+}
+@section content{
+
+@using (Html.BeginForm("Login","User"))
+{
+    <center style = "background: url(@GetBKImg()); background-position: center; left: 0; top: 0; right: 0; bottom: 0; position: absolute; background-repeat: no-repeat; background-size: cover;" >
+        <div class="user_mimenu">
+            <div class="navbar navbar-fixed-top" role="navigation">
+                <button type="button" class="btn btn-default" id="mimenu_btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="user_mimenu_left">
+                    <ul class="list-unstyled">
+                        <li><a href="/" target="_blank">首页</a></li>
+                        <li><a href="/Home" target="_blank">能力</a></li>
+                        <li><a href="/Index" target="_blank">社区</a></li>
+                        <li><a href="/Ask" target="_blank">问答</a></li>
+                        <li><a href="/Guest" target="_blank">留言</a></li>
+                        <li><a href="/Baike" target="_blank">百科</a></li>
+                        <li><a href="/Office" target="_blank">OA</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-header">
+                    <button class="navbar-toggle in" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">移动下拉</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="user_login">
+            <h1 class="text-center">登录 @Call.SiteName 会员</h1>
+            <ul class="list-unstyled">
+                <li>
+                    <i class="fa fa-user"></i>
+                    <input type="text" id="TxtUserName" name="TxtUserName" class="form-control" placeholder="用户名" autofocus onblur="CheckUserCode()" data-enter="0"/>
+                    <a id="hlReg" href="/User/login?RegID=1" title="E-mail登录"><span class="fa fa-envelope"></span></a>
+                    <a id="uidReg" href="/User/login?RegID=2" title="用户ID登录"><span class="fa fa-envelope"></span></a>
+                </li>
+                <li>
+                    <i class="fa fa-lock"></i>
+                    <input id="TxtPassword" name="TxtPassword" type="password" placeholder="密码" class="form-control" data-enter="1" />
+                </li>
+                @{
+                    if (SiteConfig.UserConfig.EnableCheckCodeOfLogin || getLoginCount() >= 3)
+                    {
+                        <li>
+                            <div class="form-group" id="trVcodeRegister">
+                                <input type="text" id="VCode" name="VCode" maxlength="6" class="form-control codestyle" style="display:inline;width:auto;" data-enter="2">
+                                <img id="VCode_img" title="点击刷新验证码" class="codeimg" style="height:34px;margin-left:2px;width:25%;" />
+                                @Html.Hidden("VCode_hid")
+                            </div>
+                        </li>
+                    }
+                }
+                <li id="usercode_li" style="display:none;">
+                    <input id="UserCode_T" name="UserCode_T" placeholder="动态口令" class="form-control" data-enter="3" />
+                </li>
+                <li class="margin_top0"><input type="checkbox" id="remember_chk" name="remember_chk" checked="checked" />记住登录<a href="/User/GetPassword.aspx" id="nopasswd">忘记密码？</a></li>
+                <li>
+                    <input type="button" class="btn btn-info" onclick="return ajaxlogin()" value="登录" id="btnLogin" data-enter="4" />
+                </li>
+                <li><a class="btn btn-default" id="reg_btn" href="/User/Register?@Request.QueryString" style="color:#fff;">点此注册</a></li>
+               @{
+                    if (@login_all)
+                    {
+                        <li id="plat_li">
+                            <div style="color:#fff;">第三方登录：</div>
+                            <div class="margin_t5">
+                                if(@login_qq){<span title="腾迅" class="plat_sp"><a href="@login_qq_url" id="qq_a"><span class="fa fa-qq plat_sp_btn"> </span></a></span>}
+                                if(@login_wx){<span title="微信" class="plat_sp"><a href="/User/WxLogin.aspx"><span class="fa fa-wechat plat_sp_btn"></span></a></span>}
+                                if(@login_sina){<a href="@Url.Action("Login_Sina","User")" title="新浪" class="plat_sp"><span class="fa fa-weibo plat_sp_btn"> </span></a>}
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+            <div id="main_s" style="display:none">
+                <ul>
+                    <li style="color:green; font-size:14px; font-weight:bold">欢迎您！登录成功</li>
+                    <li style="margin-top:25px;">系统将在 <span id="sec">3</span> 秒后自动跳转到<a href="MemoView.aspx">会员首页</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="login_type_div">
+                <div><a id="EMail_A" href="login.aspx?RegID=1"><span class="fa fa-envelope"></span> 邮箱登录</a></div>
+                <div><a id="ID_A" href="login.aspx?RegID=2"><span class="fa fa-info-circle"></span> ID登录</a></div>
+                <div><a id="User_A" href="login.aspx"><span class="fa fa-user"></span> 用户登录</a></div>
+            </div>
+        </div>
+        </center>
+
+}
+}
+@section script{
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script src="/JS/Modal/APIResult.js"></script>
+<script src="/JS/Controls/Control.js"></script>
+<script>
+    function BtnTj() {
+        var username = document.getElementById("TxtUserName");
+        var userpass = document.getElementById("TxtPassword");
+        var VCode = document.getElementById("VCode");
+        if (username.value == "") {
+            username.focus();
+            return false;
+        }
+        else if (userpass.value == "") {
+            userpass.focus();
+            return false;
+        }
+        else if (VCode && VCode.value == "") {
+            VCode.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+<script>
+    $(function () {
+        setTimeout("CheckUserCode()", 500);
+        $("#VCode").ValidateCode();
+        Control.EnableEnter();
+    })
+    function CheckUserCode() {
+        $.post("/API/UserCheck.ashx", { action: 'CheckKey', uname: $("#TxtUserName").val() }, function (data) {
+            if (data == '1') {
+                $("#usercode_li").show();
+                bl = false;
+            } else {
+                $("#usercode_li").hide();
+            }
+        });
+    }
+    //登录
+    var loginflag = false;
+    function ajaxlogin() {
+        if (!BtnTj()) { alert("用户名与密码不能为空"); return; }
+        var url = "@Url.Action("Login_Ajax", "User")";
+        var info = { action: "login", uname: $("#TxtUserName").val(), upwd: $("#TxtPassword").val(), VCode_hid: $("#VCode_hid").val(), vcode: $("#VCode").val(), zncode: $("#UserCode_T").val() };
+        info.regid = "@DataConvert.CLng(Request.QueryString["regid"])";
+        $.post(url, info, function (data) {
+            APIResult.ifok(data, function (result) {
+                loginflag = true;
+                location = "@GetReturnUrl()";
+            }, function (data) {
+                var model = APIResult.getModel(data);
+                $("#btnLogin").popover({
+                    animation: true,
+                    placement: 'left',
+                    content: '<span style="color:red;"><span class="fa fa-info-circle"></span> ' + model.retmsg + '!</span> <span style="color:#999">(双击隐藏)</span>',
+                    html: true,
+                    trigger: 'manual',
+                    delay: { show: 10000, hide: 100 }
+                });
+                $("#btnLogin").popover('show');
+                $(".popover").dblclick(function () { $("#btnLogin").popover('destroy'); });
+            })
+        });
+    }
+    $("#mimenu_btn").click(function (e) {
+            if ($(".user_mimenu_left").width() > 0) {
+                $(".user_mimenu_left ul").fadeOut(100);
+                $(".user_mimenu_left").animate({ width: 0 }, 200);
+            }
+            else {
+                $(".user_mimenu_left").animate({ width: 150 }, 300);
+                $(".user_mimenu_left ul").fadeIn();
+            }
+        });
+</script>
+}

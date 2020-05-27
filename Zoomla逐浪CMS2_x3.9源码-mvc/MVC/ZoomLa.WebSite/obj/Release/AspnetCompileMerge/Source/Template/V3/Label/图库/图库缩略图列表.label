@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>518</LabelID>
+    <LabelName>图库缩略图列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>图库</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,25,1,标题长|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_C_Photo on ZL_CommonModel.ItemID=ZL_C_Photo.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.NodeID,ZL_CommonModel.Title,ZL_C_Photo.PhotoUrlThum</LabelField>
+    <LabelWhere>(ZL_CommonModel.NodeID=@NodeID OR ZL_CommonModel.FirstNodeID=@NodeID) And Status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="PhotoUrlThum"/})/}" alt="{Field="Title"/}" onerror="this.onerror=null;this.src='/Images/nopic.gif'"/&gt;&lt;/a&gt; &lt;p&gt;&lt;a  href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>Zoomla6x</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

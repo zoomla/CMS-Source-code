@@ -1,0 +1,53 @@
+﻿<div class="header"><label class="title">添加视频</label></div>
+<div class="category-view">
+    <div class="sections">
+                    <div class="section-wrapper live-comps">
+                        <div class="section-header">
+                            <div class="title-line">
+                                <div class="title">视频文件</div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="domItem listItem">
+                                <img src="/Design/res/img/video.png" style="height:150px;" />
+                            </div>
+                        </div>
+                        <div class="section-header">
+                            <div class="title-line">
+                                <div class="title">在线视频</div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div>
+                                <textarea id="htmlTlp_t" placeholder="请粘贴入html代码" class="form-control" style="height:120px;"></textarea>
+                                <input type="button" class="btn btn-primary" value="确定引入" onclick="ImportVideo();" style="margin-top:5px;" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-wrapper live-comps">
+
+                       
+                    </div>
+                <!--comp end;-->
+            </div>
+</div>
+<script>
+    //http://www.z01.com/skin/2010/images/mp3.jpg
+    //http://www.z01.com/The_Sea.mp4
+    ///UploadFiles/Video/20151104/6358224408185806892982908.mp4
+    function GetModel(item) {
+        var $item = $(item);
+        var model = {
+            dataMod: { src: "http://www.z01.com/The_Sea.mp4", poster: "http://www.z01.com/skin/2010/images/mp3.jpg", videoStyle: { width: 400, height: 300 } },
+            config: { type: "video", compType: "file", htmlTlp: "", css: "candrag", style: '', autoplay: true, loop: true }
+        };
+        return model;
+    }
+    function ImportVideo() {
+        var html = $("#htmlTlp_t").val();
+        if (html == "") { alert("不能为空"); return; }
+        model.config.htmlTlp = encodeURI(html);
+        model.config.compType = "online";
+        parent.AddComponent(model);
+    }
+</script>

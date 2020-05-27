@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>111</LabelID>
+    <LabelName>上一篇文章</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>文章中心</LabelCate>
+    <LabelDesc />
+    <LabelParam>ID,0,2,信息ID|NodeID,1,1,节点ID</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,Title</LabelField>
+    <LabelWhere>(FirstNodeID=@NodeID OR NodeID=@NodeID) And GeneralID&lt;@ID and Status=99</LabelWhere>
+    <LabelOrder>GeneralID desc</LabelOrder>
+    <LabelContent>&lt;script&gt;
+var gid='{Field="GeneralID"/}';
+gid=gid.split('err:无记录');
+if(gid.length&gt;1){
+document.write('已是第一篇');
+}
+else{document.write('&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}"&gt;{Field="Title"/}&lt;/a&gt;');
+}
+&lt;/script&gt; </LabelContent>
+    <LabelCount>1</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

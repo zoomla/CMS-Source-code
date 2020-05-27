@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{<title>店铺审核中</title>}
+@section content{
+<div id="pageflag" data-nav="shop" data-ban="store"></div> 
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default.aspx">会员中心</a></li>
+        <li><a href="ProductList.aspx">我的店铺</a></li>
+        <li class="active">修改申请信息</li>
+    </ol>
+</div>
+<div class="container">
+    <div class="text_600 text-center r_gray" style="margin:0 auto;">
+        <i class="fa fa-bank margin_t10" style="font-size:120px;"></i>
+        <div class="margin_t10" style="font-size:18px;">店铺正在审核,请等待管理员开通您的店铺功能!</div>
+        <div class="margin_t10"><a href="StoreApply?action=edit" class="btn btn-info">修改申请信息</a></div>
+    </div>
+</div>
+}
+@section script{}

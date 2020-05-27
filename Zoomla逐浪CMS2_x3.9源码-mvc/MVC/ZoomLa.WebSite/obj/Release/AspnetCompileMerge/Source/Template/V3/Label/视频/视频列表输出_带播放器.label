@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>161</LabelID>
+    <LabelName>视频列表输出_带播放器</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>视频</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,86,1,节点ID|TitieNum,30,1,标题长度|ShowNum,10,1,调用数|width,300,1,播放器宽度|height,200,1,播放器高度</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_CommonModel left join {table1}.dbo.ZL_C_video on {table1}.dbo.ZL_CommonModel.ItemID={table1}.dbo.ZL_C_video.ID</LabelTable>
+    <LabelField>{table1}.dbo.ZL_CommonModel.GeneralID,{table1}.dbo.ZL_CommonModel.NodeID,{table1}.dbo.ZL_CommonModel.Title,{table1}.dbo.ZL_CommonModel.TitleStyle,{table1}.dbo.ZL_C_video.pic,{table1}.dbo.ZL_C_video.url</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID)  and status=99</LabelWhere>
+    <LabelOrder>{table1}.dbo.ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>&lt;p style="clear:both"&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}" target="{ZL:GetInfoOpen({Field="NodeID"/})/}" style="{Field="TitleStyle"/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;&lt;p&gt;
+&lt;div id="player{Field="GeneralID"/}" style="width:@widthpx;height:@heightpx;color:#ffffff;" &gt;&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+	var s5 = new SWFObject("{$CssDir/}swf/FlvPlayer201002.swf","playlist","@width","@height","7");
+	s5.addParam("allowfullscreen","true");
+	s5.addVariable("autostart","false");
+	s5.addVariable("image","{ZL:GetPicUrl({Field="pic"/})/}");
+	s5.addVariable("file","{Field="url"/}");
+	s5.addVariable("width","@width");
+	s5.addVariable("height","@height");
+	s5.write("player{Field="GeneralID"/}");
+&lt;/script&gt;</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

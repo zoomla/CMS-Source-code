@@ -1,0 +1,189 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Result>
+    <NodeID>1</NodeID>
+    <NodeName>网站公告</NodeName>
+    <NodeType>1</NodeType>
+    <NodeDir>wzgg</NodeDir>
+    <NodeUrl />
+    <NodeListUrl />
+    <Tips />
+    <ParentID>0</ParentID>
+    <OrderID>1</OrderID>
+    <Child>0</Child>
+    <Depth>1</Depth>
+    <NodePicUrl />
+    <Description />
+    <Meta_Keywords />
+    <Meta_Description />
+    <OpenType>false</OpenType>
+    <PurviewType>false</PurviewType>
+    <CommentType>0</CommentType>
+    <HitsOfHot>0</HitsOfHot>
+    <IndexTemplate />
+    <ListTemplateFile />
+    <LastinfoTemplate />
+    <HotinfoTemplate />
+    <ProposeTemplate />
+    <ContentModel>2</ContentModel>
+    <ItemOpenType>false</ItemOpenType>
+    <ContentHtmlRule>2</ContentHtmlRule>
+    <ListPageHtmlEx>3</ListPageHtmlEx>
+    <ContentFileEx>3</ContentFileEx>
+    <HtmlPosition>1</HtmlPosition>
+    <NodeListType>1</NodeListType>
+    <ConsumePoint>0</ConsumePoint>
+    <ConsumeType>0</ConsumeType>
+    <ConsumeTime>0</ConsumeTime>
+    <ConsumeCount>0</ConsumeCount>
+    <Shares>0</Shares>
+    <Custom />
+    <SafeGuard>0</SafeGuard>
+    <ItemOpenTypeTrue>_self</ItemOpenTypeTrue>
+    <OpenTypeTrue>_self</OpenTypeTrue>
+    <NodeBySite>0</NodeBySite>
+    <SiteConfige />
+    <Contribute>0</Contribute>
+    <SiteContentAudit>0</SiteContentAudit>
+    <AuditNodeList />
+    <AddPoint>0</AddPoint>
+    <AddMoney>0.0000</AddMoney>
+    <ClickTimeout>1</ClickTimeout>
+    <Purview>[{"View":"allUser","ViewGroup":"","ViewSunGroup":"","input":"","forum":""}]</Purview>
+    <AddUserExp>0</AddUserExp>
+    <DeducUserExp>0</DeducUserExp>
+    <ListPageEx>3</ListPageEx>
+    <LastinfoPageEx>3</LastinfoPageEx>
+    <HotinfoPageEx>3</HotinfoPageEx>
+    <ProposePageEx>3</ProposePageEx>
+    <Viewinglimit />
+    <CUser>1</CUser>
+    <CDate>2016-04-01T18:08:58+08:00</CDate>
+    <EditDate>2016-04-01T18:10:22.173+08:00</EditDate>
+    <CUName>admin</CUName>
+  </Result>
+  <Result>
+    <NodeID>2</NodeID>
+    <NodeName>最新信息</NodeName>
+    <NodeType>1</NodeType>
+    <NodeDir>zxxx</NodeDir>
+    <NodeUrl />
+    <NodeListUrl />
+    <Tips />
+    <ParentID>0</ParentID>
+    <OrderID>2</OrderID>
+    <Child>0</Child>
+    <Depth>1</Depth>
+    <NodePicUrl />
+    <Description />
+    <Meta_Keywords />
+    <Meta_Description />
+    <OpenType>false</OpenType>
+    <PurviewType>false</PurviewType>
+    <CommentType>0</CommentType>
+    <HitsOfHot>0</HitsOfHot>
+    <IndexTemplate />
+    <ListTemplateFile />
+    <LastinfoTemplate />
+    <HotinfoTemplate />
+    <ProposeTemplate />
+    <ContentModel>2</ContentModel>
+    <ItemOpenType>false</ItemOpenType>
+    <ContentHtmlRule>2</ContentHtmlRule>
+    <ListPageHtmlEx>3</ListPageHtmlEx>
+    <ContentFileEx>3</ContentFileEx>
+    <HtmlPosition>1</HtmlPosition>
+    <NodeListType>1</NodeListType>
+    <ConsumePoint>0</ConsumePoint>
+    <ConsumeType>0</ConsumeType>
+    <ConsumeTime>0</ConsumeTime>
+    <ConsumeCount>0</ConsumeCount>
+    <Shares>0</Shares>
+    <Custom />
+    <SafeGuard>0</SafeGuard>
+    <ItemOpenTypeTrue>_self</ItemOpenTypeTrue>
+    <OpenTypeTrue>_self</OpenTypeTrue>
+    <NodeBySite>0</NodeBySite>
+    <SiteConfige />
+    <Contribute>0</Contribute>
+    <SiteContentAudit>0</SiteContentAudit>
+    <AuditNodeList />
+    <AddPoint>0</AddPoint>
+    <AddMoney>0.0000</AddMoney>
+    <ClickTimeout>1</ClickTimeout>
+    <Purview>[{"View":"allUser","ViewGroup":"","ViewSunGroup":"","input":"","forum":""}]</Purview>
+    <AddUserExp>0</AddUserExp>
+    <DeducUserExp>0</DeducUserExp>
+    <ListPageEx>3</ListPageEx>
+    <LastinfoPageEx>3</LastinfoPageEx>
+    <HotinfoPageEx>3</HotinfoPageEx>
+    <ProposePageEx>3</ProposePageEx>
+    <Viewinglimit />
+    <CUser>1</CUser>
+    <CDate>2016-04-01T18:09:29+08:00</CDate>
+    <EditDate>2016-04-01T18:10:29.05+08:00</EditDate>
+    <CUName>admin</CUName>
+  </Result>
+  <Result>
+    <NodeID>3</NodeID>
+    <NodeName>新闻资讯</NodeName>
+    <NodeType>1</NodeType>
+    <NodeDir>xwzx</NodeDir>
+    <NodeUrl />
+    <NodeListUrl />
+    <Tips />
+    <ParentID>0</ParentID>
+    <OrderID>3</OrderID>
+    <Child>0</Child>
+    <Depth>1</Depth>
+    <NodePicUrl />
+    <Description />
+    <Meta_Keywords />
+    <Meta_Description />
+    <OpenType>false</OpenType>
+    <PurviewType>false</PurviewType>
+    <CommentType>0</CommentType>
+    <HitsOfHot>0</HitsOfHot>
+    <IndexTemplate />
+    <ListTemplateFile />
+    <LastinfoTemplate />
+    <HotinfoTemplate />
+    <ProposeTemplate />
+    <ContentModel>2</ContentModel>
+    <ItemOpenType>false</ItemOpenType>
+    <ContentHtmlRule>2</ContentHtmlRule>
+    <ListPageHtmlEx>3</ListPageHtmlEx>
+    <ContentFileEx>3</ContentFileEx>
+    <HtmlPosition>1</HtmlPosition>
+    <NodeListType>1</NodeListType>
+    <ConsumePoint>0</ConsumePoint>
+    <ConsumeType>0</ConsumeType>
+    <ConsumeTime>0</ConsumeTime>
+    <ConsumeCount>0</ConsumeCount>
+    <Shares>0</Shares>
+    <Custom />
+    <SafeGuard>0</SafeGuard>
+    <ItemOpenTypeTrue>_self</ItemOpenTypeTrue>
+    <OpenTypeTrue>_self</OpenTypeTrue>
+    <NodeBySite>0</NodeBySite>
+    <SiteConfige />
+    <Contribute>0</Contribute>
+    <SiteContentAudit>0</SiteContentAudit>
+    <AuditNodeList />
+    <AddPoint>0</AddPoint>
+    <AddMoney>0.0000</AddMoney>
+    <ClickTimeout>1</ClickTimeout>
+    <Purview>[{"View":"allUser","ViewGroup":"","ViewSunGroup":"","input":"","forum":""}]</Purview>
+    <AddUserExp>0</AddUserExp>
+    <DeducUserExp>0</DeducUserExp>
+    <ListPageEx>3</ListPageEx>
+    <LastinfoPageEx>3</LastinfoPageEx>
+    <HotinfoPageEx>3</HotinfoPageEx>
+    <ProposePageEx>3</ProposePageEx>
+    <Viewinglimit />
+    <CUser>1</CUser>
+    <CDate>2016-04-01T18:09:41+08:00</CDate>
+    <EditDate>2016-04-01T18:10:36.927+08:00</EditDate>
+    <CUName>admin</CUName>
+  </Result>
+</NewDataSet>

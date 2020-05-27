@@ -1,0 +1,24 @@
+﻿@using ZoomLa.BLL;
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Layout = "~/Areas/User/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>内容收藏</title>
+}
+@section content{
+<div id="pageflag" data-nav="group" data-ban="fav"></div>
+<div class="container margin_t10">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+        <li class="active">我的收藏</li>
+    </ol>
+</div>
+<div class="container u_cnt btn_green">
+    @Html.Partial("MyFavori_List", Model)
+    <input type="button" value="批量删除" onclick="mvcpage.batdel({url: 'favour_del', confirm: '确定要批量移除吗' });" class="btn btn-info" />
+</div>
+}
+@section script{
+
+}

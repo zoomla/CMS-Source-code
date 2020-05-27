@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserGroups>
+  <QYHY>
+    <Manner ID="1" Articles="50" Byear="12" />
+  </QYHY>
+  <PTHY>
+    <Manner ID="1" Articles="20" Byear="11" />
+  </PTHY>
+  <VIPHY>
+    <Manner ID="1" Articles="1" Byear="55" />
+  </VIPHY>
+  <ee>
+    <Manner ID="1" Articles="2" Byear="50" />
+  </ee>
+  <rrr>
+    <Manner ID="1" Articles="50" Byear="50" />
+  </rrr>
+  <sssss>
+    <Manner ID="1" Articles="50" Byear="50" />
+  </sssss>
+  <uuuu>
+    <Manner ID="1" Articles="50" Byear="50" />
+  </uuuu>
+  <yyyyyyyyyyyyyyy>
+    <Manner ID="1" Articles="50" Byear="50" />
+  </yyyyyyyyyyyyyyy>
+  <JDCSZ>
+    <Manner ID="1" Articles="50" Byear="50" />
+  </JDCSZ>
+  <qwqw>
+    <Manner ID="1" Articles="50" Byear="50" />
+  </qwqw>
+  <qwqwqqq>
+    <Manner ID="1" Articles="50" Byear="50" />
+  </qwqwqqq>
+  <3333>
+    <Manner ID="1" Articles="50" Byear="50" />
+  </3333>
+</UserGroups>

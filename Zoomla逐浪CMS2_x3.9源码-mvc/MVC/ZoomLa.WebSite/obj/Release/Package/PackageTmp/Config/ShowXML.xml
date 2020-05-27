@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Shop>
+  <Shop_0>
+    <ShopID>1</ShopID>
+    <DboothName>aaaaaaaa</DboothName>
+    <DboothLogo>qwq</DboothLogo>
+    <D_Left>367</D_Left>
+    <D_Top>342</D_Top>
+    <D_Row>11</D_Row>
+    <D_Col>13</D_Col>
+    <Dimg>/Images/style3D/node.gif</Dimg>
+    <DSceneBG>
+    </DSceneBG>
+    <DType>0</DType>
+  </Shop_0>
+</Shop>

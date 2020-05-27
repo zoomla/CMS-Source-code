@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Ionic.master.cs" Inherits="Common_Master_Ionic" ClientIDMode="Static" %><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+<link rel="stylesheet" type="text/css" href="/Plugins/ionic/css/ionic.css"/>
+<link rel="stylesheet" type="text/css" href="/dist/css/font-awesome.min.css"/>
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="/JS/Modal/APIResult.js?v=<%:Ver %>"></script>
+<script src="/JS/ZL_Regex.js?v=<%:Ver %>"></script>
+<script src="/JS/Controls/ZL_Array.js?v=<%:Ver %>"></script>
+<script src="/JS/Plugs/moment.js"></script>
+<script src="/Plugins/ionic/js/ionic.bundle.js"></script>
+<asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form1" runat="server">
+<asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
+</form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ZoomLa.AppCode.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ZoomLa_AppCode_cn_b2m_eucp_sdk229ws_SDKService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://sdk229ws.eucp.b2m.cn:8080/sdk/SDKService</Value>
+    </Setting>
+    <Setting Name="ZoomLa_AppCode_cn_woxp_gateway_WebSMS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gateway.woxp.cn:6630/utf8/ws_api/WebSMS.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

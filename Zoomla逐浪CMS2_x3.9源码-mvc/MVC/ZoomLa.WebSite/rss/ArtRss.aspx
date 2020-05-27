@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArtRss.aspx.cs" Inherits="ZoomLaCMS.rss.ArtRss" %>

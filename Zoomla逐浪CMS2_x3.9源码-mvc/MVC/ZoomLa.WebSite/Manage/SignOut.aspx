@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignOut.aspx.cs" Inherits="ZoomLaCMS.Manage.SignOut" EnableViewStateMac="false" %>

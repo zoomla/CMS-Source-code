@@ -1,0 +1,35 @@
+﻿
+
+/*右键菜单必须要具有的样式*/
+.yy_sgv_rightMenuBase
+{
+    visibility: hidden;
+    position: absolute;
+}
+/*右键菜单的示例样式 开始*/
+.yy_sgv_rightMenu
+{
+    border-right: 2px outset;
+    border-top: 2px outset;
+    border-left: 2px outset;
+    border-bottom: 2px outset;
+    background-color: buttonface;
+}
+.yy_sgv_rightMenu hr
+{
+    width: 300px;
+}
+.yy_sgv_rightMenu ul
+{
+    list-style: none; margin:0; padding:0;
+}
+.yy_sgv_rightMenu ul li
+{
+    vertical-align: bottom;
+}
+.yy_sgv_rightMenu A { color: MenuText; text-decoration: none; display: block; width: 300px; text-align:center; line-height:20px } 
+.yy_sgv_rightMenu A:link { color: MenuText; text-decoration: none; } 
+.yy_sgv_rightMenu A:active { color: MenuText; text-decoration: none; } 
+.yy_sgv_rightMenu A:visited { color: MenuText; text-decoration: none; } 
+.yy_sgv_rightMenu A:hover { color: HighlightText; background-color: Highlight; }
+/*右键菜单的示例样式 结束*/

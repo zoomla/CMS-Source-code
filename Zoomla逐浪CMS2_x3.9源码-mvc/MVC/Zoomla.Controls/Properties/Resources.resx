@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Utils_GetFormatString_Hours" xml:space="preserve">
+    <value>&amp;nbsp;小时&amp;nbsp;</value>
+  </data>
+  <data name="ExtendedGridView_PrevPageText" xml:space="preserve">
+    <value>上一页</value>
+  </data>
+  <data name="AspNetPager_NextPageText" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="MobileValidator_Err" xml:space="preserve">
+    <value>填写的手机号码格式不正确！</value>
+  </data>
+  <data name="AspNetPager_LastPageText" xml:space="preserve">
+    <value>尾页</value>
+  </data>
+  <data name="AspNetPager_NumberOfPages" xml:space="preserve">
+    <value>页次：&lt;span style="color: Red; font-weight: bold;"&gt;{$CurrentPageIndex}&lt;/span&gt;/&lt;span style="font-weight: bold;"&gt;{$PageCount}&lt;/span&gt;页</value>
+  </data>
+  <data name="ExtendedGridView_NextPageText" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="ExtendedGridView_FirstPageText" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="ExtendedGridView_PageNun" xml:space="preserve">
+    <value>页次：</value>
+  </data>
+  <data name="HttpUploadModule_Application_BeginRequest_Err" xml:space="preserve">
+    <value>未知错误！</value>
+  </data>
+  <data name="TelephoneValidator_Err" xml:space="preserve">
+    <value>填写的电话号码格式不正确！</value>
+  </data>
+  <data name="AspNetPager_ErrorMessage" xml:space="preserve">
+    <value>请输入正确的字符</value>
+  </data>
+  <data name="ValidateCodeControl_RefreshLinkToolTip" xml:space="preserve">
+    <value>看不清楚换个图片</value>
+  </data>
+  <data name="ValidateMobileError" xml:space="preserve">
+    <value>填写的手机号码格式不正确！</value>
+  </data>
+  <data name="FileTreeView_LiteralControl2_Text" xml:space="preserve">
+    <value>请配置文件目录</value>
+  </data>
+  <data name="UploadFile_UploadFile_Err" xml:space="preserve">
+    <value>文件没有找到！</value>
+  </data>
+  <data name="ValidateMoneyError" xml:space="preserve">
+    <value>金额必须是大于0的数字！</value>
+  </data>
+  <data name="ValidateDateError" xml:space="preserve">
+    <value>填写的日期格式不正确！</value>
+  </data>
+  <data name="ExtendedGridView_JumpTurn" xml:space="preserve">
+    <value>转到第</value>
+  </data>
+  <data name="ValidateUrlError" xml:space="preserve">
+    <value>填写的URL地址格式不正确！</value>
+  </data>
+  <data name="ValidatePositiveNumError" xml:space="preserve">
+    <value>填写的数字格式不正确！</value>
+  </data>
+  <data name="Uploader_Err10" xml:space="preserve">
+    <value>请上传小于</value>
+  </data>
+  <data name="Uploader_Err11" xml:space="preserve">
+    <value>KB的文件！</value>
+  </data>
+  <data name="AspNetPager_TotalRecord" xml:space="preserve">
+    <value>共 &lt;span style='font-weight: bold;'&gt;{$RecordCount}&lt;/span&gt; 条记录</value>
+  </data>
+  <data name="EmailValidator_Err" xml:space="preserve">
+    <value>填写的电子邮箱格式不正确！</value>
+  </data>
+  <data name="AspNetPager_PageInteger" xml:space="preserve">
+    <value>条记录/页</value>
+  </data>
+  <data name="ValidateNumberError" xml:space="preserve">
+    <value>填写的数据必须是数字！</value>
+  </data>
+  <data name="ExtendedGridView_Page" xml:space="preserve">
+    <value>页</value>
+  </data>
+  <data name="ZipCodeValidator_Err" xml:space="preserve">
+    <value>填写的邮政编码格式不正确！</value>
+  </data>
+  <data name="IdCardValidator_Err" xml:space="preserve">
+    <value>填写的身份证号码格式不正确！</value>
+  </data>
+  <data name="MoneyValidator_Err" xml:space="preserve">
+    <value>金额必须是大于0的数字！</value>
+  </data>
+  <data name="ValidateZipCodeError" xml:space="preserve">
+    <value>填写的邮政编码格式不正确！</value>
+  </data>
+  <data name="Utils_GetFormatString_Seconds" xml:space="preserve">
+    <value>&amp;nbsp;秒&amp;nbsp;</value>
+  </data>
+  <data name="ValidateEmailError" xml:space="preserve">
+    <value>填写的电子邮箱格式不正确！</value>
+  </data>
+  <data name="AspNetPager_TextAfterInputBox" xml:space="preserve">
+    <value>页</value>
+  </data>
+  <data name="ExtendedGridView_LastPageText" xml:space="preserve">
+    <value>尾页</value>
+  </data>
+  <data name="PositiveNumValidator_Err" xml:space="preserve">
+    <value>填写的数字格式不正确！</value>
+  </data>
+  <data name="ValidateTelephoneError" xml:space="preserve">
+    <value>填写的电话号码格式不正确！</value>
+  </data>
+  <data name="ExtendedGridView_SerialText" xml:space="preserve">
+    <value>名次</value>
+  </data>
+  <data name="ValidateFieldError" xml:space="preserve">
+    <value>只可以输入英文、数字和下划线的字符！</value>
+  </data>
+  <data name="FileNameCodeValidatorErr" xml:space="preserve">
+    <value>填写的文件名格式不正确！</value>
+  </data>
+  <data name="NumberValidator_Err" xml:space="preserve">
+    <value>填写的数据必须是数字！</value>
+  </data>
+  <data name="AspNetPager_PrevPageText" xml:space="preserve">
+    <value>上一页</value>
+  </data>
+  <data name="ValidateIPError" xml:space="preserve">
+    <value>填写的IP地址格式不正确！</value>
+  </data>
+  <data name="Utils_GetFormatString_Points" xml:space="preserve">
+    <value>&amp;nbsp;分&amp;nbsp;</value>
+  </data>
+  <data name="ValidateIdCardError" xml:space="preserve">
+    <value>填写的身份证号码格式不正确！</value>
+  </data>
+  <data name="ExtendedGridView_ItemUnit" xml:space="preserve">
+    <value>条</value>
+  </data>
+  <data name="ExtendedGridView_ItemName" xml:space="preserve">
+    <value>记录</value>
+  </data>
+  <data name="Uploader_Err9" xml:space="preserve">
+    <value>请检查所属字段控件是否设置了允许上传文件大小！</value>
+  </data>
+  <data name="Uploader_Err8" xml:space="preserve">
+    <value>这种文件类型不允许上传！只允许上传这几种文件类型：</value>
+  </data>
+  <data name="Uploader_Err3" xml:space="preserve">
+    <value>匿名会员组没有进行权限设置！</value>
+  </data>
+  <data name="Uploader_Err2" xml:space="preserve">
+    <value>所属会员组没有开启上传权限！</value>
+  </data>
+  <data name="Uploader_Err7" xml:space="preserve">
+    <value>字段内容控件没有填写允许上传的后缀！</value>
+  </data>
+  <data name="Uploader_Err6" xml:space="preserve">
+    <value>不允许上传动态页文件！</value>
+  </data>
+  <data name="Uploader_Err5" xml:space="preserve">
+    <value>匿名会员组不存在！</value>
+  </data>
+  <data name="Uploader_Err4" xml:space="preserve">
+    <value>匿名会员组没有开启上传权限！</value>
+  </data>
+  <data name="ValidateQQError" xml:space="preserve">
+    <value>填写的QQ号码格式不正确！</value>
+  </data>
+  <data name="Uploader_Err" xml:space="preserve">
+    <value>请检查网站信息配置是否设置允许的上传文件大小！</value>
+  </data>
+  <data name="FieldValidator_Err" xml:space="preserve">
+    <value>填写的字段格式不正确！</value>
+  </data>
+  <data name="AspNetPager_RecordOutOfRange" xml:space="preserve">
+    <value>一页显示记录数超出范围</value>
+  </data>
+  <data name="ExtendedGridView_Page3" xml:space="preserve">
+    <value>页</value>
+  </data>
+  <data name="ExtendedGridView_Page2" xml:space="preserve">
+    <value>/页</value>
+  </data>
+  <data name="UrlValidator_Err" xml:space="preserve">
+    <value>填写的URL地址格式不正确！</value>
+  </data>
+  <data name="ValidateCode_RefreshLinkToolTip" xml:space="preserve">
+    <value>看不清楚换个图片</value>
+  </data>
+  <data name="FileTreeView_LiteralControl_Text" xml:space="preserve">
+    <value>文件目录不存在，请配置正确的文件目录</value>
+  </data>
+  <data name="DateValidator_Err" xml:space="preserve">
+    <value>填写的日期格式不正确！</value>
+  </data>
+  <data name="AspNetPager_SubmitButtonText" xml:space="preserve">
+    <value>转到</value>
+  </data>
+  <data name="AspNetPager_FirstPageText" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="AspNetPager_TextBeforeInputBox" xml:space="preserve">
+    <value>转到第</value>
+  </data>
+</root>

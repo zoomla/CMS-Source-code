@@ -1,0 +1,24 @@
+﻿/*公用控件样式--步骤控件*/
+.zl_steps {overflow:hidden;font-size:0px;line-height:0px;}
+.zl_steps .wrap {display:inline-block;}
+.zl_steps .wrap > div {width:150px; height:32px;display:inline-block;line-height:32px;vertical-align:top;font-size:12px;position:relative;}
+.zl_steps .wrap > div > label {margin-left:26px;cursor:default;}
+.zl_steps .round {display:inline-block;width:18px;height:18px;line-height:18px; border-radius:50%;text-align:center;cursor:default;}
+.zl_steps .round .fa {line-height:18px;}
+.zl_steps .step_right_bg {display:inline-block;width:0px;height:0px;right:-40px;top:-4px; position:absolute;z-index:1;border-style:solid;border-color:transparent transparent transparent #FFF;border-width:20px;}
+.zl_steps .step_right {display:inline-block;width:0px;height:0px;border:16px solid;position:absolute;right:-31px;z-index:1;}
+
+.zl_steps .finished {background-color:#28a3ef;color:#fff;}
+.zl_steps .finished .round {background-color:#fff;color:#28a3ef;}
+.zl_steps .finished .step_right {border-color:transparent transparent transparent #28a3ef;}
+.zl_steps .current {background-color:#31b0d5;color:#fff;}
+.zl_steps .current .round {background-color:#fff;color:#31b0d5;}
+.zl_steps .current .step_right {border-color:transparent transparent transparent #31b0d5;}
+.zl_steps .todo {background-color:#eee;color:#999;}
+.zl_steps .todo .round {background-color:#fff;color:#999;}
+.zl_steps .todo .step_right {border-color:transparent transparent transparent #eee;}
+.zl_steps .last .step_right, .zl_steps .last .step_right_bg {display:none;}
+/*步骤自适应*/
+.zl_steps.auto {display:table;width:100%;}
+.zl_steps.auto .wrap {display:table-cell;}
+.zl_steps.auto .wrap > div {width:100%;}

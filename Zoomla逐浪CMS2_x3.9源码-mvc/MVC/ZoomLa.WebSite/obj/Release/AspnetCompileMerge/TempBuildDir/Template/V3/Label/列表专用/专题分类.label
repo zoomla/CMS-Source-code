@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>641</LabelID>
+    <LabelName>专题分类</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>列表专用</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>{table1}.dbo.ZL_Special</LabelTable>
+    <LabelField>SpecID</LabelField>
+    <LabelWhere>SpecCate=4</LabelWhere>
+    <LabelOrder>SpecID DESC</LabelOrder>
+    <LabelContent>{Repeate}{Field="SpecID"/}&lt;br&gt;{/Repeate}
+{ZL.Page/}</LabelContent>
+    <LabelCount>2</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+  </Table>
+</NewDataSet>

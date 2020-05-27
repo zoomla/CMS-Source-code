@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>228</LabelID>
+    <LabelName>输出最活跃的用户</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>问题</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>{table1}.dbo.ZL_User left join {table1}.dbo.ZL_UserBase on {table1}.dbo.ZL_User.UserID={table1}.dbo.ZL_UserBase.UserID</LabelTable>
+    <LabelField>{table1}.dbo.ZL_User.UserExp,{table1}.dbo.ZL_User.UserID,{table1}.dbo.ZL_UserBase.UserFace</LabelField>
+    <LabelWhere />
+    <LabelOrder>{table1}.dbo.ZL_User.UserExp DESC</LabelOrder>
+    <LabelContent>{Repeate}&lt;li&gt;&lt;a href="/ShowList.aspx?id={Field="UserID"/}" target="_blank""&gt;
+&lt;script&gt;
+ var a='{Field="UserFace"/}';
+ if (a=='~/Images/userface/noface.png')
+ {document.write('&lt;img src="/Images/userface/noface.png"/&gt;');
+}
+else{
+	document.write('&lt;img src="{Field="UserFace"/}"/&gt;');
+	}
+&lt;/script&gt;
+&lt;/a&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

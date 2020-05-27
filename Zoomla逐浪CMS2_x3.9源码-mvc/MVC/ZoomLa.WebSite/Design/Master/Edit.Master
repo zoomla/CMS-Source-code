@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Edit.master.cs" Inherits="ZoomLaCMS.Design.Master.Edit" %>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style type="text/css">* {font-family:'Microsoft YaHei';}</style>
+<link rel="stylesheet" type="text/css" href="/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/dist/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="/Design/JS/Plugs/color/bootstrap.colorpickersliders.min.css"  />
+<link rel="stylesheet" type="text/css" href="/Design/JS/Plugs/jqueryUI/css/custom-theme/jquery-ui-1.10.0.custom.css"  />
+<link rel="stylesheet" type="text/css" href="/Design/res/css/edit/common.css"  />
+<link rel="stylesheet" type="text/css" href="/dist/css/bootstrap-switch.min.css" />
+<style type="text/css">.bootstrap-switch-container {height:30px;}</style>
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="/JS/Controls/ZL_Array.js"></script>
+<script src="/JS/ZL_Regex.js"></script>
+<script src="/Design/JS/Plugs/jqueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="/Design/JS/Plugs/color/tinycolor-min.js"></script>
+<script src="/Design/JS/Plugs/color/bootstrap.colorpickersliders.min.js"></script>
+<script src="/Design/JS/Plugs/Helper/StyleHelper.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/dist/js/bootstrap-switch.js"></script>
+<asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form1" runat="server" ng-app="app">
+<asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+<script>
+    var editor = { id: "<%:Request.QueryString["ID"]%>", dom: null, model: null, scope: null, page: top.page };
+    try {
+        editor.model = top.page.compList.GetByID(editor.id);//根据ID获取组件模型
+        editor.dom = editor.model.instance;//html节点
+        editor.scope = parent.editor.scope;//editor中的
+    } catch (ex) { editor.dom = $("<div>"); }
+    function FireEvent(name) {
+        top.eventBase.fire(editor.id + "_" + name, "");
+    }
+    //全局通知刷新
+    function NotifyUpdate() {
+        editor.scope.$digest();
+        editor.model.Render();
+    }
+    function CloseSelf() {
+        top.CloseDiag();
+    }
+</script>
+<asp:ContentPlaceHolder ID="Script" runat="server"></asp:ContentPlaceHolder>
+</form>
+</body>
+
+

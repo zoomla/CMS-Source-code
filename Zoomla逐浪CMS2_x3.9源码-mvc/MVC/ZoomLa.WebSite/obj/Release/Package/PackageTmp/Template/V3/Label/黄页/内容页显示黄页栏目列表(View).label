@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>263</LabelID>
+    <LabelName>内容页显示黄页栏目列表(View)</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>黄页</LabelCate>
+    <LabelDesc>内容页显示黄页栏目列表(View)</LabelDesc>
+    <LabelParam>ItemID,默认值,2,内容ID</LabelParam>
+    <LabelTable>ZL_CommonModel Inner join ZL_PageTemplate on ZL_CommonModel.NodeID=ZL_PageTemplate.TemplateID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.NodeID,ZL_CommonModel.ModelID,ZL_CommonModel.ItemID,ZL_CommonModel.TableName,ZL_CommonModel.Title,ZL_CommonModel.Inputer,ZL_CommonModel.Hits,ZL_CommonModel.CreateTime,ZL_CommonModel.Status,ZL_CommonModel.EliteLevel,ZL_CommonModel.InfoID,ZL_CommonModel.SpecialID,ZL_CommonModel.IsCreate,ZL_CommonModel.HtmlLink,ZL_CommonModel.Template,ZL_PageTemplate.TemplateID,ZL_PageTemplate.TemplateName,ZL_PageTemplate.TemplateUrl,ZL_PageTemplate.TemplateType,ZL_PageTemplate.OpenType,ZL_PageTemplate.UserGroup,ZL_PageTemplate.Addtime,ZL_PageTemplate.IsTrue,ZL_PageTemplate.Userid,ZL_PageTemplate.UserName,ZL_PageTemplate.OrderID,ZL_PageTemplate.ParentID,ZL_PageTemplate.Modelinfo,ZL_PageTemplate.identifiers,ZL_PageTemplate.NodeFileEx,ZL_PageTemplate.ContentFileEx,ZL_PageTemplate.Nodeimgurl,ZL_PageTemplate.Nodeimgtext,ZL_PageTemplate.Pagecontent,ZL_PageTemplate.PageMetakeyword,ZL_PageTemplate.PageMetakeyinfo,ZL_PageTemplate.linkurl,ZL_PageTemplate.linkimg,ZL_PageTemplate.linktxt</LabelField>
+    <LabelWhere>ZL_CommonModel.GeneralID=@ItemID</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{ZL.Label id="内容页显示黄页栏目列表" Inputer="{Field="Inputer"/}" /}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo />
+    <addroot />
+    <setroot />
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

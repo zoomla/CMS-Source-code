@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>259</LabelID>
+    <LabelName>问答导航</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div id="daoh"&gt;
+&lt;b&gt;问答系统&lt;/b&gt;
+&lt;span&gt;&lt;a href="/columnlist.aspx?nodeid=113"&gt;问答首页&lt;/a&gt;&lt;/span&gt;
+&lt;span&gt;&lt;a href="/ColumnList.aspx?NodeID=122"&gt;问题分类&lt;/a&gt;&lt;/span&gt;
+&lt;span&gt;&lt;a href="/NodeHot.aspx?nodeid=115"&gt;问题库&lt;/a&gt;&lt;/span&gt; 
+&lt;/div&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue>0</Modelvalue>
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

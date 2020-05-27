@@ -1,0 +1,49 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+<tr>
+    <td colspan="@Model.cols">
+        <div class="text-center mvcpage" data-cpage="@Model.cpage" data-psize="@Model.psize" data-url="@Model.url" data-pcount="@Model.pageCount" data-icount="@Model.itemCount">
+            @if (Model.Check)
+            {
+                <label class="allchk_l">
+                    <input type="checkbox" id="AllID_Chk" onclick="$('input:checkbox[name=idchk]:enabled').each(function () {this.checked = $('#AllID_Chk')[0].checked;});">
+                    <span class="allchk_sp">全选</span>
+                </label>
+            }
+            共&nbsp;<span id="LblRowsCount" style="font-weight:bold;">@Model.itemCount</span>&nbsp;@Model.unit&nbsp;&nbsp;
+            @if (Model.cpage <= 1)
+            {
+                <a style="color:gray;margin-right:5px;">首页</a>
+                <a style="color:gray;margin-right:5px;">上一页</a>
+            }
+            else {
+                <a href="javascript:;" style="margin-right:5px;" onclick="mvcpage.load({target:'@Model.target',page:'first'})">首页</a>
+                <a href="javascript:;" style="margin-right:5px;" onclick="mvcpage.load({target:'@Model.target',page:'prev'})">上一页</a>
+            }
+            @if (Model.cpage >= Model.pageCount)
+            {
+                <a style="color:gray;margin-right:5px;">尾页</a>
+                <a style="color:gray;margin-right:5px;">下一页</a>
+            }
+            else
+            {
+                <a href="javascript:;" style="margin-right:5px;" onclick="mvcpage.load({target:'@Model.target',page:'next'})">下一页</a>
+                <a href="javascript:;" style="margin-right:5px;" onclick="mvcpage.load({target:'@Model.target',page:'last'})">尾页</a>
+            }页次：
+            <span style="color:Red;font-weight:bold;">@Model.cpage</span>/
+            <span style="font-weight:bold;">@Model.pageCount</span>页&nbsp;&nbsp;
+            <input type="text" value="@Model.psize" maxlength="3" style="width:35px;text-align:center;" onchange="mvcpage.load({target:'@Model.target',page:1,psize:this.value})">@Model.unit/页&nbsp;&nbsp;
+            转到第<select onchange="mvcpage.load({target:'@Model.target',page:this.value})">
+                @for (int i = 1; i <= Model.pageCount; i++)
+                {
+                    if (Model.cpage == i)
+                    {
+                        <option value="@i" selected="selected">@i</option> }
+                    else {
+                        <option value="@i">@i</option>}
+                }
+            </select>页
+        </div>
+    </td>
+</tr>
+}
